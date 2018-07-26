@@ -1,0 +1,36 @@
+.yt-video-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    iframe {
+        position: absolute;
+    }
+
+    .yt-video-image {
+        &.hidden {
+            visibility: hidden;
+        }
+    }
+    .yt-video-play-image {
+        cursor: pointer;
+        position: absolute;
+        z-index: 11000;
+        top: calc(50% - 50px);
+        left: calc(50% - 50px);
+        width: 100px;
+        height: 100px;
+        background: transparent url('../images/video-play.png') no-repeat center center;
+        background-size: contain;
+        opacity: 0.65;
+
+        &.hidden {
+            visibility: hidden;
+        }
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+}

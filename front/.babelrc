@@ -1,0 +1,8 @@
+{
+    "presets": ["env"],
+    "ignore": [ "node_modules" ],
+    "compact": true,
+    "minified": true,
+    "sourceMaps": true,
+    "comments": false
+}

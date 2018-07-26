@@ -1,0 +1,45 @@
+requirejs.config({
+    baseUrl: '/wp-content/plugins/wpticketack/assets/build/js',
+    paths: {
+        assets: 'app/Core/Assets',
+        config: 'app/Core/Config',
+        components: 'app/Core/Components',
+        csrf: 'app/Core/Csrf',
+        logger: 'app/Core/Logger',
+        state: 'app/Core/State',
+        template: 'app/Core/Template',
+
+        api: 'app/Ticketack/Api',
+        Cart: 'app/Models/Cart',
+        CartItem: 'app/Models/CartItem',
+        Screening: 'app/Models/Screening',
+        Ticket: 'app/Models/Ticket',
+
+        es6: '../../node_modules/requirejs-babel/es6',
+        babel: '../../node_modules/requirejs-babel/babel-5.8.34',
+        babel_polyfill: '../../node_modules/requirejs-babel/polyfill.min',
+        async: '../../node_modules/async/dist/async.min',
+        dottie: '../../node_modules/dottie/dottie',
+        jquery: '../../node_modules/jquery/dist/jquery.min',
+        bootstrap: '../../node_modules/bootstrap/dist/js/bootstrap.bundle.min',
+        ticketack: './ext/ticketack',
+        urijs: '../../node_modules/urijs/src',
+        moment: '../../node_modules/moment/min/moment-with-locales.min',
+        postal: '../../node_modules/postal/lib/postal.min',
+        lodash: '../../node_modules/lodash/lodash.min',
+        underscore: '../../node_modules/underscore/underscore-min'
+    }
+});
+
+require([
+    'app/main',
+    // We need to require all the lazyloaded components so as
+    // the optimizer can compile them.
+    'app/Booking/Form',
+    'app/Cart/Cart',
+    'app/Cart/CartIcon',
+    'app/User/UserConnect',
+    'app/Media/Carousel',
+    'app/Media/YoutubeVideo',
+    'app/Program/Filter',
+]);

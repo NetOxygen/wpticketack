@@ -1,0 +1,15 @@
+{
+    "name": "netoxygen/wpticketack",
+    "description": "Wordpress plugin integration for Ticketack",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Net Oxygen Sàrl",
+            "email": "info@netoxygen.ch"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "~6.0"
+    }
+}

@@ -1,0 +1,84 @@
+#tkt_program {
+  .tkt_program_screening {
+    padding-bottom: 1.5rem;
+
+    .screening-inner {
+      > .row {
+        position: relative;
+        padding-top: 15px;
+
+        .poster-background {
+          position: absolute;
+          top: 0;
+          width: 100%;
+          height: calc(100% + 15px);
+          background-repeat: no-repeat;
+          background-size: cover;
+
+          .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+          }
+        }
+        .left-col {
+          .poster-wrapper {
+            img.poster {
+            }
+          }
+        }
+        .right-col {
+          .date {
+            text-transform: uppercase;
+            font-size: 1.5rem;
+            line-height: 1.0rem;
+          }
+          .title {
+            text-transform: uppercase;
+            font-size: 2.8rem;
+            line-height: 2.8rem;
+          }
+          .genre {
+            text-transform: uppercase;
+            font-size: 1.3rem;
+            line-height: 1.3rem;
+            display: inline-block;
+            margin-top: 0.7rem;
+          }
+          .more-infos {
+            text-transform: uppercase;
+            font-size: 1.2rem;
+            line-height: 1.2rem;
+            display: inline-block;
+            margin-top: 1.8rem;
+          }
+          .tickets {
+            text-transform: uppercase;
+            font-size: 1.2rem;
+            line-height: 1.2rem;
+          }
+          .screening-complete {
+            text-transform: uppercase;
+            font-size: 1.2rem;
+            line-height: 1.2rem;
+          }
+        }
+      }
+    }
+  }
+
+  .tkt_program_event {
+    @extend .tkt_program_screening;
+
+    .event-inner {
+      @extend .screening-inner;
+
+      .event-complete {
+        @extend .screening-complete;
+      }
+    }
+  }
+}

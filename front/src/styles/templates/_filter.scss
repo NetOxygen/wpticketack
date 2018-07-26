@@ -1,0 +1,26 @@
+.tkt-filters {
+  width: 190px;
+  float: right;
+  margin-top: -36px;
+
+  ul {
+    padding: 0;
+    list-style-type: none;
+    clear: both;
+
+    li.tkt-filter {
+      cursor: pointer;
+      float: left;
+      margin-left: 0.5rem;
+      text-transform: uppercase;
+
+      &.active {
+        @extend .assertive;
+      }
+
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+  }
+}
