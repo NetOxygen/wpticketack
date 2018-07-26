@@ -37,7 +37,7 @@ class ProgramShortcode extends TKTShortcode
             $screenings = Screening::all()
                 ->in_the_future()
                 ->order_by_start_at()
-                ->get();
+                ->get('_id,title,start_at,stop_at,films,opaque');
 
             switch ($layout) {
                 case static::SCREENINGS_LAYOUT:

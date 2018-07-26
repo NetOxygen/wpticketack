@@ -37,7 +37,7 @@ class EventShortcode extends TKTShortcode
             $screenings = Screening::all()
                 ->with_films([$event_id])
                 ->order_by_start_at()
-                ->get();
+                ->get('_id,title,start_at,stop_at,films,opaque');
 
             if (empty($screenings)) {
                 return null;
