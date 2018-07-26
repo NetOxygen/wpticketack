@@ -6,6 +6,9 @@
  * <div
  *    <!-- Required -->
  *    data-component="Media/Carousel"
+ *
+ *    <!-- Optional -->
+ *    data-interval="5000"      <!-- default: 3000 -->
  * >
  *   <div class="carousel-inner">
  *     <div class="carousel-item>...</div>
@@ -16,6 +19,8 @@
  *     <a class="carousel-control-next">...</a>
  *   </div>
  * </div>
+ *
+ * Be careful, the container MUST NOT HAVE <carousel> and <slide> classes.
  */
 define(
     ['postal', 'jquery', 'bootstrap'],
@@ -23,6 +28,7 @@ define(
 
     function Carousel($container, state) {
         this.$container = $container;
+        this.interval   = this.$container.data('interval') || 3000;
     }
 
     Carousel.prototype = {
@@ -31,28 +37,77 @@ define(
         },
 
         init: function() {
-            $(document).ready((e) => {
-                this.$container.addClass('carousel');
-                this.$container.carousel({
-                    //interval: 0
-                });
+            $(document).ready(this.init_carousel.bind(this));
 
-                /*this.$container.on('slide.bs.carousel', (e) => {
-                    postal.publish({
-                        channel: "carousel-" + this.$container.attr('id'),
-                        topic: "slide",
-                        data: { e }
-                    });
-                    });*/
-            });
-
+            // Subscribe on actions sent by other components.
+            // For now, the YoutubeVideo component sends "pause"
+            // and "cycle" options.
             postal.subscribe({
                 channel: "carousel-" + this.$container.attr('id'),
                 topic: "action",
                 callback: (data, envelope) => {
-                    console.log('received ' + data.action + ' instruction');
                     this.$container.carousel(data.action);
                 }
+            });
+        },
+
+        init_carousel: function() {
+            // add required classes on the carousel
+            this.$container
+                .addClass('carousel')
+                .addClass('slide');
+
+            // create the carousel
+            this.$container.carousel({
+                interval: this.interval,
+
+                // If we let the default "hover" value for this option, the carousel
+                // will stop on mouseenter but will resume on mouseleave, with
+                // default options (interval, ...). After the resume, the carousel
+                // will not fire slid[e] events anymore :(
+                // see https://github.com/twbs/bootstrap/issues/3462
+                pause: false
+            });
+
+            // Since we disabled the <pause> behaivio, we have to handle
+            // it by ourselves.
+            this.$container.on('mouseenter', function() {
+                $(this).carousel('pause');
+            });
+
+            // when we click on prev or next arrows while the carousel is paused,
+            // it resumes it with default options. We bypass this behavior by
+            // stopping by handling the slide by ourselves and by
+            // stopping the event progation.
+            $('.carousel-control-prev').on('click', (e) => {
+                e.preventDefault();
+                this.$container.carousel({
+                    interval: 2000,
+                    pause: false
+                });
+                this.$container.carousel('prev');
+
+                return false;
+            });
+            $('.carousel-control-next').on('click', (e) => {
+                e.preventDefault();
+                this.$container.carousel({
+                    interval: 2000,
+                    pause: false
+                });
+                this.$container.carousel('next');
+
+                return false;
+            });
+
+            this.$container.on('slid.bs.carousel', this.emit_slide.bind(this));
+        },
+
+        emit_slide: function(e) {
+            postal.publish({
+                channel: "carousel-" + this.$container.attr('id'),
+                topic: "slide",
+                data: { e }
             });
         },
 

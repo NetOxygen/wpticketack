@@ -27,7 +27,7 @@ $ids = array_map(function ($s) {
 
   <div class="row">
     <div class="col">
-      <div id="event-carousel" data-component="Media/Carousel"  class="slide">
+      <div id="event-carousel" data-component="Media/Carousel">
         <div class="carousel-inner">
           <?php foreach ($e->trailers() as $i => $t) : ?>
           <div class="carousel-item <?= $i == 0 ? 'active' : '' ?>">
@@ -38,7 +38,7 @@ $ids = array_map(function ($s) {
                 data-component="Media/YoutubeVideo"
                 data-video-id="<?= yt_video_id($t->url) ?>"
                 data-video-image="<?= $t->image ?>"
-                data-carousel-id="event-carousel">
+                data-bs4-carousel-id="event-carousel">
               </div>
             </div>
           </div>
