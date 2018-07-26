@@ -30,6 +30,8 @@ class TKTRequest
     const POST  = 'POST';    /**< HTTP POST request */
     const DELETE = 'DELETE'; /**< HTTP DELETE request */
 
+    const FIELDS_QUERY_PARAM = 'fields'; /**< query parameter */
+
     /**
      * Send a request.
      *
@@ -320,9 +322,18 @@ class TKTRequest
 
     /**
      * execute this request as GET.
+     *
+     * @param mixed
+     *   The list of fields to get, as an array or a comma
+     *   separated list.
      */
-    public function get()
+    public function get($fields = null)
     {
+        if (!is_null($fields)) {
+            $fields = is_array($fields) ? implode(',', $fields) : $fields;
+            $this->request_query[static::FIELDS_QUERY_PARAM] = $fields;
+        }
+
         $klass = $this->klass;
         $options = [
             'factory' => $this->klass,
