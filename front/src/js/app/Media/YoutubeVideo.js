@@ -7,11 +7,19 @@
  * <div
  *    <!-- Required -->
  *    data-component="Media/YoutubeVideo"
- *    data-video-id="[VIDEO_ID]"
+ *    data-video-id="[VIDEO ID]"
  *
  *    <!-- Optional -->
- *    data-carousel-id="[CAROUSEL ID]"
+ *    data-video-image="[IMAGE URL]"
+ *    data-bs4-carousel-id="[CAROUSEL ID]"
+ *    data-autoplay="1|0"                   <!-- default: 0 -->
+ *    data-controls="1|0"                   <!-- default: 0 -->
+ *    data-showinfo="1|0"                   <!-- default: 0 -->
  * >
+ *
+ * If the video is embedded in a Bootstrap 4 carousel, set the
+ * data-bs4-carousel-id to pause the carousel while the video is played
+ * and to stop the video if the user slides while paying it.
  */
 define(
     ['postal', 'jquery', 'bootstrap'],
@@ -23,20 +31,23 @@ define(
 
         this.video_id    = this.$container.data('video-id');
         this.video_image = this.$container.data('video-image');
-        this.carousel_id = this.$container.data('carousel-id');
+        this.carousel_id = this.$container.data('bs4-carousel-id');
+
+        this.autoplay    = this.$container.data('autoplay') || "0";
+        this.controls    = this.$container.data('controls') || "0";
+        this.showinfo    = this.$container.data('showinfo') || "0";
     }
 
     YoutubeVideo.prototype = {
         attach: function() {
             this.init();
-
-            this.$video_container = $('<div></div>')
-                .attr('id', 'yt-video-' + this.video_id + '-' + new Date().getTime())
-                .appendTo(this.$container);
         },
 
         init: function() {
             this.$container.addClass('yt-video-container');
+            this.$video_container = $('<div></div>')
+                .attr('id', 'yt-video-' + this.video_id + '-' + new Date().getTime())
+                .appendTo(this.$container);
 
             if (typeof(YT) == 'undefined' || typeof(YT.Player) == 'undefined') {
                 // Set Youtube callback
@@ -48,11 +59,13 @@ define(
             }
 
             if (this.carousel_id) {
+                // Subscribe on the caousel slide events to stop the video when needed.
                 postal.subscribe({
                     channel: "carousel-" + this.carousel_id,
                     topic: "slide",
                     callback: (data, envelope) => {
-                        console.log('received slide instruction');
+                        console.log('Video received slide instruction');
+                        this.player.stopVideo();
                     }
                 });
             }
@@ -63,7 +76,9 @@ define(
         },
 
         onStateChange: function(e) {
-            if (this.$carousel) {
+            // Inform the BS4 carousel of video state changes, so as to
+            // pause or resume the slide when needed.
+            if (this.carousel_id) {
                 switch (e.data) {
                     case YT.PlayerState.BUFFERING:
                     case YT.PlayerState.PLAYING:
@@ -74,7 +89,6 @@ define(
                         });
                         break;
                     case YT.PlayerState.ENDED:
-                        this.$carousel.carousel('cycle');
                         postal.publish({
                             channel: "carousel-" + this.carousel_id,
                             topic: "action",
@@ -89,18 +103,21 @@ define(
             this.player = new YT.Player(this.$video_container.attr('id'), {
                 videoId: this.video_id,
                 width: this.$container.width(),
-                //height: this.$container.height(),
+
+                // see https://stackoverflow.com/a/47724503
+                host: 'https://www.youtube.com',
+
                 events: {
                     onStateChange: this.onStateChange.bind(this)
                 },
                 // For a list of all parameters, see:
                 // https://developers.google.com/youtube/player_parameters
                 playerVars: {
-                    autoplay: 0,
-                    controls: 0,
+                    autoplay: this.autoplay,
+                    controls: this.controls,
+                    showinfo: this.showinfo,
                     modestbranding: 1,
                     rel: 0,
-                    showinfo: 0
                 }
             });
 
