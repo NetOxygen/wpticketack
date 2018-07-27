@@ -49,6 +49,7 @@ $ids = array_map(function ($s) {
           </div>
           <?php endforeach; ?>
         </div>
+        <?php if (count($e->trailers()) + count($e->posters()) > 1) : ?>
         <a class="carousel-control-prev" href="#event-carousel" role="button" data-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="sr-only">Précédent</span>
@@ -57,6 +58,7 @@ $ids = array_map(function ($s) {
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="sr-only">Suivant</span>
         </a>
+        <?php endif; ?>
       </div>
     </div>
   </div>
@@ -72,7 +74,7 @@ $ids = array_map(function ($s) {
 
       <div class="row">
         <div class="col">
-          <span class="title">
+          <span class="title active">
             <?= $e->localized_title_or_original('fr') ?>
           </span>
         </div>
