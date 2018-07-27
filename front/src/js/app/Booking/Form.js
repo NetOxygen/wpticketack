@@ -109,7 +109,7 @@ define( [
             const chosen_pricings = _.find(this.data.pricings, (nb) => nb > 0);
             if (!chosen_pricings) {
                 return $('.pricings-error')
-                    .html('Veuillez choisir au moins un tarif')
+                    .html('Veuillez choisir au moins un billet')
                     .removeClass('d-none');
             }
 
