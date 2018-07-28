@@ -10,7 +10,7 @@
  * }
  */
 ?>
-<div id="tkt_program">
+<div id="tkt_program" data-component="Program/BookabilityState">
   <?php if (empty($data->events)) : ?>
     <h3 class="no-event-title">Aucun événement à afficher</h3>
   <?php else: ?>

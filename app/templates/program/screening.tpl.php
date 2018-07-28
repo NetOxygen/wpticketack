@@ -65,10 +65,15 @@ $m = array_shift($s->movies());
 
       <div class="row">
         <div class="col">
-          <span class="tickets">
-            <a href="">
+          <span class="tickets" data-bookability-ids="<?= $ids ?>">
+            <div class="show-when-loading" data-component="Media/Loading" data-size-sm data-align-center></div>
+            <a
+              class="show-if-bookable show-if almost-not-bookable"
+              href="<?= screening_book_url($e) ?>">
               Billets <span class="screening-complete"></span>
             </a>
+            <span class="show-if-almost-not-bookable screening-complete">Il ne reste que quelques places</span>
+            <span class="show-if-not-bookable screening-complete">Complet</span>
           </span>
         </div>
       </div>

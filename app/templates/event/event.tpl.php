@@ -101,12 +101,15 @@ $ids = array_map(function ($s) {
 
   </div>
 
-  <div class="row">
-    <div class="col">
+  <div class="row" data-component="Program/BookabilityState">
+    <div class="col" data-bookability-ids="<?= implode(',', $ids) ?>">
       <span class="show-booking-form">
-        <a href="">
-            Billets <span class="event-complete"></span>
-          </a>
+        <div data-component="Media/Loading" data-size-sm class="show-while-loading"></div>
+        <span class="show-if-bookable show-if-almost-not-bookable d-none">
+          <a href="">Billets</a>
+        </span>
+        <span class="show-if-almost-not-bookable assertive d-none">Il ne reste que quelques places !</span>
+        <span class="show-if-not-bookable assertive d-none">Complet !</span>
       </span>
     </div>
   </div>

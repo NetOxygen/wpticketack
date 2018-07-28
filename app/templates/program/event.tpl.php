@@ -18,6 +18,10 @@ if ($e->start_at()->format('Y-m-d') != $e->stop_at()->format('Y-m-d')) {
         date_to_min_s($e->stop_at())
     );
 }
+
+$ids = implode(',', array_map(function ($s) {
+    return $s->_id();
+}, $e->screenings()));
 ?>
 <div class="event-inner">
 
@@ -73,10 +77,15 @@ if ($e->start_at()->format('Y-m-d') != $e->stop_at()->format('Y-m-d')) {
 
       <div class="row">
         <div class="col">
-          <span class="tickets">
-              <a href="<?= event_book_url($e) ?>">
+          <span class="tickets" data-bookability-ids="<?= $ids ?>">
+            <a class="show-while-loading">...</a>
+            <a
+              class="show-if-bookable show-if-almost-not-bookable d-none"
+              href="<?= event_book_url($e) ?>">
               Billets <span class="event-complete"></span>
             </a>
+            <div class="show-if-almost-not-bookable assertive d-none">Il ne reste que quelques places !</div>
+            <div class="show-if-not-bookable assertive d-none">Complet !</div>
           </span>
         </div>
       </div>
