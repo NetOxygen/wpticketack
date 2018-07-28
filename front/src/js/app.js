@@ -40,6 +40,8 @@ require([
     'app/Cart/CartIcon',
     'app/User/UserConnect',
     'app/Media/Carousel',
+    'app/Media/Loading',
     'app/Media/YoutubeVideo',
+    'app/Program/BookabilityState',
     'app/Program/Filter',
 ]);
