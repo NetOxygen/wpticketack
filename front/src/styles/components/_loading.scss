@@ -1,0 +1,105 @@
+$xl_size: 200px;
+$md_size: 128px;
+$sm_size: 64px;
+$xs_size: 32px;
+
+@mixin tkt-loading-wrapper($size) {
+  width: $size;
+  height: $size;
+  .lds-double-ring {
+    position: relative;
+    display: inline;
+    width: $size;
+    height: $size;
+    -webkit-transform: translate(-($size / 2), -($size / 2)) scale(1) translate(($size / 2), ($size / 2));
+    transform: translate(-($size / 2), -($size / 2)) scale(1) translate(($size / 2), ($size / 2));
+
+    div {
+      position: absolute;
+      width: calc(#{$size} * 0.8);
+      height: calc(#{$size} * 0.8);
+      top: calc(#{$size} / 10);
+      left: calc(#{$size} / 10);
+      border-radius: 50%;
+      border: #{max(3px, round($size * 0.04))} solid #000;
+      border-color: $active_color transparent $active_color transparent;
+      -webkit-animation: lds-double-ring 1s linear infinite;
+      animation: lds-double-ring 1s linear infinite;
+    }
+
+    .tkt-loading-inner {
+      width: calc(#{$size} * 0.6);
+      height: calc(#{$size} * 0.6);
+      top: calc(#{$size} * 0.2);
+      left: calc(#{$size} * 0.2);
+      border-color: transparent $assertive_color transparent $assertive_color;
+      -webkit-animation: lds-double-ring_reverse 1s linear infinite;
+      animation: lds-double-ring_reverse 1s linear infinite;
+    }
+  }
+}
+
+@mixin tkt-loading-keyframes {
+  0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@mixin tkt-loading-keyframes-reverse {
+    0% {
+      -webkit-transform: rotate(0);
+      transform: rotate(0);
+    }
+    100% {
+      -webkit-transform: rotate(-360deg);
+      transform: rotate(-360deg);
+    }
+}
+
+.tkt-loading {
+  @keyframes lds-double-ring {
+    @include tkt-loading-keyframes();
+  }
+  @-webkit-keyframes lds-double-ring {
+    @include tkt-loading-keyframes();
+  }
+  @keyframes lds-double-ring_reverse {
+    @include tkt-loading-keyframes-reverse();
+  }
+  @-webkit-keyframes lds-double-ring_reverse {
+    @include tkt-loading-keyframes-reverse();
+  }
+
+  .tkt-loading-wrapper {
+    @include tkt-loading-wrapper($xl_size);
+  }
+
+  &[data-align-center] {
+    .tkt-loading-wrapper {
+      margin: 0 auto;
+    }
+  }
+
+  &[data-size-md] {
+    .tkt-loading-wrapper {
+      @include tkt-loading-wrapper($md_size);
+    }
+  }
+
+  &[data-size-sm] {
+    .tkt-loading-wrapper {
+      @include tkt-loading-wrapper($sm_size);
+    }
+  }
+
+  &[data-size-xs] {
+    .tkt-loading-wrapper {
+      @include tkt-loading-wrapper($xs_size);
+    }
+  }
+}
