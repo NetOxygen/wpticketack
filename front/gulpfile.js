@@ -31,6 +31,11 @@ const dirs = {
   images_dest: build_dir + '/images/',
 };
 
+babel.logError = function (err) {
+  console.log('ERROR CATCHED:', err);
+  this.emit('end');
+};
+
 gulp.task('clean', () =>
   del([build_dir])
 );
@@ -41,12 +46,12 @@ gulp.task('babel:dev', () =>
     .pipe(sourcemaps.init())
     .pipe(babel({
       presets: ['env']
-    }))
+    }).on('error', babel.logError))
     .pipe(amdOptimize("app", {
       name: "app",
       configFile: "./src/js/app.js",
       baseUrl: './src/js',
-    }))
+    }).on('error', babel.logError))
     .pipe(concat('app.js'))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(dirs.js_dest))
