@@ -28,6 +28,8 @@ define( [
 
     Form.prototype = {
         attach: function() {
+            this.init_store();
+
             $('.show-booking-form').click((e) => {
                 e.preventDefault();
 
@@ -50,8 +52,6 @@ define( [
         },
 
         init: function() {
-            this.init_store();
-
             TKTApi.getScreeningsInfo(this.ids, (err, status, rsp) => {
                 this.data.screenings = rsp.map((s) => new Screening(s));
                 this.build_form();
@@ -161,7 +161,6 @@ define( [
                 }
 
                 this.check_bookability();
-                console.log(err, status, rsp);
             });
         },
 
@@ -199,8 +198,8 @@ define( [
                 this.data.bookability = rsp;
 
                 if (this.data.bookability.ticket_logged_in) {
-                    $('.connect-form', this.$container).addClass('d-none');
-                    $('.book-form', this.$container).removeClass('d-none');
+                    $('.connect-panel', this.$container).addClass('d-none');
+                    $('.book-panel', this.$container).removeClass('d-none');
                     $('.show-bookings-btn', this.$container).removeClass('d-none');
 
                     if (this.data.bookability.ticket_can_book_screening) {
@@ -216,8 +215,8 @@ define( [
                             .removeClass('d-none');
                     }
                 } else {
-                    $('.connect-form', this.$container).removeClass('d-none');
-                    $('.book-form', this.$container).addClass('d-none');
+                    $('.connect-panel', this.$container).removeClass('d-none');
+                    $('.book-panel', this.$container).addClass('d-none');
                 }
             });
         },
@@ -261,9 +260,9 @@ define( [
             });
 
             // bind pass panel toggler
-            $('a.show-pass-panel', this.$container).click((e) => {
+            $('a.show-connect-panel-form', this.$container).click((e) => {
                 e.preventDefault();
-                $('.pass-panel-form').removeClass('d-none');
+                $('.connect-panel-form').removeClass('d-none');
             });
 
             // bind pass fields
