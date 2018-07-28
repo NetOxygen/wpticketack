@@ -19,14 +19,14 @@ define(
     ['postal', 'jquery', 'bootstrap'],
     function dependencies(postal, $) {
 
-    function Carousel($container, state) {
+    function Filter($container, state) {
         this.$container = $container;
 
         this._class   = this.$container.data('class') || 'tkt_program_event';
         this.$filters = $('.tkt-filter', this.$container);
     }
 
-    Carousel.prototype = {
+    Filter.prototype = {
         attach: function() {
             this.init();
         },
@@ -56,5 +56,5 @@ define(
         }
     };
 
-    return Carousel;
+    return Filter;
 });
