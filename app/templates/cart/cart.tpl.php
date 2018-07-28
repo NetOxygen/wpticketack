@@ -3,7 +3,9 @@
  * Cart template
  */
 ?>
-<div class="tkt-cart" data-component="Cart/Cart"></div>
+<div class="tkt-cart" data-component="Cart/Cart">
+    <div data-component="Media/Loading" data-size-sm data-align-center></div>
+</div>
 
 <!-- Underscore.js template used by client side -->
 <script type="text/template" id="tkt-cart-table-tpl">
