@@ -1,6 +1,13 @@
 .tkt-user-connect {
+  .user-infos {
+    text-align: center;
+      text-transform: uppercase;
+      font-size: 1.2rem;
+      display: block;
+      margin-bottom: 0.5rem;
+  }
   .disconnect-btn {
-
+    width: 100%;
   }
   .connect-panel {
     text-align: center;
@@ -9,7 +16,6 @@
       text-transform: uppercase;
       line-height: 1.2rem;
       display: block;
-      font-weight: bold;
 
       a {
         color: $active_color;

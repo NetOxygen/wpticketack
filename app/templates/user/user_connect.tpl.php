@@ -10,8 +10,8 @@
  * User connection widget content
  * This template will be parsed by underscore.js
  *
- * Input: {
- *   "ticket": Ticket instance, if the user is connected
+ * JS Input: {
+ *   "ticket": Ticket instance, if the user is connected,
  * }
  */
 ?>
@@ -20,6 +20,9 @@
         <% if (ticket) { %>
         <div class="row">
             <div class="col">
+                <div class="user-infos">
+                    <span class="dark"><%= [ticket.contact.firstname, ticket.contact.lastname].join(' ') %></span>
+                </div>
                 <button class="button button-small button-invert disconnect-btn">
                     Me déconnecter
                 </button>
@@ -52,7 +55,7 @@
             </div>
 
             <span class="dark">
-                <a href="">Acheter</a> un abonnement
+            <a href="<?= buy_pass_url() ?>">Acheter</a> un abonnement
             </span>
         </div>
         <% } %>
