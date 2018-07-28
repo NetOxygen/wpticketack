@@ -1,0 +1,40 @@
+.tkt-bookability-state-wrapper {
+  [data-bookability-ids] {
+    .show-while-loading {
+      display: none;
+    }
+    .show-if-bookable {
+      display: none;
+    }
+    .show-if-almost-not-bookable {
+      display: none;
+    }
+    .show-if-not-bookable {
+      display: none;
+    }
+
+    &.bookable {
+      .show-if-bookable {
+        display: initial;
+      }
+    }
+    &.almost-not-bookable {
+      .show-if-almost-not-bookable {
+        display: initial;
+      }
+    }
+    &.not-bookable {
+      .show-if-not-bookable {
+        display: initial;
+      }
+    }
+  }
+
+  &.loading-bookability-state {
+    [data-bookability-ids] {
+      .show-while-loading {
+        display: initial;
+      }
+    }
+  }
+}
