@@ -122,6 +122,19 @@ function cart_url()
 }
 
 /**
+ * Get the eshop buy pass page url
+ *
+ * @return string
+ */
+function buy_pass_url()
+{
+    return sprintf(
+        "%s/pass/new",
+        TKTApp::get_instance()->get_config('base.eshop_uri')
+    );
+}
+
+/**
  * Get the Cart page url
  *
  * @return string
