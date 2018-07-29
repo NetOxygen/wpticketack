@@ -1,3 +1,4 @@
+composer.phar
 /vendor/
 /front/node_modules
 /front/.sass-cache
