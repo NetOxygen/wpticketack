@@ -87,6 +87,22 @@ $ids = array_map(function ($s) {
           </span>
         </div>
       </div>
+
+      <div class="row">
+        <div class="col">
+          <span class="free-text-one">
+            BILLET : 25.- TARIF RÉDUIT : 20.-
+          </span>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <span class="free-text-two">
+            OUVERTURE DES PORTES : 19H45
+          </span>
+        </div>
+      </div>
     </div>
 
     <div class="col-sm right-col text-right align-self-start">
