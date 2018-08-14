@@ -5,3 +5,4 @@ composer.phar
 /front/build/*
 !/front/build/.gitkeep
 *.zip
+*.swp
