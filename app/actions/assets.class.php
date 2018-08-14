@@ -5,9 +5,10 @@
 class AssetsAction extends TKTAction
 {
     /**
-     * Get this action tag
+     * Get this action tag(s)
      *
-     * @return string: The tag to use
+     * @return mixed: A single tag (which will call the <code>run</code> method)
+     *                or an associative array with the tag as key and the method to call as value.
      */
     public function get_tag()
     {

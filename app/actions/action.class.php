@@ -13,16 +13,24 @@ abstract class TKTAction
     {
         $this->app = $app;
 
-        add_action(
-            $this->get_tag(),
-            array($this, 'run')
-        );
+        $tags = $this->get_tag();
+        if (!is_array($tags)) {
+            $tags = [$tags => 'run'];
+        }
+
+        foreach ($tags as $tag => $method) {
+            add_action(
+                $tag,
+                array($this, $method)
+            );
+        }
     }
 
     /**
-     * Get this action tag
+     * Get this action tag(s)
      *
-     * @return string: The tag to use to run this shortcode
+     * @return mixed: A single tag (which will call the <code>run</code> method)
+     *                or an associative array with the tag as key and the method to call as value.
      */
     abstract public function get_tag();
 
