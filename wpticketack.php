@@ -35,6 +35,7 @@ $app->register_action('HeadScriptsAction', 'head_scripts.class.php');
 $app->register_action('AdminMenuAction', 'admin_menu.class.php');
 $app->register_action('AdminSettingsAction', 'admin_settings.class.php');
 $app->register_action('AssetsAction', 'assets.class.php');
+$app->register_action('SyncPostsAction', 'sync_posts.class.php');
 $app->register_shortcode('ProgramShortcode', 'program.class.php');
 $app->register_shortcode('EventShortcode', 'event.class.php');
 $app->register_shortcode('CartShortcode', 'cart.class.php');
