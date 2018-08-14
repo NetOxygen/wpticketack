@@ -36,7 +36,9 @@ require.config({
       'app/Cart/CartIcon': 'build/js/app',
       'app/User/UserConnect': 'build/js/app',
       'app/Media/Carousel': 'build/js/app',
+      'app/Media/Loading': 'build/js/app',
       'app/Media/YoutubeVideo': 'build/js/app',
+      'app/Program/BookabilityState': 'build/js/app',
       'app/Program/Filter': 'build/js/app',
 
       es6: 'build/js/app',
