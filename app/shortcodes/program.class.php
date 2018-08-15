@@ -47,9 +47,19 @@ class ProgramShortcode extends TKTShortcode
                     );
 
                 case static::EVENTS_LAYOUT:
+                    $events = Event::from_screenings($screenings);
+                    // TODO: We could improve this by filtering the screenings
+                    // from the engine
+                    if (isset($atts['filter'])) {
+                        $type   = $atts['filter'];
+                        $events = array_filter($events, function ($e) use ($type) {
+                            return $e->opaque('type') == $type;
+                        });
+                    }
+
                     return TKTTemplate::render(
                         'program/events',
-                        (object)[ 'events' => Event::from_screenings($screenings) ]
+                        (object)[ 'events' => $events ]
                     );
             }
         } catch (TKTApiException $e) {
