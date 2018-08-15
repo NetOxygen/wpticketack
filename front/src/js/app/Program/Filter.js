@@ -46,6 +46,8 @@ define(
                     let type = $(f).data('type');
                     if (!type)
                         return;
+                    if ($('.' + this._class + '[data-type="' + type + '"]').length == 0)
+                        $(f).remove();
                 });
             },
 
