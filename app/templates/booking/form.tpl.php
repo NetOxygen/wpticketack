@@ -13,7 +13,7 @@
     <div
       class="booking-form"
       data-component="Booking/Form"
-      data-show-on-load="<?= isset($_REQUEST['book']) ? 'true' : 'false' ?>"
+      data-show-on-load="<?= get_query_var( 'book', -1 ) == 1 ? 'true' : 'false' ?>"
       data-ids="<?= implode(',', $data->ids) ?>">
     </div>
   </div>
