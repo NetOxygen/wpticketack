@@ -1,9 +1,8 @@
 .tkt-filters {
-  width: 190px;
-  float: right;
   margin-top: -36px;
 
   ul {
+    float: right;
     padding: 0;
     list-style-type: none;
     clear: both;
@@ -22,5 +21,11 @@
         margin-left: 0;
       }
     }
+  }
+}
+
+@media (max-width: 575px) {
+  .tkt-filters {
+    margin-top: 0;
   }
 }
