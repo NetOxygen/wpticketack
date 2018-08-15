@@ -107,10 +107,10 @@ $ids = array_map(function ($s) {
 
     <div class="col-sm right-col text-right align-self-start">
       <ul class="infos">
-        <li class="website">Site officiel : www.vaiteani.fr</li>
-        <li class="facebook">Facebook</li>
-        <li class="twitter">Twitter</li>
-        <li class="instagram">Instagram</li>
+        <li class="website">Site officiel : <a href="http://www.vaiteani.com" target="_blank">www.vaiteani.com</a></li>
+        <li class="facebook"><a href="http://www.vaiteani.com" target="_blank">Facebook</a></li>
+        <li class="twitter"><a href="http://www.vaiteani.com" target="_blank">Twitter</a></li>
+        <li class="instagram"><a href="http://www.vaiteani.com" target="_blank">Instagram</a></li>
         <li class="credits">Crédit photo: Frank Loriou</li>
       </ul>
     </div>
