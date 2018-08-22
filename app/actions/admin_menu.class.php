@@ -28,6 +28,7 @@ class AdminMenuAction extends TKTAction
             'ticketack-admin',
             array( $this, 'create_admin_page' )
         );
+        add_menu_page("Kronos", "Kronos", 'manage_options', 'kronos', array($this, 'create_kronos_page'));
     }
 
     /**
@@ -52,6 +53,28 @@ class AdminMenuAction extends TKTAction
             ?>
             </form>
         </div>
+<?php
+    }
+
+    /**
+     * Options page callback
+     */
+    public function create_kronos_page()
+    {
+?>
+        <iframe id="kronos_iframe" frameborder="0" width="100%" height="100%" src="https://balidra-epicentre.neto2.net/kronos.html" style="margin-left: -20px;"></iframe>
+        <script type="text/javascript">
+            function resize() {
+                jQuery("#kronos_iframe").height(jQuery("#wpwrap").height());
+            }
+
+            jQuery(document).ready(function ($) {
+                resize();
+            });
+
+            jQuery(window).resize(resize);
+
+        </script>
 <?php
     }
 }
