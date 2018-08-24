@@ -7,7 +7,7 @@
     "test": "gulp test",
     "clean": "gulp clean",
     "watch": "gulp",
-    "build": "gulp prod"
+    "build": "gulp clean && gulp prod"
   },
   "author": "Net Oxygen Sàrl <info@netoxygen.ch>",
   "license": "MIT",
