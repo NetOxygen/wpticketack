@@ -63,8 +63,6 @@ class AdminMenuAction extends TKTAction
     {
 ?>
     <iframe id="kronos_iframe" frameborder="0" width="100%" height="100%" src="https://balidra-rvb.neto2.net?v=<?= date('Y-m-d-H-i') ?>" style="margin-left: -20px;"></iframe>
-:qa
-:q
         <script type="text/javascript">
             function resize() {
                 jQuery("#kronos_iframe").height(jQuery("#wpwrap").height());

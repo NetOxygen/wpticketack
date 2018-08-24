@@ -11,7 +11,7 @@
 $e = $data->event;
 
 if (!empty($e->opaque('free_text_3'))) {
-    $date_title = $e->opaque('free_text_3');
+    $date_title = $e->opaque('free_text_3')['fr'];
 } else {
     $date_title = implode('<br/>', array_unique(array_map(function ($s) {
         return date_to_min_s($s->start_at());
