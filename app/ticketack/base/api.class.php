@@ -66,7 +66,7 @@ class TKTApi extends GuzzleHttp\Client
      * @param string $uri: The Ticketack engine uri
      * @param string $api_key: The Ticketack user API key to use
      */
-    protected function __construct($uri, $api_key)
+    public function __construct($uri, $api_key)
     {
         $stack = new HandlerStack();
         $stack->setHandler(new CurlHandler());
