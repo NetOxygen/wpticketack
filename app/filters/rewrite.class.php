@@ -29,9 +29,9 @@ class RewriteFilter extends TKTFilter
 
         $new_rules = [
             // Be careful, must stay in sync with FlushRewriteFilter::run()
-            $event_slug.'/(\d*)-(.*)/book' => 'index.php?pagename='.$event_slug.'&id=$matches[1]&book=1',
-            $event_slug.'/(\d*)-(.*)$'      => 'index.php?pagename='.$event_slug.'&id=$matches[1]',
-            $screening_slug.'/(\d*)-(.*)$'  => 'index.php?pagename='.$screening_slug.'&id=$matches[1]'
+            $event_slug.'/([^_]*)_(.*)/book' => 'index.php?pagename='.$event_slug.'&id=$matches[1]&book=1',
+            $event_slug.'/([^_]*)_(.*)$'      => 'index.php?pagename='.$event_slug.'&id=$matches[1]',
+            $screening_slug.'/([^_]*)_(.*)$'  => 'index.php?pagename='.$screening_slug.'&id=$matches[1]'
         ];
 
         foreach ($new_rules as $pattern => $target) {

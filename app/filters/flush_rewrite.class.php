@@ -28,9 +28,9 @@ class FlushRewriteFilter extends TKTFilter
 
         $new_rules = [
             // Be careful, must stay in sync with RewriteFilter::run()
-            $event_slug.'/(\d*)-(.*)$',
-            $event_slug.'/(\d*)-(.*)/book$',
-            $screening_slug.'/(\d*)-(.*)$',
+            $event_slug.'/([^_]*)_(.*)$',
+            $event_slug.'/([^_]*)_(.*)/book$',
+            $screening_slug.'/([^_]*)_(.*)$',
         ];
 
         $diff = array_diff($new_rules, array_keys($existing_rules));

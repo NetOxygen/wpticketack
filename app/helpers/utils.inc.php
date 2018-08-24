@@ -159,7 +159,7 @@ function event_details_url($event)
     return get_site_url(
         /*$blog_id*/null,
         sprintf(
-            "%s/%s-%s",
+            "%s/%s_%s",
             TKTApp::get_instance()->get_config('pages.event'),
             $event->_id(),
             sanitize_title($event->title('original'))
@@ -179,7 +179,7 @@ function event_book_url($event)
     return get_site_url(
         /*$blog_id*/null,
         sprintf(
-            "%s/%s-%s/book",
+            "%s/%s_%s/book",
             TKTApp::get_instance()->get_config('pages.event'),
             $event->_id(),
             sanitize_title($event->title('original'))
