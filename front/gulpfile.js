@@ -37,7 +37,11 @@ babel.logError = function (err) {
 };
 
 gulp.task('clean', () =>
-  del([build_dir])
+  del([
+      dirs.css_dest,
+      dirs.js_dest,
+      dirs.images_dest
+  ])
 );
 
 // Babel stuff
@@ -155,5 +159,5 @@ gulp.task('zip', [/*'prod'*/], function () {
 
 gulp.task('default', ['sass:watch', 'images:watch', 'babel:watch']);
 gulp.task('dev', ['clean', 'sass:dev', 'babel:dev', 'images:dev']);
-gulp.task('prod', ['clean', 'sass:prod', 'babel:prod', 'images:prod']);
+gulp.task('prod', ['sass:prod', 'babel:prod', 'images:prod']);
 gulp.task('wp:release', ['zip']);
