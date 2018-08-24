@@ -24,6 +24,14 @@ if (empty($date_title)) {
     }, $e->screenings())));
 }
 
+$description = "";
+if (!empty($e->opaque('description'))) {
+    $description = strip_tags($e->opaque('description')['fr'], '<br/>');
+    if (strip_tags($description) == "") {
+        $description = "";
+    }
+}
+
 $ids = array_map(function ($s) {
     return $s->_id();
 }, $e->screenings());
@@ -132,7 +140,7 @@ $ids = array_map(function ($s) {
           <?= $e->localized_title_or_original('fr') ?>
         </span>
         <span class="text">
-          S'asseoir tranquillement, prendre le temps et se mettre au rythme des îles de Polynésie l'espace d'une soirée. Et tout ça en plein hiver. Voici l'expérience que nous vous proposons avec Vaiteani. Quelque part dans une vallée du Pacifique sud, nichée sous les fougères arborescentes et les bougainvilliers rubiconds, se cache une source magique. On raconte qu’elle serait descendue du ciel pour nous abreuver de son chant profond et nous prendre sous sa coupe, si d’aventure on s’approchait pour la goûter. Vaiteani, c’est elle, la ‘source céleste’ en polynésien.
+            <?= $description ?>
         </span>
       </div>
     </div>
