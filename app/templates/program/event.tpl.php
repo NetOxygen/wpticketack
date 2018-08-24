@@ -10,20 +10,19 @@
 
 $e = $data->event;
 
+$date_title = "";
 if (!empty($e->opaque('free_text_3'))) {
     $date_title = $e->opaque('free_text_3')['fr'];
-} else {
+    if (strip_tags($date_title) == "") {
+        $date_title = "";
+    }
+}
+
+if (empty($date_title)) {
     $date_title = implode('<br/>', array_unique(array_map(function ($s) {
         return date_to_min_s($s->start_at());
     }, $e->screenings())));
 }
-/*if ($e->start_at()->format('Y-m-d') != $e->stop_at()->format('Y-m-d')) {
-    $date_title = sprintf(
-        "Du %s au %s",
-        date_to_min_s($e->start_at()),
-        date_to_min_s($e->stop_at())
-    );
-}*/
 
 $ids = implode(',', array_map(function ($s) {
     return $s->_id();

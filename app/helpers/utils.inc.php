@@ -52,6 +52,22 @@ function date_to_min_s($dt)
 }
 
 /**
+ * Formats a DateTime in a minimal date and time format
+ *
+ * @param $dt
+ *   The DateTime object to format.
+ *
+ * @return
+ *   A string.
+ */
+function date_and_time_to_min_s($dt)
+{
+    setlocale(LC_TIME, 'fr_CH.UTF-8');
+    $fmt = "%e %B %H:%M";
+    return strftime($fmt, $dt->getTimestamp());
+}
+
+/**
  * convert an ISO-8601 formated string to a PHP DateTime object.
  *
  * see http://stackoverflow.com/questions/14849446/php-parse-date-in-iso-format

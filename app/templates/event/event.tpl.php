@@ -10,11 +10,17 @@
 
 $e = $data->event;
 
+$date_title = "";
 if (!empty($e->opaque('free_text_3'))) {
     $date_title = $e->opaque('free_text_3')['fr'];
-} else {
+    if (strip_tags($date_title) == "") {
+        $date_title = "";
+    }
+}
+
+if (empty($date_title)) {
     $date_title = implode('<br/>', array_unique(array_map(function ($s) {
-        return date_to_min_s($s->start_at());
+        return date_and_time_to_min_s($s->start_at());
     }, $e->screenings())));
 }
 
