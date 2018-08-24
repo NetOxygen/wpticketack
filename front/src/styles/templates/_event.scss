@@ -37,6 +37,16 @@
         background-image: url('../images/slider/hover/right.png') !important;
       }
     }
+
+    .carousel-item {
+      img {
+        max-width: 924px;
+      }
+    }
+
+    .yt-video-image {
+        max-width: 924px;
+    }
   }
 
   .left-col {
@@ -58,31 +68,29 @@
       margin-top: 0.7rem;
     }
     .free-text-one {
-      text-transform: uppercase;
-      font-size: 1rem;
-      line-height: 1rem;
-      display: block;
-    }
-    .free-text-two {
-      text-transform: uppercase;
-      font-size: 1rem;
-      line-height: 1rem;
-      display: block;
+      p {
+        text-transform: uppercase;
+        font-size: 1rem;
+        line-height: 1rem;
+        display: block;
+      }
     }
   }
 
   .right-col {
-    ul.infos {
-      list-style-type: none;
+    .infos {
+      ul {
+        list-style-type: none;
+      }
 
-      li {
+      * {
         font-size: 1.0rem;
         line-height: 1.0rem;
         text-transform: uppercase;
+      }
 
-        a {
-            color: #fff !important;
-        }
+      a {
+          color: #fff !important;
       }
     }
   }

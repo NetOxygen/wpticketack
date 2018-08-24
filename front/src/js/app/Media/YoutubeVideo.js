@@ -127,6 +127,7 @@ define(
 
                 this.$video_image = $('<img />')
                     .attr('src', this.video_image)
+                    .attr('style', 'max-width: 924px')
                     .addClass('yt-video-image')
                     .appendTo(this.$container);
 

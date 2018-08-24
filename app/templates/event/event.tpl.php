@@ -10,13 +10,12 @@
 
 $e = $data->event;
 
-$date_title = date_to_min_s($e->start_at());
-if ($e->start_at()->format('Y-m-d') != $e->stop_at()->format('Y-m-d')) {
-    $dates = sprintf(
-        "Du %s au %s",
-        date_to_min_s($e->start_at()),
-        date_to_min_s($e->stop_at())
-    );
+if (!empty($e->opaque('free_text_3'))) {
+    $date_title = $e->opaque('free_text_3')['fr'];
+} else {
+    $date_title = implode('<br/>', array_unique(array_map(function ($s) {
+        return date_to_min_s($s->start_at());
+    }, $e->screenings())));
 }
 
 $ids = array_map(function ($s) {
@@ -45,7 +44,7 @@ $ids = array_map(function ($s) {
           <?php endforeach; ?>
           <?php foreach ($e->posters() as $i => $p) : ?>
           <div class="carousel-item <?= count($e->trailers()) == 0 && $i == 0 ? 'active' : '' ?>">
-            <img class="d-block w-100" src="<?= $p->url ?>" alt="<?= $e->localized_title_or_original('fr') ?>">
+            <img style="max-width: 924px" class="d-block w-100" src="<?= $p->url ?>" alt="<?= $e->localized_title_or_original('fr') ?>">
           </div>
           <?php endforeach; ?>
         </div>
@@ -91,28 +90,16 @@ $ids = array_map(function ($s) {
       <div class="row">
         <div class="col">
           <span class="free-text-one">
-            BILLET : 25.- TARIF RÉDUIT : 20.-
-          </span>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col">
-          <span class="free-text-two">
-            OUVERTURE DES PORTES : 19H45
+            <?= $e->opaque('free_text_1')['fr'] ?>
           </span>
         </div>
       </div>
     </div>
 
     <div class="col-sm right-col text-right align-self-start">
-      <ul class="infos">
-        <li class="website">Site officiel : <a href="http://www.vaiteani.com" target="_blank">www.vaiteani.com</a></li>
-        <li class="facebook"><a href="http://www.vaiteani.com" target="_blank">Facebook</a></li>
-        <li class="twitter"><a href="http://www.vaiteani.com" target="_blank">Twitter</a></li>
-        <li class="instagram"><a href="http://www.vaiteani.com" target="_blank">Instagram</a></li>
-        <li class="credits">Crédit photo: Frank Loriou</li>
-      </ul>
+      <div class="infos">
+        <?= $e->opaque('free_text_2')['fr'] ?>
+      </div>
     </div>
 
   </div>
