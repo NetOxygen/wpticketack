@@ -2,7 +2,5 @@ composer.phar
 /vendor/
 /front/node_modules
 /front/.sass-cache
-/front/build/*
-!/front/build/.gitkeep
 *.zip
 *.swp
