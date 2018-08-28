@@ -12,7 +12,7 @@ $e = $data->event;
 
 $date_title = "";
 if (!empty($e->opaque('free_text_3'))) {
-    $date_title = strip_tags($e->opaque('free_text_3')['fr'], '<br/>');
+    $date_title = $e->opaque('free_text_3')['fr'];
     if (strip_tags($date_title) == "") {
         $date_title = "";
     }
@@ -26,7 +26,7 @@ if (empty($date_title)) {
 
 $description = "";
 if (!empty($e->opaque('description'))) {
-    $description = strip_tags($e->opaque('description')['fr'], '<br/>');
+    $description = $e->opaque('description')['fr'];
     if (strip_tags($description) == "") {
         $description = "";
     }
