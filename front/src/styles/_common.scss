@@ -71,5 +71,6 @@ input::-webkit-inner-spin-button {
 }
 
 .button:hover {
-  border-color: $active_color;
+  border-color: $base_color;
+  color: $base_color;
 }
