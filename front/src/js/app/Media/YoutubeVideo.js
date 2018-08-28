@@ -28,6 +28,7 @@ define(
     function YoutubeVideo($container, state) {
         this.$container = $container;
         this.player     = null;
+        this.loaded     = false;
 
         this.video_id    = this.$container.data('video-id');
         this.video_image = this.$container.data('video-image');
@@ -49,6 +50,15 @@ define(
                 .attr('id', 'yt-video-' + this.video_id + '-' + new Date().getTime())
                 .appendTo(this.$container);
 
+            postal.subscribe({
+                channel: "youtubeIframeApi",
+                topic: "ready",
+                callback: (data, envelope) => {
+                    !this.loaded && this.loadPlayer();
+                    this.loaded = true;
+                }
+            });
+
             if (typeof(YT) == 'undefined' || typeof(YT.Player) == 'undefined') {
                 // Set Youtube callback
                 window.onYouTubeIframeAPIReady = this.onYouTubeIframeAPIReady.bind(this),
@@ -59,20 +69,22 @@ define(
             }
 
             if (this.carousel_id) {
-                // Subscribe on the caousel slide events to stop the video when needed.
+                // Subscribe on the carousel slide events to stop the video when needed.
                 postal.subscribe({
                     channel: "carousel-" + this.carousel_id,
                     topic: "slide",
                     callback: (data, envelope) => {
-                        console.log('Video received slide instruction');
-                        this.player.stopVideo();
+                        this.player && this.player.stopVideo();
                     }
                 });
             }
         },
 
         onYouTubeIframeAPIReady: function() {
-            this.loadPlayer();
+            postal.publish({
+                channel: "youtubeIframeApi",
+                topic: "ready"
+            });
         },
 
         onStateChange: function(e) {
