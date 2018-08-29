@@ -409,6 +409,16 @@ input::-webkit-inner-spin-button {
 }
 
 /* line 129, src/styles/templates/_event.scss */
+.tkt_event .show-booking-form .show-if-bookable {
+  font-size: 1.7rem !important;
+}
+
+/* line 133, src/styles/templates/_event.scss */
+.tkt_event .show-booking-form .show-if-almost-not-bookable {
+  font-size: 1.0rem;
+}
+
+/* line 137, src/styles/templates/_event.scss */
 .tkt_event .screening-complete, .tkt_event #tkt_program .tkt_program_event .event-inner .event-complete, #tkt_program .tkt_program_event .event-inner .tkt_event .event-complete {
   text-transform: uppercase;
   font-size: 1.2rem;

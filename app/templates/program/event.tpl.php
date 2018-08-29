@@ -85,7 +85,12 @@ $ids = implode(',', array_map(function ($s) {
           <span class="tickets" data-bookability-ids="<?= $ids ?>">
             <a class="show-while-loading">...</a>
             <a
-              class="show-if-bookable show-if-almost-not-bookable d-none"
+              class="show-if-not-bookable d-none"
+              href="<?= event_details_url($e) ?>">
+              Billets <span class="event-complete"></span>
+            </a>
+            <a
+              class="show-if-bookable show-if-almost-not-bookable"
               href="<?= event_book_url($e) ?>">
               Billets <span class="event-complete"></span>
             </a>
