@@ -62,7 +62,7 @@ class AdminMenuAction extends TKTAction
     public function create_kronos_page()
     {
 ?>
-    <iframe id="kronos_iframe" frameborder="0" width="100%" height="100%" src="https://balidra-rvb.neto2.net?v=<?= date('Y-m-d-H-i') ?>" style="margin-left: -20px;"></iframe>
+    <iframe id="kronos_iframe" frameborder="0" width="100%" height="100%" src="https://kronos.ticketack.com?v=<?= date('Y-m-d-H-i') ?>" style="margin-left: -20px;"></iframe>
         <script type="text/javascript">
             function resize() {
                 jQuery("#kronos_iframe").height(jQuery("#wpwrap").height());
