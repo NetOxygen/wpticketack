@@ -14,7 +14,6 @@
  */
 function datetime_to_s($dt)
 {
-    setlocale(LC_TIME, 'fr_CH.UTF-8');
     $fmt = "%e %B %Y %H:%M";
     return strftime($fmt, $dt->getTimestamp());
 }
@@ -30,7 +29,6 @@ function datetime_to_s($dt)
  */
 function date_to_s($dt)
 {
-    setlocale(LC_TIME, 'fr_CH.UTF-8');
     $fmt = "%e %B %Y";
     return strftime($fmt, $dt->getTimestamp());
 }
@@ -46,7 +44,6 @@ function date_to_s($dt)
  */
 function date_to_min_s($dt)
 {
-    setlocale(LC_TIME, 'fr_CH.UTF-8');
     $fmt = "%e %B";
     return strftime($fmt, $dt->getTimestamp());
 }
@@ -62,7 +59,6 @@ function date_to_min_s($dt)
  */
 function date_and_time_to_min_s($dt)
 {
-    setlocale(LC_TIME, 'fr_CH.UTF-8');
     $fmt = "%e %B %H:%M";
     return strftime($fmt, $dt->getTimestamp());
 }
