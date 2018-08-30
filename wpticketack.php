@@ -9,7 +9,6 @@
  * License: MIT
  */
 
-setlocale(LC_TIME, get_locale());
 date_default_timezone_set('Europe/Zurich');
 
 define("TKT_BASE", (dirname(__FILE__)));
