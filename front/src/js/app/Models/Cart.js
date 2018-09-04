@@ -25,6 +25,9 @@ define(
 
     Cart.prototype.loadItemsInfos = function(callback) {
 
+        if (!this.items || this.items.length === 0)
+            return callback(/*err*/null);
+
         let screening_ids = _.map(
             _.filter(this.items, (i) => i.type === CartItem.SCREENING_TYPE),
             (i) => i.item_id
