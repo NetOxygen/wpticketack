@@ -15,6 +15,7 @@ const module_root_dir = '../';
 const module_dest_dir = '../';
 
 const src_dir   = './src';
+const nm_dir    = './node_modules';
 const test_dir  = './test';
 const build_dir = './build';
 
@@ -61,7 +62,7 @@ gulp.task('babel:dev', () =>
     .pipe(gulp.dest(dirs.js_dest))
 );
 
-gulp.task('babel:prod', () =>
+gulp.task('babel:prod', ['copy-require'], () =>
   gulp.src(dirs.js_src)
     .pipe(sourcemaps.init())
     .pipe(babel({
@@ -80,6 +81,10 @@ gulp.task('babel:prod', () =>
 gulp.task('babel:watch', () =>
     gulp.watch([dirs.js_src, dirs.test_src], ['babel:dev'])//, 'test'])
 );
+gulp.task('copy-require', (done) => {
+    gulp.src(nm_dir + '/requirejs/require.js')
+        .pipe(gulp.dest(dirs.js_dest));
+});
 
 // Test
 gulp.task('test', function (done) {
