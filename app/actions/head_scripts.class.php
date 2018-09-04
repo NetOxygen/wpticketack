@@ -12,7 +12,17 @@ class HeadScriptsAction extends TKTAction
      */
     public function get_tag()
     {
-        return "wp_head";
+        return "wp_footer";
+    }
+
+    /**
+     * Get this action priority
+     *
+     * @return int: Action priority
+     */
+    public function get_priority()
+    {
+        return 1000000;
     }
 
     /**
@@ -38,12 +48,19 @@ class HeadScriptsAction extends TKTAction
                         "cart_url": "'.cart_url().'",
                         "cart_reset_url": "'.cart_reset_url().'",
                     }
+                },
+                paths: {
+                    "app": "/wp-content/plugins/wpticketack/front/build/js/app"
                 }
             };
         </script>
-        <script
-          data-main="/wp-content/plugins/wpticketack/front/build/js/app"
-          src="/wp-content/plugins/wpticketack/front/node_modules/requirejs/require.js?v=1"></script>
+        <script src="/wp-content/plugins/wpticketack/front/build/js/require.js"></script>
+        <script>
+            if (typeof jQuery === "function") {
+                define("jquery", function () { return jQuery; });
+            }
+            require(["app"]);
+        </script>
 ';
     }
 }

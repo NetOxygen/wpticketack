@@ -21,7 +21,8 @@ abstract class TKTAction
         foreach ($tags as $tag => $method) {
             add_action(
                 $tag,
-                array($this, $method)
+                array($this, $method),
+                $this->get_priority()
             );
         }
     }
@@ -38,5 +39,15 @@ abstract class TKTAction
      * Run this action
      */
     abstract public function run();
+
+    /**
+     * Get this action priority
+     *
+     * @return int: Action priority
+     */
+    public function get_priority()
+    {
+        return 10;
+    }
 }
 
