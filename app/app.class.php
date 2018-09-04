@@ -60,10 +60,12 @@ class TKTApp
         $this->filters    = [];
         $this->shortcodes = [];
 
+        AppConfig::parse(TKT_CONFIG . '/config.yml', []);
+
         $this->config = (object)[
-            'base'   => (object)get_option('base'),
-            'pages'  => (object)get_option('pages'),
-            'kronos' => (object)get_option('kronos')
+            'pages'     => (array)get_option('pages'),
+            'ticketack' => (array)AppConfig::get('ticketack'),
+            'kronos'    => (array)AppConfig::get('kronos')
         ];
     }
 
@@ -140,14 +142,14 @@ class TKTApp
             $path = explode('.', $path);
         }
 
-        $value = $this->config;
+        $value = (array)$this->config;
 
         foreach ($path as $p) {
-            if (!isset($value->{$p})) {
+            if (!isset($value[$p])) {
                 return $default;
             }
 
-            $value = $value->{$p};
+            $value = $value[$p];
         }
 
         return $value;

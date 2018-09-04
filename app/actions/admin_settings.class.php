@@ -20,43 +20,6 @@ class AdminSettingsAction extends TKTAction
      */
     public function run()
     {
-        register_setting(
-            'base', // Option group
-            'uri', // Option name
-            array( $this, 'sanitize' ) // Sanitize
-        );
-
-        add_settings_section(
-            'ticketack_base', // ID
-            'Configuration de base', // Title
-            array( $this, 'base_section_info' ), // Callback
-            'ticketack-admin' // Page
-        );
-
-        add_settings_field(
-            'engine_uri', // ID
-            'Ticketack Engine URI', // Title
-            array( $this, 'engine_uri_callback' ), // Callback
-            'ticketack-admin', // Page
-            'ticketack_base' // Section
-        );
-
-        add_settings_field(
-            'eshop_uri', // ID
-            'Ticketack Eshop URI', // Title
-            array( $this, 'eshop_uri_callback' ), // Callback
-            'ticketack-admin', // Page
-            'ticketack_base' // Section
-        );
-
-        add_settings_field(
-            'api_key', // ID
-            'API Key', // Title
-            array( $this, 'api_key_callback' ), // Callback
-            'ticketack-admin', // Page
-            'ticketack_base' // Section
-        );
-
         add_settings_section(
             'ticketack_pages', // ID
             'Pages', // Title
@@ -95,29 +58,6 @@ class AdminSettingsAction extends TKTAction
             'ticketack-admin', // Page
             'ticketack_pages' // Section
         );
-
-        add_settings_section(
-            'ticketack_kronos', // ID
-            'Kronos', // Title
-            array( $this, 'kronos_section_info' ), // Callback
-            'ticketack-admin' // Page
-        );
-
-        add_settings_field(
-            'kronos_username', // ID
-            'Username', // Title
-            array( $this, 'kronos_username_callback' ), // Callback
-            'ticketack-admin', // Page
-            'ticketack_kronos' // Section
-        );
-
-        add_settings_field(
-            'kronos_password', // ID
-            'Password', // Title
-            array( $this, 'kronos_password_callback' ), // Callback
-            'ticketack-admin', // Page
-            'ticketack_kronos' // Section
-        );
     }
 
     /**
@@ -140,39 +80,19 @@ class AdminSettingsAction extends TKTAction
     /** 
      * Print the Section text
      */
-    public function base_section_info()
-    {
-        print "Saisissez les informations d'accès à l'API Ticketack";
-    }
-
-    /** 
-     * Print the Section text
-     */
     public function pages_section_info()
     {
         print "Saisissez les slugs des pages contenant les différents shortcodes";
     }
 
-    /** 
-     * Print the Section text
-     */
-    public function kronos_section_info()
-    {
-        print "Saisissez les informations d'accès à Kronos";
-    }
-
-    public function engine_uri_callback() { return $this->input('engine_uri', 'base'); }
-    public function eshop_uri_callback() { return $this->input('eshop_uri', 'base'); }
-    public function api_key_callback() { return $this->input('api_key', 'base'); }
     public function program_callback() { return $this->input('program', 'pages'); }
     public function cart_callback() { return $this->input('cart', 'pages'); }
     public function event_callback() { return $this->input('event', 'pages'); }
     public function screening_callback() { return $this->input('screening', 'pages'); }
-    public function kronos_username_callback() { return $this->input('kronos_username', 'kronos'); }
     public function kronos_password_callback() { return $this->input('kronos_password', 'kronos'); }
 
     /**
-     * Get on option input
+     * Get an option input
      *
      * @param string $name: The option name
      * @param string $group: The option group

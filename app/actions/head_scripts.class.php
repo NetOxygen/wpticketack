@@ -31,9 +31,9 @@ class HeadScriptsAction extends TKTAction
                         base_url: "'.get_site_url().'/"
                     },
                     "config": {
-                        "engine_uri": "'.$app->get_config('base.engine_uri').'/",
-                        "eshop_uri": "'.$app->get_config('base.eshop_uri').'/",
-                        "api_key": "'.$app->get_config('base.api_key').'",
+                        "engine_uri": "'.$app->get_config('ticketack.engine_uri').'/",
+                        "eshop_uri": "'.$app->get_config('ticketack.eshop_uri').'/",
+                        "api_key": "'.$app->get_config('ticketack.api_key').'",
                         "program_url": "'.program_url().'",
                         "cart_url": "'.cart_url().'",
                         "cart_reset_url": "'.cart_reset_url().'",
