@@ -36,10 +36,8 @@ class AdminMenuAction extends TKTAction
      */
     public function create_admin_page()
     {
-        if (isset($_POST['base'])) {
-            update_option('base', $_POST['base']);
+        if (isset($_POST['pages'])) {
             update_option('pages', $_POST['pages']);
-            update_option('kronos', $_POST['kronos']);
         }
 ?>
         <div class="wrap">
