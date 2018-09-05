@@ -2,7 +2,7 @@
  * Ticket model
  */
 define(
-    ['module', 'underscore', 'moment', 'app/Models/Base'],
+    ['module', 'lodash', 'moment', 'app/Models/Base'],
     function dependencies(module, _, moment, BaseModel) {
 
     Ticket.type = 'ticket';

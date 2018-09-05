@@ -1,7 +1,7 @@
 /**
  * Base model
  */
-define( ['module', 'underscore', 'postal', 'csrf'], function dependencies(module, _, postal, csrf) {
+define( ['module', 'lodash', 'postal', 'csrf'], function dependencies(module, _, postal, csrf) {
 
     /**
      * Constructor

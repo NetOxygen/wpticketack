@@ -9,7 +9,7 @@
  * >
  */
 define( [
-        'config', 'postal', 'underscore',
+        'config', 'postal', 'lodash',
         'template', 'jquery', 'api',
         'moment', 'Cart', 'Screening', 'Ticket'
     ], function dependencies(

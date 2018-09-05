@@ -19,7 +19,7 @@
  * </[*]>
  */
 define(
-    ['jquery', 'underscore', 'api'],
+    ['jquery', 'lodash', 'api'],
     function dependencies($, _, TKTApi) {
 
     const MIN_SEATS_OCCUPATION = 90;

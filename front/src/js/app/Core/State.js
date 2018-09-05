@@ -1,5 +1,5 @@
 // Application state abstraction, stored in LocalStorage
-define(['logger', 'underscore', 'dottie'], function dependencies(logger, _, dottie) {
+define(['logger', 'lodash', 'dottie'], function dependencies(logger, _, dottie) {
 
     const STATE_KEY = 'js_components_state';
 
