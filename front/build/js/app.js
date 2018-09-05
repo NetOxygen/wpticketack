@@ -19014,7 +19014,7 @@ define('CartItem', [
         var _this = this;
         BaseModel.call(this, cartItem);
         cartItem = cartItem || {};
-        _.mapObject(cartItem, function (val, key) {
+        _.mapKeys(cartItem, function (val, key) {
             _this[key] = val;
         });
         this.expire = moment(this.expire);
@@ -19047,7 +19047,7 @@ define('Screening', [
         var _this = this;
         BaseModel.call(this, screening);
         screening = screening || {};
-        _.mapObject(screening, function (val, key) {
+        _.mapKeys(screening, function (val, key) {
             _this[key] = val;
         });
         this.start_at = moment(screening.start_at);
@@ -19075,7 +19075,7 @@ define('Cart', [
         var _this = this;
         BaseModel.call(this, cart);
         cart = cart || {};
-        _.mapObject(cart, function (val, key) {
+        _.mapKeys(cart, function (val, key) {
             _this[key] = val;
         });
         this.items = _.map(this.items, function (i) {
@@ -19127,7 +19127,7 @@ define('Ticket', [
         var _this = this;
         BaseModel.call(this, ticket);
         ticket = ticket || {};
-        _.mapObject(ticket, function (val, key) {
+        _.mapKeys(ticket, function (val, key) {
             _this[key] = val;
         });
         if (this.bookings) {

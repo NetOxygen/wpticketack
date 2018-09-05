@@ -16,7 +16,7 @@ define(
         BaseModel.call(this, ticket);
         ticket = ticket || {};
 
-        _.mapObject(ticket, (val, key) => {
+        _.mapKeys(ticket, (val, key) => {
             this[key] = val;
         });
 

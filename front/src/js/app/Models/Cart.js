@@ -16,7 +16,7 @@ define(
         BaseModel.call(this, cart);
         cart = cart || {};
 
-        _.mapObject(cart, (val, key) => {
+        _.mapKeys(cart, (val, key) => {
             this[key] = val;
         });
 
