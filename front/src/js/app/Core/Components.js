@@ -1,4 +1,4 @@
-define(['underscore', 'jquery', 'moment', 'async', 'state'], function dependencies(_, $, moment, async, State) {
+define(['lodash', 'jquery', 'moment', 'async', 'state'], function dependencies(_, $, moment, async, State) {
     // Global app state, will be injected in attached components
     var app_state         = new State();
     // Attached components

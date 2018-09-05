@@ -2,7 +2,7 @@
  * Screening model
  */
 define(
-    ['module', 'underscore', 'moment', 'app/Models/Base'],
+    ['module', 'lodash', 'moment', 'app/Models/Base'],
     function dependencies(module, _, moment, BaseModel) {
 
     Screening.type = 'screening';

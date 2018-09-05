@@ -27,7 +27,7 @@ requirejs.config({
         moment: '../../node_modules/moment/min/moment-with-locales.min',
         postal: '../../node_modules/postal/lib/postal.min',
         lodash: '../../node_modules/lodash/lodash.min',
-        underscore: '../../node_modules/underscore/underscore-min'
+        lodash: '../../node_modules/lodash/lodash.min'
     }
 });
 

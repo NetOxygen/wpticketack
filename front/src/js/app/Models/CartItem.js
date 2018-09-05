@@ -2,7 +2,7 @@
  * CartItem model
  */
 define(
-    ['underscore', 'moment', 'app/Models/Base'],
+    ['lodash', 'moment', 'app/Models/Base'],
     function dependencies(_, moment, BaseModel) {
 
     CartItem.type = 'cart_item';

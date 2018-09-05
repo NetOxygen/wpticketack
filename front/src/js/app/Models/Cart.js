@@ -2,7 +2,7 @@
  * Cart model
  */
 define(
-    ['underscore', 'api', 'app/Models/Base', 'CartItem', 'Screening'],
+    ['lodash', 'api', 'app/Models/Base', 'CartItem', 'Screening'],
     function dependencies(_, TKTApi, BaseModel, CartItem, Screening) {
 
     Cart.type = 'cart';

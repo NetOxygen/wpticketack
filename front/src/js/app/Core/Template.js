@@ -1,5 +1,5 @@
 // Template manager
-define(['underscore'], function dependencies(_) {
+define(['lodash'], function dependencies(_) {
 
     function Template() {}
 

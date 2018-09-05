@@ -9,7 +9,7 @@
  * >
  */
 define(
-    ['postal', 'underscore', 'jquery', 'api', 'moment', 'Screening'],
+    ['postal', 'lodash', 'jquery', 'api', 'moment', 'Screening'],
     function dependencies(postal, _, $, TKTApi, moment, Screening) {
 
     function CartIcon($container, state) {
