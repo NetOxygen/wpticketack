@@ -33,6 +33,7 @@
                 <% _.each(cart.items, (item) => { %>
                 <tr>
                     <td class="title-cell"><%= item.getFormattedTitle() %></td>
+                    <th scope="col">Réservé jusqu'à</th>
                     <td class="price-cell"><%= item.getFormattedPrice() %></td>
                     <td class="action-cell">
                         <span class="tkt-remove-cart-item" data-item="<%= item.id %>">
@@ -45,6 +46,7 @@
             <tfoot>
                 <tr>
                     <td colspan="2" class="total-title-cell">Total :</td>
+                    <td class="expire-cell"><%= item.getFormattedExpireAt() %></td>
                     <td colspan="2" class="total-price-cell"><%= cart.getFormattedTotal() %></td>
                 </tr>
             </tfoot>
