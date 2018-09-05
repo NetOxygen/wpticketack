@@ -16,7 +16,7 @@ define(
         BaseModel.call(this, screening);
         screening = screening || {};
 
-        _.mapObject(screening, (val, key) => {
+        _.mapKeys(screening, (val, key) => {
             this[key] = val;
         });
 
