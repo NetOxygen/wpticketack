@@ -1,5 +1,4 @@
-<?php
-/**
+<?php /**
  * Utils functions
  */
 
@@ -295,4 +294,17 @@ function pass_required_fields($type)
     }
 
     return $required_fields['default'];
+}
+
+/**
+ * @param $str
+ *   the string to match.
+ *
+ * @return
+ *   true if the given string is a UUIDv4, false otherwise.
+ */
+function is_uuidv4($str)
+{
+    $regexp = '/^[A-Fa-f0-9]{8}-[A-Fa-f0-9]{4}-4[A-Fa-f0-9]{3}-[ABab89][A-Fa-f0-9]{3}-[A-Fa-f0-9]{12}$/';
+    return (preg_match($regexp, $str) ? true : false);
 }
