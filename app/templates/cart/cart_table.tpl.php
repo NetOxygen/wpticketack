@@ -19,13 +19,12 @@
     </div>
 </div>
 <% } else { %>
-<div class="row">
+<div class="row" style="font-family: 'SimplonBP', sans-serif;">
     <div class="col">
         <table class="tkt-cart-table">
             <thead>
                 <tr>
                     <th scope="col">Achats</th>
-                    <th scope="col">Réservé jusqu'à</th>
                     <th scope="col">Prix</th>
                     <th scope="col"></th>
                 </tr>
@@ -34,7 +33,6 @@
                 <% _.each(cart.items, (item) => { %>
                 <tr>
                     <td class="title-cell"><%= item.getFormattedTitle() %></td>
-                    <td class="expire-cell"><%= item.getFormattedExpireAt() %></td>
                     <td class="price-cell"><%= item.getFormattedPrice() %></td>
                     <td class="action-cell">
                         <span class="tkt-remove-cart-item" data-item="<%= item.id %>">
