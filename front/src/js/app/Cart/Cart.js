@@ -28,6 +28,13 @@ define(
                 if (err)
                     return;
             });
+            postal.subscribe({
+                channel: "cart",
+                topic: "reload",
+                callback: (data, envelope) => {
+                    this.load_cart();
+                }
+            });
         },
 
         load_cart: function(callback) {
