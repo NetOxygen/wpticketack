@@ -42,6 +42,7 @@ require([
     'app/Media/Carousel',
     'app/Media/Loading',
     'app/Media/YoutubeVideo',
+    'app/Pass/BuyForm',
     'app/Program/BookabilityState',
     'app/Program/Filter',
 ]);
