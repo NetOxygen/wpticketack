@@ -226,3 +226,73 @@ function yt_video_id($yt_url)
 
     return $match[1];
 }
+
+/**
+ * Helper function to allow to make calls
+ * on an object using the __construct() result like
+ * $my_obj = id(new MyObj())->chainable_method();
+ */
+function id($obj)
+{
+    return $obj;
+}
+
+/**
+ * Sanitize a string for display.
+ *
+ * Escape HTML tags for a safer display. This function assume UTF-8
+ * encoding.
+ *
+ * @param $string
+ *   The unsafe string.
+ *
+ * @return
+ *   a string that can be safely presented to echo or print for output.
+ */
+function h($string)
+{
+    return htmlspecialchars($string, ENT_QUOTES | ENT_HTML5, 'UTF-8');
+}
+
+/**
+ * Sanitize a string for display but allows some html tags.
+ *
+ * Less safe than h() which strips everything.
+ *
+ * Note: This function does not modify any attributes on the tags that are
+ * allowed, including the style and onmouseover attributes that a mischievous
+ * user may abuse when posting text that will be shown to other users.
+ *
+ * @param $string
+ *   The unsafe string.
+ *
+ * @param $tags_to_keep
+ *   Tags to keep in strip tags
+ *
+ * @return
+ *   a string that can be mostly safely presented to echo or print for output.
+ */
+function html($string, $tags_to_keep = '<p><br><b><i><em><a>')
+{
+    return strip_tags($string, $tags_to_keep);
+}
+
+function get_ages()
+{
+    return [_("Pas de réponse"), '-18', '18-24', '25-34', '35-44', '45-54', '55-64', '65+'];
+}
+
+function get_sexes()
+{
+    return ['n/c' => _("Pas de réponse"), 'f' => _("Féminin"), 'm' => _("Masculin"), 'o' => _("Autre")];
+}
+
+function pass_required_fields($type)
+{
+    $required_fields = TKTApp::get_instance()->get_config('ticketack.requested_pass_owner_data');
+    if (in_array($type, array_keys($required_fields))) {
+        return $required_fields[$type];
+    }
+
+    return $required_fields['default'];
+}
