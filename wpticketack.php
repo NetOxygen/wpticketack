@@ -23,6 +23,8 @@ define("TKT_HELPERS", TKT_APP.'/helpers');
 define("TKT_LIB", TKT_APP.'/ticketack');
 define("OVERRIDE_DIR", get_template_directory());
 
+define("LANG", substr(get_locale(), 0, 2));
+
 // Load Composer autoload
 require_once(TKT_BASE.'/vendor/autoload.php');
 
@@ -46,5 +48,6 @@ $app->register_shortcode('CartShortcode', 'cart.class.php');
 $app->register_shortcode('CartIconShortcode', 'cart_icon.class.php');
 $app->register_shortcode('FilterShortcode', 'filter.class.php');
 $app->register_shortcode('UserConnectShortcode', 'user_connect.class.php');
+$app->register_shortcode('BuyPassShortcode', 'buy_pass.class.php');
 
 $app->start();
