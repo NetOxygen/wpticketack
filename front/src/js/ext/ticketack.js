@@ -133,6 +133,30 @@ Ticketack.prototype.addToCart = function(screening_id, pricing, callback) {
 };
 
 /**
+ * Add a pass to cart
+ *
+ * @param {String} pass: The pass type
+ * @param {String} pricing: The pricing key
+ * @param {Object} userdata: The user data
+ * @param {Function} callback: The callback function
+ */
+Ticketack.prototype.addPassToCart = function(pass, pricing, userdata, callback) {
+    headers = {};
+    headers['X-API-Key']    = this.apiKey;
+    headers['Content-type'] = undefined;
+
+    userdata.pass = pass + ':' + pricing;
+    let data = {
+        "user": userdata,
+        "format": "json"
+    };
+    if (this.session_id)
+        data.PHPSESSID = this.session_id;
+
+    return this.post(this.passesViewUrl, data, callback);
+};
+
+/**
  * Remove screening from cart
  *
  * @param {Number} index: The screening index in cart
