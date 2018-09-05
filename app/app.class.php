@@ -109,8 +109,8 @@ class TKTApp
     {
         // Setup Ticketack API
         TKTApi::setup(
-            $this->config->base->engine_uri,
-            $this->config->base->api_key
+            $this->get_config('ticketack.engine_uri'),
+            $this->get_config('ticketack.api_key')
         );
 
         // Instantiate actions
