@@ -18,6 +18,7 @@ class Tickettype extends TKTModel implements JsonSerializable
     protected $windows     = [];
     protected $pricings    = null;
     protected $opaque      = null;
+    protected $required_fields = null;
 
     /**
      * @override
@@ -39,6 +40,8 @@ class Tickettype extends TKTModel implements JsonSerializable
             unset($properties['pricings']);
         }
         parent::__construct($properties);
+
+        $this->required_fields = pass_required_fields($this->_id);
     }
 
     // helper for scope_order_by_opaque_eshop_sort_weight()
@@ -198,6 +201,11 @@ class Tickettype extends TKTModel implements JsonSerializable
     public function has_opaque()
     {
         return is_array($this->opaque);
+    }
+
+    public function required_fields()
+    {
+        return $this->required_fields;
     }
 
     public function jsonSerialize()
