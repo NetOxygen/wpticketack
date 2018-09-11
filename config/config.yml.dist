@@ -1,5 +1,5 @@
 # NOTE: keep in sync with app/helpers/config.class.php
-CONFIG_VERSION: 2018090401
+CONFIG_VERSION: 2018091101
 
 ticketack:
     # the Ticketack Engine URI.
@@ -12,7 +12,20 @@ ticketack:
     # available fields: firstname, lastname, address, zip, city, country, photo, age, sex, bypass-photo
     requested_pass_owner_data:
         # Use the ticket type id as key. use ~ is equivalent to []
-        default: ["firstname", "lastname"] exemple with default value. If ticket id requested is not provided in config default is used.
+        default: ["firstname", "lastname"]
+
+images:
+    # images proxy
+    proxy:
+        # Uncomment and set to use our image proxy
+        #proxy_img_key: secret-key
+        #proxy_img_host: img.neto2.net
+    # Images dimensions
+    dimensions:
+        # big size, used in program listing and event/screening details
+        big:
+            width: 924
+            height: 520
 
 kronos:
     # kronos username

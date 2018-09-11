@@ -10,6 +10,10 @@
 
 $s = $data->screening;
 $m = array_shift($s->movies());
+
+$images_width  = TKTApp::get_instance()->get_config('images.dimensions.big.width');
+$images_height = TKTApp::get_instance()->get_config('images.dimensions.big.height');
+$image_url     = img_proxy_url($s->first_poster()->url, $images_width, $images_height);
 ?>
 <div class="screening-inner">
 
@@ -17,13 +21,13 @@ $m = array_shift($s->movies());
 
     <div
       class="poster-background d-block d-md-none"
-      style="background-image: url('<?= $s->first_poster()->url ?>')">
+      style="background-image: url('<?= $image_url ?>')">
       <div class="overlay"></div>
     </div>
 
     <div class="col-md-9 col-sm-12 left-col">
       <div class="poster-wrapper d-none d-md-block">
-        <img class="img-fluid poster" src="<?= $s->first_poster()->url ?>" />
+        <img class="img-fluid poster" src="<?= $image_url ?>" />
       </div>
     </div>
 

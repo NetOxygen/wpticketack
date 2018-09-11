@@ -27,6 +27,10 @@ if (empty($date_title)) {
 $ids = implode(',', array_map(function ($s) {
     return $s->_id();
 }, $e->screenings()));
+
+$images_width  = TKTApp::get_instance()->get_config('images.dimensions.big.width');
+$images_height = TKTApp::get_instance()->get_config('images.dimensions.big.height');
+$image_url     = img_proxy_url($e->first_poster()->url, $images_width, $images_height);
 ?>
 <div class="event-inner">
 
@@ -34,13 +38,13 @@ $ids = implode(',', array_map(function ($s) {
 
     <div
       class="poster-background d-block d-md-none"
-      style="background-image: url('<?= $e->first_poster()->url ?>')">
+      style="background-image: url('<?= $image_url ?>')">
       <div class="overlay"></div>
     </div>
 
     <div class="col-md-9 col-sm-12 left-col">
       <div class="poster-wrapper d-none d-md-block">
-        <img class="img-fluid poster" src="<?= $e->first_poster()->url ?>" />
+        <img class="img-fluid poster" src="<?= $image_url ?>" />
       </div>
     </div>
 

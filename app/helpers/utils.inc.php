@@ -308,3 +308,51 @@ function is_uuidv4($str)
     $regexp = '/^[A-Fa-f0-9]{8}-[A-Fa-f0-9]{4}-4[A-Fa-f0-9]{3}-[ABab89][A-Fa-f0-9]{3}-[A-Fa-f0-9]{12}$/';
     return (preg_match($regexp, $str) ? true : false);
 }
+
+function img_proxy_url($remote_url, $width = '-', $height = '-')
+{
+    $proxy_img_key  = TKTApp::get_instance()->get_config('images.proxy.proxy_img_key');
+    $proxy_img_host = TKTApp::get_instance()->get_config('images.proxy.proxy_img_host');
+
+    if (empty($proxy_img_key) || empty($proxy_img_host)) {
+        return $remote_url;
+    }
+
+    if (!filter_var($remote_url, FILTER_VALIDATE_URL)) {
+        return false;
+    }
+
+    $exploded_url = parse_url($remote_url);
+    $path         = sprintf(
+        "image/%sx%s/%s/%s%s",
+        $width,
+        $height,
+        $exploded_url['scheme'],
+        $exploded_url['host'],
+        $exploded_url['path']
+    );
+    $key = base64url_encode(md5('/' . $path . ' ' . $proxy_img_key, true));
+
+    $parts = [];
+
+    $parts['scheme'] = 'https';
+    $parts['host']   = $proxy_img_host;
+    $parts['path']   = $path;
+    $parts['query']  = http_build_query(['key' => $key]);
+
+    return http_build_url($parts);
+}
+
+/**
+ * base64url variants,
+ * stolen from http://us3.php.net/manual/en/function.base64-encode.php#103849
+ */
+function base64url_encode($data)
+{
+    return rtrim(strtr(base64_encode($data), '+/', '-_'), '=');
+}
+
+function base64url_decode($data)
+{
+    return base64_decode(str_pad(strtr($data, '-_', '+/'), strlen($data) % 4, '=', STR_PAD_RIGHT));
+}
