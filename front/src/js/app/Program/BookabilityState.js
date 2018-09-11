@@ -19,8 +19,8 @@
  * </[*]>
  */
 define(
-    ['jquery', 'lodash', 'api'],
-    function dependencies($, _, TKTApi) {
+    ['jquery', 'lodash', 'async', 'api'],
+    function dependencies($, _, async, TKTApi) {
 
     const MIN_SEATS_OCCUPATION = 90;
 
@@ -52,17 +52,30 @@ define(
                 return $(i).attr('data-bookability-ids').split(',');
             })));
 
-            TKTApi.getScreeningsInfo(ids, (err, status, rsp) => {
-                if (err)
-                    return;
+            let map = {};
 
-                let map = {};
-                _.each(rsp, (s) => {
-                    map[s._id] = {
-                        seats: s.seats,
-                        sold_here: _.keys(s.pricings).length > 0
-                    }
-                });
+            const chunks = _.chunk(ids, 150);
+            const tasks  = _.map(chunks, (ids) => {
+                return (done) => {
+                    TKTApi.getScreeningsInfo(ids, (err, status, rsp) => {
+                        if (err)
+                            return done(err);
+
+                        _.each(rsp, (s) => {
+                            map[s._id] = {
+                                seats: s.seats,
+                                sold_here: _.keys(s.pricings).length > 0
+                            }
+                        });
+
+                        return done(/*err*/null);
+                    });
+                };
+            });
+
+            async.parallel(tasks, (err, results) => {
+                if (err)
+                    return err;
 
                 _.each(items, (i) => {
                     let ids = $(i).attr('data-bookability-ids').split(',');
@@ -79,6 +92,8 @@ define(
                     }));
 
                     switch (state) {
+                        case STATE_NOT_SOLD_HERE:
+                            return;
                         case STATE_NOT_BOOKABLE:
                             return $(i).addClass('not-bookable');
                         case STATE_ALMOST_NOT_BOOKABLE:
