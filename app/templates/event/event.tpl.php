@@ -35,6 +35,9 @@ if (!empty($e->opaque('description'))) {
 $ids = array_map(function ($s) {
     return $s->_id();
 }, $e->screenings());
+
+$images_width  = TKTApp::get_instance()->get_config('images.dimensions.big.width');
+$images_height = TKTApp::get_instance()->get_config('images.dimensions.big.height');
 ?>
 <div class="tkt_event">
 
@@ -50,7 +53,7 @@ $ids = array_map(function ($s) {
                 class="tkt-event-carousel-trailer"
                 data-component="Media/YoutubeVideo"
                 data-video-id="<?= yt_video_id($t->url) ?>"
-                data-video-image="<?= $t->image ?>"
+                data-video-image="<?= img_proxy_url($t->image, $images_width, $images_height) ?>"
                 data-bs4-carousel-id="event-carousel">
               </div>
             </div>
@@ -58,7 +61,7 @@ $ids = array_map(function ($s) {
           <?php endforeach; ?>
           <?php foreach ($e->posters() as $i => $p) : ?>
           <div class="carousel-item <?= count($e->trailers()) == 0 && $i == 0 ? 'active' : '' ?>">
-            <img style="max-width: 924px" class="d-block w-100" src="<?= $p->url ?>" alt="<?= $e->localized_title_or_original('fr') ?>">
+            <img style="max-width: 924px" class="d-block w-100" src="<?= img_proxy_url($p->url, $images_width, $images_height) ?>" alt="<?= $e->localized_title_or_original('fr') ?>">
           </div>
           <?php endforeach; ?>
         </div>
