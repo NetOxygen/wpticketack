@@ -56,7 +56,7 @@
 
 <div class="row">
     <div class="col finish-cart-wrapper">
-        <a href="<%= cart.validate_cart_url %>" class="button finish-cart-btn active">
+        <a href="<%= validate_cart_url %>" class="button finish-cart-btn active">
             Finaliser ma commande
         </a>
     </div>
