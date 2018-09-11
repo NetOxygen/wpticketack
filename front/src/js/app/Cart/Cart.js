@@ -63,7 +63,8 @@ define(
             this.$container.html(Template.render('tkt-cart-table-tpl', {
                 cart: this.cart,
                 program_url: config.get('program_url'),
-                cart_reset_url: config.get('cart_reset_url')
+                cart_reset_url: config.get('cart_reset_url'),
+                validate_cart_url: this.cart.validate_cart_url + '?PHPSESSID=' + TKTApi.session_id
             }));
         },
 
