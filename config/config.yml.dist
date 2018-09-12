@@ -1,6 +1,10 @@
 # NOTE: keep in sync with app/helpers/config.class.php
 CONFIG_VERSION: 2018091101
 
+assets:
+    # Useful to bump cache
+    version: 1
+
 ticketack:
     # the Ticketack Engine URI.
     engine_uri: https://demo-engine.ticketack.com

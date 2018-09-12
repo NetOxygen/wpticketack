@@ -4,6 +4,7 @@ const sass        = require('gulp-sass');
 const babel       = require('gulp-babel');
 const Server      = require('karma').Server;
 const sourcemaps  = require('gulp-sourcemaps');
+const rename      = require('gulp-rename');
 const image       = require('gulp-image');
 const concat      = require('gulp-concat');
 const uglify      = require('gulp-uglify');
@@ -83,6 +84,9 @@ gulp.task('babel:watch', () =>
 );
 gulp.task('copy-require', () => {
     gulp.src(nm_dir + '/requirejs/require.js')
+        .pipe(uglify())
+        .pipe(sourcemaps.write('.'))
+        .pipe(rename({ suffix: '.min' }))
         .pipe(gulp.dest(dirs.js_dest));
 });
 
