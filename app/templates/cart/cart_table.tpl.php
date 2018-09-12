@@ -14,7 +14,7 @@
 <div class="row">
     <div class="col">
         <h3 class="empty-cart-title">
-            Votre panier est vide
+            <?= t('Votre panier est vide') ?>
         </h3>
     </div>
 </div>
