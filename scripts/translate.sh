@@ -29,7 +29,7 @@ if [ ! -f $MSGPO ]; then
 fi
 sed -i 's/CHARSET/UTF-8/' $MSGPO
 find $PROJECTDIR/ -iname '*.php' -exec \
-	xgettext --no-location --from-code=UTF-8 --language=PHP -j -o $MSGPO '{}' \;
+	xgettext --keyword=t --no-location --from-code=UTF-8 --language=PHP -j -o $MSGPO '{}' \;
 
 echo "===> Merging old pot file with new pot file"
 msgmerge $MSG_OLD_PO $MSGPO --output-file=$MSGPO
