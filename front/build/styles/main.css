@@ -1,4 +1,4 @@
-/* Built on Wed Sep 12 2018 09:30:01 GMT+0200 (CEST) */ 
+/* Built on Wed Sep 12 2018 11:15:44 GMT+0200 (CEST) */ 
 .dark {
   color: #000; }
 
@@ -59,7 +59,7 @@ input::-webkit-inner-spin-button {
 
 .button:hover {
   border-color: #000;
-  color: #000; }
+  color: #fff; }
 
 .tkt-cart .empty-cart-title {
   text-align: center; }
