@@ -1,0 +1,178 @@
+# Translation of WP Ticketack.
+# Copyright (C) 2018 Net Oxygen Sàrl
+# This file is distributed under the same license as the wpticketack package.
+#  <dev@b-alidra.com>, 2018.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: wpticketack 1.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-09-12 10:25+0200\n"
+"PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Belkacem Alidra <dev@b-alidra.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Prénom"
+msgstr ""
+
+msgid "Votre prénom"
+msgstr ""
+
+msgid "Nom"
+msgstr ""
+
+msgid "Votre nom"
+msgstr ""
+
+msgid "Numéro postal"
+msgstr ""
+
+msgid "NPA"
+msgstr ""
+
+msgid "Ville"
+msgstr ""
+
+msgid "Adresse"
+msgstr ""
+
+msgid "Votre adresse"
+msgstr ""
+
+msgid "Pays"
+msgstr ""
+
+msgid "Âge"
+msgstr ""
+
+msgid "Genre"
+msgstr ""
+
+msgid "* ces champs sont requis"
+msgstr ""
+
+msgid "Ajouter au panier"
+msgstr ""
+
+msgid "Tarifs :"
+msgstr ""
+
+msgid "Veuillez choisir la date désirée :"
+msgstr ""
+
+msgid ""
+"Entrez le nombre de place(s) que vous souhaitez ajouter à votre panier :"
+msgstr ""
+
+msgid "Ajouter à mon panier"
+msgstr ""
+
+msgid "Vous avez un abonnement ?"
+msgstr ""
+
+msgid "Connectez-vous"
+msgstr ""
+
+msgid "pour réserver."
+msgstr ""
+
+msgid "Acheter"
+msgstr ""
+
+msgid "un abonnement."
+msgstr ""
+
+msgid "Numéro"
+msgstr ""
+
+msgid "Clé"
+msgstr ""
+
+msgid "Me connecter"
+msgstr ""
+
+msgid ""
+"Vous ne pouvez pas réserver de place pour cette séance avec votre abonnement."
+msgstr ""
+
+msgid "Réserver une place sur mon abonnement"
+msgstr ""
+
+msgid "Afficher mes réservations"
+msgstr ""
+
+msgid "Achats"
+msgstr ""
+
+msgid "Réservé jusqu'à"
+msgstr ""
+
+msgid "Prix"
+msgstr ""
+
+msgid "Finaliser ma commande"
+msgstr ""
+
+msgid "Annuler"
+msgstr ""
+
+msgid "ma commande"
+msgstr ""
+
+msgid "Continuer"
+msgstr ""
+
+msgid "mes réservations"
+msgstr ""
+
+msgid ""
+"Aucuné séance programmée actuellement, revenez nous visiter prochainement."
+msgstr ""
+
+msgid "Plus d'informations"
+msgstr ""
+
+msgid "Billets"
+msgstr ""
+
+msgid "Il ne reste que quelques places"
+msgstr ""
+
+msgid "Complet"
+msgstr ""
+
+msgid ""
+"Aucun événement programmé actuellement, revenez nous visiter prochainement."
+msgstr ""
+
+msgid "Il ne reste que quelques places !"
+msgstr ""
+
+msgid "Complet !"
+msgstr ""
+
+msgid "Me déconnecter"
+msgstr ""
+
+msgid "Connectez-vous !"
+msgstr ""
+
+msgid "un abonnement"
+msgstr ""
+
+msgid "Pas de réponse"
+msgstr ""
+
+msgid "Féminin"
+msgstr ""
+
+msgid "Masculin"
+msgstr ""
+
+msgid "Autre"
+msgstr ""

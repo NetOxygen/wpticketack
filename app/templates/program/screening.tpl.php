@@ -61,7 +61,7 @@ $image_url     = img_proxy_url($s->first_poster()->url, $images_width, $images_h
         <div class="col">
           <span class="more-infos">
             <a href="">
-              Plus d'informations
+              <?= t('Plus d\'informations') ?>
             </a>
           </span>
         </div>
@@ -74,10 +74,10 @@ $image_url     = img_proxy_url($s->first_poster()->url, $images_width, $images_h
             <a
               class="show-if-bookable show-if almost-not-bookable"
               href="<?= screening_book_url($e) ?>">
-              Billets <span class="screening-complete"></span>
+              <?= t('Billets') ?> <span class="screening-complete"></span>
             </a>
-            <span class="show-if-almost-not-bookable screening-complete">Il ne reste que quelques places</span>
-            <span class="show-if-not-bookable screening-complete">Complet</span>
+            <span class="show-if-almost-not-bookable screening-complete"><?= t('Il ne reste que quelques places') ?></span>
+            <span class="show-if-not-bookable screening-complete"><?= t('Complet') ?></span>
           </span>
         </div>
       </div>

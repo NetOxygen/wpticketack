@@ -3,6 +3,8 @@
  * Plugin Name: Ticketack
  * Plugin URI: https://ticketack.com
  * Description: Ticketack integration
+ * Text Domain: wpticketack
+ * Domain Path: /app/locales
  * Version: 1.0.0
  * Author: Net Oxygen Sàrl
  * Author URI: https://netoxygen.ch
@@ -42,6 +44,7 @@ $app->register_action('AdminMenuAction', 'admin_menu.class.php');
 $app->register_action('AdminSettingsAction', 'admin_settings.class.php');
 $app->register_action('AssetsAction', 'assets.class.php');
 $app->register_action('SyncPostsAction', 'sync_posts.class.php');
+$app->register_action('TranslationAction', 'translation.class.php');
 $app->register_shortcode('ProgramShortcode', 'program.class.php');
 $app->register_shortcode('EventShortcode', 'event.class.php');
 $app->register_shortcode('CartShortcode', 'cart.class.php');
