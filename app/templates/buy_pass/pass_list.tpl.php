@@ -35,7 +35,7 @@ $types = $data->tickettypes;
             <div class="panel-body">
               <p><?= nl2br(html($tickettype->description(LANG))) ?></p>
               <input type="hidden" class="required-fields" id="<?= $tickettype->_id().'-fields' ?>" value="<?= implode(',', $tickettype->required_fields()) ?>"
-              <b><?= _('Tarifs :') ?></b>
+              <b><?= t('Tarifs :') ?></b>
               <?php foreach ($tickettype->pricings() as $key => $pricing) :?>
                 <div class="radio">
                   <label>

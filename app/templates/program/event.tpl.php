@@ -78,7 +78,7 @@ $image_url     = img_proxy_url($e->first_poster()->url, $images_width, $images_h
         <div class="col">
           <span class="more-infos">
             <a href="<?= event_details_url($e) ?>">
-              Plus d'informations
+              <?= t('Plus d\'informations') ?>
             </a>
           </span>
         </div>
@@ -91,15 +91,15 @@ $image_url     = img_proxy_url($e->first_poster()->url, $images_width, $images_h
             <a
               class="show-if-not-bookable d-none"
               href="<?= event_details_url($e) ?>">
-              Billets <span class="event-complete"></span>
+              <?= t('Billets') ?> <span class="event-complete"></span>
             </a>
             <a
               class="show-if-bookable show-if-almost-not-bookable"
               href="<?= event_book_url($e) ?>">
-              Billets <span class="event-complete"></span>
+              <?= t('Billets') ?> <span class="event-complete"></span>
             </a>
-            <div class="show-if-almost-not-bookable assertive d-none">Il ne reste que quelques places !</div>
-            <div class="show-if-not-bookable assertive d-none">Complet !</div>
+            <div class="show-if-almost-not-bookable assertive d-none"><?= t('Il ne reste que quelques places !') ?></div>
+            <div class="show-if-not-bookable assertive d-none"><?= t('Complet !') ?></div>
           </span>
         </div>
       </div>

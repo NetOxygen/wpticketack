@@ -24,24 +24,24 @@
                     <span class="dark"><%= [ticket.contact.firstname, ticket.contact.lastname].join(' ') %></span>
                 </div>
                 <button class="button button-small button-invert disconnect-btn">
-                    Me déconnecter
+                    <?= t('Me déconnecter') ?>
                 </button>
             </div>
         </div>
         <% } else { %>
         <div class="connect-panel">
-            <span class="dark">Vous avez un abonnement ?</span>
-            <span class="dark">Connectez-vous !</span>
+            <span class="dark"><?= t('Vous avez un abonnement ?') ?></span>
+            <span class="dark"><?= t('Connectez-vous !') ?></span>
 
             <div class="row">
                 <div class="col">
-                    <input type="text" class="input input-invert text-center pass-number-input" placeholder="Numéro"/>
+                    <input type="text" class="input input-invert text-center pass-number-input" placeholder="<?= t('Numéro') ?>"/>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col">
-                    <input type="password" class="input input-invert text-center pass-key-input" placeholder="Clé"/>
+                    <input type="password" class="input input-invert text-center pass-key-input" placeholder="<?= t('Clé') ?>"/>
                 </div>
             </div>
 
@@ -49,13 +49,13 @@
                 <div class="col text-right">
                     <div class="error pass-error d-none"></div>
                     <button class="button button-small button-invert connect-btn">
-                        Me connecter
+                        <?= t('Me connecter') ?>
                     </button>
                 </div>
             </div>
 
             <span class="dark">
-            <a href="<?= buy_pass_url() ?>">Acheter</a> un abonnement
+            <a href="<?= buy_pass_url() ?>"><?= t('Acheter') ?></a> <?= t('un abonnement') ?>
             </span>
         </div>
         <% } %>

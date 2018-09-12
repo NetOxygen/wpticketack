@@ -16,10 +16,10 @@
         </h3>
         <div class="float-right text-right">
             <a href="<%= cart_url %>" class="button show-cart-btn active" >
-                Accéder au panier
+                <?= t('Accéder au panier') ?>
             </a>
             <div class="continue-shopping" >
-                <a href="<%= program_url %>">Continuer</a> ma visite
+                <a href="<%= program_url %>"><?= t('Continuer') ?></a> <?= t('ma visite') ?>
             </div>
         </div>
     </div>

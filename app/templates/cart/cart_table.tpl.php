@@ -24,9 +24,9 @@
         <table class="tkt-cart-table">
             <thead>
                 <tr>
-                    <th scope="col">Achats</th>
-                    <th scope="col">Réservé jusqu'à</th>
-                    <th scope="col">Prix</th>
+                    <th scope="col"><?= t('Achats') ?></th>
+                    <th scope="col"><?= t('Réservé jusqu\'à') ?></th>
+                    <th scope="col"><?= t('Prix') ?></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -57,7 +57,7 @@
 <div class="row">
     <div class="col finish-cart-wrapper">
         <a href="<%= validate_cart_url %>" class="button finish-cart-btn active">
-            Finaliser ma commande
+            <?= t('Finaliser ma commande') ?>
         </a>
     </div>
 </div>
@@ -65,7 +65,7 @@
 <div class="row">
     <div class="col cancel-order-wrapper">
         <div class="cancel-order" >
-            <a href="" class="tkt-reset-cart-btn">Annuler</a> ma commande
+            <a href="" class="tkt-reset-cart-btn"><?= t('Annuler') ?></a> <?= t('ma commande') ?>
         </div>
     </div>
 </div>
@@ -73,7 +73,7 @@
 <div class="row">
     <div class="col continue-shopping-wrapper">
         <div class="continue-shopping" >
-            <a href="<%= program_url %>">Continuer</a> mes réservations
+            <a href="<%= program_url %>"><?= t('Continuer') ?></a> <?= t('mes réservations') ?>
         </div>
     </div>
 </div>

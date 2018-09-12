@@ -12,7 +12,7 @@
 <div class="row">
     <div class="col col-md-auto">
         <span class="dates-title assertive">
-            Veuillez choisir la date désirée :
+            <?= t('Veuillez choisir la date désirée :') ?>
         </span>
     </div>
     <div class="col">
