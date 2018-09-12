@@ -56,7 +56,7 @@ define( [
             userdata.no_photo = true;
             TKTApi.addPassToCart(type, 'fullprice', userdata, (err, status, rsp) => {
                 if (err)
-                    return this.show_err('Une erreur est survenue');
+                    return this.show_error('Une erreur est survenue');
 
                 postal.publish({
                     channel: "cart",
