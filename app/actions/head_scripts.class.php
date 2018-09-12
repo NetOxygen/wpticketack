@@ -34,7 +34,7 @@ class HeadScriptsAction extends TKTAction
         echo '
         <script>
             var require = {
-                urlArgs: "v=1",
+                urlArgs: "v='.$app->get_config('assets.version').'",
                 config: {
                     "assets": {
                         version: "1",
@@ -54,7 +54,7 @@ class HeadScriptsAction extends TKTAction
                 }
             };
         </script>
-        <script src="/wp-content/plugins/wpticketack/front/build/js/require.js"></script>
+        <script src="/wp-content/plugins/wpticketack/front/build/js/require.min.js"></script>
         <script>
             if (typeof jQuery === "function") {
                 define("jquery", function () { return jQuery; });
