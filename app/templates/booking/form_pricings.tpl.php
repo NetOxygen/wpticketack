@@ -16,7 +16,7 @@
             </span>
         </div>
     </div>
-    <% _.mapObject(screening.pricings, (p, key) => { %>
+    <% _.mapKeys(screening.pricings, (p, key) => { %>
     <div class="row pricing-row">
         <div class="col col-md-3">
             <span class="pricing-name">
