@@ -41,12 +41,12 @@ $upload_dir   = wp_upload_dir();
 $poster_url   = $upload_dir['url'].'/'.basename($first_poster->url);
 ?>
 
-<h2>
-  <?= strtoupper($e->opaque()['genre']) ?>
-</h2>
 <h3>
   <strong><?= strtoupper($date_title) ?></strong><p>&nbsp;</p>
 </h3>
+<h2>
+  <?= strtoupper($e->opaque()['genre']) ?>
+</h2>
 <?php if (!empty($e->opaque('free_text_1'))) : ?>
 <div>
   <?= $e->opaque('free_text_1')['fr'] ?><p>&nbsp;</p>
@@ -55,13 +55,16 @@ $poster_url   = $upload_dir['url'].'/'.basename($first_poster->url);
 <div>
   <?= $description ?><p>&nbsp;</p>
 </div>
+<?php if ($e->opaque('type') == 'music_group') : ?>
+<div>
+  <a href="<?= event_book_url($e) ?>" alt="$e->localized_title_or_original('fr')">BILLETS</a>
+</div>
+<?php endif; ?>
+<div>
+  <a href="<?= event_details_url($e) ?>" alt="$e->localized_title_or_original('fr')">PLUS D'INFORMATIONS</a>
+</div>
+<br/>
 <div>
   <?= $e->opaque('free_text_2')['fr'] ?><p>&nbsp;</p>
-</div>
-<div>
-<a href="<?= event_book_url($e) ?>" alt="$e->localized_title_or_original('fr')">Billets</a>
-</div>
-<div>
-<a href="<?= event_details_url($e) ?>" alt="$e->localized_title_or_original('fr')">En savoir plus</a>
 </div>
 <!--more-->
