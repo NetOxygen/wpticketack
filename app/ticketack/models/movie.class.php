@@ -67,8 +67,22 @@ class Movie extends TKTModel implements JsonSerializable
         return $this->updated_at;
     }
 
-    public function opaque()
+    /**
+     * Access opaque fields
+     *
+     * @param string $field: Field name, optional
+     * @param mixed $default: Default value if $field is
+     *                        provided but not found
+     *
+     * @return mixed: All the opaque fields if $field is not provided,
+     *                opaque $field value otherwise.
+     */
+    public function opaque($field = null, $default = null)
     {
+        if (!is_null($field)) {
+            return isset($this->opaque[$field]) ? $this->opaque[$field] : $default;
+        }
+
         return $this->opaque;
     }
 

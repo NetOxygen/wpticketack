@@ -158,12 +158,12 @@ class Event extends TKTModel implements JsonSerializable
     {
         $posters = [];
         if (is_array($this->opaque) && isset($this->opaque['posters'])) {
-            $posters = array_filter($this->opaque['posters'], function ($poster) {
+            $posters = array_values(array_filter($this->opaque['posters'], function ($poster) {
                 if (is_array($poster) && array_key_exists('url', $poster)) {
                     return preg_match(Screening::POSTER_REGEXP, $poster['url']);
                 }
                 return false;
-            });
+            }));
         }
 
         // Fallback on screenings posters

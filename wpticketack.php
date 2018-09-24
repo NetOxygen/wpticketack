@@ -47,6 +47,7 @@ $app->register_action('SyncPostsAction', 'sync_posts.class.php');
 $app->register_action('TranslationAction', 'translation.class.php');
 $app->register_shortcode('ProgramShortcode', 'program.class.php');
 $app->register_shortcode('EventShortcode', 'event.class.php');
+$app->register_shortcode('ScreeningShortcode', 'screening.class.php');
 $app->register_shortcode('CartShortcode', 'cart.class.php');
 $app->register_shortcode('CartIconShortcode', 'cart_icon.class.php');
 $app->register_shortcode('FilterShortcode', 'filter.class.php');
