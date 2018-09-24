@@ -109,13 +109,20 @@ function assets_url($path)
 /**
  * Get the Program page url
  *
+ * @param string $query
+ *
  * @return string
  */
-function program_url()
+function program_url($query = "")
 {
+    $path = TKTApp::get_instance()->get_config('pages.program');
+    if (!empty($query)) {
+        $path .= '?'.$query;
+    }
+
     return get_site_url(
         /*$blog_id*/null,
-        TKTApp::get_instance()->get_config('pages.program')
+        /*$path*/$path
     );
 }
 

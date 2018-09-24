@@ -75,6 +75,14 @@ class Screening extends TKTModel implements JsonSerializable
     }
 
     /**
+     * scope filtering screenings on start_at values.
+     */
+    public static function scope_start_at_lte($req, $when)
+    {
+        return $req->query('start_at_lte', _datetime_to_iso8601($when));
+    }
+
+    /**
      * scope filtering screenings on fims _ids
      */
     public static function scope_with_films($req, $films_ids)

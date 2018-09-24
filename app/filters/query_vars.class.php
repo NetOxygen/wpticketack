@@ -21,6 +21,7 @@ class QueryVarsFilter extends TKTFilter
     {
         array_push($args, 'id');
         array_push($args, 'book');
+        array_push($args, 'd');
 
         return $args;
     }

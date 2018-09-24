@@ -51,6 +51,7 @@ $app->register_shortcode('ScreeningShortcode', 'screening.class.php');
 $app->register_shortcode('CartShortcode', 'cart.class.php');
 $app->register_shortcode('CartIconShortcode', 'cart_icon.class.php');
 $app->register_shortcode('FilterShortcode', 'filter.class.php');
+$app->register_shortcode('DaysFilterShortcode', 'days_filter.class.php');
 $app->register_shortcode('UserConnectShortcode', 'user_connect.class.php');
 $app->register_shortcode('BuyPassShortcode', 'buy_pass.class.php');
 

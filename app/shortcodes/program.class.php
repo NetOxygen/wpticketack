@@ -33,11 +33,22 @@ class ProgramShortcode extends TKTShortcode
     {
         $layout = isset($atts['layout']) ? $atts['layout'] : static::SCREENINGS_LAYOUT;
 
+        $day = get_query_var('d');
+
         try {
-            $screenings = Screening::all()
+            $query = Screening::all()
                 ->in_the_future()
-                ->order_by_start_at()
-                ->get('_id,title,start_at,stop_at,cinema_hall.name,films,opaque');
+                ->order_by_start_at();
+
+            if (!empty($day)) {
+                $min   = _iso8601_to_datetime($day.'T00:00:00Z');
+                $max   = _iso8601_to_datetime($day.'T23:59:59Z');
+                $query = $query
+                    ->start_at_gte($min)
+                    ->start_at_lte($max);
+            }
+
+            $screenings = $query->get('_id,title,start_at,stop_at,cinema_hall.name,films,opaque');
 
             switch ($layout) {
                 case static::SCREENINGS_LAYOUT:
