@@ -199,6 +199,46 @@ function event_book_url($event)
 }
 
 /**
+ * Get a screening details url
+ *
+ * @param Event $screening
+ *
+ * @return string
+ */
+function screening_details_url($screening)
+{
+    return get_site_url(
+        /*$blog_id*/null,
+        sprintf(
+            "%s/%s_%s",
+            TKTApp::get_instance()->get_config('pages.screening'),
+            $screening->_id(),
+            sanitize_title($screening->title('original'))
+        )
+    );
+}
+
+/**
+ * Get a screening book url
+ *
+ * @param Event $screening
+ *
+ * @return string
+ */
+function screening_book_url($screening)
+{
+    return get_site_url(
+        /*$blog_id*/null,
+        sprintf(
+            "%s/%s_%s/book",
+            TKTApp::get_instance()->get_config('pages.screening'),
+            $screening->_id(),
+            sanitize_title($screening->title('original'))
+        )
+    );
+}
+
+/**
  * Extract a Youtube video ID from an URL
  * See https://gist.github.com/ghalusa/6c7f3a00fd2383e5ef33
  *
