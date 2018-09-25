@@ -33,7 +33,9 @@ class DaysFilterShortcode extends TKTShortcode
             _iso8601_to_datetime($atts['max_start_at']) :
             _iso8601_to_datetime(date('now'));
 
-        $days = [];
+        $active = get_query_var('d');
+
+        $days    = [];
         $current = clone($min);
         while ($current < $max) {
             array_push($days, clone($current));
@@ -43,7 +45,8 @@ class DaysFilterShortcode extends TKTShortcode
         return TKTTemplate::render(
             'program/days_filter',
             (object)[
-                "days" => $days
+                "days"   => $days,
+                "active" => $active
             ]
         );
     }

@@ -4,11 +4,13 @@
  *
  * Input:
  * $data: {
- *   "days": [ Datetime, Datetime, ... ]
+ *   "days": [ Datetime, Datetime, ... ],
+ *   "active": "2018-09-25" or null
  * }
  */
 
-$days = $data->days;
+$days       = $data->days;
+$active     = $data->active;
 $query_mask = 'd=%s';
 ?>
 
@@ -18,7 +20,7 @@ $query_mask = 'd=%s';
     <div class="col">
         <ul>
             <?php foreach ($days as $day) : ?>
-            <li class="tkt-day-filter">
+            <li class="tkt-day-filter <?= $active == $day->format('Y-m-d') ? 'active' : '' ?>">
                 <a href="<?= program_url(sprintf($query_mask, $day->format('Y-m-d'))) ?>">
                     <span class="tkt-day-filter-day">
                         <?= strftime('%a', $day->getTimestamp()) ?>
