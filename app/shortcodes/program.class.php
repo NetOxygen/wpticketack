@@ -31,7 +31,8 @@ class ProgramShortcode extends TKTShortcode
      */
     public function run($atts, $content)
     {
-        $layout = isset($atts['layout']) ? $atts['layout'] : static::SCREENINGS_LAYOUT;
+        $layout      = isset($atts['layout']) ? $atts['layout'] : static::SCREENINGS_LAYOUT;
+        $section_ids = isset($atts['section_ids']) ? $atts['section_ids'] : null;
 
         $day = get_query_var('d');
 
@@ -46,6 +47,10 @@ class ProgramShortcode extends TKTShortcode
                 $query = $query
                     ->start_at_gte($min)
                     ->start_at_lte($max);
+            }
+
+            if (!empty($section_ids)) {
+                $query = $query->in_movie_sections(explode(',', $section_ids));
             }
 
             $screenings = $query->get('_id,title,start_at,stop_at,cinema_hall.name,films,opaque');
