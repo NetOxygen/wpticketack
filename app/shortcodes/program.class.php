@@ -10,8 +10,11 @@
  */
 class ProgramShortcode extends TKTShortcode
 {
-    const SCREENINGS_LAYOUT = 'screenings';
-    const EVENTS_LAYOUT     = 'events';
+    const LIST_TEMPLATE      = 'list';
+    const GRID_TEMPLATE      = 'grid';
+    const SCREENINGS_LAYOUT  = 'screenings';
+    const EVENTS_LAYOUT      = 'events';
+    const DEFAULT_ITEM_WIDTH = 12;
 
     /**
      * Get this Shortcode tag
@@ -31,8 +34,10 @@ class ProgramShortcode extends TKTShortcode
      */
     public function run($atts, $content)
     {
+        $template    = isset($atts['template']) ? $atts['template'] : static::LIST_TEMPLATE;
         $layout      = isset($atts['layout']) ? $atts['layout'] : static::SCREENINGS_LAYOUT;
         $section_ids = isset($atts['section_ids']) ? $atts['section_ids'] : null;
+        $item_width  = isset($atts['item_width']) ? intval($atts['item_width']) : static::DEFAULT_ITEM_WIDTH;
 
         $day = get_query_var('d');
 
@@ -58,8 +63,11 @@ class ProgramShortcode extends TKTShortcode
             switch ($layout) {
                 case static::SCREENINGS_LAYOUT:
                     return TKTTemplate::render(
-                        'program/screenings',
-                        (object)[ 'screenings' => $screenings ]
+                        'program/'.$template.'/screenings',
+                        (object)[
+                            'screenings' => $screenings,
+                            'item_width' => $item_width
+                        ]
                     );
 
                 case static::EVENTS_LAYOUT:
@@ -74,8 +82,11 @@ class ProgramShortcode extends TKTShortcode
                     }
 
                     return TKTTemplate::render(
-                        'program/events',
-                        (object)[ 'events' => $events ]
+                        'program/'.$template.'/events',
+                        (object)[
+                            'events' => $events,
+                            'item_width' => $item_width
+                        ]
                     );
             }
         } catch (TKTApiException $e) {

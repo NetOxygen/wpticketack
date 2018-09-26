@@ -16,7 +16,7 @@
   <?php else: ?>
     <?php foreach ($data->screenings as $screening) : ?>
     <div class="tkt_program_screening">
-        <?= TKTTemplate::render('program/screening', (object)[ 'screening' => $screening ]) ?>
+        <?= TKTTemplate::render('program/list/screening', (object)[ 'screening' => $screening ]) ?>
     </div>
     <?php endforeach; ?>
   <?php endif; ?>
