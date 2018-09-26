@@ -39,6 +39,7 @@ $app->register_filter('RewriteFilter', 'rewrite.class.php');
 $app->register_filter('QueryVarsFilter', 'query_vars.class.php');
 $app->register_filter('FlushRewriteFilter', 'flush_rewrite.class.php');
 $app->register_filter('MailpoetFilter', 'mailpoet.class.php');
+$app->register_filter('BodyClassFilter', 'body_class.class.php');
 $app->register_action('HeadScriptsAction', 'head_scripts.class.php');
 $app->register_action('AdminMenuAction', 'admin_menu.class.php');
 $app->register_action('AdminSettingsAction', 'admin_settings.class.php');
