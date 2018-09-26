@@ -16,7 +16,7 @@
   <?php else: ?>
     <?php foreach ($data->events as $event) : ?>
     <div class="tkt_program_event" data-type="<?= $event->opaque('type') ?>">
-        <?= TKTTemplate::render('program/event', (object)[ 'event' => $event ]) ?>
+        <?= TKTTemplate::render('program/list/event', (object)[ 'event' => $event ]) ?>
     </div>
     <?php endforeach; ?>
   <?php endif; ?>
