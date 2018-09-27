@@ -410,3 +410,12 @@ function base64url_decode($data)
 function t($str) {
     return __($str, 'wpticketack');
 }
+
+
+function get_event_slug($event, $lang)
+{
+    $title = $event->title($lang);
+    $slug  = sanitize_title($title).($lang === SyncHelper::DEFAULT_LANG ? '' : '-'.$lang);
+
+    return $slug;
+}
