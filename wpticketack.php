@@ -12,7 +12,7 @@
  */
 
 date_default_timezone_set('Europe/Zurich');
-setlocale(LC_TIME, 'fr_CH.UTF-8');
+setlocale(LC_TIME, get_locale().'.UTF-8');
 
 define("TKT_BASE", (dirname(__FILE__)));
 define("TKT_CONFIG", (TKT_BASE.'/config'));
