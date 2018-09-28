@@ -54,7 +54,7 @@
         <div class="connect-panel-form d-none">
             <div class="row">
                 <div class="col">
-                    <span class="pass-number"><?= t('Numéro') ?></span>
+                    <span class="pass-number"><?= t('ID') ?></span>
                 </div>
                 <div class="col">
                     <input type="text" class="input pass-number-input"/>
@@ -62,7 +62,7 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <span class="pass-key"><?= t('Clé') ?></span>
+                    <span class="pass-key"><?= t('Code') ?></span>
                 </div>
                 <div class="col">
                     <input type="password" class="input pass-key-input"/>

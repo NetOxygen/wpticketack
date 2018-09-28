@@ -35,13 +35,13 @@
 
             <div class="row">
                 <div class="col">
-                    <input type="text" class="input input-invert text-center pass-number-input" placeholder="<?= t('Numéro') ?>"/>
+                    <input type="text" class="input input-invert text-center pass-number-input" placeholder="<?= t('ID') ?>"/>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col">
-                    <input type="password" class="input input-invert text-center pass-key-input" placeholder="<?= t('Clé') ?>"/>
+                    <input type="password" class="input input-invert text-center pass-key-input" placeholder="<?= t('Code') ?>"/>
                 </div>
             </div>
 
