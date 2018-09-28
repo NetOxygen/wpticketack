@@ -32,6 +32,17 @@ if (!empty($e->opaque('description'))) {
     }
 }
 
+$people     = [];
+$activities = people_activities();
+foreach ($e->opaque('people') as $p) {
+    $activity = isset($activities[strtolower($p['activity'])]) ?
+        $activities[strtolower($p['activity'])][LANG] :
+        $p['activity'];
+    if (!isset($people[$activity])) {
+        $people[$activity] = [];
+    }
+    array_push($people[$activity], $p['fullname']);
+}
 $ids = array_map(function ($s) {
     return $s->_id();
 }, $e->screenings());
@@ -147,6 +158,19 @@ $images_height = TKTApp::get_instance()->get_config('images.dimensions.big.heigh
         </span>
       </div>
     </div>
+  </div>
+
+  <div class="row people-wrapper">
+    <?php foreach ($people as $activity => $p) : ?>
+      <div class="col col-md-6">
+        <div class="activity">
+          <span><?= $activity ?></span>
+        </div>
+        <div class="people">
+            <?= implode(', ', $p) ?>
+        </div>
+      </div>
+    <?php endforeach; ?>
   </div>
 
 </div>

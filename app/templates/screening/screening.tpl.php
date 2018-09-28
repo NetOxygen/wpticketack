@@ -1,24 +1,25 @@
+
 <?php
 /**
- * Program event template
+ * Program screening template
  *
  * Input:
  * $data: {
- *   "event": { ... }
+ *   "screening": { ... }
  * }
  */
 
-$e = $data->event;
+$s = $data->screening;
 
-echo '<!--';
-print_r($e);
-echo '-->';
-$countries = implode(', ', array_map(function ($c) {
-    return $c['name'];
-}, $e->opaque('countries')));
-// FIXME: Get year from Eventival
-$year = 2017;
-$duration = $e->opaque('duration');
+$countries = [];
+foreach ($s->movies() as $m) {
+    $countries = array_merge($countries, array_map(function ($c) {
+        return $c['name'];
+    }, $m->opaque('countries')));
+}
+$countries = implode(', ', $countries);
+$year     = $s->movies()[0]->opaque('year');
+$duration = $s->opaque('duration');
 $first_line_desc = sprintf(
     "%s, %d, %d min",
     $countries,
@@ -26,80 +27,83 @@ $first_line_desc = sprintf(
     $duration
 );
 
-// FIXME Get audio and subtitles from Eventival
-$languages = 'Anglais, français sous-titres anglais, français';
-// FIXME Get free  text 1 from Eventival
-$free_text_1 = 'En présence de Nathan Silver, Damien Bonnard, Chris Wells';
-// FIXME Get subsection from Eventival
-$subsection = 'Première suisse';
+$audio = implode(', ', array_map(function ($l) {
+    return $l[LANG];
+}, $s->movies()[0]->opaque('languages')['audio']));
+$subtitles = implode(', ', array_map(function ($l) {
+    return $l[LANG];
+}, $s->movies()[0]->opaque('languages')['subtitles']));
+$languages = $audio;
+if (!empty($subtitles)) {
+    $languages .= _('sous-titres').' '.$subtitles;
+}
+
+$screening_people = implode(', ', array_map(function ($p) {
+    return $p['fullname'];
+}, $s->opaque('people')));
+$free_text_1 = empty($screening_people) ? "" : sprintf(
+    "%s %s",
+    // FIXME: Use WPML for this
+    LANG == 'fr' ? "En présence de " : "In presence of ",
+    $screening_people
+);
 
 $description = "";
-if (!empty($e->opaque('description'))) {
-    $description = $e->opaque('description')['fr'];
+if (!empty($s->opaque('description'))) {
+    $description = strip_tags($e->opaque('description')[LANG], '<br><em><b><i><u><strong><a><p>');
     if (strip_tags($description) == "") {
         $description = "";
     }
 }
 
-$activities = [
-    "actor"             => "Acteur(s)",
-    "director"          => "Réalisateur(s)",
-    "Editor"            => "Monteur(s)",
-    "music"             => "Musique",
-    "producer"          => "Producteur(s)",
-    "writer"            => "Scénario",
-    "sound"             => "Son",
-    "Production design" => "Design de production"
-];
-$people = [];
-foreach ($e->opaque('people') as $p) {
+$people     = [];
+$activities = people_activities();
+foreach ($s->movies()[0]->opaque('people') as $p) {
     $activity = isset($activities[strtolower($p['activity'])]) ?
-        $activities[strtolower($p['activity'])] :
+        $activities[strtolower($p['activity'])][LANG] :
         $p['activity'];
     if (!isset($people[$activity])) {
         $people[$activity] = [];
     }
     array_push($people[$activity], $p['fullname']);
 }
-$ids = array_map(function ($s) {
-    return $s->_id();
-}, $e->screenings());
+$ids = [$s->_id()];
 
 $images_width  = TKTApp::get_instance()->get_config('images.dimensions.big.width');
 $images_height = TKTApp::get_instance()->get_config('images.dimensions.big.height');
 ?>
-<div class="tkt_event">
+<div class="tkt_screening">
 
   <div class="row">
     <div class="col">
-      <div id="event-carousel" data-component="Media/Carousel">
+      <div id="screening-carousel" data-component="Media/Carousel">
         <div class="carousel-inner">
-          <?php foreach ($e->trailers() as $i => $t) : ?>
+          <?php foreach ($s->trailers() as $i => $t) : ?>
           <div class="carousel-item <?= $i == 0 ? 'active' : '' ?>">
-            <div class="tkt-event-carousel-trailer-wrapper d-block w-100">
+            <div class="tkt-screening-carousel-trailer-wrapper d-block w-100">
               <div
-              id="tkt-event-carousel-trailer-<?= $i ?>"
-                class="tkt-event-carousel-trailer"
+              id="tkt-screening-carousel-trailer-<?= $i ?>"
+                class="tkt-screening-carousel-trailer"
                 data-component="Media/YoutubeVideo"
                 data-video-id="<?= yt_video_id($t->url) ?>"
                 data-video-image="<?= img_proxy_url($t->image, $images_width, $images_height) ?>"
-                data-bs4-carousel-id="event-carousel">
+                data-bs4-carousel-id="screening-carousel">
               </div>
             </div>
           </div>
           <?php endforeach; ?>
-          <?php foreach ($e->posters() as $i => $p) : ?>
-          <div class="carousel-item <?= count($e->trailers()) == 0 && $i == 0 ? 'active' : '' ?>">
-            <img style="max-width: <?= $images_width ?>px" class="d-block w-100" src="<?= img_proxy_url($p->url, $images_width, $images_height) ?>" alt="<?= $e->localized_title_or_original('fr') ?>">
+          <?php foreach ($s->posters() as $i => $p) : ?>
+          <div class="carousel-item <?= count($s->trailers()) == 0 && $i == 0 ? 'active' : '' ?>">
+            <img style="max-width: <?= $images_width ?>px" class="d-block w-100" src="<?= img_proxy_url($p->url, $images_width, $images_height) ?>" alt="<?= $s->localized_title_or_original(LANG) ?>">
           </div>
           <?php endforeach; ?>
         </div>
-        <?php if (count($e->trailers()) + count($e->posters()) > 1) : ?>
-        <a class="carousel-control-prev" href="#event-carousel" role="button" data-slide="prev">
+        <?php if (count($s->trailers()) + count($s->posters()) > 1) : ?>
+        <a class="carousel-control-prev" href="#screening-carousel" role="button" data-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="sr-only">Précédent</span>
         </a>
-        <a class="carousel-control-next" href="#event-carousel" role="button" data-slide="next">
+        <a class="carousel-control-next" href="#screening-carousel" role="button" data-slide="next">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="sr-only">Suivant</span>
         </a>
@@ -108,13 +112,13 @@ $images_height = TKTApp::get_instance()->get_config('images.dimensions.big.heigh
     </div>
   </div>
 
-  <div class="row">
+  <div class="row contentrow">
     <div class="col-sm left-col text-left align-self-start">
 
       <div class="row">
         <div class="col">
           <span class="main_section">
-              <?= $e->section()['name'] ?>
+              <?= $s->opaque('sections')[0]['name'] ?>
           </span>
         </div>
       </div>
@@ -122,7 +126,7 @@ $images_height = TKTApp::get_instance()->get_config('images.dimensions.big.heigh
       <div class="row">
         <div class="col">
           <span class="title">
-            <?= $e->localized_title_or_original('en') ?>
+            <?= $s->localized_title_or_original('en') ?>
           </span>
         </div>
       </div>
@@ -150,23 +154,6 @@ $images_height = TKTApp::get_instance()->get_config('images.dimensions.big.heigh
           </span>
         </div>
       </div>
-
-      <div class="col-sm right-col text-right align-self-start">
-        <div class="row">
-          <div class="col">
-            <span class="follow-us">
-              Follow us
-            </span>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            <span class="subsection">
-              <?= $subsection ?>
-            </span>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 
@@ -192,7 +179,7 @@ $images_height = TKTApp::get_instance()->get_config('images.dimensions.big.heigh
     <div class="col">
       <div class="synopsis">
         <span class="title assertive">
-          <?= $e->localized_title_or_original('fr') ?>
+          <?= $s->localized_title_or_original(LANG) ?>
         </span>
         <span class="text">
             <?= $description ?>
@@ -208,9 +195,10 @@ $images_height = TKTApp::get_instance()->get_config('images.dimensions.big.heigh
           <span><?= $activity ?></span>
         </div>
         <div class="people">
-            <?= implode(',', $p) ?>
+            <?= implode(', ', $p) ?>
         </div>
       </div>
     <?php endforeach; ?>
   </div>
 </div>
+/div>

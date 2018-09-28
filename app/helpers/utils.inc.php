@@ -419,3 +419,35 @@ function get_event_slug($event, $lang)
 
     return $slug;
 }
+
+function people_activities($activity = null, $lang = null)
+{
+    $activities = [
+        "actor"             => ["fr" => "Acteur", "en" => "Actor"],
+        "actors"            => ["fr" => "Acteurs", "en" => "Actors"],
+        "director"          => ["fr" => "Réalisateur", "en" => "Director"],
+        "directors"         => ["fr" => "Réalisateurs", "en" => "Directors"],
+        "Editor"            => ["fr" => "Monteur(s)", "en" => "Editor"],
+        "music"             => ["fr" => "Musique", "en" => "Music"],
+        "producer"          => ["fr" => "Producteur", "en" => "Producer"],
+        "producers"         => ["fr" => "Producteurs", "en" => "Producers"],
+        "writer"            => ["fr" => "Scénario", "en" => "Writer"],
+        "writers"           => ["fr" => "Scénario", "en" => "Writers"],
+        "sound"             => ["fr" => "Son", "en" => "Sound"],
+        "Production design" => ["fr" => "Design de production", "en" => "Production design"]
+    ];
+
+    $ret = $activities;
+
+    if (!is_null($activity)) {
+        $activity = strtolower($activity);
+        $ret      = isset($ret[$activity]) ? $ret[$activity] : null;
+    }
+
+    if (!is_null($lang) && !is_null($ret)) {
+        $lang = strtolower($lang);
+        $ret  = isset($ret[$lang]) ? $ret[$lang] : null;
+    }
+
+    return $ret;
+}
