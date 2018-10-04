@@ -28,7 +28,7 @@ class SyncPostsAction extends TKTAction
 <script type="text/javascript">
   jQuery(document).ready(function ($) {
     var sync_link = $('<a href="{$action_link}" class="page-title-action">Importer depuis Ticketack</a>');
-    $("#wpbody-content > .wrap > a.page-title-action").after(sync_link);
+    $("body.post-type-tkt-event #wpbody-content > .wrap > a.page-title-action").after(sync_link);
   });
 </script>
 JS;
@@ -42,7 +42,7 @@ JS;
     {
         SyncHelper::sync_events();
 
-        wp_redirect("/wp-admin/edit.php");
+        wp_redirect("/wp-admin/edit.php?post_type=tkt-event");
         exit;
     }
 }
