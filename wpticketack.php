@@ -51,6 +51,7 @@ $app->register_action('AdminSettingsAction', 'admin_settings.class.php');
 $app->register_action('AssetsAction', 'assets.class.php');
 $app->register_action('SyncPostsAction', 'sync_posts.class.php');
 $app->register_action('TranslationAction', 'translation.class.php');
+$app->register_action('CustomTypesAction', 'custom_types.class.php');
 $app->register_shortcode('ProgramShortcode', 'program.class.php');
 $app->register_shortcode('EventShortcode', 'event.class.php');
 $app->register_shortcode('ScreeningShortcode', 'screening.class.php');
