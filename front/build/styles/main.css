@@ -1,4 +1,4 @@
-/* Built on Wed Sep 12 2018 15:28:05 GMT+0200 (CEST) */ 
+/* Built on Thu Oct 04 2018 17:38:18 GMT+0200 (CEST) */ 
 .dark {
   color: #000; }
 
@@ -97,7 +97,27 @@ input::-webkit-inner-spin-button {
 .tkt-cart .continue-shopping-wrapper {
   text-align: right; }
 
-#tkt_program .tkt_program_screening, #tkt_program .tkt_program_event {
+#tkt_program ul.tkt-filters {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; }
+  #tkt_program ul.tkt-filters li.tkt-filter:hover .tkt-filter-name, #tkt_program ul.tkt-filters li.tkt-filter.active .tkt-filter-name {
+    background: #791e88; }
+  #tkt_program ul.tkt-filters li.tkt-filter .tkt-filter-name {
+    display: block;
+    background: #000000;
+    color: #FFFFFF;
+    margin: 0 7px;
+    padding: 2px 7px;
+    cursor: pointer; }
+  #tkt_program ul.tkt-filters li.tkt-filter .tkt-filter-date {
+    display: block;
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase; }
+
+#tkt_program .tkt_program_screening, #tkt_program .tkt_program_event, #tkt_program.tkt-gallery .tkt_program_event {
   padding-bottom: 1.1rem; }
   #tkt_program .tkt_program_screening .screening-inner > .row, #tkt_program .tkt_program_event .screening-inner > .row, #tkt_program .tkt_program_event .tkt_program_screening .event-inner > .row, #tkt_program .tkt_program_event .event-inner > .row {
     position: relative;
@@ -155,14 +175,39 @@ input::-webkit-inner-spin-button {
     #tkt_program .tkt_program_screening .screening-inner > .row:first-child, #tkt_program .tkt_program_event .screening-inner > .row:first-child, #tkt_program .tkt_program_event .tkt_program_screening .event-inner > .row:first-child, #tkt_program .tkt_program_event .event-inner > .row:first-child {
       padding-top: 10px; }
 
+#tkt_program.tkt-gallery .tkt_program_screening, #tkt_program.tkt-gallery .tkt_program_event {
+  padding-bottom: 0 !important; }
+  #tkt_program.tkt-gallery .tkt_program_screening .poster-wrapper, #tkt_program.tkt-gallery .tkt_program_event .poster-wrapper {
+    height: 180px;
+    width: 100%; }
+    #tkt_program.tkt-gallery .tkt_program_screening .poster-wrapper img, #tkt_program.tkt-gallery .tkt_program_event .poster-wrapper img {
+      margin: 0 -50%; }
+    #tkt_program.tkt-gallery .tkt_program_screening .poster-wrapper a, #tkt_program.tkt-gallery .tkt_program_event .poster-wrapper a {
+      background-size: cover;
+      background-position: center center;
+      width: 100%;
+      height: 100%; }
+      #tkt_program.tkt-gallery .tkt_program_screening .poster-wrapper a:hover span, #tkt_program.tkt-gallery .tkt_program_event .poster-wrapper a:hover span {
+        display: inherit; }
+      #tkt_program.tkt-gallery .tkt_program_screening .poster-wrapper a span, #tkt_program.tkt-gallery .tkt_program_event .poster-wrapper a span {
+        display: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #FFFFFF;
+        text-shadow: 0 0 4px #000000;
+        text-transform: uppercase;
+        font-size: 20px; }
+
 @media (min-width: 992px) {
-  #tkt_program .tkt_program_screening, #tkt_program .tkt_program_event {
+  #tkt_program .tkt_program_screening, #tkt_program .tkt_program_event, #tkt_program.tkt-gallery .tkt_program_event {
     padding-bottom: 1.5rem; }
     #tkt_program .tkt_program_screening .screening-inner > .row .right-col .tickets, #tkt_program .tkt_program_event .screening-inner > .row .right-col .tickets, #tkt_program .tkt_program_event .tkt_program_screening .event-inner > .row .right-col .tickets, #tkt_program .tkt_program_event .event-inner > .row .right-col .tickets {
       margin-bottom: -0.2rem; } }
 
 @media (max-width: 767px) {
-  #tkt_program .tkt_program_screening, #tkt_program .tkt_program_event {
+  #tkt_program .tkt_program_screening, #tkt_program .tkt_program_event, #tkt_program.tkt-gallery .tkt_program_event {
     margin-bottom: 0.7rem; } }
 
 .tkt_event #event-carousel {
