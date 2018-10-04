@@ -8,17 +8,17 @@
  * }
  */
 
-$e = $data->event;
+$s = $data->screening;
 
-echo '<!--';
-print_r($e);
-echo '-->';
-$countries = implode(', ', array_map(function ($c) {
-    return $c['name'];
-}, $e->opaque('countries')));
-// FIXME: Get year from Eventival
-$year = 2017;
-$duration = $e->opaque('duration');
+$countries = [];
+foreach ($s->movies() as $m) {
+    $countries = array_merge($countries, array_map(function ($c) {
+        return $c['name'];
+    }, $m->opaque('countries')));
+}
+$countries = implode(', ', $countries);
+$year     = $s->movies()[0]->opaque('year');
+$duration = $s->movies()[0]->opaque('duration');
 $first_line_desc = sprintf(
     "%s, %d, %d min",
     $countries,
