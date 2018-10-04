@@ -18,6 +18,8 @@ class ProgramShortcode extends TKTShortcode
     const DEFAULT_ITEM_WIDTH = 12;
     const CHRONO_ORDER 		 = 'chrono';
     const ALPHA_ORDER  		 = 'alpha';
+    const SCREENINGS_FILTER  = 'screenings';
+    const EVENTS_FILTER      = 'events';
 
     /**
      * Get this Shortcode tag
@@ -42,6 +44,7 @@ class ProgramShortcode extends TKTShortcode
         $section_ids = isset($atts['section_ids']) ? $atts['section_ids'] : null;
         $item_width  = isset($atts['item_width']) ? intval($atts['item_width']) : static::DEFAULT_ITEM_WIDTH;
         $order       = isset($atts['order']) ? $atts['order'] : ($layout == static::SCREENINGS_LAYOUT ? static::CHRONO_ORDER : static::ALPHA_ORDER);
+        $top_filter  = isset($atts['top_filter']) ? $atts['top_filter'] : null;
 
         $day = get_query_var('d');
 
@@ -74,7 +77,9 @@ class ProgramShortcode extends TKTShortcode
                         'program/'.$template.'/screenings',
                         (object)[
                             'screenings' => $screenings,
-                            'item_width' => $item_width
+                            'item_width' => $item_width,
+                            'top_filter' => $top_filter,
+                            'top_filter_values' => ($top_filter == static::EVENTS_FILTER ? Event::from_screenings($screenings) : [])
                         ]
                     );
 
@@ -101,7 +106,9 @@ class ProgramShortcode extends TKTShortcode
                         'program/'.$template.'/events',
                         (object)[
                             'events' => $events,
-                            'item_width' => $item_width
+                            'item_width' => $item_width,
+                            'top_filter' => $top_filter,
+                            'top_filter_values' => ($top_filter == static::SCREENINGS_FILTER ? $screenings : [])
                         ]
                     );
             }
