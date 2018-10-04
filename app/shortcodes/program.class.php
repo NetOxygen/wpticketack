@@ -16,6 +16,8 @@ class ProgramShortcode extends TKTShortcode
     const SCREENINGS_LAYOUT  = 'screenings';
     const EVENTS_LAYOUT      = 'events';
     const DEFAULT_ITEM_WIDTH = 12;
+    const CHRONO_ORDER 		 = 'chrono';
+    const ALPHA_ORDER  		 = 'alpha';
 
     /**
      * Get this Shortcode tag
@@ -39,6 +41,7 @@ class ProgramShortcode extends TKTShortcode
         $layout      = isset($atts['layout']) ? $atts['layout'] : static::SCREENINGS_LAYOUT;
         $section_ids = isset($atts['section_ids']) ? $atts['section_ids'] : null;
         $item_width  = isset($atts['item_width']) ? intval($atts['item_width']) : static::DEFAULT_ITEM_WIDTH;
+        $order       = isset($atts['order']) ? $atts['order'] : ($layout == static::SCREENINGS_LAYOUT ? static::CHRONO_ORDER : static::ALPHA_ORDER);
 
         $day = get_query_var('d');
 
@@ -59,6 +62,10 @@ class ProgramShortcode extends TKTShortcode
                 $query = $query->in_movie_sections(explode(',', $section_ids));
             }
 
+            if (static::CHRONO_ORDER == $order) {
+                $query = $query->order_by_start_at();
+            }
+
             $screenings = $query->get('_id,title,start_at,stop_at,cinema_hall.name,films,opaque');
 
             switch ($layout) {
@@ -73,6 +80,14 @@ class ProgramShortcode extends TKTShortcode
 
                 case static::EVENTS_LAYOUT:
                     $events = Event::from_screenings($screenings);
+                    if ($order === static::ALPHA_ORDER) {
+                        usort($events, function ($a, $b) {
+                            return strcmp(
+                                $a->localized_title_or_original(LANG),
+                                $b->localized_title_or_original(LANG)
+                            );
+                        });
+                    }
                     // TODO: We could improve this by filtering the screenings
                     // from the engine
                     if (isset($atts['filter'])) {
