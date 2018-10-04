@@ -12,6 +12,7 @@ class ProgramShortcode extends TKTShortcode
 {
     const LIST_TEMPLATE      = 'list';
     const GRID_TEMPLATE      = 'grid';
+    const GALLERY_TEMPLATE   = 'gallery';
     const SCREENINGS_LAYOUT  = 'screenings';
     const EVENTS_LAYOUT      = 'events';
     const DEFAULT_ITEM_WIDTH = 12;
