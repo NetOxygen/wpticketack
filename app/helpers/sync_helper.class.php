@@ -4,22 +4,33 @@
  */
 class SyncHelper
 {
-    const POST_TYPE    = 'page';
+    const POST_TYPE    = 'tkt-event';
     const DEFAULT_LANG = 'fr';
-    const OTHER_LANGS  = ['en'];
 
     public static function sync_events()
     {
+        ini_set('memory_limit', '512M');
+        ini_set('max_execution_time', 0);
+
+		// First switch to fr
+		switch_to_locale('fr_FR');
+
         $events = static::load_next_events();
 
         if (!empty($events)) {
-            array_map(function ($e) {
+            array_map(function ($e) use ($i) {
                 $def_post_id = static::create_post($e, static::DEFAULT_LANG);
 
-                foreach (static::OTHER_LANGS as $lang) {
-                    $tr_post_id = static::create_post($e, $lang);
-                    static::link_translations($def_post_id, $tr_post_id, $lang);
-                }
+                if (WPML_INSTALLED) {
+					$languages = icl_get_languages('skip_missing=N&orderby=KEY&order=DIR&link_empty_to=str');
+					foreach (array_keys($languages) as $lang) {
+						if ($lang == static::DEFAULT_LANG) {
+							continue;
+						}
+						$tr_post_id = static::create_post($e, $lang);
+						static::link_translations($def_post_id, $tr_post_id, $lang);
+					}
+				}
             }, $events);
         }
     }
@@ -45,7 +56,7 @@ class SyncHelper
 
         $post = [
             "post_title"    => $title,
-            "post_content"  => TKTTemplate::render("event/post", (object)["event" => $event, "lang" => $lang]),
+            "post_content"  => trim(preg_replace('#\R+#', '', TKTTemplate::render("event/post", (object)["event" => $event, "lang" => $lang]))),
             "post_type"     => static::POST_TYPE,
             'post_name'     => $slug,
             "post_status"   => "publish",
@@ -60,7 +71,7 @@ class SyncHelper
 
         // Save post image
         $post_id = wp_insert_post($post);
-        if (count($e->posters) > 0) {
+        if (count($event->posters()) > 0) {
             static::save_event_image($event, $post_id, $lang);
         }
 
@@ -104,27 +115,31 @@ class SyncHelper
 
     protected static function save_event_image($event, $post_id, $lang = 'fr')
     {
-        if (count($event->posters) == 0) {
+        if (count($event->posters()) == 0) {
             return false;
         }
 
-        $poster     = $event->posters[0];
-        $url        = $poster['url'];
+        $poster     = $event->posters()[0];
+        $url        = $poster->url;
         $basename   = basename($url);
         $upload_dir = wp_upload_dir();
         $dest_path  = $upload_dir['path'].'/'.$basename;
         $dest_url   = $upload_dir['url'].'/'.$basename;
-        $mime_type  = 'image/'.pathinfo($dest_path)['extension'];
+        $filetype   = wp_check_filetype($basename, null );
 
         file_put_contents($dest_path, file_get_contents($url));
 
         $attachment = [
            'guid'           => $dest_url,
-           'post_mime_type' => $mime_type,
+           'post_mime_type' => $filetype['type'],
            'post_title'     => $event->localized_title_or_original($lang),
-           'post_content'   => 'Image principale',
+           'post_content'   => '',
            'post_status'    => 'inherit'
         ];
+		$existing_attachment = get_post_meta($post_id, '_thumbnail_id', /*$single*/true);
+		if (!empty($existing_attachment) && intval($existing_attachment) > 0) {
+			$attachment['ID'] = intval($existing_attachment);
+		}
 
         $image_id = wp_insert_attachment($attachment, $dest_path, $post_id);
 

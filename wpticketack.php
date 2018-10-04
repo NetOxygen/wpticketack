@@ -26,6 +26,11 @@ define("TKT_LIB", TKT_APP.'/ticketack');
 define("OVERRIDE_DIR", get_template_directory());
 
 define("LANG", substr(get_locale(), 0, 2));
+if ( function_exists('icl_object_id') ) {
+    define('WPML_INSTALLED', true);
+} else {
+    define('WPML_INSTALLED', false);
+}
 
 // Load Composer autoload
 require_once(TKT_BASE.'/vendor/autoload.php');
