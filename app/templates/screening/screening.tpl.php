@@ -19,7 +19,7 @@ foreach ($s->movies() as $m) {
 }
 $countries = implode(', ', $countries);
 $year     = $s->movies()[0]->opaque('year');
-$duration = $s->opaque('duration');
+$duration = $s->movies()[0]->opaque('duration');
 $first_line_desc = sprintf(
     "%s, %d, %d min",
     $countries,
