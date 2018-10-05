@@ -45,8 +45,7 @@ class ProgramShortcode extends TKTShortcode
         $item_width  = isset($atts['item_width']) ? intval($atts['item_width']) : static::DEFAULT_ITEM_WIDTH;
         $order       = isset($atts['order']) ? $atts['order'] : ($layout == static::SCREENINGS_LAYOUT ? static::CHRONO_ORDER : static::ALPHA_ORDER);
         $top_filter  = isset($atts['top_filter']) ? $atts['top_filter'] : null;
-
-        $day = get_query_var('d');
+        $day         = isset($atts['day']) ? $atts['day'] : get_query_var('d');
 
         try {
             $query = Screening::all()
