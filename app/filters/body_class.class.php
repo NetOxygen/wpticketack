@@ -37,6 +37,10 @@ class BodyClassFilter extends TKTFilter
             }
         }
 
+		if ($post->post_type == 'tkt-event') {
+			$classes[] = 'body_tkt_event';
+		}
+
         return $classes;
     }
 }
