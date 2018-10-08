@@ -18270,7 +18270,7 @@ define('app/main', [
     'components'
 ], function (require) {
     var moment = require('moment');
-    moment.locale('fr');
+    moment.locale(window.moment_locale || 'fr');
     var components = require('components');
     components.attach();
 });
@@ -19187,6 +19187,9 @@ define('app/Booking/Form', [
             TKTApi.getScreeningsInfo(this.ids, function (err, status, rsp) {
                 _this2.data.screenings = rsp.map(function (s) {
                     return new Screening(s);
+                });
+                _this2.data.screenings = _.sortBy(_this2.data.screenings, function (s) {
+                    return s.start_at;
                 });
                 _this2.build_form();
                 _this2.initialized = true;
