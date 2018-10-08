@@ -21922,11 +21922,15 @@ define('app/Pass/BuyForm', [
             TKTApi.addPassToCart(type, pricing, userdata, function (err, status, rsp) {
                 if (err)
                     return _this2.show_error('Une erreur est survenue');
+                _this2.show_success('L\'abonnement a été ajouté à votre panier');
                 postal.publish({
                     channel: 'cart',
                     topic: 'reload'
                 });
             });
+        },
+        show_success: function show_success(msg) {
+            alert(msg);
         },
         show_error: function show_error(msg) {
             alert(msg);

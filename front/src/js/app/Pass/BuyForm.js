@@ -61,11 +61,17 @@ define( [
                 if (err)
                     return this.show_error('Une erreur est survenue');
 
+                this.show_success("L'abonnement a été ajouté à votre panier");
+
                 postal.publish({
                     channel: "cart",
                     topic: "reload"
                 });
             });
+        },
+
+        show_success(msg) {
+            alert(msg);
         },
 
         show_error(msg) {
