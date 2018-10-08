@@ -174,13 +174,18 @@ function cart_reset_url()
  */
 function event_details_url($event)
 {
+	if (WPML_INSTALLED) {
+		$slug = get_event_slug($event, LANG);
+		$page = get_page_by_path($slug, OBJECT, 'tkt-event');
+		return apply_filters('wpml_permalink', get_permalink($page->ID));
+	}
+
     return get_site_url(
         /*$blog_id*/null,
         sprintf(
-            "%s/%s_%s",
-            TKTApp::get_instance()->get_config('pages.event'),
-            $event->_id(),
-            sanitize_title($event->title('original'))
+            '%s/%s',
+            'events',
+  	    get_event_slug($event, LANG)
         )
     );
 }
@@ -189,18 +194,30 @@ function event_details_url($event)
  * Get an event book url
  *
  * @param Event $event
+ * @param Screening $screening: pre-selected screening
  *
  * @return string
  */
-function event_book_url($event)
+function event_book_url($event, $screening = null)
 {
+	if (WPML_INSTALLED) {
+		$slug = get_event_slug($event, LANG);
+		$page = get_page_by_path($slug, OBJECT, 'tkt-event');
+
+		return sprintf(
+            "%s/?book%s",
+			apply_filters('wpml_permalink', get_permalink($page->ID)),
+            (!is_null($screening) ? '&s_id='.$screening->_id() : '')
+		);
+	}
+
     return get_site_url(
         /*$blog_id*/null,
         sprintf(
-            "%s/%s_%s/book",
-            TKTApp::get_instance()->get_config('pages.event'),
-            $event->_id(),
-            sanitize_title($event->title('original'))
+            "%s/%s/?book%s",
+            'events',
+	    get_event_slug($event, LANG),
+            (!is_null($screening) ? '&s_id='.$screening->_id() : '')
         )
     );
 }
@@ -420,21 +437,27 @@ function get_event_slug($event, $lang)
     return $slug;
 }
 
+// Keep in sync with : app/controllers/screening.class.php in eshop
 function people_activities($activity = null, $lang = null)
 {
     $activities = [
         "actor"             => ["fr" => "Acteur", "en" => "Actor"],
         "actors"            => ["fr" => "Acteurs", "en" => "Actors"],
+        "cast"              => ["fr" => "Acteurs", "en" => "Actors"],
+        "camera"            => ["fr" => "Caméra", "en" => "Camera"],
         "director"          => ["fr" => "Réalisateur", "en" => "Director"],
         "directors"         => ["fr" => "Réalisateurs", "en" => "Directors"],
-        "Editor"            => ["fr" => "Monteur(s)", "en" => "Editor"],
+        "editor"            => ["fr" => "Montage", "en" => "Editor"],
+        "editing"           => ["fr" => "Montage", "en" => "Editor"],
         "music"             => ["fr" => "Musique", "en" => "Music"],
-        "producer"          => ["fr" => "Producteur", "en" => "Producer"],
-        "producers"         => ["fr" => "Producteurs", "en" => "Producers"],
+        "producer"          => ["fr" => "Production", "en" => "Producer"],
+        "producers"         => ["fr" => "Production", "en" => "Producers"],
+        "photography"       => ["fr" => "Photographie", "en" => "Photography"],
+        "screenplay"        => ["fr" => "Scénario", "en" => "Screenplay"],
         "writer"            => ["fr" => "Scénario", "en" => "Writer"],
         "writers"           => ["fr" => "Scénario", "en" => "Writers"],
         "sound"             => ["fr" => "Son", "en" => "Sound"],
-        "Production design" => ["fr" => "Design de production", "en" => "Production design"]
+        "production design" => ["fr" => "Design de production", "en" => "Production design"]
     ];
 
     $ret = $activities;
