@@ -21916,7 +21916,10 @@ define('app/Pass/BuyForm', [
                 userdata[name] = $(f).val();
             });
             userdata.no_photo = true;
-            TKTApi.addPassToCart(type, 'fullprice', userdata, function (err, status, rsp) {
+            var pricing = $('.choose-pass:checked', this.$selected_pass).val();
+            if (!pricing)
+                return this.show_error('Veuillez choisir un tarif');
+            TKTApi.addPassToCart(type, pricing, userdata, function (err, status, rsp) {
                 if (err)
                     return _this2.show_error('Une erreur est survenue');
                 postal.publish({
