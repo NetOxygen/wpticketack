@@ -39,13 +39,14 @@ class ProgramShortcode extends TKTShortcode
      */
     public function run($atts, $content)
     {
-        $template    = isset($atts['template']) ? $atts['template'] : static::LIST_TEMPLATE;
-        $layout      = isset($atts['layout']) ? $atts['layout'] : static::SCREENINGS_LAYOUT;
-        $section_ids = isset($atts['section_ids']) ? $atts['section_ids'] : null;
-        $item_width  = isset($atts['item_width']) ? intval($atts['item_width']) : static::DEFAULT_ITEM_WIDTH;
-        $order       = isset($atts['order']) ? $atts['order'] : ($layout == static::SCREENINGS_LAYOUT ? static::CHRONO_ORDER : static::ALPHA_ORDER);
-        $top_filter  = isset($atts['top_filter']) ? $atts['top_filter'] : null;
-        $day         = isset($atts['day']) ? $atts['day'] : get_query_var('d');
+        $template     = isset($atts['template']) ? $atts['template'] : static::LIST_TEMPLATE;
+        $layout       = isset($atts['layout']) ? $atts['layout'] : static::SCREENINGS_LAYOUT;
+        $section_ids  = isset($atts['section_ids']) ? explode(',', $atts['section_ids']) : null;
+        $xsection_ids = isset($atts['xsection_ids']) ? explode(',', $atts['xsection_ids']) : null;
+        $item_width   = isset($atts['item_width']) ? intval($atts['item_width']) : static::DEFAULT_ITEM_WIDTH;
+        $order        = isset($atts['order']) ? $atts['order'] : ($layout == static::SCREENINGS_LAYOUT ? static::CHRONO_ORDER : static::ALPHA_ORDER);
+        $top_filter   = isset($atts['top_filter']) ? $atts['top_filter'] : null;
+        $day          = isset($atts['day']) ? $atts['day'] : get_query_var('d');
 
         try {
             $query = Screening::all()
@@ -61,7 +62,7 @@ class ProgramShortcode extends TKTShortcode
             }
 
             if (!empty($section_ids)) {
-                $query = $query->in_movie_sections(explode(',', $section_ids));
+                $query = $query->in_movie_sections($section_ids);
             }
 
             if (static::CHRONO_ORDER == $order) {
@@ -72,6 +73,21 @@ class ProgramShortcode extends TKTShortcode
 
             switch ($layout) {
                 case static::SCREENINGS_LAYOUT:
+					if (!empty($xsection_ids)) {
+						$screenings = array_filter($screenings, function ($s) use ($xsection_ids) {
+							$movies = $s->movies();
+							foreach ($movies as $m) {
+								$sections = $m->opaque('sections');
+								foreach ($sections as $sec) {
+									if (in_array($sec['id'], $xsection_ids)) {
+										return false;
+									}
+								}
+							}
+							return true;
+					    });
+					}
+
                     return TKTTemplate::render(
                         'program/'.$template.'/screenings',
                         (object)[
@@ -84,6 +100,17 @@ class ProgramShortcode extends TKTShortcode
 
                 case static::EVENTS_LAYOUT:
                     $events = Event::from_screenings($screenings);
+					if (!empty($xsection_ids)) {
+						$events = array_filter($events, function ($e) use ($xsection_ids) {
+							$sections = $e->opaque('sections');
+							foreach ($sections as $sec) {
+								if (in_array($sec['id'], $xsection_ids)) {
+									return false;
+								}
+							}
+							return true;
+					    });
+					}
                     if ($order === static::ALPHA_ORDER) {
                         usort($events, function ($a, $b) {
                             return strcmp(
