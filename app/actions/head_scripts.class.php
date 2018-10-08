@@ -33,6 +33,9 @@ class HeadScriptsAction extends TKTAction
         $app = TKTApp::get_instance();
         echo '
         <script>
+            // moment locale must be injected globally because it\'s needed
+            // before the config initialization
+            window.moment_locale = "'.substr(get_locale(), 0, 2).'";
             var require = {
                 urlArgs: "v='.$app->get_config('assets.version').'",
                 config: {
