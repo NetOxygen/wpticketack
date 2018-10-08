@@ -39,7 +39,7 @@ $types = $data->tickettypes;
               <?php foreach ($tickettype->pricings() as $key => $pricing) :?>
                 <div class="radio">
                   <label>
-                    <input class="choose-pass" type="radio" name="user[pass]" value="<?= $tickettype->_id().':'.$key; ?>">
+                    <input class="choose-pass" type="radio" name="user[pass]" value="<?= $key; ?>">
                     <?php if (!empty($pricing->description(LANG))) :?>
                       <?= h($pricing->name(LANG)) ?> (<?= $pricing->price('CHF') ?>) <a class="popoverdata" href="#" data-content="<?= h($pricing->description(LANG)) ?>" rel="popover" data-placement="bottom" data-trigger="hover"><span class="glyphicon glyphicon-info-sign" /></a>
                     <?php else: ?>

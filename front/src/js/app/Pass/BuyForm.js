@@ -54,7 +54,10 @@ define( [
                 userdata[name] = $(f).val();
             });
             userdata.no_photo = true;
-            TKTApi.addPassToCart(type, 'fullprice', userdata, (err, status, rsp) => {
+            const pricing = $('.choose-pass:checked', this.$selected_pass).val();
+            if (!pricing)
+                return this.show_error('Veuillez choisir un tarif');
+            TKTApi.addPassToCart(type, pricing, userdata, (err, status, rsp) => {
                 if (err)
                     return this.show_error('Une erreur est survenue');
 
