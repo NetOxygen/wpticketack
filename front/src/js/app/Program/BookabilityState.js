@@ -64,7 +64,7 @@ define(
                         _.each(rsp, (s) => {
                             map[s._id] = {
                                 seats: s.seats,
-                                sold_here: _.keys(s.pricings).length > 0
+                                sold_here: _.keys(s.pricings).length > 0 || s.eligible_types.length > 0
                             }
                         });
 

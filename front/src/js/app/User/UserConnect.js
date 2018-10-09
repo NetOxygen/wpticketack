@@ -79,7 +79,8 @@ define(
         },
 
         render: function (ticket) {
-            this.$container.html(Template.render('tkt-user-connect-tpl', { ticket }));
+            const ticket_view_url = TKTApi.getTicketViewUrl();
+            this.$container.html(Template.render('tkt-user-connect-tpl', { ticket, ticket_view_url }));
 
             // bind pass fields
             $('.pass-number-input,.pass-key-input', this.$container).change((e) => {

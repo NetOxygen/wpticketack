@@ -12,6 +12,7 @@
  *
  * JS Input: {
  *   "ticket": Ticket instance, if the user is connected,
+ *   "ticket_view_url": Link to see the ticket bookings (with PHPSESSID)
  * }
  */
 ?>
@@ -23,6 +24,12 @@
                 <div class="user-infos">
                     <span class="dark"><%= [ticket.contact.firstname, ticket.contact.lastname].join(' ') %></span>
                 </div>
+            	<span class="dark">
+                    <a href="<%= ticket_view_url %>">
+                        <?= t("Voir mes réservations") ?>
+                    </a>
+            	</span>
+				<br/>
                 <button class="button button-small button-invert disconnect-btn">
                     <?= t('Me déconnecter') ?>
                 </button>
