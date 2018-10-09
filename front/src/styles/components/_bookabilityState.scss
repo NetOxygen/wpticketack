@@ -15,17 +15,17 @@
 
     &.bookable {
       .show-if-bookable {
-        display: initial;
+        display: inherit;
       }
     }
     &.almost-not-bookable {
       .show-if-almost-not-bookable {
-        display: initial;
+        display: inherit;
       }
     }
     &.not-bookable {
       .show-if-not-bookable {
-        display: initial;
+        display: inherit;
       }
     }
   }
@@ -33,7 +33,7 @@
   &.loading-bookability-state {
     [data-bookability-ids] {
       .show-while-loading {
-        display: initial;
+        display: inherit;
       }
     }
   }
