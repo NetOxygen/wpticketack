@@ -8,6 +8,7 @@
  * }
  */
 ?>
+<% if (_.keys(screening.pricings).length) { %>
 <div class="pricings-form">
     <div class="row">
         <div class="col">
@@ -40,6 +41,8 @@
         </div>
     </div>
 </div>
+<% } %>
+<% if (screening.eligible_types.length) { %>
 <div class="pass-form">
     <div class="connect-panel">
         <div class="row">
@@ -47,7 +50,6 @@
                 <span class="pass-title">
                     <?= t('Vous avez un abonnement ?') ?>
                     <a href="" class="show-connect-panel-form"><?= t('Connectez-vous') ?></a> <?= t('pour réserver.') ?><br/>
-                    <a href="<?= buy_pass_url() ?>"><?= t('Acheter') ?></a> <?= t('un abonnement.') ?>
                 </span>
             </div>
         </div>
@@ -74,6 +76,22 @@
                     <button class="button connect-btn active" >
                         <?= t('Me connecter') ?>
                     </button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="buy-pass-link">
+                    <span><?= LANG == 'fr' ? "Acheter un abonnement: " : "Buy a pass: " ?></span>
+                    <ul class="eligible-types-list">
+                        <% _.forEach(screening.eligible_types, (t) => { %>
+                        <li>
+                            <a href="<?= LANG == 'fr' ? "/infos-pratiques/billets-passes/" : "/en/infos-pratiques/tickets-passes/" ?>">
+                                <%= t.name.<?= LANG ?> %>
+                            </a>
+                        </li>
+                    <% }) %>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -109,3 +127,4 @@
         </div>
     </div>
 </div>
+<% } %>

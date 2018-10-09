@@ -53,7 +53,12 @@ define( [
 
         init: function() {
             TKTApi.getScreeningsInfo(this.ids, (err, status, rsp) => {
-                this.data.screenings = rsp.map((s) => new Screening(s));
+                this.data.screenings = rsp.map((s) => {
+                    let screening = new Screening(s);
+                    screening.eligible_types = s.eligible_types;
+
+                    return screening;
+                });
                 this.data.screenings = _.sortBy(this.data.screenings, (s) => s.start_at);
                 this.build_form();
                 this.initialized = true;
@@ -251,7 +256,7 @@ define( [
         build_tickets_form: function() {
             // render template
             this.$tickets_form.html(Template.render('tkt-booking-form-pricings-tpl', {
-                screening: this.data.screening,
+                screening: this.data.screening
             }));
 
             // bind pricing fields

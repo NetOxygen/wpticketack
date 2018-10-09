@@ -19186,7 +19186,9 @@ define('app/Booking/Form', [
             var _this2 = this;
             TKTApi.getScreeningsInfo(this.ids, function (err, status, rsp) {
                 _this2.data.screenings = rsp.map(function (s) {
-                    return new Screening(s);
+                    var screening = new Screening(s);
+                    screening.eligible_types = s.eligible_types;
+                    return screening;
                 });
                 _this2.data.screenings = _.sortBy(_this2.data.screenings, function (s) {
                     return s.start_at;
