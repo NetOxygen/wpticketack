@@ -47,14 +47,15 @@ define( [
         },
 
         add_to_cart: function() {
-            let type = this.$selected_pass.data('type');
             let userdata = {};
             _.each($('.field:visible', this.$container), (f) => {
                 let name = $(f).attr('id').replace('user_', '');
                 userdata[name] = $(f).val();
             });
             userdata.no_photo = true;
-            const pricing = $('.choose-pass:checked', this.$selected_pass).val();
+            const pricing = $('.choose-pass:checked', this.$container).val();
+            this.$selected_pass = $(pricing).parent('.pass');
+            let type = this.$selected_pass.data('type');
             if (!pricing)
                 return this.show_error('Veuillez choisir un tarif');
             TKTApi.addPassToCart(type, pricing, userdata, (err, status, rsp) => {

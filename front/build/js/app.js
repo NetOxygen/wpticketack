@@ -21914,14 +21914,15 @@ define('app/Pass/BuyForm', [
         },
         add_to_cart: function add_to_cart() {
             var _this2 = this;
-            var type = this.$selected_pass.data('type');
             var userdata = {};
             _.each($('.field:visible', this.$container), function (f) {
                 var name = $(f).attr('id').replace('user_', '');
                 userdata[name] = $(f).val();
             });
             userdata.no_photo = true;
-            var pricing = $('.choose-pass:checked', this.$selected_pass).val();
+            var pricing = $('.choose-pass:checked', this.$container).val();
+            this.$selected_pass = $(pricing).parent('.pass');
+            var type = this.$selected_pass.data('type');
             if (!pricing)
                 return this.show_error('Veuillez choisir un tarif');
             TKTApi.addPassToCart(type, pricing, userdata, function (err, status, rsp) {
