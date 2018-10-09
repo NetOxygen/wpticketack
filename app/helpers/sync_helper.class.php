@@ -7,15 +7,15 @@ class SyncHelper
     const POST_TYPE    = 'tkt-event';
     const DEFAULT_LANG = 'fr';
 
-	const IMPORT_ONLY_NEW = false;
+    const IMPORT_ONLY_NEW = false;
 
     public static function sync_events()
     {
         ini_set('memory_limit', '512M');
         ini_set('max_execution_time', 0);
 
-		// First switch to fr
-		switch_to_locale('fr_FR');
+        // First switch to fr
+        switch_to_locale('fr_FR');
 
         $events = static::load_next_events();
 
@@ -23,20 +23,20 @@ class SyncHelper
             array_map(function ($e) use ($i) {
                 $def_post_id = static::create_post($e, static::DEFAULT_LANG);
 
-				if (!is_null($def_post_id)) {
-                	if (WPML_INSTALLED) {
-						$languages = icl_get_languages('skip_missing=N&orderby=KEY&order=DIR&link_empty_to=str');
-						foreach (array_keys($languages) as $lang) {
-							if ($lang == static::DEFAULT_LANG) {
-								continue;
-							}
-							$tr_post_id = static::create_post($e, $lang);
-							if (!is_null($tr_post_id)) {
-								static::link_translations($def_post_id, $tr_post_id, $lang);
-							}
-						}
-					}
-				}
+                if (is_null($def_post_id) || !WPML_INSTALLED) {
+                    return;
+                }
+
+                $languages = icl_get_languages('skip_missing=N&orderby=KEY&order=DIR&link_empty_to=str');
+                foreach (array_keys($languages) as $lang) {
+                    if ($lang == static::DEFAULT_LANG) {
+                        continue;
+                    }
+                    $tr_post_id = static::create_post($e, $lang);
+                    if (!is_null($tr_post_id)) {
+                        static::link_translations($def_post_id, $tr_post_id, $lang);
+                    }
+                }
             }, $events);
         }
     }
@@ -75,8 +75,8 @@ class SyncHelper
         $existing_post = get_post(static::get_id_from_guid($guid));
         if (!is_null($existing_post)) {
             if (static::IMPORT_ONLY_NEW) {
-            	return null;
-			}
+                return null;
+            }
 
             $post['ID'] = $existing_post->ID;
         }
@@ -139,61 +139,61 @@ class SyncHelper
         $dest_url   = $upload_dir['url'].'/'.$basename;
         $filetype   = wp_check_filetype($basename, null );
 
-		$existing_attachment_id = get_post_meta($post_id, '_thumbnail_id', /*$single*/true);
-		if (!empty($existing_attachment_id) && intval($existing_attachment_id) > 0) {
-			// Post already has an attachment
+        $existing_attachment_id = get_post_meta($post_id, '_thumbnail_id', /*$single*/true);
+        if (!empty($existing_attachment_id) && intval($existing_attachment_id) > 0) {
+            // Post already has an attachment
             $existing_attachment = get_post($existing_attachment_id);
 
-			if ($existing_attachment && $existing_attachment->guid == $dest_url) {
-				// The attachment has the same name: not changed ???
-		        static::link_attachment_to_post($post_id, $existing_attachment_id->ID);
+            if ($existing_attachment && $existing_attachment->guid == $dest_url) {
+                // The attachment has the same name: not changed ???
+                static::link_attachment_to_post($post_id, $existing_attachment_id->ID);
                 return false;
-	        }
+            }
 
- 			// We could delete the existing attachment here if wanted
+            // We could delete the existing attachment here if wanted
         }
 
-		if (!static::download_attachment($url, $dest_path)) {
-			return false;
- 		}
+        if (!static::download_attachment($url, $dest_path)) {
+            return false;
+        }
 
         $image_id = static::create_attachment(
-			$existing_attachment_id,
-			$dest_url,
-			$filetype['type'],
-			$event->localized_title_or_original($lang),
-			$dest_path,
-			$post_id
-		);
+            $existing_attachment_id,
+            $dest_url,
+            $filetype['type'],
+            $event->localized_title_or_original($lang),
+            $dest_path,
+            $post_id
+        );
 
-		static::link_attachment_to_post($post_id, $image_id);
+        static::link_attachment_to_post($post_id, $image_id);
     }
 
     protected static function download_attachment($url, $dest_path)
     {
-		if (($content = file_get_contents($url)) === false) {
-			return false;
-		}
+        if (($content = file_get_contents($url)) === false) {
+            return false;
+        }
 
         if (file_put_contents($dest_path, $content) === false) {
-			return false;
-		}
+            return false;
+        }
 
         return true;
     }
 
     protected static function create_attachment($id, $guid, $type, $title, $dest_path, $post_id)
-	{
+    {
         $attachment = [
-           'guid'           => $guid,
-           'post_mime_type' => $type,
-           'post_title'     => $title,
-           'post_content'   => '',
-           'post_status'    => 'inherit'
+            'guid'           => $guid,
+            'post_mime_type' => $type,
+            'post_title'     => $title,
+            'post_content'   => '',
+            'post_status'    => 'inherit'
         ];
-		if (!empty($id) && intval($id) > 0) {
-			$attachment['ID'] = intval($id);
-		}
+        if (!empty($id) && intval($id) > 0) {
+            $attachment['ID'] = intval($id);
+        }
 
         $image_id = wp_insert_attachment($attachment, $dest_path, $post_id);
 
@@ -204,14 +204,14 @@ class SyncHelper
 
         wp_update_attachment_metadata($image_id, $attach_data);
 
-		return $image_id;
-	}
+        return $image_id;
+    }
 
     protected function link_attachment_to_post($post_id, $image_id)
-	{
+    {
         // We delete first to ensure only one occurence of same meta
         // This should be replaced by only one call to update_post_meta()
         delete_post_meta($post_id, '_thumbnail_id');
         add_post_meta($post_id, '_thumbnail_id', $image_id);
-	}
+    }
 }
