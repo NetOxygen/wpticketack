@@ -54,7 +54,7 @@ define( [
             });
             userdata.no_photo = true;
             const pricing = $('.choose-pass:checked', this.$container).val();
-            this.$selected_pass = $(pricing).parent('.pass');
+            this.$selected_pass = $('.choose-pass:checked', this.$container).parents('.pass');
             let type = this.$selected_pass.data('type');
             if (!pricing)
                 return this.show_error('Veuillez choisir un tarif');
