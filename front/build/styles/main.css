@@ -1,4 +1,4 @@
-/* Built on Tue Oct 09 2018 14:11:42 GMT+0200 (CEST) */ 
+/* Built on Tue Oct 09 2018 17:40:24 GMT+0200 (CEST) */ 
 .dark {
   color: #000; }
 
@@ -338,16 +338,16 @@ input::-webkit-inner-spin-button {
   display: none; }
 
 .tkt-bookability-state-wrapper [data-bookability-ids].bookable .show-if-bookable {
-  display: initial; }
+  display: inherit; }
 
 .tkt-bookability-state-wrapper [data-bookability-ids].almost-not-bookable .show-if-almost-not-bookable {
-  display: initial; }
+  display: inherit; }
 
 .tkt-bookability-state-wrapper [data-bookability-ids].not-bookable .show-if-not-bookable {
-  display: initial; }
+  display: inherit; }
 
 .tkt-bookability-state-wrapper.loading-bookability-state [data-bookability-ids] .show-while-loading {
-  display: initial; }
+  display: inherit; }
 
 .booking-form .dates-form {
   margin-top: 1.5rem; }
