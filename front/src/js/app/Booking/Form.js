@@ -22,8 +22,9 @@ define( [
         this.$container  = $container;
         this.initialized = false;
 
-        this.ids          = this.$container.data('ids').split(',');
-        this.show_on_load = this.$container.data('show-on-load');
+        this.ids                = this.$container.data('ids').split(',');
+        this.show_on_load       = parseInt(this.getUrlParam('book')) == 1;
+        this.selected_screening = this.getUrlParam('s_id');
     }
 
     Form.prototype = {
@@ -250,7 +251,10 @@ define( [
             });
 
             // Select first date
-            this.select_screening(this.data.screenings[0]._id);
+            this.select_screening(this.selected_screening ?
+                this.selected_screening :
+                this.data.screenings[0]._id
+            );
         },
 
         build_tickets_form: function() {
@@ -310,6 +314,16 @@ define( [
             this.build_tickets_form();
 
             this.check_bookability();
+        },
+
+        getUrlParam(name) {
+            const url = window.location.href;
+            name = name.replace(/[\[\]]/g, '\\$&');
+            var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, ' '));
         },
 
         detach: function() {
