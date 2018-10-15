@@ -122,11 +122,12 @@ class ProgramShortcode extends TKTShortcode
 							return true;
 					    });
 					}
+                    // remove_accents is in wp-includes/formatting.php
                     if ($order === static::ALPHA_ORDER) {
                         usort($events, function ($a, $b) {
                             return strcmp(
-                                $a->localized_title_or_original(LANG),
-                                $b->localized_title_or_original(LANG)
+                                strtolower(remove_accents($a->localized_title_or_original(LANG))),
+                                strtolower(remove_accents($b->localized_title_or_original(LANG)))
                             );
                         });
                     }
