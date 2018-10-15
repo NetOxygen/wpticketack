@@ -556,22 +556,22 @@ input::-webkit-inner-spin-button {
 
 /* line 20, src/styles/components/_bookabilityState.scss */
 .tkt-bookability-state-wrapper [data-bookability-ids].bookable .show-if-bookable {
-  display: inline-block;
+  display: inline-block !important;
 }
 
 /* line 25, src/styles/components/_bookabilityState.scss */
 .tkt-bookability-state-wrapper [data-bookability-ids].almost-not-bookable .show-if-almost-not-bookable {
-  display: inline-block;
+  display: inline-block !important;
 }
 
 /* line 30, src/styles/components/_bookabilityState.scss */
 .tkt-bookability-state-wrapper [data-bookability-ids].not-bookable .show-if-not-bookable {
-  display: inline-block;
+  display: inline-block !important;
 }
 
 /* line 35, src/styles/components/_bookabilityState.scss */
 .tkt-bookability-state-wrapper [data-bookability-ids].not-sold-here .show-if-not-sold-here {
-  display: inline-block;
+  display: inline-block !important;
 }
 
 /* line 43, src/styles/components/_bookabilityState.scss */

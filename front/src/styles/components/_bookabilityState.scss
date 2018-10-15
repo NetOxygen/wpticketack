@@ -18,22 +18,22 @@
 
     &.bookable {
       .show-if-bookable {
-        display: inline-block;
+        display: inline-block !important;
       }
     }
     &.almost-not-bookable {
       .show-if-almost-not-bookable {
-        display: inline-block;
+        display: inline-block !important;
       }
     }
     &.not-bookable {
       .show-if-not-bookable {
-        display: inline-block;
+        display: inline-block !important;
       }
     }
     &.not-sold-here {
       .show-if-not-sold-here {
-        display: inline-block;
+        display: inline-block !important;
       }
     }
   }
