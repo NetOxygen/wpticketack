@@ -23,7 +23,7 @@ $types = $data->tickettypes;
 
     <div class="panel-group" id="accordion">
       <?php foreach ($types as $tickettype) :?>
-        <div class="panel panel-default">
+        <div class="panel panel-default" id="pass-<?= $tickettype->_id() ?>">
           <div class="panel-heading">
             <h4 class="panel-title">
               <a data-toggle="collapse" data-parent="#accordion" href="#item-<?= $tickettype->_id(); ?>" class="pass_title">
