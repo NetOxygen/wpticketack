@@ -12,6 +12,9 @@
     .show-if-not-bookable {
       display: none;
     }
+    .show-if-not-sold-here {
+      display: none;
+    }
 
     &.bookable {
       .show-if-bookable {
@@ -25,6 +28,11 @@
     }
     &.not-bookable {
       .show-if-not-bookable {
+        display: inline-block;
+      }
+    }
+    &.not-sold-here {
+      .show-if-not-sold-here {
         display: inline-block;
       }
     }
