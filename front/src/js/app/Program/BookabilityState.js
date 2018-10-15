@@ -93,7 +93,7 @@ define(
 
                     switch (state) {
                         case STATE_NOT_SOLD_HERE:
-                            return;
+                            return $(i).addClass('not-sold-here');
                         case STATE_NOT_BOOKABLE:
                             return $(i).addClass('not-bookable');
                         case STATE_ALMOST_NOT_BOOKABLE:
