@@ -100,6 +100,17 @@ class ProgramShortcode extends TKTShortcode
 
                 case static::EVENTS_LAYOUT:
                     $events = Event::from_screenings($screenings);
+					if (!empty($section_ids)) {
+						$events = array_filter($events, function ($e) use ($section_ids) {
+							$sections = $e->opaque('sections');
+							foreach ($sections as $sec) {
+								if (in_array($sec['id'], $section_ids)) {
+									return true;
+								}
+							}
+							return false;
+					    });
+					}
 					if (!empty($xsection_ids)) {
 						$events = array_filter($events, function ($e) use ($xsection_ids) {
 							$sections = $e->opaque('sections');
