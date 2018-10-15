@@ -205,7 +205,7 @@ function event_book_url($event, $screening = null)
 		$page = get_page_by_path($slug, OBJECT, 'tkt-event');
 
 		return sprintf(
-            "%s/?book%s",
+            "%s/?book=1%s",
 			apply_filters('wpml_permalink', get_permalink($page->ID)),
             (!is_null($screening) ? '&s_id='.$screening->_id() : '')
 		);
@@ -214,7 +214,7 @@ function event_book_url($event, $screening = null)
     return get_site_url(
         /*$blog_id*/null,
         sprintf(
-            "%s/%s/?book%s",
+            "%s/%s/?book=1%s",
             'events',
 	    get_event_slug($event, LANG),
             (!is_null($screening) ? '&s_id='.$screening->_id() : '')
@@ -231,15 +231,28 @@ function event_book_url($event, $screening = null)
  */
 function screening_details_url($screening)
 {
-    return get_site_url(
-        /*$blog_id*/null,
-        sprintf(
-            "%s/%s_%s",
-            TKTApp::get_instance()->get_config('pages.screening'),
-            $screening->_id(),
-            sanitize_title($screening->title('original'))
-        )
-    );
+    if (LANG == 'fr') {
+	    return get_site_url(
+		/*$blog_id*/null,
+		sprintf(
+		    "%s/%s_%s",
+		    TKTApp::get_instance()->get_config('pages.screening'),
+		    $screening->_id(),
+		    sanitize_title($screening->title('original'))
+		)
+	    );
+     } else {
+	    return get_site_url(
+		/*$blog_id*/null,
+		sprintf(
+		    "%s/%s/%s_%s",
+                    LANG,
+		    TKTApp::get_instance()->get_config('pages.screening'),
+		    $screening->_id(),
+		    sanitize_title($screening->title('original'))
+		)
+	    );
+    }
 }
 
 /**
@@ -251,15 +264,28 @@ function screening_details_url($screening)
  */
 function screening_book_url($screening)
 {
-    return get_site_url(
-        /*$blog_id*/null,
-        sprintf(
-            "%s/%s_%s/book",
-            TKTApp::get_instance()->get_config('pages.screening'),
-            $screening->_id(),
-            sanitize_title($screening->title('original'))
-        )
-    );
+    if (LANG == 'fr') {
+	    return get_site_url(
+		/*$blog_id*/null,
+		sprintf(
+		    "%s/%s_%s/book",
+		    TKTApp::get_instance()->get_config('pages.screening'),
+		    $screening->_id(),
+		    sanitize_title($screening->title('original'))
+		)
+	    );
+     } else {
+	    return get_site_url(
+		/*$blog_id*/null,
+		sprintf(
+		    "%s/%s/%s_%s/book",
+                    LANG,
+		    TKTApp::get_instance()->get_config('pages.screening'),
+		    $screening->_id(),
+		    sanitize_title($screening->title('original'))
+		)
+	    );
+    }
 }
 
 /**
