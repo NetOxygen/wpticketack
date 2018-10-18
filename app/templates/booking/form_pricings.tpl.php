@@ -17,7 +17,7 @@
             </span>
         </div>
     </div>
-    <% _.mapKeys(screening.pricings, (p, key) => { %>
+    <% _.mapKeys(screening.pricings, => (p, key) { %>
     <div class="row pricing-row">
         <div class="col col-md-3">
             <span class="pricing-name">
@@ -84,7 +84,7 @@
                 <div class="buy-pass-link">
                     <span><?= LANG == 'fr' ? "Acheter un abonnement: " : "Buy a pass: " ?></span>
                     <ul class="eligible-types-list">
-                        <% _.forEach(screening.eligible_types, (t) => { %>
+                        <% _.forEach(screening.eligible_types, function(t) { %>
                         <li>
                             <a href="<?= LANG == 'fr' ? "/infos-pratiques/billets-passes/" : "/en/infos-pratiques/tickets-passes/" ?>">
                                 <%= t.name.<?= LANG ?> %>
