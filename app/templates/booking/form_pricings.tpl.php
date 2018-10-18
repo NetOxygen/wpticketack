@@ -3,8 +3,9 @@
  * Booking form: pricings partial
  * This template will be parsed by underscore.js
  *
- * Input: {
- *   "screening": Screening instance
+ * JS Input: {
+ *   "screening": Screening instance,
+ *   "ticket_view_url": Link to see the ticket bookings (with PHPSESSID)
  * }
  */
 ?>
@@ -120,7 +121,7 @@
         </div>
         <div class="row">
             <div class="col">
-                <a href="#" class="button show-bookings-btn active d-none" >
+                <a href="<%= ticket_view_url %>" class="button show-bookings-btn active d-none" >
                     <?= t('Afficher mes réservations') ?>
                 </a>
             </div>

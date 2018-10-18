@@ -259,8 +259,10 @@ define( [
 
         build_tickets_form: function() {
             // render template
+            const ticket_view_url = TKTApi.getTicketViewUrl();
             this.$tickets_form.html(Template.render('tkt-booking-form-pricings-tpl', {
-                screening: this.data.screening
+                screening: this.data.screening,
+                ticket_view_url
             }));
 
             // bind pricing fields
