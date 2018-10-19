@@ -190,6 +190,10 @@ define( [
 
                     this.data.ticket = new Ticket(rsp);
                     this.emit_connection_update(this.data.ticket);
+
+                    // Redirect to ticket activation if needed
+                    if (this.data.ticket.status == "new")
+                        window.location.href =  TKTApi.getTicketViewUrl();
                 }
             );
         },
@@ -259,8 +263,10 @@ define( [
 
         build_tickets_form: function() {
             // render template
+            const ticket_view_url = TKTApi.getTicketViewUrl();
             this.$tickets_form.html(Template.render('tkt-booking-form-pricings-tpl', {
-                screening: this.data.screening
+                screening: this.data.screening,
+                ticket_view_url
             }));
 
             // bind pricing fields

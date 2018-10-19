@@ -67,6 +67,10 @@ define(
 
                     this.data.ticket = new Ticket(rsp);
                     this.emit_connection_update(this.data.ticket);
+
+                    // Redirect to ticket activation if needed
+                    if (this.data.ticket.status == "new")
+                        window.location.href =  TKTApi.getTicketViewUrl();
                 }
             );
         },

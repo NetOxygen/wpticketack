@@ -30,7 +30,7 @@
                 </tr>
             </thead>
             <tbody>
-                <% _.each(cart.items, (item) => { %>
+                <% _.each(cart.items, function(item) { %>
                 <tr>
                     <td class="title-cell"><%= item.getFormattedTitle() %></td>
                     <td class="price-cell"><%= item.getFormattedPrice() %></td>
