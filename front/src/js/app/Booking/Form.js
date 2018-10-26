@@ -254,11 +254,18 @@ define( [
                 this.select_screening($date.data('screening_id'));
             });
 
-            // Select first date
-            this.select_screening(this.selected_screening ?
-                this.selected_screening :
-                this.data.screenings[0]._id
-            );
+            // Select first non full date
+            let to_select = this.selected_screening;
+            if (!to_select) {
+                let i = this.data.screenings.length - 1;
+                while (i >= 0) {
+                    console.log(this.data.screenings[i].seats.available);
+                    if (this.data.screenings[i].seats.available > 0)
+                        to_select = this.data.screenings[i]._id;
+                    i--;
+                }
+            }
+            this.select_screening(to_select);
         },
 
         build_tickets_form: function() {
