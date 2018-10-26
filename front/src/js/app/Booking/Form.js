@@ -259,7 +259,6 @@ define( [
             if (!to_select) {
                 let i = this.data.screenings.length - 1;
                 while (i >= 0) {
-                    console.log(this.data.screenings[i].seats.available);
                     if (this.data.screenings[i].seats.available > 0)
                         to_select = this.data.screenings[i]._id;
                     i--;
