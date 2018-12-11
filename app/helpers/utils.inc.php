@@ -426,11 +426,11 @@ function img_proxy_url($remote_url, $width = '-', $height = '-')
     $parts = [];
 
     $parts['scheme'] = 'https';
-    $parts['host']   = $proxy_img_host;
+    $parts['host']   = $proxy_img_host.'/';
     $parts['path']   = $path;
     $parts['query']  = http_build_query(['key' => $key]);
 
-    return http_build_url($parts);
+    return League\Uri\build($parts);
 }
 
 /**
