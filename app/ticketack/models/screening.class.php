@@ -474,7 +474,7 @@ class Screening extends TKTModel implements JsonSerializable
             'pricings'    => array_map(function ($pricing) {
                                  return $pricing->jsonSerialize();
                              }, $this->pricings()),
-            'cinema_hall' => $this->place()->jsonSerialize(),
+            'cinema_hall' => !empty($this->place()) ? $this->place()->jsonSerialize() : null,
             'refs'        => $this->refs(),
         ];
 
