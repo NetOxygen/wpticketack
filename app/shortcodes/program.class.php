@@ -88,6 +88,21 @@ class ProgramShortcode extends TKTShortcode
 					    });
 					}
 
+                    // TODO: We could improve this by filtering the screenings
+                    // from the engine
+                    if (isset($atts['filter'])) {
+                        $type   = $atts['filter'];
+                        $screenings = array_filter($screenings, function ($s) use ($type) {
+							$movies = $s->movies();
+							foreach ($movies as $m) {
+                            	if ($m->opaque('type') == $type) {
+                                    return true;
+                                }
+							}
+							return false;
+                        });
+                    }
+
                     return TKTTemplate::render(
                         'program/'.$template.'/screenings',
                         (object)[
