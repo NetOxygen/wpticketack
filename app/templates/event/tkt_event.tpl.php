@@ -21,7 +21,7 @@ $opaque = array_map(function ($s) {
     return json_decode($s);
 }, get_post_meta($e->ID, 'opaque'))[0];
 $screenings = array_map(function ($s) {
-    return json_decode($s);
+    return new Screening(json_decode($s));
 }, get_post_meta($e->ID, 'screenings'))[0];
 
 $date_title = "";
@@ -34,7 +34,7 @@ if (!empty($opaque->free_text_3)) {
 
 if (empty($date_title)) {
     $date_title = implode('<br/>', array_unique(array_map(function ($s) {
-        return str_replace(':', 'H', date_and_time_to_min_s($s->start_at));
+        return str_replace(':', 'H', date_and_time_to_min_s(new Datetime($s->start_at)));
     }, $screenings)));
 }
 
