@@ -19,13 +19,14 @@ class TktEventContentFilter extends TKTFilter
      */
     public function run($args = null)
     {
+        $post = get_post();
         // Check if we're inside the main loop in a single post page.
-        if ( is_single() && in_the_loop() && is_main_query() ) {
+        if ( $post->post_type == 'tkt-event' && is_single() && in_the_loop() && is_main_query() ) {
             return trim(preg_replace('#\R+#', '', TKTTemplate::render("event/tkt_event", (object)[
                 "tkt_event" => get_post()
             ])));
         }
 
-        return "It works";
+        return $args;
     }
 }
