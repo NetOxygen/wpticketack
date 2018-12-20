@@ -264,6 +264,10 @@ function screening_details_url($screening)
  */
 function screening_book_url($screening)
 {
+    if (!$screening) {
+        return "";
+    }
+
     if (LANG == 'fr') {
 	    return get_site_url(
 		/*$blog_id*/null,
