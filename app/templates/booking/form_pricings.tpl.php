@@ -20,7 +20,7 @@
     </div>
     <% _.mapKeys(screening.pricings, function(p, key) { %>
     <div class="row pricing-row">
-        <div class="col col-md-3">
+        <div class="col col-md-9">
             <span class="pricing-name">
                 <%= p.name.fr %> :
             </span>
