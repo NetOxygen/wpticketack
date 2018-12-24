@@ -1,0 +1,219 @@
+# Translation of WP Ticketack.
+# Copyright (C) 2018 Net Oxygen Sàrl
+# This file is distributed under the same license as the wpticketack package.
+#  <belkacem.alidra@netoxygen.ch>, 2018.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: wpticketack 1.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-12-24 11:18+0100\n"
+"PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Belkacem Alidra <belkacem.alidra@netoxygen.ch>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Add New Ticketack Event"
+msgstr "Neues Ticketack-Event hinzufügen"
+
+msgid "New Ticketack Event"
+msgstr "Neues Ticketack-Event"
+
+msgid "Edit Ticketack Event"
+msgstr "Ticketack-Event bearbeiten"
+
+msgid "View Ticketack Event"
+msgstr "Ticketack-Event anzeigen"
+
+msgid "All Ticketack Events"
+msgstr "Alle Ticketack-Events"
+
+msgid "Search Ticketack Events"
+msgstr "Ticketack-Events suchen"
+
+msgid "Parent Ticketack Events:"
+msgstr "Übergeordnete Ticketack-Events"
+
+msgid "No events found."
+msgstr "Keine Events gefunden"
+
+msgid "No events found in Trash."
+msgstr "Keine Ereignisse im Papierkorb gefunden"
+
+msgid "Événements importés depuis Ticketack"
+msgstr "Von Ticketack importierte Ereignisse"
+
+msgid "Pas de réponse"
+msgstr "Keine Antwort"
+
+msgid "Féminin"
+msgstr "Weiblich"
+
+msgid "Masculin"
+msgstr "Männlich"
+
+msgid "Autre"
+msgstr "Andere"
+
+msgid "Plus d'informations"
+msgstr "Weitere Informationen"
+
+msgid "Billets"
+msgstr "Zum Warenkorb hinzufügen"
+
+msgid "Il ne reste que quelques places !"
+msgstr "Es gibt nur noch wenige Plätze!"
+
+msgid "Complet !"
+msgstr "Fertig!"
+
+msgid "Il ne reste que quelques places"
+msgstr "Es gibt nur noch wenige Plätze"
+
+msgid "Complet"
+msgstr "Fertig"
+
+msgid ""
+"Aucun événement programmé actuellement, revenez nous visiter prochainement."
+msgstr ""
+"Derzeit sind keine Veranstaltungen geplant. Besuchen Sie uns bald wieder."
+
+msgid ""
+"Aucuné séance programmée actuellement, revenez nous visiter prochainement."
+msgstr "Derzeit ist keine Sitzung geplant, komm bald wieder."
+
+msgid ""
+"Entrez le nombre de place(s) que vous souhaitez ajouter à votre panier :"
+msgstr ""
+"Geben Sie die Anzahl der Orte ein, die Sie Ihrem Einkaufswagen hinzufügen "
+"möchten:"
+
+msgid "Ajouter à mon panier"
+msgstr "Meinem Warenkorb hinzufügen"
+
+msgid "Vous avez un abonnement ?"
+msgstr "Hast du ein Abonnement?"
+
+msgid "Connectez-vous"
+msgstr "Login"
+
+msgid "pour réserver."
+msgstr "zu buchen"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "Code"
+msgstr "Code"
+
+msgid "Me connecter"
+msgstr "Einloggen"
+
+msgid ""
+"Vous ne pouvez pas réserver de place pour cette séance avec votre abonnement."
+msgstr ""
+"Sie können mit Ihrem Abonnement keinen Sitzplatz für diese Sitzung "
+"reservieren."
+
+msgid "Réserver une place sur mon abonnement"
+msgstr "Reservieren Sie einen Platz in meinem Abonnement"
+
+msgid "Afficher mes réservations"
+msgstr "Meine Buchungen ansehen"
+
+msgid "Merci, votre commande est réservée dans votre panier pour 30 minutes."
+msgstr "Vielen Dank, Ihre Bestellung bleibt 30 Minuten in Ihrem Warenkorb."
+
+msgid "Accéder au panier"
+msgstr "Zum Warenkorb gehen"
+
+msgid "Continuer"
+msgstr "Fortsetzen"
+
+msgid "ma visite"
+msgstr "mein besuch"
+
+msgid "Veuillez choisir la date désirée :"
+msgstr "Bitte wählen Sie das gewünschte Datum aus:"
+
+msgid "Votre panier est vide"
+msgstr "Ihr Einkaufswagen ist leer"
+
+msgid "Finaliser ma commande"
+msgstr "Meine Bestellung abschließen"
+
+msgid "Annuler"
+msgstr "Stornieren"
+
+msgid "ma commande"
+msgstr "meine Bestellung"
+
+msgid "mes réservations"
+msgstr "meine Buchungen"
+
+msgid "Prénom"
+msgstr "Vorname"
+
+msgid "Votre prénom"
+msgstr "Dein Name"
+
+msgid "Nom"
+msgstr "Name"
+
+msgid "Votre nom"
+msgstr "Dein Name"
+
+msgid "Numéro postal"
+msgstr "Postnummer"
+
+msgid "NPA"
+msgstr "NPA"
+
+msgid "Ville"
+msgstr "Stadt"
+
+msgid "Adresse"
+msgstr "Adresse"
+
+msgid "Votre adresse"
+msgstr "Ihre Adresse"
+
+msgid "Pays"
+msgstr "Land"
+
+msgid "Âge"
+msgstr "Alter"
+
+msgid "Genre"
+msgstr "Art"
+
+msgid "* ces champs sont requis"
+msgstr "* diese Felder sind Pflichtfelder"
+
+msgid "Ajouter au panier"
+msgstr "Zum Warenkorb hinzufügen"
+
+msgid "Tarifs :"
+msgstr "Preise:"
+
+msgid "sous-titres"
+msgstr "Untertitel"
+
+msgid "Voir mes réservations"
+msgstr "Siehe meine Buchungen"
+
+msgid "Me déconnecter"
+msgstr "Trennt mich von mir"
+
+msgid "Connectez-vous !"
+msgstr "Verbinden!"
+
+msgid "Acheter"
+msgstr "Kaufen"
+
+msgid "un abonnement"
+msgstr "ein Abo"
