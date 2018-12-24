@@ -21,6 +21,7 @@
 .button {
   display: inline-block;
   background-color: $dark_color;
+  color: $light_color;
   border: 1px solid $base_color;
   text-transform: uppercase;
   font-size: 1.5rem;
@@ -40,6 +41,8 @@
     padding: 0 1rem;
     height: 1.7em;
   }
+
+  &:hover { }
 }
 
 .input {
@@ -47,7 +50,6 @@
   padding: 0;
   -webkit-appearance: none;
   -moz-appearance:textfield;
-  background-color: $dark_color;
   color: $base_color;
   border: 1px solid $base_color;
   font-size: 1rem;
@@ -68,9 +70,4 @@
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
-}
-
-.button:hover {
-  border-color: $base_color;
-  color: $active_color;
 }

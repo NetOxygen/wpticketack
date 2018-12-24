@@ -12,6 +12,8 @@
       border: 1px solid $base_color;
       padding: 0.5rem;
       float: left;
+      height: 200px;
+      overflow-y: auto;
 
       .date-wrapper {
         cursor: pointer;
