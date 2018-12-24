@@ -8,9 +8,9 @@ fi
 ROOT=$(dirname "$0")/..
 PROJECTDIR=$ROOT/app
 LOCALEDIR=$PROJECTDIR/locales
-MSGPO=$LOCALEDIR/$1.po
-MSGMO=$LOCALEDIR/$1.mo
-MSG_OLD_PO=$LOCALEDIR/$1.old.po
+MSGPO=$LOCALEDIR/wpticketack-$1.po
+MSGMO=$LOCALEDIR/wpticketack-$1.mo
+MSG_OLD_PO=$LOCALEDIR/wpticketack-$1.old.po
 EDITOR=${EDITOR:-vim}
 
 # create the locale directory if needed
