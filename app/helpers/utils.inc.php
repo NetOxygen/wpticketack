@@ -264,6 +264,10 @@ function screening_details_url($screening)
  */
 function screening_book_url($screening)
 {
+    if (!$screening) {
+        return "";
+    }
+
     if (LANG == 'fr') {
 	    return get_site_url(
 		/*$blog_id*/null,
@@ -326,44 +330,48 @@ function id($obj)
     return $obj;
 }
 
-/**
- * Sanitize a string for display.
- *
- * Escape HTML tags for a safer display. This function assume UTF-8
- * encoding.
- *
- * @param $string
- *   The unsafe string.
- *
- * @return
- *   a string that can be safely presented to echo or print for output.
- */
-function h($string)
-{
-    return htmlspecialchars($string, ENT_QUOTES | ENT_HTML5, 'UTF-8');
+if (!function_exists('h')) {
+    /**
+     * Sanitize a string for display.
+     *
+     * Escape HTML tags for a safer display. This function assume UTF-8
+     * encoding.
+     *
+     * @param $string
+     *   The unsafe string.
+     *
+     * @return
+     *   a string that can be safely presented to echo or print for output.
+     */
+    function h($string)
+    {
+        return htmlspecialchars($string, ENT_QUOTES | ENT_HTML5, 'UTF-8');
+    }
 }
 
-/**
- * Sanitize a string for display but allows some html tags.
- *
- * Less safe than h() which strips everything.
- *
- * Note: This function does not modify any attributes on the tags that are
- * allowed, including the style and onmouseover attributes that a mischievous
- * user may abuse when posting text that will be shown to other users.
- *
- * @param $string
- *   The unsafe string.
- *
- * @param $tags_to_keep
- *   Tags to keep in strip tags
- *
- * @return
- *   a string that can be mostly safely presented to echo or print for output.
- */
-function html($string, $tags_to_keep = '<p><br><b><i><em><a>')
-{
-    return strip_tags($string, $tags_to_keep);
+if (!function_exists('html')) {
+    /**
+     * Sanitize a string for display but allows some html tags.
+     *
+     * Less safe than h() which strips everything.
+     *
+     * Note: This function does not modify any attributes on the tags that are
+     * allowed, including the style and onmouseover attributes that a mischievous
+     * user may abuse when posting text that will be shown to other users.
+     *
+     * @param $string
+     *   The unsafe string.
+     *
+     * @param $tags_to_keep
+     *   Tags to keep in strip tags
+     *
+     * @return
+     *   a string that can be mostly safely presented to echo or print for output.
+     */
+    function html($string, $tags_to_keep = '<p><br><b><i><em><a>')
+    {
+        return strip_tags($string, $tags_to_keep);
+    }
 }
 
 function get_ages()
@@ -399,52 +407,58 @@ function is_uuidv4($str)
     return (preg_match($regexp, $str) ? true : false);
 }
 
-function img_proxy_url($remote_url, $width = '-', $height = '-')
-{
-    $proxy_img_key  = TKTApp::get_instance()->get_config('images.proxy.proxy_img_key');
-    $proxy_img_host = TKTApp::get_instance()->get_config('images.proxy.proxy_img_host');
+if (!function_exists('img_proxy_url')) {
+    function img_proxy_url($remote_url, $width = '-', $height = '-')
+    {
+        $proxy_img_key  = DJMApp::get_instance()->get_config('images.proxy.proxy_img_key');
+        $proxy_img_host = DJMApp::get_instance()->get_config('images.proxy.proxy_img_host');
 
-    if (empty($proxy_img_key) || empty($proxy_img_host)) {
-        return $remote_url;
+        if (empty($proxy_img_key) || empty($proxy_img_host)) {
+            return $remote_url;
+        }
+
+        if (!filter_var($remote_url, FILTER_VALIDATE_URL)) {
+            return false;
+        }
+
+        $exploded_url = parse_url($remote_url);
+        $path         = sprintf(
+            "image/%sx%s/%s/%s%s",
+            $width,
+            $height,
+            $exploded_url['scheme'],
+            $exploded_url['host'],
+            $exploded_url['path']
+        );
+        $key = base64url_encode(md5('/' . $path . ' ' . $proxy_img_key, true));
+
+        $parts = [];
+
+        $parts['scheme'] = 'https';
+        $parts['host']   = $proxy_img_host;
+        $parts['path']   = $path;
+        $parts['query']  = http_build_query(['key' => $key]);
+
+        return http_build_url($parts);
     }
-
-    if (!filter_var($remote_url, FILTER_VALIDATE_URL)) {
-        return false;
-    }
-
-    $exploded_url = parse_url($remote_url);
-    $path         = sprintf(
-        "image/%sx%s/%s/%s%s",
-        $width,
-        $height,
-        $exploded_url['scheme'],
-        $exploded_url['host'],
-        $exploded_url['path']
-    );
-    $key = base64url_encode(md5('/' . $path . ' ' . $proxy_img_key, true));
-
-    $parts = [];
-
-    $parts['scheme'] = 'https';
-    $parts['host']   = $proxy_img_host.'/';
-    $parts['path']   = $path;
-    $parts['query']  = http_build_query(['key' => $key]);
-
-    return League\Uri\build($parts);
 }
 
-/**
- * base64url variants,
- * stolen from http://us3.php.net/manual/en/function.base64-encode.php#103849
- */
-function base64url_encode($data)
-{
-    return rtrim(strtr(base64_encode($data), '+/', '-_'), '=');
+if (!function_exists('base64url_encode')) {
+    /**
+     * base64url variants,
+     * stolen from http://us3.php.net/manual/en/function.base64-encode.php#103849
+     */
+    function base64url_encode($data)
+    {
+        return rtrim(strtr(base64_encode($data), '+/', '-_'), '=');
+    }
 }
 
-function base64url_decode($data)
-{
-    return base64_decode(str_pad(strtr($data, '-_', '+/'), strlen($data) % 4, '=', STR_PAD_RIGHT));
+if (!function_exists('base64url_decode')) {
+    function base64url_decode($data)
+    {
+        return base64_decode(str_pad(strtr($data, '-_', '+/'), strlen($data) % 4, '=', STR_PAD_RIGHT));
+    }
 }
 
 /**
