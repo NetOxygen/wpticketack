@@ -410,8 +410,8 @@ function is_uuidv4($str)
 if (!function_exists('img_proxy_url')) {
     function img_proxy_url($remote_url, $width = '-', $height = '-')
     {
-        $proxy_img_key  = DJMApp::get_instance()->get_config('images.proxy.proxy_img_key');
-        $proxy_img_host = DJMApp::get_instance()->get_config('images.proxy.proxy_img_host');
+        $proxy_img_key  = TKTApp::get_instance()->get_config('images.proxy.proxy_img_key');
+        $proxy_img_host = TKTApp::get_instance()->get_config('images.proxy.proxy_img_host');
 
         if (empty($proxy_img_key) || empty($proxy_img_host)) {
             return $remote_url;
