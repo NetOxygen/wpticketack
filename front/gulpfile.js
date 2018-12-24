@@ -158,6 +158,7 @@ gulp.task('zip', [/*'prod'*/], function () {
   return gulp.src([
     module_root_dir + 'wpticketack.php',
     module_root_dir + '/{app,app/**/*}',
+    module_root_dir + '/{config,config/config.yml.dist}',
     module_root_dir + '/{vendor,vendor/**/*}',
     module_root_dir + '/front',
     module_root_dir + '/front/{build,build/**/*}'
