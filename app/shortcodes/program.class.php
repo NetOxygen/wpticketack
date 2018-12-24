@@ -16,8 +16,8 @@ class ProgramShortcode extends TKTShortcode
     const SCREENINGS_LAYOUT  = 'screenings';
     const EVENTS_LAYOUT      = 'events';
     const DEFAULT_ITEM_WIDTH = 12;
-    const CHRONO_ORDER 		 = 'chrono';
-    const ALPHA_ORDER  		 = 'alpha';
+    const CHRONO_ORDER          = 'chrono';
+    const ALPHA_ORDER           = 'alpha';
     const SCREENINGS_FILTER  = 'screenings';
     const EVENTS_FILTER      = 'events';
 
@@ -73,33 +73,33 @@ class ProgramShortcode extends TKTShortcode
 
             switch ($layout) {
                 case static::SCREENINGS_LAYOUT:
-					if (!empty($xsection_ids)) {
-						$screenings = array_filter($screenings, function ($s) use ($xsection_ids) {
-							$movies = $s->movies();
-							foreach ($movies as $m) {
-								$sections = $m->opaque('sections');
-								foreach ($sections as $sec) {
-									if (in_array($sec['id'], $xsection_ids)) {
-										return false;
-									}
-								}
-							}
-							return true;
-					    });
-					}
+                    if (!empty($xsection_ids)) {
+                        $screenings = array_filter($screenings, function ($s) use ($xsection_ids) {
+                            $movies = $s->movies();
+                            foreach ($movies as $m) {
+                                $sections = $m->opaque('sections');
+                                foreach ($sections as $sec) {
+                                    if (in_array($sec['id'], $xsection_ids)) {
+                                        return false;
+                                    }
+                                }
+                            }
+                            return true;
+                        });
+                    }
 
                     // TODO: We could improve this by filtering the screenings
                     // from the engine
                     if (isset($atts['filter'])) {
                         $type   = $atts['filter'];
                         $screenings = array_filter($screenings, function ($s) use ($type) {
-							$movies = $s->movies();
-							foreach ($movies as $m) {
-                            	if ($m->opaque('type') == $type) {
+                            $movies = $s->movies();
+                            foreach ($movies as $m) {
+                                if ($m->opaque('type') == $type) {
                                     return true;
                                 }
-							}
-							return false;
+                            }
+                            return false;
                         });
                     }
 
@@ -115,28 +115,28 @@ class ProgramShortcode extends TKTShortcode
 
                 case static::EVENTS_LAYOUT:
                     $events = Event::from_screenings($screenings);
-					if (!empty($section_ids)) {
-						$events = array_filter($events, function ($e) use ($section_ids) {
-							$sections = $e->opaque('sections');
-							foreach ($sections as $sec) {
-								if (in_array($sec['id'], $section_ids)) {
-									return true;
-								}
-							}
-							return false;
-					    });
-					}
-					if (!empty($xsection_ids)) {
-						$events = array_filter($events, function ($e) use ($xsection_ids) {
-							$sections = $e->opaque('sections');
-							foreach ($sections as $sec) {
-								if (in_array($sec['id'], $xsection_ids)) {
-									return false;
-								}
-							}
-							return true;
-					    });
-					}
+                    if (!empty($section_ids)) {
+                        $events = array_filter($events, function ($e) use ($section_ids) {
+                            $sections = $e->opaque('sections');
+                            foreach ($sections as $sec) {
+                                if (in_array($sec['id'], $section_ids)) {
+                                    return true;
+                                }
+                            }
+                            return false;
+                        });
+                    }
+                    if (!empty($xsection_ids)) {
+                        $events = array_filter($events, function ($e) use ($xsection_ids) {
+                            $sections = $e->opaque('sections');
+                            foreach ($sections as $sec) {
+                                if (in_array($sec['id'], $xsection_ids)) {
+                                    return false;
+                                }
+                            }
+                            return true;
+                        });
+                    }
                     // remove_accents is in wp-includes/formatting.php
                     if ($order === static::ALPHA_ORDER) {
                         usort($events, function ($a, $b) {
