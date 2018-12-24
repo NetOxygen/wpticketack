@@ -174,18 +174,18 @@ function cart_reset_url()
  */
 function event_details_url($event)
 {
-	if (WPML_INSTALLED) {
-		$slug = get_event_slug($event, LANG);
-		$page = get_page_by_path($slug, OBJECT, 'tkt-event');
-		return apply_filters('wpml_permalink', get_permalink($page->ID));
-	}
+    if (WPML_INSTALLED) {
+        $slug = get_event_slug($event, LANG);
+        $page = get_page_by_path($slug, OBJECT, 'tkt-event');
+        return apply_filters('wpml_permalink', get_permalink($page->ID));
+    }
 
     return get_site_url(
         /*$blog_id*/null,
         sprintf(
             '%s/%s',
             'events',
-  	    get_event_slug($event, LANG)
+          get_event_slug($event, LANG)
         )
     );
 }
@@ -200,23 +200,23 @@ function event_details_url($event)
  */
 function event_book_url($event, $screening = null)
 {
-	if (WPML_INSTALLED) {
-		$slug = get_event_slug($event, LANG);
-		$page = get_page_by_path($slug, OBJECT, 'tkt-event');
+    if (WPML_INSTALLED) {
+        $slug = get_event_slug($event, LANG);
+        $page = get_page_by_path($slug, OBJECT, 'tkt-event');
 
-		return sprintf(
+        return sprintf(
             "%s/?book=1%s",
-			apply_filters('wpml_permalink', get_permalink($page->ID)),
+            apply_filters('wpml_permalink', get_permalink($page->ID)),
             (!is_null($screening) ? '&s_id='.$screening->_id() : '')
-		);
-	}
+        );
+    }
 
     return get_site_url(
         /*$blog_id*/null,
         sprintf(
             "%s/%s/?book=1%s",
             'events',
-	    get_event_slug($event, LANG),
+        get_event_slug($event, LANG),
             (!is_null($screening) ? '&s_id='.$screening->_id() : '')
         )
     );
@@ -232,26 +232,26 @@ function event_book_url($event, $screening = null)
 function screening_details_url($screening)
 {
     if (LANG == 'fr') {
-	    return get_site_url(
-		/*$blog_id*/null,
-		sprintf(
-		    "%s/%s_%s",
-		    TKTApp::get_instance()->get_config('pages.screening'),
-		    $screening->_id(),
-		    sanitize_title($screening->title('original'))
-		)
-	    );
+        return get_site_url(
+        /*$blog_id*/null,
+        sprintf(
+            "%s/%s_%s",
+            TKTApp::get_instance()->get_config('pages.screening'),
+            $screening->_id(),
+            sanitize_title($screening->title('original'))
+        )
+        );
      } else {
-	    return get_site_url(
-		/*$blog_id*/null,
-		sprintf(
-		    "%s/%s/%s_%s",
+        return get_site_url(
+        /*$blog_id*/null,
+        sprintf(
+            "%s/%s/%s_%s",
                     LANG,
-		    TKTApp::get_instance()->get_config('pages.screening'),
-		    $screening->_id(),
-		    sanitize_title($screening->title('original'))
-		)
-	    );
+            TKTApp::get_instance()->get_config('pages.screening'),
+            $screening->_id(),
+            sanitize_title($screening->title('original'))
+        )
+        );
     }
 }
 
@@ -269,26 +269,26 @@ function screening_book_url($screening)
     }
 
     if (LANG == 'fr') {
-	    return get_site_url(
-		/*$blog_id*/null,
-		sprintf(
-		    "%s/%s_%s?book=1",
-		    TKTApp::get_instance()->get_config('pages.screening'),
-		    $screening->_id(),
-		    sanitize_title($screening->title('original'))
-		)
-	    );
+        return get_site_url(
+        /*$blog_id*/null,
+        sprintf(
+            "%s/%s_%s?book=1",
+            TKTApp::get_instance()->get_config('pages.screening'),
+            $screening->_id(),
+            sanitize_title($screening->title('original'))
+        )
+        );
      } else {
-	    return get_site_url(
-		/*$blog_id*/null,
-		sprintf(
-		    "%s/%s/%s_%s?book=1",
+        return get_site_url(
+        /*$blog_id*/null,
+        sprintf(
+            "%s/%s/%s_%s?book=1",
                     LANG,
-		    TKTApp::get_instance()->get_config('pages.screening'),
-		    $screening->_id(),
-		    sanitize_title($screening->title('original'))
-		)
-	    );
+            TKTApp::get_instance()->get_config('pages.screening'),
+            $screening->_id(),
+            sanitize_title($screening->title('original'))
+        )
+        );
     }
 }
 
@@ -432,14 +432,12 @@ if (!function_exists('img_proxy_url')) {
         );
         $key = base64url_encode(md5('/' . $path . ' ' . $proxy_img_key, true));
 
-        $parts = [];
-
-        $parts['scheme'] = 'https';
-        $parts['host']   = $proxy_img_host;
-        $parts['path']   = $path;
-        $parts['query']  = http_build_query(['key' => $key]);
-
-        return http_build_url($parts);
+        return sprintf(
+            "https://%s/%s?%s",
+            $proxy_img_host,
+            $path,
+            http_build_query(['key' => $key])
+        );
     }
 }
 
