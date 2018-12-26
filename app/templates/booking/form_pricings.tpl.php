@@ -22,7 +22,7 @@
     <div class="row pricing-row">
         <div class="col col-md-9">
             <span class="pricing-name">
-                <%= p.name.fr %> :
+                <%= p.name.<?= LANG ?> %> :
             </span>
             <span class="pricing-price">
                 <%= p.price.CHF.toFixed(2) %> CHF
