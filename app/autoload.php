@@ -8,6 +8,7 @@ require_once(TKT_SHORTCODES.'/program.class.php');
 require_once(TKT_TEMPLATES.'/template.class.php');
 require_once(TKT_HELPERS.'/config.class.php');
 require_once(TKT_HELPERS.'/sync_helper.class.php');
+require_once(TKT_HELPERS.'/locales_helper.class.php');
 require_once(TKT_HELPERS.'/utils.inc.php');
 require_once(TKT_LIB.'/base/api.class.php');
 require_once(TKT_LIB.'/base/money.class.php');

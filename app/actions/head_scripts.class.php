@@ -50,7 +50,8 @@ class HeadScriptsAction extends TKTAction
                         "program_url": "'.program_url().'",
                         "cart_url": "'.cart_url().'",
                         "cart_reset_url": "'.cart_reset_url().'",
-                    }
+                    },
+                    "i18n": '.json_encode(LocalesHelper::dump_js_locales()).'
                 },
                 paths: {
                     "app": "/wp-content/plugins/wpticketack/front/build/js/app"

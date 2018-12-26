@@ -3,6 +3,7 @@ requirejs.config({
     paths: {
         assets: 'app/Core/Assets',
         config: 'app/Core/Config',
+        i18n: 'app/Core/i18n',
         components: 'app/Core/Components',
         csrf: 'app/Core/Csrf',
         logger: 'app/Core/Logger',

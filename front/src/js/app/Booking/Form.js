@@ -10,11 +10,11 @@
  * >
  */
 define( [
-        'config', 'postal', 'lodash',
+        'config', 'i18n', 'postal', 'lodash',
         'template', 'jquery', 'api',
         'moment', 'Cart', 'Screening', 'Ticket'
     ], function dependencies(
-        config, postal, _,
+        config, i18n, postal, _,
         Template, $, TKTApi,
         moment, CartModel, Screening, Ticket) {
 
@@ -116,7 +116,7 @@ define( [
             const chosen_pricings = _.find(this.data.pricings, (nb) => nb > 0);
             if (!chosen_pricings) {
                 return $('.pricings-error')
-                    .html('Veuillez choisir au moins un billet')
+                    .html(i18n.t('Veuillez choisir au moins un billet'))
                     .removeClass('d-none');
             }
 
@@ -153,7 +153,7 @@ define( [
                 if (err) {
                     $('.book-form-success', this.$container).addClass('d-none');
                     $('.book-form-error', this.$container)
-                        .html("Une erreur est survenue. Veuillez ré-essayer ultérieurement.")
+                        .html(i18n.t("Une erreur est survenue. Veuillez ré-essayer ultérieurement."))
                         .removeClass('d-none');
                 } else if (rsp.flash && rsp.flash.error) {
                     $('.book-form-success', this.$container).addClass('d-none');
@@ -176,7 +176,7 @@ define( [
 
             if (!this.data.pass_infos.number || !this.data.pass_infos.key)
                 return $('.pass-error')
-                    .html('Veuillez remplir les deux champs')
+                    .html(i18n.t('Veuillez remplir les deux champs'))
                     .removeClass('d-none');
 
             TKTApi.loginTicket(
@@ -185,7 +185,7 @@ define( [
                 (err, status, rsp) => {
                     if (err)
                         return $('.pass-error')
-                            .html('Les informations que vous avez saisies sont invalides')
+                            .html(i18n.t('Les informations que vous avez saisies sont invalides'))
                             .removeClass('d-none');
 
                     this.data.ticket = new Ticket(rsp);
@@ -219,8 +219,8 @@ define( [
                     } else {
                         $('.book-btn', this.$container).addClass('d-none');
                         const msg = this.data.bookability.screening_already_booked ?
-                            "Vous ne pouvez pas réserver plus de place pour cette séance avec votre abonnement." :
-                            "Vous ne pouvez pas réserver de place pour cette séance avec votre abonnement.";
+                            i18n.t("Vous ne pouvez pas réserver plus de place pour cette séance avec votre abonnement.") :
+                            i18n.t("Vous ne pouvez pas réserver de place pour cette séance avec votre abonnement.");
                         $('.book-form-error', this.$container)
                             .html(msg)
                             .removeClass('d-none');
