@@ -25,7 +25,7 @@
                 <%= p.name.fr %> :
             </span>
             <span class="pricing-price">
-                <%= p.price.CHF %>.-
+                <%= p.price.CHF.toFixed(2) %> CHF
             </span>
         </div>
         <div class="col">
