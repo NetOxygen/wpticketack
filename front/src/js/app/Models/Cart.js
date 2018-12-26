@@ -50,7 +50,7 @@ define(
     };
 
     Cart.prototype.getFormattedTotal = function() {
-        const total = _.reduce(this.items, (memo, item) => memo + parseFloat(item.amount), 0);
+        const total = _.reduce(this.items, (memo, item) => memo + parseFloat(item.amount), 0).toFixed(2);
 
         return `${total} CHF`;
     };
