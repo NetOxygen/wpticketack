@@ -222,11 +222,11 @@ msgstr "a pass"
 #~ msgid "Clé"
 #~ msgstr "Key"
 
-#~ msgid "Achats"
-#~ msgstr "Purchases"
+msgid "Achats"
+msgstr "Purchases"
 
 #~ msgid "Réservé jusqu'à"
 #~ msgstr "Booked until"
 
-#~ msgid "Prix"
-#~ msgstr "Price"
+msgid "Prix"
+msgstr "Price"

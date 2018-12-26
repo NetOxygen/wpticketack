@@ -89,7 +89,7 @@ msgstr "Derzeit ist keine Sitzung geplant, komm bald wieder."
 msgid ""
 "Entrez le nombre de place(s) que vous souhaitez ajouter à votre panier :"
 msgstr ""
-"Geben Sie die Anzahl der Orte ein, die Sie Ihrem Einkaufswagen hinzufügen "
+"Geben Sie die Anzahl Plätze ein, die Sie Ihrem Einkaufswagen hinzufügen "
 "möchten:"
 
 msgid "Ajouter à mon panier"
@@ -217,3 +217,10 @@ msgstr "Kaufen"
 
 msgid "un abonnement"
 msgstr "ein Abo"
+
+msgid "Achats"
+msgstr "Einkauf"
+
+msgid "Prix"
+msgstr "Preis"
+
