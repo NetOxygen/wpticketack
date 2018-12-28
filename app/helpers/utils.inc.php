@@ -293,6 +293,43 @@ function screening_book_url($screening)
 }
 
 /**
+ * Get an article buy url
+ *
+ * @param Article $article
+ *
+ * @return string
+ */
+function article_buy_url($article)
+{
+    if (!$article) {
+        return "";
+    }
+
+    if (LANG == 'de') { // FIXME: replace 'de' by default language
+	    return get_site_url(
+		/*$blog_id*/null,
+		sprintf(
+		    "%s/%s_%s?book=1",
+		    TKTApp::get_instance()->get_config('pages.article'),
+		    $article->_id(),
+		    sanitize_title($screening->name('de')) // FIXME: replace 'de' by default language
+		)
+	    );
+     } else {
+	    return get_site_url(
+		/*$blog_id*/null,
+		sprintf(
+		    "%s/%s/%s_%s?book=1",
+                    LANG,
+		    TKTApp::get_instance()->get_config('pages.article'),
+		    $article->_id(),
+		    sanitize_title($article->name(LANG)) 
+		)
+	    );
+    }
+}
+
+/**
  * Extract a Youtube video ID from an URL
  * See https://gist.github.com/ghalusa/6c7f3a00fd2383e5ef33
  *

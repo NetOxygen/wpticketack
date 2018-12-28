@@ -30,6 +30,10 @@ class HeadScriptsAction extends TKTAction
      */
     public function run()
     {
+        if (is_home() || is_front_page()) {
+            return null;
+        }
+
         $app = TKTApp::get_instance();
         echo '
         <script>
