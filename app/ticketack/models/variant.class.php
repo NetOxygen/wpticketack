@@ -29,8 +29,9 @@ class Variant implements JsonSerializable
         $this->stock_factor = $properties['stock_factor'];
         $this->ean13 = $properties['ean13'];
         $this->sku = $properties['ean13'];
-
-        $this->price = ['CHF' => CHF::parse($properties['price']['CHF'])];
+        // FIXME: if price is a float with one decimal place, it cannot be parsed by CHF... no idea where we should fix that
+        $chf_hack = number_format((float)$properties['price']['CHF'], 2, '.', '');
+        $this->price = ['CHF' => CHF::parse($chf_hack)];
         if (array_key_exists('value', $properties) && isset($properties['value']['CHF'])) {
             $this->value = ['CHF' => CHF::parse($properties['value']['CHF'])];
         } else {
