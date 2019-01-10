@@ -58,14 +58,94 @@ class Article extends TKTModel implements JsonSerializable
     public function __construct(array &$properties = [])
     {
         if (array_key_exists('variants', $properties)) {
-            $this->variants = [];
-            foreach ($properties['variants'] as $key => $obj) {
-                $variant = (new Variant($obj))->set_key($key);
-                $this->variants[$key] = $variant;
-            }
+            $this->variants = array_map(function ($obj) {
+                return new Variant($obj);
+            }, $properties['variants']);
             unset($properties['variants']);
         }
         parent::__construct($properties);
+    }
+
+    public function _id()
+    {
+        return $this->_id;
+    }
+
+    public function name($lang)
+    {
+        if (isset($this->name[$lang])) {
+            return $this->name[$lang];
+        }
+
+        $default_lang = TKTApp::get_instance()->get_config('i18n.default_lang', 'fr');
+        if (isset($this->name[$default_lang])) {
+            return $this->name[$default_lang];
+        }
+
+        return null;
+    }
+
+    public function additional_name($lang)
+    {
+        if (isset($this->additional_name[$lang])) {
+            return $this->additional_name[$lang];
+        }
+
+        $default_lang = TKTApp::get_instance()->get_config('i18n.default_lang', 'fr');
+        if (isset($this->additional_name[$default_lang])) {
+            return $this->additional_name[$default_lang];
+        }
+
+        return null;
+    }
+
+    public function description($lang)
+    {
+        if (isset($this->description[$lang])) {
+            return $this->description[$lang];
+        }
+
+        $default_lang = TKTApp::get_instance()->get_config('i18n.default_lang', 'fr');
+        if (isset($this->description[$default_lang])) {
+            return $this->description[$default_lang];
+        }
+
+        return null;
+    }
+
+    public function category()
+    {
+        return $this->category;
+    }
+
+    public function pos()
+    {
+        return $this->pos;
+    }
+
+    public function stock()
+    {
+        return $this->stock;
+    }
+
+    public function supplier()
+    {
+        return $this->supplier;
+    }
+
+    public function variants()
+    {
+        return $this->variants;
+    }
+
+    public function price()
+    {
+        return $this->variants()[0]->price('CHF');
+    }
+
+    public function value()
+    {
+        return $this->variants()[0]->value('CHF');
     }
 
     /**
@@ -106,54 +186,9 @@ class Article extends TKTModel implements JsonSerializable
         return !empty($posters) ? $posters[0] : null;
     }
 
-    public function _id()
+    public function has_id()
     {
-        return $this->_id;
-    }
-
-    public function name($lang)
-    {
-        return isset($this->name[$lang]) ? $this->name[$lang] : ($this->name['de'] ? $this->name['de'] : null); // FIXME: replace de by default language
-    }
-
-    public function additional_name($lang)
-    {
-        return isset($this->additional_name[$lang]) ? $this->additional_name[$lang] : ($this->additional_name['de'] ? $this->additional_name['de'] : null); // FIXME: replace de by default language
-    }
-
-    public function description($lang)
-    {
-        return isset($this->description[$lang]) ? $this->description[$lang] : ($this->description['de'] ? $this->description['de'] : null); // FIXME: replace de by default language
-    }
-
-    public function category()
-    {
-        return $this->category;
-    }
-
-    public function pos()
-    {
-        return $this->pos;
-    }
-
-    public function stock()
-    {
-        return $this->stock;
-    }
-
-    public function supplier()
-    {
-        return $this->supplier;
-    }
-
-    public function variants()
-    {
-        return $this->variants;
-    }
-
-    public function price()
-    {
-        return $this->variants()[0]->price('CHF'); // FIXME: handle variants
+        return is_string($this->_id) && (strlen($this->_id) > 0);
     }
 
     public function has_description()
@@ -167,16 +202,19 @@ class Article extends TKTModel implements JsonSerializable
     public function jsonSerialize()
     {
         $ret = [
-            '_id'                    => $this->_id(),
-            'name'                   => $this->name,
-            'additional_name'        => $this->additional_name,
-            'category'               => $this->category,
-            'pos'                    => $this->pos,
-            'stock'                  => $this->stock,
-            'supplier'               => $this->supplier,
-            'posters'                => $this->posters,
-            'variants'               => $this->variants,
+            'name'            => $this->name,
+            'additional_name' => !empty($this->additional_name) ? $this->additional_name : [],
+            'category'        => $this->category(),
+            'pos'             => $this->pos(),
+            'stock'           => $this->stock(),
+            'supplier'        => $this->supplier(),
+            'posters'         => $this->posters(),
+            'variants'        => !empty($this->variants) ? $this->variants : []
         ];
+
+        if ($this->has_id()) {
+            $ret['_id'] = $this->_id();
+        }
 
         if ($this->has_description()) {
             $ret['description'] = $this->description;
