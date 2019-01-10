@@ -66,6 +66,7 @@ class TKTApp
             'pages'     => (array)get_option('pages'),
             'assets'    => (array)AppConfig::get('assets'),
             'ticketack' => (array)AppConfig::get('ticketack'),
+            'i18n'      => (array)AppConfig::get('i18n'),
             'images'    => (array)AppConfig::get('images'),
             'kronos'    => (array)AppConfig::get('kronos')
         ];

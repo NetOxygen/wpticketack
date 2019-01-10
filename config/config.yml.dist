@@ -1,5 +1,5 @@
 # NOTE: keep in sync with app/helpers/config.class.php
-CONFIG_VERSION: 2018091101
+CONFIG_VERSION: 2019010901
 
 assets:
     # Useful to bump cache
@@ -17,6 +17,9 @@ ticketack:
     requested_pass_owner_data:
         # Use the ticket type id as key. use ~ is equivalent to []
         default: ["firstname", "lastname"]
+
+i18n:
+    default_language: 'fr'
 
 images:
     # images proxy
