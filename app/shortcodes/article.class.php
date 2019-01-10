@@ -33,8 +33,8 @@ class ArticleShortcode extends TKTShortcode
     public function run($atts, $content)
     {
         $template     = isset($atts['template']) ? $atts['template'] : static::LIST_TEMPLATE;
-        $category_ids  = isset($atts['category_ids']) ? explode(',', $atts['category_ids']) : null;
-        $item_width   = isset($atts['item_width']) ? intval($atts['item_width']) : static::DEFAULT_ITEM_WIDTH;
+        $category_ids = isset($atts['category_ids']) ? explode(',', $atts['category_ids']) : null;
+
         try {
             $query = Article::all();
 
@@ -42,15 +42,14 @@ class ArticleShortcode extends TKTShortcode
                 $query = $query->in_category($category_ids);
             }
 
-            $articles = $query->get('_id,name,description,variants');
+            $articles = $query->get('_id,name,additional_name,description,variants,posters');
 
-	    return TKTTemplate::render(
-		'article/'.$template.'/articles',
-		(object)[
-		    'articles' => $articles,
-		    'item_width' => $item_width
-		]
-	    );
+            return TKTTemplate::render(
+                'article/'.$template.'/articles',
+                (object)[
+                    'articles' => $articles,
+                ]
+            );
         } catch (TKTApiException $e) {
             return sprintf(
                 "Impossible de charger les articles : %s",
