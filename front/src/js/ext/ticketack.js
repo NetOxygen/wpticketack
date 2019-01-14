@@ -37,6 +37,7 @@ var Ticketack = function(eshopUrl, apiKey, lang) {
     this.cartJsonUrl           = this.eshopUrl + "cart/view_json";
     this.cartRemoveUrl         = this.eshopUrl + "cart/remove";
     this.cartAddUrl            = this.eshopUrl + "screening/buy/";
+    this.cartAddArticlesUrl    = this.eshopUrl + "article/add_variants_to_cart";
     this.screeningUrl          = this.eshopUrl + "screening/info_json/";
     this.bookUrl               = this.eshopUrl + "screening/book_on_ticket/";
     this.unbookUrl             = this.eshopUrl + "ticket/cancel_booking_json/";
@@ -154,6 +155,29 @@ Ticketack.prototype.addPassToCart = function(pass, pricing, userdata, callback) 
         data.PHPSESSID = this.session_id;
 
     return this.post(this.passesViewUrl, data, callback);
+};
+
+/**
+ * Add articles to cart
+ *
+ * @param {Array} articles: An array of articles with the following properties:
+ *                          - _id: the article _id
+ *                          - variants: an arraay of {
+ *                              "_id": the variant _id,
+ *                              "quantity": the quantity,
+ *                              "price": the variant price
+ *                          }
+ * @param {Function} callback: The callback function
+ */
+Ticketack.prototype.addArticlesToCart = function(articles, callback) {
+    var data = { "articles":  articles };
+    return this.request(
+        'POST',
+        this.cartAddArticlesUrl,
+        data,
+        { "Content-type": "application/json" },
+        callback
+    );
 };
 
 /**
