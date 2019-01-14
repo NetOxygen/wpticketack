@@ -12,6 +12,7 @@ class ArticleShortcode extends TKTShortcode
     const LIST_TEMPLATE      = 'list';
     const GRID_TEMPLATE      = 'grid';
     const GALLERY_TEMPLATE   = 'gallery';
+    const SLIDER_TEMPLATE    = 'slider';
     const DEFAULT_ITEM_WIDTH = 12;
 
     /**
