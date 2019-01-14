@@ -36,6 +36,7 @@ require([
     'app/main',
     // We need to require all the lazyloaded components so as
     // the optimizer can compile them.
+    'app/Articles/Article',
     'app/Booking/Form',
     'app/Cart/Cart',
     'app/Cart/CartIcon',
