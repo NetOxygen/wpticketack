@@ -157,6 +157,18 @@ class CHF implements Money, JsonSerializable
     }
 
     /**
+     * Return a float value of this money
+     *
+     * @return float
+     */
+    public function value()
+    {
+        return floatval(
+            $this->francs() +
+            $this->cents() / 100
+        );
+    }
+    /**
      * Convert a CHF instance into a string.
      *
      * @return
