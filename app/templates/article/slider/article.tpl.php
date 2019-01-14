@@ -14,15 +14,15 @@ $images_width  = TKTApp::get_instance()->get_config('images.dimensions.medium.wi
 $images_height = TKTApp::get_instance()->get_config('images.dimensions.medium.height');
 $image_url     = img_proxy_url($a->first_poster()->url, $images_width, $images_height);
 ?>
-<div class="article-inner">
+<div class="article-inner" data-component="Articles/Article" data-id="<?= $a->_id() ?>">
 
-  <div class="row">
+  <div class="row show-variants">
 
     <div class="poster-wrapper" style="background-image: url('<?= $image_url ?>')"></div>
 
     <div class="article-bottom-infos">
       <div class="info">
-        <img src="<?= get_template_directory_uri() ?>/images/i.png" />
+        <img src="<?= assets_url('build/images/articles/i.png') ?>" />
       </div>
       <div class="name">
         <?= $a->name(LANG) ?>
@@ -33,4 +33,7 @@ $image_url     = img_proxy_url($a->first_poster()->url, $images_width, $images_h
     </div>
 
   </div>
+
+    <?= TKTTEmplate::render('article/slider/variant_form', (object)[ "article" => $a ]) ?>
 </div>
+

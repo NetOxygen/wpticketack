@@ -11,7 +11,7 @@
  */
 $rows = array_chunk($data->articles, ceil(count($data->articles) / 2));
 ?>
-<div id="tkt_articles" data-component="Article/AvailabilityState">
+<div id="tkt_articles">
     <div class="category-name"><?= the_title() ?></div>
 
   <?php if (empty($data->articles)) : ?>
@@ -22,7 +22,7 @@ $rows = array_chunk($data->articles, ceil(count($data->articles) / 2));
         <div class="carousel-inner">
             <?php foreach ($articles as $article) : ?>
             <div class="tkt_article carousel-item">
-                <?= TKTTemplate::render('article/list/article', (object)[ 'article' => $article ]) ?>
+                <?= TKTTemplate::render('article/slider/article', (object)[ 'article' => $article ]) ?>
             </div>
             <?php endforeach; ?>
         </div>
