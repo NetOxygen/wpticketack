@@ -103,7 +103,7 @@ function _datetime_to_iso8601($d)
  */
 function assets_url($path)
 {
-    return plugin_dir_url( TKT_BASE ) . 'wpticketack/front/' . $path;
+    return plugin_dir_url( TKT_APP ) . 'front/' . $path;
 }
 
 /**
