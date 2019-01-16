@@ -47,4 +47,5 @@ require([
     'app/Pass/BuyForm',
     'app/Program/BookabilityState',
     'app/Program/Filter',
+    'app/Program/Filters',
 ]);
