@@ -69,7 +69,7 @@ class ProgramShortcode extends TKTShortcode
                 $query = $query->order_by_start_at();
             }
 
-            $screenings = $query->get('_id,title,start_at,stop_at,cinema_hall.name,films,opaque');
+            $screenings = $query->get('_id,title,start_at,stop_at,cinema_hall.name,cinema_hall._id,films,opaque');
 
             switch ($layout) {
                 case static::SCREENINGS_LAYOUT:
@@ -90,12 +90,13 @@ class ProgramShortcode extends TKTShortcode
 
                     // TODO: We could improve this by filtering the screenings
                     // from the engine
+                    $filter = "";
                     if (isset($atts['filter'])) {
-                        $type   = $atts['filter'];
-                        $screenings = array_filter($screenings, function ($s) use ($type) {
+                        $filter     = $atts['filter'];
+                        $screenings = array_filter($screenings, function ($s) use ($filter) {
                             $movies = $s->movies();
                             foreach ($movies as $m) {
-                                if ($m->opaque('type') == $type) {
+                                if ($m->opaque('type') == $filter) {
                                     return true;
                                 }
                             }
@@ -108,6 +109,7 @@ class ProgramShortcode extends TKTShortcode
                         (object)[
                             'screenings' => $screenings,
                             'item_width' => $item_width,
+                            'filter'     => $filter,
                             'top_filter' => $top_filter,
                             'top_filter_values' => ($top_filter == static::EVENTS_FILTER ? Event::from_screenings($screenings) : [])
                         ]
