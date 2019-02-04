@@ -1,4 +1,4 @@
-/* Built on Wed Dec 26 2018 14:48:47 GMT+0100 (CET) */ 
+/* Built on Wed Jan 16 2019 09:50:08 GMT+0100 (Central European Standard Time) */ 
 .dark {
   color: #000; }
 
@@ -56,6 +56,85 @@
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none; }
+
+#tkt_articles .article-variants-form {
+  display: none;
+  width: 933px;
+  height: 1408px;
+  background: url("../images/articles/bg_popup.png");
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 60px;
+  text-align: center;
+  font-family: Lato; }
+  #tkt_articles .article-variants-form .close-variants {
+    width: 53px;
+    height: 53px;
+    background: url("../images/articles/close_popup.png");
+    position: absolute;
+    top: 30px;
+    right: 30px; }
+  #tkt_articles .article-variants-form .variants-title {
+    font-size: 33px; }
+  #tkt_articles .article-variants-form .variants-article-name {
+    font-size: 45px; }
+  #tkt_articles .article-variants-form .poster-wrapper {
+    margin: 30px auto; }
+  #tkt_articles .article-variants-form .variants-subtitle {
+    font-size: 33px; }
+  #tkt_articles .article-variants-form .variants-wrapper {
+    padding: 30px 55px 0; }
+    #tkt_articles .article-variants-form .variants-wrapper .variant-wrapper .variant-name {
+      width: 240px;
+      text-align: left;
+      font-size: 22px; }
+    #tkt_articles .article-variants-form .variants-wrapper .variant-wrapper .variant-sub {
+      display: inline-block;
+      width: 32px;
+      height: 36px;
+      background: url("../images/articles/left_arrow.png");
+      margin-top: 9px; }
+    #tkt_articles .article-variants-form .variants-wrapper .variant-wrapper .variant-quantity {
+      width: 53px;
+      height: 53px;
+      background: url("../images/articles/round_small.png");
+      line-height: 53px;
+      font-size: 22px; }
+    #tkt_articles .article-variants-form .variants-wrapper .variant-wrapper .variant-add {
+      display: inline-block;
+      width: 32px;
+      height: 36px;
+      background: url("../images/articles/right_arrow.png");
+      margin-top: 9px; }
+    #tkt_articles .article-variants-form .variants-wrapper .variant-wrapper .variant-price {
+      text-align: right;
+      font-size: 22px; }
+    #tkt_articles .article-variants-form .variants-wrapper .variant-total-row {
+      height: 80px; }
+      #tkt_articles .article-variants-form .variants-wrapper .variant-total-row .variant-total-label,
+      #tkt_articles .article-variants-form .variants-wrapper .variant-total-row .variant-total {
+        text-align: right;
+        font-size: 25px; }
+  #tkt_articles .article-variants-form .variants-error,
+  #tkt_articles .article-variants-form .variants-submit-error {
+    display: inline-block;
+    font-size: 30px;
+    color: #FF0000;
+    display: none; }
+  #tkt_articles .article-variants-form .variants-submit {
+    display: inline-block;
+    width: 171px;
+    height: 171px;
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    background: url("../images/articles/go_btn.png");
+    line-height: 171px;
+    font-size: 27px;
+    color: #FFFFFF; }
 
 .tkt-cart .empty-cart-title {
   text-align: center; }

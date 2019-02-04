@@ -35,6 +35,14 @@ define(
                     this.load_cart();
                 }
             });
+            postal.subscribe({
+                channel: "cart",
+                topic: "update",
+                callback: (data, envelope) => {
+                    if (!data.internal)
+                        this.load_cart();
+                }
+            });
         },
 
         load_cart: function(callback) {
@@ -110,7 +118,8 @@ define(
                 channel: "cart",
                 topic: "update",
                 data: {
-                    cart: this.cart
+                    cart: this.cart,
+                    internal: true
                 }
             });
         },

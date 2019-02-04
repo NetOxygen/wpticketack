@@ -103,7 +103,7 @@ function _datetime_to_iso8601($d)
  */
 function assets_url($path)
 {
-    return plugin_dir_url( TKT_BASE ) . 'wpticketack/front/' . $path;
+    return plugin_dir_url( TKT_APP ) . 'front/' . $path;
 }
 
 /**
@@ -289,6 +289,43 @@ function screening_book_url($screening)
             sanitize_title($screening->title('original'))
         )
         );
+    }
+}
+
+/**
+ * Get an article buy url
+ *
+ * @param Article $article
+ *
+ * @return string
+ */
+function article_buy_url($article)
+{
+    if (!$article) {
+        return "";
+    }
+
+    if (LANG == 'de') { // FIXME: replace 'de' by default language
+	    return get_site_url(
+		/*$blog_id*/null,
+		sprintf(
+		    "%s/%s_%s?book=1",
+		    TKTApp::get_instance()->get_config('pages.article'),
+		    $article->_id(),
+		    sanitize_title($screening->name('de')) // FIXME: replace 'de' by default language
+		)
+	    );
+     } else {
+	    return get_site_url(
+		/*$blog_id*/null,
+		sprintf(
+		    "%s/%s/%s_%s?book=1",
+                    LANG,
+		    TKTApp::get_instance()->get_config('pages.article'),
+		    $article->_id(),
+		    sanitize_title($article->name(LANG)) 
+		)
+	    );
     }
 }
 

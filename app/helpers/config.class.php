@@ -8,7 +8,7 @@ use Symfony\Component\Yaml\Parser;
 
 class AppConfig
 {
-    const CONFIG_VERSION = 2018091101;
+    const CONFIG_VERSION = 2019010901;
 
     /**
      * the config array.

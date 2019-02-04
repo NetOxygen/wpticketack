@@ -157,6 +157,18 @@ class CHF implements Money, JsonSerializable
     }
 
     /**
+     * Return a float value of this money
+     *
+     * @return float
+     */
+    public function value()
+    {
+        return floatval(
+            $this->francs() +
+            $this->cents() / 100
+        );
+    }
+    /**
      * Convert a CHF instance into a string.
      *
      * @return
@@ -170,5 +182,16 @@ class CHF implements Money, JsonSerializable
     public function jsonSerialize()
     {
         return sprintf("%d.%02d", $this->francs(), $this->cents());
+    }
+
+    /**
+     * Prepare $float for CHF::parse
+     *
+     * @return string
+     */
+    public static function prepare($float)
+    {
+        $float = (float)str_replace(',', '.', $float);
+        return number_format((float)$float, 2, '.', '');
     }
 }
