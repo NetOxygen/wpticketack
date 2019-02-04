@@ -23,12 +23,12 @@ define(
         },
 
         init: function() {
+            this.$nb = $('<div class="cart-icon-nb assertive empty"></div>');
+            this.$container.append(this.$nb);
+
             TKTApi.loadCart((err, status, rsp) => {
                 this.update_nb(rsp.items.length);
             });
-
-            this.$nb = $('<div class="cart-icon-nb assertive"></div>');
-            this.$container.append(this.$nb);
 
             postal.subscribe({
                 channel: "cart",
@@ -40,6 +40,11 @@ define(
         },
 
         update_nb: function (nb) {
+            if (nb > 0)
+                this.$nb.removeClass('empty');
+            else
+                this.$nb.addClass('empty');
+
             this.$nb.html(nb > 0 ? nb : "");
         },
 
