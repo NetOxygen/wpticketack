@@ -1,4 +1,4 @@
-/* Built on Wed Jan 16 2019 09:50:08 GMT+0100 (Central European Standard Time) */ 
+/* Built on Mon Feb 04 2019 18:15:32 GMT+0100 (Central European Standard Time) */ 
 .dark {
   color: #000; }
 
@@ -653,6 +653,84 @@ input::-webkit-inner-spin-button {
       border-color: transparent #000 transparent #000;
       -webkit-animation: lds-double-ring_reverse 1s linear infinite;
       animation: lds-double-ring_reverse 1s linear infinite; }
+
+.tkt-loader-wrapper .tkt-loader-overlay {
+  display: none;
+  background: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  top: 178px;
+  bottom: 0;
+  left: 0;
+  right: 0; }
+  .tkt-loader-wrapper .tkt-loader-overlay .tkt-loader-spinner {
+    width: 256px;
+    height: 256px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    top: calc(50% - 128px - 89px);
+    left: calc(50% - 128px);
+    -webkit-animation: spin 4s infinite linear;
+    -moz-webkit-animation: spin 4s infinite linear;
+    -ms-webkit-animation: spin 4s infinite linear;
+    -o-transition: rotate(3600deg); }
+
+@-moz-keyframes spin {
+  from {
+    -moz-transform: rotate(0deg); }
+  to {
+    -moz-transform: rotate(360deg); } }
+
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg); }
+  to {
+    -webkit-transform: rotate(360deg); } }
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg); }
+  to {
+    transform: rotate(360deg); } }
+
+.plus-minus-input-group {
+  display: flex;
+  flex-direction: row;
+  width: 180px;
+  height: 40px;
+  margin: 0 auto; }
+  .plus-minus-input-group .input-group-btn {
+    flex: 1;
+    width: 100%; }
+    .plus-minus-input-group .input-group-btn button {
+      width: 100%;
+      background: #2C3688;
+      color: #FFFFFF !important;
+      z-index: 2; }
+      .plus-minus-input-group .input-group-btn button:hover {
+        border-color: #000000 !important; }
+    .plus-minus-input-group .input-group-btn:first-child button {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0; }
+    .plus-minus-input-group .input-group-btn:last-child button {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0; }
+  .plus-minus-input-group input.plus-minus-input {
+    flex: 1;
+    margin: 7px -2px 0 -2px !important;
+    border-radius: 0;
+    height: 39px !important;
+    border: 1px solid #000000;
+    z-index: 1; }
+
+.tkt-screen-saver {
+  display: none;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999; }
 
 .tkt-user-connect .user-infos {
   text-align: center;
