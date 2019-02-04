@@ -205,7 +205,7 @@ function event_book_url($event, $screening = null)
         $page = get_page_by_path($slug, OBJECT, 'tkt-event');
 
         return sprintf(
-            "%s/?book=1%s",
+            "%s?book=1%s",
             apply_filters('wpml_permalink', get_permalink($page->ID)),
             (!is_null($screening) ? '&s_id='.$screening->_id() : '')
         );
