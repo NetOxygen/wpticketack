@@ -43,6 +43,31 @@ define(
                         this.load_cart();
                 }
             });
+            $(document).on('click', '.finish-cart-btn', (e) => {
+                e.preventDefault();
+
+                let user_data = {};
+                const firstname = $('#firstname-input', this.$container).val();
+                const lastname  = $('#lastname-input', this.$container).val();
+                const tab       = $('#tab-input', this.$container).val();
+                const email     = $('#email-input', this.$container).val();
+                if (firstname)
+                    user_data.firstname = firstname;
+                if (lastname)
+                    user_data.lastname = lastname;
+                if (tab)
+                    user_data.tab = tab;
+                if (email)
+                    user_data.email = email;
+                this.checkout(user_data, (err, rsp) => {
+                    if (err)
+                        return;
+
+                    this.cart = {};
+                    $('#cart').fadeOut();
+                    $('#checkout-confirm-popup').fadeIn();
+                });
+            });
         },
 
         load_cart: function(callback) {
@@ -110,6 +135,24 @@ define(
 
             async.parallel(tasks, (err, results) => {
                 return this.load_cart();
+            });
+        },
+
+        checkout: function(user_data, callback) {
+            callback  = callback || ((err) => {});
+            user_data = user_data || {};
+
+console.log(this.cart);
+            TKTApi.pay(this.cart.id, 'POS_CASH', user_data, (err, status, rsp) => {
+                if (err)
+                    return callback(err);
+
+                TKTApi.confirm(this.cart.id, (err, status, rsp) => {
+                    if (err)
+                        return callback(err);
+
+                    return callback(/*err*/null, rsp);
+                });
             });
         },
 
