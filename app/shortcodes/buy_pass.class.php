@@ -27,10 +27,10 @@ class BuyPassShortcode extends TKTShortcode
     public function run($atts, $content)
     {
         $tickettypes = Tickettype::all()
-			->order_by_opaque_eshop_sort_weight()
-			->for_sellers(['eshop'])
-			->filter_pricings_for_sellers(['eshop'])
-			->get();
+            ->order_by_opaque_eshop_sort_weight()
+            ->for_sellers(['eshop'])
+            ->filter_pricings_for_sellers(['eshop'])
+            ->get();
         if (!empty($_GET['types'])) $atts['types'] = $_GET['types']; // override with URL
         $types = isset($atts['types']) ? explode(',', $atts['types']) : [];
         if (!empty($types)) {
