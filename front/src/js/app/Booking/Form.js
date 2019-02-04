@@ -111,6 +111,7 @@ define( [
 
         process_add_to_cart: function() {
             $('.pricings-error').html("").addClass('d-none');
+            $('.success-panel').addClass('d-none');
 
             // Check chosen pricings
             const chosen_pricings = _.find(this.data.pricings, (nb) => nb > 0);
