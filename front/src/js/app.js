@@ -50,4 +50,5 @@ require([
     'app/Program/Filters',
     'app/Ui/Loader',
     'app/Ui/PlusMinus',
+    'app/Ui/ScreenSaver',
 ]);
