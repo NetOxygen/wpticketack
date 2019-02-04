@@ -105,13 +105,29 @@ class ProgramShortcode extends TKTShortcode
                         });
                     }
 
+                    $service_filters = [];
+                    if (isset($atts['service_filters'])) {
+                        $service_filters = explode(',', $atts['service_filters']);
+                        $screenings = array_filter($screenings, function ($s) use ($service_filters) {
+                            $movies = $s->movies();
+                            foreach ($movies as $m) {
+                                if ($m->opaque('type') == 'service' &&
+                                    in_array($m->opaque('service_type'), $service_filters)) {
+                                    return true;
+                                }
+                            }
+                            return false;
+                        });
+                    }
+
                     return TKTTemplate::render(
                         'program/'.$template.'/screenings',
                         (object)[
-                            'screenings' => $screenings,
-                            'item_width' => $item_width,
-                            'filter'     => $filter,
-                            'top_filter' => $top_filter,
+                            'screenings'        => array_values($screenings),
+                            'item_width'        => $item_width,
+                            'filter'            => $filter,
+                            'service_filters'   => $service_filters,
+                            'top_filter'        => $top_filter,
                             'top_filter_values' => ($top_filter == static::EVENTS_FILTER ? Event::from_screenings($screenings) : [])
                         ]
                     );
