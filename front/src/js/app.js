@@ -28,7 +28,7 @@ requirejs.config({
         moment: '../../node_modules/moment/min/moment-with-locales.min',
         postal: '../../node_modules/postal/lib/postal.min',
         lodash: '../../node_modules/lodash/lodash.min',
-        lodash: '../../node_modules/lodash/lodash.min'
+        hammer: '../../node_modules/hammerjs/hammer.min'
     }
 });
 
