@@ -38,6 +38,8 @@ var Ticketack = function(eshopUrl, apiKey, lang) {
     this.cartRemoveUrl         = this.eshopUrl + "cart/remove";
     this.cartAddUrl            = this.eshopUrl + "screening/buy/";
     this.cartAddArticlesUrl    = this.eshopUrl + "article/add_variants_to_cart";
+    this.payUrl                = this.eshopUrl + "carts/pay/id/";
+    this.confirmUrl            = this.eshopUrl + "carts/confirm/id/";
     this.screeningUrl          = this.eshopUrl + "screening/info_json/";
     this.bookUrl               = this.eshopUrl + "screening/book_on_ticket/";
     this.unbookUrl             = this.eshopUrl + "ticket/cancel_booking_json/";
@@ -175,6 +177,44 @@ Ticketack.prototype.addArticlesToCart = function(articles, callback) {
         'POST',
         this.cartAddArticlesUrl,
         data,
+        { "Content-type": "application/json" },
+        callback
+    );
+};
+
+/**
+ * Pay the cart
+ *
+ * @param {integer} cart_id: The cart id
+ * @param {string} payment_method: The payment method name
+ * @param {Object} user_data: An object containing the user data
+ * @param {Function} callback: The callback function
+ */
+Ticketack.prototype.pay = function(cart_id, payment_method, user_data, callback) {
+    var data = {
+        "payment_method": payment_method,
+        "user": user_data
+    };
+    return this.request(
+        'POST',
+        this.payUrl + cart_id,
+        data,
+        { "Content-type": "application/json" },
+        callback
+    );
+};
+
+/**
+ * Confirm a cart
+ *
+ * @param {integer} cart_id: The cart id
+ * @param {Function} callback: The callback function
+ */
+Ticketack.prototype.confirm = function(cart_id, callback) {
+    return this.request(
+        'POST',
+        this.confirmUrl + cart_id,
+        {},
         { "Content-type": "application/json" },
         callback
     );
