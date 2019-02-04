@@ -49,4 +49,5 @@ require([
     'app/Program/Filter',
     'app/Program/Filters',
     'app/Ui/Loader',
+    'app/Ui/PlusMinus',
 ]);
