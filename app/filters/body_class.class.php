@@ -26,20 +26,22 @@ class BodyClassFilter extends TKTFilter
             'tkt_program',
             'tkt_cart',
             'tkt_event',
-            'tkt_screening'
+            'tkt_screening',
+            'tkt_buy_pass'
         ];
 
         if (isset($post->post_content)) {
             foreach ($shortcodes as $shortcode) {
                 if(has_shortcode($post->post_content, $shortcode ) ) {
+                    $classes[] = 'body_tkt';
                     $classes[] = 'body_'.$shortcode;
                 }
             }
         }
 
-		if ($post->post_type == 'tkt-event') {
-			$classes[] = 'body_tkt_event';
-		}
+        if ($post->post_type == 'tkt-event') {
+            $classes[] = 'body_tkt_event';
+        }
 
         return $classes;
     }
