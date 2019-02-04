@@ -177,7 +177,7 @@ class ProgramShortcode extends TKTShortcode
                     return TKTTemplate::render(
                         'program/'.$template.'/events',
                         (object)[
-                            'events' => $events,
+                            'events' => array_values($events),
                             'item_width' => $item_width,
                             'top_filter' => $top_filter,
                             'top_filter_values' => ($top_filter == static::SCREENINGS_FILTER ? $screenings : [])
