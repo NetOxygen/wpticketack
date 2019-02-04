@@ -72,7 +72,7 @@ $image_url     = img_proxy_url($s->first_poster()->url, $images_width, $images_h
       <div class="row">
         <div class="col">
           <span class="tickets" data-bookability-ids="<?= $s->_id() ?>">
-            <div class="show-when-loading" data-component="Media/Loading" data-size-sm data-align-center></div>
+            <div class="show-while-loading" data-component="Media/Loading" data-size-sm data-align-center></div>
             <a
               class="show-if-bookable show-if almost-not-bookable"
               href="<?= event_book_url($m, $s) ?>">
