@@ -1,0 +1,37 @@
+.tkt-loader-wrapper {
+    .tkt-loader-overlay {
+        display: none;
+        background: rgba(0, 0, 0, 0.6);
+        position: fixed;
+        top: 178px;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        .tkt-loader-spinner {
+            width: 256px;
+            height: 256px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            top: calc(50% - 128px - 89px);
+            left: calc(50% - 128px);
+            -webkit-animation: spin 4s infinite linear;
+            -moz-webkit-animation: spin 4s infinite linear;
+            -ms-webkit-animation: spin 4s infinite linear;
+            -o-transition: rotate(3600deg);
+        }
+    }
+}
+
+@-moz-keyframes spin {
+    from { -moz-transform: rotate(0deg); }
+    to { -moz-transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {
+    from { -webkit-transform: rotate(0deg); }
+    to { -webkit-transform: rotate(360deg); }
+}
+@keyframes spin {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(360deg);}
+}

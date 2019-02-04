@@ -48,4 +48,5 @@ require([
     'app/Program/BookabilityState',
     'app/Program/Filter',
     'app/Program/Filters',
+    'app/Ui/Loader',
 ]);
