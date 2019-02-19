@@ -23,11 +23,6 @@ define(
         },
 
         init: function() {
-            this.load_cart((err) => {
-                // FIXME: handle error
-                if (err)
-                    return;
-            });
             postal.subscribe({
                 channel: "cart",
                 topic: "reload",
@@ -68,6 +63,30 @@ define(
                     $('#checkout-confirm-popup').fadeIn();
                 });
             });
+
+            $(document).on('click', '.open-cart-btn', (e) => {
+                e.preventDefault();
+
+                $('#cart').fadeOut();
+                let user_data = {};
+                const tab = $('#tab-input', this.$container).val();
+                if (tab)
+                    user_data.tab = tab;
+
+                this.set_user_data(user_data, (err, rsp) => {
+                    if (err)
+                        return;
+                    this.set_open((err, rsp) => {
+                        if (err)
+                            return;
+                        this.get_new((err, rsp) => {
+                            if (err)
+                                return;
+                            $('#checkout-confirm-popup').fadeIn();
+                        });
+                    });
+                });
+            });
         },
 
         load_cart: function(callback) {
@@ -85,9 +104,15 @@ define(
                     this.build_table();
                     this.emit_update();
 
-                    this.bind_remove_item_icons((err) => {
-                        return callback(err);
-                    });
+                    this.bind_remove_item_icons();
+                    if (this.cart.id) {
+                        this.set_pending((err, rsp) => {
+                            if (err)
+                                return callback(err);
+                        });
+                    } else {
+                        return callback();
+                    }
                 });
             });
         },
@@ -138,11 +163,48 @@ define(
             });
         },
 
+        set_pending: function(callback) {
+            callback  = callback || ((err) => {});
+
+            TKTApi.setPending(this.cart.id, (err, status, rsp) => {
+                if (err)
+                    return callback(err);
+
+                return callback(/*err*/null, rsp);
+            });
+        },
+
+        set_open: function(callback) {
+            callback  = callback || ((err) => {});
+
+            TKTApi.setOpen(this.cart.id, (err, status, rsp) => {
+                return callback(err);
+            });
+        },
+
+        get_new: function(callback) {
+            callback  = callback || ((err) => {});
+
+            TKTApi.getNew((err, status, rsp) => {
+                if (err)
+                    return callback(err);
+
+                return this.load_cart(callback);
+            });
+        },
+
+        set_user_data: function(data, callback) {
+            callback  = callback || ((err) => {});
+
+            TKTApi.setUserData(this.cart.id, data, (err, status, rsp) => {
+                return callback(err);
+            });
+        },
+
         checkout: function(user_data, callback) {
             callback  = callback || ((err) => {});
             user_data = user_data || {};
 
-console.log(this.cart);
             TKTApi.pay(this.cart.id, 'POS_CASH', user_data, (err, status, rsp) => {
                 if (err)
                     return callback(err);
