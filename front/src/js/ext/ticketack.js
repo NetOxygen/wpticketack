@@ -14,7 +14,7 @@
  *     - List the available passes
  *     - Update e-mail information in ticket
  *
- * @version 5.0.1 - 2018-03-13
+ * @version 5.1.0 - 2019-02-19
  *
  * @copyright NetOxygen 2015-2018
  *
@@ -37,7 +37,11 @@ var Ticketack = function(eshopUrl, apiKey, lang) {
     this.cartJsonUrl           = this.eshopUrl + "cart/view_json";
     this.cartRemoveUrl         = this.eshopUrl + "cart/remove";
     this.cartAddUrl            = this.eshopUrl + "screening/buy/";
-    this.cartAddArticlesUrl    = this.eshopUrl + "article/add_to_cart";
+    this.cartAddArticlesUrl    = this.eshopUrl + "articles/add_to_cart";
+    this.cartSetPendingUrl     = this.eshopUrl + "carts/pending/id/";
+    this.cartSetOpenUrl        = this.eshopUrl + "carts/open/id/";
+    this.cartGetNewUrl         = this.eshopUrl + "carts/new/";
+    this.cartUserDataUrl       = this.eshopUrl + "carts/user_data/";
     this.payUrl                = this.eshopUrl + "carts/pay/id/";
     this.confirmUrl            = this.eshopUrl + "carts/confirm/id/";
     this.screeningUrl          = this.eshopUrl + "screening/info_json/";
@@ -176,6 +180,72 @@ Ticketack.prototype.addArticlesToCart = function(articles, callback) {
     return this.request(
         'POST',
         this.cartAddArticlesUrl,
+        data,
+        { "Content-type": "application/json" },
+        callback
+    );
+};
+
+/**
+ * Set the cart in PENDING mode
+ *
+ * @param {integer} cart_id: The cart id
+ * @param {Function} callback: The callback function
+ */
+Ticketack.prototype.setPending = function(cart_id, callback) {
+    return this.request(
+        'PUT',
+        this.cartSetPendingUrl + cart_id,
+        {},
+        { "Content-type": "application/json" },
+        callback
+    );
+};
+
+/**
+ * Set the cart in OPEN mode
+ *
+ * @param {integer} cart_id: The cart id
+ * @param {Function} callback: The callback function
+ */
+Ticketack.prototype.setOpen = function(cart_id, callback) {
+    return this.request(
+        'PUT',
+        this.cartSetOpenUrl + cart_id,
+        {},
+        { "Content-type": "application/json" },
+        callback
+    );
+};
+
+/**
+ * Get a new cart
+ *
+ * @param {Function} callback: The callback function
+ */
+Ticketack.prototype.getNew = function(callback) {
+    return this.request(
+        'GET',
+        this.cartGetNewUrl,
+        {},
+        { "Content-type": "application/json" },
+        callback
+    );
+};
+
+/**
+ * Set a cart user data
+ *
+ * @param {Object} user_data: An object containing the user data
+ * @param {Function} callback: The callback function
+ */
+Ticketack.prototype.setUserData = function(cart_id, user_data, callback) {
+    var data = {
+        "user_data": user_data
+    };
+    return this.request(
+        'PUT',
+        this.cartUserDataUrl + cart_id,
         data,
         { "Content-type": "application/json" },
         callback
