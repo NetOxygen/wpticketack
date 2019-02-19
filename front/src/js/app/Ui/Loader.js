@@ -29,7 +29,7 @@ define(
             this.$overlay = $('<div/>').addClass('tkt-loader-overlay');
             const $spinner = $('<img/>')
                 .addClass('tkt-loader-spinner')
-                .attr('src', '/wp-content/themes/explorit/images/spinner.svg');
+                .attr('src', '/wp-content/themes/lafabrica/images/spinner.svg');
             this.$overlay.append($spinner);
             this.$container.append(this.$overlay);
 
