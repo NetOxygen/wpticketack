@@ -23,6 +23,7 @@ define(
         },
 
         init: function() {
+            this.load_cart();
             postal.subscribe({
                 channel: "cart",
                 topic: "reload",
