@@ -12,8 +12,8 @@
  * </div>
  */
 define(
-    ['postal', 'jquery', 'lodash', 'api', 'bootstrap'],
-    function dependencies(postal, $, _, TKTApi) {
+    ['postal', 'jquery', 'lodash', 'api', 'Cart', 'bootstrap'],
+    function dependencies(postal, $, _, TKTApi, CartModel) {
 
         function Article($container, state) {
             this.$container = $container;
@@ -134,6 +134,16 @@ define(
 
                         this.emit_cart_update(new CartModel(rsp));
                     });
+                });
+            },
+
+            emit_cart_update: function(cart) {
+                postal.publish({
+                    channel: "cart",
+                    topic: "update",
+                    data: {
+                        cart: cart
+                    }
                 });
             },
 
