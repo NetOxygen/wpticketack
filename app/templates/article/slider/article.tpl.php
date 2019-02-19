@@ -16,18 +16,20 @@ $image_url     = img_proxy_url($a->first_poster()->url, $images_width, $images_h
 ?>
 <div class="article-inner" data-component="Articles/Article" data-id="<?= $a->_id() ?>">
 
-  <div class="row show-variants">
+  <div class="row">
 
-    <div class="poster-wrapper" style="background-image: url('<?= $image_url ?>')"></div>
+    <div class="poster-wrapper show-variants" style="background-image: url('<?= $image_url ?>')"></div>
 
     <div class="article-bottom-infos">
+<!--
       <div class="info">
         <img src="<?= assets_url('build/images/articles/i.png') ?>" />
       </div>
+-->
       <div class="name">
         <?= $a->name(LANG) ?>
       </div>
-      <div class="description">
+      <div class="description show-variants">
         <?= $a->additional_name(LANG) ?>
       </div>
     </div>
