@@ -21687,6 +21687,7 @@ define('app/Cart/Cart', [
         },
         init: function init() {
             var _this = this;
+            this.load_cart();
             postal.subscribe({
                 channel: 'cart',
                 topic: 'reload',
