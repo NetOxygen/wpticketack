@@ -18623,7 +18623,11 @@ var Ticketack = function Ticketack(eshopUrl, apiKey, lang) {
     this.cartJsonUrl = this.eshopUrl + 'cart/view_json';
     this.cartRemoveUrl = this.eshopUrl + 'cart/remove';
     this.cartAddUrl = this.eshopUrl + 'screening/buy/';
-    this.cartAddArticlesUrl = this.eshopUrl + 'article/add_to_cart';
+    this.cartAddArticlesUrl = this.eshopUrl + 'articles/add_to_cart';
+    this.cartSetPendingUrl = this.eshopUrl + 'carts/pending/id/';
+    this.cartSetOpenUrl = this.eshopUrl + 'carts/open/id/';
+    this.cartGetNewUrl = this.eshopUrl + 'carts/new/';
+    this.cartUserDataUrl = this.eshopUrl + 'carts/user_data/';
     this.payUrl = this.eshopUrl + 'carts/pay/id/';
     this.confirmUrl = this.eshopUrl + 'carts/confirm/id/';
     this.screeningUrl = this.eshopUrl + 'screening/info_json/';
@@ -18696,6 +18700,19 @@ Ticketack.prototype.addPassToCart = function (pass, pricing, userdata, callback)
 Ticketack.prototype.addArticlesToCart = function (articles, callback) {
     var data = { 'articles': articles };
     return this.request('POST', this.cartAddArticlesUrl, data, { 'Content-type': 'application/json' }, callback);
+};
+Ticketack.prototype.setPending = function (cart_id, callback) {
+    return this.request('PUT', this.cartSetPendingUrl + cart_id, {}, { 'Content-type': 'application/json' }, callback);
+};
+Ticketack.prototype.setOpen = function (cart_id, callback) {
+    return this.request('PUT', this.cartSetOpenUrl + cart_id, {}, { 'Content-type': 'application/json' }, callback);
+};
+Ticketack.prototype.getNew = function (callback) {
+    return this.request('GET', this.cartGetNewUrl, {}, { 'Content-type': 'application/json' }, callback);
+};
+Ticketack.prototype.setUserData = function (cart_id, user_data, callback) {
+    var data = { 'user_data': user_data };
+    return this.request('PUT', this.cartUserDataUrl + cart_id, data, { 'Content-type': 'application/json' }, callback);
 };
 Ticketack.prototype.pay = function (cart_id, payment_method, user_data, callback) {
     var data = {
@@ -18804,6 +18821,328 @@ define('api', [
     'ticketack'
 ], function dependencies(config, Ticketack) {
     return new Ticketack(config.get('eshop_uri'), config.get('api_key'));
+});
+'use strict';
+define('csrf', ['module'], function dependencies(module, logger) {
+    function Csrf() {
+        this.param = module.config().param || 'csrf';
+        this.token = module.config().token || '';
+    }
+    return new Csrf();
+});
+'use strict';
+define('app/Models/Base', [
+    'module',
+    'lodash',
+    'postal',
+    'csrf'
+], function dependencies(module, _, postal, csrf) {
+    function Base(data) {
+        this.id = (data || {}).id;
+        this._id = (data || {})._id;
+        this.$element = null;
+    }
+    Base.ACTION_LIST = 'list';
+    Base.ACTION_CREATE = 'create';
+    Base.ACTION_UPDATE = 'update';
+    Base.ACTION_DELETE = 'delete';
+    Base.all = function all(type, url, params, callback) {
+        url += '/format/json';
+        for (var param in params) {
+            url += '/' + param + '/' + params[param];
+        }
+        $.ajax({
+            url: url,
+            method: 'GET'
+        }).done(function fetchSuccess(data) {
+            var key = type + 's';
+            if (!_.isArray(data.rsp[key]) || _.isEmpty(data.rsp[key]))
+                return callback && callback(null, []);
+            return callback && callback(null, data.rsp[key]);
+        }).fail(function blocFetchFail() {
+            postal.publish({ topic: 'model.' + type + '.list.error' });
+            return callback && callback(new Error('Can not fetch list'));
+        });
+    };
+    Base.prototype = {
+        isNew: function isNew() {
+            return;
+            (_.isNull(this.id) || _.isEmpty(this.id)) && (_.isNull(this.__id) || _.isEmpty(this.id));
+        },
+        bindTo: function bindTo($element) {
+            if (_.isEmpty(this.getId()))
+                return false;
+            this.$element = $element;
+            this.$element.attr('data-model-id', this.getId());
+            this._setUiValues();
+            this._print();
+        },
+        sync: function sync() {
+            if (_.isEmpty(this.$element))
+                return false;
+            this._getValuesFromUi();
+            this._print();
+        },
+        _getValuesFromUi: function _getValuesFromUi() {
+            var _this = this;
+            _.map($('[data-model]', this.$element), function (field) {
+                var $field = $(field);
+                var editor = $field.attr('data-editor');
+                if (editor == 'summernote')
+                    _this[$field.attr('data-model')] = $field.summernote('code');
+                else
+                    _this[$field.attr('data-model')] = $field.val();
+            });
+        },
+        _setUiValues: function _setUiValues() {
+            var _this2 = this;
+            _.map($('[data-model]', this.$element), function (field) {
+                var $field = $(field);
+                $field.val(_this2[$field.attr('data-model')]);
+                $field.on('change', function (e) {
+                    _this2.sync();
+                    _this2.save();
+                });
+            });
+        },
+        _print: function _print() {
+            var _this3 = this;
+            _.map($('[data-model-print]', this.$element), function (output) {
+                var $output = $(output);
+                $output.html(_this3[$output.attr('data-model-print')]);
+            });
+        },
+        getId: function getId() {
+            return this.id || this._id;
+        },
+        setId: function setId(id) {
+            this.id = id;
+            this._id = _id;
+        },
+        getEndPointUrl: function getEndPointUrl(action) {
+            return null;
+        },
+        getType: function getType(action) {
+            return 'entity';
+        },
+        save: function save() {
+            var callback = function callback(err, entity) {
+                if (err)
+                    return false;
+                entity._setUiValues();
+                entity._print();
+            };
+            return this.isNew() ? this._create(callback) : this._update(callback);
+        },
+        destroy: function destroy() {
+            var _this4 = this;
+            return this.isNew() ? false : this._delete(function (err, deleted) {
+                _this4.$element.fadeOut(function () {
+                    return _this4.$element.remove();
+                });
+            });
+        },
+        _create: function create(callback) {
+            var _this5 = this;
+            var url = this.getEndPointUrl(Base.ACTION_CREATE);
+            if (_.isNull(url))
+                return false;
+            var type = this.getType();
+            url += '/format/json';
+            url += '/' + csrf.param + '/' + csrf.token;
+            var payload = {};
+            _.map(Object.entries(this), function (a) {
+                payload[a[0]] = a[1];
+            });
+            $.post(url, payload).done(function (data) {
+                _.extend(_this5, data.rsp[type]);
+                var payload = {};
+                payload[type] = _this5;
+                postal.publish({
+                    topic: 'model.' + type + '.create',
+                    data: payload
+                });
+                return callback && callback(null, _this5);
+            }).fail(function onAjaxFail() {
+                var payload = {};
+                payload[type] = this;
+                postal.publish({
+                    topic: 'model.' + type + '.create.error',
+                    data: payload
+                });
+                return callback && callback(new Error());
+            });
+        },
+        _update: function update(callback) {
+            var _this6 = this;
+            var url = this.getEndPointUrl(Base.ACTION_UPDATE);
+            if (_.isNull(url))
+                return false;
+            var type = this.getType();
+            url += '/id/' + this.getId();
+            url += '/format/json';
+            url += '/' + csrf.param + '/' + csrf.token;
+            var payload = {};
+            _.map(Object.entries(this), function (a) {
+                var key = a[0], value = a[1];
+                if (key.substring(0, 1) == '$' || key == 'id')
+                    return;
+                payload[key] = value;
+            });
+            $.post(url, payload).done(function (data) {
+                _.extend(_this6, data.rsp[type]);
+                var payload = {};
+                payload[type] = _this6;
+                postal.publish({
+                    topic: 'model.' + type + '.update',
+                    data: payload
+                });
+                return callback && callback(null, _this6);
+            }).fail(function onAjaxFail() {
+                var payload = {};
+                payload[type] = this;
+                postal.publish({
+                    topic: 'model.' + type + '.update.error',
+                    data: payload
+                });
+                return callback && callback(new Error());
+            });
+        },
+        _delete: function update(callback) {
+            var _this7 = this;
+            var url = this.getEndPointUrl(Base.ACTION_DELETE);
+            if (_.isNull(url))
+                return false;
+            var type = this.getType();
+            url += '/id/' + this.getId();
+            url += '/format/json';
+            url += '/' + csrf.param + '/' + csrf.token;
+            $.post(url, {}).done(function (data) {
+                postal.publish({
+                    topic: 'model.' + type + '.delete',
+                    data: _this7
+                });
+                return callback && callback(null, _this7);
+            }).fail(function onAjaxFail() {
+                postal.publish({
+                    topic: 'model.' + type + '.delete.error',
+                    data: this
+                });
+                return callback && callback(new Error());
+            });
+        }
+    };
+    return Base;
+});
+'use strict';
+define('CartItem', [
+    'lodash',
+    'moment',
+    'app/Models/Base'
+], function dependencies(_, moment, BaseModel) {
+    CartItem.type = 'cart_item';
+    CartItem.SCREENING_TYPE = 'screening';
+    function CartItem(cartItem) {
+        var _this = this;
+        BaseModel.call(this, cartItem);
+        cartItem = cartItem || {};
+        _.mapKeys(cartItem, function (val, key) {
+            _this[key] = val;
+        });
+        this.expire = moment(this.expire);
+    }
+    CartItem.prototype.getFormattedTitle = function () {
+        return this.name;
+    };
+    CartItem.prototype.getFormattedExpireAt = function () {
+        return this.expire.format('HH:mm');
+    };
+    CartItem.prototype.getFormattedPrice = function () {
+        return this.amount + ' CHF';
+    };
+    return CartItem;
+});
+'use strict';
+define('Screening', [
+    'module',
+    'lodash',
+    'moment',
+    'app/Models/Base'
+], function dependencies(module, _, moment, BaseModel) {
+    Screening.type = 'screening';
+    function Screening(screening) {
+        var _this = this;
+        BaseModel.call(this, screening);
+        screening = screening || {};
+        _.mapKeys(screening, function (val, key) {
+            _this[key] = val;
+        });
+        this.start_at = moment(screening.start_at);
+        this.stop_at = moment(screening.stop_at);
+        this.buckets = this.buckets.map(function (b) {
+            if ('not_before' in b.rules)
+                b.rules.not_before = moment(b.rules.not_before);
+            if ('not_after' in b.rules)
+                b.rules.not_after = moment(b.rules.not_after);
+            return b;
+        });
+    }
+    return Screening;
+});
+'use strict';
+define('Cart', [
+    'lodash',
+    'api',
+    'app/Models/Base',
+    'CartItem',
+    'Screening'
+], function dependencies(_, TKTApi, BaseModel, CartItem, Screening) {
+    Cart.type = 'cart';
+    function Cart(cart) {
+        var _this = this;
+        BaseModel.call(this, cart);
+        cart = cart || {};
+        _.mapKeys(cart, function (val, key) {
+            _this[key] = val;
+        });
+        if (this.order_id && this.order_id.length)
+            this.id = parseInt(this.order_id.split('-')[1]);
+        this.items = _.map(this.items, function (i) {
+            return new CartItem(i);
+        });
+    }
+    Cart.prototype.loadItemsInfos = function (callback) {
+        var _this2 = this;
+        if (!this.items || this.items.length === 0)
+            return callback(null);
+        var screening_ids = _.map(_.filter(this.items, function (i) {
+            return i.type === CartItem.SCREENING_TYPE;
+        }), function (i) {
+            return i.item_id;
+        });
+        TKTApi.getScreeningsInfo(screening_ids, function (err, status, rsp) {
+            if (err)
+                return callback(err);
+            var screenings = _.map(rsp, function (s) {
+                return new Screening(s);
+            });
+            _this2.items = _.map(_this2.items, function (i) {
+                if (i.type === CartItem.SCREENING_TYPE)
+                    i.screening = _.find(screenings, function (s) {
+                        return s._id === i.item_id;
+                    });
+                return i;
+            });
+            return callback(null);
+        });
+    };
+    Cart.prototype.getFormattedTotal = function () {
+        var total = _.reduce(this.items, function (memo, item) {
+            return memo + parseFloat(item.amount);
+        }, 0).toFixed(2);
+        return total + ' CHF';
+    };
+    return Cart;
 });
 !function (e, t) {
     'object' == typeof exports && 'undefined' != typeof module ? t(exports, require('jquery')) : 'function' == typeof define && define.amd ? define('bootstrap', [
@@ -20906,8 +21245,9 @@ define('app/Articles/Article', [
     'jquery',
     'lodash',
     'api',
+    'Cart',
     'bootstrap'
-], function dependencies(postal, $, _, TKTApi) {
+], function dependencies(postal, $, _, TKTApi, CartModel) {
     function Article($container, state) {
         this.$container = $container;
         this._id = this.$container.data('id');
@@ -21008,6 +21348,13 @@ define('app/Articles/Article', [
                 });
             });
         },
+        emit_cart_update: function emit_cart_update(cart) {
+            postal.publish({
+                channel: 'cart',
+                topic: 'update',
+                data: { cart: cart }
+            });
+        },
         detach: function detach() {
         }
     };
@@ -21036,328 +21383,6 @@ define('template', ['lodash'], function dependencies(_) {
         return _.template($tpl.html())(data);
     };
     return new Template();
-});
-'use strict';
-define('csrf', ['module'], function dependencies(module, logger) {
-    function Csrf() {
-        this.param = module.config().param || 'csrf';
-        this.token = module.config().token || '';
-    }
-    return new Csrf();
-});
-'use strict';
-define('app/Models/Base', [
-    'module',
-    'lodash',
-    'postal',
-    'csrf'
-], function dependencies(module, _, postal, csrf) {
-    function Base(data) {
-        this.id = (data || {}).id;
-        this._id = (data || {})._id;
-        this.$element = null;
-    }
-    Base.ACTION_LIST = 'list';
-    Base.ACTION_CREATE = 'create';
-    Base.ACTION_UPDATE = 'update';
-    Base.ACTION_DELETE = 'delete';
-    Base.all = function all(type, url, params, callback) {
-        url += '/format/json';
-        for (var param in params) {
-            url += '/' + param + '/' + params[param];
-        }
-        $.ajax({
-            url: url,
-            method: 'GET'
-        }).done(function fetchSuccess(data) {
-            var key = type + 's';
-            if (!_.isArray(data.rsp[key]) || _.isEmpty(data.rsp[key]))
-                return callback && callback(null, []);
-            return callback && callback(null, data.rsp[key]);
-        }).fail(function blocFetchFail() {
-            postal.publish({ topic: 'model.' + type + '.list.error' });
-            return callback && callback(new Error('Can not fetch list'));
-        });
-    };
-    Base.prototype = {
-        isNew: function isNew() {
-            return;
-            (_.isNull(this.id) || _.isEmpty(this.id)) && (_.isNull(this.__id) || _.isEmpty(this.id));
-        },
-        bindTo: function bindTo($element) {
-            if (_.isEmpty(this.getId()))
-                return false;
-            this.$element = $element;
-            this.$element.attr('data-model-id', this.getId());
-            this._setUiValues();
-            this._print();
-        },
-        sync: function sync() {
-            if (_.isEmpty(this.$element))
-                return false;
-            this._getValuesFromUi();
-            this._print();
-        },
-        _getValuesFromUi: function _getValuesFromUi() {
-            var _this = this;
-            _.map($('[data-model]', this.$element), function (field) {
-                var $field = $(field);
-                var editor = $field.attr('data-editor');
-                if (editor == 'summernote')
-                    _this[$field.attr('data-model')] = $field.summernote('code');
-                else
-                    _this[$field.attr('data-model')] = $field.val();
-            });
-        },
-        _setUiValues: function _setUiValues() {
-            var _this2 = this;
-            _.map($('[data-model]', this.$element), function (field) {
-                var $field = $(field);
-                $field.val(_this2[$field.attr('data-model')]);
-                $field.on('change', function (e) {
-                    _this2.sync();
-                    _this2.save();
-                });
-            });
-        },
-        _print: function _print() {
-            var _this3 = this;
-            _.map($('[data-model-print]', this.$element), function (output) {
-                var $output = $(output);
-                $output.html(_this3[$output.attr('data-model-print')]);
-            });
-        },
-        getId: function getId() {
-            return this.id || this._id;
-        },
-        setId: function setId(id) {
-            this.id = id;
-            this._id = _id;
-        },
-        getEndPointUrl: function getEndPointUrl(action) {
-            return null;
-        },
-        getType: function getType(action) {
-            return 'entity';
-        },
-        save: function save() {
-            var callback = function callback(err, entity) {
-                if (err)
-                    return false;
-                entity._setUiValues();
-                entity._print();
-            };
-            return this.isNew() ? this._create(callback) : this._update(callback);
-        },
-        destroy: function destroy() {
-            var _this4 = this;
-            return this.isNew() ? false : this._delete(function (err, deleted) {
-                _this4.$element.fadeOut(function () {
-                    return _this4.$element.remove();
-                });
-            });
-        },
-        _create: function create(callback) {
-            var _this5 = this;
-            var url = this.getEndPointUrl(Base.ACTION_CREATE);
-            if (_.isNull(url))
-                return false;
-            var type = this.getType();
-            url += '/format/json';
-            url += '/' + csrf.param + '/' + csrf.token;
-            var payload = {};
-            _.map(Object.entries(this), function (a) {
-                payload[a[0]] = a[1];
-            });
-            $.post(url, payload).done(function (data) {
-                _.extend(_this5, data.rsp[type]);
-                var payload = {};
-                payload[type] = _this5;
-                postal.publish({
-                    topic: 'model.' + type + '.create',
-                    data: payload
-                });
-                return callback && callback(null, _this5);
-            }).fail(function onAjaxFail() {
-                var payload = {};
-                payload[type] = this;
-                postal.publish({
-                    topic: 'model.' + type + '.create.error',
-                    data: payload
-                });
-                return callback && callback(new Error());
-            });
-        },
-        _update: function update(callback) {
-            var _this6 = this;
-            var url = this.getEndPointUrl(Base.ACTION_UPDATE);
-            if (_.isNull(url))
-                return false;
-            var type = this.getType();
-            url += '/id/' + this.getId();
-            url += '/format/json';
-            url += '/' + csrf.param + '/' + csrf.token;
-            var payload = {};
-            _.map(Object.entries(this), function (a) {
-                var key = a[0], value = a[1];
-                if (key.substring(0, 1) == '$' || key == 'id')
-                    return;
-                payload[key] = value;
-            });
-            $.post(url, payload).done(function (data) {
-                _.extend(_this6, data.rsp[type]);
-                var payload = {};
-                payload[type] = _this6;
-                postal.publish({
-                    topic: 'model.' + type + '.update',
-                    data: payload
-                });
-                return callback && callback(null, _this6);
-            }).fail(function onAjaxFail() {
-                var payload = {};
-                payload[type] = this;
-                postal.publish({
-                    topic: 'model.' + type + '.update.error',
-                    data: payload
-                });
-                return callback && callback(new Error());
-            });
-        },
-        _delete: function update(callback) {
-            var _this7 = this;
-            var url = this.getEndPointUrl(Base.ACTION_DELETE);
-            if (_.isNull(url))
-                return false;
-            var type = this.getType();
-            url += '/id/' + this.getId();
-            url += '/format/json';
-            url += '/' + csrf.param + '/' + csrf.token;
-            $.post(url, {}).done(function (data) {
-                postal.publish({
-                    topic: 'model.' + type + '.delete',
-                    data: _this7
-                });
-                return callback && callback(null, _this7);
-            }).fail(function onAjaxFail() {
-                postal.publish({
-                    topic: 'model.' + type + '.delete.error',
-                    data: this
-                });
-                return callback && callback(new Error());
-            });
-        }
-    };
-    return Base;
-});
-'use strict';
-define('CartItem', [
-    'lodash',
-    'moment',
-    'app/Models/Base'
-], function dependencies(_, moment, BaseModel) {
-    CartItem.type = 'cart_item';
-    CartItem.SCREENING_TYPE = 'screening';
-    function CartItem(cartItem) {
-        var _this = this;
-        BaseModel.call(this, cartItem);
-        cartItem = cartItem || {};
-        _.mapKeys(cartItem, function (val, key) {
-            _this[key] = val;
-        });
-        this.expire = moment(this.expire);
-    }
-    CartItem.prototype.getFormattedTitle = function () {
-        return this.name;
-    };
-    CartItem.prototype.getFormattedExpireAt = function () {
-        return this.expire.format('HH:mm');
-    };
-    CartItem.prototype.getFormattedPrice = function () {
-        return this.amount + ' CHF';
-    };
-    return CartItem;
-});
-'use strict';
-define('Screening', [
-    'module',
-    'lodash',
-    'moment',
-    'app/Models/Base'
-], function dependencies(module, _, moment, BaseModel) {
-    Screening.type = 'screening';
-    function Screening(screening) {
-        var _this = this;
-        BaseModel.call(this, screening);
-        screening = screening || {};
-        _.mapKeys(screening, function (val, key) {
-            _this[key] = val;
-        });
-        this.start_at = moment(screening.start_at);
-        this.stop_at = moment(screening.stop_at);
-        this.buckets = this.buckets.map(function (b) {
-            if ('not_before' in b.rules)
-                b.rules.not_before = moment(b.rules.not_before);
-            if ('not_after' in b.rules)
-                b.rules.not_after = moment(b.rules.not_after);
-            return b;
-        });
-    }
-    return Screening;
-});
-'use strict';
-define('Cart', [
-    'lodash',
-    'api',
-    'app/Models/Base',
-    'CartItem',
-    'Screening'
-], function dependencies(_, TKTApi, BaseModel, CartItem, Screening) {
-    Cart.type = 'cart';
-    function Cart(cart) {
-        var _this = this;
-        BaseModel.call(this, cart);
-        cart = cart || {};
-        _.mapKeys(cart, function (val, key) {
-            _this[key] = val;
-        });
-        if (this.order_id && this.order_id.length)
-            this.id = parseInt(this.order_id.split('-')[1]);
-        this.items = _.map(this.items, function (i) {
-            return new CartItem(i);
-        });
-    }
-    Cart.prototype.loadItemsInfos = function (callback) {
-        var _this2 = this;
-        if (!this.items || this.items.length === 0)
-            return callback(null);
-        var screening_ids = _.map(_.filter(this.items, function (i) {
-            return i.type === CartItem.SCREENING_TYPE;
-        }), function (i) {
-            return i.item_id;
-        });
-        TKTApi.getScreeningsInfo(screening_ids, function (err, status, rsp) {
-            if (err)
-                return callback(err);
-            var screenings = _.map(rsp, function (s) {
-                return new Screening(s);
-            });
-            _this2.items = _.map(_this2.items, function (i) {
-                if (i.type === CartItem.SCREENING_TYPE)
-                    i.screening = _.find(screenings, function (s) {
-                        return s._id === i.item_id;
-                    });
-                return i;
-            });
-            return callback(null);
-        });
-    };
-    Cart.prototype.getFormattedTotal = function () {
-        var total = _.reduce(this.items, function (memo, item) {
-            return memo + parseFloat(item.amount);
-        }, 0).toFixed(2);
-        return total + ' CHF';
-    };
-    return Cart;
 });
 'use strict';
 define('Ticket', [
@@ -21662,10 +21687,6 @@ define('app/Cart/Cart', [
         },
         init: function init() {
             var _this = this;
-            this.load_cart(function (err) {
-                if (err)
-                    return;
-            });
             postal.subscribe({
                 channel: 'cart',
                 topic: 'reload',
@@ -21704,6 +21725,27 @@ define('app/Cart/Cart', [
                     $('#checkout-confirm-popup').fadeIn();
                 });
             });
+            $(document).on('click', '.open-cart-btn', function (e) {
+                e.preventDefault();
+                $('#cart').fadeOut();
+                var user_data = {};
+                var tab = $('#tab-input', _this.$container).val();
+                if (tab)
+                    user_data.tab = tab;
+                _this.set_user_data(user_data, function (err, rsp) {
+                    if (err)
+                        return;
+                    _this.set_open(function (err, rsp) {
+                        if (err)
+                            return;
+                        _this.get_new(function (err, rsp) {
+                            if (err)
+                                return;
+                            $('#checkout-confirm-popup').fadeIn();
+                        });
+                    });
+                });
+            });
         },
         load_cart: function load_cart(callback) {
             var _this2 = this;
@@ -21718,9 +21760,15 @@ define('app/Cart/Cart', [
                         return callback(err);
                     _this2.build_table();
                     _this2.emit_update();
-                    _this2.bind_remove_item_icons(function (err) {
-                        return callback(err);
-                    });
+                    _this2.bind_remove_item_icons();
+                    if (_this2.cart.id) {
+                        _this2.set_pending(function (err, rsp) {
+                            if (err)
+                                return callback(err);
+                        });
+                    } else {
+                        return callback();
+                    }
                 });
             });
         },
@@ -21763,16 +21811,48 @@ define('app/Cart/Cart', [
                 return _this4.load_cart();
             });
         },
-        checkout: function checkout(user_data, callback) {
+        set_pending: function set_pending(callback) {
+            callback = callback || function (err) {
+            };
+            TKTApi.setPending(this.cart.id, function (err, status, rsp) {
+                if (err)
+                    return callback(err);
+                return callback(null, rsp);
+            });
+        },
+        set_open: function set_open(callback) {
+            callback = callback || function (err) {
+            };
+            TKTApi.setOpen(this.cart.id, function (err, status, rsp) {
+                return callback(err);
+            });
+        },
+        get_new: function get_new(callback) {
             var _this5 = this;
             callback = callback || function (err) {
             };
+            TKTApi.getNew(function (err, status, rsp) {
+                if (err)
+                    return callback(err);
+                return _this5.load_cart(callback);
+            });
+        },
+        set_user_data: function set_user_data(data, callback) {
+            callback = callback || function (err) {
+            };
+            TKTApi.setUserData(this.cart.id, data, function (err, status, rsp) {
+                return callback(err);
+            });
+        },
+        checkout: function checkout(user_data, callback) {
+            var _this6 = this;
+            callback = callback || function (err) {
+            };
             user_data = user_data || {};
-            console.log(this.cart);
             TKTApi.pay(this.cart.id, 'POS_CASH', user_data, function (err, status, rsp) {
                 if (err)
                     return callback(err);
-                TKTApi.confirm(_this5.cart.id, function (err, status, rsp) {
+                TKTApi.confirm(_this6.cart.id, function (err, status, rsp) {
                     if (err)
                         return callback(err);
                     return callback(null, rsp);
