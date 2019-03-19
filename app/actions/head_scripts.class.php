@@ -31,6 +31,9 @@ class HeadScriptsAction extends TKTAction
     public function run()
     {
         $app = TKTApp::get_instance();
+
+        wp_enqueue_script('jquery', 'https://code.jquery.com/jquery-3.3.1.min.js');
+
         echo '
         <script>
             // moment locale must be injected globally because it\'s needed

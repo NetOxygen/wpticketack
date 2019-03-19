@@ -20,7 +20,6 @@ requirejs.config({
         babel_polyfill: '../../node_modules/requirejs-babel/polyfill.min',
         async: '../../node_modules/async/dist/async.min',
         dottie: '../../node_modules/dottie/dottie',
-        jquery: '../../node_modules/jquery/dist/jquery.min',
         bootstrap: '../../node_modules/bootstrap/dist/js/bootstrap.bundle.min',
         ticketack: './ext/ticketack',
         urijs: '../../node_modules/urijs/src',
@@ -30,6 +29,13 @@ requirejs.config({
         lodash: '../../node_modules/lodash/lodash.min'
     }
 });
+
+// and the 'jquery-private' module, in the
+// jquery-private.js file:
+define("jquery", [], function () {
+    return window.jQuery.noConflict(true);
+});
+
 
 require([
     'app/main',
