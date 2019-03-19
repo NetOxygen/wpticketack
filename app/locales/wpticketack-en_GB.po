@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-12 12:13+0200\n"
+"POT-Creation-Date: 2018-12-26 14:44+0100\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Belkacem Alidra <dev@b-alidra.com>\n"
+"Last-Translator: Belkacem Alidra <belkacem.alidra@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -65,6 +65,18 @@ msgstr "Pricings"
 msgid "Veuillez choisir la date désirée :"
 msgstr "Please choose a date"
 
+msgid "Merci, votre commande est réservée dans votre panier pour 30 minutes."
+msgstr "Thank you, your order is reserved in your cart for 30 minutes."
+
+msgid "Accéder au panier"
+msgstr "Add to cart"
+
+msgid "Continuer"
+msgstr "Continue"
+
+msgid "ma visite"
+msgstr "my visit"
+
 msgid ""
 "Entrez le nombre de place(s) que vous souhaitez ajouter à votre panier :"
 msgstr "Enter the number of tickets you want to add to your cart"
@@ -81,17 +93,11 @@ msgstr "Login"
 msgid "pour réserver."
 msgstr "to book."
 
-msgid "Acheter"
-msgstr "Buy"
+msgid "ID"
+msgstr ""
 
-msgid "un abonnement."
-msgstr "a pass."
-
-msgid "Numéro"
-msgstr "Number"
-
-msgid "Clé"
-msgstr "Key"
+msgid "Code"
+msgstr ""
 
 msgid "Me connecter"
 msgstr "Login"
@@ -112,11 +118,11 @@ msgstr "Your cart is empty"
 msgid "Achats"
 msgstr "Purchases"
 
-msgid "Réservé jusqu'à"
-msgstr "Booked until"
-
 msgid "Prix"
 msgstr "Price"
+
+msgid "Total :"
+msgstr ""
 
 msgid "Finaliser ma commande"
 msgstr "Finish my order"
@@ -127,11 +133,12 @@ msgstr "Cancel"
 msgid "ma commande"
 msgstr "my order"
 
-msgid "Continuer"
-msgstr "Continue"
-
 msgid "mes réservations"
 msgstr "my bookings"
+
+msgid ""
+"Aucun événement programmé actuellement, revenez nous visiter prochainement."
+msgstr "No event currently scheduled, come back soon."
 
 msgid ""
 "Aucuné séance programmée actuellement, revenez nous visiter prochainement."
@@ -149,15 +156,17 @@ msgstr "There are only a few places"
 msgid "Complet"
 msgstr "Complete"
 
-msgid ""
-"Aucun événement programmé actuellement, revenez nous visiter prochainement."
-msgstr "No event currently scheduled, come back soon."
-
 msgid "Il ne reste que quelques places !"
 msgstr "There are only a few places !"
 
 msgid "Complet !"
 msgstr "Complete !"
+
+msgid "sous-titres"
+msgstr "subtitles"
+
+msgid "Voir mes réservations"
+msgstr "my bookings"
 
 msgid "Me déconnecter"
 msgstr "Logout"
@@ -165,8 +174,30 @@ msgstr "Logout"
 msgid "Connectez-vous !"
 msgstr "Login !"
 
+msgid "Acheter"
+msgstr "Buy"
+
 msgid "un abonnement"
 msgstr "a pass"
+
+#, fuzzy
+msgid "Veuillez choisir au moins un billet"
+msgstr "Please choose a date"
+
+msgid "Veuillez remplir les deux champs"
+msgstr "Please fill in both fields"
+
+msgid "Les informations que vous avez saisies sont invalides"
+msgstr "The information you have entered is invalid"
+
+msgid "Une erreur est survenue. Veuillez ré-essayer ultérieurement."
+msgstr "An error has occurred. Please try again later."
+
+#, fuzzy
+msgid ""
+"Vous ne pouvez pas réserver plus de place pour cette séance avec votre "
+"abonnement."
+msgstr "You  can not book this screening with your pass"
 
 msgid "Pas de réponse"
 msgstr "No answer"
@@ -179,3 +210,45 @@ msgstr "Male"
 
 msgid "Autre"
 msgstr "Other"
+
+msgid "Add New Ticketack Event"
+msgstr ""
+
+msgid "New Ticketack Event"
+msgstr ""
+
+msgid "Edit Ticketack Event"
+msgstr ""
+
+msgid "View Ticketack Event"
+msgstr ""
+
+msgid "All Ticketack Events"
+msgstr ""
+
+msgid "Search Ticketack Events"
+msgstr ""
+
+msgid "Parent Ticketack Events:"
+msgstr ""
+
+msgid "No events found."
+msgstr ""
+
+msgid "No events found in Trash."
+msgstr ""
+
+msgid "Événements importés depuis Ticketack"
+msgstr "Events imported from Ticketack"
+
+#~ msgid "un abonnement."
+#~ msgstr "a pass."
+
+#~ msgid "Numéro"
+#~ msgstr "Number"
+
+#~ msgid "Clé"
+#~ msgstr "Key"
+
+#~ msgid "Réservé jusqu'à"
+#~ msgstr "Booked until"

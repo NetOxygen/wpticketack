@@ -10,20 +10,6 @@
 
 $e = $data->event;
 
-$date_title = "";
-if (!empty($e->opaque('free_text_3'))) {
-    $date_title = $e->opaque('free_text_3')['fr'];
-    if (strip_tags($date_title) == "") {
-        $date_title = "";
-    }
-}
-
-if (empty($date_title)) {
-    $date_title = implode('<br/>', array_unique(array_map(function ($s) {
-        return date_to_min_s($s->start_at());
-    }, $e->screenings())));
-}
-
 $ids = implode(',', array_map(function ($s) {
     return $s->_id();
 }, $e->screenings()));
@@ -49,12 +35,6 @@ $image_url     = img_proxy_url($e->first_poster()->url, $images_width, $images_h
     </div>
 
     <div class="col-md-3 right-col text-right align-self-end">
-
-      <div class="row">
-        <div class="col">
-          <span class="date"><?= $date_title ?></span>
-        </div>
-      </div>
 
       <div class="row">
         <div class="col">

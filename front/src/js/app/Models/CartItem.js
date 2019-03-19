@@ -26,12 +26,7 @@ define(
     }
 
     CartItem.prototype.getFormattedTitle = function() {
-        switch (this.type) {
-            case CartItem.SCREENING_TYPE:
-                return `${this.screening.title.fr} le ${this.screening.start_at.format('LL')} à ${this.screening.start_at.format('HH:mm')}`;
-            default:
-                return this.name;
-        }
+        return this.name;
     };
 
     CartItem.prototype.getFormattedExpireAt = function() {

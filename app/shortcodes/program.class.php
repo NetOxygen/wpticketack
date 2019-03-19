@@ -16,8 +16,8 @@ class ProgramShortcode extends TKTShortcode
     const SCREENINGS_LAYOUT  = 'screenings';
     const EVENTS_LAYOUT      = 'events';
     const DEFAULT_ITEM_WIDTH = 12;
-    const CHRONO_ORDER 		 = 'chrono';
-    const ALPHA_ORDER  		 = 'alpha';
+    const CHRONO_ORDER          = 'chrono';
+    const ALPHA_ORDER           = 'alpha';
     const SCREENINGS_FILTER  = 'screenings';
     const EVENTS_FILTER      = 'events';
 
@@ -51,6 +51,7 @@ class ProgramShortcode extends TKTShortcode
         try {
             $query = Screening::all()
                 ->in_the_future()
+                ->filter_pricings_for_sellers(['eshop'])
                 ->order_by_start_at();
 
             if (!empty($day)) {
@@ -69,74 +70,92 @@ class ProgramShortcode extends TKTShortcode
                 $query = $query->order_by_start_at();
             }
 
-            $screenings = $query->get('_id,title,start_at,stop_at,cinema_hall.name,films,opaque');
+            $screenings = $query->get('_id,title,start_at,stop_at,cinema_hall.name,cinema_hall._id,films,opaque');
 
             switch ($layout) {
                 case static::SCREENINGS_LAYOUT:
-					if (!empty($xsection_ids)) {
-						$screenings = array_filter($screenings, function ($s) use ($xsection_ids) {
-							$movies = $s->movies();
-							foreach ($movies as $m) {
-								$sections = $m->opaque('sections');
-								foreach ($sections as $sec) {
-									if (in_array($sec['id'], $xsection_ids)) {
-										return false;
-									}
-								}
-							}
-							return true;
-					    });
-					}
+                    if (!empty($xsection_ids)) {
+                        $screenings = array_filter($screenings, function ($s) use ($xsection_ids) {
+                            $movies = $s->movies();
+                            foreach ($movies as $m) {
+                                $sections = $m->opaque('sections');
+                                foreach ($sections as $sec) {
+                                    if (in_array($sec['id'], $xsection_ids)) {
+                                        return false;
+                                    }
+                                }
+                            }
+                            return true;
+                        });
+                    }
 
                     // TODO: We could improve this by filtering the screenings
                     // from the engine
+                    $filter = "";
                     if (isset($atts['filter'])) {
-                        $type   = $atts['filter'];
-                        $screenings = array_filter($screenings, function ($s) use ($type) {
-							$movies = $s->movies();
-							foreach ($movies as $m) {
-                            	if ($m->opaque('type') == $type) {
+                        $filter     = $atts['filter'];
+                        $screenings = array_filter($screenings, function ($s) use ($filter) {
+                            $movies = $s->movies();
+                            foreach ($movies as $m) {
+                                if ($m->opaque('type') == $filter) {
                                     return true;
                                 }
-							}
-							return false;
+                            }
+                            return false;
+                        });
+                    }
+
+                    $service_filters = [];
+                    if (isset($atts['service_filters'])) {
+                        $service_filters = explode(',', $atts['service_filters']);
+                        $screenings = array_filter($screenings, function ($s) use ($service_filters) {
+                            $movies = $s->movies();
+                            foreach ($movies as $m) {
+                                if ($m->opaque('type') == 'service' &&
+                                    in_array($m->opaque('service_type'), $service_filters)) {
+                                    return true;
+                                }
+                            }
+                            return false;
                         });
                     }
 
                     return TKTTemplate::render(
                         'program/'.$template.'/screenings',
                         (object)[
-                            'screenings' => $screenings,
-                            'item_width' => $item_width,
-                            'top_filter' => $top_filter,
+                            'screenings'        => array_values($screenings),
+                            'item_width'        => $item_width,
+                            'filter'            => $filter,
+                            'service_filters'   => $service_filters,
+                            'top_filter'        => $top_filter,
                             'top_filter_values' => ($top_filter == static::EVENTS_FILTER ? Event::from_screenings($screenings) : [])
                         ]
                     );
 
                 case static::EVENTS_LAYOUT:
                     $events = Event::from_screenings($screenings);
-					if (!empty($section_ids)) {
-						$events = array_filter($events, function ($e) use ($section_ids) {
-							$sections = $e->opaque('sections');
-							foreach ($sections as $sec) {
-								if (in_array($sec['id'], $section_ids)) {
-									return true;
-								}
-							}
-							return false;
-					    });
-					}
-					if (!empty($xsection_ids)) {
-						$events = array_filter($events, function ($e) use ($xsection_ids) {
-							$sections = $e->opaque('sections');
-							foreach ($sections as $sec) {
-								if (in_array($sec['id'], $xsection_ids)) {
-									return false;
-								}
-							}
-							return true;
-					    });
-					}
+                    if (!empty($section_ids)) {
+                        $events = array_filter($events, function ($e) use ($section_ids) {
+                            $sections = $e->opaque('sections');
+                            foreach ($sections as $sec) {
+                                if (in_array($sec['id'], $section_ids)) {
+                                    return true;
+                                }
+                            }
+                            return false;
+                        });
+                    }
+                    if (!empty($xsection_ids)) {
+                        $events = array_filter($events, function ($e) use ($xsection_ids) {
+                            $sections = $e->opaque('sections');
+                            foreach ($sections as $sec) {
+                                if (in_array($sec['id'], $xsection_ids)) {
+                                    return false;
+                                }
+                            }
+                            return true;
+                        });
+                    }
                     // remove_accents is in wp-includes/formatting.php
                     if ($order === static::ALPHA_ORDER) {
                         usort($events, function ($a, $b) {
@@ -158,7 +177,7 @@ class ProgramShortcode extends TKTShortcode
                     return TKTTemplate::render(
                         'program/'.$template.'/events',
                         (object)[
-                            'events' => $events,
+                            'events' => array_values($events),
                             'item_width' => $item_width,
                             'top_filter' => $top_filter,
                             'top_filter_values' => ($top_filter == static::SCREENINGS_FILTER ? $screenings : [])

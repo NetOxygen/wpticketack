@@ -25,13 +25,15 @@ $image_url     = img_proxy_url($s->first_poster()->url, $images_width, $images_h
       <div class="overlay"></div>
     </div>
 
-    <div class="col-md-9 col-sm-12 left-col">
+    <div class="col-sm-12 left-col">
       <div class="poster-wrapper d-none d-md-block">
         <img class="img-fluid poster" src="<?= $image_url ?>" />
       </div>
     </div>
+  </div>
 
-    <div class="col-md-3 right-col text-right align-self-end">
+  <div class="row">
+    <div class="col-sm-12 right-col text-right align-self-end">
 
       <div class="row">
         <div class="col">
@@ -69,11 +71,11 @@ $image_url     = img_proxy_url($s->first_poster()->url, $images_width, $images_h
 
       <div class="row">
         <div class="col">
-          <span class="tickets" data-bookability-ids="<?= $ids ?>">
-            <div class="show-when-loading" data-component="Media/Loading" data-size-sm data-align-center></div>
+          <span class="tickets" data-bookability-ids="<?= $s->_id() ?>">
+            <div class="show-while-loading" data-component="Media/Loading" data-size-sm data-align-center></div>
             <a
               class="show-if-bookable show-if almost-not-bookable"
-              href="<?= screening_book_url($e) ?>">
+              href="<?= event_book_url($m, $s) ?>">
               <?= t('Billets') ?> <span class="screening-complete"></span>
             </a>
             <span class="show-if-almost-not-bookable screening-complete"><?= t('Il ne reste que quelques places') ?></span>

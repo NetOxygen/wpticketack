@@ -20,6 +20,9 @@ define(
             this[key] = val;
         });
 
+        if (this.order_id && this.order_id.length)
+            this.id = parseInt(this.order_id.split('-')[1]);
+
         this.items = _.map(this.items, (i) => new CartItem(i));
     }
 
@@ -50,7 +53,7 @@ define(
     };
 
     Cart.prototype.getFormattedTotal = function() {
-        const total = _.reduce(this.items, (memo, item) => memo + parseFloat(item.amount), 0);
+        const total = _.reduce(this.items, (memo, item) => memo + parseFloat(item.amount), 0).toFixed(2);
 
         return `${total} CHF`;
     };

@@ -53,14 +53,15 @@ class HeadScriptsAction extends TKTAction
                         "program_url": "'.program_url().'",
                         "cart_url": "'.cart_url().'",
                         "cart_reset_url": "'.cart_reset_url().'",
-                    }
+                    },
+                    "i18n": '.json_encode(LocalesHelper::dump_js_locales(), JSON_PRETTY_PRINT).'
                 },
                 paths: {
-                    "app": "/wp-content/plugins/wpticketack/front/build/js/app"
+                    "app": "'.assets_url('build/js/app').'"
                 }
             };
         </script>
-        <script src="/wp-content/plugins/wpticketack/front/build/js/require.min.js"></script>
+        <script src="'.assets_url('build/js/require.min.js').'"></script>
         <script>
             if (typeof jQuery === "function") {
                 define("jquery", function () { return jQuery; });

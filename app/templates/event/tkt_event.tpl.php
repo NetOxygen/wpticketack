@@ -17,26 +17,11 @@ $posters = array_map(function ($s) {
 $trailers = array_map(function ($s) {
     return json_decode($s);
 }, get_post_meta($e->ID, 'trailers'))[0];
-$opaque = array_map(function ($s) {
-    return json_decode($s);
-}, get_post_meta($e->ID, 'opaque'))[0];
+$opaque     = json_decode(get_post_meta($e->ID, 'opaque')[0]);
 $screenings = array_map(function ($s) {
-    return new Screening(json_decode($s));
-}, get_post_meta($e->ID, 'screenings'))[0];
+    return new Screening($s);
+}, json_decode(get_post_meta($e->ID, 'screenings')[0], /*assoc*/true));
 
-$date_title = "";
-if (!empty($opaque->free_text_3)) {
-    $date_title = $opaque->free_text_3->fr;
-    if (strip_tags($date_title) == "") {
-        $date_title = "";
-    }
-}
-
-if (empty($date_title)) {
-    $date_title = implode('<br/>', array_unique(array_map(function ($s) {
-        return str_replace(':', 'H', date_and_time_to_min_s(new Datetime($s->start_at)));
-    }, $screenings)));
-}
 
 $description = "";
 if (!empty($opaque->description)) {
@@ -47,7 +32,7 @@ if (!empty($opaque->description)) {
 }
 
 $ids = array_map(function ($s) {
-    return $s->_id;
+    return $s->_id();
 }, $screenings);
 
 $images_width  = TKTApp::get_instance()->get_config('images.dimensions.big.width');
@@ -98,12 +83,6 @@ $images_height = TKTApp::get_instance()->get_config('images.dimensions.big.heigh
 
       <div class="row">
         <div class="col">
-          <span class="screening-date"><?= $date_title ?></span>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col">
           <span class="title active">
             <?= $title ?>
           </span>
@@ -135,6 +114,18 @@ $images_height = TKTApp::get_instance()->get_config('images.dimensions.big.heigh
 
   </div>
 
+  <?php if (!empty($description)) : ?>
+  <div class="row">
+    <div class="col">
+      <div class="synopsis">
+        <span class="text">
+            <?= $description ?>
+        </span>
+      </div>
+    </div>
+  </div>
+  <?php endif; ?>
+
   <div class="row" data-component="Program/BookabilityState">
     <div class="col" data-bookability-ids="<?= implode(',', $ids) ?>">
       <span class="show-booking-form">
@@ -149,18 +140,5 @@ $images_height = TKTApp::get_instance()->get_config('images.dimensions.big.heigh
   </div>
 
   <?= TKTTemplate::render('booking/form', (object)[ 'ids' => $ids ]) ?>
-
-  <div class="row">
-    <div class="col">
-      <div class="synopsis">
-        <span class="title assertive">
-          <?= $title ?>
-        </span>
-        <span class="text">
-            <?= $description ?>
-        </span>
-      </div>
-    </div>
-  </div>
 
 </div>

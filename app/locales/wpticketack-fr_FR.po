@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-12 12:12+0200\n"
+"POT-Creation-Date: 2018-12-26 14:36+0100\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Belkacem Alidra <dev@b-alidra.com>\n"
+"Last-Translator: Belkacem Alidra <belkacem.alidra@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -65,6 +65,9 @@ msgstr ""
 msgid "Veuillez choisir la date désirée :"
 msgstr ""
 
+msgid "Merci, votre commande est réservée dans votre panier pour 30 minutes."
+msgstr ""
+
 msgid "Accéder au panier"
 msgstr ""
 
@@ -90,16 +93,10 @@ msgstr ""
 msgid "pour réserver."
 msgstr ""
 
-msgid "Acheter"
+msgid "ID"
 msgstr ""
 
-msgid "un abonnement."
-msgstr ""
-
-msgid "Numéro"
-msgstr ""
-
-msgid "Clé"
+msgid "Code"
 msgstr ""
 
 msgid "Me connecter"
@@ -121,10 +118,10 @@ msgstr ""
 msgid "Achats"
 msgstr ""
 
-msgid "Réservé jusqu'à"
+msgid "Prix"
 msgstr ""
 
-msgid "Prix"
+msgid "Total :"
 msgstr ""
 
 msgid "Finaliser ma commande"
@@ -137,6 +134,10 @@ msgid "ma commande"
 msgstr ""
 
 msgid "mes réservations"
+msgstr ""
+
+msgid ""
+"Aucun événement programmé actuellement, revenez nous visiter prochainement."
 msgstr ""
 
 msgid ""
@@ -155,14 +156,16 @@ msgstr ""
 msgid "Complet"
 msgstr ""
 
-msgid ""
-"Aucun événement programmé actuellement, revenez nous visiter prochainement."
-msgstr ""
-
 msgid "Il ne reste que quelques places !"
 msgstr ""
 
 msgid "Complet !"
+msgstr ""
+
+msgid "sous-titres"
+msgstr ""
+
+msgid "Voir mes réservations"
 msgstr ""
 
 msgid "Me déconnecter"
@@ -171,7 +174,27 @@ msgstr ""
 msgid "Connectez-vous !"
 msgstr ""
 
+msgid "Acheter"
+msgstr ""
+
 msgid "un abonnement"
+msgstr ""
+
+msgid "Veuillez choisir au moins un billet"
+msgstr ""
+
+msgid "Veuillez remplir les deux champs"
+msgstr ""
+
+msgid "Les informations que vous avez saisies sont invalides"
+msgstr ""
+
+msgid "Une erreur est survenue. Veuillez ré-essayer ultérieurement."
+msgstr ""
+
+msgid ""
+"Vous ne pouvez pas réserver plus de place pour cette séance avec votre "
+"abonnement."
 msgstr ""
 
 msgid "Pas de réponse"
@@ -184,4 +207,34 @@ msgid "Masculin"
 msgstr ""
 
 msgid "Autre"
+msgstr ""
+
+msgid "Add New Ticketack Event"
+msgstr "Ajouter un événement Ticketack"
+
+msgid "New Ticketack Event"
+msgstr "Nouvel événement Ticketack"
+
+msgid "Edit Ticketack Event"
+msgstr "Modifier"
+
+msgid "View Ticketack Event"
+msgstr "Voir"
+
+msgid "All Ticketack Events"
+msgstr "Tous les événements Ticketack"
+
+msgid "Search Ticketack Events"
+msgstr "Rechercher"
+
+msgid "Parent Ticketack Events:"
+msgstr "Parent"
+
+msgid "No events found."
+msgstr "Aucun événement"
+
+msgid "No events found in Trash."
+msgstr "Aucun événement dans la corbeille"
+
+msgid "Événements importés depuis Ticketack"
 msgstr ""

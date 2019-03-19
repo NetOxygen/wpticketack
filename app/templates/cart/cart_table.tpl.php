@@ -24,8 +24,8 @@
         <table class="tkt-cart-table">
             <thead>
                 <tr>
-                    <th scope="col">Achats</th>
-                    <th scope="col">Prix</th>
+                    <th scope="col"><?= t('Achats') ?></th>
+                    <th scope="col"><?= t('Prix') ?></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -44,7 +44,7 @@
             </tbody>
             <tfoot>
                 <tr>
-                    <td colspan="2" class="total-title-cell">Total :</td>
+                    <td colspan="2" class="total-title-cell"><?= t('Total :') ?></td>
                     <td class="total-price-cell"><%= cart.getFormattedTotal() %></td>
                 </tr>
             </tfoot>

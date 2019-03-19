@@ -3,6 +3,7 @@ requirejs.config({
     paths: {
         assets: 'app/Core/Assets',
         config: 'app/Core/Config',
+        i18n: 'app/Core/i18n',
         components: 'app/Core/Components',
         csrf: 'app/Core/Csrf',
         logger: 'app/Core/Logger',
@@ -26,7 +27,7 @@ requirejs.config({
         moment: '../../node_modules/moment/min/moment-with-locales.min',
         postal: '../../node_modules/postal/lib/postal.min',
         lodash: '../../node_modules/lodash/lodash.min',
-        lodash: '../../node_modules/lodash/lodash.min'
+        hammer: '../../node_modules/hammerjs/hammer.min'
     }
 });
 
@@ -41,6 +42,7 @@ require([
     'app/main',
     // We need to require all the lazyloaded components so as
     // the optimizer can compile them.
+    'app/Articles/Article',
     'app/Booking/Form',
     'app/Cart/Cart',
     'app/Cart/CartIcon',
@@ -51,4 +53,8 @@ require([
     'app/Pass/BuyForm',
     'app/Program/BookabilityState',
     'app/Program/Filter',
+    'app/Program/Filters',
+    'app/Ui/Loader',
+    'app/Ui/PlusMinus',
+    'app/Ui/ScreenSaver',
 ]);

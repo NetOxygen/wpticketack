@@ -29,13 +29,13 @@ $nb_per_row = 12 / $item_width;
           <?= TKTTemplate::render('program/grid/screening', (object)[ 'screening' => $screening ]) ?>
         </div>
 
-      <?php if ($i++ % $nb_per_row == ($nb_per_row - 1)) : ?>
+      <?php if (++$i % $nb_per_row == $nb_per_row) : ?>
       </div>
       <?php endif; ?>
 
     <?php endforeach; ?>
 
-    <?php if ($i % $nb_per_row != ($nb_per_row - 1)) : ?>
+    <?php if ($i % $nb_per_row != $nb_per_row) : ?>
       </div>
     <?php endif; ?>
 
