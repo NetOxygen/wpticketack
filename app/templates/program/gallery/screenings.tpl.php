@@ -33,13 +33,14 @@ $nb_per_row = 12 / $item_width;
 
         <?php if ($i % $nb_per_row == ($nb_per_row - 1)) : ?>
         </div>
-    <?php endif; ?>
+        <?php endif; ?>
 
-      <?php $i ++; ?>
+        <?php $i += 1; ?>
+
     <?php endforeach; ?>
 
     <?php if ($i % $nb_per_row != $nb_per_row) : ?>
-    </div>
+        </div>
     <?php endif; ?>
 
   <?php endif; ?>

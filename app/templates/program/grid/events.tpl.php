@@ -29,9 +29,11 @@ $nb_per_row = 12 / $item_width;
           <?= TKTTemplate::render('program/grid/event', (object)[ 'event' => $event ]) ?>
         </div>
 
-      <?php if (++$i % $nb_per_row == $nb_per_row) : ?>
+      <?php if (($i) % $nb_per_row == $nb_per_row - 1) : ?>
       </div>
       <?php endif; ?>
+
+      <?php $i += 1; ?>
 
     <?php endforeach; ?>
 

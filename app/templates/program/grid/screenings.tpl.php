@@ -25,13 +25,15 @@ $nb_per_row = (int)(12 / $item_width);
       <div class="row">
       <?php endif; ?>
 
-<div class="tkt_program_screening col col-<?= $item_width ?>">
+        <div class="tkt_program_screening col col-<?= $item_width ?>">
           <?= TKTTemplate::render('program/grid/screening', (object)[ 'screening' => $screening ]) ?>
         </div>
 
-      <?php if (++$i % $nb_per_row == $nb_per_row) : ?>
+      <?php if (($i) % $nb_per_row == $nb_per_row - 1) : ?>
       </div>
       <?php endif; ?>
+
+      <?php $i += 1; ?>
 
     <?php endforeach; ?>
 
