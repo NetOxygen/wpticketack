@@ -1,4 +1,9 @@
 @import "variables.scss";
+
+.tkt-wrapper {
+    @import "../../node_modules/bootstrap/scss/bootstrap.scss";
+}
+
 @import "common.scss";
 @import "templates/articles.scss";
 @import "templates/cart.scss";
