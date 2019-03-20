@@ -15,7 +15,7 @@ $images_width  = TKTApp::get_instance()->get_config('images.dimensions.big.width
 $images_height = TKTApp::get_instance()->get_config('images.dimensions.big.height');
 $image_url     = img_proxy_url($s->first_poster()->url, $images_width, $images_height);
 ?>
-<div class="screening-inner">
+<div class="tkt-wrapper screening-inner">
 
   <div class="row">
 

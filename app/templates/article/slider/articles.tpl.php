@@ -11,7 +11,7 @@
  */
 $rows = array_chunk($data->articles, ceil(count($data->articles) / 2));
 ?>
-<div id="tkt_articles">
+<div id="tkt-wrapper tkt_articles">
     <div class="category-name"><?= the_title() ?></div>
 
   <?php if (empty($data->articles)) : ?>

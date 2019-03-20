@@ -15,7 +15,7 @@ $query_mask = 'd=%s';
 ?>
 
 <?php if (!empty($days)) : ?>
-<div class="tkt-days-filters">
+<div class="tkt-wrapper tkt-days-filters">
   <div class="row">
     <div class="col">
         <ul>

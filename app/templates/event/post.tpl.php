@@ -39,7 +39,7 @@ $ids = array_map(function ($s) {
 $images_width  = TKTApp::get_instance()->get_config('images.dimensions.big.width');
 $images_height = TKTApp::get_instance()->get_config('images.dimensions.big.height');
 ?>
-<div class="tkt_event">
+<div class="tkt-wrapper tkt_event">
 
   <div class="row">
     <div class="col">

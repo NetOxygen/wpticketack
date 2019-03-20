@@ -12,6 +12,8 @@ $types = $data->tickettypes;
 ?>
 <?php if (!empty($types)) : ?>
 
+<div class="tkt-wrapper">
+
   <?php if (count($types) == 1 && count($types[0]->pricings()) == 1) : ?>
 
     <div id="item-<?= $types[0]->_id(); ?>" data-type="<?= $types[0]->_id(); ?>" class="pass">
@@ -55,4 +57,7 @@ $types = $data->tickettypes;
     </div>
 
     <?php endif; ?>
+
+</div>
+
 <?php endif; ?>

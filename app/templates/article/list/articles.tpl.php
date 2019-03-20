@@ -10,7 +10,7 @@
  * }
  */
 ?>
-<div id="tkt_articles" data-component="Article/AvailabilityState">
+<div id="tkt-wrapper tkt_articles" data-component="Article/AvailabilityState">
   <?php if (empty($data->articles)) : ?>
     <h3 class="no-event-title"><?= t('Aucun article dans cette catégorie, revenez nous visiter prochainement.') ?></h3>
   <?php else: ?>

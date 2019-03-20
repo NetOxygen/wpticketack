@@ -72,7 +72,7 @@ $ids = [$s->_id()];
 $images_width  = TKTApp::get_instance()->get_config('images.dimensions.big.width');
 $images_height = TKTApp::get_instance()->get_config('images.dimensions.big.height');
 ?>
-<div class="tkt_screening">
+<div class="tkt-wrapper tkt_screening">
 
   <div class="row">
     <div class="col">

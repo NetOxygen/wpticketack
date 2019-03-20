@@ -11,9 +11,9 @@
  * }
  */
 $item_width = $data->item_width;
-$nb_per_row = 12 / $item_width;
+$nb_per_row = (int)(12 / $item_width);
 ?>
-<div id="tkt_program" data-component="Program/BookabilityState">
+<div id="tkt_program" class="tkt-wrapper" data-component="Program/BookabilityState">
   <?php if (empty($data->screenings)) : ?>
     <h3 class="no-screening-title">Aucune séance à afficher</h3>
   <?php else: ?>

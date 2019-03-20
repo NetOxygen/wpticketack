@@ -16,8 +16,7 @@ $nb_per_row = 12 / $item_width;
 <h1 class="tkt-title">
  <?= get_the_title() ?>
 </h1>
-<div class="flollow-bloc-right"><?php  get_template_part( 'template-parts/social-follow' ); ?></div>
-<div id="tkt_program" data-component="Program/BookabilityState">
+<div id="tkt_program tkt-wrapper" data-component="Program/BookabilityState">
   <?php if (empty($data->screenings)) : ?>
     <h3 class="no-screening-title">Aucune séance à afficher</h3>
   <?php else: ?>

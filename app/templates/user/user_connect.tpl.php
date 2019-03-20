@@ -3,7 +3,7 @@
  * User connection template
  */
 ?>
-<div data-component="User/UserConnect"></div>
+<div class="tkt-wrapper" data-component="User/UserConnect"></div>
 
 <?php
 /**

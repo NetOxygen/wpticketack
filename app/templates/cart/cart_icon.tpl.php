@@ -3,4 +3,4 @@
  * Cart icon template
  */
 ?>
-<div data-component="Cart/CartIcon"></div>
+<div class="tkt-wrapper" data-component="Cart/CartIcon"></div>

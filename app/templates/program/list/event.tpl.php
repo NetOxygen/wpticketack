@@ -18,7 +18,7 @@ $images_width  = TKTApp::get_instance()->get_config('images.dimensions.big.width
 $images_height = TKTApp::get_instance()->get_config('images.dimensions.big.height');
 $image_url     = img_proxy_url($e->first_poster()->url, $images_width, $images_height);
 ?>
-<div class="event-inner">
+<div class="tkt-wrapper event-inner">
 
   <div class="row">
 

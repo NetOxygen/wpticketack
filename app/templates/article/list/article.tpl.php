@@ -14,7 +14,7 @@ $a = $data->article;
 $images_height = TKTApp::get_instance()->get_config('images.dimensions.big.height');
 $image_url     = img_proxy_url($s->first_poster()->url, $images_width, $images_height); TODO implement images*/
 ?>
-<div class="article-inner">
+<div class="tkt-wrapper article-inner">
 
   <div class="row">
 
