@@ -106,8 +106,6 @@ define(
                 this.$container
                     .removeClass('loading-bookability-state')
                     .addClass('loaded-bookability-state');
-
-                $('.show-if-bookable,.show-if-almost-not-bookable,.show-if-not-bookable', this.$container).removeClass('d-none');
             });
         },
 
