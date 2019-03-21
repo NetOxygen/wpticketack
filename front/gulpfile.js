@@ -63,7 +63,7 @@ gulp.task('babel:dev', () =>
     .pipe(gulp.dest(dirs.js_dest))
 );
 
-gulp.task('babel:prod', ['copy-require'], () =>
+gulp.task('babel:prod', ['copy-require', 'copy-jquery'], () =>
   gulp.src(dirs.js_src)
     .pipe(sourcemaps.init())
     .pipe(babel({
@@ -87,6 +87,11 @@ gulp.task('copy-require', () => {
         .pipe(uglify())
         .pipe(sourcemaps.write('.'))
         .pipe(rename({ suffix: '.min' }))
+        .pipe(gulp.dest(dirs.js_dest));
+});
+
+gulp.task('copy-jquery', () => {
+    gulp.src(nm_dir + '/jquery/dist/jquery.min.js')
         .pipe(gulp.dest(dirs.js_dest));
 });
 
