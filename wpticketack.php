@@ -57,7 +57,6 @@ $app->register_action('TranslationAction', 'translation.class.php');
 $app->register_action('CustomTypesAction', 'custom_types.class.php');
 $app->register_shortcode('ProgramShortcode', 'program.class.php');
 $app->register_shortcode('EventShortcode', 'event.class.php');
-$app->register_shortcode('ScreeningShortcode', 'screening.class.php');
 $app->register_shortcode('ArticleShortcode', 'article.class.php');
 $app->register_shortcode('CartShortcode', 'cart.class.php');
 $app->register_shortcode('CartIconShortcode', 'cart_icon.class.php');
