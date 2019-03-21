@@ -40,9 +40,7 @@ require_once(TKT_APP.'/autoload.php');
 
 $app = TKTApp::get_instance();
 
-$app->register_filter('RewriteFilter', 'rewrite.class.php');
 $app->register_filter('QueryVarsFilter', 'query_vars.class.php');
-$app->register_filter('FlushRewriteFilter', 'flush_rewrite.class.php');
 $app->register_filter('MailpoetFilter', 'mailpoet.class.php');
 $app->register_filter('BodyClassFilter', 'body_class.class.php');
 $app->register_filter('TktEventContentFilter', 'tkt_event_content.class.php');
