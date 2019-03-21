@@ -38,6 +38,8 @@ class AdminMenuAction extends TKTAction
     {
         if (isset($_POST['pages'])) {
             update_option('pages', $_POST['pages']);
+            update_option('api', $_POST['api']);
+            update_option('advanced', $_POST['advanced']);
         }
 ?>
         <div class="wrap">

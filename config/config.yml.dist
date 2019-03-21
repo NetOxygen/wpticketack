@@ -1,17 +1,11 @@
 # NOTE: keep in sync with app/helpers/config.class.php
-CONFIG_VERSION: 2019010901
+CONFIG_VERSION: 2019032101
 
 assets:
     # Useful to bump cache
-    version: 1
+    version: 2
 
-ticketack:
-    # the Ticketack Engine URI.
-    engine_uri: https://demo-engine.ticketack.com
-    # the eshop URI.
-    eshop_uri: https://demo.ticketack.com
-    # the eshop user's Ticketack API key.
-    api_key: ~
+eshop:
     # data requested when an eshop user buys a pass
     # available fields: firstname, lastname, address, zip, city, country, photo, age, sex, bypass-photo
     requested_pass_owner_data:
@@ -33,6 +27,9 @@ images:
         big:
             width: 924
             height: 520
+        medium:
+            width: 600
+            height: -
 
 kronos:
     # kronos username

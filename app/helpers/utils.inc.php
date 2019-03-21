@@ -353,7 +353,7 @@ function get_sexes()
 
 function pass_required_fields($type)
 {
-    $required_fields = TKTApp::get_instance()->get_config('ticketack.requested_pass_owner_data');
+    $required_fields = TKTApp::get_instance()->get_config('eshop.requested_pass_owner_data');
     if (in_array($type, array_keys($required_fields))) {
         return $required_fields[$type];
     }

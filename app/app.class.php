@@ -64,8 +64,10 @@ class TKTApp
 
         $this->config = (object)[
             'pages'     => (array)get_option('pages'),
+            'ticketack' => (array)get_option('api'),
+            'advanced'  => (array)get_option('advanced'),
             'assets'    => (array)AppConfig::get('assets'),
-            'ticketack' => (array)AppConfig::get('ticketack'),
+            'eshop'     => (array)AppConfig::get('eshop'),
             'i18n'      => (array)AppConfig::get('i18n'),
             'images'    => (array)AppConfig::get('images'),
             'kronos'    => (array)AppConfig::get('kronos')
