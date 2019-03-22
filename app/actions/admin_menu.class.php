@@ -49,6 +49,7 @@ class AdminMenuAction extends TKTAction
         $active_tab = isset($_GET['tab']) ? $_GET['tab'] : 'api';
         $tabs = [
             'api'      => t('API'),
+            'pages'    => t('Pages'),
             'images'   => t('Images'),
             'pass'     => t('Abonnements'),
             'i18n'     => t('Langues'),
