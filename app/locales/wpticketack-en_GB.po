@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-26 14:44+0100\n"
+"POT-Creation-Date: 2019-03-22 16:04+0100\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Belkacem Alidra <belkacem.alidra@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,6 +16,36 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+msgid "Aucun article dans cette catégorie, revenez nous visiter prochainement."
+msgstr "No screening currently scheduled, come back soon."
+
+msgid "Vous avez choisi :"
+msgstr "You chose"
+
+msgid "Sélectionnez votre contenance et votre quantité :"
+msgstr "Select the quantity"
+
+msgid "Total"
+msgstr "Total"
+
+msgid "Veuillez choisir au moins un produit"
+msgstr "Please choose a date"
+
+msgid "Valider"
+msgstr "Confirm"
+
+msgid "Plus d'informations"
+msgstr "More informations"
+
+msgid "Commander"
+msgstr "my order"
+
+msgid "Il ne reste que quelques articles"
+msgstr "There are only a few places"
+
+msgid "Plus de stock"
+msgstr "No more stock"
 
 msgid "Prénom"
 msgstr "Firstname"
@@ -94,10 +124,10 @@ msgid "pour réserver."
 msgstr "to book."
 
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgid "Code"
-msgstr ""
+msgstr "Code"
 
 msgid "Me connecter"
 msgstr "Login"
@@ -112,6 +142,39 @@ msgstr "Book on my pass"
 msgid "Afficher mes réservations"
 msgstr "Show my bookings"
 
+msgid "Shortcodes disponibles"
+msgstr "Available shortcodes"
+
+msgid "Affichage en liste"
+msgstr "List display"
+
+msgid "Affichage des prochaines séances en liste"
+msgstr "Display screenings in list"
+
+msgid "Affichage en grille"
+msgstr "Grid display"
+
+msgid "Affichage des prochains films en grille de 4"
+msgstr "Display movies in a 4 columns grid"
+
+msgid "Affichage en galerie"
+msgstr "Gallery display"
+
+msgid "Affichage des prochains films en galerie de 4 colonnes"
+msgstr "Display movies in a 4 columns gallery"
+
+msgid "Panier"
+msgstr "Cart"
+
+msgid "Affichage du contenu du panier"
+msgstr "Display the cart content"
+
+msgid "Abonnements"
+msgstr "Pass"
+
+msgid "Vente des différents types d'abonnements"
+msgstr "Sell different pass types"
+
 msgid "Votre panier est vide"
 msgstr "Your cart is empty"
 
@@ -122,7 +185,7 @@ msgid "Prix"
 msgstr "Price"
 
 msgid "Total :"
-msgstr ""
+msgstr "Total :"
 
 msgid "Finaliser ma commande"
 msgstr "Finish my order"
@@ -144,9 +207,6 @@ msgid ""
 "Aucuné séance programmée actuellement, revenez nous visiter prochainement."
 msgstr "No screening currently scheduled, come back soon."
 
-msgid "Plus d'informations"
-msgstr "More informations"
-
 msgid "Billets"
 msgstr "Tickets"
 
@@ -161,9 +221,6 @@ msgstr "There are only a few places !"
 
 msgid "Complet !"
 msgstr "Complete !"
-
-msgid "sous-titres"
-msgstr "subtitles"
 
 msgid "Voir mes réservations"
 msgstr "my bookings"
@@ -180,7 +237,6 @@ msgstr "Buy"
 msgid "un abonnement"
 msgstr "a pass"
 
-#, fuzzy
 msgid "Veuillez choisir au moins un billet"
 msgstr "Please choose a date"
 
@@ -193,7 +249,6 @@ msgstr "The information you have entered is invalid"
 msgid "Une erreur est survenue. Veuillez ré-essayer ultérieurement."
 msgstr "An error has occurred. Please try again later."
 
-#, fuzzy
 msgid ""
 "Vous ne pouvez pas réserver plus de place pour cette séance avec votre "
 "abonnement."
@@ -240,6 +295,130 @@ msgstr ""
 
 msgid "Événements importés depuis Ticketack"
 msgstr "Events imported from Ticketack"
+
+msgid "Add New Ticketack Article"
+msgstr ""
+
+msgid "New Ticketack Article"
+msgstr ""
+
+msgid "Edit Ticketack Article"
+msgstr ""
+
+msgid "View Ticketack Article"
+msgstr ""
+
+msgid "All Ticketack Articles"
+msgstr ""
+
+msgid "Search Ticketack Articles"
+msgstr ""
+
+msgid "Parent Ticketack Article:"
+msgstr ""
+
+msgid "No article found."
+msgstr ""
+
+msgid "No article found in Trash."
+msgstr ""
+
+msgid "Articles importés depuis Ticketack"
+msgstr "Events imported from Ticketack"
+
+msgid "API"
+msgstr "API"
+
+msgid "Pages"
+msgstr "Pages"
+
+msgid "Images"
+msgstr "Images"
+
+msgid "Langues"
+msgstr "Languages"
+
+msgid "Documentation"
+msgstr "Documentation"
+
+msgid "Ticketack n'est pas configuré."
+msgstr "Ticketack is not configured"
+
+msgid "Accéder aux réglages"
+msgstr "Go to settings"
+
+msgid "Accès à Ticketack"
+msgstr "Go to Ticketack"
+
+msgid "URL de l'engine"
+msgstr "Engine URL"
+
+msgid "URL du eshop"
+msgstr "Eshop URL"
+
+msgid "Clé d'API"
+msgstr "API key"
+
+msgid "Programme"
+msgstr "Program"
+
+msgid "Dimensions des images"
+msgstr "Images dimensions"
+
+msgid "Largeur des grandes images"
+msgstr "Big images width"
+
+msgid "Hauteur des grandes images"
+msgstr "Big images height"
+
+msgid "Largeur des images moyennes"
+msgstr "Medium images width"
+
+msgid "Hauteur des images moyennes"
+msgstr "Medium images height"
+
+msgid "Serveur proxy d'images"
+msgstr "Images proxy server"
+
+msgid "Serveur proxy"
+msgstr "Proxy server"
+
+msgid "Clé du serveur proxy"
+msgstr "Server key"
+
+msgid "Champs à saisir pour chaque type d'abonnement"
+msgstr "Mandatory fields for each pass type"
+
+msgid "Langue par défaut"
+msgstr "Default language"
+
+msgid "Options avancées"
+msgstr "Advanced options"
+
+msgid "Saisissez les slugs des pages contenant les différents shortcodes"
+msgstr "Set the slugs of the pages which contain the shortcodes"
+
+msgid "Saisissez les informations d'accès à la billetterie"
+msgstr "Set the ticketing system access informations"
+
+msgid "Dimensions des grandes et moyennes images (en px)."
+msgstr "Big and medium images dimensions (in px)."
+
+msgid "Configuration du serveur proxy d'images."
+msgstr "Images proxy server configuration"
+
+msgid "Configuration de la vente d'abonnements."
+msgstr "Pass sale configuration."
+
+msgid "Configuration des langues."
+msgstr "Languages configuration"
+
+msgid ""
+"Ne modifiez les valeurs ci-dessous que si vous savez ce que vous faites."
+msgstr "Change these settings only if you know what you are doing."
+
+#~ msgid "sous-titres"
+#~ msgstr "subtitles"
 
 #~ msgid "un abonnement."
 #~ msgstr "a pass."

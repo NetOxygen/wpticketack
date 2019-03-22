@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-26 14:56+0100\n"
+"POT-Creation-Date: 2019-03-22 16:06+0100\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Belkacem Alidra <belkacem.alidra@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,6 +16,40 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#, fuzzy
+msgid "Aucun article dans cette catégorie, revenez nous visiter prochainement."
+msgstr "Derzeit ist keine Sitzung geplant, komm bald wieder."
+
+msgid "Vous avez choisi :"
+msgstr ""
+
+msgid "Sélectionnez votre contenance et votre quantité :"
+msgstr ""
+
+msgid "Total"
+msgstr ""
+
+#, fuzzy
+msgid "Veuillez choisir au moins un produit"
+msgstr "Bitte wählen Sie mindestens einen Ball aus."
+
+msgid "Valider"
+msgstr ""
+
+msgid "Plus d'informations"
+msgstr "Weitere Informationen"
+
+#, fuzzy
+msgid "Commander"
+msgstr "meine Bestellung"
+
+#, fuzzy
+msgid "Il ne reste que quelques articles"
+msgstr "Es gibt nur noch wenige Plätze"
+
+msgid "Plus de stock"
+msgstr ""
 
 msgid "Prénom"
 msgstr "Vorname"
@@ -116,6 +150,40 @@ msgstr "Reservieren Sie einen Platz in meinem Abonnement"
 msgid "Afficher mes réservations"
 msgstr "Meine Buchungen ansehen"
 
+msgid "Shortcodes disponibles"
+msgstr ""
+
+msgid "Affichage en liste"
+msgstr ""
+
+msgid "Affichage des prochaines séances en liste"
+msgstr ""
+
+msgid "Affichage en grille"
+msgstr ""
+
+msgid "Affichage des prochains films en grille de 4"
+msgstr ""
+
+msgid "Affichage en galerie"
+msgstr ""
+
+msgid "Affichage des prochains films en galerie de 4 colonnes"
+msgstr ""
+
+msgid "Panier"
+msgstr ""
+
+msgid "Affichage du contenu du panier"
+msgstr ""
+
+#, fuzzy
+msgid "Abonnements"
+msgstr "ein Abo"
+
+msgid "Vente des différents types d'abonnements"
+msgstr ""
+
 msgid "Votre panier est vide"
 msgstr "Ihr Einkaufswagen ist leer"
 
@@ -149,9 +217,6 @@ msgid ""
 "Aucuné séance programmée actuellement, revenez nous visiter prochainement."
 msgstr "Derzeit ist keine Sitzung geplant, komm bald wieder."
 
-msgid "Plus d'informations"
-msgstr "Weitere Informationen"
-
 msgid "Billets"
 msgstr "Zum Warenkorb hinzufügen"
 
@@ -166,9 +231,6 @@ msgstr "Es gibt nur noch wenige Plätze!"
 
 msgid "Complet !"
 msgstr "Fertig!"
-
-msgid "sous-titres"
-msgstr "Untertitel"
 
 msgid "Voir mes réservations"
 msgstr "Siehe meine Buchungen"
@@ -246,3 +308,138 @@ msgstr "Keine Ereignisse im Papierkorb gefunden"
 
 msgid "Événements importés depuis Ticketack"
 msgstr "Von Ticketack importierte Ereignisse"
+
+#, fuzzy
+msgid "Add New Ticketack Article"
+msgstr "Neues Ticketack-Event hinzufügen"
+
+#, fuzzy
+msgid "New Ticketack Article"
+msgstr "Neues Ticketack-Event"
+
+#, fuzzy
+msgid "Edit Ticketack Article"
+msgstr "Ticketack-Event bearbeiten"
+
+#, fuzzy
+msgid "View Ticketack Article"
+msgstr "Ticketack-Event anzeigen"
+
+#, fuzzy
+msgid "All Ticketack Articles"
+msgstr "Alle Ticketack-Events"
+
+#, fuzzy
+msgid "Search Ticketack Articles"
+msgstr "Ticketack-Events suchen"
+
+#, fuzzy
+msgid "Parent Ticketack Article:"
+msgstr "Übergeordnete Ticketack-Events"
+
+#, fuzzy
+msgid "No article found."
+msgstr "Keine Events gefunden"
+
+#, fuzzy
+msgid "No article found in Trash."
+msgstr "Keine Ereignisse im Papierkorb gefunden"
+
+#, fuzzy
+msgid "Articles importés depuis Ticketack"
+msgstr "Von Ticketack importierte Ereignisse"
+
+msgid "API"
+msgstr ""
+
+msgid "Pages"
+msgstr ""
+
+msgid "Images"
+msgstr ""
+
+msgid "Langues"
+msgstr ""
+
+msgid "Documentation"
+msgstr ""
+
+msgid "Ticketack n'est pas configuré."
+msgstr ""
+
+#, fuzzy
+msgid "Accéder aux réglages"
+msgstr "Zum Warenkorb gehen"
+
+msgid "Accès à Ticketack"
+msgstr ""
+
+msgid "URL de l'engine"
+msgstr ""
+
+msgid "URL du eshop"
+msgstr ""
+
+msgid "Clé d'API"
+msgstr ""
+
+msgid "Programme"
+msgstr ""
+
+msgid "Dimensions des images"
+msgstr ""
+
+msgid "Largeur des grandes images"
+msgstr ""
+
+msgid "Hauteur des grandes images"
+msgstr ""
+
+msgid "Largeur des images moyennes"
+msgstr ""
+
+msgid "Hauteur des images moyennes"
+msgstr ""
+
+msgid "Serveur proxy d'images"
+msgstr ""
+
+msgid "Serveur proxy"
+msgstr ""
+
+msgid "Clé du serveur proxy"
+msgstr ""
+
+msgid "Champs à saisir pour chaque type d'abonnement"
+msgstr ""
+
+msgid "Langue par défaut"
+msgstr ""
+
+msgid "Options avancées"
+msgstr ""
+
+msgid "Saisissez les slugs des pages contenant les différents shortcodes"
+msgstr ""
+
+msgid "Saisissez les informations d'accès à la billetterie"
+msgstr ""
+
+msgid "Dimensions des grandes et moyennes images (en px)."
+msgstr ""
+
+msgid "Configuration du serveur proxy d'images."
+msgstr ""
+
+msgid "Configuration de la vente d'abonnements."
+msgstr ""
+
+msgid "Configuration des langues."
+msgstr ""
+
+msgid ""
+"Ne modifiez les valeurs ci-dessous que si vous savez ce que vous faites."
+msgstr ""
+
+#~ msgid "sous-titres"
+#~ msgstr "Untertitel"
