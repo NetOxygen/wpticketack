@@ -13,8 +13,8 @@ class SyncArticlesAction extends TKTAction
     public function get_tag()
     {
         return [
-            "admin_head-edit.php"    => "add_link",
-            "admin_post_sync_events" => "run"
+            //"admin_head-edit.php"    => "add_link",
+            //"admin_post_sync_events" => "run"
         ];
     }
 
