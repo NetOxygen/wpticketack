@@ -8,7 +8,7 @@
  * Version: 1.0.0
  * Author: Net Oxygen Sàrl
  * Author URI: https://netoxygen.ch
- * License: MIT
+ * License: GPLv3
  */
 
 date_default_timezone_set('Europe/Zurich');
