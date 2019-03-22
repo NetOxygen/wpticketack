@@ -49,7 +49,6 @@ mkdir $MODULE_DIR
 
 echo "## Copying ressources to module directory"
 cp -r "$BASE_DIR/app" "$MODULE_DIR"
-cp -r "$BASE_DIR/config" "$MODULE_DIR"
 cp -r "$BASE_DIR/vendor" "$MODULE_DIR"
 cp -r "$BASE_DIR/wpticketack.php" "$MODULE_DIR"
 mkdir $MODULE_DIR/front

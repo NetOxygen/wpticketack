@@ -23,6 +23,19 @@ class TKTTemplate
         return static::output($filepath, $data);
     }
 
+    public static function render_admin($template, $data = [])
+    {
+        $filepath = TKT_TEMPLATES.'/_admin/'.$template.'.tpl.php';
+        if (!file_exists($filepath)) {
+            throw new Exception(sprintf(
+                "Template file %s not found",
+                $filepath
+            ));
+        }
+
+        return static::output($filepath, $data);
+    }
+
     protected static function output($template, $data)
     {
         ob_start();

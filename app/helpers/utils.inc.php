@@ -353,7 +353,25 @@ function get_sexes()
 
 function pass_required_fields($type)
 {
-    $required_fields = TKTApp::get_instance()->get_config('eshop.requested_pass_owner_data');
+    static $required_fields = null;
+
+    if ($required_fields === null) {
+        $required_fields_data = TKTApp::get_instance()->get_config('pass.requested_pass_owner_data');
+        if (empty($required_fields_data)) {
+            return [];
+        }
+
+        $lines           = array_map('trim', explode(PHP_EOL, $required_fields_data));
+        $required_fields = [];
+        foreach ($lines as $l) {
+            $parts = explode(':', $l);
+            if (count($parts) != 2) {
+                continue;
+            }
+            $required_fields[trim($parts[0])] = array_map('trim', explode(',', $parts[1]));
+        }
+    }
+
     if (in_array($type, array_keys($required_fields))) {
         return $required_fields[$type];
     }
@@ -377,8 +395,8 @@ function is_uuidv4($str)
 if (!function_exists('img_proxy_url')) {
     function img_proxy_url($remote_url, $width = '-', $height = '-')
     {
-        $proxy_img_key  = TKTApp::get_instance()->get_config('images.proxy.proxy_img_key');
-        $proxy_img_host = TKTApp::get_instance()->get_config('images.proxy.proxy_img_host');
+        $proxy_img_key  = TKTApp::get_instance()->get_config('images_proxy.key');
+        $proxy_img_host = TKTApp::get_instance()->get_config('images_proxy.host');
 
         if (empty($proxy_img_key) || empty($proxy_img_host)) {
             return $remote_url;

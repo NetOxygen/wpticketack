@@ -14,8 +14,8 @@ $ids = implode(',', array_map(function ($s) {
     return $s->_id();
 }, $e->screenings()));
 
-$images_width  = TKTApp::get_instance()->get_config('images.dimensions.big.width');
-$images_height = TKTApp::get_instance()->get_config('images.dimensions.big.height');
+$images_width  = TKTApp::get_instance()->get_config('images_dimensions.big_width');
+$images_height = TKTApp::get_instance()->get_config('images_dimensions.big_height');
 $image_url     = img_proxy_url($e->first_poster()->url, $images_width, $images_height);
 ?>
 <div class="tkt-wrapper event-inner">

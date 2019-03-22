@@ -60,17 +60,14 @@ class TKTApp
         $this->filters    = [];
         $this->shortcodes = [];
 
-        AppConfig::parse(TKT_CONFIG . '/config.yml', []);
-
         $this->config = (object)[
-            'pages'     => (array)get_option('pages'),
-            'ticketack' => (array)get_option('api'),
-            'advanced'  => (array)get_option('advanced'),
-            'assets'    => (array)AppConfig::get('assets'),
-            'eshop'     => (array)AppConfig::get('eshop'),
-            'i18n'      => (array)AppConfig::get('i18n'),
-            'images'    => (array)AppConfig::get('images'),
-            'kronos'    => (array)AppConfig::get('kronos')
+            'pages'             => (array)get_option('tkt_pages'),
+            'ticketack'         => (array)get_option('tkt_api'),
+            'images_dimensions' => (array)get_option('tkt_images_dimensions'),
+            'images_proxy'      => (array)get_option('tkt_images_proxy'),
+            'pass'              => (array)get_option('tkt_pass'),
+            'i18n'              => (array)get_option('tkt_i18n'),
+            'advanced'          => (array)get_option('tkt_advanced')
         ];
     }
 
@@ -158,6 +155,14 @@ class TKTApp
         }
 
         return $value;
+    }
+
+    public function is_configured()
+    {
+        return
+            !empty($this->get_config('ticketack.engine_uri')) &&
+            !empty($this->get_config('ticketack.eshop_uri')) &&
+            !empty($this->get_config('ticketack.api_key'));
     }
 }
 

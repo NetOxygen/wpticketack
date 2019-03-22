@@ -6,7 +6,6 @@ require_once(TKT_FILTERS.'/filter.class.php');
 require_once(TKT_SHORTCODES.'/shortcode.class.php');
 require_once(TKT_SHORTCODES.'/program.class.php');
 require_once(TKT_TEMPLATES.'/template.class.php');
-require_once(TKT_HELPERS.'/config.class.php');
 require_once(TKT_HELPERS.'/sync_helper.class.php');
 require_once(TKT_HELPERS.'/locales_helper.class.php');
 require_once(TKT_HELPERS.'/utils.inc.php');

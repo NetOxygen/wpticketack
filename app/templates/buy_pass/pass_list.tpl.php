@@ -23,18 +23,18 @@ $types = $data->tickettypes;
 
   <?php else : ?>
 
-    <div class="panel-group" id="accordion">
+    <div id="accordion">
       <?php foreach ($types as $tickettype) :?>
-        <div class="panel panel-default" id="pass-<?= $tickettype->_id() ?>">
-          <div class="panel-heading">
-            <h4 class="panel-title">
-              <a data-toggle="collapse" data-parent="#accordion" href="#item-<?= $tickettype->_id(); ?>" class="pass_title">
+        <div class="card" id="pass-<?= $tickettype->_id() ?>">
+          <div class="card-header">
+            <h5 class="card-title mb-0">
+              <button data-toggle="collapse" data-target="#item-<?= $tickettype->_id(); ?>" class="btn btn-link pass_title" aria-expanded="true" aria-controls="#item-<?= $tickettype->_id(); ?>">
                 <?= h($tickettype->name(LANG)) ?>
-              </a>
-            </h4>
+              </button>
+            </h5>
           </div>
-          <div id="item-<?= $tickettype->_id(); ?>" data-type="<?= $tickettype->_id(); ?>" class="pass panel-collapse collapse in">
-            <div class="panel-body">
+          <div id="item-<?= $tickettype->_id(); ?>" data-type="<?= $tickettype->_id(); ?>" class="pass collapse" data-parent="#accordion">
+            <div class="card-body">
               <p><?= nl2br(html($tickettype->description(LANG))) ?></p>
               <input type="hidden" class="required-fields" id="<?= $tickettype->_id().'-fields' ?>" value="<?= implode(',', $tickettype->required_fields()) ?>"
               <b><?= t('Tarifs :') ?></b>

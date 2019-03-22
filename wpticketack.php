@@ -14,6 +14,8 @@
 date_default_timezone_set('Europe/Zurich');
 setlocale(LC_TIME, get_locale().'.UTF-8');
 
+define('ASSETS_VERSION', '1.0.0.2019032101');
+
 define("TKT_BASE", (dirname(__FILE__)));
 define("TKT_CONFIG", (TKT_BASE.'/config'));
 define("TKT_APP", (TKT_BASE.'/app'));
@@ -46,6 +48,7 @@ $app->register_filter('BodyClassFilter', 'body_class.class.php');
 $app->register_filter('TktEventContentFilter', 'tkt_event_content.class.php');
 $app->register_filter('ThumbnailFilter', 'thumbnail.class.php');
 $app->register_action('HeadScriptsAction', 'head_scripts.class.php');
+$app->register_action('AdminNoticesAction', 'admin_notices.class.php');
 $app->register_action('AdminMenuAction', 'admin_menu.class.php');
 $app->register_action('AdminSettingsAction', 'admin_settings.class.php');
 $app->register_action('AssetsAction', 'assets.class.php');

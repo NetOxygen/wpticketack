@@ -35,8 +35,8 @@ $ids = array_map(function ($s) {
     return $s->_id();
 }, $screenings);
 
-$images_width  = TKTApp::get_instance()->get_config('images.dimensions.big.width');
-$images_height = TKTApp::get_instance()->get_config('images.dimensions.big.height');
+$images_width  = TKTApp::get_instance()->get_config('images_dimensions.big_width');
+$images_height = TKTApp::get_instance()->get_config('images_dimensions.big_height');
 ?>
 <div class="tkt-wrapper tkt_event">
 
