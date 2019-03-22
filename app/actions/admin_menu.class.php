@@ -53,7 +53,6 @@ class AdminMenuAction extends TKTAction
             'images'   => t('Images'),
             'pass'     => t('Abonnements'),
             'i18n'     => t('Langues'),
-            'advanced' => t('Avancés'),
             'doc'      => t('Documentation')
         ];
 ?>

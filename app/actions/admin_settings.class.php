@@ -172,14 +172,6 @@ class AdminSettingsAction extends TKTAction
             array( $this, 'advanced_section_info' ), // Callback
             'ticketack-advanced' // Page
         );
-
-        add_settings_field(
-            'load_jquery', // ID
-            'Charger jQuery', // Title
-            array( $this, 'load_jquery_callback' ), // Callback
-            'ticketack-advanced', // Page
-            'ticketack_advanced' // Section
-        );
     }
 
     /**
@@ -267,7 +259,6 @@ class AdminSettingsAction extends TKTAction
     {
         print "Ne modifiez les valeurs ci-dessous que si vous savez ce que vous faites.";
     }
-    public function load_jquery_callback() { return $this->jquery_input('load_jquery', 'tkt_advanced', 'if_needed'); }
 
     /**
      * Get an option input
@@ -306,32 +297,6 @@ class AdminSettingsAction extends TKTAction
             $group,
             $name,
             $value
-        );
-    }
-
-    /**
-     * Get a boolean option input
-     *
-     * @param string $name: The option name
-     * @param string $group: The option group
-     */
-    public function jquery_input($name, $group, $default = null)
-    {
-        $this->options = get_option($group);
-        $value = isset($this->options[$name]) ? $this->options[$name] : $default;
-
-        printf(
-            '<select id="%s" name="%s[%s]">
-                <option value="never" %s>Jamais (ce site fournit déjà une version >= 3)</option>
-                <option value="if_needed" %s>Seulement si besoin (je ne connais pas la version fournie par ce site)</option>
-                <option value="force" %s>Toujours (ce site ne fournit PAS de version >= 3)</option>
-            </select>',
-            $name,
-            $group,
-            $name,
-            $value == 'never' ? 'selected' : '',
-            $value == 'if_needed' ? 'selected' : '',
-            $value == 'force' ? 'selected' : ''
         );
     }
 }

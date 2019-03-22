@@ -63,6 +63,8 @@ class HeadScriptsAction extends TKTAction
         <script>
             if (typeof jQuery === "function") {
                 define("jquery", function () { return jQuery; });
+                /* Wordpress version of jQuery doesn\'t expose the $ global object */
+                window.$ = jQuery;
             }
             require(["app"]);
         </script>
