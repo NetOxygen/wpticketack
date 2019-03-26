@@ -33,7 +33,7 @@ class DaysFilterShortcode extends TKTShortcode
             _iso8601_to_datetime($atts['max_start_at']) :
             _iso8601_to_datetime(date('now'));
 
-        $active = get_query_var('d');
+        $active = get_url_param('d');
 
         $days    = [];
         $current = clone($min);

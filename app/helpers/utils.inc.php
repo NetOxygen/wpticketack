@@ -3,6 +3,19 @@
  */
 
 /**
+ * Extract url param
+ *•
+ * @param string $key: The param name
+ * @param mixed $default: The default value if the url param is not found
+ *
+ * @return mixed: The URL param if found, $default otherwise
+ */
+function get_url_param($key, $default = null)
+{
+    return array_key_exists($key, $_GET) ? $_GET[$key] : $default;
+}
+
+/**
  * Formats a DateTime in a full date and time format
  *
  * @param $dt
