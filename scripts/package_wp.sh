@@ -51,6 +51,7 @@ echo "## Copying ressources to module directory"
 cp -r "$BASE_DIR/app" "$MODULE_DIR"
 cp -r "$BASE_DIR/vendor" "$MODULE_DIR"
 cp -r "$BASE_DIR/wpticketack.php" "$MODULE_DIR"
+cp -r "$BASE_DIR/readme.txt" "$MODULE_DIR"
 mkdir $MODULE_DIR/front
 cp -r "$FRONT_DIR/build" "$MODULE_DIR/front"
 
