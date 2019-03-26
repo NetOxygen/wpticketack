@@ -21,7 +21,7 @@ $query_mask = 'd=%s';
         <ul>
             <?php foreach ($days as $day) : ?>
             <li class="tkt-day-filter <?= $active == $day->format('Y-m-d') ? 'active' : '' ?>">
-                <a href="<?= program_url(sprintf($query_mask, $day->format('Y-m-d'))) ?>">
+                <a href="<?= sprintf($query_mask, $day->format('Y-m-d')) ?>">
                     <span class="tkt-day-filter-day">
                         <?= strftime('%a', $day->getTimestamp()) ?>
                     </span>
