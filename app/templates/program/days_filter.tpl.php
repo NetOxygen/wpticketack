@@ -11,7 +11,7 @@
 
 $days       = $data->days;
 $active     = $data->active;
-$query_mask = 'd=%s';
+$query_mask = '?d=%s';
 ?>
 
 <?php if (!empty($days)) : ?>

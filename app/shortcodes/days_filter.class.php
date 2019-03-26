@@ -28,10 +28,16 @@ class DaysFilterShortcode extends TKTShortcode
     {
         $min = isset($atts['min_start_at']) ?
             _iso8601_to_datetime($atts['min_start_at']) :
-            _iso8601_to_datetime(date('now'));
-        $max = isset($atts['max_start_at']) ?
-            _iso8601_to_datetime($atts['max_start_at']) :
-            _iso8601_to_datetime(date('now'));
+             new Datetime();
+
+        $max = new Datetime();
+        $max->setTime(23, 59, 59);
+        if (isset($atts['max_start_at'])) {
+            $max = _iso8601_to_datetime($atts['max_start_at']);
+        } else if (isset($atts['nb_days'])) {
+            $nb_days = (int)$atts['nb_days'];
+            $max->add(new DateInterval('P'.$nb_days.'D'));
+        }
 
         $active = get_url_param('d');
 
