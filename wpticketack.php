@@ -5,7 +5,7 @@
  * Description: Ticketack integration
  * Text Domain: wpticketack
  * Domain Path: /app/locales
- * Version: 1.0.1
+ * Version: 1.0.2
  * Author: Net Oxygen Sàrl
  * Author URI: https://netoxygen.ch
  * License: GPLv3
