@@ -38,7 +38,7 @@ class HeadScriptsAction extends TKTAction
             // before the config initialization
             window.moment_locale = "'.substr(get_locale(), 0, 2).'";
             var require = {
-                urlArgs: "v='.ASSETS_VERSION.'",
+                urlArgs: "v='.TKT_ASSETS_VERSION.'",
                 config: {
                     "assets": {
                         version: "1",

@@ -81,7 +81,7 @@ class AdminMenuAction extends TKTAction
     public function create_kronos_page()
     {
 ?>
-    <iframe id="kronos_iframe" frameborder="0" width="100%" height="100%" src="https://kronos.ticketack.com?v=<?= ASSETS_VERSION ?>" style="margin-left: -20px;"></iframe>
+    <iframe id="kronos_iframe" frameborder="0" width="100%" height="100%" src="https://kronos.ticketack.com?v=<?= TKT_ASSETS_VERSION ?>" style="margin-left: -20px;"></iframe>
         <script type="text/javascript">
             function resize() {
                 jQuery("#kronos_iframe").height(jQuery("#wpwrap").height());

@@ -13,7 +13,7 @@
 
 setlocale(LC_TIME, get_locale().'.UTF-8');
 
-define('ASSETS_VERSION', '1.0.4.2019032601');
+define('TKT_ASSETS_VERSION', '1.0.4.2019032601');
 
 define("TKT_BASE", (dirname(__FILE__)));
 define("TKT_CONFIG", (TKT_BASE.'/config'));
