@@ -63,7 +63,7 @@ $images_height = TKTApp::get_instance()->get_config('images_dimensions.big_heigh
               id="tkt-event-carousel-trailer-<?= $i ?>"
                 class="tkt-event-carousel-trailer"
                 data-component="Media/YoutubeVideo"
-                data-video-id="<?= yt_video_id($t->url) ?>"
+                data-video-id="<?= tkt_yt_video_id($t->url) ?>"
                 data-video-image="<?= img_proxy_url($t->image, $images_width, $images_height) ?>"
                 data-bs4-carousel-id="event-carousel">
               </div>

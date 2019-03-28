@@ -280,7 +280,7 @@ function tkt_article_buy_url($article)
  *
  * @return string: Video ID
  */
-function yt_video_id($yt_url)
+function tkt_yt_video_id($yt_url)
 {
     // Here is a sample of the URLs this regex matches: (there can be more content after the given URL that will be ignored)
     // http://youtu.be/dQw4w9WgXcQ
