@@ -126,7 +126,7 @@ function tkt_assets_url($path)
  *
  * @return string
  */
-function program_url($query = "")
+function tkt_program_url($query = "")
 {
     $path = TKTApp::get_instance()->get_config('pages.program');
     if (!empty($query)) {
