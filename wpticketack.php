@@ -11,7 +11,6 @@
  * License: GPLv3
  */
 
-date_default_timezone_set('Europe/Zurich');
 setlocale(LC_TIME, get_locale().'.UTF-8');
 
 define('ASSETS_VERSION', '1.0.4.2019032601');
