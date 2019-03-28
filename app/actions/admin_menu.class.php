@@ -42,6 +42,10 @@ class AdminMenuAction extends TKTAction
         ];
         foreach ($sections as $section) {
             if (isset($_POST[$section])) {
+                if (!isset($_POST['nonce']) ||
+                    !wp_verify_nonce($_POST['nonce'], 'tkt_admin_options')) {
+                    die('WordPress nonce error, please reload the form and try again');
+                }
                 if ($section == 'tkt_pass') {
                     update_option($section, array_map('sanitize_textarea_field', $_POST[$section]));
                 } else {
