@@ -50,7 +50,7 @@ class HeadScriptsAction extends TKTAction
                         "api_key": "'.$app->get_config('ticketack.api_key').'",
                         "program_url": "'.tkt_program_url().'",
                         "cart_url": "'.tkt_cart_url().'",
-                        "cart_reset_url": "'.cart_reset_url().'",
+                        "cart_reset_url": "'.tkt_cart_reset_url().'",
                     },
                     "i18n": '.json_encode(LocalesHelper::dump_js_locales(), JSON_PRETTY_PRINT).'
                 },

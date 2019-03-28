@@ -170,7 +170,7 @@ function tkt_buy_pass_url()
  *
  * @return string
  */
-function cart_reset_url()
+function tkt_cart_reset_url()
 {
     return sprintf(
         "%s/cart/reset",
