@@ -181,11 +181,11 @@ class Screening extends TKTModel implements JsonSerializable
     public function __construct(array &$properties = [])
     {
         if (array_key_exists('start_at', $properties)) {
-            $this->start_at = _iso8601_to_datetime($properties['start_at']);
+            $this->start_at = tkt_iso8601_to_datetime($properties['start_at']);
             unset($properties['start_at']);
         }
         if (array_key_exists('stop_at', $properties)) {
-            $this->stop_at = _iso8601_to_datetime($properties['stop_at']);
+            $this->stop_at = tkt_iso8601_to_datetime($properties['stop_at']);
             unset($properties['stop_at']);
         }
         if (array_key_exists('films', $properties)) {

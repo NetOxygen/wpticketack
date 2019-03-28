@@ -55,8 +55,8 @@ class ProgramShortcode extends TKTShortcode
                 ->order_by_start_at();
 
             if (!empty($day)) {
-                $min   = _iso8601_to_datetime($day.'T00:00:00Z');
-                $max   = _iso8601_to_datetime($day.'T23:59:59Z');
+                $min   = tkt_iso8601_to_datetime($day.'T00:00:00Z');
+                $max   = tkt_iso8601_to_datetime($day.'T23:59:59Z');
                 $query = $query
                     ->start_at_gte($min)
                     ->start_at_lte($max);

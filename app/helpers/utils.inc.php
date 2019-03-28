@@ -86,7 +86,7 @@ function tkt_date_and_time_to_min_s($dt)
  * @return
  *   A DateTime object or false on error.
  */
-function _iso8601_to_datetime($str)
+function tkt_iso8601_to_datetime($str)
 {
     $i = strtotime($str);
     $d = new DateTime();

@@ -77,10 +77,10 @@ class Bucket implements JsonSerializable
         if (array_key_exists('rules', $properties)) {
             $this->rules = $properties['rules'];
             if (array_key_exists('not_before', $this->rules)) {
-                $this->rules['not_before'] = _iso8601_to_datetime($this->rules['not_before']);
+                $this->rules['not_before'] = tkt_iso8601_to_datetime($this->rules['not_before']);
             }
             if (array_key_exists('not_after', $this->rules)) {
-                $this->rules['not_after'] = _iso8601_to_datetime($this->rules['not_after']);
+                $this->rules['not_after'] = tkt_iso8601_to_datetime($this->rules['not_after']);
             }
         }
     }

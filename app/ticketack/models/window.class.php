@@ -60,8 +60,8 @@ class Window implements JsonSerializable
         } elseif (array_key_exists('start_at', $properties) &&
                 array_key_exists('stop_at', $properties)) {
             $this->type     = Window::STATIC_TIME_FRAME_WINDOW;
-            $this->start_at = _iso8601_to_datetime($properties['start_at']);
-            $this->stop_at  = _iso8601_to_datetime($properties['stop_at']);
+            $this->start_at = tkt_iso8601_to_datetime($properties['start_at']);
+            $this->stop_at  = tkt_iso8601_to_datetime($properties['stop_at']);
         } elseif (array_key_exists('duration', $properties)) {
             $this->type             = Window::DYNAMIC_TIME_FRAME_WINDOW;
             $this->iso8601_duration = $properties['duration'];
