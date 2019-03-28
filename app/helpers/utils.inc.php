@@ -428,7 +428,7 @@ if (!function_exists('tkt_img_proxy_url')) {
             $exploded_url['host'],
             $exploded_url['path']
         );
-        $key = base64url_encode(md5('/' . $path . ' ' . $proxy_img_key, true));
+        $key = tkt_base64url_encode(md5('/' . $path . ' ' . $proxy_img_key, true));
 
         return sprintf(
             "https://%s/%s?%s",
@@ -439,12 +439,12 @@ if (!function_exists('tkt_img_proxy_url')) {
     }
 }
 
-if (!function_exists('base64url_encode')) {
+if (!function_exists('tkt_base64url_encode')) {
     /**
      * base64url variants,
      * stolen from http://us3.php.net/manual/en/function.base64-encode.php#103849
      */
-    function base64url_encode($data)
+    function tkt_base64url_encode($data)
     {
         return rtrim(strtr(base64_encode($data), '+/', '-_'), '=');
     }
