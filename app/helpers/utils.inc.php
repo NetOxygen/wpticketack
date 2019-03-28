@@ -144,7 +144,7 @@ function tkt_program_url($query = "")
  *
  * @return string
  */
-function cart_url()
+function tkt_cart_url()
 {
     return get_site_url(
         /*$blog_id*/null,
