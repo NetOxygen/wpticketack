@@ -41,7 +41,7 @@ class Tickettype extends TKTModel implements JsonSerializable
         }
         parent::__construct($properties);
 
-        $this->required_fields = pass_required_fields($this->_id);
+        $this->required_fields = tkt_pass_required_fields($this->_id);
     }
 
     // helper for scope_order_by_opaque_eshop_sort_weight()

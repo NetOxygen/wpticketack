@@ -364,7 +364,7 @@ function tkt_get_sexes()
     return ['n/c' => _("Pas de réponse"), 'f' => _("Féminin"), 'm' => _("Masculin"), 'o' => _("Autre")];
 }
 
-function pass_required_fields($type)
+function tkt_pass_required_fields($type)
 {
     static $required_fields = null;
 
