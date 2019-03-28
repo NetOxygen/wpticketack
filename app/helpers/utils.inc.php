@@ -474,7 +474,7 @@ function tkt_get_event_slug($event, $lang)
 }
 
 // Keep in sync with : app/controllers/screening.class.php in eshop
-function people_activities($activity = null, $lang = null)
+function tkt_people_activities($activity = null, $lang = null)
 {
     $activities = [
         "actor"             => ["fr" => "Acteur", "en" => "Actor"],
