@@ -54,7 +54,6 @@ require([
     'app/Program/BookabilityState',
     'app/Program/Filter',
     'app/Program/Filters',
-    'app/Ui/Loader',
     'app/Ui/PlusMinus',
     'app/Ui/ScreenSaver',
 ]);
