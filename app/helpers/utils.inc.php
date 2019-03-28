@@ -12,7 +12,7 @@
  */
 function tkt_get_url_param($key, $default = null)
 {
-    return array_key_exists($key, $_GET) ? $_GET[$key] : $default;
+    return array_key_exists($key, $_GET) ? sanitize_text_field($_GET[$key]) : $default;
 }
 
 /**

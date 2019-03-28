@@ -42,11 +42,15 @@ class AdminMenuAction extends TKTAction
         ];
         foreach ($sections as $section) {
             if (isset($_POST[$section])) {
-                update_option($section, $_POST[$section]);
+                if ($section == 'tkt_pass') {
+                    update_option($section, array_map('sanitize_textarea_field', $_POST[$section]));
+                } else {
+                    update_option($section, array_map('sanitize_text_field', $_POST[$section]));
+                }
             }
         }
 
-        $active_tab = isset($_GET['tab']) ? $_GET['tab'] : 'api';
+        $active_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'api';
         $tabs = [
             'api'      => tkt_t('API'),
             'pages'    => tkt_t('Pages'),

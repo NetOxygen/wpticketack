@@ -31,7 +31,7 @@ class BuyPassShortcode extends TKTShortcode
             ->for_sellers(['eshop'])
             ->filter_pricings_for_sellers(['eshop'])
             ->get();
-        if (!empty($_GET['types'])) $atts['types'] = $_GET['types']; // override with URL
+        if (!empty($_GET['types'])) $atts['types'] = sanitize_text_field($_GET['types']); // override with URL
         $types = isset($atts['types']) ? explode(',', $atts['types']) : [];
         if (!empty($types)) {
             $tickettypes = array_values(array_filter($tickettypes, function ($t) use ($types) {
