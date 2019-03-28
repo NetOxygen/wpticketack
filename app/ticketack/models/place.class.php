@@ -162,10 +162,10 @@ class Place extends TKTModel implements JsonSerializable
             $ret['_id'] = $this->_id();
         }
         if ($this->has_created_at()) {
-            $ret['created_at'] = _datetime_to_iso8601($this->created_at());
+            $ret['created_at'] = tkt_datetime_to_iso8601($this->created_at());
         }
         if ($this->has_updated_at()) {
-            $ret['updated_at'] = _datetime_to_iso8601($this->updated_at());
+            $ret['updated_at'] = tkt_datetime_to_iso8601($this->updated_at());
         }
         if ($this->has_address()) {
             $ret['address'] = $this->address();

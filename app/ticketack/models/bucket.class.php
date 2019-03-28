@@ -186,10 +186,10 @@ class Bucket implements JsonSerializable
         ];
 
         if (array_key_exists('not_before', $ret['rules'])) {
-            $ret['rules']['not_before'] = _datetime_to_iso8601($ret['rules']['not_before']);
+            $ret['rules']['not_before'] = tkt_datetime_to_iso8601($ret['rules']['not_before']);
         }
         if (array_key_exists('not_after', $ret['rules'])) {
-            $ret['rules']['not_after'] = _datetime_to_iso8601($ret['rules']['not_after']);
+            $ret['rules']['not_after'] = tkt_datetime_to_iso8601($ret['rules']['not_after']);
         }
 
         return $ret;

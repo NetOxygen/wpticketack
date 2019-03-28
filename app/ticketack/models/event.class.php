@@ -299,10 +299,10 @@ class Event extends TKTModel implements JsonSerializable
             $ret['section'] = $this->section();
         }
         if ($this->has_created_at()) {
-            $ret['created_at'] = _datetime_to_iso8601($this->created_at());
+            $ret['created_at'] = tkt_datetime_to_iso8601($this->created_at());
         }
         if ($this->has_updated_at()) {
-            $ret['updated_at'] = _datetime_to_iso8601($this->updated_at());
+            $ret['updated_at'] = tkt_datetime_to_iso8601($this->updated_at());
         }
         if ($this->has_opaque()) {
             $ret['opaque'] = $this->opaque();

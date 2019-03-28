@@ -102,7 +102,7 @@ function tkt_iso8601_to_datetime($str)
  * @return
  *   A string.
  */
-function _datetime_to_iso8601($d)
+function tkt_datetime_to_iso8601($d)
 {
     return $d->format(DateTime::ATOM);
 }

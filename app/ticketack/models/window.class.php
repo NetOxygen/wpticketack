@@ -161,8 +161,8 @@ class Window implements JsonSerializable
 
         switch ($this->type()) {
             case Window::STATIC_TIME_FRAME_WINDOW:
-                $ret['start_at'] = _datetime_to_iso8601($this->start_at);
-                $ret['stop_at']  = _datetime_to_iso8601($this->stop_at);
+                $ret['start_at'] = tkt_datetime_to_iso8601($this->start_at);
+                $ret['stop_at']  = tkt_datetime_to_iso8601($this->stop_at);
                 break;
             case Window::DYNAMIC_TIME_FRAME_WINDOW:
                 $ret['duration'] = $this->iso8601_duration;

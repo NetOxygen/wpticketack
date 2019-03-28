@@ -71,7 +71,7 @@ class Screening extends TKTModel implements JsonSerializable
      */
     public static function scope_start_at_gte($req, $when)
     {
-        return $req->query('start_at_gte', _datetime_to_iso8601($when));
+        return $req->query('start_at_gte', tkt_datetime_to_iso8601($when));
     }
 
     /**
@@ -91,7 +91,7 @@ class Screening extends TKTModel implements JsonSerializable
      */
     public static function scope_start_at_lte($req, $when)
     {
-        return $req->query('start_at_lte', _datetime_to_iso8601($when));
+        return $req->query('start_at_lte', tkt_datetime_to_iso8601($when));
     }
 
     /**
@@ -466,8 +466,8 @@ class Screening extends TKTModel implements JsonSerializable
             'films'       => array_map(function ($movie) {
                                  return $movie->jsonSerialize();
                              }, $this->movies()),
-            'start_at'    => _datetime_to_iso8601($this->start_at),
-            'stop_at'     => _datetime_to_iso8601($this->stop_at),
+            'start_at'    => tkt_datetime_to_iso8601($this->start_at),
+            'stop_at'     => tkt_datetime_to_iso8601($this->stop_at),
             'buckets'     => array_map(function ($bucket) {
                                  return $bucket->jsonSerialize();
                              }, $this->buckets()),
