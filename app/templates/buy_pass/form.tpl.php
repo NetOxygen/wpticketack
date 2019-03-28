@@ -80,7 +80,7 @@
             <select name="user[sex]" id="user_sex" class="form-control field" required>
               <option value=""></option>
                 <?php
-                  $sexes = get_sexes();
+                  $sexes = tkt_get_sexes();
                   foreach ($sexes as $sex_key => $sex_value) {
                       echo '<option value="'.$sex_key.'>'.$sex_value.'</option>';
                   }

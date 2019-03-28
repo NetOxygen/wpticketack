@@ -359,7 +359,7 @@ function tkt_get_ages()
     return [_("Pas de réponse"), '-18', '18-24', '25-34', '35-44', '45-54', '55-64', '65+'];
 }
 
-function get_sexes()
+function tkt_get_sexes()
 {
     return ['n/c' => _("Pas de réponse"), 'f' => _("Féminin"), 'm' => _("Masculin"), 'o' => _("Autre")];
 }
