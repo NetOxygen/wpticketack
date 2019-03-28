@@ -35,7 +35,7 @@ class Article extends TKTModel implements JsonSerializable
      */
     public static function is_valid_id($id)
     {
-        return is_uuidv4($id);
+        return tkt_is_uuidv4($id);
     }
 
     /**
