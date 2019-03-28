@@ -60,7 +60,7 @@ $image_url     = tkt_img_proxy_url($s->first_poster()->url, $images_width, $imag
         <div class="col">
           <span class="more-infos">
             <a href="">
-              <?= t('Plus d\'informations') ?>
+              <?= tkt_t('Plus d\'informations') ?>
             </a>
           </span>
         </div>
@@ -73,10 +73,10 @@ $image_url     = tkt_img_proxy_url($s->first_poster()->url, $images_width, $imag
             <a
               class="show-if-buyable show-if almost-not-buyable"
               href="<?= tkt_article_buy_url($e) ?>">
-              <?= t('Commander') ?> <span class="article-soldout"></span>
+              <?= tkt_t('Commander') ?> <span class="article-soldout"></span>
             </a>
-            <span class="show-if-almost-not-buyable article-soldout"><?= t('Il ne reste que quelques articles') ?></span>
-            <span class="show-if-not-buyable article-soldout"><?= t('Plus de stock') ?></span>
+            <span class="show-if-almost-not-buyable article-soldout"><?= tkt_t('Il ne reste que quelques articles') ?></span>
+            <span class="show-if-not-buyable article-soldout"><?= tkt_t('Plus de stock') ?></span>
           </span>
         </div>
       </div>

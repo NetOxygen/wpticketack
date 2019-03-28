@@ -22,14 +22,14 @@ class AdminSettingsAction extends TKTAction
     {
         add_settings_section(
             'ticketack_api', // ID
-            t('Accès à Ticketack'), // Title
+            tkt_t('Accès à Ticketack'), // Title
             array( $this, 'api_section_info' ), // Callback
             'ticketack-api' // Page
         );
 
         add_settings_field(
             'engine_uri', // ID
-            t('URL de l\'engine'), // Title
+            tkt_t('URL de l\'engine'), // Title
             array( $this, 'engine_uri_callback' ), // Callback
             'ticketack-api', // Page
             'ticketack_api' // Section
@@ -37,7 +37,7 @@ class AdminSettingsAction extends TKTAction
 
         add_settings_field(
             'eshop_uri', // ID
-            t('URL du eshop'), // Title
+            tkt_t('URL du eshop'), // Title
             array( $this, 'eshop_uri_callback' ), // Callback
             'ticketack-api', // Page
             'ticketack_api' // Section
@@ -45,7 +45,7 @@ class AdminSettingsAction extends TKTAction
 
         add_settings_field(
             'api_key', // ID
-            t('Clé d\'API'), // Title
+            tkt_t('Clé d\'API'), // Title
             array( $this, 'api_key_callback' ), // Callback
             'ticketack-api', // Page
             'ticketack_api' // Section
@@ -53,14 +53,14 @@ class AdminSettingsAction extends TKTAction
 
         add_settings_section(
             'ticketack_pages', // ID
-            t('Pages'), // Title
+            tkt_t('Pages'), // Title
             array( $this, 'pages_section_info' ), // Callback
             'ticketack-pages' // Page
         );
 
         add_settings_field(
             'program', // ID
-            t('Programme'), // Title
+            tkt_t('Programme'), // Title
             array( $this, 'program_callback' ), // Callback
             'ticketack-pages', // Page
             'ticketack_pages' // Section
@@ -68,7 +68,7 @@ class AdminSettingsAction extends TKTAction
 
         add_settings_field(
             'cart', // ID
-            t('Panier'), // Title
+            tkt_t('Panier'), // Title
             array( $this, 'cart_callback' ), // Callback
             'ticketack-pages', // Page
             'ticketack_pages' // Section
@@ -76,14 +76,14 @@ class AdminSettingsAction extends TKTAction
 
         add_settings_section(
             'ticketack_images_dimensions', // ID
-            t('Dimensions des images'), // Title
+            tkt_t('Dimensions des images'), // Title
             array( $this, 'images_dimensions_section_info' ), // Callback
             'ticketack-images' // Page
         );
 
         add_settings_field(
             'big_width', // ID
-            t('Largeur des grandes images'), // Title
+            tkt_t('Largeur des grandes images'), // Title
             array( $this, 'big_width_callback' ), // Callback
             'ticketack-images', // Page
             'ticketack_images_dimensions' // Section
@@ -91,7 +91,7 @@ class AdminSettingsAction extends TKTAction
 
         add_settings_field(
             'big_height', // ID
-            t('Hauteur des grandes images'), // Title
+            tkt_t('Hauteur des grandes images'), // Title
             array( $this, 'big_height_callback' ), // Callback
             'ticketack-images', // Page
             'ticketack_images_dimensions' // Section
@@ -99,7 +99,7 @@ class AdminSettingsAction extends TKTAction
 
         add_settings_field(
             'medium_width', // ID
-            t('Largeur des images moyennes'), // Title
+            tkt_t('Largeur des images moyennes'), // Title
             array( $this, 'medium_width_callback' ), // Callback
             'ticketack-images', // Page
             'ticketack_images_dimensions' // Section
@@ -107,7 +107,7 @@ class AdminSettingsAction extends TKTAction
 
         add_settings_field(
             'medium_height', // ID
-            t('Hauteur des images moyennes'), // Title
+            tkt_t('Hauteur des images moyennes'), // Title
             array( $this, 'medium_height_callback' ), // Callback
             'ticketack-images', // Page
             'ticketack_images_dimensions' // Section
@@ -115,14 +115,14 @@ class AdminSettingsAction extends TKTAction
 
         add_settings_section(
             'ticketack_images_proxy', // ID
-            t('Serveur proxy d\'images'), // Title
+            tkt_t('Serveur proxy d\'images'), // Title
             array( $this, 'images_proxy_section_info' ), // Callback
             'ticketack-images' // Page
         );
 
         add_settings_field(
             'host', // ID
-            t('Serveur proxy'), // Title
+            tkt_t('Serveur proxy'), // Title
             array( $this, 'proxy_img_host_callback' ), // Callback
             'ticketack-images', // Page
             'ticketack_images_proxy' // Section
@@ -130,7 +130,7 @@ class AdminSettingsAction extends TKTAction
 
         add_settings_field(
             'key', // ID
-            t('Clé du serveur proxy'), // Title
+            tkt_t('Clé du serveur proxy'), // Title
             array( $this, 'proxy_img_key_callback' ), // Callback
             'ticketack-images', // Page
             'ticketack_images_proxy' // Section
@@ -138,14 +138,14 @@ class AdminSettingsAction extends TKTAction
 
         add_settings_section(
             'ticketack_pass', // ID
-            t('Abonnements'), // Title
+            tkt_t('Abonnements'), // Title
             array( $this, 'pass_section_info' ), // Callback
             'ticketack-pass' // Page
         );
 
         add_settings_field(
             'requested_pass_owner_data', // ID
-            t('Champs à saisir pour chaque type d\'abonnement'), // Title
+            tkt_t('Champs à saisir pour chaque type d\'abonnement'), // Title
             array( $this, 'requested_pass_owner_data_callback' ), // Callback
             'ticketack-pass', // Page
             'ticketack_pass' // Section
@@ -153,14 +153,14 @@ class AdminSettingsAction extends TKTAction
 
         add_settings_section(
             'ticketack_i18n', // ID
-            t('Langues'), // Title
+            tkt_t('Langues'), // Title
             array( $this, 'i18n_section_info' ), // Callback
             'ticketack-i18n' // Page
         );
 
         add_settings_field(
             'default_lang', // ID
-            t('Langue par défaut'), // Title
+            tkt_t('Langue par défaut'), // Title
             array( $this, 'default_lang_callback' ), // Callback
             'ticketack-i18n', // Page
             'ticketack_i18n' // Section
@@ -168,7 +168,7 @@ class AdminSettingsAction extends TKTAction
 
         add_settings_section(
             'ticketack_advanced', // ID
-            t('Options avancées'), // Title
+            tkt_t('Options avancées'), // Title
             array( $this, 'advanced_section_info' ), // Callback
             'ticketack-advanced' // Page
         );
@@ -196,7 +196,7 @@ class AdminSettingsAction extends TKTAction
      */
     public function pages_section_info()
     {
-        print t("Saisissez les slugs des pages contenant les différents shortcodes");
+        print tkt_t("Saisissez les slugs des pages contenant les différents shortcodes");
     }
     public function program_callback() { return $this->input('program', 'tkt_pages', 'program'); }
     public function cart_callback() { return $this->input('cart', 'tkt_pages', 'cart'); }
@@ -206,7 +206,7 @@ class AdminSettingsAction extends TKTAction
      */
     public function api_section_info()
     {
-        print t("Saisissez les informations d'accès à la billetterie");
+        print tkt_t("Saisissez les informations d'accès à la billetterie");
     }
     public function engine_uri_callback() { return $this->input('engine_uri', 'tkt_api', 'https://xxx-engine.ticketack.com'); }
     public function eshop_uri_callback() { return $this->input('eshop_uri', 'tkt_api', 'https://xxx-eshop.ticketack.com'); }
@@ -217,7 +217,7 @@ class AdminSettingsAction extends TKTAction
      */
     public function images_dimensions_section_info()
     {
-        print t("Dimensions des grandes et moyennes images (en px).");
+        print tkt_t("Dimensions des grandes et moyennes images (en px).");
     }
     public function big_width_callback() { return $this->input('big_width', 'tkt_images_dimensions', 924); }
     public function big_height_callback() { return $this->input('big_height', 'tkt_images_dimensions', 520); }
@@ -229,7 +229,7 @@ class AdminSettingsAction extends TKTAction
      */
     public function images_proxy_section_info()
     {
-        print t("Configuration du serveur proxy d'images.");
+        print tkt_t("Configuration du serveur proxy d'images.");
     }
     public function proxy_img_host_callback() { return $this->input('host', 'tkt_images_proxy', 'proxy.img.ch'); }
     public function proxy_img_key_callback() { return $this->input('key', 'tkt_images_proxy', 'AccessKey'); }
@@ -239,7 +239,7 @@ class AdminSettingsAction extends TKTAction
      */
     public function pass_section_info()
     {
-        print t("Configuration de la vente d'abonnements.");
+        print tkt_t("Configuration de la vente d'abonnements.");
     }
     public function requested_pass_owner_data_callback() { return $this->textarea('requested_pass_owner_data', 'tkt_pass'); }
 
@@ -248,7 +248,7 @@ class AdminSettingsAction extends TKTAction
      */
     public function i18n_section_info()
     {
-        print t("Configuration des langues.");
+        print tkt_t("Configuration des langues.");
     }
     public function default_lang_callback() { return $this->input('default_lang', 'tkt_i18n', 'fr'); }
 
@@ -257,7 +257,7 @@ class AdminSettingsAction extends TKTAction
      */
     public function advanced_section_info()
     {
-        print t("Ne modifiez les valeurs ci-dessous que si vous savez ce que vous faites.");
+        print tkt_t("Ne modifiez les valeurs ci-dessous que si vous savez ce que vous faites.");
     }
 
     /**

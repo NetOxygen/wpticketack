@@ -61,7 +61,7 @@ $image_url     = tkt_img_proxy_url($s->first_poster()->url, $images_width, $imag
         <div class="col">
           <span class="more-infos">
           <a href="<?= tkt_event_details_url($m) ?>">
-              <?= t('Plus d\'informations') ?>
+              <?= tkt_t('Plus d\'informations') ?>
             </a>
           </span>
         </div>
@@ -74,10 +74,10 @@ $image_url     = tkt_img_proxy_url($s->first_poster()->url, $images_width, $imag
             <a
               class="show-if-bookable show-if almost-not-bookable"
               href="<?= tkt_event_book_url($m, $s) ?>">
-              <?= t('Billets') ?> <span class="screening-complete"></span>
+              <?= tkt_t('Billets') ?> <span class="screening-complete"></span>
             </a>
-            <span class="show-if-almost-not-bookable screening-complete"><?= t('Il ne reste que quelques places') ?></span>
-            <span class="show-if-not-bookable screening-complete"><?= t('Complet') ?></span>
+            <span class="show-if-almost-not-bookable screening-complete"><?= tkt_t('Il ne reste que quelques places') ?></span>
+            <span class="show-if-not-bookable screening-complete"><?= tkt_t('Complet') ?></span>
           </span>
         </div>
       </div>

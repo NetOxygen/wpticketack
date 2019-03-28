@@ -48,12 +48,12 @@ class AdminMenuAction extends TKTAction
 
         $active_tab = isset($_GET['tab']) ? $_GET['tab'] : 'api';
         $tabs = [
-            'api'      => t('API'),
-            'pages'    => t('Pages'),
-            'images'   => t('Images'),
-            'pass'     => t('Abonnements'),
-            'i18n'     => t('Langues'),
-            'doc'      => t('Documentation')
+            'api'      => tkt_t('API'),
+            'pages'    => tkt_t('Pages'),
+            'images'   => tkt_t('Images'),
+            'pass'     => tkt_t('Abonnements'),
+            'i18n'     => tkt_t('Langues'),
+            'doc'      => tkt_t('Documentation')
         ];
 ?>
         <div class="wrap">

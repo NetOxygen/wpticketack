@@ -15,7 +15,7 @@
     <div class="row">
         <div class="col">
             <h3 class="empty-cart-title">
-                <?= t('Votre panier est vide') ?>
+                <?= tkt_t('Votre panier est vide') ?>
             </h3>
         </div>
     </div>
@@ -25,8 +25,8 @@
             <table class="tkt-cart-table">
                 <thead>
                     <tr>
-                        <th scope="col"><?= t('Achats') ?></th>
-                        <th scope="col"><?= t('Prix') ?></th>
+                        <th scope="col"><?= tkt_t('Achats') ?></th>
+                        <th scope="col"><?= tkt_t('Prix') ?></th>
                         <th scope="col"></th>
                     </tr>
                 </thead>
@@ -45,7 +45,7 @@
                 </tbody>
                 <tfoot>
                     <tr>
-                        <td colspan="2" class="total-title-cell"><?= t('Total :') ?></td>
+                        <td colspan="2" class="total-title-cell"><?= tkt_t('Total :') ?></td>
                         <td class="total-price-cell"><%= cart.getFormattedTotal() %></td>
                     </tr>
                 </tfoot>
@@ -56,7 +56,7 @@
     <div class="row">
         <div class="col finish-cart-wrapper">
             <a href="<%= validate_cart_url %>" class="button finish-cart-btn active">
-                <?= t('Finaliser ma commande') ?>
+                <?= tkt_t('Finaliser ma commande') ?>
             </a>
         </div>
     </div>
@@ -64,7 +64,7 @@
     <div class="row">
         <div class="col cancel-order-wrapper">
             <div class="cancel-order" >
-                <a href="" class="tkt-reset-cart-btn"><?= t('Annuler') ?></a> <?= t('ma commande') ?>
+                <a href="" class="tkt-reset-cart-btn"><?= tkt_t('Annuler') ?></a> <?= tkt_t('ma commande') ?>
             </div>
         </div>
     </div>
@@ -72,7 +72,7 @@
     <div class="row">
         <div class="col continue-shopping-wrapper">
             <div class="continue-shopping" >
-                <a href="<%= program_url %>"><?= t('Continuer') ?></a> <?= t('mes réservations') ?>
+                <a href="<%= program_url %>"><?= tkt_t('Continuer') ?></a> <?= tkt_t('mes réservations') ?>
             </div>
         </div>
     </div>

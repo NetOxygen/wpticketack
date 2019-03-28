@@ -30,9 +30,9 @@ class AdminNoticesAction extends TKTAction
                         <a href="%s">%s</a>
                     </p>
                 </div>',
-                t('Ticketack n\'est pas configuré.'),
+                tkt_t('Ticketack n\'est pas configuré.'),
                 admin_url('options-general.php?page=ticketack-admin'),
-                t('Accéder aux réglages')
+                tkt_t('Accéder aux réglages')
             );
         }
     }

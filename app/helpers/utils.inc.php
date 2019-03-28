@@ -460,7 +460,7 @@ if (!function_exists('tkt_base64url_decode')) {
 /**
  * Wrap Wordpress __ function
  */
-function t($str) {
+function tkt_t($str) {
     return __($str, 'wpticketack');
 }
 

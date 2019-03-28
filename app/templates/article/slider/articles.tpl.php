@@ -15,7 +15,7 @@ $rows = array_chunk($data->articles, ceil(count($data->articles) / 2));
     <div class="category-name"><?= the_title() ?></div>
 
   <?php if (empty($data->articles)) : ?>
-    <h3 class="no-article-title"><?= t('Aucun article dans cette catégorie, revenez nous visiter prochainement.') ?></h3>
+    <h3 class="no-article-title"><?= tkt_t('Aucun article dans cette catégorie, revenez nous visiter prochainement.') ?></h3>
   <?php else: ?>
     <?php foreach ($rows as $articles) : ?>
     <div class="articles-carousel">

@@ -26,20 +26,20 @@ class CustomTypesAction extends TKTAction
             'menu_name'          => _x('Ticketack Events', 'admin menu', 'wpticketack' ),
             'name_admin_bar'     => _x('Ticketack Event', 'add new on admin bar', 'wpticketack' ),
             'add_new'            => _x('Add New', 'event', 'wpticketack' ),
-            'add_new_item'       => t('Add New Ticketack Event'),
-            'new_item'           => t('New Ticketack Event'),
-            'edit_item'          => t('Edit Ticketack Event'),
-            'view_item'          => t('View Ticketack Event'),
-            'all_items'          => t('All Ticketack Events'),
-            'search_items'       => t('Search Ticketack Events'),
-            'parent_item_colon'  => t('Parent Ticketack Events:'),
-            'not_found'          => t('No events found.'),
-            'not_found_in_trash' => t('No events found in Trash.')
+            'add_new_item'       => tkt_t('Add New Ticketack Event'),
+            'new_item'           => tkt_t('New Ticketack Event'),
+            'edit_item'          => tkt_t('Edit Ticketack Event'),
+            'view_item'          => tkt_t('View Ticketack Event'),
+            'all_items'          => tkt_t('All Ticketack Events'),
+            'search_items'       => tkt_t('Search Ticketack Events'),
+            'parent_item_colon'  => tkt_t('Parent Ticketack Events:'),
+            'not_found'          => tkt_t('No events found.'),
+            'not_found_in_trash' => tkt_t('No events found in Trash.')
         );
 
         $args_event = array(
             'labels'             => $labels_event,
-            'description'        => t('Événements importés depuis Ticketack'),
+            'description'        => tkt_t('Événements importés depuis Ticketack'),
             'public'             => true,
             'publicly_queryable' => true,
             'show_ui'            => true,
@@ -59,20 +59,20 @@ class CustomTypesAction extends TKTAction
             'menu_name'          => _x('Ticketack Articles', 'admin menu', 'wpticketack' ),
             'name_admin_bar'     => _x('Ticketack Article', 'add new on admin bar', 'wpticketack' ),
             'add_new'            => _x('Add New', 'article', 'wpticketack' ),
-            'add_new_item'       => t('Add New Ticketack Article'),
-            'new_item'           => t('New Ticketack Article'),
-            'edit_item'          => t('Edit Ticketack Article'),
-            'view_item'          => t('View Ticketack Article'),
-            'all_items'          => t('All Ticketack Articles'),
-            'search_items'       => t('Search Ticketack Articles'),
-            'parent_item_colon'  => t('Parent Ticketack Article:'),
-            'not_found'          => t('No article found.'),
-            'not_found_in_trash' => t('No article found in Trash.')
+            'add_new_item'       => tkt_t('Add New Ticketack Article'),
+            'new_item'           => tkt_t('New Ticketack Article'),
+            'edit_item'          => tkt_t('Edit Ticketack Article'),
+            'view_item'          => tkt_t('View Ticketack Article'),
+            'all_items'          => tkt_t('All Ticketack Articles'),
+            'search_items'       => tkt_t('Search Ticketack Articles'),
+            'parent_item_colon'  => tkt_t('Parent Ticketack Article:'),
+            'not_found'          => tkt_t('No article found.'),
+            'not_found_in_trash' => tkt_t('No article found in Trash.')
         );
 
         $args_article = array(
             'labels'             => $labels_article,
-            'description'        => t('Articles importés depuis Ticketack'),
+            'description'        => tkt_t('Articles importés depuis Ticketack'),
             'public'             => true,
             'publicly_queryable' => true,
             'show_ui'            => true,

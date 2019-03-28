@@ -15,7 +15,7 @@
         <div class="row">
             <div class="col">
                 <span class="tickets-title assertive">
-                    <?= t('Entrez le nombre de place(s) que vous souhaitez ajouter à votre panier :') ?>
+                    <?= tkt_t('Entrez le nombre de place(s) que vous souhaitez ajouter à votre panier :') ?>
                 </span>
             </div>
         </div>
@@ -38,7 +38,7 @@
             <div class="col">
                 <div class="error pricings-error d-none"></div>
                 <button class="button add-to-cart-btn active" >
-                    <?= t('Ajouter à mon panier') ?>
+                    <?= tkt_t('Ajouter à mon panier') ?>
                 </button>
             </div>
         </div>
@@ -50,15 +50,15 @@
             <div class="row">
                 <div class="col">
                     <span class="pass-title">
-                        <?= t('Vous avez un abonnement ?') ?>
-                        <a href="" class="show-connect-panel-form"><?= t('Connectez-vous') ?></a> <?= t('pour réserver.') ?><br/>
+                        <?= tkt_t('Vous avez un abonnement ?') ?>
+                        <a href="" class="show-connect-panel-form"><?= tkt_t('Connectez-vous') ?></a> <?= tkt_t('pour réserver.') ?><br/>
                     </span>
                 </div>
             </div>
             <div class="connect-panel-form d-none">
                 <div class="row">
                     <div class="col">
-                        <span class="pass-number"><?= t('ID') ?></span>
+                        <span class="pass-number"><?= tkt_t('ID') ?></span>
                     </div>
                     <div class="col">
                         <input type="text" class="input pass-number-input"/>
@@ -66,7 +66,7 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <span class="pass-key"><?= t('Code') ?></span>
+                        <span class="pass-key"><?= tkt_t('Code') ?></span>
                     </div>
                     <div class="col">
                         <input type="password" class="input pass-key-input"/>
@@ -76,7 +76,7 @@
                     <div class="col">
                       <div class="error pass-error d-none"></div>
                         <button class="button connect-btn active" >
-                            <?= t('Me connecter') ?>
+                            <?= tkt_t('Me connecter') ?>
                         </button>
                     </div>
                 </div>
@@ -102,7 +102,7 @@
             <div class="row">
                 <div class="col">
                     <h3 class="success book-form-success d-none">
-                        <?= t('Vous ne pouvez pas réserver de place pour cette séance avec votre abonnement.') ?>
+                        <?= tkt_t('Vous ne pouvez pas réserver de place pour cette séance avec votre abonnement.') ?>
                     </h3>
                 </div>
             </div>
@@ -116,14 +116,14 @@
                 <div class="col">
                     <div class="error pass-book-error d-none"></div>
                     <button class="button book-btn active d-none" >
-                        <?= t('Réserver une place sur mon abonnement') ?>
+                        <?= tkt_t('Réserver une place sur mon abonnement') ?>
                     </button>
                 </div>
             </div>
             <div class="row">
                 <div class="col">
                     <a href="<%= ticket_view_url %>" class="button show-bookings-btn active d-none" >
-                        <?= t('Afficher mes réservations') ?>
+                        <?= tkt_t('Afficher mes réservations') ?>
                     </a>
                 </div>
             </div>

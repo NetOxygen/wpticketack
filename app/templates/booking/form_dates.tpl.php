@@ -13,7 +13,7 @@
     <div class="row">
         <div class="col col-md-auto">
             <span class="dates-title assertive">
-                <?= t('Veuillez choisir la date désirée :') ?>
+                <?= tkt_t('Veuillez choisir la date désirée :') ?>
             </span>
         </div>
         <div class="col">

@@ -137,10 +137,10 @@ $images_height = TKTApp::get_instance()->get_config('images_dimensions.big_heigh
       <span class="show-booking-form">
         <div data-component="Media/Loading" data-size-sm class="show-while-loading"></div>
         <span class="show-if-bookable show-if-almost-not-bookable d-none">
-          <a href=""><?= t('Billets') ?></a>
+          <a href=""><?= tkt_t('Billets') ?></a>
         </span>
-        <span class="show-if-almost-not-bookable assertive d-none"><?= t('Il ne reste que quelques places !') ?></span>
-        <span class="show-if-not-bookable assertive d-none"><?= t('Complet !') ?></span>
+        <span class="show-if-almost-not-bookable assertive d-none"><?= tkt_t('Il ne reste que quelques places !') ?></span>
+        <span class="show-if-not-bookable assertive d-none"><?= tkt_t('Complet !') ?></span>
       </span>
     </div>
   </div>

@@ -17,7 +17,7 @@ $image_url     = tkt_img_proxy_url($a->first_poster()->url, $images_width, $imag
     <div class="close-variants"></div>
     <div class="row">
         <div class="col">
-            <span class="variants-title"> <?= t('Vous avez choisi :') ?> </span>
+            <span class="variants-title"> <?= tkt_t('Vous avez choisi :') ?> </span>
         </div>
     </div>
     <div class="row">
@@ -33,7 +33,7 @@ $image_url     = tkt_img_proxy_url($a->first_poster()->url, $images_width, $imag
     <div class="row">
         <div class="col">
             <span class="variants-subtitle">
-                <?= t('Sélectionnez votre contenance et votre quantité :') ?>
+                <?= tkt_t('Sélectionnez votre contenance et votre quantité :') ?>
             </span>
         </div>
     </div>
@@ -51,7 +51,7 @@ $image_url     = tkt_img_proxy_url($a->first_poster()->url, $images_width, $imag
                 <?php endforeach; ?>
                 <tr class="variant-total-row">
                     <td class="variant-total-label" colspan="5">
-                        <?= t('Total') ?>
+                        <?= tkt_t('Total') ?>
                         CHF <span class="variant-total">0.00</span>
                     </td>
                 </tr>
@@ -61,7 +61,7 @@ $image_url     = tkt_img_proxy_url($a->first_poster()->url, $images_width, $imag
     <div class="row">
         <div class="col">
             <span class="variants-error">
-                <?= t('Veuillez choisir au moins un produit') ?>
+                <?= tkt_t('Veuillez choisir au moins un produit') ?>
             </a>
             <span class="variants-submit-error"></span>
         </div>
@@ -69,7 +69,7 @@ $image_url     = tkt_img_proxy_url($a->first_poster()->url, $images_width, $imag
     <div class="row">
         <div class="col">
             <a class="btn btn-link variants-submit">
-                <?= t('Valider') ?>
+                <?= tkt_t('Valider') ?>
             </a>
         </div>
     </div>
