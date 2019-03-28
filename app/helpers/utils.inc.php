@@ -157,7 +157,7 @@ function tkt_cart_url()
  *
  * @return string
  */
-function buy_pass_url()
+function tkt_buy_pass_url()
 {
     return sprintf(
         "%s/pass/new",

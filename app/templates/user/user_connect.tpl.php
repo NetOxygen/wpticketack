@@ -62,7 +62,7 @@
             </div>
 
             <span class="dark">
-            <a href="<?= buy_pass_url() ?>"><?= t('Acheter') ?></a> <?= t('un abonnement') ?>
+            <a href="<?= tkt_buy_pass_url() ?>"><?= t('Acheter') ?></a> <?= t('un abonnement') ?>
             </span>
         </div>
         <% } %>
