@@ -188,7 +188,7 @@ function tkt_cart_reset_url()
 function tkt_event_details_url($event)
 {
     if (WPML_INSTALLED) {
-        $slug = get_event_slug($event, LANG);
+        $slug = tkt_get_event_slug($event, LANG);
         $page = get_page_by_path($slug, OBJECT, 'tkt-event');
         return apply_filters('wpml_permalink', get_permalink($page->ID));
     }
@@ -198,7 +198,7 @@ function tkt_event_details_url($event)
         sprintf(
             '%s/%s',
             'events',
-          get_event_slug($event, LANG)
+          tkt_get_event_slug($event, LANG)
         )
     );
 }
@@ -214,7 +214,7 @@ function tkt_event_details_url($event)
 function tkt_event_book_url($event, $screening = null)
 {
     if (WPML_INSTALLED) {
-        $slug = get_event_slug($event, LANG);
+        $slug = tkt_get_event_slug($event, LANG);
         $page = get_page_by_path($slug, OBJECT, 'tkt-event');
 
         return sprintf(
@@ -229,7 +229,7 @@ function tkt_event_book_url($event, $screening = null)
         sprintf(
             "%s/%s/?book=1%s",
             'events',
-        get_event_slug($event, LANG),
+        tkt_get_event_slug($event, LANG),
             (!is_null($screening) ? '&s_id='.$screening->_id() : '')
         )
     );
@@ -465,7 +465,7 @@ function tkt_t($str) {
 }
 
 
-function get_event_slug($event, $lang)
+function tkt_get_event_slug($event, $lang)
 {
     $title = $event->title($lang);
     $slug  = sanitize_title($title).($lang === SyncHelper::DEFAULT_LANG ? '' : '-'.$lang);
