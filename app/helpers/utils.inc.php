@@ -450,8 +450,8 @@ if (!function_exists('tkt_base64url_encode')) {
     }
 }
 
-if (!function_exists('base64url_decode')) {
-    function base64url_decode($data)
+if (!function_exists('tkt_base64url_decode')) {
+    function tkt_base64url_decode($data)
     {
         return base64_decode(str_pad(strtr($data, '-_', '+/'), strlen($data) % 4, '=', STR_PAD_RIGHT));
     }
