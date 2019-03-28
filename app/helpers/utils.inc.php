@@ -323,7 +323,7 @@ if (!function_exists('h')) {
      * @return
      *   a string that can be safely presented to echo or print for output.
      */
-    function h($string)
+    function tkt_h($string)
     {
         return htmlspecialchars($string, ENT_QUOTES | ENT_HTML5, 'UTF-8');
     }
@@ -333,7 +333,7 @@ if (!function_exists('html')) {
     /**
      * Sanitize a string for display but allows some html tags.
      *
-     * Less safe than h() which strips everything.
+     * Less safe than tkt_h() which strips everything.
      *
      * Note: This function does not modify any attributes on the tags that are
      * allowed, including the style and onmouseover attributes that a mischievous
