@@ -65,7 +65,7 @@
             <select name="user[age]" id="user_age" class="form-control field" required>
               <option value=""></option>
               <?php
-                $ages     = get_ages();
+                $ages     = tkt_get_ages();
                 foreach ($ages as $age) {
                     echo '<option value="'.$age.'">'.$age.'</option>';
                 }
