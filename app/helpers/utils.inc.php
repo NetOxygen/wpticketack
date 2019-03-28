@@ -185,7 +185,7 @@ function tkt_cart_reset_url()
  *
  * @return string
  */
-function event_details_url($event)
+function tkt_event_details_url($event)
 {
     if (WPML_INSTALLED) {
         $slug = get_event_slug($event, LANG);

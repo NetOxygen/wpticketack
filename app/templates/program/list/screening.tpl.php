@@ -42,7 +42,7 @@ $image_url     = img_proxy_url($s->first_poster()->url, $images_width, $images_h
       <div class="row">
         <div class="col">
           <span class="title">
-          <a href="<?= event_details_url($m) ?>">
+          <a href="<?= tkt_event_details_url($m) ?>">
               <?= $s->localized_title_or_original('fr') ?>
             </a>
           </span>
@@ -60,7 +60,7 @@ $image_url     = img_proxy_url($s->first_poster()->url, $images_width, $images_h
       <div class="row">
         <div class="col">
           <span class="more-infos">
-          <a href="<?= event_details_url($m) ?>">
+          <a href="<?= tkt_event_details_url($m) ?>">
               <?= t('Plus d\'informations') ?>
             </a>
           </span>

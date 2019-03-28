@@ -61,7 +61,7 @@ $poster_url   = $upload_dir['url'].'/'.basename($first_poster->url);
 </div>
 <?php endif; ?>
 <div>
-  <a href="<?= event_details_url($e) ?>" alt="$e->localized_title_or_original('fr')">PLUS D'INFORMATIONS</a>
+  <a href="<?= tkt_event_details_url($e) ?>" alt="$e->localized_title_or_original('fr')">PLUS D'INFORMATIONS</a>
 </div>
 <br/>
 <div>
