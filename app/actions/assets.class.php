@@ -20,7 +20,7 @@ class AssetsAction extends TKTAction
      */
     public function run()
     {
-        wp_enqueue_style('tkt-main-css', assets_url('build/styles/main.css'));
+        wp_enqueue_style('tkt-main-css', tkt_assets_url('build/styles/main.css'));
         wp_enqueue_script('jquery');
     }
 }

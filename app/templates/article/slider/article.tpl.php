@@ -23,7 +23,7 @@ $image_url     = img_proxy_url($a->first_poster()->url, $images_width, $images_h
     <div class="article-bottom-infos">
 <!--
       <div class="info">
-        <img src="<?= assets_url('build/images/articles/i.png') ?>" />
+        <img src="<?= tkt_assets_url('build/images/articles/i.png') ?>" />
       </div>
 -->
       <div class="name">

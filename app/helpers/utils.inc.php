@@ -114,7 +114,7 @@ function tkt_datetime_to_iso8601($d)
  *
  * @return string
  */
-function assets_url($path)
+function tkt_assets_url($path)
 {
     return plugin_dir_url( TKT_APP ) . 'front/' . $path;
 }
