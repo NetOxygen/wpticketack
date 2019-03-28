@@ -69,7 +69,7 @@ function tkt_date_to_min_s($dt)
  * @return
  *   A string.
  */
-function date_and_time_to_min_s($dt)
+function tkt_date_and_time_to_min_s($dt)
 {
     $fmt = "%e %B %H:%M";
     return strftime($fmt, $dt->getTimestamp());
