@@ -310,7 +310,7 @@ function tkt_id($obj)
     return $obj;
 }
 
-if (!function_exists('h')) {
+if (!function_exists('tkt_h')) {
     /**
      * Sanitize a string for display.
      *
@@ -329,7 +329,7 @@ if (!function_exists('h')) {
     }
 }
 
-if (!function_exists('html')) {
+if (!function_exists('tkt_html')) {
     /**
      * Sanitize a string for display but allows some html tags.
      *
