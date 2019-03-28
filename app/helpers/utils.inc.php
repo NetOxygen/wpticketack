@@ -24,7 +24,7 @@ function tkt_get_url_param($key, $default = null)
  * @return
  *   A string.
  */
-function datetime_to_s($dt)
+function tkt_datetime_to_s($dt)
 {
     $fmt = "%e %B %Y %H:%M";
     return strftime($fmt, $dt->getTimestamp());
