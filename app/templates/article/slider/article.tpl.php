@@ -12,7 +12,7 @@ $a = $data->article;
 
 $images_width  = TKTApp::get_instance()->get_config('images_dimensions.medium_width');
 $images_height = TKTApp::get_instance()->get_config('images_dimensions.medium_height');
-$image_url     = img_proxy_url($a->first_poster()->url, $images_width, $images_height);
+$image_url     = tkt_img_proxy_url($a->first_poster()->url, $images_width, $images_height);
 ?>
 <div class="tkt-wrapper article-inner" data-component="Articles/Article" data-id="<?= $a->_id() ?>">
 

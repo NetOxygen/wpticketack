@@ -52,7 +52,7 @@ $images_height = TKTApp::get_instance()->get_config('images_dimensions.big_heigh
                 class="tkt-event-carousel-trailer"
                 data-component="Media/YoutubeVideo"
                 data-video-id="<?= tkt_yt_video_id($t->url) ?>"
-                data-video-image="<?= img_proxy_url($t->image, $images_width, $images_height) ?>"
+                data-video-image="<?= tkt_img_proxy_url($t->image, $images_width, $images_height) ?>"
                 data-bs4-carousel-id="event-carousel">
               </div>
             </div>
@@ -60,7 +60,7 @@ $images_height = TKTApp::get_instance()->get_config('images_dimensions.big_heigh
           <?php endforeach; ?>
           <?php foreach ($posters as $i => $p) : ?>
           <div class="carousel-item <?= count($trailers) == 0 && $i == 0 ? 'active' : '' ?>">
-            <img style="max-width: 924px" class="d-block w-100" src="<?= img_proxy_url($p->url, $images_width, $images_height) ?>" alt="<?= $title ?>">
+            <img style="max-width: 924px" class="d-block w-100" src="<?= tkt_img_proxy_url($p->url, $images_width, $images_height) ?>" alt="<?= $title ?>">
           </div>
           <?php endforeach; ?>
         </div>

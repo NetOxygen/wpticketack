@@ -13,7 +13,7 @@ $m = array_shift($s->movies());
 
 $images_width  = TKTApp::get_instance()->get_config('images_dimensions.big_width');
 $images_height = TKTApp::get_instance()->get_config('images_dimensions.big_height');
-$image_url     = img_proxy_url($s->first_poster()->url, $images_width, $images_height);
+$image_url     = tkt_img_proxy_url($s->first_poster()->url, $images_width, $images_height);
 ?>
 <div class="tkt-wrapper screening-inner">
 

@@ -405,8 +405,8 @@ function tkt_is_uuidv4($str)
     return (preg_match($regexp, $str) ? true : false);
 }
 
-if (!function_exists('img_proxy_url')) {
-    function img_proxy_url($remote_url, $width = '-', $height = '-')
+if (!function_exists('tkt_img_proxy_url')) {
+    function tkt_img_proxy_url($remote_url, $width = '-', $height = '-')
     {
         $proxy_img_key  = TKTApp::get_instance()->get_config('images_proxy.key');
         $proxy_img_host = TKTApp::get_instance()->get_config('images_proxy.host');
