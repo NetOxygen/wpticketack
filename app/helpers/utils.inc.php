@@ -10,7 +10,7 @@
  *
  * @return mixed: The URL param if found, $default otherwise
  */
-function get_url_param($key, $default = null)
+function tkt_get_url_param($key, $default = null)
 {
     return array_key_exists($key, $_GET) ? $_GET[$key] : $default;
 }

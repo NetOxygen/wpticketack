@@ -28,7 +28,7 @@ class EventShortcode extends TKTShortcode
      */
     public function run($atts, $content)
     {
-        $event_id = get_url_param('id');
+        $event_id = tkt_get_url_param('id');
         if (empty($event_id)) {
             return null;
         }
