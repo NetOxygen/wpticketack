@@ -37,7 +37,7 @@ $image_url     = img_proxy_url($s->first_poster()->url, $images_width, $images_h
 
       <div class="row">
         <div class="col">
-          <span class="date"><?= date_to_min_s($s->start_at()) ?></span>
+          <span class="date"><?= tkt_date_to_min_s($s->start_at()) ?></span>
         </div>
       </div>
 
