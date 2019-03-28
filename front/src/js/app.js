@@ -1,5 +1,4 @@
 requirejs.config({
-    baseUrl: '/wp-content/plugins/wpticketack/assets/build/js',
     paths: {
         assets: 'app/Core/Assets',
         config: 'app/Core/Config',
