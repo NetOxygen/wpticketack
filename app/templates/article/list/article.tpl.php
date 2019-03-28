@@ -72,7 +72,7 @@ $image_url     = img_proxy_url($s->first_poster()->url, $images_width, $images_h
             <div class="show-when-loading" data-component="Media/Loading" data-size-sm data-align-center></div>
             <a
               class="show-if-buyable show-if almost-not-buyable"
-              href="<?= article_buy_url($e) ?>">
+              href="<?= tkt_article_buy_url($e) ?>">
               <?= t('Commander') ?> <span class="article-soldout"></span>
             </a>
             <span class="show-if-almost-not-buyable article-soldout"><?= t('Il ne reste que quelques articles') ?></span>

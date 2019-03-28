@@ -242,7 +242,7 @@ function tkt_event_book_url($event, $screening = null)
  *
  * @return string
  */
-function article_buy_url($article)
+function tkt_article_buy_url($article)
 {
     if (!$article) {
         return "";
