@@ -211,7 +211,7 @@ function tkt_event_details_url($event)
  *
  * @return string
  */
-function event_book_url($event, $screening = null)
+function tkt_event_book_url($event, $screening = null)
 {
     if (WPML_INSTALLED) {
         $slug = get_event_slug($event, LANG);

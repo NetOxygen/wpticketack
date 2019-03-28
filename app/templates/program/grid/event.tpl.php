@@ -67,7 +67,7 @@ $image_url     = img_proxy_url($e->first_poster()->url, $images_width, $images_h
         </a>
         <a
           class="show-if-bookable show-if-almost-not-bookable"
-          href="<?= event_book_url($e) ?>">
+          href="<?= tkt_event_book_url($e) ?>">
           <?= t('Billets') ?> <span class="event-complete"></span>
         </a>
         <div class="show-if-almost-not-bookable assertive d-none"><?= t('Il ne reste que quelques places !') ?></div>
