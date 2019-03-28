@@ -34,7 +34,7 @@ class Tickettype extends TKTModel implements JsonSerializable
         if (array_key_exists('pricings', $properties)) {
             $this->pricings = [];
             foreach ($properties['pricings'] as $key => $obj) {
-                $pricing = id(new Pricing($obj))->set_key($key);
+                $pricing = tkt_id(new Pricing($obj))->set_key($key);
                 $this->pricings[$key] = $pricing;
             }
             unset($properties['pricings']);

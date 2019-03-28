@@ -303,9 +303,9 @@ function tkt_yt_video_id($yt_url)
 /**
  * Helper function to allow to make calls
  * on an object using the __construct() result like
- * $my_obj = id(new MyObj())->chainable_method();
+ * $my_obj = tkt_id(new MyObj())->chainable_method();
  */
-function id($obj)
+function tkt_id($obj)
 {
     return $obj;
 }
