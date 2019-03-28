@@ -39,7 +39,7 @@ function tkt_datetime_to_s($dt)
  * @return
  *   A string.
  */
-function date_to_s($dt)
+function tkt_date_to_s($dt)
 {
     $fmt = "%e %B %Y";
     return strftime($fmt, $dt->getTimestamp());
