@@ -1,11 +1,13 @@
 <?php
+namespace Ticketack\Core\Base;
+
 /**
  * CHF (Swiss Franc) Model.
  *
  * @see Money
  */
 
-class CHF implements Money, JsonSerializable
+class CHF implements Money, \JsonSerializable
 {
     // computed by max_francs_value(), don't access directly.
     static private $max_francs_value = null;
@@ -75,11 +77,11 @@ class CHF implements Money, JsonSerializable
         $this->cents    = intval($cents);
 
         if ($this->francs() < 0) {
-            throw new InvalidArgumentException('francs cannot be lesser than zero');
+            throw new \InvalidArgumentException('francs cannot be lesser than zero');
         } elseif ($this->cents() < 0) {
-            throw new InvalidArgumentException('cents cannot be lesser than zero');
+            throw new \InvalidArgumentException('cents cannot be lesser than zero');
         } elseif ($this->cents() >= 100) {
-            throw new InvalidArgumentException('cents cannot be greater than 99');
+            throw new \InvalidArgumentException('cents cannot be greater than 99');
         }
     }
 
@@ -144,7 +146,7 @@ class CHF implements Money, JsonSerializable
     {
         $to_add = static::parse($other);
         if (is_null($to_add)) {
-            throw new InvalidArgumentException($other);
+            throw new \InvalidArgumentException($other);
         }
 
         $francs = $this->francs() + $to_add->francs();

@@ -1,9 +1,14 @@
 <?php
+namespace Ticketack\Core\Models;
+
+use Ticketack\Core\Base\TKTModel;
+use Ticketack\Core\Base\No2_HTTP;
+
 /**
  * Ticketack Engine Tickettype.
  */
 
-class Tickettype extends TKTModel implements JsonSerializable
+class Tickettype extends TKTModel implements \JsonSerializable
 {
     /**
      * @override

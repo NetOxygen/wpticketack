@@ -1,8 +1,12 @@
 <?php
+namespace Ticketack\Core\Models;
+
+use Ticketack\Core\Base\TKTModel;
+
 /**
  * Ticketack Engine Movie, found as a 'film' in a Screening.
  */
-class Movie extends TKTModel implements JsonSerializable
+class Movie extends TKTModel implements \JsonSerializable
 {
     public static $resource = 'movies';
 

@@ -1,8 +1,12 @@
 <?php
+namespace Ticketack\Core\Models;
+
+use Ticketack\Core\Base\TKTModel;
+
 /**
  * Ticketack Engine Place as found under the 'cinema_hall' name in a Screening.
  */
-class Place extends TKTModel implements JsonSerializable
+class Place extends TKTModel implements \JsonSerializable
 {
     public static $resource = 'places';
 

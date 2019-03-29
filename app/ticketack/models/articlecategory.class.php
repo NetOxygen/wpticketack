@@ -1,8 +1,12 @@
 <?php
+namespace Ticketack\Core\Models;
+
+use Ticketack\Core\Base\TKTModel;
+
 /**
  * Ticketack Engine Article category
  */
-class Articlecategory extends TKTModel implements JsonSerializable
+class Articlecategory extends TKTModel implements \JsonSerializable
 {
     // - tiff is not supported by major browsers except Safari
     // - webp is only supported by Chrome and Opera

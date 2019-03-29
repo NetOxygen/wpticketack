@@ -1,8 +1,12 @@
 <?php
+namespace Ticketack\Core\Models;
+
+use Ticketack\Core\Base\TKTModel;
+
 /**
  * Event (movie, artist, ...) representation
  */
-class Event extends TKTModel implements JsonSerializable
+class Event extends TKTModel implements \JsonSerializable
 {
     public static $resource = 'movies';
 

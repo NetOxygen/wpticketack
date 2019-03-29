@@ -1,4 +1,8 @@
 <?php
+namespace Ticketack\Core\Models;
+
+use Ticketack\Core\Base\CHF;
+
 /**
  * Ticketack Engine helper for article variant (used in Articles).
  *
@@ -6,7 +10,7 @@
  *  Instances are *immutable*.
  */
 
-class Variant implements JsonSerializable
+class Variant implements \JsonSerializable
 {
     protected $_id              = null;
     protected $name             = null;
@@ -49,7 +53,7 @@ class Variant implements JsonSerializable
 
         $vat = floatval($properties['vat']);
         if ($vat < 0 || $vat > 100) {
-            throw new InvalidArgumentException("$vat: invalid vat value");
+            throw new \InvalidArgumentException("$vat: invalid vat value");
         }
         $this->vat = $vat;
     }

@@ -1,12 +1,17 @@
 <?php
+namespace Ticketack\Core\Models;
+
+use Ticketack\Core\Base\No2_HTTP;
+use Ticketack\Core\Base\TKTRequest;
+use Ticketack\Core\Base\TKTException;
+
 /**
  * Ticketack Engine helper for Screenings buckets.
  *
  * @notes
  *  Instances are *immutable*.
  */
-
-class Bucket implements JsonSerializable
+class Bucket implements \JsonSerializable
 {
     /* constants for match() return values */
     const MATCH_SUCCESS          = 0x00;
@@ -65,7 +70,7 @@ class Bucket implements JsonSerializable
         foreach (['total_capacity', 'available', 'unconfirmed', 'confirmed', 'scanned'] as $prop) {
             $val = $properties[$prop];
             if ($val < 0) {
-                throw new InvalidArgumentException("$val: invalid $prop value");
+                throw new \InvalidArgumentException("$val: invalid $prop value");
             }
             $this->$prop = $val;
         }
@@ -115,7 +120,7 @@ class Bucket implements JsonSerializable
     public function match($now = null, $tickettype = null, $user = null)
     {
         $result = static::MATCH_SUCCESS;
-        $now    = ($now  ?: new DateTime());
+        $now    = ($now  ?: new \DateTime());
         $user   = ($user ?: current_user());
 
         if (array_key_exists('not_after', $this->rules)) {
@@ -149,11 +154,11 @@ class Bucket implements JsonSerializable
     public function inc_total_capacity_by($n)
     {
         if ($n < 0)
-            throw new InvalidArgumentException("$n: can not be negative");
+            throw new \InvalidArgumentException("$n: can not be negative");
         $total_capacity = $this->total_capacity;
         $new_capacity   = intval($total_capacity + $n);
-        $rsp = TicketackEngineRequest::request(
-            /* method */TicketackEngineRequest::PATCH,
+        $rsp = TKTRequest::request(
+            /* method */TKTRequest::PATCH,
             /* path */sprintf('/screenings/%s/buckets/%s', $this->screening->_id(), $this->_id()),
             /* query */[],
             /* data */sane_json_encode(['total_capacity' => $new_capacity])
@@ -168,7 +173,7 @@ class Bucket implements JsonSerializable
             case No2_HTTP::CONFLICT: // FALLTHROUGH
                 throw new BucketUpdateException("Failed to set Bucket(_id=%s) total_capacity to %d", $this->_id(), $new_capacity);
             default: // unknow status
-                throw new TicketackEngineException(sprintf("%d: Unknown status for booking request", $rsp->status));
+                throw new TKTException(sprintf("%d: Unknown status for booking request", $rsp->status));
         }
     }
 
@@ -197,11 +202,11 @@ class Bucket implements JsonSerializable
 }
 
 
-class BucketException extends Exception { }
-class BucketNotFoundException extends Exception { }
-class BucketMatchException extends Exception {
+class BucketException extends \Exception { }
+class BucketNotFoundException extends \Exception { }
+class BucketMatchException extends \Exception {
     // see https://secure.php.net/manual/en/language.exceptions.extending.php
-    public function __construct($match_result = null, $code = 0, Exception $previous = null)
+    public function __construct($match_result = null, $code = 0, \Exception $previous = null)
     {
         $message = null;
         if ($match_result) {
@@ -219,5 +224,5 @@ class BucketMatchException extends Exception {
         parent::__construct($message, $code, $previous);
     }
 }
-class BucketUpdateException extends Exception { }
+class BucketUpdateException extends \Exception { }
 

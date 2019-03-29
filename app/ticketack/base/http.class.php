@@ -1,4 +1,6 @@
 <?php
+namespace Ticketack\Core\Base;
+
 /**
  * This class is mostly used to store HTTP status code.
  *

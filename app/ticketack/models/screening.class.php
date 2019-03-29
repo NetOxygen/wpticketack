@@ -1,9 +1,14 @@
 <?php
+namespace Ticketack\Core\Models;
+
+use Ticketack\Core\Base\TKTModel;
+use Ticketack\Core\Base\No2_HTTP;
+
 /**
  * Ticketack Engine Screening.
  */
 
-class Screening extends TKTModel implements JsonSerializable
+class Screening extends TKTModel implements \JsonSerializable
 {
     // - tiff is not supported by major browsers except Safari
     // - webp is only supported by Chrome and Opera
