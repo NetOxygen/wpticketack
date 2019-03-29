@@ -1,4 +1,8 @@
 <?php
+namespace Ticketack\WP\Actions;
+
+use Ticketack\WP\helpers\SyncHelper;
+
 /**
  * Sync posts action
  */

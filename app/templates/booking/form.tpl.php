@@ -1,4 +1,8 @@
 <?php
+
+use Ticketack\WP\TKTApp;
+use Ticketack\WP\Templates\TKTTEmplate;
+
 /**
  * Booking form template
  *

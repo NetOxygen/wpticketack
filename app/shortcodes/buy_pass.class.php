@@ -1,4 +1,9 @@
 <?php
+namespace Ticketack\WP\Shortcodes;
+
+use Ticketack\WP\Templates\TKTTemplate;
+use Ticketack\Core\Models\Tickettype;
+
 /**
  * Buy pass form
  *

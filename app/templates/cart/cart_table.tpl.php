@@ -1,4 +1,7 @@
 <?php
+
+use Ticketack\WP\TKTApp;
+
 /**
  * Cart table template
  * This template will be parsed by underscore.js

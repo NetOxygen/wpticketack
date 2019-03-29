@@ -1,4 +1,7 @@
 <?php
+
+namespace Ticketack\WP\Helpers;
+
 /**
  * Some i18n helper functions
  */

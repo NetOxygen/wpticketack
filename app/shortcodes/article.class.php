@@ -1,4 +1,10 @@
 <?php
+namespace Ticketack\WP\Shortcodes;
+
+use Ticketack\WP\Templates\TKTTemplate;
+use Ticketack\WP\Core\Models\Article;
+use Ticketack\Core\Base\TKTApiException;
+
 /**
  * Article shortcode
  *

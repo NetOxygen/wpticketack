@@ -1,4 +1,7 @@
 <?php
+
+use Ticketack\WP\TKTApp;
+
 /**
  * Article variants form
  * This template will be parsed by underscore.js

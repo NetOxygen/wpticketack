@@ -1,4 +1,11 @@
 <?php
+namespace Ticketack\WP\Shortcodes;
+
+use Ticketack\WP\Templates\TKTTemplate;
+use Ticketack\Core\Models\Screening;
+use Ticketack\Core\Models\Event;
+use Ticketack\Core\Base\TKTApiException;
+
 /**
  * Program shortcode
  *
@@ -16,8 +23,8 @@ class ProgramShortcode extends TKTShortcode
     const SCREENINGS_LAYOUT  = 'screenings';
     const EVENTS_LAYOUT      = 'events';
     const DEFAULT_ITEM_WIDTH = 12;
-    const CHRONO_ORDER          = 'chrono';
-    const ALPHA_ORDER           = 'alpha';
+    const CHRONO_ORDER       = 'chrono';
+    const ALPHA_ORDER        = 'alpha';
     const SCREENINGS_FILTER  = 'screenings';
     const EVENTS_FILTER      = 'events';
 

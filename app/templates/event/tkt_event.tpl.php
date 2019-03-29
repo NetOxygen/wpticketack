@@ -1,4 +1,9 @@
 <?php
+
+use Ticketack\WP\TKTApp;
+use Ticketack\WP\Templates\TKTTemplate;
+use Ticketack\Core\Models\Screening;
+
 /**
  * TKTEvent template
  *

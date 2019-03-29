@@ -1,4 +1,8 @@
 <?php
+
+use Ticketack\WP\TKTApp;
+use Ticketack\Core\Models\Event;
+
 /**
  * Program screening template
  *

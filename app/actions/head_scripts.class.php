@@ -1,4 +1,9 @@
 <?php
+namespace Ticketack\WP\Actions;
+
+use Ticketack\WP\TKTApp;
+use Ticketack\WP\Helpers\LocalesHelper;
+
 /**
  * Head Scripts action
  */

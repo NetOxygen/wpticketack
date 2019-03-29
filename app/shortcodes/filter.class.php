@@ -1,4 +1,8 @@
 <?php
+namespace Ticketack\WP\Shortcodes;
+
+use Ticketack\WP\Templates\TKTTemplate;
+
 /**
  * Events/Screenings filter shortcode
  *

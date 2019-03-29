@@ -1,4 +1,7 @@
 <?php
+
+namespace Ticketack\WP\Templates;
+
 /**
  * Templating engine
  */
@@ -14,7 +17,7 @@ class TKTTemplate
 
         $filepath = TKT_TEMPLATES.'/'.$template.'.tpl.php';
         if (!file_exists($filepath)) {
-            throw new Exception(sprintf(
+            throw new \Exception(sprintf(
                 "Template file %s not found",
                 $filepath
             ));
@@ -27,7 +30,7 @@ class TKTTemplate
     {
         $filepath = TKT_TEMPLATES.'/_admin/'.$template.'.tpl.php';
         if (!file_exists($filepath)) {
-            throw new Exception(sprintf(
+            throw new \Exception(sprintf(
                 "Template file %s not found",
                 $filepath
             ));

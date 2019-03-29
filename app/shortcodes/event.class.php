@@ -1,4 +1,11 @@
 <?php
+namespace Ticketack\WP\Shortcodes;
+
+use Ticketack\WP\Templates\TKTTemplate;
+use Ticketack\Core\Models\Screening;
+use Ticketack\Core\Models\Event;
+use Ticketack\Core\Base\TKTApiException;
+
 /**
  * Event shortcode
  *

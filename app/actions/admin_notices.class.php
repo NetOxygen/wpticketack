@@ -1,4 +1,6 @@
 <?php
+namespace Ticketack\WP\Actions;
+
 /**
  * Admin Notices action
  */

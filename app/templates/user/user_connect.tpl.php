@@ -1,4 +1,7 @@
 <?php
+
+use Ticketack\WP\TKTApp;
+
 /**
  * User connection template
  */

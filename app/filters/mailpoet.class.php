@@ -1,4 +1,6 @@
 <?php
+namespace Ticketack\WP\Filters;
+
 /**
  * Mailpoet filter
  */

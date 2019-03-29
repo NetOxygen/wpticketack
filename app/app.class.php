@@ -1,4 +1,8 @@
 <?php
+namespace Ticketack\WP;
+
+use Ticketack\Core\Base\TKTApi;
+
 /**
  * Ticketack App
  */

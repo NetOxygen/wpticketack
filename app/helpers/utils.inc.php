@@ -1,4 +1,9 @@
-<?php /**
+<?php
+
+use Ticketack\WP\TKTApp;
+use Ticketack\WP\Helpers\SyncHelper;
+
+/**
  * Utils functions
  */
 
@@ -89,7 +94,7 @@ function tkt_date_and_time_to_min_s($dt)
 function tkt_iso8601_to_datetime($str)
 {
     $i = strtotime($str);
-    $d = new DateTime();
+    $d = new \DateTime();
     return $d->setTimestamp($i);
 }
 
@@ -104,7 +109,7 @@ function tkt_iso8601_to_datetime($str)
  */
 function tkt_datetime_to_iso8601($d)
 {
-    return $d->format(DateTime::ATOM);
+    return $d->format(\DateTime::ATOM);
 }
 
 /**
@@ -468,7 +473,7 @@ function tkt_t($str) {
 function tkt_get_event_slug($event, $lang)
 {
     $title = $event->title($lang);
-    $slug  = sanitize_title($title).($lang === SyncHelper::DEFAULT_TKT_LANG ? '' : '-'.$lang);
+    $slug  = sanitize_title($title).($lang === SyncHelper::DEFAULT_LANG ? '' : '-'.$lang);
 
     return $slug;
 }

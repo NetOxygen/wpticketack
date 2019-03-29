@@ -1,4 +1,8 @@
 <?php
+namespace Ticketack\WP\Filters;
+
+use Ticketack\WP\TKTApp;
+
 /**
  * Base filter
  */

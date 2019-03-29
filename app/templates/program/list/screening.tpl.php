@@ -1,4 +1,7 @@
 <?php
+
+use Ticketack\WP\TKTApp;
+
 /**
  * Program screening template
  *

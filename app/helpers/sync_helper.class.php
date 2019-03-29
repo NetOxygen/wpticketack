@@ -1,4 +1,10 @@
 <?php
+
+namespace Ticketack\WP\Helpers;
+
+use Ticketack\Core\Models\Screening;
+use Ticketack\Core\Models\Event;
+
 /**
  * Helper class to handle Ticketack/Wordpress events/posts synchronization
  */
