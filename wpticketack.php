@@ -13,8 +13,6 @@
 
 use Ticketack\WP\TKTApp;
 
-setlocale(LC_TIME, get_locale().'.UTF-8');
-
 define('TKT_ASSETS_VERSION', '1.0.5.2019032801');
 
 define("TKT_BASE", (dirname(__FILE__)));
