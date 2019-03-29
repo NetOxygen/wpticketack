@@ -22,7 +22,7 @@ $image_url     = tkt_img_proxy_url($a->first_poster()->url, $images_width, $imag
     </div>
     <div class="row">
         <div class="col">
-            <span class="variants-article-name"> <?= $a->name(LANG) ?> </span>
+            <span class="variants-article-name"> <?= $a->name(TKT_LANG) ?> </span>
         </div>
     </div>
     <div class="row">
@@ -42,7 +42,7 @@ $image_url     = tkt_img_proxy_url($a->first_poster()->url, $images_width, $imag
             <table class="variants-wrapper">
                 <?php foreach ($a->variants() as $v) : ?>
                 <tr class="variant-wrapper" data-id="<?= $v->_id() ?>">
-                    <td class="variant-name"><?= $v->name(LANG) ?></td>
+                    <td class="variant-name"><?= $v->name(TKT_LANG) ?></td>
                     <td class="variant-sub"></td>
                     <td class="variant-quantity">0</td>
                     <td class="variant-add"></td>

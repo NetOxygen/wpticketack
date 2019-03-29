@@ -7,7 +7,7 @@ class TKTTemplate
     public static function render($template, $data)
     {
         // Check if an override template file is found in the active theme
-        $filepath = OVERRIDE_DIR.'/ticketack/templates/'.$template.'.tpl.php';
+        $filepath = TKT_OVERRIDE_DIR.'/ticketack/templates/'.$template.'.tpl.php';
         if (file_exists($filepath)) {
             return static::output($filepath, $data);
         }

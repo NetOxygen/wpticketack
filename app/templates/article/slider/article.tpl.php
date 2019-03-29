@@ -27,10 +27,10 @@ $image_url     = tkt_img_proxy_url($a->first_poster()->url, $images_width, $imag
       </div>
 -->
       <div class="name">
-        <?= $a->name(LANG) ?>
+        <?= $a->name(TKT_LANG) ?>
       </div>
       <div class="description show-variants">
-        <?= $a->additional_name(LANG) ?>
+        <?= $a->additional_name(TKT_LANG) ?>
       </div>
     </div>
 

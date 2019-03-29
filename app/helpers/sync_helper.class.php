@@ -23,7 +23,7 @@ class SyncHelper
             array_map(function ($e) use ($i) {
                 $def_post_id = static::create_post($e, static::DEFAULT_LANG);
 
-                if (is_null($def_post_id) || !WPML_INSTALLED) {
+                if (is_null($def_post_id) || !TKT_WPML_INSTALLED) {
                     return;
                 }
 

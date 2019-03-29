@@ -34,7 +34,7 @@ $image_url     = tkt_img_proxy_url($s->first_poster()->url, $images_width, $imag
 
       <div class="row">
         <div class="col">
-          <span class="name"><?= $a->name(LANG) ?></span>
+          <span class="name"><?= $a->name(TKT_LANG) ?></span>
         </div>
       </div>
 
@@ -42,7 +42,7 @@ $image_url     = tkt_img_proxy_url($s->first_poster()->url, $images_width, $imag
         <div class="col">
           <span class="description">
             <a href="">
-              <?= $a->description(LANG) ?>
+              <?= $a->description(TKT_LANG) ?>
             </a>
           </span>
         </div>

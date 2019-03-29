@@ -23,7 +23,7 @@
         <div class="row pricing-row">
             <div class="col col-md-9">
                 <span class="pricing-name">
-                    <%= p.name.<?= LANG ?> %> :
+                    <%= p.name.<?= TKT_LANG ?> %> :
                 </span>
                 <span class="pricing-price">
                     <%= p.price.CHF.toFixed(2) %> CHF
@@ -84,12 +84,12 @@
             <div class="row">
                 <div class="col">
                     <div class="buy-pass-link">
-                        <span><?= LANG == 'fr' ? "Acheter un abonnement: " : "Buy a pass: " ?></span>
+                        <span><?= TKT_LANG == 'fr' ? "Acheter un abonnement: " : "Buy a pass: " ?></span>
                         <ul class="eligible-types-list">
                             <% _.forEach(screening.eligible_types, function(t) { %>
                             <li>
-                                <a href="<?= LANG == 'fr' ? "/infos-pratiques/billets-passes/" : "/en/infos-pratiques/tickets-passes/" ?>">
-                                    <%= t.name.<?= LANG ?> %>
+                                <a href="<?= TKT_LANG == 'fr' ? "/infos-pratiques/billets-passes/" : "/en/infos-pratiques/tickets-passes/" ?>">
+                                    <%= t.name.<?= TKT_LANG ?> %>
                                 </a>
                             </li>
                         <% }) %>

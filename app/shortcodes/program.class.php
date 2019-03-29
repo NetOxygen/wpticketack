@@ -160,8 +160,8 @@ class ProgramShortcode extends TKTShortcode
                     if ($order === static::ALPHA_ORDER) {
                         usort($events, function ($a, $b) {
                             return strcmp(
-                                strtolower(remove_accents($a->localized_title_or_original(LANG))),
-                                strtolower(remove_accents($b->localized_title_or_original(LANG)))
+                                strtolower(remove_accents($a->localized_title_or_original(TKT_LANG))),
+                                strtolower(remove_accents($b->localized_title_or_original(TKT_LANG)))
                             );
                         });
                     }

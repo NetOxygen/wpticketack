@@ -20,7 +20,7 @@ $image_url     = tkt_img_proxy_url($e->first_poster()->url, $images_width, $imag
       <a href="<?= tkt_event_details_url($e) ?>">
         <img src="<?= $image_url ?>" />
         <span>
-          <?= $e->localized_title_or_original(LANG) ?>
+          <?= $e->localized_title_or_original(TKT_LANG) ?>
         </span>
       </a>
     </div>

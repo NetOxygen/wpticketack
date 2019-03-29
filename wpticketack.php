@@ -24,13 +24,13 @@ define("TKT_SHORTCODES", TKT_APP.'/shortcodes');
 define("TKT_TEMPLATES", TKT_APP.'/templates');
 define("TKT_HELPERS", TKT_APP.'/helpers');
 define("TKT_LIB", TKT_APP.'/ticketack');
-define("OVERRIDE_DIR", get_template_directory());
+define("TKT_OVERRIDE_DIR", get_template_directory());
 
-define("LANG", substr(get_locale(), 0, 2));
+define("TKT_LANG", substr(get_locale(), 0, 2));
 if ( function_exists('icl_object_id') ) {
-    define('WPML_INSTALLED', true);
+    define('TKT_WPML_INSTALLED', true);
 } else {
-    define('WPML_INSTALLED', false);
+    define('TKT_WPML_INSTALLED', false);
 }
 
 // Load Composer autoload

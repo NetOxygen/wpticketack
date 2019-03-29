@@ -187,8 +187,8 @@ function tkt_cart_reset_url()
  */
 function tkt_event_details_url($event)
 {
-    if (WPML_INSTALLED) {
-        $slug = tkt_get_event_slug($event, LANG);
+    if (TKT_WPML_INSTALLED) {
+        $slug = tkt_get_event_slug($event, TKT_LANG);
         $page = get_page_by_path($slug, OBJECT, 'tkt-event');
         return apply_filters('wpml_permalink', get_permalink($page->ID));
     }
@@ -198,7 +198,7 @@ function tkt_event_details_url($event)
         sprintf(
             '%s/%s',
             'events',
-          tkt_get_event_slug($event, LANG)
+          tkt_get_event_slug($event, TKT_LANG)
         )
     );
 }
@@ -213,8 +213,8 @@ function tkt_event_details_url($event)
  */
 function tkt_event_book_url($event, $screening = null)
 {
-    if (WPML_INSTALLED) {
-        $slug = tkt_get_event_slug($event, LANG);
+    if (TKT_WPML_INSTALLED) {
+        $slug = tkt_get_event_slug($event, TKT_LANG);
         $page = get_page_by_path($slug, OBJECT, 'tkt-event');
 
         return sprintf(
@@ -229,7 +229,7 @@ function tkt_event_book_url($event, $screening = null)
         sprintf(
             "%s/%s/?book=1%s",
             'events',
-        tkt_get_event_slug($event, LANG),
+        tkt_get_event_slug($event, TKT_LANG),
             (!is_null($screening) ? '&s_id='.$screening->_id() : '')
         )
     );
@@ -248,7 +248,7 @@ function tkt_article_buy_url($article)
         return "";
     }
 
-    if (LANG == 'de') { // FIXME: replace 'de' by default language
+    if (TKT_LANG == 'de') { // FIXME: replace 'de' by default language
 	    return get_site_url(
 		/*$blog_id*/null,
 		sprintf(
@@ -263,10 +263,10 @@ function tkt_article_buy_url($article)
 		/*$blog_id*/null,
 		sprintf(
 		    "%s/%s/%s_%s?book=1",
-                    LANG,
+                    TKT_LANG,
 		    TKTApp::get_instance()->get_config('pages.article'),
 		    $article->_id(),
-		    sanitize_title($article->name(LANG)) 
+		    sanitize_title($article->name(TKT_LANG)) 
 		)
 	    );
     }
@@ -468,7 +468,7 @@ function tkt_t($str) {
 function tkt_get_event_slug($event, $lang)
 {
     $title = $event->title($lang);
-    $slug  = sanitize_title($title).($lang === SyncHelper::DEFAULT_LANG ? '' : '-'.$lang);
+    $slug  = sanitize_title($title).($lang === SyncHelper::DEFAULT_TKT_LANG ? '' : '-'.$lang);
 
     return $slug;
 }
