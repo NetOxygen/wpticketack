@@ -58,7 +58,12 @@ use Ticketack\WP\TKTApp;
 
     <div class="row">
         <div class="col finish-cart-wrapper">
-            <a href="<%= validate_cart_url %>" class="button finish-cart-btn active">
+            <!--
+                If we want the automatic checkout without going to the eshop,
+                add the "finish-cart-btn" class to the following <a/>, like
+                <a href="<%= validate_cart_url %>" class="button finish-cart-btn active">
+            -->
+            <a href="<%= validate_cart_url %>" class="button active">
                 <?= tkt_t('Finaliser ma commande') ?>
             </a>
         </div>

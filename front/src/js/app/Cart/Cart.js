@@ -39,6 +39,8 @@ define(
                         this.load_cart();
                 }
             });
+
+            /* we bind automatic checkout on .finish-cart-btn links */
             $(document).on('click', '.finish-cart-btn', (e) => {
                 e.preventDefault();
 
@@ -65,6 +67,7 @@ define(
                 });
             });
 
+            /* .open-cart-btn is only used for now on Fabrica */
             $(document).on('click', '.open-cart-btn', (e) => {
                 e.preventDefault();
 
