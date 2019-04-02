@@ -13,7 +13,7 @@
 
 use Ticketack\WP\TKTApp;
 
-define('TKT_ASSETS_VERSION', '1.1.0.2019032901');
+define('TKT_ASSETS_VERSION', '1.1.1.2019040201');
 
 define("TKT_BASE", (dirname(__FILE__)));
 define("TKT_CONFIG", (TKT_BASE.'/config'));
