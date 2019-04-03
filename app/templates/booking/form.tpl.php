@@ -1,7 +1,7 @@
 <?php
 
 use Ticketack\WP\TKTApp;
-use Ticketack\WP\Templates\TKTTEmplate;
+use Ticketack\WP\Templates\TKTTemplate;
 
 /**
  * Booking form template

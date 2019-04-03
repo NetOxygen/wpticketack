@@ -1,6 +1,7 @@
 <?php
 
 use Ticketack\WP\TKTApp;
+use Ticketack\WP\Templates\TKTTemplate;
 
 /**
  * Buy pass template
