@@ -16,7 +16,9 @@ class LocalesHelper
             'Les informations que vous avez saisies sont invalides'                              => tkt_t('Les informations que vous avez saisies sont invalides'),
             'Une erreur est survenue. Veuillez ré-essayer ultérieurement.'                       => tkt_t('Une erreur est survenue. Veuillez ré-essayer ultérieurement.'),
             'Vous ne pouvez pas réserver de place pour cette séance avec votre abonnement.'      => tkt_t('Vous ne pouvez pas réserver de place pour cette séance avec votre abonnement.'),
-            'Vous ne pouvez pas réserver plus de place pour cette séance avec votre abonnement.' => tkt_t('Vous ne pouvez pas réserver plus de place pour cette séance avec votre abonnement.')
+            'Vous ne pouvez pas réserver plus de place pour cette séance avec votre abonnement.' => tkt_t('Vous ne pouvez pas réserver plus de place pour cette séance avec votre abonnement.'),
+            'Veuillez choisir un tarif' => tkt_t('Veuillez choisir un tarif'),
+            'Votre panier a été mis à jour' => tkt_t('Votre panier a été mis à jour')
         ];
     }
 }

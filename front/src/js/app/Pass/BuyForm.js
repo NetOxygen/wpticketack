@@ -8,14 +8,10 @@
  *    data-component="Pass/BuyForm"
  * >
  */
-define( [
-        'config', 'postal', 'lodash',
-        'template', 'jquery', 'api',
-        'moment', 'Cart', 'Screening', 'Ticket'
+define([
+        'config', 'postal', 'lodash', 'jquery', 'api', 'i18n'
     ], function dependencies(
-        config, postal, _,
-        Template, $, TKTApi,
-        moment, CartModel, Screening, Ticket) {
+        config, postal, _, $, TKTApi, i18n) {
 
     function BuyForm($container, state) {
         this.$container = $container;
@@ -57,12 +53,18 @@ define( [
             this.$selected_pass = $('.choose-pass:checked', this.$container).parents('.pass');
             let type = this.$selected_pass.data('type');
             if (!pricing)
-                return this.show_error('Veuillez choisir un tarif');
+                return this.show_error(i18n.t('Veuillez choisir un tarif'));
+
             TKTApi.addPassToCart(type, pricing, userdata, (err, status, rsp) => {
                 if (err)
-                    return this.show_error('Une erreur est survenue');
+                    return this.show_error(i18n.t('Une erreur est survenue. Veuillez ré-essayer ultérieurement.'));
 
-                this.show_success("L'abonnement a été ajouté à votre panier");
+                const cart_url = config.get('cart_url');
+                if (cart_url)
+                    window.location.href = cart_url;
+                else
+                    this.show_success(i18n.t('Votre panier a été mis à jour'));
+
 
                 postal.publish({
                     channel: "cart",
