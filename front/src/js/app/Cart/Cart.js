@@ -109,7 +109,11 @@ define(
                     this.emit_update();
 
                     this.bind_remove_item_icons();
-                    if (this.cart.id) {
+
+                    /* for fabrica, we need to set the carts as pending until
+                     * the customer has finished his order...
+                     */
+                    if (window.TKT_SET_CARTS_PENDING && this.cart.id) {
                         this.set_pending((err, rsp) => {
                             if (err)
                                 return callback(err);
