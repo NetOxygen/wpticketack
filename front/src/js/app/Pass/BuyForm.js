@@ -9,9 +9,9 @@
  * >
  */
 define([
-        'config', 'postal', 'lodash', 'jquery', 'api', 'i18n'
+        'config', 'postal', 'lodash', 'jquery', 'jqueryjson', 'api', 'i18n'
     ], function dependencies(
-        config, postal, _, $, TKTApi, i18n) {
+        config, postal, _, $, $json, TKTApi, i18n) {
 
     function BuyForm($container, state) {
         this.$container = $container;
@@ -43,15 +43,16 @@ define([
         },
 
         add_to_cart: function() {
-            let userdata = {};
-            _.each($('.field:visible', this.$container), (f) => {
-                let name = $(f).attr('id').replace('user_', '');
-                userdata[name] = $(f).val();
-            });
+            let userdata = $('.field:visible,.opaque_field', this.$container)
+                .filter(function(i) { return !!($(this).val()); })
+                .serializeJSON();
+            console.log(userdata);
             userdata.no_photo = true;
-            const pricing = $('.choose-pass:checked', this.$container).val();
+
             this.$selected_pass = $('.choose-pass:checked', this.$container).parents('.pass');
-            let type = this.$selected_pass.data('type');
+            let type            = this.$selected_pass.data('type');
+
+            const pricing = $('.choose-pass:checked', this.$container).val();
             if (!pricing)
                 return this.show_error(i18n.t('Veuillez choisir un tarif'));
 
@@ -59,12 +60,13 @@ define([
                 if (err)
                     return this.show_error(i18n.t('Une erreur est survenue. Veuillez ré-essayer ultérieurement.'));
 
+                /*
                 const cart_url = config.get('cart_url');
                 if (cart_url)
                     window.location.href = cart_url;
                 else
                     this.show_success(i18n.t('Votre panier a été mis à jour'));
-
+                    */
 
                 postal.publish({
                     channel: "cart",
@@ -82,10 +84,22 @@ define([
         },
 
         sync_pass_form: function (pass) {
-            let fields = $('#' + pass + '-fields').val().split(',');
+            let fields_to_show = $('#' + pass + '-fields').val().split(',');
+
+            // Set not required and hide all fields
+            $('.field', this.$container).each(function (i) {
+                $(this).required = false;
+            });
+            this.$wrappers.hide();
+
             _.each(this.$wrappers, (w) => {
-                let field = $(w).attr('id').replace('field-wrapper-', '');
-                $(w)[fields.includes(field) ? 'fadeIn' : 'hide']();
+                // Set required and show requested fields
+                let id     = $(w).attr('id').replace('field-wrapper-', '');
+                let $field = $('#' + id);
+                if (fields_to_show.includes(id)) {
+                    $field.required = true;
+                    $(w).fadeIn();
+                }
             });
         },
 
