@@ -1,86 +1,77 @@
 .tkt_event {
-  .left-col {
-    .screening-date {
-      text-transform: uppercase;
-      font-size: 1.8rem;
-      line-height: 1.0rem;
+  .carousel-section {
+      background: #212121;
+  }
+  .infos-section {
+    background: #FFFFFF;
 
-      p {
+    .synopsis {
+      .title {
+        display: block;
         text-transform: uppercase;
-        font-size: 1.8rem;
+        font-size: 1.3rem;
+        line-height: 1.3rem;
+      }
+      .text {
+        display: inline-block;
+        text-align: justify;
+        font-size: 1.3rem;
         line-height: 1.8rem;
       }
     }
-    .title {
-      text-transform: uppercase;
-      font-size: 1.8rem;
-      line-height: 1.2rem;
-    }
-    .genre {
-      text-transform: uppercase;
-      font-size: 1.3rem;
-      line-height: 1.2rem;
-      display: block;
-      margin-top: 0.7rem;
-      margin-bottom: 0.4rem;
-    }
-    .free-text-one {
-      p {
+
+    .left-col {
+      .screening-date {
         text-transform: uppercase;
-        font-size: 1rem;
-        line-height: 1rem;
-        display: block;
-      }
-    }
-  }
-
-  .right-col {
-    .infos {
-      ul {
-        list-style-type: none;
-      }
-
-      * {
-        font-size: 1.0rem;
+        font-size: 1.8rem;
         line-height: 1.0rem;
+
+        p {
+          text-transform: uppercase;
+          font-size: 1.8rem;
+          line-height: 1.8rem;
+        }
+      }
+      .title {
         text-transform: uppercase;
+        font-size: 1.8rem;
+        line-height: 1.2rem;
+      }
+      .genre {
+        text-transform: uppercase;
+        font-size: 1.3rem;
+        line-height: 1.2rem;
+        display: block;
+        margin-top: 0.7rem;
+        margin-bottom: 0.4rem;
+      }
+      .free-text-one {
+        p {
+          text-transform: uppercase;
+          font-size: 1rem;
+          line-height: 1rem;
+          display: block;
+        }
       }
     }
   }
 
-  .synopsis {
-    .title {
+  .book-section {
+    background: #212121;
+    .show-booking-form {
       display: block;
+      margin-top: 1rem;
       text-transform: uppercase;
-      font-size: 1.3rem;
-      line-height: 1.3rem;
-    }
-    .text {
-      display: inline-block;
-      text-align: justify;
-      font-size: 1.3rem;
-      line-height: 1.8rem;
-    }
-  }
+      font-size: 1.7rem;
+      line-height: 1.4rem;
 
-  .show-booking-form {
-    display: block;
-    margin-top: 1rem;
-    text-transform: uppercase;
-    font-size: 1.7rem;
-    line-height: 1.4rem;
+      .show-if-bookable {
+        font-size: 1.7rem !important;
+      }
 
-    .show-if-bookable {
-      font-size: 1.7rem !important;
+      .show-if-almost-not-bookable {
+        font-size: 1.1rem;
+      }
     }
-
-    .show-if-almost-not-bookable {
-      font-size: 1.1rem;
-    }
-  }
-  .screening-complete {
-    text-transform: uppercase;
-    font-size: 1.2rem;
-    line-height: 1.2rem;
   }
 }
