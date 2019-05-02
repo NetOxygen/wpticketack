@@ -65,11 +65,15 @@
           .pass-number {
             font-size: 1.3rem;
           }
-          .pass-number-input { }
+          .pass-number-input {
+            padding: 0;
+          }
           .pass-key {
             font-size: 1.3rem;
           }
-          .pass-key-input { }
+          .pass-key-input {
+            padding: 0;
+          }
           .connect-btn {
             margin-top: 0.5rem;
           }
@@ -94,4 +98,98 @@
       margin-top: 1rem;
     }
   }
+
+  &.v2 {
+    display: flex;
+    flex-direction: row;
+    .dates-form {
+      flex: 1;
+      margin-top: 0;
+      padding-right: 1rem;
+
+      .days-wrapper {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+
+        .day {
+          margin: 0.25rem;
+          &.active {
+            background-color: $assertive_color;
+            color: $light_color;
+          }
+        }
+      }
+
+      .dates-wrapper {
+        border: none;
+        padding: 0;
+        float: none;
+        height: auto;
+        overflow-y: visible;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+
+        .date {
+          margin: 0.25rem;
+          &.active {
+              background-color: $assertive_color;
+              color: $light_color;
+          }
+        }
+      }
+    }
+    .tickets-form {
+      flex: 1;
+      padding-right: 1rem;
+      margin-top: 0;
+
+      .pricings-form {
+        .pricing-row {
+          margin-top: 0;
+          margin-bottom: 0.5rem;
+
+          .tkt-badge-split {
+            .tkt-badge-part {
+              flex: none;
+
+              .pricing-qty {
+                font-weight: bold;
+              }
+              .pricing-name {
+                font-size: 1rem;
+              }
+              .pricing-price {
+                font-size: 1rem;
+              }
+
+              &.tkt-minus-btn,
+              &.tkt-plus-btn {
+                font-weight: bold;
+                padding: 0 15px;
+                font-size: 25px;
+                line-height: 32px;
+              }
+            }
+          }
+        }
+        .add-to-cart-btn { }
+      }
+    }
+    .success-panel {
+      flex: 1;
+      padding-right: 1rem;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+ .booking-form {
+   &.v2 {
+     flex-direction: column;
+   }
+ }
 }

@@ -31,15 +31,6 @@ define( [
         attach: function() {
             this.init_store();
 
-            $('.show-booking-form').click((e) => {
-                e.preventDefault();
-
-                if (this.initialized)
-                    return this.deinit();
-
-                this.init();
-            });
-
             postal.subscribe({
                 channel: "connection",
                 topic: "update",
@@ -48,8 +39,7 @@ define( [
                 }
             });
 
-            if (this.show_on_load)
-                this.init();
+            this.init();
         },
 
         init: function() {
@@ -250,22 +240,35 @@ define( [
             }));
 
             // bind dates choices
-            $('.date-wrapper span.date').click((e) => {
-                const $date = $(e.target);
+            $('.dates-wrapper .date').click((e) => {
+                let $date = $(e.target);;
+                if (!$date.data('screening_id'))
+                    $date = $date.closest('[data-screening_id]');
                 this.select_screening($date.data('screening_id'));
             });
 
+            if ($('.days-wrapper')) {
+                $('.days-wrapper .day').click((e) => {
+                    this.select_day($(e.target).data('day'));
+                });
+            }
+
             // Select first non full date
-            let to_select = this.selected_screening;
-            if (!to_select) {
+            let s_to_select = this.selected_screening;
+            if (!s_to_select) {
                 let i = this.data.screenings.length - 1;
                 while (i >= 0) {
                     if (this.data.screenings[i].seats.available > 0)
-                        to_select = this.data.screenings[i]._id;
+                        s_to_select = this.data.screenings[i]._id;
                     i--;
                 }
             }
-            this.select_screening(to_select);
+
+            let d_to_select = $(
+                '.days-wrapper .day[data-screening_id*="' + s_to_select + '"]'
+            ).data('day');
+            this.select_day(d_to_select);
+            this.select_screening(s_to_select);
         },
 
         build_tickets_form: function() {
@@ -276,6 +279,33 @@ define( [
                 ticket_view_url
             }));
 
+            // bind pricings minus buttons if any
+            $('.tkt-minus-btn', this.$container).click((e) => {
+                const $t     = $(e.target);
+                const $input = $t.parent().next('.pricing-input').eq(0);
+                const val    = parseInt($input.val());
+                if (val > 0) {
+                    $input.val(val - 1).trigger('change');
+                    const $qty = $t.parent().find('.pricing-qty').eq(0);
+                    $qty.text(val - 1);
+                }
+                if (val > 1)
+                    $t.removeClass('tkt-grey-badge').addClass('tkt-dark-badge');
+                else
+                    $t.removeClass('tkt-dark-badge').addClass('tkt-grey-badge');
+            });
+            // bind pricings plus buttons if any
+            $('.tkt-plus-btn', this.$container).click((e) => {
+                const $t     = $(e.target);
+                const $input = $t.parent().next('.pricing-input').eq(0);
+                const val    = parseInt($input.val());
+                $input.val(val + 1).trigger('change');
+                const $qty = $t.parent().find('.pricing-qty').eq(0);
+                $qty.text(val + 1);
+                $('.tkt-minus-btn', $t.parent())
+                    .removeClass('tkt-grey-badge')
+                    .addClass('tkt-dark-badge');
+            });
             // bind pricing fields
             $('.pricing-input', this.$container).change((e) => {
               const $input = $(e.target);
@@ -316,9 +346,32 @@ define( [
             }));
         },
 
+        activate_day: function (day) {
+            $('.days-wrapper .day').removeClass('active');
+            $('.days-wrapper .day[data-day*="' + day + '"]').addClass('active');
+
+            $('.dates-wrapper .date').hide();
+            $('.dates-wrapper .date[data-day="' + day + '"]').show();
+        },
+
+        select_day: function (day) {
+            this.activate_day(day);
+
+            const $day_input = $('.days-wrapper .day[data-day*="' + day + '"]');
+            const data_screening_id = $day_input.data('screening_id');
+            if (data_screening_id) {
+                const first_screening = data_screening_id.split(',')[0];
+                this.select_screening(first_screening);
+            }
+        },
+
+        activate_screening: function (screening_id) {
+            $('.dates-wrapper .date').removeClass('active');
+            $('.dates-wrapper .date[data-screening_id="' + screening_id + '"]').addClass('active');
+        },
+
         select_screening: function (screening_id) {
-            $('.date-wrapper .date').removeClass('active');
-            $('.date-wrapper .date[data-screening_id="' + screening_id + '"]').addClass('active');
+            this.activate_screening(screening_id);
 
             // reset data
             this.reset_store_on_screening_change();
