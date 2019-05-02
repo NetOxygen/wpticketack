@@ -25,6 +25,12 @@ use Ticketack\WP\TKTApp;
                 <div class="date-wrapper">
                     <span data-screening_id="<%= s._id %>" class="date">
                         <%= s.start_at.format("dddd Do MMMM HH[h]") + (s.start_at.minutes() > 0 ? s.start_at.format("mm") : "") %>
+                        <% if (s.opaque && s.opaque.version) { %>
+                        <%= (' - ' + s.opaque.version) %>
+                        <% } %>
+                        <% if (s.opaque && s.opaque._3d) { %>
+                        <%= s.opaque && s.opaque._3d && (' - 3D') %>
+                        <% } %>
                     </span>
                 </div>
             <% }) %>
