@@ -17,23 +17,31 @@ use Ticketack\WP\TKTApp;
     <div class="pricings-form">
         <div class="row">
             <div class="col">
-                <span class="tickets-title assertive">
+                <span class="assertive">
                     <?= tkt_t('Entrez le nombre de place(s) que vous souhaitez ajouter à votre panier :') ?>
                 </span>
             </div>
         </div>
         <% _.mapKeys(screening.pricings, function(p, key) { %>
         <div class="row pricing-row">
-            <div class="col col-md-9">
-                <span class="pricing-name">
-                    <%= p.name.<?= TKT_LANG ?> %> :
-                </span>
-                <span class="pricing-price">
-                    <%= p.price.CHF.toFixed(2) %> CHF
-                </span>
-            </div>
             <div class="col">
-                <input type="number" data-pricing="<%= key %>" min="0" value="" class="input pricing-input"/>
+                <span class="tkt-badge tkt-badge-split flex-rev-on-mobile">
+                    <span class="tkt-badge-part tkt-grey-badge tkt-minus-btn text-center">-</span>
+                    <span class="tkt-badge-part tkt-light-badge text-center">
+                        <span class="pricing-qty">
+                            0
+                        </span>
+                        x
+                        <span class="pricing-name">
+                            <%= p.name.<?= TKT_LANG ?> %> :
+                        </span>
+                        <span class="pricing-price">
+                            <%= p.price.CHF.toFixed(2) %> CHF
+                        </span>
+                    </span>
+                    <span class="tkt-badge-part tkt-dark-badge tkt-plus-btn text-center">+</span>
+                </span>
+                <input type="hidden" data-pricing="<%= key %>" class="input pricing-input" value="0"/>
             </div>
         </div>
         <% }) %>

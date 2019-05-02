@@ -16,7 +16,7 @@ use Ticketack\WP\Templates\TKTTemplate;
   <div class="row">
     <div class="col">
       <div
-        class="booking-form"
+        class="booking-form v2"
         data-component="Booking/Form"
         data-show-on-load="<?= tkt_get_url_param( 'book', -1 ) == 1 ? 'true' : 'false' ?>"
         data-ids="<?= implode(',', $data->ids) ?>">
