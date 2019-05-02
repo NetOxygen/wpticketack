@@ -1,4 +1,4 @@
-/* Built on Thu May 02 2019 17:30:18 GMT+0200 (CEST) */ 
+/* Built on Thu May 02 2019 17:58:07 GMT+0200 (CEST) */ 
 .tkt-wrapper {
   /*!
  * Bootstrap v4.1.3 (https://getbootstrap.com/)
@@ -5965,69 +5965,58 @@ input::-webkit-inner-spin-button {
   #tkt_program .tkt_program_screening, #tkt_program .tkt_program_event, #tkt_program.tkt-gallery .tkt_program_event {
     margin-bottom: 0.7rem; } }
 
-.tkt_event .left-col .screening-date {
-  text-transform: uppercase;
-  font-size: 1.8rem;
-  line-height: 1.0rem; }
-  .tkt_event .left-col .screening-date p {
+.tkt_event .carousel-section {
+  background: #212121; }
+
+.tkt_event .infos-section {
+  background: #FFFFFF; }
+  .tkt_event .infos-section .synopsis .title {
+    display: block;
+    text-transform: uppercase;
+    font-size: 1.3rem;
+    line-height: 1.3rem; }
+  .tkt_event .infos-section .synopsis .text {
+    display: inline-block;
+    text-align: justify;
+    font-size: 1.3rem;
+    line-height: 1.8rem; }
+  .tkt_event .infos-section .left-col .screening-date {
     text-transform: uppercase;
     font-size: 1.8rem;
-    line-height: 1.8rem; }
+    line-height: 1.0rem; }
+    .tkt_event .infos-section .left-col .screening-date p {
+      text-transform: uppercase;
+      font-size: 1.8rem;
+      line-height: 1.8rem; }
+  .tkt_event .infos-section .left-col .title {
+    text-transform: uppercase;
+    font-size: 1.8rem;
+    line-height: 1.2rem; }
+  .tkt_event .infos-section .left-col .genre {
+    text-transform: uppercase;
+    font-size: 1.3rem;
+    line-height: 1.2rem;
+    display: block;
+    margin-top: 0.7rem;
+    margin-bottom: 0.4rem; }
+  .tkt_event .infos-section .left-col .free-text-one p {
+    text-transform: uppercase;
+    font-size: 1rem;
+    line-height: 1rem;
+    display: block; }
 
-.tkt_event .left-col .title {
-  text-transform: uppercase;
-  font-size: 1.8rem;
-  line-height: 1.2rem; }
-
-.tkt_event .left-col .genre {
-  text-transform: uppercase;
-  font-size: 1.3rem;
-  line-height: 1.2rem;
-  display: block;
-  margin-top: 0.7rem;
-  margin-bottom: 0.4rem; }
-
-.tkt_event .left-col .free-text-one p {
-  text-transform: uppercase;
-  font-size: 1rem;
-  line-height: 1rem;
-  display: block; }
-
-.tkt_event .right-col .infos ul {
-  list-style-type: none; }
-
-.tkt_event .right-col .infos * {
-  font-size: 1.0rem;
-  line-height: 1.0rem;
-  text-transform: uppercase; }
-
-.tkt_event .synopsis .title {
-  display: block;
-  text-transform: uppercase;
-  font-size: 1.3rem;
-  line-height: 1.3rem; }
-
-.tkt_event .synopsis .text {
-  display: inline-block;
-  text-align: justify;
-  font-size: 1.3rem;
-  line-height: 1.8rem; }
-
-.tkt_event .show-booking-form {
-  display: block;
-  margin-top: 1rem;
-  text-transform: uppercase;
-  font-size: 1.7rem;
-  line-height: 1.4rem; }
-  .tkt_event .show-booking-form .show-if-bookable {
-    font-size: 1.7rem !important; }
-  .tkt_event .show-booking-form .show-if-almost-not-bookable {
-    font-size: 1.1rem; }
-
-.tkt_event .screening-complete, .tkt_event #tkt_program .tkt_program_event .event-inner .event-complete, #tkt_program .tkt_program_event .event-inner .tkt_event .event-complete {
-  text-transform: uppercase;
-  font-size: 1.2rem;
-  line-height: 1.2rem; }
+.tkt_event .book-section {
+  background: #212121; }
+  .tkt_event .book-section .show-booking-form {
+    display: block;
+    margin-top: 1rem;
+    text-transform: uppercase;
+    font-size: 1.7rem;
+    line-height: 1.4rem; }
+    .tkt_event .book-section .show-booking-form .show-if-bookable {
+      font-size: 1.7rem !important; }
+    .tkt_event .book-section .show-booking-form .show-if-almost-not-bookable {
+      font-size: 1.1rem; }
 
 .tkt-filters {
   margin-top: -36px; }
