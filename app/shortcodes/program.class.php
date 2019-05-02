@@ -27,6 +27,7 @@ class ProgramShortcode extends TKTShortcode
     const ALPHA_ORDER        = 'alpha';
     const SCREENINGS_FILTER  = 'screenings';
     const EVENTS_FILTER      = 'events';
+    const DATE_TODAY         = 'today';
 
     /**
      * Get this Shortcode tag
@@ -62,6 +63,9 @@ class ProgramShortcode extends TKTShortcode
                 ->order_by_start_at();
 
             if (!empty($day)) {
+                if ($day === static::DATE_TODAY) {
+                    $day = date("Y-m-d");
+                }
                 $min   = tkt_iso8601_to_datetime($day.'T00:00:00Z');
                 $max   = tkt_iso8601_to_datetime($day.'T23:59:59Z');
                 $query = $query
