@@ -60,13 +60,11 @@ define([
                 if (err)
                     return this.show_error(i18n.t('Une erreur est survenue. Veuillez ré-essayer ultérieurement.'));
 
-                /*
                 const cart_url = config.get('cart_url');
                 if (cart_url)
                     window.location.href = cart_url;
                 else
                     this.show_success(i18n.t('Votre panier a été mis à jour'));
-                    */
 
                 postal.publish({
                     channel: "cart",
