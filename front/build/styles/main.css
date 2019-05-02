@@ -1,4 +1,4 @@
-/* Built on Tue Apr 23 2019 18:42:09 GMT+0200 (CEST) */ 
+/* Built on Thu May 02 2019 17:30:18 GMT+0200 (CEST) */ 
 .tkt-wrapper {
   /*!
  * Bootstrap v4.1.3 (https://getbootstrap.com/)
@@ -5606,6 +5606,76 @@
 .error {
   color: #f85050; }
 
+.tkt-no-margin {
+  margin: 0; }
+
+.tkt-no-padding {
+  padding: 0; }
+
+.tkt-section {
+  padding: 20px; }
+  .tkt-section.tkt-full-section {
+    padding: 0; }
+  .tkt-section .tkt-section-title {
+    text-transform: uppercase;
+    font-weight: bold;
+    border-bottom: 1px solid #333; }
+
+.tkt-dark-section {
+  color: #FFFFFF; }
+  .tkt-dark-section .tkt-section-title {
+    border-bottom: 1px solid #FFFFFF; }
+  .tkt-dark-section .assertive, .tkt-dark-section .tkt-filters ul li.tkt-filter.active, .tkt-filters ul .tkt-dark-section li.tkt-filter.active {
+    color: #FFFFFF;
+    font-weight: bold; }
+
+.tkt-badge {
+  background: #0056b3;
+  padding: 5px 15px;
+  color: #FFFFFF;
+  margin: 0.25rem 0; }
+  .tkt-badge.tkt-badge-rounded {
+    border-radius: 15px;
+    moz-border-radius: 15px;
+    webkit-border-radius: 15px; }
+
+.tkt-badge-split {
+  background: transparent;
+  padding: 0;
+  display: flex;
+  flex-direction: row; }
+  .tkt-badge-split .tkt-badge-part {
+    padding: 5px 15px; }
+    .tkt-badge-split .tkt-badge-part:first-child {
+      flex: 1;
+      text-transform: uppercase; }
+      .tkt-badge-split .tkt-badge-part:first-child.tkt-badge-rounded {
+        border-radius: 15px 0 0 15px;
+        moz-border-radius: 15px 0 0 15px;
+        webkit-border-radius: 15px 0 0 15px; }
+    .tkt-badge-split .tkt-badge-part:last-child {
+      flex: 2; }
+      .tkt-badge-split .tkt-badge-part:last-child.tkt-badge-rounded {
+        border-radius: 0 15px 15px 0;
+        moz-border-radius: 0 15px 15px 0;
+        webkit-border-radius: 0 15px 15px 0; }
+  .tkt-badge-split.tkt-badge-split-rev .tkt-badge-part:first-child {
+    flex: 2; }
+  .tkt-badge-split.tkt-badge-split-rev .tkt-badge-part:last-child {
+    flex: 1; }
+
+.tkt-light-badge {
+  background: #FFFFFF;
+  color: #000; }
+
+.tkt-dark-badge {
+  background: #000;
+  color: #FFFFFF; }
+
+.tkt-grey-badge {
+  background: #333;
+  color: #FFFFFF; }
+
 .button {
   display: inline-block;
   background-color: #000;
@@ -5648,6 +5718,22 @@
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none; }
+
+@media screen and (max-width: 320px) {
+  .tkt-badge-split {
+    flex-direction: column; }
+    .tkt-badge-split .tkt-badge-part:first-child.tkt-badge-rounded {
+      border-radius: 15px 15px 0 0;
+      moz-border-radius: 15px 15px 0 0;
+      webkit-border-radius: 15px 15px 0 0; }
+    .tkt-badge-split .tkt-badge-part:last-child.tkt-badge-rounded {
+      border-radius: 0 0 15px 15px;
+      moz-border-radius: 0 0 15px 15px;
+      webkit-border-radius: 0 0 15px 15px; }
+    .tkt-badge-split.tkt-badge-split-rev .tkt-badge-part:first-child {
+      flex: 2; }
+    .tkt-badge-split.tkt-badge-split-rev .tkt-badge-part:last-child {
+      flex: 1; } }
 
 #tkt_articles .article-variants-form {
   display: none;
@@ -5879,37 +5965,6 @@ input::-webkit-inner-spin-button {
   #tkt_program .tkt_program_screening, #tkt_program .tkt_program_event, #tkt_program.tkt-gallery .tkt_program_event {
     margin-bottom: 0.7rem; } }
 
-.tkt_event #event-carousel {
-  width: 924px;
-  max-width: 100%;
-  max-height: 100%;
-  margin-bottom: 1.5rem;
-  height: auto !important; }
-  .tkt_event #event-carousel .carousel-inner {
-    max-height: 520px; }
-  .tkt_event #event-carousel .carousel-control-prev {
-    left: -25px;
-    opacity: 1; }
-    .tkt_event #event-carousel .carousel-control-prev .carousel-control-prev-icon {
-      width: 13px;
-      height: 60px;
-      background-image: url("../images/slider/left.png"); }
-  .tkt_event #event-carousel .carousel-control-prev:hover .carousel-control-prev-icon {
-    background-image: url("../images/slider/hover/left.png"); }
-  .tkt_event #event-carousel .carousel-control-next {
-    right: -25px;
-    opacity: 1; }
-    .tkt_event #event-carousel .carousel-control-next .carousel-control-next-icon {
-      width: 14px;
-      height: 60px;
-      background-image: url("../images/slider/right.png"); }
-  .tkt_event #event-carousel .carousel-control-next:hover .carousel-control-next-icon {
-    background-image: url("../images/slider/hover/right.png") !important; }
-  .tkt_event #event-carousel .carousel-item img {
-    max-width: 924px; }
-  .tkt_event #event-carousel .yt-video-image {
-    max-width: 924px; }
-
 .tkt_event .left-col .screening-date {
   text-transform: uppercase;
   font-size: 1.8rem;
@@ -5946,18 +6001,17 @@ input::-webkit-inner-spin-button {
   line-height: 1.0rem;
   text-transform: uppercase; }
 
-.tkt_event .synopsis {
-  margin-top: 1.9rem; }
-  .tkt_event .synopsis .title {
-    display: block;
-    text-transform: uppercase;
-    font-size: 1.3rem;
-    line-height: 1.3rem; }
-  .tkt_event .synopsis .text {
-    display: inline-block;
-    text-align: justify;
-    font-size: 1.3rem;
-    line-height: 1.3rem; }
+.tkt_event .synopsis .title {
+  display: block;
+  text-transform: uppercase;
+  font-size: 1.3rem;
+  line-height: 1.3rem; }
+
+.tkt_event .synopsis .text {
+  display: inline-block;
+  text-align: justify;
+  font-size: 1.3rem;
+  line-height: 1.8rem; }
 
 .tkt_event .show-booking-form {
   display: block;
@@ -6066,8 +6120,12 @@ input::-webkit-inner-spin-button {
       font-size: 1.3rem; }
     .booking-form .tickets-form .pass-form .connect-panel .connect-panel-form .pass-number {
       font-size: 1.3rem; }
+    .booking-form .tickets-form .pass-form .connect-panel .connect-panel-form .pass-number-input {
+      padding: 0; }
     .booking-form .tickets-form .pass-form .connect-panel .connect-panel-form .pass-key {
       font-size: 1.3rem; }
+    .booking-form .tickets-form .pass-form .connect-panel .connect-panel-form .pass-key-input {
+      padding: 0; }
     .booking-form .tickets-form .pass-form .connect-panel .connect-panel-form .connect-btn {
       margin-top: 0.5rem; }
     .booking-form .tickets-form .pass-form .book-panel .show-bookings-btn {
@@ -6077,6 +6135,101 @@ input::-webkit-inner-spin-button {
   margin-top: 1.9rem; }
   .booking-form .success-panel .continue-shopping {
     margin-top: 1rem; }
+
+.booking-form.v2 {
+  display: flex;
+  flex-direction: row; }
+  .booking-form.v2 .dates-form {
+    flex: 1;
+    margin-top: 0;
+    padding-right: 1rem; }
+    .booking-form.v2 .dates-form .days-wrapper {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      flex-wrap: wrap; }
+      .booking-form.v2 .dates-form .days-wrapper .day {
+        margin: 0.25rem; }
+        .booking-form.v2 .dates-form .days-wrapper .day.active {
+          background-color: #000;
+          color: #FFFFFF; }
+    .booking-form.v2 .dates-form .dates-wrapper {
+      border: none;
+      padding: 0;
+      float: none;
+      height: auto;
+      overflow-y: visible;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      flex-wrap: wrap; }
+      .booking-form.v2 .dates-form .dates-wrapper .date {
+        margin: 0.25rem; }
+        .booking-form.v2 .dates-form .dates-wrapper .date.active {
+          background-color: #000;
+          color: #FFFFFF; }
+  .booking-form.v2 .tickets-form {
+    flex: 1;
+    padding-right: 1rem;
+    margin-top: 0; }
+    .booking-form.v2 .tickets-form .pricings-form .pricing-row {
+      margin-top: 0;
+      margin-bottom: 0.5rem; }
+      .booking-form.v2 .tickets-form .pricings-form .pricing-row .tkt-badge-split .tkt-badge-part {
+        flex: none; }
+        .booking-form.v2 .tickets-form .pricings-form .pricing-row .tkt-badge-split .tkt-badge-part .pricing-qty {
+          font-weight: bold; }
+        .booking-form.v2 .tickets-form .pricings-form .pricing-row .tkt-badge-split .tkt-badge-part .pricing-name {
+          font-size: 1rem; }
+        .booking-form.v2 .tickets-form .pricings-form .pricing-row .tkt-badge-split .tkt-badge-part .pricing-price {
+          font-size: 1rem; }
+        .booking-form.v2 .tickets-form .pricings-form .pricing-row .tkt-badge-split .tkt-badge-part.tkt-minus-btn, .booking-form.v2 .tickets-form .pricings-form .pricing-row .tkt-badge-split .tkt-badge-part.tkt-plus-btn {
+          font-weight: bold;
+          padding: 0 15px;
+          font-size: 25px;
+          line-height: 32px; }
+  .booking-form.v2 .success-panel {
+    flex: 1;
+    padding-right: 1rem; }
+
+@media screen and (max-width: 768px) {
+  .booking-form.v2 {
+    flex-direction: column; } }
+
+.tkt-carousel {
+  width: 100%;
+  max-width: 100%;
+  max-height: 100%; }
+  .tkt-carousel .carousel-inner {
+    height: 100%; }
+    .tkt-carousel .carousel-inner .carousel-control-prev {
+      left: -25px;
+      opacity: 1; }
+      .tkt-carousel .carousel-inner .carousel-control-prev .carousel-control-prev-icon {
+        width: 13px;
+        height: 60px;
+        background-image: url("../images/slider/left.png"); }
+    .tkt-carousel .carousel-inner .carousel-control-prev:hover .carousel-control-prev-icon {
+      background-image: url("../images/slider/hover/left.png"); }
+    .tkt-carousel .carousel-inner .carousel-control-next {
+      right: -25px;
+      opacity: 1; }
+      .tkt-carousel .carousel-inner .carousel-control-next .carousel-control-next-icon {
+        width: 14px;
+        height: 60px;
+        background-image: url("../images/slider/right.png"); }
+    .tkt-carousel .carousel-inner .carousel-control-next:hover .carousel-control-next-icon {
+      background-image: url("../images/slider/hover/right.png") !important; }
+    .tkt-carousel .carousel-inner .carousel-item {
+      height: 100%; }
+      .tkt-carousel .carousel-inner .carousel-item .tkt-event-carousel-trailer-wrapper {
+        height: 100%; }
+        .tkt-carousel .carousel-inner .carousel-item .tkt-event-carousel-trailer-wrapper .tkt-event-carousel-trailer {
+          height: 100%; }
+      .tkt-carousel .carousel-inner .carousel-item img {
+        max-width: 100%; }
+    .tkt-carousel .carousel-inner .yt-video-image {
+      max-width: 100%; }
 
 .tkt-cart-icon {
   position: relative; }
