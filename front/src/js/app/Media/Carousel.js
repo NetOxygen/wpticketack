@@ -37,6 +37,8 @@ define(
         },
 
         init: function() {
+            this.$container.addClass('tkt-carousel');
+
             $(document).ready(this.init_carousel.bind(this));
 
             // Subscribe on actions sent by other components.
@@ -100,6 +102,10 @@ define(
                 return false;
             });
 
+            this.fix_carousel_height();
+            $(window).on('resize', (e) => {
+                this.fix_carousel_height();
+            });
             this.$container.on('slid.bs.carousel', this.emit_slide.bind(this));
         },
 
@@ -109,6 +115,11 @@ define(
                 topic: "slide",
                 data: { e }
             });
+        },
+
+        fix_carousel_height: function() {
+            // Set 16/9 format
+            this.$container.height(this.$container.width() * 9 / 16);
         },
 
         detach: function() {
