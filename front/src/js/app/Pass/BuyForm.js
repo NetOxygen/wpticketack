@@ -46,7 +46,6 @@ define([
             let userdata = $('.field:visible,.opaque_field', this.$container)
                 .filter(function(i) { return !!($(this).val()); })
                 .serializeJSON();
-            console.log(userdata);
             userdata.no_photo = true;
 
             this.$selected_pass = $('.choose-pass:checked', this.$container).parents('.pass');

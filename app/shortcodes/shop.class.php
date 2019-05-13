@@ -2,7 +2,7 @@
 namespace Ticketack\WP\Shortcodes;
 
 use Ticketack\WP\Templates\TKTTemplate;
-use Ticketack\Core\Models\Article;
+use Ticketack\WP\Core\Models\Article;
 use Ticketack\Core\Base\TKTApiException;
 
 /**
@@ -15,6 +15,12 @@ use Ticketack\Core\Base\TKTApiException;
  */
 class ArticleShortcode extends TKTShortcode
 {
+    const LIST_TEMPLATE      = 'list';
+    const GRID_TEMPLATE      = 'grid';
+    const GALLERY_TEMPLATE   = 'gallery';
+    const SLIDER_TEMPLATE    = 'slider';
+    const DEFAULT_ITEM_WIDTH = 12;
+
     /**
      * Get this Shortcode tag
      *
@@ -33,18 +39,22 @@ class ArticleShortcode extends TKTShortcode
      */
     public function run($atts, $content)
     {
-        $id = isset($atts['id']) ? $atts['id'] : null;
-        if (is_null($id)) {
-            return null;
-        }
+        $template     = isset($atts['template']) ? $atts['template'] : static::LIST_TEMPLATE;
+        $category_ids = isset($atts['category_ids']) ? explode(',', $atts['category_ids']) : null;
 
         try {
-            $article = Article::find($id);
+            $query = Article::all();
+
+            if (!empty($category_ids)) {
+                $query = $query->in_category($category_ids);
+            }
+
+            $articles = $query->get('_id,name,additional_name,description,variants,posters');
 
             return TKTTemplate::render(
-                'article/article',
+                'article/'.$template.'/articles',
                 (object)[
-                    'article' => $article,
+                    'articles' => $articles,
                 ]
             );
         } catch (TKTApiException $e) {

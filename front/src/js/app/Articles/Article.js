@@ -20,13 +20,15 @@ define(
 
             this._id = this.$container.data('id');
 
-            this.$triggers     = $('.show-variants', this.$container);
-            this.$closers      = $('.close-variants', this.$container);
-            this.$modal        = $('.article-variants-form', this.$container);
-            this.$variants     = $('.variant-wrapper', this.$container);
-            this.$submit       = $('.variants-submit', this.$container);
-            this.$error        = $('.variants-error', this.$container);
-            this.$submit_error = $('.variants-submit-error', this.$container);
+            this.$triggers       = $('.show-variants', this.$container);
+            this.$closers        = $('.close-variants', this.$container);
+            this.$modal          = $('.article-variants-form', this.$container);
+            this.$variants       = $('.variant-wrapper', this.$container);
+            this.$submit         = $('.variants-submit', this.$container);
+            this.$go_to_cart     = $('.go-to-cart', this.$container);
+            this.$error          = $('.variants-error', this.$container);
+            this.$submit_success = $('.variants-submit-success', this.$container);
+            this.$submit_error   = $('.variants-submit-error', this.$container);
         }
 
         Article.prototype = {
@@ -49,19 +51,26 @@ define(
                     const price     = parseFloat($('.variant-price', $(v)).data('price'));
 
                     $add.click((e) => {
-                        this.hide_errors();
+                        this.hide_messages();
+                        this.$submit.fadeIn();
                         $quantity.html(parseInt($quantity.html()) + 1);
                         $total.html((parseFloat($total.html()) + price).toFixed(2));
                     });
 
                     $sub.click((e) => {
-                        $quantity.html(Math.max(0, parseInt($quantity.html()) - 1));
+                        const quantity = parseInt($quantity.html());
+                        if (quantity <= 0)
+                            return;
+
+                        if (quantity == 1)
+                            this.$submit.fadeOut();
+
+                        $quantity.html(quantity - 1);
                         $total.html(parseFloat(($total.html()) - price).toFixed(2));
                     });
                 });
 
-                const $submit = $('.variants-submit', this.$container);
-                $submit.click((e) => {
+                this.$submit.click((e) => {
                     this.add_to_cart();
                 });
             },
@@ -75,15 +84,22 @@ define(
             },
 
             show_error: function() {
-                this.$error.fadeIn();
+                this.$error.show();
+            },
+
+            show_submit_success: function(msg) {
+                this.hide_messages();
+                this.$submit_success.html(msg).show();
             },
 
             show_submit_error: function(err) {
-                this.$submit_error.html(err).fadeIn();
+                this.$submit_error.html(err).show();
             },
 
-            hide_errors: function() {
+            hide_messages: function() {
+                this.$go_to_cart.fadeOut();
                 this.$error.fadeOut();
+                this.$submit_success.fadeOut();
                 this.$submit_error.fadeOut();
             },
 
@@ -123,9 +139,14 @@ define(
 
                 // Add to cart
                 TKTApi.addArticlesToCart(articles, (err, status, rsp) => {
-                    this.hide_variants();
                     if (err)
                         return this.show_submit_error(rsp.errorMsg);
+
+                    this.show_submit_success(rsp.flash.success);
+                    $('.variant-quantity').html(0);
+                    $('.variant-total').html('0.00');
+                    this.$go_to_cart.fadeIn();
+                    this.$submit.fadeOut();
 
                     // Reload and emit cart update
                     TKTApi.loadCart((err, status, rsp) => {
