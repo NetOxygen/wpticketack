@@ -1,4 +1,4 @@
-/* Built on Tue Apr 23 2019 18:42:09 GMT+0200 (CEST) */ 
+/* Built on Tue May 14 2019 00:38:19 GMT+0200 (CEST) */ 
 .tkt-wrapper {
   /*!
  * Bootstrap v4.1.3 (https://getbootstrap.com/)
@@ -5648,6 +5648,35 @@
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none; }
+
+.tkt-article .article-variants .article-variants-form .poster-wrapper {
+  margin: 30px auto; }
+
+.tkt-article .article-variants .article-variants-form .variants-wrapper .variant-wrapper .variant-sub {
+  cursor: pointer; }
+
+.tkt-article .article-variants .article-variants-form .variants-wrapper .variant-wrapper .variant-add {
+  cursor: pointer; }
+
+.tkt-article .article-variants .article-variants-form .variants-wrapper .variant-wrapper .variant-price {
+  text-align: right; }
+
+.tkt-article .article-variants .article-variants-form .variants-wrapper .variant-total-row {
+  height: 80px; }
+  .tkt-article .article-variants .article-variants-form .variants-wrapper .variant-total-row .variant-total-label,
+  .tkt-article .article-variants .article-variants-form .variants-wrapper .variant-total-row .variant-total {
+    text-align: right; }
+
+.tkt-article .article-variants .article-variants-form .variants-error,
+.tkt-article .article-variants .article-variants-form .variants-submit-error {
+  display: none;
+  color: #FF0000; }
+
+.tkt-article .article-variants .article-variants-form .variants-submit {
+  display: none; }
+
+.tkt-article .article-variants .article-variants-form .go-to-cart {
+  display: none; }
 
 #tkt_articles .article-variants-form {
   display: none;
