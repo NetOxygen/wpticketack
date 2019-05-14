@@ -410,36 +410,43 @@ function tkt_is_uuidv4($str)
     return (preg_match($regexp, $str) ? true : false);
 }
 
-if (!function_exists('tkt_img_proxy_url')) {
-    function tkt_img_proxy_url($remote_url, $width = '-', $height = '-')
+if (!function_exists('tkt_invalid_url_path_encode_url')) {
+    // https://stackoverflow.com/questions/9831077/how-to-url-encode-only-non-ascii-symbols-of-url-in-php-but-leave-reserved-symbo
+    function tkt_invalid_url_path_encode_url($url)
     {
-        $proxy_img_key  = TKTApp::get_instance()->get_config('images_proxy.key');
+        $path = parse_url($url, PHP_URL_PATH);
+        if ($path !== false && strpos($path, '%') !== false) return $url; // avoid double encoding
+        else {
+            $encoded_path = array_map('rawurlencode', explode('/', $path));
+            return str_replace($path, implode('/', $encoded_path), $url);
+        }
+    }
+}
+
+if (!function_exists('tkt_img_proxy_url')) {
+    function tkt_img_proxy_url($remote_url, $max_width = null, $max_height = null)
+    {
         $proxy_img_host = TKTApp::get_instance()->get_config('images_proxy.host');
 
-        if (empty($proxy_img_key) || empty($proxy_img_host)) {
+        if (empty($proxy_img_host)) {
             return $remote_url;
         }
 
         if (!filter_var($remote_url, FILTER_VALIDATE_URL)) {
-            return false;
+            // sometimes we get non RFC 1738 urls, let's be nice and try to fix it
+            $remote_url =tkt_invalid_url_path_encode_url($remote_url);
+            if (!filter_var($remote_url, FILTER_VALIDATE_URL)) {
+                return false;
+            }
         }
 
-        $exploded_url = parse_url($remote_url);
-        $path         = sprintf(
-            "image/%sx%s/%s/%s%s",
-            $width,
-            $height,
-            $exploded_url['scheme'],
-            $exploded_url['host'],
-            $exploded_url['path']
-        );
-        $key = tkt_base64url_encode(md5('/' . $path . ' ' . $proxy_img_key, true));
+        // if user agent supports webp, always prefer webp
+        $webp = strpos($_SERVER['HTTP_ACCEPT'], 'image/webp') !== false ? 'webp' : null;
 
         return sprintf(
-            "https://%s/%s?%s",
+            "https://%s/?%s",
             $proxy_img_host,
-            $path,
-            http_build_query(['key' => $key])
+            http_build_query(['url' => $remote_url, 'w' => $max_width, 'h' => $max_height, 'output' => $webp, 'q' => 70])
         );
     }
 }

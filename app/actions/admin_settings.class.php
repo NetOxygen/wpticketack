@@ -130,14 +130,6 @@ class AdminSettingsAction extends TKTAction
             'ticketack_images_proxy' // Section
         );
 
-        add_settings_field(
-            'key', // ID
-            tkt_t('Clé du serveur proxy'), // Title
-            array( $this, 'proxy_img_key_callback' ), // Callback
-            'ticketack-images', // Page
-            'ticketack_images_proxy' // Section
-        );
-
         add_settings_section(
             'ticketack_pass', // ID
             tkt_t('Abonnements'), // Title
@@ -233,8 +225,7 @@ class AdminSettingsAction extends TKTAction
     {
         print tkt_t("Configuration du serveur proxy d'images.");
     }
-    public function proxy_img_host_callback() { return $this->input('host', 'tkt_images_proxy', 'proxy.img.ch'); }
-    public function proxy_img_key_callback() { return $this->input('key', 'tkt_images_proxy', 'AccessKey'); }
+    public function proxy_img_host_callback() { return $this->input('host', 'proxy, cache and converter based on https://github.com/weserv/images (e.g. images.weserv.nl)', 'images.weserv.nl'); }
 
     /**
      * Print the Section text
@@ -269,10 +260,10 @@ class AdminSettingsAction extends TKTAction
      * @param string $group: The option group
      * @param string $placeholder: The option placeholder
      */
-    public function input($name, $group, $placeholder = null)
+    public function input($name, $group, $placeholder = null, $default = null)
     {
         $this->options = get_option($group);
-        $value = isset($this->options[$name]) ? esc_attr($this->options[$name]) : null;
+        $value = isset($this->options[$name]) ? esc_attr($this->options[$name]) : $default;
         printf(
             '<input type="text" id="%s" name="%s[%s]" value="%s" placeholder="%s"/>',
             $name,
