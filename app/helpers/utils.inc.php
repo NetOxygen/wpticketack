@@ -81,6 +81,21 @@ function tkt_date_and_time_to_min_s($dt)
 }
 
 /**
+ * Formats a DateTime in a hour format
+ *
+ * @param $dt
+ *   The DateTime object to format.
+ *
+ * @return
+ *   A string.
+ */
+function tkt_date_and_time_to_time_s($dt)
+{
+    $fmt = "%H:%M";
+    return strftime($fmt, $dt->getTimestamp());
+}
+
+/**
  * convert an ISO-8601 formated string to a PHP DateTime object.
  *
  * see http://stackoverflow.com/questions/14849446/php-parse-date-in-iso-format
