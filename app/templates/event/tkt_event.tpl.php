@@ -46,6 +46,7 @@ $images_height = TKTApp::get_instance()->get_config('images_dimensions.big_heigh
 <div class="tkt-wrapper tkt_event">
   <div id="tkt-event">
 
+    <?php if (count($trailers) > 0) : ?>
     <section class="tkt-full-section carousel-section">
       <div class="row">
         <div class="col">
@@ -80,6 +81,7 @@ $images_height = TKTApp::get_instance()->get_config('images_dimensions.big_heigh
         </div>
       </div>
     </section>
+    <?php endif; ?>
 
     <section class="tkt-section infos-section">
       <?php if (!empty($description)) : ?>
