@@ -43,7 +43,7 @@ class DaysFilterShortcode extends TKTShortcode
             $max->add(new \DateInterval('P'.($nb_days - 1).'D'));
         }
 
-        $active = tkt_get_url_param('d');
+        $active = tkt_get_url_param('d', date('Y-m-d'));
 
         $days    = [];
         $current = clone($min);
