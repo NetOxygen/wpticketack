@@ -13,6 +13,8 @@
 
 use Ticketack\WP\TKTApp;
 
+date_default_timezone_set(get_option('timezone_string'));
+
 define('TKT_ASSETS_VERSION', '1.1.4.2019040201');
 
 define("TKT_BASE", (dirname(__FILE__)));
