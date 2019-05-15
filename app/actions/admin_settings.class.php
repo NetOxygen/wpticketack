@@ -225,7 +225,7 @@ class AdminSettingsAction extends TKTAction
     {
         print tkt_t("Configuration du serveur proxy d'images.");
     }
-    public function proxy_img_host_callback() { return $this->input('host', 'proxy, cache and converter based on https://github.com/weserv/images (e.g. images.weserv.nl)', 'images.weserv.nl'); }
+    public function proxy_img_host_callback() { return $this->input('host', 'tkt_images_proxy', 'images.weserv.nl', 'images.weserv.nl'); }
 
     /**
      * Print the Section text
