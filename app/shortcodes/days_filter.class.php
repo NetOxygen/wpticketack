@@ -40,7 +40,7 @@ class DaysFilterShortcode extends TKTShortcode
             $max = tkt_iso8601_to_datetime($atts['max_start_at']);
         } else if (isset($atts['nb_days'])) {
             $nb_days = (int)$atts['nb_days'];
-            $max->add(new \DateInterval('P'.$nb_days.'D'));
+            $max->add(new \DateInterval('P'.($nb_days - 1).'D'));
         }
 
         $active = tkt_get_url_param('d');
