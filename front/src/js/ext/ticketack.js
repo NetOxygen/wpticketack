@@ -179,7 +179,7 @@ Ticketack.prototype.addArticlesToCart = function(articles, callback) {
     var data = { "articles":  articles };
     return this.request(
         'POST',
-        this.cartAddArticlesUrl,
+        this.parametrize_url(this.cartAddArticlesUrl, {}, true),
         data,
         { "Content-type": "application/json" },
         callback
