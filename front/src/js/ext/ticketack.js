@@ -14,7 +14,7 @@
  *     - List the available passes
  *     - Update e-mail information in ticket
  *
- * @version 5.1.0 - 2019-02-19
+ * @version 5.2.0 - 2019-06-13
  *
  * @copyright NetOxygen 2015-2018
  *
@@ -30,6 +30,7 @@ var Ticketack = function(eshopUrl, apiKey, lang) {
     this.lang                  = lang ? lang : '';
 
     this.cartViewUrl           = this.eshopUrl + "cart/view/";
+    this.checkoutUrl           = this.eshopUrl + "cart/validate/";
     this.ticketViewUrl         = this.eshopUrl + "ticket/view/";
     this.passesViewUrl         = this.eshopUrl + "pass/new/";
     this.screeningViewUrl      = this.eshopUrl + "screening/buy/";
@@ -59,6 +60,14 @@ var Ticketack = function(eshopUrl, apiKey, lang) {
  */
 Ticketack.prototype.getCartViewUrl   = function() {
     var url = this.parametrize_url(this.cartViewUrl, {});
+    return url;
+}
+
+/**
+ * Checkout page url getter
+ */
+Ticketack.prototype.getCheckoutUrl   = function() {
+    var url = this.parametrize_url(this.checkoutUrl, {});
     return url;
 }
 

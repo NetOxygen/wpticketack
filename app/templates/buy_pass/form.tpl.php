@@ -7,7 +7,8 @@ use Ticketack\WP\TKTApp;
  *
  * Input:
  * $data: {
- *   "tickettypes": [ ... ]
+ *   "tickettypes": [ ... ],
+ *   "redirect": none|cart|tkt_cart|tkt_checkout
  * }
  */
 ?>
@@ -107,7 +108,9 @@ use Ticketack\WP\TKTApp;
           <div id="submit-section" class="row">
             <div class="col-md-12 text-right">
               <p id="notice-required" class="small"><?= tkt_t('Tous ces champs sont requis') ?></p>
-              <button type="submit" class="button active btn-block"><i class="glyphicon glyphicon-shopping-cart"></i><?= tkt_t("Ajouter au panier") ?></button>
+              <button type="submit" class="button active btn-block" data-redirect="<?= $data->redirect ?>">
+                <i class="glyphicon glyphicon-shopping-cart"></i><?= tkt_t("Ajouter au panier") ?>
+              </button>
             </div>
           </div>
         </fieldset>

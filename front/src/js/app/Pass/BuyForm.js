@@ -38,11 +38,11 @@ define([
 
             $('button[type="submit"]', this.$container).click((e) => {
                 e.preventDefault();
-                this.add_to_cart();
+                this.add_to_cart($(e.target).data('redirect'));
             });
         },
 
-        add_to_cart: function() {
+        add_to_cart: function(redirect) {
             let userdata = $('.field:visible,.opaque_field', this.$container)
                 .filter(function(i) { return !!($(this).val()); })
                 .serializeJSON();
@@ -59,11 +59,22 @@ define([
                 if (err)
                     return this.show_error(i18n.t('Une erreur est survenue. Veuillez ré-essayer ultérieurement.'));
 
-                const cart_url = config.get('cart_url');
-                if (cart_url)
-                    window.location.href = cart_url;
-                else
-                    this.show_success(i18n.t('Votre panier a été mis à jour'));
+                let url = null;
+                switch (redirect) {
+                    case 'none':
+                        this.show_success(i18n.t('Votre panier a été mis à jour'));
+                        break;
+                    case 'cart':
+                        url = config.get('cart_url');
+                        break;
+                    case 'tkt_cart':
+                        url = TKTApi.getCartViewUrl();
+                        break;
+                    case 'tkt_checkout':
+                        url = TKTApi.getCheckoutUrl();
+                        break;
+                }
+                url && (window.location.href = url);
 
                 postal.publish({
                     channel: "cart",

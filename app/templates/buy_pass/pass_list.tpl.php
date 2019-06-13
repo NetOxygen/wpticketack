@@ -4,7 +4,8 @@
  *
  * Input:
  * $data: {
- *   "tickettypes": [ ... ]
+ *   "tickettypes": [ ... ],
+ *   "redirect": none|cart|tkt_cart|tkt_checkout
  * }
  */
 

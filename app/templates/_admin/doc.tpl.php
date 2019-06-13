@@ -54,7 +54,7 @@ use Ticketack\WP\TKTApp;
             <img src="<?= tkt_assets_url('build/images/admin/screen-pass.png') ?>"/>
             <figcaption>
                 <label><?= tkt_t('Vente des différents types d\'abonnements') ?></label>
-                [tkt_buy_pass][/tkt_buy_pass]
+                [tkt_buy_pass redirect="none|cart|tkt_cart|tkt_checkout"][/tkt_buy_pass]
             </figcaption>
         </figure>
     </div>
