@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-22 16:04+0100\n"
+"POT-Creation-Date: 2019-06-13 18:04+0200\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Belkacem Alidra <belkacem.alidra@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,12 +16,6 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-
-msgid "Aucun article dans cette catégorie, revenez nous visiter prochainement."
-msgstr "No screening currently scheduled, come back soon."
-
-msgid "Vous avez choisi :"
-msgstr "You chose"
 
 msgid "Sélectionnez votre contenance et votre quantité :"
 msgstr "Select the quantity"
@@ -32,20 +26,11 @@ msgstr "Total"
 msgid "Veuillez choisir au moins un produit"
 msgstr "Please choose a date"
 
-msgid "Valider"
-msgstr "Confirm"
+msgid "Accéder au panier"
+msgstr "Add to cart"
 
-msgid "Plus d'informations"
-msgstr "More informations"
-
-msgid "Commander"
-msgstr "my order"
-
-msgid "Il ne reste que quelques articles"
-msgstr "There are only a few places"
-
-msgid "Plus de stock"
-msgstr "No more stock"
+msgid "Ajouter au panier"
+msgstr "Add to cart"
 
 msgid "Prénom"
 msgstr "Firstname"
@@ -59,6 +44,18 @@ msgstr "Lastname"
 msgid "Votre nom"
 msgstr "Your lastname"
 
+msgid "Email"
+msgstr ""
+
+msgid "Votre email"
+msgstr "Your email"
+
+msgid "Adresse"
+msgstr "Address"
+
+msgid "Votre adresse"
+msgstr "Your address"
+
 msgid "Numéro postal"
 msgstr "Zip"
 
@@ -67,12 +64,6 @@ msgstr "ZIP"
 
 msgid "Ville"
 msgstr "City"
-
-msgid "Adresse"
-msgstr "Address"
-
-msgid "Votre adresse"
-msgstr "Your address"
 
 msgid "Pays"
 msgstr "Country"
@@ -83,11 +74,8 @@ msgstr "Age"
 msgid "Genre"
 msgstr "Genre"
 
-msgid "* ces champs sont requis"
-msgstr "* these fields are required"
-
-msgid "Ajouter au panier"
-msgstr "Add to cart"
+msgid "Tous ces champs sont requis"
+msgstr "All these fields are required"
 
 msgid "Tarifs :"
 msgstr "Pricings"
@@ -95,11 +83,11 @@ msgstr "Pricings"
 msgid "Veuillez choisir la date désirée :"
 msgstr "Please choose a date"
 
+msgid "Veuillez choisir l'heure désirée :"
+msgstr "Please choose a time"
+
 msgid "Merci, votre commande est réservée dans votre panier pour 30 minutes."
 msgstr "Thank you, your order is reserved in your cart for 30 minutes."
-
-msgid "Accéder au panier"
-msgstr "Add to cart"
 
 msgid "Continuer"
 msgstr "Continue"
@@ -203,6 +191,9 @@ msgid ""
 "Aucun événement programmé actuellement, revenez nous visiter prochainement."
 msgstr "No event currently scheduled, come back soon."
 
+msgid "Plus d'informations"
+msgstr "More informations"
+
 msgid ""
 "Aucuné séance programmée actuellement, revenez nous visiter prochainement."
 msgstr "No screening currently scheduled, come back soon."
@@ -237,6 +228,42 @@ msgstr "Buy"
 msgid "un abonnement"
 msgstr "a pass"
 
+msgid "Aucun article dans cette catégorie, revenez nous visiter prochainement."
+msgstr "No screening currently scheduled, come back soon."
+
+msgid "Vous avez choisi :"
+msgstr "You chose"
+
+msgid "Valider"
+msgstr "Confirm"
+
+msgid "Commander"
+msgstr "my order"
+
+msgid "Il ne reste que quelques articles"
+msgstr "There are only a few places"
+
+msgid "Plus de stock"
+msgstr "No more stock"
+
+msgid "Synopsis"
+msgstr ""
+
+msgid "Details"
+msgstr ""
+
+msgid "Durée"
+msgstr ""
+
+msgid "min"
+msgstr ""
+
+msgid "Casting"
+msgstr ""
+
+msgid "Achetez vos billets"
+msgstr ""
+
 msgid "Veuillez choisir au moins un billet"
 msgstr "Please choose a date"
 
@@ -253,6 +280,12 @@ msgid ""
 "Vous ne pouvez pas réserver plus de place pour cette séance avec votre "
 "abonnement."
 msgstr "You  can not book this screening with your pass"
+
+msgid "Veuillez choisir un tarif"
+msgstr "Please choose a pricing"
+
+msgid "Votre panier a été mis à jour"
+msgstr "Your cart has been updated"
 
 msgid "Pas de réponse"
 msgstr "No answer"
@@ -383,9 +416,6 @@ msgstr "Images proxy server"
 msgid "Serveur proxy"
 msgstr "Proxy server"
 
-msgid "Clé du serveur proxy"
-msgstr "Server key"
-
 msgid "Champs à saisir pour chaque type d'abonnement"
 msgstr "Mandatory fields for each pass type"
 
@@ -416,6 +446,9 @@ msgstr "Languages configuration"
 msgid ""
 "Ne modifiez les valeurs ci-dessous que si vous savez ce que vous faites."
 msgstr "Change these settings only if you know what you are doing."
+
+#~ msgid "Clé du serveur proxy"
+#~ msgstr "Server key"
 
 #~ msgid "sous-titres"
 #~ msgstr "subtitles"

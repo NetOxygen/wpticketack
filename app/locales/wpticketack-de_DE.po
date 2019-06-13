@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-22 16:06+0100\n"
+"POT-Creation-Date: 2019-06-13 18:06+0200\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Belkacem Alidra <belkacem.alidra@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,39 +17,20 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#, fuzzy
-msgid "Aucun article dans cette catégorie, revenez nous visiter prochainement."
-msgstr "Derzeit ist keine Sitzung geplant, komm bald wieder."
-
-msgid "Vous avez choisi :"
-msgstr ""
-
 msgid "Sélectionnez votre contenance et votre quantité :"
 msgstr ""
 
 msgid "Total"
 msgstr ""
 
-#, fuzzy
 msgid "Veuillez choisir au moins un produit"
-msgstr "Bitte wählen Sie mindestens einen Ball aus."
+msgstr "Bitte wählen Sie mindestens ein Produkt aus"
 
-msgid "Valider"
-msgstr ""
+msgid "Accéder au panier"
+msgstr "Zum Warenkorb gehen"
 
-msgid "Plus d'informations"
-msgstr "Weitere Informationen"
-
-#, fuzzy
-msgid "Commander"
-msgstr "meine Bestellung"
-
-#, fuzzy
-msgid "Il ne reste que quelques articles"
-msgstr "Es gibt nur noch wenige Plätze"
-
-msgid "Plus de stock"
-msgstr ""
+msgid "Ajouter au panier"
+msgstr "Zum Warenkorb hinzufügen"
 
 msgid "Prénom"
 msgstr "Vorname"
@@ -63,6 +44,18 @@ msgstr "Name"
 msgid "Votre nom"
 msgstr "Dein Name"
 
+msgid "Email"
+msgstr ""
+
+msgid "Votre email"
+msgstr "Deine E-Mail-Adresse"
+
+msgid "Adresse"
+msgstr "Adresse"
+
+msgid "Votre adresse"
+msgstr "Ihre Adresse"
+
 msgid "Numéro postal"
 msgstr "Postnummer"
 
@@ -71,12 +64,6 @@ msgstr "NPA"
 
 msgid "Ville"
 msgstr "Stadt"
-
-msgid "Adresse"
-msgstr "Adresse"
-
-msgid "Votre adresse"
-msgstr "Ihre Adresse"
 
 msgid "Pays"
 msgstr "Land"
@@ -87,11 +74,8 @@ msgstr "Alter"
 msgid "Genre"
 msgstr "Art"
 
-msgid "* ces champs sont requis"
-msgstr "* diese Felder sind Pflichtfelder"
-
-msgid "Ajouter au panier"
-msgstr "Zum Warenkorb hinzufügen"
+msgid "Tous ces champs sont requis"
+msgstr "Alle diese Felder müssen ausgefüllt werden."
 
 msgid "Tarifs :"
 msgstr "Preise:"
@@ -99,11 +83,11 @@ msgstr "Preise:"
 msgid "Veuillez choisir la date désirée :"
 msgstr "Bitte wählen Sie das gewünschte Datum aus:"
 
+msgid "Veuillez choisir l'heure désirée :"
+msgstr "Bitte wählen Sie die gewünschte Zeit aus:"
+
 msgid "Merci, votre commande est réservée dans votre panier pour 30 minutes."
 msgstr "Vielen Dank, Ihre Bestellung bleibt 30 Minuten in Ihrem Warenkorb."
-
-msgid "Accéder au panier"
-msgstr "Zum Warenkorb gehen"
 
 msgid "Continuer"
 msgstr "Fortsetzen"
@@ -177,9 +161,8 @@ msgstr ""
 msgid "Affichage du contenu du panier"
 msgstr ""
 
-#, fuzzy
 msgid "Abonnements"
-msgstr "ein Abo"
+msgstr "Abonnements"
 
 msgid "Vente des différents types d'abonnements"
 msgstr ""
@@ -212,6 +195,9 @@ msgid ""
 "Aucun événement programmé actuellement, revenez nous visiter prochainement."
 msgstr ""
 "Derzeit sind keine Veranstaltungen geplant. Besuchen Sie uns bald wieder."
+
+msgid "Plus d'informations"
+msgstr "Weitere Informationen"
 
 msgid ""
 "Aucuné séance programmée actuellement, revenez nous visiter prochainement."
@@ -247,6 +233,42 @@ msgstr "Kaufen"
 msgid "un abonnement"
 msgstr "ein Abo"
 
+msgid "Aucun article dans cette catégorie, revenez nous visiter prochainement."
+msgstr "Keine Artikel in dieser Kategorie, kommen Sie bald wieder."
+
+msgid "Vous avez choisi :"
+msgstr ""
+
+msgid "Valider"
+msgstr ""
+
+msgid "Commander"
+msgstr "Zur Bestellung"
+
+msgid "Il ne reste que quelques articles"
+msgstr "Es sind nur noch wenige Artikel vorhanden."
+
+msgid "Plus de stock"
+msgstr ""
+
+msgid "Synopsis"
+msgstr ""
+
+msgid "Details"
+msgstr ""
+
+msgid "Durée"
+msgstr ""
+
+msgid "min"
+msgstr ""
+
+msgid "Casting"
+msgstr ""
+
+msgid "Achetez vos billets"
+msgstr ""
+
 msgid "Veuillez choisir au moins un billet"
 msgstr "Bitte wählen Sie mindestens einen Ball aus."
 
@@ -266,6 +288,12 @@ msgid ""
 msgstr ""
 "Sie können mit Ihrem Abonnement keinen Sitzplatz für diese Sitzung "
 "reservieren."
+
+msgid "Veuillez choisir un tarif"
+msgstr "Bitte wählen Sie einen Tarif aus"
+
+msgid "Votre panier a été mis à jour"
+msgstr "Ihr Warenkorb wurde aktualisiert."
 
 msgid "Pas de réponse"
 msgstr "Keine Antwort"
@@ -309,45 +337,35 @@ msgstr "Keine Ereignisse im Papierkorb gefunden"
 msgid "Événements importés depuis Ticketack"
 msgstr "Von Ticketack importierte Ereignisse"
 
-#, fuzzy
 msgid "Add New Ticketack Article"
-msgstr "Neues Ticketack-Event hinzufügen"
+msgstr "Neuen Ticketack-Artikel hinzufügen"
 
-#, fuzzy
 msgid "New Ticketack Article"
-msgstr "Neues Ticketack-Event"
+msgstr "Neuer Ticketack-Artikel"
 
-#, fuzzy
 msgid "Edit Ticketack Article"
-msgstr "Ticketack-Event bearbeiten"
+msgstr "Ticketack-Artikel bearbeiten"
 
-#, fuzzy
 msgid "View Ticketack Article"
-msgstr "Ticketack-Event anzeigen"
+msgstr "Ticketack-Artikel ansehen"
 
-#, fuzzy
 msgid "All Ticketack Articles"
-msgstr "Alle Ticketack-Events"
+msgstr "Alle Ticketack-Artikel"
 
-#, fuzzy
 msgid "Search Ticketack Articles"
-msgstr "Ticketack-Events suchen"
+msgstr "Suche Ticketack Artikel"
 
-#, fuzzy
 msgid "Parent Ticketack Article:"
-msgstr "Übergeordnete Ticketack-Events"
+msgstr "Eltern-Ticketack-Artikel:"
 
-#, fuzzy
 msgid "No article found."
-msgstr "Keine Events gefunden"
+msgstr "Kein Artikel gefunden."
 
-#, fuzzy
 msgid "No article found in Trash."
-msgstr "Keine Ereignisse im Papierkorb gefunden"
+msgstr "Kein Artikel in Papierkorb gefunden."
 
-#, fuzzy
 msgid "Articles importés depuis Ticketack"
-msgstr "Von Ticketack importierte Ereignisse"
+msgstr "Aus Ticketack importierte Elemente"
 
 msgid "API"
 msgstr ""
@@ -367,9 +385,8 @@ msgstr ""
 msgid "Ticketack n'est pas configuré."
 msgstr ""
 
-#, fuzzy
 msgid "Accéder aux réglages"
-msgstr "Zum Warenkorb gehen"
+msgstr "Auf die Einstellungen zugreifen"
 
 msgid "Accès à Ticketack"
 msgstr ""
@@ -405,9 +422,6 @@ msgid "Serveur proxy d'images"
 msgstr ""
 
 msgid "Serveur proxy"
-msgstr ""
-
-msgid "Clé du serveur proxy"
 msgstr ""
 
 msgid "Champs à saisir pour chaque type d'abonnement"
