@@ -55,6 +55,7 @@ class ProgramShortcode extends TKTShortcode
         $order        = isset($atts['order']) ? $atts['order'] : ($layout == static::SCREENINGS_LAYOUT ? static::CHRONO_ORDER : static::ALPHA_ORDER);
         $top_filter   = isset($atts['top_filter']) ? $atts['top_filter'] : null;
         $day          = isset($atts['day']) ? $atts['day'] : tkt_get_url_param('d');
+        $places       = isset($atts['places']) ? explode(',', $atts['places']) : [];
 
         try {
             $query = Screening::all()
@@ -82,6 +83,12 @@ class ProgramShortcode extends TKTShortcode
             }
 
             $screenings = $query->get('_id,title,start_at,stop_at,cinema_hall.name,cinema_hall._id,films,opaque');
+
+            if (!empty($places)) {
+                $screenings = array_filter($screenings, function ($s) use ($places) {
+                    return in_array($s->place()->_id(), $places);
+                });
+            }
 
             switch ($layout) {
                 case static::SCREENINGS_LAYOUT:

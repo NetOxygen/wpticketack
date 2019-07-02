@@ -30,7 +30,7 @@ $nb_per_row = (int)(12 / $item_width);
           <div class="row">
           <?php endif; ?>
 
-            <div class="tkt_program_screening col col-<?= $item_width ?>">
+            <div class="tkt_program_screening col-12 col-sm-6  col-md-<?= $item_width ?>">
               <?= TKTTemplate::render('program/grid/screening', (object)[ 'screening' => $screening ]) ?>
             </div>
 

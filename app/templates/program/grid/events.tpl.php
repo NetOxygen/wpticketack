@@ -30,7 +30,7 @@ $nb_per_row = 12 / $item_width;
           <div class="row">
           <?php endif; ?>
 
-            <div class="tkt_program_event col col-<?= $item_width ?>" data-type="<?= $event->opaque('type') ?>">
+            <div class="tkt_program_event col-12 col-sm-6 col-md-<?= $item_width ?>" data-type="<?= $event->opaque('type') ?>">
               <?= TKTTemplate::render('program/grid/event', (object)[ 'event' => $event ]) ?>
             </div>
 
