@@ -27,7 +27,7 @@ $query_mask = '?d=%s';
               <li class="tkt-day-filter <?= $active == $day->format('Y-m-d') ? 'active' : '' ?>">
                   <a href="<?= sprintf($query_mask, $day->format('Y-m-d')) ?>">
                       <span class="tkt-day-filter-day">
-                          <?= strftime('%a', $day->getTimestamp()) ?>
+                          <?= strftime('%A', $day->getTimestamp()) ?>
                       </span>
                       <span class="tkt-day-filter-date"><?= $day->format('j') ?></span>
                   </a>
