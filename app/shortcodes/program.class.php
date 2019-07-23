@@ -50,7 +50,7 @@ class ProgramShortcode extends TKTShortcode
 
         try {
             $query = Screening::all()
-                ->in_the_future()
+                //->in_the_future()
                 ->order_by_start_at();
 
             if (!empty($day)) {

@@ -146,8 +146,8 @@ class SyncHelper
 
             if ($existing_attachment && $existing_attachment->guid == $dest_url) {
                 // The attachment has the same name: not changed ???
-                static::link_attachment_to_post($post_id, $existing_attachment_id->ID);
-                return false;
+                //static::link_attachment_to_post($post_id, $existing_attachment_id->ID);
+                //return false;
             }
 
             // We could delete the existing attachment here if wanted

@@ -268,7 +268,7 @@ function screening_book_url($screening)
 	    return get_site_url(
 		/*$blog_id*/null,
 		sprintf(
-		    "%s/%s_%s/book",
+		    "%s/%s_%s?book=1",
 		    TKTApp::get_instance()->get_config('pages.screening'),
 		    $screening->_id(),
 		    sanitize_title($screening->title('original'))
@@ -278,7 +278,7 @@ function screening_book_url($screening)
 	    return get_site_url(
 		/*$blog_id*/null,
 		sprintf(
-		    "%s/%s/%s_%s/book",
+		    "%s/%s/%s_%s?book=1",
                     LANG,
 		    TKTApp::get_instance()->get_config('pages.screening'),
 		    $screening->_id(),
