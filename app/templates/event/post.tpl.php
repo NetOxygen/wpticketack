@@ -1,4 +1,8 @@
 <?php
+
+use Ticketack\WP\TKTApp;
+use Ticketack\WP\Templates\TKTTemplate;
+
 /**
  * Program event template
  *
@@ -20,7 +24,7 @@ if (!empty($e->opaque('free_text_3'))) {
 
 if (empty($date_title)) {
     $date_title = implode('<br/>', array_unique(array_map(function ($s) {
-        return str_replace(':', 'H', date_and_time_to_min_s($s->start_at()));
+        return str_replace(':', 'H', tkt_date_and_time_to_min_s($s->start_at()));
     }, $e->screenings())));
 }
 
@@ -36,10 +40,10 @@ $ids = array_map(function ($s) {
     return $s->_id();
 }, $e->screenings());
 
-$images_width  = TKTApp::get_instance()->get_config('images.dimensions.big.width');
-$images_height = TKTApp::get_instance()->get_config('images.dimensions.big.height');
+$images_width  = TKTApp::get_instance()->get_config('images_dimensions.big_width');
+$images_height = TKTApp::get_instance()->get_config('images_dimensions.big_height');
 ?>
-<div class="tkt_event">
+<div class="tkt-wrapper tkt_event">
 
   <div class="row">
     <div class="col">
@@ -52,8 +56,8 @@ $images_height = TKTApp::get_instance()->get_config('images.dimensions.big.heigh
               id="tkt-event-carousel-trailer-<?= $i ?>"
                 class="tkt-event-carousel-trailer"
                 data-component="Media/YoutubeVideo"
-                data-video-id="<?= yt_video_id($t->url) ?>"
-                data-video-image="<?= img_proxy_url($t->image, $images_width, $images_height) ?>"
+                data-video-id="<?= tkt_yt_video_id($t->url) ?>"
+                data-video-image="<?= tkt_img_proxy_url($t->image, $images_width, $images_height) ?>"
                 data-bs4-carousel-id="event-carousel">
               </div>
             </div>
@@ -61,7 +65,7 @@ $images_height = TKTApp::get_instance()->get_config('images.dimensions.big.heigh
           <?php endforeach; ?>
           <?php foreach ($e->posters() as $i => $p) : ?>
           <div class="carousel-item <?= count($e->trailers()) == 0 && $i == 0 ? 'active' : '' ?>">
-            <img style="max-width: 924px" class="d-block w-100" src="<?= img_proxy_url($p->url, $images_width, $images_height) ?>" alt="<?= $e->localized_title_or_original('fr') ?>">
+            <img style="max-width: 924px" class="d-block w-100" src="<?= tkt_img_proxy_url($p->url, $images_width, $images_height) ?>" alt="<?= $e->localized_title_or_original('fr') ?>">
           </div>
           <?php endforeach; ?>
         </div>
@@ -126,10 +130,10 @@ $images_height = TKTApp::get_instance()->get_config('images.dimensions.big.heigh
       <span class="show-booking-form">
         <div data-component="Media/Loading" data-size-sm class="show-while-loading"></div>
         <span class="show-if-bookable show-if-almost-not-bookable d-none">
-          <a href=""><?= t('Billets') ?></a>
+          <a href=""><?= tkt_t('Billets') ?></a>
         </span>
-        <span class="show-if-almost-not-bookable assertive d-none"><?= t('Il ne reste que quelques places !') ?></span>
-        <span class="show-if-not-bookable assertive d-none"><?= t('Complet !') ?></span>
+        <span class="show-if-almost-not-bookable assertive d-none"><?= tkt_t('Il ne reste que quelques places !') ?></span>
+        <span class="show-if-not-bookable assertive d-none"><?= tkt_t('Complet !') ?></span>
       </span>
     </div>
   </div>

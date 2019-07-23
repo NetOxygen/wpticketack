@@ -1,0 +1,459 @@
+# Translation of WP Ticketack.
+# Copyright (C) 2018 Net Oxygen Sàrl
+# This file is distributed under the same license as the wpticketack package.
+#  <belkacem.alidra@netoxygen.ch>, 2018.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: wpticketack 1.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-13 18:06+0200\n"
+"PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Belkacem Alidra <belkacem.alidra@netoxygen.ch>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Sélectionnez votre contenance et votre quantité :"
+msgstr ""
+
+msgid "Total"
+msgstr ""
+
+msgid "Veuillez choisir au moins un produit"
+msgstr "Bitte wählen Sie mindestens ein Produkt aus"
+
+msgid "Accéder au panier"
+msgstr "Zum Warenkorb gehen"
+
+msgid "Ajouter au panier"
+msgstr "Zum Warenkorb hinzufügen"
+
+msgid "Prénom"
+msgstr "Vorname"
+
+msgid "Votre prénom"
+msgstr "Dein Name"
+
+msgid "Nom"
+msgstr "Name"
+
+msgid "Votre nom"
+msgstr "Dein Name"
+
+msgid "Email"
+msgstr ""
+
+msgid "Votre email"
+msgstr "Deine E-Mail-Adresse"
+
+msgid "Adresse"
+msgstr "Adresse"
+
+msgid "Votre adresse"
+msgstr "Ihre Adresse"
+
+msgid "Numéro postal"
+msgstr "Postnummer"
+
+msgid "NPA"
+msgstr "NPA"
+
+msgid "Ville"
+msgstr "Stadt"
+
+msgid "Pays"
+msgstr "Land"
+
+msgid "Âge"
+msgstr "Alter"
+
+msgid "Genre"
+msgstr "Art"
+
+msgid "Tous ces champs sont requis"
+msgstr "Alle diese Felder müssen ausgefüllt werden."
+
+msgid "Tarifs :"
+msgstr "Preise:"
+
+msgid "Veuillez choisir la date désirée :"
+msgstr "Bitte wählen Sie das gewünschte Datum aus:"
+
+msgid "Veuillez choisir l'heure désirée :"
+msgstr "Bitte wählen Sie die gewünschte Zeit aus:"
+
+msgid "Merci, votre commande est réservée dans votre panier pour 30 minutes."
+msgstr "Vielen Dank, Ihre Bestellung bleibt 30 Minuten in Ihrem Warenkorb."
+
+msgid "Continuer"
+msgstr "Fortsetzen"
+
+msgid "ma visite"
+msgstr "mein besuch"
+
+msgid ""
+"Entrez le nombre de place(s) que vous souhaitez ajouter à votre panier :"
+msgstr ""
+"Geben Sie die Anzahl Plätze ein, die Sie Ihrem Einkaufswagen hinzufügen "
+"möchten:"
+
+msgid "Ajouter à mon panier"
+msgstr "Meinem Warenkorb hinzufügen"
+
+msgid "Vous avez un abonnement ?"
+msgstr "Hast du ein Abonnement?"
+
+msgid "Connectez-vous"
+msgstr "Login"
+
+msgid "pour réserver."
+msgstr "zu buchen"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "Code"
+msgstr "Code"
+
+msgid "Me connecter"
+msgstr "Einloggen"
+
+msgid ""
+"Vous ne pouvez pas réserver de place pour cette séance avec votre abonnement."
+msgstr ""
+"Sie können mit Ihrem Abonnement keinen Sitzplatz für diese Sitzung "
+"reservieren."
+
+msgid "Réserver une place sur mon abonnement"
+msgstr "Reservieren Sie einen Platz in meinem Abonnement"
+
+msgid "Afficher mes réservations"
+msgstr "Meine Buchungen ansehen"
+
+msgid "Shortcodes disponibles"
+msgstr ""
+
+msgid "Affichage en liste"
+msgstr ""
+
+msgid "Affichage des prochaines séances en liste"
+msgstr ""
+
+msgid "Affichage en grille"
+msgstr ""
+
+msgid "Affichage des prochains films en grille de 4"
+msgstr ""
+
+msgid "Affichage en galerie"
+msgstr ""
+
+msgid "Affichage des prochains films en galerie de 4 colonnes"
+msgstr ""
+
+msgid "Panier"
+msgstr ""
+
+msgid "Affichage du contenu du panier"
+msgstr ""
+
+msgid "Abonnements"
+msgstr "Abonnements"
+
+msgid "Vente des différents types d'abonnements"
+msgstr ""
+
+msgid "Votre panier est vide"
+msgstr "Ihr Einkaufswagen ist leer"
+
+msgid "Achats"
+msgstr "Einkauf"
+
+msgid "Prix"
+msgstr "Preis"
+
+msgid "Total :"
+msgstr ""
+
+msgid "Finaliser ma commande"
+msgstr "Meine Bestellung abschließen"
+
+msgid "Annuler"
+msgstr "Stornieren"
+
+msgid "ma commande"
+msgstr "meine Bestellung"
+
+msgid "mes réservations"
+msgstr "meine Buchungen"
+
+msgid ""
+"Aucun événement programmé actuellement, revenez nous visiter prochainement."
+msgstr ""
+"Derzeit sind keine Veranstaltungen geplant. Besuchen Sie uns bald wieder."
+
+msgid "Plus d'informations"
+msgstr "Weitere Informationen"
+
+msgid ""
+"Aucuné séance programmée actuellement, revenez nous visiter prochainement."
+msgstr "Derzeit ist keine Sitzung geplant, komm bald wieder."
+
+msgid "Billets"
+msgstr "Zum Warenkorb hinzufügen"
+
+msgid "Il ne reste que quelques places"
+msgstr "Es gibt nur noch wenige Plätze"
+
+msgid "Complet"
+msgstr "Fertig"
+
+msgid "Il ne reste que quelques places !"
+msgstr "Es gibt nur noch wenige Plätze!"
+
+msgid "Complet !"
+msgstr "Fertig!"
+
+msgid "Voir mes réservations"
+msgstr "Siehe meine Buchungen"
+
+msgid "Me déconnecter"
+msgstr "Trennt mich von mir"
+
+msgid "Connectez-vous !"
+msgstr "Verbinden!"
+
+msgid "Acheter"
+msgstr "Kaufen"
+
+msgid "un abonnement"
+msgstr "ein Abo"
+
+msgid "Aucun article dans cette catégorie, revenez nous visiter prochainement."
+msgstr "Keine Artikel in dieser Kategorie, kommen Sie bald wieder."
+
+msgid "Vous avez choisi :"
+msgstr ""
+
+msgid "Valider"
+msgstr ""
+
+msgid "Commander"
+msgstr "Zur Bestellung"
+
+msgid "Il ne reste que quelques articles"
+msgstr "Es sind nur noch wenige Artikel vorhanden."
+
+msgid "Plus de stock"
+msgstr ""
+
+msgid "Synopsis"
+msgstr ""
+
+msgid "Details"
+msgstr ""
+
+msgid "Durée"
+msgstr ""
+
+msgid "min"
+msgstr ""
+
+msgid "Casting"
+msgstr ""
+
+msgid "Achetez vos billets"
+msgstr ""
+
+msgid "Veuillez choisir au moins un billet"
+msgstr "Bitte wählen Sie mindestens einen Ball aus."
+
+msgid "Veuillez remplir les deux champs"
+msgstr "Bitte füllen Sie beide Felder aus."
+
+msgid "Les informations que vous avez saisies sont invalides"
+msgstr "Die von Ihnen eingegebenen Informationen sind ungültig."
+
+msgid "Une erreur est survenue. Veuillez ré-essayer ultérieurement."
+msgstr ""
+"Es ist ein Fehler aufgetreten. Bitte versuchen Sie es später noch einmal."
+
+msgid ""
+"Vous ne pouvez pas réserver plus de place pour cette séance avec votre "
+"abonnement."
+msgstr ""
+"Sie können mit Ihrem Abonnement keinen Sitzplatz für diese Sitzung "
+"reservieren."
+
+msgid "Veuillez choisir un tarif"
+msgstr "Bitte wählen Sie einen Tarif aus"
+
+msgid "Votre panier a été mis à jour"
+msgstr "Ihr Warenkorb wurde aktualisiert."
+
+msgid "Pas de réponse"
+msgstr "Keine Antwort"
+
+msgid "Féminin"
+msgstr "Weiblich"
+
+msgid "Masculin"
+msgstr "Männlich"
+
+msgid "Autre"
+msgstr "Andere"
+
+msgid "Add New Ticketack Event"
+msgstr "Neues Ticketack-Event hinzufügen"
+
+msgid "New Ticketack Event"
+msgstr "Neues Ticketack-Event"
+
+msgid "Edit Ticketack Event"
+msgstr "Ticketack-Event bearbeiten"
+
+msgid "View Ticketack Event"
+msgstr "Ticketack-Event anzeigen"
+
+msgid "All Ticketack Events"
+msgstr "Alle Ticketack-Events"
+
+msgid "Search Ticketack Events"
+msgstr "Ticketack-Events suchen"
+
+msgid "Parent Ticketack Events:"
+msgstr "Übergeordnete Ticketack-Events"
+
+msgid "No events found."
+msgstr "Keine Events gefunden"
+
+msgid "No events found in Trash."
+msgstr "Keine Ereignisse im Papierkorb gefunden"
+
+msgid "Événements importés depuis Ticketack"
+msgstr "Von Ticketack importierte Ereignisse"
+
+msgid "Add New Ticketack Article"
+msgstr "Neuen Ticketack-Artikel hinzufügen"
+
+msgid "New Ticketack Article"
+msgstr "Neuer Ticketack-Artikel"
+
+msgid "Edit Ticketack Article"
+msgstr "Ticketack-Artikel bearbeiten"
+
+msgid "View Ticketack Article"
+msgstr "Ticketack-Artikel ansehen"
+
+msgid "All Ticketack Articles"
+msgstr "Alle Ticketack-Artikel"
+
+msgid "Search Ticketack Articles"
+msgstr "Suche Ticketack Artikel"
+
+msgid "Parent Ticketack Article:"
+msgstr "Eltern-Ticketack-Artikel:"
+
+msgid "No article found."
+msgstr "Kein Artikel gefunden."
+
+msgid "No article found in Trash."
+msgstr "Kein Artikel in Papierkorb gefunden."
+
+msgid "Articles importés depuis Ticketack"
+msgstr "Aus Ticketack importierte Elemente"
+
+msgid "API"
+msgstr ""
+
+msgid "Pages"
+msgstr ""
+
+msgid "Images"
+msgstr ""
+
+msgid "Langues"
+msgstr ""
+
+msgid "Documentation"
+msgstr ""
+
+msgid "Ticketack n'est pas configuré."
+msgstr ""
+
+msgid "Accéder aux réglages"
+msgstr "Auf die Einstellungen zugreifen"
+
+msgid "Accès à Ticketack"
+msgstr ""
+
+msgid "URL de l'engine"
+msgstr ""
+
+msgid "URL du eshop"
+msgstr ""
+
+msgid "Clé d'API"
+msgstr ""
+
+msgid "Programme"
+msgstr ""
+
+msgid "Dimensions des images"
+msgstr ""
+
+msgid "Largeur des grandes images"
+msgstr ""
+
+msgid "Hauteur des grandes images"
+msgstr ""
+
+msgid "Largeur des images moyennes"
+msgstr ""
+
+msgid "Hauteur des images moyennes"
+msgstr ""
+
+msgid "Serveur proxy d'images"
+msgstr ""
+
+msgid "Serveur proxy"
+msgstr ""
+
+msgid "Champs à saisir pour chaque type d'abonnement"
+msgstr ""
+
+msgid "Langue par défaut"
+msgstr ""
+
+msgid "Options avancées"
+msgstr ""
+
+msgid "Saisissez les slugs des pages contenant les différents shortcodes"
+msgstr ""
+
+msgid "Saisissez les informations d'accès à la billetterie"
+msgstr ""
+
+msgid "Dimensions des grandes et moyennes images (en px)."
+msgstr ""
+
+msgid "Configuration du serveur proxy d'images."
+msgstr ""
+
+msgid "Configuration de la vente d'abonnements."
+msgstr ""
+
+msgid "Configuration des langues."
+msgstr ""
+
+msgid ""
+"Ne modifiez les valeurs ci-dessous que si vous savez ce que vous faites."
+msgstr ""
+
+#~ msgid "sous-titres"
+#~ msgstr "Untertitel"

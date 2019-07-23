@@ -1,4 +1,6 @@
 <?php
+namespace Ticketack\Core\Base;
+
 /**
  * This class goal is to make Ticketack Engine requests in PHP less painful by
  * providing a DSL with chaining methods of objects.
@@ -224,12 +226,12 @@ class TKTRequest
     {
         $method_name = 'scope_' . $name;
         try {
-            $reflect = new ReflectionMethod($this->klass, $method_name);
+            $reflect = new \ReflectionMethod($this->klass, $method_name);
             if ($reflect->isPublic() && $reflect->isStatic()) {
                 array_unshift($arguments, null /* static method */, $this);
                 return call_user_func_array([$reflect, 'invoke'], $arguments);
             }
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             // ignore because the codepath after the try block trigger_error anyway
         }
         trigger_error('Call to undefined method ' .
@@ -392,4 +394,4 @@ class TKTRequest
     }
 }
 
-class TKTException extends Exception {}
+class TKTException extends \Exception {}

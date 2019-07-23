@@ -1,4 +1,11 @@
 <?php
+namespace Ticketack\WP\Shortcodes;
+
+use Ticketack\WP\Templates\TKTTemplate;
+use Ticketack\Core\Models\Screening;
+use Ticketack\Core\Models\Event;
+use Ticketack\Core\Base\TKTApiException;
+
 /**
  * Event shortcode
  *
@@ -28,7 +35,7 @@ class EventShortcode extends TKTShortcode
      */
     public function run($atts, $content)
     {
-        $event_id = get_query_var('id');
+        $event_id = tkt_get_url_param('id');
         if (empty($event_id)) {
             return null;
         }

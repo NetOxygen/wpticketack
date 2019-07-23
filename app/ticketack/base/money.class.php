@@ -1,4 +1,6 @@
 <?php
+namespace Ticketack\Core\Base;
+
 /**
  * Money interface.
  *

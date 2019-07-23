@@ -8,9 +8,9 @@ fi
 ROOT=$(dirname "$0")/..
 PROJECTDIR=$ROOT/app
 LOCALEDIR=$PROJECTDIR/locales
-MSGPO=$LOCALEDIR/$1.po
-MSGMO=$LOCALEDIR/$1.mo
-MSG_OLD_PO=$LOCALEDIR/$1.old.po
+MSGPO=$LOCALEDIR/wpticketack-$1.po
+MSGMO=$LOCALEDIR/wpticketack-$1.mo
+MSG_OLD_PO=$LOCALEDIR/wpticketack-$1.old.po
 EDITOR=${EDITOR:-vim}
 
 # create the locale directory if needed
@@ -29,7 +29,7 @@ if [ ! -f $MSGPO ]; then
 fi
 sed -i 's/CHARSET/UTF-8/' $MSGPO
 find $PROJECTDIR/ -iname '*.php' -exec \
-	xgettext --keyword=t --no-location --from-code=UTF-8 --language=PHP -j -o $MSGPO '{}' \;
+	xgettext --keyword=tkt_t --no-location --from-code=UTF-8 --language=PHP -j -o $MSGPO '{}' \;
 
 echo "===> Merging old pot file with new pot file"
 msgmerge $MSG_OLD_PO $MSGPO --output-file=$MSGPO

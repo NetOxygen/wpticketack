@@ -1,4 +1,8 @@
 <?php
+
+use Ticketack\WP\TKTApp;
+use Ticketack\WP\Templates\TKTTemplate;
+
 /**
  * Program events template
  *
@@ -13,36 +17,35 @@
 $item_width = $data->item_width;
 $nb_per_row = 12 / $item_width;
 ?>
-<h1 class="tkt-title">
- <?= get_the_title() ?>
-</h1>
-<div class="flollow-bloc-right"><?php  get_template_part( 'template-parts/social-follow' ); ?></div>
-<div id="tkt_program" class="tkt-gallery" data-component="Program/BookabilityState">
-  <?php if (empty($data->events)) : ?>
-    <h3 class="no-event-title">Aucun événement programmé actuellement, revenez nous visiter prochainement.</h3>
-  <?php else: ?>
-    
-    <?php $i = 0; ?>
-    <?php foreach($data->events as $event) : ?>
+<div id="tkt_program" class="tkt-wrapper tkt-gallery" data-component="Program/BookabilityState">
+    <div class="container">
+        <?php if (empty($data->events)) : ?>
+        <h3 class="no-event-title"><?= tkt_t('Aucun événement programmé actuellement, revenez nous visiter prochainement.') ?></h3>
+        <?php else: ?>
 
-        <?php if ($i % $nb_per_row == 0) : ?>
-        <div class="row">
-	<?php endif; ?>
+          <?php $i = 0; ?>
+          <?php foreach($data->events as $event) : ?>
 
-            <div class="tkt_program_event col col-<?= $item_width ?>" data-type="<?= $event->opaque('type') ?>">
-                <?= TKTTemplate::render('program/gallery/event', (object)[ 'event' => $event ]) ?>
-            </div>
+              <?php if ($i % $nb_per_row == 0) : ?>
+              <div class="row">
+              <?php endif; ?>
 
-        <?php if ($i % $nb_per_row == ($nb_per_row - 1)) : ?>
-        </div>
-	<?php endif; ?>
+                  <div class="tkt_program_event col-12 col-sm-6 col-md-<?= $item_width ?>" data-type="<?= $event->opaque('type') ?>">
+                      <?= TKTTemplate::render('program/gallery/event', (object)[ 'event' => $event ]) ?>
+                  </div>
 
-      <?php $i ++; ?>
-    <?php endforeach; ?>
+              <?php if ($i % $nb_per_row == ($nb_per_row - 1)) : ?>
+              </div>
+              <?php endif; ?>
 
-    <?php if ($i % $nb_per_row != $nb_per_row) : ?>
+              <?php $i += 1; ?>
+
+          <?php endforeach; ?>
+
+          <?php if ($i % $nb_per_row != $nb_per_row) : ?>
+              </div>
+          <?php endif; ?>
+
+        <?php endif; ?>
     </div>
-    <?php endif; ?>
-
-  <?php endif; ?>
 </div>

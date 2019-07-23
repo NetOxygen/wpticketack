@@ -8,14 +8,10 @@
  *    data-component="Pass/BuyForm"
  * >
  */
-define( [
-        'config', 'postal', 'lodash',
-        'template', 'jquery', 'api',
-        'moment', 'Cart', 'Screening', 'Ticket'
+define([
+        'config', 'postal', 'lodash', 'jquery', 'jqueryjson', 'api', 'i18n'
     ], function dependencies(
-        config, postal, _,
-        Template, $, TKTApi,
-        moment, CartModel, Screening, Ticket) {
+        config, postal, _, $, $json, TKTApi, i18n) {
 
     function BuyForm($container, state) {
         this.$container = $container;
@@ -42,27 +38,43 @@ define( [
 
             $('button[type="submit"]', this.$container).click((e) => {
                 e.preventDefault();
-                this.add_to_cart();
+                this.add_to_cart($(e.target).data('redirect'));
             });
         },
 
-        add_to_cart: function() {
-            let userdata = {};
-            _.each($('.field:visible', this.$container), (f) => {
-                let name = $(f).attr('id').replace('user_', '');
-                userdata[name] = $(f).val();
-            });
+        add_to_cart: function(redirect) {
+            let userdata = $('.field:visible,.opaque_field', this.$container)
+                .filter(function(i) { return !!($(this).val()); })
+                .serializeJSON();
             userdata.no_photo = true;
-            const pricing = $('.choose-pass:checked', this.$container).val();
+
             this.$selected_pass = $('.choose-pass:checked', this.$container).parents('.pass');
-            let type = this.$selected_pass.data('type');
+            let type            = this.$selected_pass.data('type');
+
+            const pricing = $('.choose-pass:checked', this.$container).val();
             if (!pricing)
-                return this.show_error('Veuillez choisir un tarif');
+                return this.show_error(i18n.t('Veuillez choisir un tarif'));
+
             TKTApi.addPassToCart(type, pricing, userdata, (err, status, rsp) => {
                 if (err)
-                    return this.show_error('Une erreur est survenue');
+                    return this.show_error(i18n.t('Une erreur est survenue. Veuillez ré-essayer ultérieurement.'));
 
-                this.show_success("L'abonnement a été ajouté à votre panier");
+                let url = null;
+                switch (redirect) {
+                    case 'none':
+                        this.show_success(i18n.t('Votre panier a été mis à jour'));
+                        break;
+                    case 'cart':
+                        url = config.get('cart_url');
+                        break;
+                    case 'tkt_cart':
+                        url = TKTApi.getCartViewUrl();
+                        break;
+                    case 'tkt_checkout':
+                        url = TKTApi.getCheckoutUrl();
+                        break;
+                }
+                url && (window.location.href = url);
 
                 postal.publish({
                     channel: "cart",
@@ -80,10 +92,22 @@ define( [
         },
 
         sync_pass_form: function (pass) {
-            let fields = $('#' + pass + '-fields').val().split(',');
+            let fields_to_show = $('#' + pass + '-fields').val().split(',');
+
+            // Set not required and hide all fields
+            $('.field', this.$container).each(function (i) {
+                $(this).required = false;
+            });
+            this.$wrappers.hide();
+
             _.each(this.$wrappers, (w) => {
-                let field = $(w).attr('id').replace('field-wrapper-', '');
-                $(w)[fields.includes(field) ? 'fadeIn' : 'hide']();
+                // Set required and show requested fields
+                let id     = $(w).attr('id').replace('field-wrapper-', '');
+                let $field = $('#' + id);
+                if (fields_to_show.includes(id)) {
+                    $field.required = true;
+                    $(w).fadeIn();
+                }
             });
         },
 

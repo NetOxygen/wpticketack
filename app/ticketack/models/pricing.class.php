@@ -1,4 +1,8 @@
 <?php
+namespace Ticketack\Core\Models;
+
+use Ticketack\Core\Base\CHF;
+
 /**
  * Ticketack Engine helper for pricings (used in Tickettypes, Tickets and Screenings).
  *
@@ -6,7 +10,7 @@
  *  Instances are *immutable*.
  */
 
-class Pricing implements JsonSerializable
+class Pricing implements \JsonSerializable
 {
     protected $key = null;
     protected $name = null;
@@ -37,7 +41,7 @@ class Pricing implements JsonSerializable
 
         $VAT = floatval($properties['VAT']);
         if ($VAT < 0 || $VAT > 100) {
-            throw new InvalidArgumentException("$VAT: invalid VAT value");
+            throw new \InvalidArgumentException("$VAT: invalid VAT value");
         }
         $this->VAT = $VAT;
 

@@ -1,14 +1,19 @@
 <?php
+namespace Ticketack\WP\Shortcodes;
+
+use Ticketack\WP\Templates\TKTTemplate;
+use Ticketack\Core\Models\Article;
+use Ticketack\Core\Base\TKTApiException;
+
 /**
- * Screening shortcode
+ * Article shortcode
  *
  * Usage:
  *
- * [tkt_screening]
+ * [tkt_article [template="list|grid|gallery"] [category_ids="1,2,3"]]
  *
- * The screening id is retrieved from the query var id
  */
-class ScreeningShortcode extends TKTShortcode
+class ArticleShortcode extends TKTShortcode
 {
     /**
      * Get this Shortcode tag
@@ -17,7 +22,7 @@ class ScreeningShortcode extends TKTShortcode
      */
     public function get_tag()
     {
-        return "tkt_screening";
+        return "tkt_article";
     }
 
     /**
@@ -28,25 +33,23 @@ class ScreeningShortcode extends TKTShortcode
      */
     public function run($atts, $content)
     {
-        $screening_id = get_query_var('id');
-        if (empty($screening_id)) {
+        $id = isset($atts['id']) ? $atts['id'] : null;
+        if (is_null($id)) {
             return null;
         }
 
         try {
-            $screening = Screening::find($screening_id);
-
-            if (empty($screening)) {
-                return null;
-            }
+            $article = Article::find($id);
 
             return TKTTemplate::render(
-                'screening/screening',
-                (object)[ 'screening' => $screening ]
+                'article/article',
+                (object)[
+                    'article' => $article,
+                ]
             );
         } catch (TKTApiException $e) {
             return sprintf(
-                "Impossible de charger l'événement: %s",
+                "Impossible de charger les articles : %s",
                 $e->getMessage()
             );
         }

@@ -1,4 +1,10 @@
 <?php
+
+namespace Ticketack\WP\Helpers;
+
+use Ticketack\Core\Models\Screening;
+use Ticketack\Core\Models\Event;
+
 /**
  * Helper class to handle Ticketack/Wordpress events/posts synchronization
  */
@@ -23,7 +29,7 @@ class SyncHelper
             array_map(function ($e) use ($i) {
                 $def_post_id = static::create_post($e, static::DEFAULT_LANG);
 
-                if (is_null($def_post_id) || !WPML_INSTALLED) {
+                if (is_null($def_post_id) || !TKT_WPML_INSTALLED) {
                     return;
                 }
 
@@ -46,7 +52,7 @@ class SyncHelper
         $screenings = Screening::all()
             ->in_the_future()
             ->order_by_start_at()
-            ->get('_id,title,start_at,stop_at,films,opaque');
+            ->get('_id,title,start_at,stop_at,cinema_hall,films,opaque');
 
         $events = Event::from_screenings($screenings);
 
@@ -56,11 +62,11 @@ class SyncHelper
     protected static function create_post($event, $lang)
     {
         $title = $event->title($lang);
-        $slug  = get_event_slug($event, $lang);
+        $slug  = tkt_get_event_slug($event, $lang);
         // WP automatically prepends 'http://' to the guid !
         $guid  = 'http://'.$slug;
 
-        $post_content = trim(preg_replace('#\R+#', '', TKTTemplate::render("event/post", (object)["event" => $event, "lang" => $lang])));
+        $post_content = trim(preg_replace('#\R+#', '', $event->opaque('description')[$lang]));
 
         $post = [
             "post_title"    => $title,
@@ -83,11 +89,19 @@ class SyncHelper
 
         // Save post image
         $post_id = wp_insert_post($post);
-        if (count($event->posters()) > 0) {
-            static::save_event_image($event, $post_id, $lang);
-        }
+
+        static::save_post_metas($event, $post_id, $lang);
 
         return $post_id;
+    }
+
+    protected static function save_post_metas($event, $post_id, $lang)
+    {
+        update_post_meta($post_id, 'screenings', wp_slash(json_encode($event->screenings())));
+        update_post_meta($post_id, 'opaque', wp_slash(json_encode($event->opaque())));
+        update_post_meta($post_id, 'trailers', wp_slash(json_encode($event->trailers())));
+        update_post_meta($post_id, 'posters', wp_slash(json_encode($event->posters())));
+        update_post_meta($post_id, 'title', $event->localized_title_or_original($lang));
     }
 
     // See https://wpml.org/wpml-hook/wpml_set_element_language_details/
@@ -123,50 +137,6 @@ class SyncHelper
     {
         global $wpdb;
         return $wpdb->get_var($wpdb->prepare("SELECT ID FROM $wpdb->posts WHERE guid=%s", $guid));
-    }
-
-    protected static function save_event_image($event, $post_id, $lang = 'fr')
-    {
-        if (count($event->posters()) == 0) {
-            return false;
-        }
-
-        $poster     = $event->posters()[0];
-        $url        = $poster->url;
-        $basename   = basename($url);
-        $upload_dir = wp_upload_dir();
-        $dest_path  = $upload_dir['path'].'/'.$basename;
-        $dest_url   = $upload_dir['url'].'/'.$basename;
-        $filetype   = wp_check_filetype($basename, null );
-
-        $existing_attachment_id = get_post_meta($post_id, '_thumbnail_id', /*$single*/true);
-        if (!empty($existing_attachment_id) && intval($existing_attachment_id) > 0) {
-            // Post already has an attachment
-            $existing_attachment = get_post($existing_attachment_id);
-
-            if ($existing_attachment && $existing_attachment->guid == $dest_url) {
-                // The attachment has the same name: not changed ???
-                //static::link_attachment_to_post($post_id, $existing_attachment_id->ID);
-                //return false;
-            }
-
-            // We could delete the existing attachment here if wanted
-        }
-
-        if (!static::download_attachment($url, $dest_path)) {
-            return false;
-        }
-
-        $image_id = static::create_attachment(
-            $existing_attachment_id,
-            $dest_url,
-            $filetype['type'],
-            $event->localized_title_or_original($lang),
-            $dest_path,
-            $post_id
-        );
-
-        static::link_attachment_to_post($post_id, $image_id);
     }
 
     protected static function download_attachment($url, $dest_path)

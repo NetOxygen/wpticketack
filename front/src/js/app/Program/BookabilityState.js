@@ -48,9 +48,9 @@ define(
             if (!items)
                 return;
 
-            const ids = _.uniq(_.flatten(_.map(items, (i) => {
+            const ids = _.compact(_.uniq(_.flatten(_.map(items, (i) => {
                 return $(i).attr('data-bookability-ids').split(',');
-            })));
+            }))));
 
             let map = {};
 
@@ -80,8 +80,8 @@ define(
                 _.each(items, (i) => {
                     let ids = $(i).attr('data-bookability-ids').split(',');
                     let state = _.max(_.map(ids, (i) => {
-                        let seats     = map[i]['seats'];
-                        let sold_here = map[i]['sold_here'];
+                        let seats     = map[i] ? map[i]['seats'] : 0;
+                        let sold_here = map[i] ? map[i]['sold_here'] : false;
                         if (!sold_here)
                             return STATE_NOT_SOLD_HERE;
                         if (seats.available == 0)
@@ -106,8 +106,6 @@ define(
                 this.$container
                     .removeClass('loading-bookability-state')
                     .addClass('loaded-bookability-state');
-
-                $('.show-if-bookable,.show-if-almost-not-bookable,.show-if-not-bookable', this.$container).removeClass('d-none');
             });
         },
 

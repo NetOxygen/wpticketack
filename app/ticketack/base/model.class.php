@@ -1,4 +1,6 @@
 <?php
+namespace Ticketack\Core\Base;
+
 /**
  * This base class handle primitive Ticketack Engine object manipulation.
  *

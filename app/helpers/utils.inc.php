@@ -1,6 +1,24 @@
-<?php /**
+<?php
+
+use Ticketack\WP\TKTApp;
+use Ticketack\WP\Helpers\SyncHelper;
+
+/**
  * Utils functions
  */
+
+/**
+ * Extract url param
+ *•
+ * @param string $key: The param name
+ * @param mixed $default: The default value if the url param is not found
+ *
+ * @return mixed: The URL param if found, $default otherwise
+ */
+function tkt_get_url_param($key, $default = null)
+{
+    return array_key_exists($key, $_GET) ? sanitize_text_field($_GET[$key]) : $default;
+}
 
 /**
  * Formats a DateTime in a full date and time format
@@ -11,7 +29,7 @@
  * @return
  *   A string.
  */
-function datetime_to_s($dt)
+function tkt_datetime_to_s($dt)
 {
     $fmt = "%e %B %Y %H:%M";
     return strftime($fmt, $dt->getTimestamp());
@@ -26,7 +44,7 @@ function datetime_to_s($dt)
  * @return
  *   A string.
  */
-function date_to_s($dt)
+function tkt_date_to_s($dt)
 {
     $fmt = "%e %B %Y";
     return strftime($fmt, $dt->getTimestamp());
@@ -41,7 +59,7 @@ function date_to_s($dt)
  * @return
  *   A string.
  */
-function date_to_min_s($dt)
+function tkt_date_to_min_s($dt)
 {
     $fmt = "%e %B";
     return strftime($fmt, $dt->getTimestamp());
@@ -56,9 +74,24 @@ function date_to_min_s($dt)
  * @return
  *   A string.
  */
-function date_and_time_to_min_s($dt)
+function tkt_date_and_time_to_min_s($dt)
 {
     $fmt = "%e %B %H:%M";
+    return strftime($fmt, $dt->getTimestamp());
+}
+
+/**
+ * Formats a DateTime in a hour format
+ *
+ * @param $dt
+ *   The DateTime object to format.
+ *
+ * @return
+ *   A string.
+ */
+function tkt_date_and_time_to_time_s($dt)
+{
+    $fmt = "%H:%M";
     return strftime($fmt, $dt->getTimestamp());
 }
 
@@ -73,10 +106,10 @@ function date_and_time_to_min_s($dt)
  * @return
  *   A DateTime object or false on error.
  */
-function _iso8601_to_datetime($str)
+function tkt_iso8601_to_datetime($str)
 {
     $i = strtotime($str);
-    $d = new DateTime();
+    $d = new \DateTime();
     return $d->setTimestamp($i);
 }
 
@@ -89,9 +122,9 @@ function _iso8601_to_datetime($str)
  * @return
  *   A string.
  */
-function _datetime_to_iso8601($d)
+function tkt_datetime_to_iso8601($d)
 {
-    return $d->format(DateTime::ATOM);
+    return $d->format(\DateTime::ATOM);
 }
 
 /**
@@ -101,9 +134,9 @@ function _datetime_to_iso8601($d)
  *
  * @return string
  */
-function assets_url($path)
+function tkt_assets_url($path)
 {
-    return plugin_dir_url( TKT_BASE ) . 'wpticketack/front/' . $path;
+    return plugin_dir_url( TKT_APP ) . 'front/' . $path;
 }
 
 /**
@@ -113,7 +146,7 @@ function assets_url($path)
  *
  * @return string
  */
-function program_url($query = "")
+function tkt_program_url($query = "")
 {
     $path = TKTApp::get_instance()->get_config('pages.program');
     if (!empty($query)) {
@@ -131,7 +164,7 @@ function program_url($query = "")
  *
  * @return string
  */
-function cart_url()
+function tkt_cart_url()
 {
     return get_site_url(
         /*$blog_id*/null,
@@ -144,7 +177,7 @@ function cart_url()
  *
  * @return string
  */
-function buy_pass_url()
+function tkt_buy_pass_url()
 {
     return sprintf(
         "%s/pass/new",
@@ -157,7 +190,7 @@ function buy_pass_url()
  *
  * @return string
  */
-function cart_reset_url()
+function tkt_cart_reset_url()
 {
     return sprintf(
         "%s/cart/reset",
@@ -172,20 +205,20 @@ function cart_reset_url()
  *
  * @return string
  */
-function event_details_url($event)
+function tkt_event_details_url($event)
 {
-	if (WPML_INSTALLED) {
-		$slug = get_event_slug($event, LANG);
-		$page = get_page_by_path($slug, OBJECT, 'tkt-event');
-		return apply_filters('wpml_permalink', get_permalink($page->ID));
-	}
+    if (TKT_WPML_INSTALLED) {
+        $slug = tkt_get_event_slug($event, TKT_LANG);
+        $page = get_page_by_path($slug, OBJECT, 'tkt-event');
+        return apply_filters('wpml_permalink', get_permalink($page->ID));
+    }
 
     return get_site_url(
         /*$blog_id*/null,
         sprintf(
             '%s/%s',
             'events',
-  	    get_event_slug($event, LANG)
+          tkt_get_event_slug($event, TKT_LANG)
         )
     );
 }
@@ -198,80 +231,51 @@ function event_details_url($event)
  *
  * @return string
  */
-function event_book_url($event, $screening = null)
+function tkt_event_book_url($event, $screening = null)
 {
-	if (WPML_INSTALLED) {
-		$slug = get_event_slug($event, LANG);
-		$page = get_page_by_path($slug, OBJECT, 'tkt-event');
+    if (TKT_WPML_INSTALLED) {
+        $slug = tkt_get_event_slug($event, TKT_LANG);
+        $page = get_page_by_path($slug, OBJECT, 'tkt-event');
 
-		return sprintf(
-            "%s/?book=1%s",
-			apply_filters('wpml_permalink', get_permalink($page->ID)),
+        return sprintf(
+            "%s?book=1%s",
+            apply_filters('wpml_permalink', get_permalink($page->ID)),
             (!is_null($screening) ? '&s_id='.$screening->_id() : '')
-		);
-	}
+        );
+    }
 
     return get_site_url(
         /*$blog_id*/null,
         sprintf(
             "%s/%s/?book=1%s",
             'events',
-	    get_event_slug($event, LANG),
+        tkt_get_event_slug($event, TKT_LANG),
             (!is_null($screening) ? '&s_id='.$screening->_id() : '')
         )
     );
 }
 
 /**
- * Get a screening details url
+ * Get an article buy url
  *
- * @param Event $screening
+ * @param Article $article
  *
  * @return string
  */
-function screening_details_url($screening)
+function tkt_article_buy_url($article)
 {
-    if (LANG == 'fr') {
-	    return get_site_url(
-		/*$blog_id*/null,
-		sprintf(
-		    "%s/%s_%s",
-		    TKTApp::get_instance()->get_config('pages.screening'),
-		    $screening->_id(),
-		    sanitize_title($screening->title('original'))
-		)
-	    );
-     } else {
-	    return get_site_url(
-		/*$blog_id*/null,
-		sprintf(
-		    "%s/%s/%s_%s",
-                    LANG,
-		    TKTApp::get_instance()->get_config('pages.screening'),
-		    $screening->_id(),
-		    sanitize_title($screening->title('original'))
-		)
-	    );
+    if (!$article) {
+        return "";
     }
-}
 
-/**
- * Get a screening book url
- *
- * @param Event $screening
- *
- * @return string
- */
-function screening_book_url($screening)
-{
-    if (LANG == 'fr') {
+    if (TKT_LANG == 'de') { // FIXME: replace 'de' by default language
 	    return get_site_url(
 		/*$blog_id*/null,
 		sprintf(
 		    "%s/%s_%s?book=1",
-		    TKTApp::get_instance()->get_config('pages.screening'),
-		    $screening->_id(),
-		    sanitize_title($screening->title('original'))
+		    TKTApp::get_instance()->get_config('pages.article'),
+		    $article->_id(),
+		    sanitize_title($screening->name('de')) // FIXME: replace 'de' by default language
 		)
 	    );
      } else {
@@ -279,10 +283,10 @@ function screening_book_url($screening)
 		/*$blog_id*/null,
 		sprintf(
 		    "%s/%s/%s_%s?book=1",
-                    LANG,
-		    TKTApp::get_instance()->get_config('pages.screening'),
-		    $screening->_id(),
-		    sanitize_title($screening->title('original'))
+                    TKT_LANG,
+		    TKTApp::get_instance()->get_config('pages.article'),
+		    $article->_id(),
+		    sanitize_title($article->name(TKT_LANG)) 
 		)
 	    );
     }
@@ -296,7 +300,7 @@ function screening_book_url($screening)
  *
  * @return string: Video ID
  */
-function yt_video_id($yt_url)
+function tkt_yt_video_id($yt_url)
 {
     // Here is a sample of the URLs this regex matches: (there can be more content after the given URL that will be ignored)
     // http://youtu.be/dQw4w9WgXcQ
@@ -319,66 +323,88 @@ function yt_video_id($yt_url)
 /**
  * Helper function to allow to make calls
  * on an object using the __construct() result like
- * $my_obj = id(new MyObj())->chainable_method();
+ * $my_obj = tkt_id(new MyObj())->chainable_method();
  */
-function id($obj)
+function tkt_id($obj)
 {
     return $obj;
 }
 
-/**
- * Sanitize a string for display.
- *
- * Escape HTML tags for a safer display. This function assume UTF-8
- * encoding.
- *
- * @param $string
- *   The unsafe string.
- *
- * @return
- *   a string that can be safely presented to echo or print for output.
- */
-function h($string)
-{
-    return htmlspecialchars($string, ENT_QUOTES | ENT_HTML5, 'UTF-8');
+if (!function_exists('tkt_h')) {
+    /**
+     * Sanitize a string for display.
+     *
+     * Escape HTML tags for a safer display. This function assume UTF-8
+     * encoding.
+     *
+     * @param $string
+     *   The unsafe string.
+     *
+     * @return
+     *   a string that can be safely presented to echo or print for output.
+     */
+    function tkt_h($string)
+    {
+        return htmlspecialchars($string, ENT_QUOTES | ENT_HTML5, 'UTF-8');
+    }
 }
 
-/**
- * Sanitize a string for display but allows some html tags.
- *
- * Less safe than h() which strips everything.
- *
- * Note: This function does not modify any attributes on the tags that are
- * allowed, including the style and onmouseover attributes that a mischievous
- * user may abuse when posting text that will be shown to other users.
- *
- * @param $string
- *   The unsafe string.
- *
- * @param $tags_to_keep
- *   Tags to keep in strip tags
- *
- * @return
- *   a string that can be mostly safely presented to echo or print for output.
- */
-function html($string, $tags_to_keep = '<p><br><b><i><em><a>')
-{
-    return strip_tags($string, $tags_to_keep);
+if (!function_exists('tkt_html')) {
+    /**
+     * Sanitize a string for display but allows some html tags.
+     *
+     * Less safe than tkt_h() which strips everything.
+     *
+     * Note: This function does not modify any attributes on the tags that are
+     * allowed, including the style and onmouseover attributes that a mischievous
+     * user may abuse when posting text that will be shown to other users.
+     *
+     * @param $string
+     *   The unsafe string.
+     *
+     * @param $tags_to_keep
+     *   Tags to keep in strip tags
+     *
+     * @return
+     *   a string that can be mostly safely presented to echo or print for output.
+     */
+    function tkt_html($string, $tags_to_keep = '<p><br><b><i><em><a>')
+    {
+        return strip_tags($string, $tags_to_keep);
+    }
 }
 
-function get_ages()
+function tkt_get_ages()
 {
     return [_("Pas de réponse"), '-18', '18-24', '25-34', '35-44', '45-54', '55-64', '65+'];
 }
 
-function get_sexes()
+function tkt_get_sexes()
 {
     return ['n/c' => _("Pas de réponse"), 'f' => _("Féminin"), 'm' => _("Masculin"), 'o' => _("Autre")];
 }
 
-function pass_required_fields($type)
+function tkt_pass_required_fields($type)
 {
-    $required_fields = TKTApp::get_instance()->get_config('ticketack.requested_pass_owner_data');
+    static $required_fields = null;
+
+    if ($required_fields === null) {
+        $required_fields_data = TKTApp::get_instance()->get_config('pass.requested_pass_owner_data');
+        if (empty($required_fields_data)) {
+            return [];
+        }
+
+        $lines           = array_map('trim', explode(PHP_EOL, $required_fields_data));
+        $required_fields = [];
+        foreach ($lines as $l) {
+            $parts = explode(':', $l);
+            if (count($parts) != 2) {
+                continue;
+            }
+            $required_fields[trim($parts[0])] = array_map('trim', explode(',', $parts[1]));
+        }
+    }
+
     if (in_array($type, array_keys($required_fields))) {
         return $required_fields[$type];
     }
@@ -393,69 +419,80 @@ function pass_required_fields($type)
  * @return
  *   true if the given string is a UUIDv4, false otherwise.
  */
-function is_uuidv4($str)
+function tkt_is_uuidv4($str)
 {
     $regexp = '/^[A-Fa-f0-9]{8}-[A-Fa-f0-9]{4}-4[A-Fa-f0-9]{3}-[ABab89][A-Fa-f0-9]{3}-[A-Fa-f0-9]{12}$/';
     return (preg_match($regexp, $str) ? true : false);
 }
 
-function img_proxy_url($remote_url, $width = '-', $height = '-')
-{
-    $proxy_img_key  = TKTApp::get_instance()->get_config('images.proxy.proxy_img_key');
-    $proxy_img_host = TKTApp::get_instance()->get_config('images.proxy.proxy_img_host');
-
-    if (empty($proxy_img_key) || empty($proxy_img_host)) {
-        return $remote_url;
+if (!function_exists('tkt_invalid_url_path_encode_url')) {
+    // https://stackoverflow.com/questions/9831077/how-to-url-encode-only-non-ascii-symbols-of-url-in-php-but-leave-reserved-symbo
+    function tkt_invalid_url_path_encode_url($url)
+    {
+        $path = parse_url($url, PHP_URL_PATH);
+        if ($path !== false && strpos($path, '%') !== false) return $url; // avoid double encoding
+        else {
+            $encoded_path = array_map('rawurlencode', explode('/', $path));
+            return str_replace($path, implode('/', $encoded_path), $url);
+        }
     }
-
-    if (!filter_var($remote_url, FILTER_VALIDATE_URL)) {
-        return false;
-    }
-
-    $exploded_url = parse_url($remote_url);
-    $path         = sprintf(
-        "image/%sx%s/%s/%s%s",
-        $width,
-        $height,
-        $exploded_url['scheme'],
-        $exploded_url['host'],
-        $exploded_url['path']
-    );
-    $key = base64url_encode(md5('/' . $path . ' ' . $proxy_img_key, true));
-
-    $parts = [];
-
-    $parts['scheme'] = 'https';
-    $parts['host']   = $proxy_img_host;
-    $parts['path']   = $path;
-    $parts['query']  = http_build_query(['key' => $key]);
-
-    return http_build_url($parts);
 }
 
-/**
- * base64url variants,
- * stolen from http://us3.php.net/manual/en/function.base64-encode.php#103849
- */
-function base64url_encode($data)
-{
-    return rtrim(strtr(base64_encode($data), '+/', '-_'), '=');
+if (!function_exists('tkt_img_proxy_url')) {
+    function tkt_img_proxy_url($remote_url, $max_width = null, $max_height = null)
+    {
+        $proxy_img_host = TKTApp::get_instance()->get_config('images_proxy.host');
+
+        if (empty($proxy_img_host)) {
+            return $remote_url;
+        }
+
+        if (!filter_var($remote_url, FILTER_VALIDATE_URL)) {
+            // sometimes we get non RFC 1738 urls, let's be nice and try to fix it
+            $remote_url =tkt_invalid_url_path_encode_url($remote_url);
+            if (!filter_var($remote_url, FILTER_VALIDATE_URL)) {
+                return false;
+            }
+        }
+
+        // if user agent supports webp, always prefer webp
+        $webp = strpos($_SERVER['HTTP_ACCEPT'], 'image/webp') !== false ? 'webp' : null;
+
+        return sprintf(
+            "https://%s/?%s",
+            $proxy_img_host,
+            http_build_query(['url' => $remote_url, 'w' => $max_width, 'h' => $max_height, 'output' => $webp, 'q' => 70])
+        );
+    }
 }
 
-function base64url_decode($data)
-{
-    return base64_decode(str_pad(strtr($data, '-_', '+/'), strlen($data) % 4, '=', STR_PAD_RIGHT));
+if (!function_exists('tkt_base64url_encode')) {
+    /**
+     * base64url variants,
+     * stolen from http://us3.php.net/manual/en/function.base64-encode.php#103849
+     */
+    function tkt_base64url_encode($data)
+    {
+        return rtrim(strtr(base64_encode($data), '+/', '-_'), '=');
+    }
+}
+
+if (!function_exists('tkt_base64url_decode')) {
+    function tkt_base64url_decode($data)
+    {
+        return base64_decode(str_pad(strtr($data, '-_', '+/'), strlen($data) % 4, '=', STR_PAD_RIGHT));
+    }
 }
 
 /**
  * Wrap Wordpress __ function
  */
-function t($str) {
+function tkt_t($str) {
     return __($str, 'wpticketack');
 }
 
 
-function get_event_slug($event, $lang)
+function tkt_get_event_slug($event, $lang)
 {
     $title = $event->title($lang);
     $slug  = sanitize_title($title).($lang === SyncHelper::DEFAULT_LANG ? '' : '-'.$lang);
@@ -464,7 +501,7 @@ function get_event_slug($event, $lang)
 }
 
 // Keep in sync with : app/controllers/screening.class.php in eshop
-function people_activities($activity = null, $lang = null)
+function tkt_people_activities($activity = null, $lang = null)
 {
     $activities = [
         "actor"             => ["fr" => "Acteur", "en" => "Actor"],

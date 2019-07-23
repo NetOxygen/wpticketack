@@ -1,8 +1,12 @@
 <?php
+namespace Ticketack\Core\Models;
+
+use Ticketack\Core\Base\TKTModel;
+
 /**
  * Ticketack Engine Movie, found as a 'film' in a Screening.
  */
-class Movie extends TKTModel implements JsonSerializable
+class Movie extends TKTModel implements \JsonSerializable
 {
     public static $resource = 'movies';
 
@@ -16,11 +20,11 @@ class Movie extends TKTModel implements JsonSerializable
     public function __construct(array &$properties = [])
     {
         if (array_key_exists('created_at', $properties)) {
-            $this->created_at = _iso8601_to_datetime($properties['created_at']);
+            $this->created_at = tkt_iso8601_to_datetime($properties['created_at']);
             unset($properties['created_at']);
         }
         if (array_key_exists('updated_at', $properties)) {
-            $this->updated_at = _iso8601_to_datetime($properties['updated_at']);
+            $this->updated_at = tkt_iso8601_to_datetime($properties['updated_at']);
             unset($properties['updated_at']);
         }
         parent::__construct($properties);
@@ -152,10 +156,10 @@ class Movie extends TKTModel implements JsonSerializable
             $ret['section'] = $this->section();
         }
         if ($this->has_created_at()) {
-            $ret['created_at'] = _datetime_to_iso8601($this->created_at());
+            $ret['created_at'] = tkt_datetime_to_iso8601($this->created_at());
         }
         if ($this->has_updated_at()) {
-            $ret['updated_at'] = _datetime_to_iso8601($this->updated_at());
+            $ret['updated_at'] = tkt_datetime_to_iso8601($this->updated_at());
         }
         if ($this->has_opaque()) {
             $ret['opaque'] = $this->opaque();

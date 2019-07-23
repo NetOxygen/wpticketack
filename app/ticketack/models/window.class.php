@@ -1,12 +1,13 @@
 <?php
+namespace Ticketack\Core\Models;
+
 /**
  * Ticketack Engine helper for windows (used in Tickettypes and Tickets).
  *
  * @notes
  *  Instances are *immutable*.
  */
-
-class Window implements JsonSerializable
+class Window implements \JsonSerializable
 {
     const STATIC_TIME_FRAME_WINDOW  = 'STATIC_TIME_FRAME_WINDOW';
     const DYNAMIC_TIME_FRAME_WINDOW = 'DYNAMIC_TIME_FRAME_WINDOW';
@@ -60,13 +61,13 @@ class Window implements JsonSerializable
         } elseif (array_key_exists('start_at', $properties) &&
                 array_key_exists('stop_at', $properties)) {
             $this->type     = Window::STATIC_TIME_FRAME_WINDOW;
-            $this->start_at = _iso8601_to_datetime($properties['start_at']);
-            $this->stop_at  = _iso8601_to_datetime($properties['stop_at']);
+            $this->start_at = tkt_iso8601_to_datetime($properties['start_at']);
+            $this->stop_at  = tkt_iso8601_to_datetime($properties['stop_at']);
         } elseif (array_key_exists('duration', $properties)) {
             $this->type             = Window::DYNAMIC_TIME_FRAME_WINDOW;
             $this->iso8601_duration = $properties['duration'];
         } else {
-            throw new InvalidArgumentException('invalid window properties');
+            throw new \InvalidArgumentException('invalid window properties');
         }
         $this->nbookings = intval($properties['nbookings']);
     }
@@ -85,7 +86,7 @@ class Window implements JsonSerializable
                 $start_at = clone $this->start_at;
                 break;
             case Window::DYNAMIC_TIME_FRAME_WINDOW:
-                $start_at = new DateTime();
+                $start_at = new \DateTime();
                 break;
             case Window::SCREENING_WINDOW:
                 $start_at = $this->screening()->start_at();
@@ -116,7 +117,7 @@ class Window implements JsonSerializable
     {
         switch ($this->type()) {
             case Window::DYNAMIC_TIME_FRAME_WINDOW:
-                $duration = new DateInterval($this->iso8601_duration);
+                $duration = new \DateInterval($this->iso8601_duration);
                 break;
             case Window::SCREENING_WINDOW: /* FALLTHROUGH */
             case Window::STATIC_TIME_FRAME_WINDOW:
@@ -161,8 +162,8 @@ class Window implements JsonSerializable
 
         switch ($this->type()) {
             case Window::STATIC_TIME_FRAME_WINDOW:
-                $ret['start_at'] = _datetime_to_iso8601($this->start_at);
-                $ret['stop_at']  = _datetime_to_iso8601($this->stop_at);
+                $ret['start_at'] = tkt_datetime_to_iso8601($this->start_at);
+                $ret['stop_at']  = tkt_datetime_to_iso8601($this->stop_at);
                 break;
             case Window::DYNAMIC_TIME_FRAME_WINDOW:
                 $ret['duration'] = $this->iso8601_duration;

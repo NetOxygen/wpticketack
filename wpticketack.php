@@ -5,14 +5,18 @@
  * Description: Ticketack integration
  * Text Domain: wpticketack
  * Domain Path: /app/locales
- * Version: 1.0.0
+ * Version: 2.1.0
  * Author: Net Oxygen Sàrl
  * Author URI: https://netoxygen.ch
- * License: MIT
+ * License: GPLv3
  */
 
-date_default_timezone_set('Europe/Zurich');
+use Ticketack\WP\TKTApp;
+
+date_default_timezone_set(get_option('timezone_string'));
 setlocale(LC_TIME, get_locale().'.UTF-8');
+
+define('TKT_ASSETS_VERSION', '1.1.4.2019061301');
 
 define("TKT_BASE", (dirname(__FILE__)));
 define("TKT_CONFIG", (TKT_BASE.'/config'));
@@ -23,13 +27,13 @@ define("TKT_SHORTCODES", TKT_APP.'/shortcodes');
 define("TKT_TEMPLATES", TKT_APP.'/templates');
 define("TKT_HELPERS", TKT_APP.'/helpers');
 define("TKT_LIB", TKT_APP.'/ticketack');
-define("OVERRIDE_DIR", get_template_directory());
+define("TKT_OVERRIDE_DIR", get_template_directory());
 
-define("LANG", substr(get_locale(), 0, 2));
+define("TKT_LANG", substr(get_locale(), 0, 2));
 if ( function_exists('icl_object_id') ) {
-    define('WPML_INSTALLED', true);
+    define('TKT_WPML_INSTALLED', true);
 } else {
-    define('WPML_INSTALLED', false);
+    define('TKT_WPML_INSTALLED', false);
 }
 
 // Load Composer autoload
@@ -40,26 +44,27 @@ require_once(TKT_APP.'/autoload.php');
 
 $app = TKTApp::get_instance();
 
-$app->register_filter('RewriteFilter', 'rewrite.class.php');
-$app->register_filter('QueryVarsFilter', 'query_vars.class.php');
-$app->register_filter('FlushRewriteFilter', 'flush_rewrite.class.php');
-$app->register_filter('MailpoetFilter', 'mailpoet.class.php');
-$app->register_filter('BodyClassFilter', 'body_class.class.php');
-$app->register_action('HeadScriptsAction', 'head_scripts.class.php');
-$app->register_action('AdminMenuAction', 'admin_menu.class.php');
-$app->register_action('AdminSettingsAction', 'admin_settings.class.php');
-$app->register_action('AssetsAction', 'assets.class.php');
-$app->register_action('SyncPostsAction', 'sync_posts.class.php');
-$app->register_action('TranslationAction', 'translation.class.php');
-$app->register_action('CustomTypesAction', 'custom_types.class.php');
-$app->register_shortcode('ProgramShortcode', 'program.class.php');
-$app->register_shortcode('EventShortcode', 'event.class.php');
-$app->register_shortcode('ScreeningShortcode', 'screening.class.php');
-$app->register_shortcode('CartShortcode', 'cart.class.php');
-$app->register_shortcode('CartIconShortcode', 'cart_icon.class.php');
-$app->register_shortcode('FilterShortcode', 'filter.class.php');
-$app->register_shortcode('DaysFilterShortcode', 'days_filter.class.php');
-$app->register_shortcode('UserConnectShortcode', 'user_connect.class.php');
-$app->register_shortcode('BuyPassShortcode', 'buy_pass.class.php');
+$app->register_filter('Ticketack\WP\Filters\MailpoetFilter', 'mailpoet.class.php');
+$app->register_filter('Ticketack\WP\Filters\BodyClassFilter', 'body_class.class.php');
+$app->register_filter('Ticketack\WP\Filters\TktEventContentFilter', 'tkt_event_content.class.php');
+$app->register_filter('Ticketack\WP\Filters\ThumbnailFilter', 'thumbnail.class.php');
+$app->register_action('Ticketack\WP\Actions\HeadScriptsAction', 'head_scripts.class.php');
+$app->register_action('Ticketack\WP\Actions\AdminNoticesAction', 'admin_notices.class.php');
+$app->register_action('Ticketack\WP\Actions\AdminMenuAction', 'admin_menu.class.php');
+$app->register_action('Ticketack\WP\Actions\AdminSettingsAction', 'admin_settings.class.php');
+$app->register_action('Ticketack\WP\Actions\AssetsAction', 'assets.class.php');
+$app->register_action('Ticketack\WP\Actions\SyncPostsAction', 'sync_posts.class.php');
+$app->register_action('Ticketack\WP\Actions\SyncArticlesAction', 'sync_articles.class.php');
+$app->register_action('Ticketack\WP\Actions\TranslationAction', 'translation.class.php');
+$app->register_action('Ticketack\WP\Actions\CustomTypesAction', 'custom_types.class.php');
+$app->register_shortcode('Ticketack\WP\Shortcodes\ProgramShortcode', 'program.class.php');
+$app->register_shortcode('Ticketack\WP\Shortcodes\EventShortcode', 'event.class.php');
+$app->register_shortcode('Ticketack\WP\Shortcodes\ArticleShortcode', 'article.class.php');
+$app->register_shortcode('Ticketack\WP\Shortcodes\CartShortcode', 'cart.class.php');
+$app->register_shortcode('Ticketack\WP\Shortcodes\CartIconShortcode', 'cart_icon.class.php');
+$app->register_shortcode('Ticketack\WP\Shortcodes\FilterShortcode', 'filter.class.php');
+$app->register_shortcode('Ticketack\WP\Shortcodes\DaysFilterShortcode', 'days_filter.class.php');
+$app->register_shortcode('Ticketack\WP\Shortcodes\UserConnectShortcode', 'user_connect.class.php');
+$app->register_shortcode('Ticketack\WP\Shortcodes\BuyPassShortcode', 'buy_pass.class.php');
 
 $app->start();

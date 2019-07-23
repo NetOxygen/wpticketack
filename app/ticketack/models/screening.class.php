@@ -1,9 +1,14 @@
 <?php
+namespace Ticketack\Core\Models;
+
+use Ticketack\Core\Base\TKTModel;
+use Ticketack\Core\Base\No2_HTTP;
+
 /**
  * Ticketack Engine Screening.
  */
 
-class Screening extends TKTModel implements JsonSerializable
+class Screening extends TKTModel implements \JsonSerializable
 {
     // - tiff is not supported by major browsers except Safari
     // - webp is only supported by Chrome and Opera
@@ -37,7 +42,7 @@ class Screening extends TKTModel implements JsonSerializable
      */
     public static function is_valid_id($id)
     {
-        return is_uuidv4($id);
+        return tkt_is_uuidv4($id);
     }
 
     /**
@@ -71,7 +76,7 @@ class Screening extends TKTModel implements JsonSerializable
      */
     public static function scope_start_at_gte($req, $when)
     {
-        return $req->query('start_at_gte', _datetime_to_iso8601($when));
+        return $req->query('start_at_gte', tkt_datetime_to_iso8601($when));
     }
 
     /**
@@ -91,7 +96,7 @@ class Screening extends TKTModel implements JsonSerializable
      */
     public static function scope_start_at_lte($req, $when)
     {
-        return $req->query('start_at_lte', _datetime_to_iso8601($when));
+        return $req->query('start_at_lte', tkt_datetime_to_iso8601($when));
     }
 
     /**
@@ -181,11 +186,11 @@ class Screening extends TKTModel implements JsonSerializable
     public function __construct(array &$properties = [])
     {
         if (array_key_exists('start_at', $properties)) {
-            $this->start_at = _iso8601_to_datetime($properties['start_at']);
+            $this->start_at = tkt_iso8601_to_datetime($properties['start_at']);
             unset($properties['start_at']);
         }
         if (array_key_exists('stop_at', $properties)) {
-            $this->stop_at = _iso8601_to_datetime($properties['stop_at']);
+            $this->stop_at = tkt_iso8601_to_datetime($properties['stop_at']);
             unset($properties['stop_at']);
         }
         if (array_key_exists('films', $properties)) {
@@ -466,15 +471,15 @@ class Screening extends TKTModel implements JsonSerializable
             'films'       => array_map(function ($movie) {
                                  return $movie->jsonSerialize();
                              }, $this->movies()),
-            'start_at'    => _datetime_to_iso8601($this->start_at),
-            'stop_at'     => _datetime_to_iso8601($this->stop_at),
+            'start_at'    => tkt_datetime_to_iso8601($this->start_at),
+            'stop_at'     => tkt_datetime_to_iso8601($this->stop_at),
             'buckets'     => array_map(function ($bucket) {
                                  return $bucket->jsonSerialize();
                              }, $this->buckets()),
             'pricings'    => array_map(function ($pricing) {
                                  return $pricing->jsonSerialize();
                              }, $this->pricings()),
-            'cinema_hall' => $this->place()->jsonSerialize(),
+            'cinema_hall' => !empty($this->place()) ? $this->place()->jsonSerialize() : null,
             'refs'        => $this->refs(),
         ];
 

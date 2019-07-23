@@ -1,4 +1,6 @@
 <?php
+namespace Ticketack\Core\Base;
+
 use Psr\Http\Message\RequestInterface;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Handler\CurlHandler;
@@ -7,7 +9,7 @@ use GuzzleHttp\Client;
 /**
  * Helper methods to query the ticketack API.
  */
-class TKTApi extends GuzzleHttp\Client
+class TKTApi extends Client
 {
     const HTTP_STATUS_OK = 200;
 
@@ -93,4 +95,4 @@ class TKTApi extends GuzzleHttp\Client
     }
 }
 
-class TKTApiException extends Exception {}
+class TKTApiException extends \Exception {}

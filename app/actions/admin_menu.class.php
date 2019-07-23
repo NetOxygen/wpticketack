@@ -1,4 +1,8 @@
 <?php
+namespace Ticketack\WP\Actions;
+
+use Ticketack\WP\Templates\TKTTemplate;
+
 /**
  * Admin Menu action
  */
@@ -36,20 +40,49 @@ class AdminMenuAction extends TKTAction
      */
     public function create_admin_page()
     {
-        if (isset($_POST['pages'])) {
-            update_option('pages', $_POST['pages']);
+        $sections = [
+            'tkt_pages', 'tkt_api', 'tkt_images_dimensions',
+            'tkt_images_proxy', 'tkt_pass', 'tkt_advanced', 'tkt_i18n'
+        ];
+        foreach ($sections as $section) {
+            if (isset($_POST[$section])) {
+                if (!isset($_POST['nonce']) ||
+                    !wp_verify_nonce($_POST['nonce'], 'tkt_admin_options')) {
+                    die('WordPress nonce error, please reload the form and try again');
+                }
+                if ($section == 'tkt_pass') {
+                    update_option($section, array_map('sanitize_textarea_field', $_POST[$section]));
+                } else {
+                    update_option($section, array_map('sanitize_text_field', $_POST[$section]));
+                }
+            }
         }
+
+        $active_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'api';
+        $tabs = [
+            'api'      => tkt_t('API'),
+            'pages'    => tkt_t('Pages'),
+            'images'   => tkt_t('Images'),
+            'pass'     => tkt_t('Abonnements'),
+            'i18n'     => tkt_t('Langues'),
+            'doc'      => tkt_t('Documentation')
+        ];
 ?>
         <div class="wrap">
             <h1>Ticketack</h1>
-            <form method="post">
-            <?php
-                // This prints out all hidden setting fields
-                settings_fields('ticketack_base');
-                do_settings_sections('ticketack-admin');
-                submit_button();
-            ?>
-            </form>
+
+            <h2 class="nav-tab-wrapper">
+                <?php foreach ($tabs as $key => $label) : ?>
+                <a
+                    href="?page=ticketack-admin&tab=<?= $key ?>"
+                    class="nav-tab <?= $active_tab == $key ? 'nav-tab-active' : '' ?>"
+                >
+                    <?= $label ?>
+                </a>
+                <?php endforeach; ?>
+            </h2>
+
+            <?= TKTTemplate::render_admin($active_tab); ?>
         </div>
 <?php
     }
@@ -60,7 +93,7 @@ class AdminMenuAction extends TKTAction
     public function create_kronos_page()
     {
 ?>
-    <iframe id="kronos_iframe" frameborder="0" width="100%" height="100%" src="https://kronos.ticketack.com?v=<?= TKTApp::get_instance()->get_config('assets.version') ?>" style="margin-left: -20px;"></iframe>
+    <iframe id="kronos_iframe" frameborder="0" width="100%" height="100%" src="https://kronos.ticketack.com?v=<?= TKT_ASSETS_VERSION ?>" style="margin-left: -20px;"></iframe>
         <script type="text/javascript">
             function resize() {
                 jQuery("#kronos_iframe").height(jQuery("#wpwrap").height());

@@ -1,9 +1,14 @@
 <?php
+namespace Ticketack\Core\Models;
+
+use Ticketack\Core\Base\TKTModel;
+use Ticketack\Core\Base\No2_HTTP;
+
 /**
  * Ticketack Engine Tickettype.
  */
 
-class Tickettype extends TKTModel implements JsonSerializable
+class Tickettype extends TKTModel implements \JsonSerializable
 {
     /**
      * @override
@@ -34,14 +39,14 @@ class Tickettype extends TKTModel implements JsonSerializable
         if (array_key_exists('pricings', $properties)) {
             $this->pricings = [];
             foreach ($properties['pricings'] as $key => $obj) {
-                $pricing = id(new Pricing($obj))->set_key($key);
+                $pricing = tkt_id(new Pricing($obj))->set_key($key);
                 $this->pricings[$key] = $pricing;
             }
             unset($properties['pricings']);
         }
         parent::__construct($properties);
 
-        $this->required_fields = pass_required_fields($this->_id);
+        $this->required_fields = tkt_pass_required_fields($this->_id);
     }
 
     // helper for scope_order_by_opaque_eshop_sort_weight()

@@ -1,4 +1,9 @@
 <?php
+namespace Ticketack\WP\Actions;
+
+use Ticketack\WP\TKTApp;
+use Ticketack\WP\Helpers\LocalesHelper;
+
 /**
  * Head Scripts action
  */
@@ -31,13 +36,15 @@ class HeadScriptsAction extends TKTAction
     public function run()
     {
         $app = TKTApp::get_instance();
+
         echo '
         <script>
             // moment locale must be injected globally because it\'s needed
             // before the config initialization
             window.moment_locale = "'.substr(get_locale(), 0, 2).'";
             var require = {
-                urlArgs: "v='.$app->get_config('assets.version').'",
+                baseUrl: "'.tkt_assets_url('build/js').'",
+                urlArgs: "v='.TKT_ASSETS_VERSION.'",
                 config: {
                     "assets": {
                         version: "1",
@@ -47,20 +54,23 @@ class HeadScriptsAction extends TKTAction
                         "engine_uri": "'.$app->get_config('ticketack.engine_uri').'/",
                         "eshop_uri": "'.$app->get_config('ticketack.eshop_uri').'/",
                         "api_key": "'.$app->get_config('ticketack.api_key').'",
-                        "program_url": "'.program_url().'",
-                        "cart_url": "'.cart_url().'",
-                        "cart_reset_url": "'.cart_reset_url().'",
-                    }
+                        "program_url": "'.tkt_program_url().'",
+                        "cart_url": "'.tkt_cart_url().'",
+                        "cart_reset_url": "'.tkt_cart_reset_url().'",
+                    },
+                    "i18n": '.json_encode(LocalesHelper::dump_js_locales(), JSON_PRETTY_PRINT).'
                 },
                 paths: {
-                    "app": "/wp-content/plugins/wpticketack/front/build/js/app"
+                    "app": "'.tkt_assets_url('build/js/app').'"
                 }
             };
         </script>
-        <script src="/wp-content/plugins/wpticketack/front/build/js/require.min.js"></script>
+        <script src="'.tkt_assets_url('build/js/require.min.js').'"></script>
         <script>
             if (typeof jQuery === "function") {
                 define("jquery", function () { return jQuery; });
+                /* Wordpress version of jQuery doesn\'t expose the $ global object */
+                window.$ = jQuery;
             }
             require(["app"]);
         </script>

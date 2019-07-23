@@ -1,4 +1,7 @@
 <?php
+
+use Ticketack\WP\TKTApp;
+
 /**
  * Booking form: dates selector partial
  * This template will be parsed by underscore.js
@@ -8,22 +11,63 @@
  * }
  */
 ?>
+<% screenings = _.filter(screenings, function (s) { return s.stop_at > new Date(); }); %>
 <% if (screenings.length > 1) { %>
-<div class="row">
-    <div class="col col-md-auto">
-        <span class="dates-title assertive">
-            <?= t('Veuillez choisir la date désirée :') ?>
-        </span>
-    </div>
-    <div class="col">
-        <div class="dates-wrapper">
-        <% _.forEach(screenings, function(s) { %>
-            <div class="date-wrapper">
-                <span data-screening_id="<%= s._id %>" class="date">
-                    <%= s.start_at.format("dddd Do MMMM HH[h]") + (s.start_at.minutes() > 0 ? s.start_at.format("mm") : "") %>
+<%
+    var m = {};
+    _.forEach(screenings, function(s) {
+        var day = s.start_at.format("dddd Do MMMM");
+        if (!m[day])
+            m[day] = [];
+        m[day].push(s);
+    });
+%>
+<div class="tkt-wrapper">
+    <div class="row">
+        <div class="col">
+            <span class="assertive">
+                <?= tkt_t('Veuillez choisir la date désirée :') ?>
+            </span>
+            <div class="days-wrapper">
+                <% _.forEach(Object.keys(m), function(day) { %>
+                <span
+                    class="tkt-badge tkt-light-badge day"
+                    data-day="<%= day %>"
+                    data-screening_id="<%= _.map(m[day], function (s) { return s._id; }).join(',') %>">
+                    <%= day %>
                 </span>
+                <% }) %>
             </div>
-        <% }) %>
+
+            <br/>
+
+            <span class="assertive">
+                <?= tkt_t('Veuillez choisir l\'heure désirée :') ?>
+            </span>
+            <div class="dates-wrapper">
+                <% _.forEach(m, function(screenings, day) { %>
+                    <% _.forEach(screenings, function(s) { %>
+                    <span
+                        class="tkt-badge tkt-light-badge date"
+                        data-day="<%= day %>"
+                        data-screening_id="<%= s._id  %>"
+                    >
+                        <%= s.start_at.format("H[h]") + (s.start_at.minutes() > 0 ? s.start_at.format("mm") : "") %>
+
+                        <% if (s.opaque && s.opaque.version) { %>
+                        <%= (' - ' + s.opaque.version) %>
+                        <% } %>
+
+                        <% if (s.opaque && s.opaque._3d) { %>
+                        <%= s.opaque && s.opaque._3d && (' - 3D') %>
+                        <% } %>
+                    </span>
+                    <% }) %>
+                <% }) %>
+            </div>
+
+            <br/>
+
         </div>
     </div>
 </div>

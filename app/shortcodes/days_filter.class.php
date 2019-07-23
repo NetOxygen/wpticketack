@@ -1,4 +1,8 @@
 <?php
+namespace Ticketack\WP\Shortcodes;
+
+use Ticketack\WP\Templates\TKTTemplate;
+
 /**
  * Events/Screenings filter shortcode
  *
@@ -27,13 +31,19 @@ class DaysFilterShortcode extends TKTShortcode
     public function run($atts, $content)
     {
         $min = isset($atts['min_start_at']) ?
-            _iso8601_to_datetime($atts['min_start_at']) :
-            _iso8601_to_datetime(date('now'));
-        $max = isset($atts['max_start_at']) ?
-            _iso8601_to_datetime($atts['max_start_at']) :
-            _iso8601_to_datetime(date('now'));
+            tkt_iso8601_to_datetime($atts['min_start_at']) :
+             new \Datetime();
 
-        $active = get_query_var('d');
+        $max = new \Datetime();
+        $max->setTime(23, 59, 59);
+        if (isset($atts['max_start_at'])) {
+            $max = tkt_iso8601_to_datetime($atts['max_start_at']);
+        } else if (isset($atts['nb_days'])) {
+            $nb_days = (int)$atts['nb_days'];
+            $max->add(new \DateInterval('P'.($nb_days - 1).'D'));
+        }
+
+        $active = tkt_get_url_param('d', date('Y-m-d'));
 
         $days    = [];
         $current = clone($min);

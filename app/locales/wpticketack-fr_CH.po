@@ -8,14 +8,29 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-12 12:15+0200\n"
+"POT-Creation-Date: 2019-06-13 18:04+0200\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Belkacem Alidra <dev@b-alidra.com>\n"
+"Last-Translator: Belkacem Alidra <belkacem.alidra@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+msgid "Sélectionnez votre contenance et votre quantité :"
+msgstr ""
+
+msgid "Total"
+msgstr ""
+
+msgid "Veuillez choisir au moins un produit"
+msgstr ""
+
+msgid "Accéder au panier"
+msgstr ""
+
+msgid "Ajouter au panier"
+msgstr ""
 
 msgid "Prénom"
 msgstr ""
@@ -29,6 +44,18 @@ msgstr ""
 msgid "Votre nom"
 msgstr ""
 
+msgid "Email"
+msgstr ""
+
+msgid "Votre email"
+msgstr ""
+
+msgid "Adresse"
+msgstr ""
+
+msgid "Votre adresse"
+msgstr ""
+
 msgid "Numéro postal"
 msgstr ""
 
@@ -36,12 +63,6 @@ msgid "NPA"
 msgstr ""
 
 msgid "Ville"
-msgstr ""
-
-msgid "Adresse"
-msgstr ""
-
-msgid "Votre adresse"
 msgstr ""
 
 msgid "Pays"
@@ -53,10 +74,7 @@ msgstr ""
 msgid "Genre"
 msgstr ""
 
-msgid "* ces champs sont requis"
-msgstr ""
-
-msgid "Ajouter au panier"
+msgid "Tous ces champs sont requis"
 msgstr ""
 
 msgid "Tarifs :"
@@ -65,7 +83,10 @@ msgstr ""
 msgid "Veuillez choisir la date désirée :"
 msgstr ""
 
-msgid "Accéder au panier"
+msgid "Veuillez choisir l'heure désirée :"
+msgstr ""
+
+msgid "Merci, votre commande est réservée dans votre panier pour 30 minutes."
 msgstr ""
 
 msgid "Continuer"
@@ -90,16 +111,10 @@ msgstr ""
 msgid "pour réserver."
 msgstr ""
 
-msgid "Acheter"
+msgid "ID"
 msgstr ""
 
-msgid "un abonnement."
-msgstr ""
-
-msgid "Numéro"
-msgstr ""
-
-msgid "Clé"
+msgid "Code"
 msgstr ""
 
 msgid "Me connecter"
@@ -115,16 +130,49 @@ msgstr ""
 msgid "Afficher mes réservations"
 msgstr ""
 
+msgid "Shortcodes disponibles"
+msgstr ""
+
+msgid "Affichage en liste"
+msgstr ""
+
+msgid "Affichage des prochaines séances en liste"
+msgstr ""
+
+msgid "Affichage en grille"
+msgstr ""
+
+msgid "Affichage des prochains films en grille de 4"
+msgstr ""
+
+msgid "Affichage en galerie"
+msgstr ""
+
+msgid "Affichage des prochains films en galerie de 4 colonnes"
+msgstr ""
+
+msgid "Panier"
+msgstr ""
+
+msgid "Affichage du contenu du panier"
+msgstr ""
+
+msgid "Abonnements"
+msgstr ""
+
+msgid "Vente des différents types d'abonnements"
+msgstr ""
+
 msgid "Votre panier est vide"
 msgstr ""
 
 msgid "Achats"
 msgstr ""
 
-msgid "Réservé jusqu'à"
+msgid "Prix"
 msgstr ""
 
-msgid "Prix"
+msgid "Total :"
 msgstr ""
 
 msgid "Finaliser ma commande"
@@ -140,10 +188,14 @@ msgid "mes réservations"
 msgstr ""
 
 msgid ""
-"Aucuné séance programmée actuellement, revenez nous visiter prochainement."
+"Aucun événement programmé actuellement, revenez nous visiter prochainement."
 msgstr ""
 
 msgid "Plus d'informations"
+msgstr ""
+
+msgid ""
+"Aucuné séance programmée actuellement, revenez nous visiter prochainement."
 msgstr ""
 
 msgid "Billets"
@@ -155,14 +207,13 @@ msgstr ""
 msgid "Complet"
 msgstr ""
 
-msgid ""
-"Aucun événement programmé actuellement, revenez nous visiter prochainement."
-msgstr ""
-
 msgid "Il ne reste que quelques places !"
 msgstr ""
 
 msgid "Complet !"
+msgstr ""
+
+msgid "Voir mes réservations"
 msgstr ""
 
 msgid "Me déconnecter"
@@ -171,7 +222,69 @@ msgstr ""
 msgid "Connectez-vous !"
 msgstr ""
 
+msgid "Acheter"
+msgstr ""
+
 msgid "un abonnement"
+msgstr ""
+
+msgid "Aucun article dans cette catégorie, revenez nous visiter prochainement."
+msgstr ""
+
+msgid "Vous avez choisi :"
+msgstr ""
+
+msgid "Valider"
+msgstr ""
+
+msgid "Commander"
+msgstr ""
+
+msgid "Il ne reste que quelques articles"
+msgstr ""
+
+msgid "Plus de stock"
+msgstr ""
+
+msgid "Synopsis"
+msgstr ""
+
+msgid "Details"
+msgstr ""
+
+msgid "Durée"
+msgstr ""
+
+msgid "min"
+msgstr ""
+
+msgid "Casting"
+msgstr ""
+
+msgid "Achetez vos billets"
+msgstr ""
+
+msgid "Veuillez choisir au moins un billet"
+msgstr ""
+
+msgid "Veuillez remplir les deux champs"
+msgstr ""
+
+msgid "Les informations que vous avez saisies sont invalides"
+msgstr ""
+
+msgid "Une erreur est survenue. Veuillez ré-essayer ultérieurement."
+msgstr ""
+
+msgid ""
+"Vous ne pouvez pas réserver plus de place pour cette séance avec votre "
+"abonnement."
+msgstr ""
+
+msgid "Veuillez choisir un tarif"
+msgstr ""
+
+msgid "Votre panier a été mis à jour"
 msgstr ""
 
 msgid "Pas de réponse"
@@ -184,4 +297,161 @@ msgid "Masculin"
 msgstr ""
 
 msgid "Autre"
+msgstr ""
+
+msgid "Add New Ticketack Event"
+msgstr "Ajouter un événement Ticketack"
+
+msgid "New Ticketack Event"
+msgstr "Nouvel événement Ticketack"
+
+msgid "Edit Ticketack Event"
+msgstr "Modifier"
+
+msgid "View Ticketack Event"
+msgstr "Voir"
+
+msgid "All Ticketack Events"
+msgstr "Tous les événements Ticketack"
+
+msgid "Search Ticketack Events"
+msgstr "Rechercher"
+
+msgid "Parent Ticketack Events:"
+msgstr "Parent"
+
+msgid "No events found."
+msgstr "Aucun événement"
+
+msgid "No events found in Trash."
+msgstr "Aucun événement dans la corbeille"
+
+msgid "Événements importés depuis Ticketack"
+msgstr ""
+
+#, fuzzy
+msgid "Add New Ticketack Article"
+msgstr "Ajouter un événement Ticketack"
+
+#, fuzzy
+msgid "New Ticketack Article"
+msgstr "Nouvel événement Ticketack"
+
+#, fuzzy
+msgid "Edit Ticketack Article"
+msgstr "Modifier"
+
+#, fuzzy
+msgid "View Ticketack Article"
+msgstr "Voir"
+
+#, fuzzy
+msgid "All Ticketack Articles"
+msgstr "Tous les événements Ticketack"
+
+#, fuzzy
+msgid "Search Ticketack Articles"
+msgstr "Rechercher"
+
+#, fuzzy
+msgid "Parent Ticketack Article:"
+msgstr "Parent"
+
+#, fuzzy
+msgid "No article found."
+msgstr "Aucun événement"
+
+#, fuzzy
+msgid "No article found in Trash."
+msgstr "Aucun événement dans la corbeille"
+
+msgid "Articles importés depuis Ticketack"
+msgstr ""
+
+msgid "API"
+msgstr ""
+
+msgid "Pages"
+msgstr ""
+
+msgid "Images"
+msgstr ""
+
+msgid "Langues"
+msgstr ""
+
+msgid "Documentation"
+msgstr ""
+
+msgid "Ticketack n'est pas configuré."
+msgstr ""
+
+msgid "Accéder aux réglages"
+msgstr ""
+
+msgid "Accès à Ticketack"
+msgstr ""
+
+msgid "URL de l'engine"
+msgstr ""
+
+msgid "URL du eshop"
+msgstr ""
+
+msgid "Clé d'API"
+msgstr ""
+
+msgid "Programme"
+msgstr ""
+
+msgid "Dimensions des images"
+msgstr ""
+
+msgid "Largeur des grandes images"
+msgstr ""
+
+msgid "Hauteur des grandes images"
+msgstr ""
+
+msgid "Largeur des images moyennes"
+msgstr ""
+
+msgid "Hauteur des images moyennes"
+msgstr ""
+
+msgid "Serveur proxy d'images"
+msgstr ""
+
+msgid "Serveur proxy"
+msgstr ""
+
+msgid "Champs à saisir pour chaque type d'abonnement"
+msgstr ""
+
+msgid "Langue par défaut"
+msgstr ""
+
+msgid "Options avancées"
+msgstr ""
+
+msgid "Saisissez les slugs des pages contenant les différents shortcodes"
+msgstr ""
+
+msgid "Saisissez les informations d'accès à la billetterie"
+msgstr ""
+
+msgid "Dimensions des grandes et moyennes images (en px)."
+msgstr ""
+
+msgid "Configuration du serveur proxy d'images."
+msgstr ""
+
+msgid "Configuration de la vente d'abonnements."
+msgstr ""
+
+msgid "Configuration des langues."
+msgstr ""
+
+msgid ""
+"Ne modifiez les valeurs ci-dessous que si vous savez ce que vous faites."
 msgstr ""

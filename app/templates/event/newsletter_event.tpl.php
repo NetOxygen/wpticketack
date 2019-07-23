@@ -1,4 +1,7 @@
 <?php
+
+use Ticketack\WP\TKTApp;
+
 /**
  * Program event template
  *
@@ -20,7 +23,7 @@ if (!empty($e->opaque('free_text_3'))) {
 
 if (empty($date_title)) {
     $date_title = implode('<br/>', array_unique(array_map(function ($s) {
-        return str_replace(':', 'H', date_and_time_to_min_s($s->start_at()));
+        return str_replace(':', 'H', tkt_date_and_time_to_min_s($s->start_at()));
     }, $e->screenings())));
 }
 
@@ -57,11 +60,11 @@ $poster_url   = $upload_dir['url'].'/'.basename($first_poster->url);
 </div>
 <?php if ($e->opaque('type') == 'music_group') : ?>
 <div>
-  <a href="<?= event_book_url($e) ?>" alt="$e->localized_title_or_original('fr')">BILLETS</a>
+  <a href="<?= tkt_event_book_url($e) ?>" alt="$e->localized_title_or_original('fr')">BILLETS</a>
 </div>
 <?php endif; ?>
 <div>
-  <a href="<?= event_details_url($e) ?>" alt="$e->localized_title_or_original('fr')">PLUS D'INFORMATIONS</a>
+  <a href="<?= tkt_event_details_url($e) ?>" alt="$e->localized_title_or_original('fr')">PLUS D'INFORMATIONS</a>
 </div>
 <br/>
 <div>

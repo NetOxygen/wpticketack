@@ -23,17 +23,73 @@ define(
         },
 
         init: function() {
-            this.load_cart((err) => {
-                // FIXME: handle error
-                if (err)
-                    return;
-            });
+            this.load_cart();
             postal.subscribe({
                 channel: "cart",
                 topic: "reload",
                 callback: (data, envelope) => {
                     this.load_cart();
                 }
+            });
+            postal.subscribe({
+                channel: "cart",
+                topic: "update",
+                callback: (data, envelope) => {
+                    if (!data.internal)
+                        this.load_cart();
+                }
+            });
+
+            /* we bind automatic checkout on .finish-cart-btn links */
+            $(document).on('click', '.finish-cart-btn', (e) => {
+                e.preventDefault();
+
+                let user_data = {};
+                const firstname = $('#firstname-input', this.$container).val();
+                const lastname  = $('#lastname-input', this.$container).val();
+                const tab       = $('#tab-input', this.$container).val();
+                const email     = $('#email-input', this.$container).val();
+                if (firstname)
+                    user_data.firstname = firstname;
+                if (lastname)
+                    user_data.lastname = lastname;
+                if (tab)
+                    user_data.tab = tab;
+                if (email)
+                    user_data.email = email;
+                this.checkout(user_data, (err, rsp) => {
+                    if (err)
+                        return;
+
+                    this.cart = {};
+                    $('#cart').fadeOut();
+                    $('#checkout-confirm-popup').fadeIn();
+                });
+            });
+
+            /* .open-cart-btn is only used for now on Fabrica */
+            $(document).on('click', '.open-cart-btn', (e) => {
+                e.preventDefault();
+
+                $('#cart').fadeOut();
+                let user_data = {};
+                const tab = $('#tab-input', this.$container).val();
+                if (tab)
+                    user_data.tab = tab;
+
+                this.set_user_data(user_data, (err, rsp) => {
+                    if (err)
+                        return;
+                    this.set_open((err, rsp) => {
+                        if (err)
+                            return;
+                        this.get_new((err, rsp) => {
+                            if (err)
+                                return;
+                            $('#checkout-confirm-popup').fadeIn();
+                        });
+                    });
+                });
             });
         },
 
@@ -52,9 +108,19 @@ define(
                     this.build_table();
                     this.emit_update();
 
-                    this.bind_remove_item_icons((err) => {
-                        return callback(err);
-                    });
+                    this.bind_remove_item_icons();
+
+                    /* for fabrica, we need to set the carts as pending until
+                     * the customer has finished his order...
+                     */
+                    if (window.TKT_SET_CARTS_PENDING && this.cart.id) {
+                        this.set_pending((err, rsp) => {
+                            if (err)
+                                return callback(err);
+                        });
+                    } else {
+                        return callback();
+                    }
                 });
             });
         },
@@ -105,12 +171,68 @@ define(
             });
         },
 
+        set_pending: function(callback) {
+            callback  = callback || ((err) => {});
+
+            TKTApi.setPending(this.cart.id, (err, status, rsp) => {
+                if (err)
+                    return callback(err);
+
+                return callback(/*err*/null, rsp);
+            });
+        },
+
+        set_open: function(callback) {
+            callback  = callback || ((err) => {});
+
+            TKTApi.setOpen(this.cart.id, (err, status, rsp) => {
+                return callback(err);
+            });
+        },
+
+        get_new: function(callback) {
+            callback  = callback || ((err) => {});
+
+            TKTApi.getNew((err, status, rsp) => {
+                if (err)
+                    return callback(err);
+
+                return this.load_cart(callback);
+            });
+        },
+
+        set_user_data: function(data, callback) {
+            callback  = callback || ((err) => {});
+
+            TKTApi.setUserData(this.cart.id, data, (err, status, rsp) => {
+                return callback(err);
+            });
+        },
+
+        checkout: function(user_data, callback) {
+            callback  = callback || ((err) => {});
+            user_data = user_data || {};
+
+            TKTApi.pay(this.cart.id, 'POS_CASH', user_data, (err, status, rsp) => {
+                if (err)
+                    return callback(err);
+
+                TKTApi.confirm(this.cart.id, (err, status, rsp) => {
+                    if (err)
+                        return callback(err);
+
+                    return callback(/*err*/null, rsp);
+                });
+            });
+        },
+
         emit_update: function() {
             postal.publish({
                 channel: "cart",
                 topic: "update",
                 data: {
-                    cart: this.cart
+                    cart: this.cart,
+                    internal: true
                 }
             });
         },

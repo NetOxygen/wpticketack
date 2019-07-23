@@ -1,4 +1,7 @@
 <?php
+
+use Ticketack\WP\TKTApp;
+
 /**
  * Program event template
  *
@@ -12,7 +15,7 @@ $filters = $data->filters;
 ?>
 
 <?php if (!empty($filters)) : ?>
-<div class="tkt-filters" data-component="Program/Filter">
+<div class="tkt-wrapper tkt-filters" data-component="Program/Filter">
   <div class="row">
     <div class="col">
         <ul>
