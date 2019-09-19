@@ -42,11 +42,13 @@ $ids = array_map(function ($s) {
 
 $images_width  = TKTApp::get_instance()->get_config('images_dimensions.big_width');
 $images_height = TKTApp::get_instance()->get_config('images_dimensions.big_height');
+
+$nb_slides = count($trailers) + count($posters);
 ?>
 <div class="tkt-wrapper tkt_event">
   <div id="tkt-event">
 
-    <?php if (count($trailers) > 0) : ?>
+    <?php if ($nb_slides > 0) : ?>
     <section class="tkt-full-section carousel-section">
       <div class="row">
         <div class="col">
@@ -66,8 +68,13 @@ $images_height = TKTApp::get_instance()->get_config('images_dimensions.big_heigh
                 </div>
               </div>
               <?php endforeach; ?>
+              <?php foreach ($posters as $i => $p) : ?>
+              <div class="carousel-item <?= count($trailers) == 0 && $i == 0 ? 'active' : '' ?>">
+                <img style="max-width: 924px" class="d-block w-100" src="<?= tkt_img_proxy_url($p->url, $images_width, $images_height) ?>" alt="<?= $title ?>">
+              </div>
+              <?php endforeach; ?>
             </div>
-            <?php if (count($trailers) > 1) : ?>
+            <?php if ($nb_slides > 1) : ?>
             <a class="carousel-control-prev" href="#event-carousel" role="button" data-slide="prev">
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
               <span class="sr-only">Précédent</span>
