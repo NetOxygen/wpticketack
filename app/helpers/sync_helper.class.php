@@ -29,7 +29,7 @@ class SyncHelper
         $events = static::load_next_events();
 
         if (!empty($events)) {
-            array_map(function ($e) use ($i) {
+            array_map(function ($e) use ($i, $default_lang) {
                 $def_post_id = static::create_post($e, $default_lang);
 
                 if (is_null($def_post_id) || !TKT_WPML_INSTALLED) {
