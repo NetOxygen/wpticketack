@@ -495,7 +495,7 @@ function tkt_t($str) {
 function tkt_get_event_slug($event, $lang)
 {
     $title = $event->title($lang);
-    $slug  = sanitize_title($title).($lang === SyncHelper::DEFAULT_LANG ? '' : '-'.$lang);
+    $slug  = sanitize_title($title).($lang === TKTApp::get_instance()->get_config('i18n.default_lang', 'fr') ? '' : '-'.$lang);
 
     return $slug;
 }

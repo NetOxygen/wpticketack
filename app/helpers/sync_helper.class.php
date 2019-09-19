@@ -2,6 +2,7 @@
 
 namespace Ticketack\WP\Helpers;
 
+use Ticketack\WP\TKTApp;
 use Ticketack\Core\Models\Screening;
 use Ticketack\Core\Models\Event;
 
@@ -11,23 +12,25 @@ use Ticketack\Core\Models\Event;
 class SyncHelper
 {
     const POST_TYPE    = 'tkt-event';
-    const DEFAULT_LANG = 'fr';
 
     const IMPORT_ONLY_NEW = false;
 
     public static function sync_events()
     {
+        $default_lang = TKTApp::get_instance()->get_config('i18n.default_lang', 'fr');
+
         ini_set('memory_limit', '512M');
         ini_set('max_execution_time', 0);
 
-        // First switch to fr
-        switch_to_locale('fr_FR');
+        if ($default_lang === 'fr') {
+            switch_to_locale('fr_FR');
+        }
 
         $events = static::load_next_events();
 
         if (!empty($events)) {
             array_map(function ($e) use ($i) {
-                $def_post_id = static::create_post($e, static::DEFAULT_LANG);
+                $def_post_id = static::create_post($e, $default_lang);
 
                 if (is_null($def_post_id) || !TKT_WPML_INSTALLED) {
                     return;
@@ -35,7 +38,7 @@ class SyncHelper
 
                 $languages = icl_get_languages('skip_missing=N&orderby=KEY&order=DIR&link_empty_to=str');
                 foreach (array_keys($languages) as $lang) {
-                    if ($lang == static::DEFAULT_LANG) {
+                    if ($lang == $default_lang) {
                         continue;
                     }
                     $tr_post_id = static::create_post($e, $lang);
