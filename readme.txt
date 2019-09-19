@@ -2,7 +2,7 @@
 Tags: ticketack
 Requires at least: 4.6
 Tested up to: 5.2
-Stable tag: 2.1.3
+Stable tag: 2.1.4
 Requires PHP: 5.6
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -35,7 +35,7 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
-= 2.1.3 =
+= 2.1.4 =
 * Restore posters on events sliders
 
 = 2.1.2 =
