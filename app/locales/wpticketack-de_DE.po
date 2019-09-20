@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-13 18:06+0200\n"
+"POT-Creation-Date: 2019-09-20 20:15+0200\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Belkacem Alidra <belkacem.alidra@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,10 +18,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "Sélectionnez votre contenance et votre quantité :"
-msgstr ""
+msgstr "Wählen Sie Ihre Kapazität und Menge:"
 
 msgid "Total"
-msgstr ""
+msgstr "Total"
 
 msgid "Veuillez choisir au moins un produit"
 msgstr "Bitte wählen Sie mindestens ein Produkt aus"
@@ -135,37 +135,37 @@ msgid "Afficher mes réservations"
 msgstr "Meine Buchungen ansehen"
 
 msgid "Shortcodes disponibles"
-msgstr ""
+msgstr "Shortcodes verfügbar"
 
 msgid "Affichage en liste"
-msgstr ""
+msgstr "Listendarstellung"
 
 msgid "Affichage des prochaines séances en liste"
-msgstr ""
+msgstr "Anzeige der nächsten Sitzungen in der Liste"
 
 msgid "Affichage en grille"
-msgstr ""
+msgstr "Gitteranzeige"
 
 msgid "Affichage des prochains films en grille de 4"
-msgstr ""
+msgstr "Anzeige der nächsten Filme im Raster von 4 Bildern"
 
 msgid "Affichage en galerie"
-msgstr ""
+msgstr "In der Galerie anzeigen"
 
 msgid "Affichage des prochains films en galerie de 4 colonnes"
-msgstr ""
+msgstr "Anzeige der nächsten Filme in einer 4-spaltigen Galerie"
 
 msgid "Panier"
-msgstr ""
+msgstr "Warenkorb"
 
 msgid "Affichage du contenu du panier"
-msgstr ""
+msgstr "Anzeigen des Inhalts des Warenkorbs"
 
 msgid "Abonnements"
 msgstr "Abonnements"
 
 msgid "Vente des différents types d'abonnements"
-msgstr ""
+msgstr "Verkauf der verschiedenen Arten von Abonnements"
 
 msgid "Votre panier est vide"
 msgstr "Ihr Einkaufswagen ist leer"
@@ -203,14 +203,14 @@ msgid ""
 "Aucuné séance programmée actuellement, revenez nous visiter prochainement."
 msgstr "Derzeit ist keine Sitzung geplant, komm bald wieder."
 
-msgid "Billets"
-msgstr "Zum Warenkorb hinzufügen"
-
 msgid "Il ne reste que quelques places"
 msgstr "Es gibt nur noch wenige Plätze"
 
 msgid "Complet"
 msgstr "Fertig"
+
+msgid "Billets"
+msgstr "Zum Warenkorb hinzufügen"
 
 msgid "Il ne reste que quelques places !"
 msgstr "Es gibt nur noch wenige Plätze!"
@@ -237,10 +237,10 @@ msgid "Aucun article dans cette catégorie, revenez nous visiter prochainement."
 msgstr "Keine Artikel in dieser Kategorie, kommen Sie bald wieder."
 
 msgid "Vous avez choisi :"
-msgstr ""
+msgstr "Du hast gewählt:"
 
 msgid "Valider"
-msgstr ""
+msgstr "Validieren"
 
 msgid "Commander"
 msgstr "Zur Bestellung"
@@ -249,25 +249,37 @@ msgid "Il ne reste que quelques articles"
 msgstr "Es sind nur noch wenige Artikel vorhanden."
 
 msgid "Plus de stock"
-msgstr ""
+msgstr "Keine Lagerbestände mehr"
 
-msgid "Synopsis"
-msgstr ""
+msgid "Tout"
+msgstr "Tout"
 
 msgid "Details"
-msgstr ""
+msgstr "Details"
 
-msgid "Durée"
-msgstr ""
+msgid "Quand"
+msgstr "Wenn die"
 
 msgid "min"
-msgstr ""
+msgstr "min"
 
-msgid "Casting"
-msgstr ""
+msgid "Section"
+msgstr "Abschnitt"
+
+msgid "Synopsis"
+msgstr "Synopse"
+
+msgid "Films"
+msgstr "Filme"
 
 msgid "Achetez vos billets"
-msgstr ""
+msgstr "Kaufen Sie Ihre Tickets"
+
+msgid "Durée"
+msgstr "Dauer"
+
+msgid "Casting"
+msgstr "Gießen"
 
 msgid "Veuillez choisir au moins un billet"
 msgstr "Bitte wählen Sie mindestens einen Ball aus."
@@ -368,92 +380,92 @@ msgid "Articles importés depuis Ticketack"
 msgstr "Aus Ticketack importierte Elemente"
 
 msgid "API"
-msgstr ""
+msgstr "API"
 
 msgid "Pages"
-msgstr ""
+msgstr "Seiten"
 
 msgid "Images"
-msgstr ""
+msgstr "Bilder"
 
 msgid "Langues"
-msgstr ""
+msgstr "Sprachen"
 
 msgid "Documentation"
-msgstr ""
+msgstr "Dokumentation"
 
 msgid "Ticketack n'est pas configuré."
-msgstr ""
+msgstr "Ticketack ist nicht konfiguriert."
 
 msgid "Accéder aux réglages"
 msgstr "Auf die Einstellungen zugreifen"
 
 msgid "Accès à Ticketack"
-msgstr ""
+msgstr "Zugang zum Ticketack"
 
 msgid "URL de l'engine"
-msgstr ""
+msgstr "Engine-URL"
 
 msgid "URL du eshop"
-msgstr ""
+msgstr "Eshop-URL"
 
 msgid "Clé d'API"
-msgstr ""
+msgstr "API-Schlüssel"
 
 msgid "Programme"
-msgstr ""
+msgstr "Programm"
 
 msgid "Dimensions des images"
-msgstr ""
+msgstr "Bildabmessungen"
 
 msgid "Largeur des grandes images"
-msgstr ""
+msgstr "Breite großer Bilder"
 
 msgid "Hauteur des grandes images"
-msgstr ""
+msgstr "Höhe der großen Bilder"
 
 msgid "Largeur des images moyennes"
-msgstr ""
+msgstr "Breite der durchschnittlichen Bilder"
 
 msgid "Hauteur des images moyennes"
-msgstr ""
+msgstr "Höhe der durchschnittlichen Bilder"
 
 msgid "Serveur proxy d'images"
-msgstr ""
+msgstr "Image-Proxy-Server"
 
 msgid "Serveur proxy"
-msgstr ""
+msgstr "Proxy-Server"
 
 msgid "Champs à saisir pour chaque type d'abonnement"
-msgstr ""
+msgstr "Felder, die für jede Art von Abonnement einzugeben sind."
 
 msgid "Langue par défaut"
-msgstr ""
+msgstr "Standardsprache"
 
 msgid "Options avancées"
-msgstr ""
+msgstr "Erweiterte Optionen"
 
 msgid "Saisissez les slugs des pages contenant les différents shortcodes"
-msgstr ""
+msgstr "Geben Sie die Slugs der Seiten mit den verschiedenen Shortcodes ein."
 
 msgid "Saisissez les informations d'accès à la billetterie"
-msgstr ""
+msgstr "Geben Sie die Slugs der Seiten mit den verschiedenen Shortcodes ein."
 
 msgid "Dimensions des grandes et moyennes images (en px)."
-msgstr ""
+msgstr "Abmessungen von großen und mittleren Bildern (in px)."
 
 msgid "Configuration du serveur proxy d'images."
-msgstr ""
+msgstr "Konfiguration des Image-Proxy-Servers."
 
 msgid "Configuration de la vente d'abonnements."
-msgstr ""
+msgstr "Konfiguration des Abonnementverkaufs."
 
 msgid "Configuration des langues."
-msgstr ""
+msgstr "Sprachkonfiguration."
 
 msgid ""
 "Ne modifiez les valeurs ci-dessous que si vous savez ce que vous faites."
-msgstr ""
+msgstr "Ändern Sie die folgenden Werte nur, wenn Sie wissen, was Sie tun."
 
 #~ msgid "sous-titres"
 #~ msgstr "Untertitel"

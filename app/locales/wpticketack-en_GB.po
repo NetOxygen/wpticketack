@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-13 18:04+0200\n"
+"POT-Creation-Date: 2019-09-20 20:27+0200\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Belkacem Alidra <belkacem.alidra@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -198,14 +198,14 @@ msgid ""
 "Aucuné séance programmée actuellement, revenez nous visiter prochainement."
 msgstr "No screening currently scheduled, come back soon."
 
-msgid "Billets"
-msgstr "Tickets"
-
 msgid "Il ne reste que quelques places"
 msgstr "There are only a few places"
 
 msgid "Complet"
 msgstr "Complete"
+
+msgid "Billets"
+msgstr "Tickets"
 
 msgid "Il ne reste que quelques places !"
 msgstr "There are only a few places !"
@@ -246,23 +246,35 @@ msgstr "There are only a few places"
 msgid "Plus de stock"
 msgstr "No more stock"
 
-msgid "Synopsis"
-msgstr ""
+msgid "Tout"
+msgstr "All"
 
 msgid "Details"
-msgstr ""
+msgstr "Details"
 
-msgid "Durée"
-msgstr ""
+msgid "Quand"
+msgstr "When"
 
-msgid "min"
-msgstr ""
+msgid "Section"
+msgstr "Section"
 
-msgid "Casting"
-msgstr ""
+msgid "Synopsis"
+msgstr "Synopsis"
+
+msgid "Films"
+msgstr "Movies"
 
 msgid "Achetez vos billets"
-msgstr ""
+msgstr "Buy  your tickets"
+
+msgid "Durée"
+msgstr "Duration"
+
+msgid "min"
+msgstr "mi"
+
+msgid "Casting"
+msgstr "Casting"
 
 msgid "Veuillez choisir au moins un billet"
 msgstr "Please choose a date"
