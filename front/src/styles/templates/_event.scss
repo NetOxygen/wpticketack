@@ -105,3 +105,10 @@
     }
   }
 }
+
+body.single-tkt-event {
+    header.entry-header {
+        /* title is handled by the kt-event template */
+        display: none;
+    }
+}
