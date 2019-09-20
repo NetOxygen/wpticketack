@@ -53,6 +53,7 @@ require([
     'app/Pass/BuyForm',
     'app/Program/BookabilityState',
     'app/Program/Filter',
+    'app/Program/FilterRows',
     'app/Program/Filters',
     'app/Ui/PlusMinus',
     'app/Ui/ScreenSaver',

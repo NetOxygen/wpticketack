@@ -53,7 +53,7 @@ class DaysFilterShortcode extends TKTShortcode
         }
 
         return TKTTemplate::render(
-            'program/days_filter',
+            'filters/days_filter',
             (object)[
                 "days"   => $days,
                 "active" => $active

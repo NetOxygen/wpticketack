@@ -39,7 +39,7 @@ class FilterShortcode extends TKTShortcode
         }
 
         return TKTTemplate::render(
-            'program/filter',
+            'filters/filter',
             (object)[
                 "filters" => $filters
             ]
