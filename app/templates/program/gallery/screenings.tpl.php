@@ -25,29 +25,12 @@ $nb_per_row = 12 / $item_width;
         <?php else: ?>
 
         <div class="row">
-
-        <?php $i = 0; ?>
-        <?php foreach($data->screenings as $screening) : ?>
-
-            <?php if ($i % $nb_per_row == 0) : ?>
-            <div class="row">
-        <?php endif; ?>
-
-                <div class="tkt_program_screening col-12 col-sm-6 col-md-<?= $item_width ?>" <?= tkt_screening_data_attributes($screening, $data->filter_fields) ?>>
-                    <?= TKTTemplate::render('program/gallery/screening', (object)[ 'screening' => $screening ]) ?>
-                </div>
-
-            <?php if ($i % $nb_per_row == ($nb_per_row - 1)) : ?>
+            <?php foreach($data->screenings as $screening) : ?>
+            <div class="tkt_program_screening col-12 col-sm-6 col-md-<?= $item_width ?>" <?= tkt_screening_data_attributes($screening, $data->filter_fields) ?>>
+                <?= TKTTemplate::render('program/gallery/screening', (object)[ 'screening' => $screening ]) ?>
             </div>
-            <?php endif; ?>
-
-            <?php $i += 1; ?>
-
-        <?php endforeach; ?>
-
-        <?php if ($i % $nb_per_row != $nb_per_row) : ?>
-            </div>
-        <?php endif; ?>
+            <?php endforeach; ?>
+        </div>
 
       <?php endif; ?>
     </div>

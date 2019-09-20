@@ -24,29 +24,13 @@ $nb_per_row = (int)(12 / $item_width);
         <h3 class="no-screening-title">Aucune séance à afficher</h3>
         <?php else: ?>
 
-        <?php $i = 0; ?>
-        <?php foreach($data->screenings as $screening) : ?>
-
-          <?php if ($i % $nb_per_row == 0) : ?>
-          <div class="row">
-          <?php endif; ?>
-
+        <div class="row">
+            <?php foreach($data->screenings as $screening) : ?>
             <div class="tkt_program_screening col-12 col-sm-6  col-md-<?= $item_width ?>" <?= tkt_screening_data_attributes($screening, $data->filter_fields) ?>>
               <?= TKTTemplate::render('program/grid/screening', (object)[ 'screening' => $screening ]) ?>
             </div>
-
-          <?php if (($i) % $nb_per_row == $nb_per_row - 1) : ?>
-          </div>
-          <?php endif; ?>
-
-          <?php $i += 1; ?>
-
-        <?php endforeach; ?>
-
-        <?php if ($i % $nb_per_row != $nb_per_row) : ?>
-          </div>
-        <?php endif; ?>
-
+            <?php endforeach; ?>
+        </div>
       <?php endif; ?>
     </div>
 </div>
