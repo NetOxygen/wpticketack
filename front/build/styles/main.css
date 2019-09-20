@@ -1,4 +1,4 @@
-/* Built on Fri Sep 20 2019 17:48:02 GMT+0200 (CEST) */ 
+/* Built on Fri Sep 20 2019 20:33:49 GMT+0200 (CEST) */ 
 .tkt-wrapper {
   /*!
  * Bootstrap v4.1.3 (https://getbootstrap.com/)
@@ -5598,7 +5598,7 @@
   color: #0056b3; }
 
 .assertive, .tkt-filters ul li.tkt-filter.active {
-  color: #000; }
+  color: #0056b3; }
 
 .success {
   color: #ffffff; }
@@ -5860,7 +5860,7 @@ input::-webkit-inner-spin-button {
       font-weight: bold;
       cursor: pointer; }
       .tkt-cart .tkt-cart-table tbody tr td.action-cell:hover {
-        color: #000; }
+        color: #0056b3; }
   .tkt-cart .tkt-cart-table tfoot tr td {
     padding-top: 1.0rem; }
     .tkt-cart .tkt-cart-table tfoot tr td.total-title-cell {
@@ -6123,7 +6123,6 @@ body.single-tkt-event header.entry-header {
 .tkt-filters {
   margin-top: -36px; }
   .tkt-filters ul {
-    float: right;
     padding: 0;
     list-style-type: none;
     clear: both; }
@@ -6242,7 +6241,7 @@ body.single-tkt-event header.entry-header {
       .booking-form.v2 .dates-form .days-wrapper .day {
         margin: 0.25rem; }
         .booking-form.v2 .dates-form .days-wrapper .day.active {
-          background-color: #000;
+          background-color: #0056b3;
           color: #FFFFFF; }
     .booking-form.v2 .dates-form .dates-wrapper {
       border: none;
@@ -6257,7 +6256,7 @@ body.single-tkt-event header.entry-header {
       .booking-form.v2 .dates-form .dates-wrapper .date {
         margin: 0.25rem; }
         .booking-form.v2 .dates-form .dates-wrapper .date.active {
-          background-color: #000;
+          background-color: #0056b3;
           color: #FFFFFF; }
   .booking-form.v2 .tickets-form {
     flex: 1;
@@ -6419,7 +6418,7 @@ body.single-tkt-event header.entry-header {
       height: calc(200px * 0.6);
       top: calc(200px * 0.2);
       left: calc(200px * 0.2);
-      border-color: transparent #000 transparent #000;
+      border-color: transparent #0056b3 transparent #0056b3;
       -webkit-animation: lds-double-ring_reverse 1s linear infinite;
       animation: lds-double-ring_reverse 1s linear infinite; }
 
@@ -6452,7 +6451,7 @@ body.single-tkt-event header.entry-header {
       height: calc(128px * 0.6);
       top: calc(128px * 0.2);
       left: calc(128px * 0.2);
-      border-color: transparent #000 transparent #000;
+      border-color: transparent #0056b3 transparent #0056b3;
       -webkit-animation: lds-double-ring_reverse 1s linear infinite;
       animation: lds-double-ring_reverse 1s linear infinite; }
 
@@ -6482,7 +6481,7 @@ body.single-tkt-event header.entry-header {
       height: calc(64px * 0.6);
       top: calc(64px * 0.2);
       left: calc(64px * 0.2);
-      border-color: transparent #000 transparent #000;
+      border-color: transparent #0056b3 transparent #0056b3;
       -webkit-animation: lds-double-ring_reverse 1s linear infinite;
       animation: lds-double-ring_reverse 1s linear infinite; }
 
@@ -6512,7 +6511,7 @@ body.single-tkt-event header.entry-header {
       height: calc(32px * 0.6);
       top: calc(32px * 0.2);
       left: calc(32px * 0.2);
-      border-color: transparent #000 transparent #000;
+      border-color: transparent #0056b3 transparent #0056b3;
       -webkit-animation: lds-double-ring_reverse 1s linear infinite;
       animation: lds-double-ring_reverse 1s linear infinite; }
 
@@ -6613,7 +6612,7 @@ body.single-tkt-event header.entry-header {
     .tkt-user-connect .connect-panel span a {
       color: #0056b3; }
       .tkt-user-connect .connect-panel span a:hover {
-        color: #000; }
+        color: #0056b3; }
   .tkt-user-connect .connect-panel input {
     width: 100%;
     margin-top: 0.6rem;
