@@ -3,7 +3,7 @@
       background: #212121;
   }
   .infos-section {
-    background: #FFFFFF;
+    background: #F0F0F0;
 
     .synopsis {
       .title {
@@ -51,6 +51,31 @@
           font-size: 1rem;
           line-height: 1rem;
           display: block;
+        }
+      }
+    }
+  }
+
+  .movies-section {
+    background: #E6E6E6;
+
+    .tkt-section-title {
+      margin-bottom: 1rem;
+    }
+    .movies-wrapper {
+      .movie-wrapper {
+        margin-bottom: 1rem;
+        .movie-poster {
+            height: 100%;
+            min-height: 200px;
+            background-size: cover;
+        }
+        .movie-title {
+            font-weight: bold;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
         }
       }
     }
