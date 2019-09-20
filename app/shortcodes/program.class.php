@@ -47,15 +47,16 @@ class ProgramShortcode extends TKTShortcode
      */
     public function run($atts, $content)
     {
-        $template     = isset($atts['template']) ? $atts['template'] : static::LIST_TEMPLATE;
-        $layout       = isset($atts['layout']) ? $atts['layout'] : static::SCREENINGS_LAYOUT;
-        $section_ids  = isset($atts['section_ids']) ? explode(',', $atts['section_ids']) : null;
-        $xsection_ids = isset($atts['xsection_ids']) ? explode(',', $atts['xsection_ids']) : null;
-        $item_width   = isset($atts['item_width']) ? intval($atts['item_width']) : static::DEFAULT_ITEM_WIDTH;
-        $order        = isset($atts['order']) ? $atts['order'] : ($layout == static::SCREENINGS_LAYOUT ? static::CHRONO_ORDER : static::ALPHA_ORDER);
-        $top_filter   = isset($atts['top_filter']) ? $atts['top_filter'] : null;
-        $day          = isset($atts['day']) ? $atts['day'] : tkt_get_url_param('d');
-        $places       = isset($atts['places']) ? explode(',', $atts['places']) : [];
+        $template      = isset($atts['template']) ? $atts['template'] : static::LIST_TEMPLATE;
+        $layout        = isset($atts['layout']) ? $atts['layout'] : static::SCREENINGS_LAYOUT;
+        $section_ids   = isset($atts['section_ids']) ? explode(',', $atts['section_ids']) : null;
+        $xsection_ids  = isset($atts['xsection_ids']) ? explode(',', $atts['xsection_ids']) : null;
+        $item_width    = isset($atts['item_width']) ? intval($atts['item_width']) : static::DEFAULT_ITEM_WIDTH;
+        $order         = isset($atts['order']) ? $atts['order'] : ($layout == static::SCREENINGS_LAYOUT ? static::CHRONO_ORDER : static::ALPHA_ORDER);
+        $top_filter    = isset($atts['top_filter']) ? $atts['top_filter'] : null;
+        $day           = isset($atts['day']) ? $atts['day'] : tkt_get_url_param('d');
+        $places        = isset($atts['places']) ? explode(',', $atts['places']) : [];
+        $filter_fields = isset($atts['filter_fields']) ? explode(',', $atts['filter_fields']) : [];
 
         try {
             $query = Screening::all()
@@ -144,6 +145,7 @@ class ProgramShortcode extends TKTShortcode
                             'screenings'        => array_values($screenings),
                             'item_width'        => $item_width,
                             'filter'            => $filter,
+                            'filter_fields'     => $filter_fields,
                             'service_filters'   => $service_filters,
                             'top_filter'        => $top_filter,
                             'top_filter_values' => ($top_filter == static::EVENTS_FILTER ? Event::from_screenings($screenings) : [])
@@ -195,9 +197,10 @@ class ProgramShortcode extends TKTShortcode
                     return TKTTemplate::render(
                         'program/'.$template.'/events',
                         (object)[
-                            'events' => array_values($events),
-                            'item_width' => $item_width,
-                            'top_filter' => $top_filter,
+                            'events'            => array_values($events),
+                            'item_width'        => $item_width,
+                            'filter_fields'     => $filter_fields,
+                            'top_filter'        => $top_filter,
                             'top_filter_values' => ($top_filter == static::SCREENINGS_FILTER ? $screenings : [])
                         ]
                     );

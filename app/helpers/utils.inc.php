@@ -541,3 +541,48 @@ function tkt_people_activities($activity = null, $lang = null)
 
     return $ret;
 }
+
+/**
+ * Generate html data attributes based on defined attributes
+ *
+ * @param TKTEvent $event
+ * @param array $attributes
+ */
+function tkt_event_data_attributes($event, $attributes)
+{
+    $values = [];
+    if (in_array('type', $attributes)) {
+        $values[] = 'data-type="'.$event->opaque('type').'"';
+    }
+
+    return implode(' ', $values);
+}
+
+
+/**
+ * Generate html data attributes based on defined attributes
+ *
+ * @param TKTEvent $screening
+ * @param array $attributes
+ */
+function tkt_screening_data_attributes($screening, $attributes)
+{
+    $values = [];
+    if (in_array('type', $attributes)) {
+        $values[] = 'data-type="'.$screening->opaque('type').'"';
+    }
+
+    if (in_array('date', $attributes)) {
+        $values[] = 'data-date="'.$screening->start_at()->format('Y-m-d').'"';
+    }
+
+    if (in_array('hall', $attributes)) {
+        $values[] = 'data-hall="'.$screening->place()->name().'"';
+    }
+
+    if (in_array('section', $attributes)) {
+        $values[] = 'data-section="'.$screening->opaque('section', [])[TKTApp::get_instance()->get_config('i18n.default_lang')].'"';
+    }
+
+    return implode(' ', $values);
+}

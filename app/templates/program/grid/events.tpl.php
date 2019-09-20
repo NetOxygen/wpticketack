@@ -11,6 +11,7 @@ use Ticketack\WP\Templates\TKTTemplate;
  *   "events": [
  *
  *   ],
+ *   "filter_fields": ['date', 'cinema_hall', ...]
  *   "nb_per_row": 3
  * }
  */
@@ -30,7 +31,7 @@ $nb_per_row = 12 / $item_width;
           <div class="row">
           <?php endif; ?>
 
-            <div class="tkt_program_event col-12 col-sm-6 col-md-<?= $item_width ?>" data-type="<?= $event->opaque('type') ?>">
+            <div class="tkt_program_event col-12 col-sm-6 col-md-<?= $item_width ?>" data-type="<?= $event->opaque('type') ?>" <?= tkt_event_data_attributes($event, $data->filter_fields) ?>>
               <?= TKTTemplate::render('program/grid/event', (object)[ 'event' => $event ]) ?>
             </div>
 

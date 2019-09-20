@@ -11,6 +11,7 @@ use Ticketack\WP\Templates\TKTTemplate;
  *   "screenings": [
  *
  *   ],
+ *   "filter_fields": ['date', 'cinema_hall', ...]
  *   "item_width": 12
  * }
  */
@@ -32,7 +33,7 @@ $nb_per_row = 12 / $item_width;
             <div class="row">
         <?php endif; ?>
 
-                <div class="tkt_program_screening col-12 col-sm-6 col-md-<?= $item_width ?>">
+                <div class="tkt_program_screening col-12 col-sm-6 col-md-<?= $item_width ?>" <?= tkt_screening_data_attributes($screening, $data->filter_fields) ?>>
                     <?= TKTTemplate::render('program/gallery/screening', (object)[ 'screening' => $screening ]) ?>
                 </div>
 

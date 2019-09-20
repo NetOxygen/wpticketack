@@ -10,7 +10,8 @@ use Ticketack\WP\Templates\TKTTemplate;
  * $data: {
  *   "events": [
  *
- *   ]
+ *   ],
+ *   "filter_fields": ['date', 'cinema_hall', ...]
  * }
  */
 ?>
@@ -21,7 +22,7 @@ use Ticketack\WP\Templates\TKTTemplate;
         <?php else: ?>
 
         <?php foreach ($data->events as $event) : ?>
-        <div class="tkt_program_event" data-type="<?= $event->opaque('type') ?>">
+        <div class="tkt_program_event" <?= tkt_event_data_attributes($event, $data->filter_fields) ?>>
             <?= TKTTemplate::render('program/list/event', (object)[ 'event' => $event ]) ?>
         </div>
         <?php endforeach; ?>
