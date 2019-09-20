@@ -108,7 +108,7 @@ $nb_slides = count($trailers) + count($posters);
             <div class="col">
               <div class="duration">
                 <span class="tkt-badge tkt-badge-split">
-                  <span class="tkt-badge-part tkt-dark-badge"><?= tkt_t('quand') ?></span>
+                  <span class="tkt-badge-part tkt-dark-badge"><?= tkt_t('Quand') ?></span>
                   <span class="tkt-badge-part tkt-grey-badge"><?= tkt_date_and_time_to_min_s($s->start_at()); ?> <?= tkt_t('min') ?></span>
                 </span>
               </div>
@@ -152,14 +152,19 @@ $nb_slides = count($trailers) + count($posters);
               <div class="row">
                 <?php if (count($m->posters()) > 0) : ?>
                 <div class="col col-sm-12 col-md-6">
-                  <div class="movie-poster" style="background-image: url('<?= tkt_img_proxy_url(array_shift($m->posters())['url'], $images_width, $images_height) ?>');">
-                  </div>
+                  <a href="<?= tkt_event_details_url($m) ?>">
+                    <div class="movie-poster" style="background-image: url('<?= tkt_img_proxy_url(array_shift($m->posters())['url'], $images_width, $images_height) ?>');">
+                    </div>
+                  </a>
                 </div>
                 <?php endif; ?>
 
-                <?php if (!empty($s->opaque('section'))) : ?>
                 <div class="col col-sm-12 col-md-6">
-                  <div class="movie-title"><?= $m->localized_title_or_original(TKT_LANG) ?></div>
+                  <div class="movie-title">
+                    <a href="<?= tkt_event_details_url($m) ?>">
+                      <?= $m->localized_title_or_original(TKT_LANG) ?>
+                    </a>
+                  </div>
                   <?php $infos = implode(', ', array_filter([
                     ucfirst(strtolower($m->opaque('genre'))),
                     $m->opaque('duration', 0).' min',
@@ -167,7 +172,6 @@ $nb_slides = count($trailers) + count($posters);
                   ?>
                   <div class="movie-infos"><?= $infos ?></div>
                 </div>
-                <?php endif; ?>
 
               </div>
             </div>
