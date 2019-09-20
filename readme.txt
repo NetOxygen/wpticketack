@@ -2,7 +2,7 @@
 Tags: ticketack
 Requires at least: 4.6
 Tested up to: 5.2
-Stable tag: 2.1.4
+Stable tag: 2.2.0
 Requires PHP: 5.6
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -34,6 +34,11 @@ This section describes how to install the plugin and get it working.
 == Screenshots ==
 
 == Changelog ==
+
+= 2.2.0 =
+* Introduce film packages template
+* Add filter_fields attribute on program shortcode to prepare filters work
+* Small fixes
 
 = 2.1.4 =
 * Restore posters on events sliders
