@@ -22,7 +22,7 @@ $image_url     = tkt_img_proxy_url($m->first_poster()->url, $images_width, $imag
 <div class="tkt-wrapper event-inner">
   <div class="row">
     <div class="poster-wrapper">
-      <a href="<?= tkt_event_details_url($m) ?>">
+      <a href="<?= tkt_event_book_url($m, $s) ?>">
         <img src="<?= $image_url ?>" />
         <span>
           <?= $m->localized_title_or_original(TKT_LANG) ?>
