@@ -109,7 +109,7 @@ $nb_slides = count($trailers) + count($posters);
               <div class="duration">
                 <span class="tkt-badge tkt-badge-split">
                   <span class="tkt-badge-part tkt-dark-badge"><?= tkt_t('Quand') ?></span>
-                  <span class="tkt-badge-part tkt-grey-badge"><?= tkt_date_and_time_to_min_s($s->start_at()); ?> <?= tkt_t('min') ?></span>
+                  <span class="tkt-badge-part tkt-grey-badge"><?= tkt_date_and_time_to_min_s($s->start_at()); ?></span>
                 </span>
               </div>
             </div>
@@ -117,7 +117,7 @@ $nb_slides = count($trailers) + count($posters);
             <?php if (!empty($s->opaque('section'))) : ?>
             <div class="col">
               <span class="tkt-badge tkt-badge-split">
-                <span class="tkt-badge-part tkt-dark-badge"><?= tkt_t('section') ?></span>
+                <span class="tkt-badge-part tkt-dark-badge"><?= tkt_t('Section') ?></span>
                 <span class="tkt-badge-part tkt-grey-badge"><?= $s->opaque('section')[TKT_LANG] ?></span>
               </span>
             </div>
