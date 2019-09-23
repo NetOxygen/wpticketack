@@ -88,7 +88,41 @@ class CustomTypesAction extends TKTAction
             'supports'           => array('title', 'editor', 'author', 'thumbnail', 'page-attributes', 'custom-fields' )
         );
 
+        $labels_person = array(
+            'name'               => _x('Ticketack People', 'Ticketack people', 'wpticketack' ),
+            'singular_name'      => _x('Ticketack Person', 'Ticketack person', 'wpticketack' ),
+            'menu_name'          => _x('Ticketack People', 'admin menu', 'wpticketack' ),
+            'name_admin_bar'     => _x('Ticketack Person', 'add new on admin bar', 'wpticketack' ),
+            'add_new'            => _x('Add New', 'person', 'wpticketack' ),
+            'add_new_item'       => tkt_t('Add New Ticketack Person'),
+            'new_item'           => tkt_t('New Ticketack Person'),
+            'edit_item'          => tkt_t('Edit Ticketack Person'),
+            'view_item'          => tkt_t('View Ticketack Person'),
+            'all_items'          => tkt_t('All Ticketack People'),
+            'search_items'       => tkt_t('Search Ticketack People'),
+            'parent_item_colon'  => tkt_t('Parent Ticketack Person:'),
+            'not_found'          => tkt_t('No person found.'),
+            'not_found_in_trash' => tkt_t('No person found in Trash.')
+        );
+
+        $args_person = array(
+            'labels'             => $labels_person,
+            'description'        => tkt_t('Personnes importées depuis Ticketack'),
+            'public'             => true,
+            'publicly_queryable' => true,
+            'show_ui'            => true,
+            'show_in_menu'       => true,
+            'query_var'          => true,
+            'rewrite'            => array('slug' => 'people'),
+            'capability_type'    => 'page',
+            'has_archive'        => true,
+            'hierarchical'       => true,
+            'menu_position'      => null,
+            'supports'           => array('title', 'editor', 'author', 'thumbnail', 'page-attributes', 'custom-fields' )
+        );
+
         register_post_type('tkt-event', $args_event);
         register_post_type('tkt-article', $args_article);
+        register_post_type('tkt-person', $args_person);
     }
 }
