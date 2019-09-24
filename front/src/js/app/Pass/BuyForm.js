@@ -9,9 +9,9 @@
  * >
  */
 define([
-        'config', 'postal', 'lodash', 'jquery', 'jqueryjson', 'api', 'i18n'
+        'config', 'postal', 'lodash', 'jquery', 'jqueryjson', 'api', 'i18n', 'exif', 'filetodataurl'
     ], function dependencies(
-        config, postal, _, $, $json, TKTApi, i18n) {
+        config, postal, _, $, $json, TKTApi, i18n, EXIF, filetodataurl) {
 
     function BuyForm($container, state) {
         this.$container = $container;
@@ -36,9 +36,11 @@ define([
             if (this.$pass.length == 1)
                 this.sync_pass_form(this.$pass[0].data('type'));
 
-            $('button[type="submit"]', this.$container).click((e) => {
+
+            $('form', this.$container).submit((e) => {
                 e.preventDefault();
-                this.add_to_cart($(e.target).data('redirect'));
+                this.add_to_cart($('button[type="submit"]', this.$container).data('redirect'));
+                return false;
             });
         },
 
@@ -50,10 +52,16 @@ define([
 
             this.$selected_pass = $('.choose-pass:checked', this.$container).parents('.pass');
             let type            = this.$selected_pass.data('type');
+            let pricing         = $('.choose-pass:checked', this.$container).val();
 
-            const pricing = $('.choose-pass:checked', this.$container).val();
-            if (!pricing)
-                return this.show_error(i18n.t('Veuillez choisir un tarif'));
+            if (!pricing) {
+                if ($('.choose-pass', this.$container).val().indexOf(':') === -1)
+                    return this.show_error(i18n.t('Veuillez choisir un tarif'));
+
+                const pass = $('.choose-pass', this.$container).val().split(':');
+                type    = pass[0];
+                pricing = pass[1];
+            }
 
             TKTApi.addPassToCart(type, pricing, userdata, (err, status, rsp) => {
                 if (err)
@@ -84,19 +92,28 @@ define([
         },
 
         show_success(msg) {
-            alert(msg);
+            $('.alert-success', this.$container).html(msg).show();
         },
 
         show_error(msg) {
-            alert(msg);
+            $('.alert-danger', this.$container).html(msg).show();
         },
 
         sync_pass_form: function (pass) {
-            let fields_to_show = $('#' + pass + '-fields').val().split(',');
+            let fields_to_show   = $('#' + pass + '-fields').val().split(',');
+            let required_fields  = [];
+            let requested_fields = [];
+
+            fields_to_show.map(field => {
+                if (field.endsWith('?'))
+                    requested_fields.push(field.slice(0, -1));
+                else
+                    required_fields.push(field);
+            });
 
             // Set not required and hide all fields
             $('.field', this.$container).each(function (i) {
-                $(this).required = false;
+                $(this).attr('required', false);
             });
             this.$wrappers.hide();
 
@@ -104,8 +121,12 @@ define([
                 // Set required and show requested fields
                 let id     = $(w).attr('id').replace('field-wrapper-', '');
                 let $field = $('#' + id);
-                if (fields_to_show.includes(id)) {
-                    $field.required = true;
+                let $label = $('label[for='+id+']');
+                if (required_fields.includes(id)) {
+                    $field.attr('required', true);
+                    $(w).fadeIn();
+                } else if (requested_fields.includes(id)) {
+                    $label.removeClass('required');
                     $(w).fadeIn();
                 }
             });
