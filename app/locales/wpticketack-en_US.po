@@ -8,296 +8,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-13 18:04+0200\n"
+"POT-Creation-Date: 2019-09-04 16:44+0200\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Belkacem Alidra <belkacem.alidra@netoxygen.ch>\n"
+"Last-Translator: Belkacem Alidra <dev@b-alidra.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-
-msgid "Sélectionnez votre contenance et votre quantité :"
-msgstr "Select the quantity"
-
-msgid "Total"
-msgstr "Total"
-
-msgid "Veuillez choisir au moins un produit"
-msgstr "Please choose a date"
-
-msgid "Accéder au panier"
-msgstr "Add to cart"
-
-msgid "Ajouter au panier"
-msgstr "Add to cart"
-
-msgid "Prénom"
-msgstr "Firstname"
-
-msgid "Votre prénom"
-msgstr "Your firstname"
-
-msgid "Nom"
-msgstr "Lastname"
-
-msgid "Votre nom"
-msgstr "Your lastname"
-
-msgid "Email"
-msgstr ""
-
-msgid "Votre email"
-msgstr "Your email"
-
-msgid "Adresse"
-msgstr "Address"
-
-msgid "Votre adresse"
-msgstr "Your address"
-
-msgid "Numéro postal"
-msgstr "Zip"
-
-msgid "NPA"
-msgstr "ZIP"
-
-msgid "Ville"
-msgstr "City"
-
-msgid "Pays"
-msgstr "Country"
-
-msgid "Âge"
-msgstr "Age"
-
-msgid "Genre"
-msgstr "Genre"
-
-msgid "Tous ces champs sont requis"
-msgstr "All these fields are required"
-
-msgid "Tarifs :"
-msgstr "Pricings"
-
-msgid "Veuillez choisir la date désirée :"
-msgstr "Please choose a date"
-
-msgid "Veuillez choisir l'heure désirée :"
-msgstr "Please choose a time"
-
-msgid "Merci, votre commande est réservée dans votre panier pour 30 minutes."
-msgstr "Thank you, your order is reserved in your cart for 30 minutes."
-
-msgid "Continuer"
-msgstr "Continue"
-
-msgid "ma visite"
-msgstr "my visit"
-
-msgid ""
-"Entrez le nombre de place(s) que vous souhaitez ajouter à votre panier :"
-msgstr "Enter the number of tickets you want to add to your cart"
-
-msgid "Ajouter à mon panier"
-msgstr "Add to my cart"
-
-msgid "Vous avez un abonnement ?"
-msgstr "You have a pass?"
-
-msgid "Connectez-vous"
-msgstr "Login"
-
-msgid "pour réserver."
-msgstr "to book."
-
-msgid "ID"
-msgstr "ID"
-
-msgid "Code"
-msgstr "Code"
-
-msgid "Me connecter"
-msgstr "Login"
-
-msgid ""
-"Vous ne pouvez pas réserver de place pour cette séance avec votre abonnement."
-msgstr "You  can not book this screening with your pass"
-
-msgid "Réserver une place sur mon abonnement"
-msgstr "Book on my pass"
-
-msgid "Afficher mes réservations"
-msgstr "Show my bookings"
-
-msgid "Shortcodes disponibles"
-msgstr "Available shortcodes"
-
-msgid "Affichage en liste"
-msgstr "List display"
-
-msgid "Affichage des prochaines séances en liste"
-msgstr "Display screenings in list"
-
-msgid "Affichage en grille"
-msgstr "Grid display"
-
-msgid "Affichage des prochains films en grille de 4"
-msgstr "Display movies in a 4 columns grid"
-
-msgid "Affichage en galerie"
-msgstr "Gallery display"
-
-msgid "Affichage des prochains films en galerie de 4 colonnes"
-msgstr "Display movies in a 4 columns gallery"
-
-msgid "Panier"
-msgstr "Cart"
-
-msgid "Affichage du contenu du panier"
-msgstr "Display the cart content"
-
-msgid "Abonnements"
-msgstr "Pass"
-
-msgid "Vente des différents types d'abonnements"
-msgstr "Sell different pass types"
-
-msgid "Votre panier est vide"
-msgstr "Your cart is empty"
-
-msgid "Achats"
-msgstr "Purchases"
-
-msgid "Prix"
-msgstr "Price"
-
-msgid "Total :"
-msgstr "Total :"
-
-msgid "Finaliser ma commande"
-msgstr "Finish my order"
-
-msgid "Annuler"
-msgstr "Cancel"
-
-msgid "ma commande"
-msgstr "my order"
-
-msgid "mes réservations"
-msgstr "my bookings"
-
-msgid ""
-"Aucun événement programmé actuellement, revenez nous visiter prochainement."
-msgstr "No event currently scheduled, come back soon."
-
-msgid "Plus d'informations"
-msgstr "More informations"
-
-msgid ""
-"Aucuné séance programmée actuellement, revenez nous visiter prochainement."
-msgstr "No screening currently scheduled, come back soon."
-
-msgid "Billets"
-msgstr "Tickets"
-
-msgid "Il ne reste que quelques places"
-msgstr "There are only a few places"
-
-msgid "Complet"
-msgstr "Complete"
-
-msgid "Il ne reste que quelques places !"
-msgstr "There are only a few places !"
-
-msgid "Complet !"
-msgstr "Complete !"
-
-msgid "Voir mes réservations"
-msgstr "my bookings"
-
-msgid "Me déconnecter"
-msgstr "Logout"
-
-msgid "Connectez-vous !"
-msgstr "Login !"
-
-msgid "Acheter"
-msgstr "Buy"
-
-msgid "un abonnement"
-msgstr "a pass"
-
-msgid "Aucun article dans cette catégorie, revenez nous visiter prochainement."
-msgstr "No screening currently scheduled, come back soon."
-
-msgid "Vous avez choisi :"
-msgstr "You chose"
-
-msgid "Valider"
-msgstr "Confirm"
-
-msgid "Commander"
-msgstr "my order"
-
-msgid "Il ne reste que quelques articles"
-msgstr "There are only a few places"
-
-msgid "Plus de stock"
-msgstr "No more stock"
-
-msgid "Synopsis"
-msgstr ""
-
-msgid "Details"
-msgstr ""
-
-msgid "Durée"
-msgstr ""
-
-msgid "min"
-msgstr ""
-
-msgid "Casting"
-msgstr ""
-
-msgid "Achetez vos billets"
-msgstr ""
-
-msgid "Veuillez choisir au moins un billet"
-msgstr "Please choose a date"
-
-msgid "Veuillez remplir les deux champs"
-msgstr "Please fill in both fields"
-
-msgid "Les informations que vous avez saisies sont invalides"
-msgstr "The information you have entered is invalid"
-
-msgid "Une erreur est survenue. Veuillez ré-essayer ultérieurement."
-msgstr "An error has occurred. Please try again later."
-
-msgid ""
-"Vous ne pouvez pas réserver plus de place pour cette séance avec votre "
-"abonnement."
-msgstr "You  can not book this screening with your pass"
-
-msgid "Veuillez choisir un tarif"
-msgstr "Please choose a pricing"
-
-msgid "Votre panier a été mis à jour"
-msgstr "Your cart has been updated"
-
-msgid "Pas de réponse"
-msgstr "No answer"
-
-msgid "Féminin"
-msgstr "Female"
-
-msgid "Masculin"
-msgstr "Male"
-
-msgid "Autre"
-msgstr "Other"
 
 msgid "Add New Ticketack Event"
 msgstr ""
@@ -368,17 +86,14 @@ msgstr "Pages"
 msgid "Images"
 msgstr "Images"
 
+msgid "Abonnements"
+msgstr "Pass"
+
 msgid "Langues"
 msgstr "Languages"
 
 msgid "Documentation"
 msgstr "Documentation"
-
-msgid "Ticketack n'est pas configuré."
-msgstr "Ticketack is not configured"
-
-msgid "Accéder aux réglages"
-msgstr "Go to settings"
 
 msgid "Accès à Ticketack"
 msgstr "Go to Ticketack"
@@ -394,6 +109,9 @@ msgstr "API key"
 
 msgid "Programme"
 msgstr "Program"
+
+msgid "Panier"
+msgstr "Cart"
 
 msgid "Dimensions des images"
 msgstr "Images dimensions"
@@ -446,6 +164,300 @@ msgstr "Languages configuration"
 msgid ""
 "Ne modifiez les valeurs ci-dessous que si vous savez ce que vous faites."
 msgstr "Change these settings only if you know what you are doing."
+
+msgid "Ticketack n'est pas configuré."
+msgstr "Ticketack is not configured"
+
+msgid "Accéder aux réglages"
+msgstr "Go to settings"
+
+msgid "Pas de réponse"
+msgstr "No answer"
+
+msgid "Féminin"
+msgstr "Female"
+
+msgid "Masculin"
+msgstr "Male"
+
+msgid "Autre"
+msgstr "Other"
+
+msgid "Veuillez choisir au moins un billet"
+msgstr "Please choose a date"
+
+msgid "Veuillez remplir les deux champs"
+msgstr "Please fill in both fields"
+
+msgid "Les informations que vous avez saisies sont invalides"
+msgstr "The information you have entered is invalid"
+
+msgid "Une erreur est survenue. Veuillez ré-essayer ultérieurement."
+msgstr "An error has occurred. Please try again later."
+
+msgid ""
+"Vous ne pouvez pas réserver de place pour cette séance avec votre abonnement."
+msgstr "You  can not book this screening with your pass"
+
+msgid ""
+"Vous ne pouvez pas réserver plus de place pour cette séance avec votre "
+"abonnement."
+msgstr "You  can not book this screening with your pass"
+
+msgid "Veuillez choisir un tarif"
+msgstr "Please choose a pricing"
+
+msgid "Votre panier a été mis à jour"
+msgstr "Your cart has been updated"
+
+msgid "Plus d'informations"
+msgstr "More informations"
+
+msgid "Commander"
+msgstr "my order"
+
+msgid "Il ne reste que quelques articles"
+msgstr "There are only a few places"
+
+msgid "Plus de stock"
+msgstr "No more stock"
+
+msgid "Aucun article dans cette catégorie, revenez nous visiter prochainement."
+msgstr "No screening currently scheduled, come back soon."
+
+msgid "Vous avez choisi :"
+msgstr "You chose"
+
+msgid "Sélectionnez votre contenance et votre quantité :"
+msgstr "Select the quantity"
+
+msgid "Total"
+msgstr "Total"
+
+msgid "Veuillez choisir au moins un produit"
+msgstr "Please choose a date"
+
+msgid "Valider"
+msgstr "Confirm"
+
+msgid ""
+"Aucun événement programmé actuellement, revenez nous visiter prochainement."
+msgstr "No event currently scheduled, come back soon."
+
+msgid "Billets"
+msgstr "Tickets"
+
+msgid "Il ne reste que quelques places !"
+msgstr "There are only a few places !"
+
+msgid "Complet !"
+msgstr "Complete !"
+
+msgid "Il ne reste que quelques places"
+msgstr "There are only a few places"
+
+msgid "Complet"
+msgstr "Complete"
+
+msgid ""
+"Aucuné séance programmée actuellement, revenez nous visiter prochainement."
+msgstr "No screening currently scheduled, come back soon."
+
+msgid ""
+"Entrez le nombre de place(s) que vous souhaitez ajouter à votre panier :"
+msgstr "Enter the number of tickets you want to add to your cart"
+
+msgid "Ajouter à mon panier"
+msgstr "Add to my cart"
+
+msgid "Vous avez un abonnement ?"
+msgstr "You have a pass?"
+
+msgid "Connectez-vous"
+msgstr "Login"
+
+msgid "pour réserver."
+msgstr "to book."
+
+msgid "ID"
+msgstr "ID"
+
+msgid "Code"
+msgstr "Code"
+
+msgid "Me connecter"
+msgstr "Login"
+
+msgid "Réserver une place sur mon abonnement"
+msgstr "Book on my pass"
+
+msgid "Afficher mes réservations"
+msgstr "Show my bookings"
+
+msgid "Merci, votre commande est réservée dans votre panier pour 30 minutes."
+msgstr "Thank you, your order is reserved in your cart for 30 minutes."
+
+msgid "Accéder au panier"
+msgstr "Add to cart"
+
+msgid "Continuer"
+msgstr "Continue"
+
+msgid "ma visite"
+msgstr "my visit"
+
+msgid "Veuillez choisir la date désirée :"
+msgstr "Please choose a date"
+
+msgid "Veuillez choisir l'heure désirée :"
+msgstr "Please choose a time"
+
+msgid "Ajouter au panier"
+msgstr "Add to cart"
+
+msgid "Votre panier est vide"
+msgstr "Your cart is empty"
+
+msgid "Achats"
+msgstr "Purchases"
+
+msgid "Prix"
+msgstr "Price"
+
+msgid "Total :"
+msgstr "Total :"
+
+msgid "Finaliser ma commande"
+msgstr "Finish my order"
+
+msgid "Annuler"
+msgstr "Cancel"
+
+msgid "ma commande"
+msgstr "my order"
+
+msgid "mes réservations"
+msgstr "my bookings"
+
+msgid "Vos informations"
+msgstr "Your informations"
+
+msgid "Prénom"
+msgstr "Firstname"
+
+msgid "Votre prénom"
+msgstr "Your firstname"
+
+msgid "Nom"
+msgstr "Lastname"
+
+msgid "Votre nom"
+msgstr "Your lastname"
+
+msgid "Email"
+msgstr ""
+
+msgid "Votre email"
+msgstr "Your email"
+
+msgid "Adresse"
+msgstr "Address"
+
+msgid "Votre adresse"
+msgstr "Your address"
+
+msgid "Numéro postal"
+msgstr "Zip"
+
+msgid "NPA"
+msgstr "ZIP"
+
+msgid "Ville"
+msgstr "City"
+
+msgid "Pays"
+msgstr "Country"
+
+msgid "Âge"
+msgstr "Age"
+
+msgid "Genre"
+msgstr "Genre"
+
+msgid "Photo"
+msgstr ""
+
+msgid ""
+"Sans photo, une pièce d'identité sera systématiquement demandée à l'entrée "
+"des salles et aux caisses."
+msgstr ""
+"Without linked photo, your identity will be checked at each entry of projection."
+
+msgid "Tous ces champs sont requis"
+msgstr "All these fields are required"
+
+msgid "Tarifs :"
+msgstr "Pricings"
+
+msgid "Shortcodes disponibles"
+msgstr "Available shortcodes"
+
+msgid "Affichage en liste"
+msgstr "List display"
+
+msgid "Affichage des prochaines séances en liste"
+msgstr "Display screenings in list"
+
+msgid "Affichage en grille"
+msgstr "Grid display"
+
+msgid "Affichage des prochains films en grille de 4"
+msgstr "Display movies in a 4 columns grid"
+
+msgid "Affichage en galerie"
+msgstr "Gallery display"
+
+msgid "Affichage des prochains films en galerie de 4 colonnes"
+msgstr "Display movies in a 4 columns gallery"
+
+msgid "Affichage du contenu du panier"
+msgstr "Display the cart content"
+
+msgid "Vente des différents types d'abonnements"
+msgstr "Sell different pass types"
+
+msgid "Synopsis"
+msgstr ""
+
+msgid "Details"
+msgstr ""
+
+msgid "Durée"
+msgstr ""
+
+msgid "min"
+msgstr ""
+
+msgid "Casting"
+msgstr ""
+
+msgid "Achetez vos billets"
+msgstr ""
+
+msgid "Voir mes réservations"
+msgstr "my bookings"
+
+msgid "Me déconnecter"
+msgstr "Logout"
+
+msgid "Connectez-vous !"
+msgstr "Login !"
+
+msgid "Acheter"
+msgstr "Buy"
+
+msgid "un abonnement"
+msgstr "a pass"
 
 #~ msgid "Clé du serveur proxy"
 #~ msgstr "Server key"
