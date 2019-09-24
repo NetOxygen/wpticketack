@@ -13,7 +13,7 @@ use Ticketack\WP\Templates\TKTTemplate;
  * }
  */
 ?>
-<div class="tkt-wrapper"data-component="Pass/BuyForm">
+<div class="tkt-wrapper" data-component="Pass/BuyForm">
   <div class="row">
     <div class="col">
       <?= TKTTEmplate::render('buy_pass/pass_list', $data) ?>
