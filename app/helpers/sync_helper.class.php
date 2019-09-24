@@ -52,7 +52,7 @@ class SyncHelper
         $screenings = Screening::all()
             ->in_the_future()
             ->order_by_start_at()
-            ->get('_id,title,start_at,stop_at,cinema_hall,films,opaque');
+            ->get('_id,title,start_at,stop_at,description,cinema_hall,films,opaque');
 
         $events = Event::from_screenings($screenings);
 
