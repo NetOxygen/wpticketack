@@ -61,7 +61,8 @@ class HeadScriptsAction extends TKTAction
                     "i18n": '.json_encode(LocalesHelper::dump_js_locales(), JSON_PRETTY_PRINT).'
                 },
                 paths: {
-                    "app": "'.tkt_assets_url('build/js/app').'"
+                    "app": "'.tkt_assets_url('build/js/app').'",
+                    "wp_theme": "'.sprintf("%s/ticketack/front", get_template_directory_uri()).'"
                 }
             };
         </script>
