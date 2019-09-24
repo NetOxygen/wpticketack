@@ -44,6 +44,7 @@ require([
     // the optimizer can compile them.
     'app/Articles/Article',
     'app/Booking/Form',
+    'app/Booking/ScreeningsList',
     'app/Cart/Cart',
     'app/Cart/CartIcon',
     'app/User/UserConnect',
