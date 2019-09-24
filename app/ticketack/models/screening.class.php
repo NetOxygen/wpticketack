@@ -17,7 +17,7 @@ class Screening extends TKTModel implements \JsonSerializable
 
     // - Support only Youtube videos for now
     //   see https://www.regextester.com/94360
-    const TRAILER_REGEXP = '/^(http(s)?:\/\/)?((w){3}.)?youtu(be|.be)?(\.com)?\/.+/i';
+    const TRAILER_REGEXP = '/^(http:\/\/|https:\/\/)((player.)?vimeo\.com|youtu\.be|www\.youtube\.com)\/([\w\/]+)([\?].*)?$/i';
 
     /**
      * @override
