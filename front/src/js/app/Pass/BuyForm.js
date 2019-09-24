@@ -40,6 +40,10 @@ define([
                 e.preventDefault();
                 this.add_to_cart($(e.target).data('redirect'));
             });
+
+            if ($('.popoverdata', this.$container).length) {
+                $('.popoverdata', this.$container).tooltip();
+            }
         },
 
         add_to_cart: function(redirect) {
