@@ -309,8 +309,12 @@ class Screening extends TKTModel implements \JsonSerializable
         return $this->_id;
     }
 
-    public function title($lang)
+    public function title($lang = null)
     {
+        if (is_null($lang)) {
+            return $this->title;
+        }
+
         return isset($this->title[$lang]) ? $this->title[$lang] : null;
     }
 
