@@ -1,0 +1,24 @@
+.tkt-wrapper {
+    form {
+        label {
+            &.required {
+                &:after {
+                    content: " *";
+                    color: #f00;
+                }
+            }
+        }
+
+        .alert {
+            display: none;
+            display: none;
+        }
+    }
+
+    #notice-required {
+        &:before {
+            content: "* ";
+            color: #f00;
+        }
+    }
+}

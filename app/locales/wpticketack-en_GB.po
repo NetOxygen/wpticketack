@@ -1,15 +1,15 @@
 # Translation of WP Ticketack.
-# Copyright (C) 2018 Net Oxygen Sàrl
+# Copyright (C) 2019 Net Oxygen Sàrl
 # This file is distributed under the same license as the wpticketack package.
-#  <dev@b-alidra.com>, 2018.
+#  <belkacem.alidra@netoxygen.ch>, 2019.
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-20 20:27+0200\n"
-"PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
+"POT-Creation-Date: 2019-09-24 15:51+0200\n"
+"PO-Revision-Date: 2019-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Belkacem Alidra <belkacem.alidra@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -18,298 +18,309 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "Sélectionnez votre contenance et votre quantité :"
-msgstr "Select the quantity"
+msgstr ""
 
 msgid "Total"
-msgstr "Total"
+msgstr ""
 
 msgid "Veuillez choisir au moins un produit"
-msgstr "Please choose a date"
+msgstr ""
 
 msgid "Accéder au panier"
-msgstr "Add to cart"
+msgstr ""
 
 msgid "Ajouter au panier"
-msgstr "Add to cart"
+msgstr ""
+
+msgid "Vos informations"
+msgstr ""
 
 msgid "Prénom"
-msgstr "Firstname"
+msgstr ""
 
 msgid "Votre prénom"
-msgstr "Your firstname"
+msgstr ""
 
 msgid "Nom"
-msgstr "Lastname"
+msgstr ""
 
 msgid "Votre nom"
-msgstr "Your lastname"
+msgstr ""
 
 msgid "Email"
 msgstr ""
 
 msgid "Votre email"
-msgstr "Your email"
+msgstr ""
 
 msgid "Adresse"
-msgstr "Address"
+msgstr ""
 
 msgid "Votre adresse"
-msgstr "Your address"
+msgstr ""
 
 msgid "Numéro postal"
-msgstr "Zip"
+msgstr ""
 
 msgid "NPA"
-msgstr "ZIP"
+msgstr ""
 
 msgid "Ville"
-msgstr "City"
+msgstr ""
 
 msgid "Pays"
-msgstr "Country"
+msgstr ""
 
 msgid "Âge"
-msgstr "Age"
+msgstr ""
 
 msgid "Genre"
-msgstr "Genre"
+msgstr ""
+
+msgid "Photo"
+msgstr ""
+
+msgid ""
+"Sans photo, une pièce d'identité sera systématiquement demandée à l'entrée "
+"des salles et aux caisses."
+msgstr ""
 
 msgid "Tous ces champs sont requis"
-msgstr "All these fields are required"
+msgstr ""
 
 msgid "Tarifs :"
-msgstr "Pricings"
+msgstr ""
 
 msgid "Veuillez choisir la date désirée :"
-msgstr "Please choose a date"
+msgstr ""
 
 msgid "Veuillez choisir l'heure désirée :"
-msgstr "Please choose a time"
+msgstr ""
 
 msgid "Merci, votre commande est réservée dans votre panier pour 30 minutes."
-msgstr "Thank you, your order is reserved in your cart for 30 minutes."
+msgstr ""
 
 msgid "Continuer"
-msgstr "Continue"
+msgstr ""
 
 msgid "ma visite"
-msgstr "my visit"
+msgstr ""
 
 msgid ""
 "Entrez le nombre de place(s) que vous souhaitez ajouter à votre panier :"
-msgstr "Enter the number of tickets you want to add to your cart"
+msgstr ""
 
 msgid "Ajouter à mon panier"
-msgstr "Add to my cart"
+msgstr ""
 
 msgid "Vous avez un abonnement ?"
-msgstr "You have a pass?"
+msgstr ""
 
 msgid "Connectez-vous"
-msgstr "Login"
+msgstr ""
 
 msgid "pour réserver."
-msgstr "to book."
+msgstr ""
 
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 msgid "Code"
-msgstr "Code"
+msgstr ""
 
 msgid "Me connecter"
-msgstr "Login"
+msgstr ""
 
 msgid ""
 "Vous ne pouvez pas réserver de place pour cette séance avec votre abonnement."
-msgstr "You  can not book this screening with your pass"
+msgstr ""
 
 msgid "Réserver une place sur mon abonnement"
-msgstr "Book on my pass"
+msgstr ""
 
 msgid "Afficher mes réservations"
-msgstr "Show my bookings"
+msgstr ""
 
 msgid "Shortcodes disponibles"
-msgstr "Available shortcodes"
+msgstr ""
 
 msgid "Affichage en liste"
-msgstr "List display"
+msgstr ""
 
 msgid "Affichage des prochaines séances en liste"
-msgstr "Display screenings in list"
+msgstr ""
 
 msgid "Affichage en grille"
-msgstr "Grid display"
+msgstr ""
 
 msgid "Affichage des prochains films en grille de 4"
-msgstr "Display movies in a 4 columns grid"
+msgstr ""
 
 msgid "Affichage en galerie"
-msgstr "Gallery display"
+msgstr ""
 
 msgid "Affichage des prochains films en galerie de 4 colonnes"
-msgstr "Display movies in a 4 columns gallery"
+msgstr ""
 
 msgid "Panier"
-msgstr "Cart"
+msgstr ""
 
 msgid "Affichage du contenu du panier"
-msgstr "Display the cart content"
+msgstr ""
 
 msgid "Abonnements"
-msgstr "Pass"
+msgstr ""
 
 msgid "Vente des différents types d'abonnements"
-msgstr "Sell different pass types"
+msgstr ""
 
 msgid "Votre panier est vide"
-msgstr "Your cart is empty"
+msgstr ""
 
 msgid "Achats"
-msgstr "Purchases"
+msgstr ""
 
 msgid "Prix"
-msgstr "Price"
+msgstr ""
 
 msgid "Total :"
-msgstr "Total :"
+msgstr ""
 
 msgid "Finaliser ma commande"
-msgstr "Finish my order"
+msgstr ""
 
 msgid "Annuler"
-msgstr "Cancel"
+msgstr ""
 
 msgid "ma commande"
-msgstr "my order"
+msgstr ""
 
 msgid "mes réservations"
-msgstr "my bookings"
+msgstr ""
 
 msgid ""
 "Aucun événement programmé actuellement, revenez nous visiter prochainement."
-msgstr "No event currently scheduled, come back soon."
+msgstr ""
 
 msgid "Plus d'informations"
-msgstr "More informations"
+msgstr ""
 
 msgid ""
 "Aucuné séance programmée actuellement, revenez nous visiter prochainement."
-msgstr "No screening currently scheduled, come back soon."
+msgstr ""
 
 msgid "Il ne reste que quelques places"
-msgstr "There are only a few places"
+msgstr ""
 
 msgid "Complet"
-msgstr "Complete"
+msgstr ""
 
 msgid "Billets"
-msgstr "Tickets"
+msgstr ""
 
 msgid "Il ne reste que quelques places !"
-msgstr "There are only a few places !"
+msgstr ""
 
 msgid "Complet !"
-msgstr "Complete !"
+msgstr ""
 
 msgid "Voir mes réservations"
-msgstr "my bookings"
+msgstr ""
 
 msgid "Me déconnecter"
-msgstr "Logout"
+msgstr ""
 
 msgid "Connectez-vous !"
-msgstr "Login !"
+msgstr ""
 
 msgid "Acheter"
-msgstr "Buy"
+msgstr ""
 
 msgid "un abonnement"
-msgstr "a pass"
+msgstr ""
 
 msgid "Aucun article dans cette catégorie, revenez nous visiter prochainement."
-msgstr "No screening currently scheduled, come back soon."
+msgstr ""
 
 msgid "Vous avez choisi :"
-msgstr "You chose"
+msgstr ""
 
 msgid "Valider"
-msgstr "Confirm"
+msgstr ""
 
 msgid "Commander"
-msgstr "my order"
+msgstr ""
 
 msgid "Il ne reste que quelques articles"
-msgstr "There are only a few places"
+msgstr ""
 
 msgid "Plus de stock"
-msgstr "No more stock"
+msgstr ""
 
 msgid "Tout"
-msgstr "All"
+msgstr ""
 
 msgid "Details"
-msgstr "Details"
+msgstr ""
 
 msgid "Quand"
-msgstr "When"
+msgstr ""
 
 msgid "Section"
-msgstr "Section"
+msgstr ""
 
 msgid "Synopsis"
-msgstr "Synopsis"
+msgstr ""
 
 msgid "Films"
-msgstr "Movies"
+msgstr ""
 
 msgid "Achetez vos billets"
-msgstr "Buy  your tickets"
+msgstr ""
 
 msgid "Durée"
-msgstr "Duration"
+msgstr ""
 
 msgid "min"
-msgstr "mi"
+msgstr ""
 
 msgid "Casting"
-msgstr "Casting"
+msgstr ""
 
 msgid "Veuillez choisir au moins un billet"
-msgstr "Please choose a date"
+msgstr ""
 
 msgid "Veuillez remplir les deux champs"
-msgstr "Please fill in both fields"
+msgstr ""
 
 msgid "Les informations que vous avez saisies sont invalides"
-msgstr "The information you have entered is invalid"
+msgstr ""
 
 msgid "Une erreur est survenue. Veuillez ré-essayer ultérieurement."
-msgstr "An error has occurred. Please try again later."
+msgstr ""
 
 msgid ""
 "Vous ne pouvez pas réserver plus de place pour cette séance avec votre "
 "abonnement."
-msgstr "You  can not book this screening with your pass"
+msgstr ""
 
 msgid "Veuillez choisir un tarif"
-msgstr "Please choose a pricing"
+msgstr ""
 
 msgid "Votre panier a été mis à jour"
-msgstr "Your cart has been updated"
+msgstr ""
 
 msgid "Pas de réponse"
-msgstr "No answer"
+msgstr ""
 
 msgid "Féminin"
-msgstr "Female"
+msgstr ""
 
 msgid "Masculin"
-msgstr "Male"
+msgstr ""
 
 msgid "Autre"
-msgstr "Other"
+msgstr ""
 
 msgid "Add New Ticketack Event"
 msgstr ""
@@ -339,7 +350,7 @@ msgid "No events found in Trash."
 msgstr ""
 
 msgid "Événements importés depuis Ticketack"
-msgstr "Events imported from Ticketack"
+msgstr ""
 
 msgid "Add New Ticketack Article"
 msgstr ""
@@ -369,110 +380,92 @@ msgid "No article found in Trash."
 msgstr ""
 
 msgid "Articles importés depuis Ticketack"
-msgstr "Events imported from Ticketack"
+msgstr ""
 
 msgid "API"
-msgstr "API"
+msgstr ""
 
 msgid "Pages"
-msgstr "Pages"
+msgstr ""
 
 msgid "Images"
-msgstr "Images"
+msgstr ""
 
 msgid "Langues"
-msgstr "Languages"
+msgstr ""
 
 msgid "Documentation"
-msgstr "Documentation"
+msgstr ""
 
 msgid "Ticketack n'est pas configuré."
-msgstr "Ticketack is not configured"
+msgstr ""
 
 msgid "Accéder aux réglages"
-msgstr "Go to settings"
+msgstr ""
 
 msgid "Accès à Ticketack"
-msgstr "Go to Ticketack"
+msgstr ""
 
 msgid "URL de l'engine"
-msgstr "Engine URL"
+msgstr ""
 
 msgid "URL du eshop"
-msgstr "Eshop URL"
+msgstr ""
 
 msgid "Clé d'API"
-msgstr "API key"
+msgstr ""
 
 msgid "Programme"
-msgstr "Program"
+msgstr ""
 
 msgid "Dimensions des images"
-msgstr "Images dimensions"
+msgstr ""
 
 msgid "Largeur des grandes images"
-msgstr "Big images width"
+msgstr ""
 
 msgid "Hauteur des grandes images"
-msgstr "Big images height"
+msgstr ""
 
 msgid "Largeur des images moyennes"
-msgstr "Medium images width"
+msgstr ""
 
 msgid "Hauteur des images moyennes"
-msgstr "Medium images height"
+msgstr ""
 
 msgid "Serveur proxy d'images"
-msgstr "Images proxy server"
+msgstr ""
 
 msgid "Serveur proxy"
-msgstr "Proxy server"
+msgstr ""
 
 msgid "Champs à saisir pour chaque type d'abonnement"
-msgstr "Mandatory fields for each pass type"
+msgstr ""
 
 msgid "Langue par défaut"
-msgstr "Default language"
+msgstr ""
 
 msgid "Options avancées"
-msgstr "Advanced options"
+msgstr ""
 
 msgid "Saisissez les slugs des pages contenant les différents shortcodes"
-msgstr "Set the slugs of the pages which contain the shortcodes"
+msgstr ""
 
 msgid "Saisissez les informations d'accès à la billetterie"
-msgstr "Set the ticketing system access informations"
+msgstr ""
 
 msgid "Dimensions des grandes et moyennes images (en px)."
-msgstr "Big and medium images dimensions (in px)."
+msgstr ""
 
 msgid "Configuration du serveur proxy d'images."
-msgstr "Images proxy server configuration"
+msgstr ""
 
 msgid "Configuration de la vente d'abonnements."
-msgstr "Pass sale configuration."
+msgstr ""
 
 msgid "Configuration des langues."
-msgstr "Languages configuration"
+msgstr ""
 
 msgid ""
 "Ne modifiez les valeurs ci-dessous que si vous savez ce que vous faites."
-msgstr "Change these settings only if you know what you are doing."
-
-#~ msgid "Clé du serveur proxy"
-#~ msgstr "Server key"
-
-#~ msgid "sous-titres"
-#~ msgstr "subtitles"
-
-#~ msgid "un abonnement."
-#~ msgstr "a pass."
-
-#~ msgid "Numéro"
-#~ msgstr "Number"
-
-#~ msgid "Clé"
-#~ msgstr "Key"
-
-#~ msgid "Réservé jusqu'à"
-#~ msgstr "Booked until"
+msgstr ""
