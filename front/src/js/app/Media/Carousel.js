@@ -9,6 +9,7 @@
  *
  *    <!-- Optional -->
  *    data-interval="5000"      <!-- default: 3000 -->
+ *    data-format="1.7777778"   <!-- 16/9 -->
  * >
  *   <div class="carousel-inner">
  *     <div class="carousel-item>...</div>
@@ -29,6 +30,7 @@ define(
     function Carousel($container, state) {
         this.$container = $container;
         this.interval   = this.$container.data('interval') || 3000;
+        this.format     = parseFloat(this.$container.data('format')) || (16/9);
     }
 
     Carousel.prototype = {
@@ -119,7 +121,7 @@ define(
 
         fix_carousel_height: function() {
             // Set 16/9 format
-            this.$container.height(this.$container.width() * 9 / 16);
+            this.$container.height(this.$container.width() * 1 / this.format);
         },
 
         detach: function() {

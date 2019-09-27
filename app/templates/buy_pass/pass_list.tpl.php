@@ -44,7 +44,7 @@ $types = $data->tickettypes;
                   <label>
                     <input class="choose-pass" type="radio" name="user[pass]" value="<?= $key; ?>">
                     <?php if (!empty($pricing->description(TKT_LANG))) :?>
-                      <?= tkt_h($pricing->name(TKT_LANG)) ?> (<?= $pricing->price('CHF') ?>) <a class="popoverdata" href="#" data-content="<?= tkt_h($pricing->description(TKT_LANG)) ?>" rel="popover" data-placement="bottom" data-trigger="hover"><span class="glyphicon glyphicon-info-sign" /></a>
+                      <?= tkt_h($pricing->name(TKT_LANG)) ?> (<?= $pricing->price('CHF') ?>) <a class="popoverdata" href="#" title="<?= tkt_h($pricing->description(TKT_LANG)) ?>" rel="popover" data-placement="bottom" data-toggle="tooltip"  data-trigger="hover"><span class="glyphicon glyphicon-info-sign" /></a>
                     <?php else: ?>
                       <?= tkt_h($pricing->name(TKT_LANG)) ?> (<?= $pricing->price('CHF') ?>)
                     <?php endif;?>

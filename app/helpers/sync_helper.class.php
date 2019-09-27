@@ -55,7 +55,7 @@ class SyncHelper
         $screenings = Screening::all()
             ->in_the_future()
             ->order_by_start_at()
-            ->get('_id,title,start_at,stop_at,cinema_hall,films,opaque');
+            ->get('_id,title,start_at,stop_at,description,cinema_hall,films,opaque');
 
         $events = Event::from_screenings($screenings);
 
@@ -104,7 +104,7 @@ class SyncHelper
         update_post_meta($post_id, 'opaque', wp_slash(json_encode($event->opaque())));
         update_post_meta($post_id, 'trailers', wp_slash(json_encode($event->trailers())));
         update_post_meta($post_id, 'posters', wp_slash(json_encode($event->posters())));
-        update_post_meta($post_id, 'title', $event->localized_title_or_original($lang));
+        update_post_meta($post_id, 'title',  wp_slash(json_encode($event->title())));
     }
 
     // See https://wpml.org/wpml-hook/wpml_set_element_language_details/

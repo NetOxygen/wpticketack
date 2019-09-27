@@ -83,7 +83,7 @@ class TKTApp
      */
     public function register_action($classname, $filename)
     {
-        $this->actions[$classname] = $filename;
+        $this->actions[$classname] = TKT_ACTIONS.'/'.$filename;
     }
 
     /**
@@ -94,7 +94,7 @@ class TKTApp
      */
     public function register_filter($classname, $filename)
     {
-        $this->filters[$classname] = $filename;
+        $this->filters[$classname] = TKT_FILTERS.'/'.$filename;
     }
 
     /**
@@ -105,7 +105,41 @@ class TKTApp
      */
     public function register_shortcode($classname, $filename)
     {
-        $this->shortcodes[$classname] = $filename;
+        $this->shortcodes[$classname] = TKT_SHORTCODES.'/'.$filename;
+    }
+
+    /**
+     * Register the theme provided shortcodes
+     *
+     * Theme shortcodes should be declared in THEME_ROOT/ticketack/shortcodes as
+     * child classes of TKTShortcode in the Ticketack\WP\Shortcodes namespace.
+     *
+     * If the class name is composed of several words, the filename should use _
+     * as separator (eg. HpFiltersShortcode => hp_filters.class.php).
+     *
+     * @return boolean
+     */
+    public function register_theme_shortcodes()
+    {
+        $path = TKT_OVERRIDE_DIR.'/ticketack/shortcodes/';
+        if (!file_exists($path)) {
+            return;
+        }
+
+        $files = glob($path . '*.class.php');
+        if (empty($files)) {
+            return;
+        }
+
+        foreach ($files as $file) {
+            $name            = str_replace('.class.php', '', basename($file));
+            $camel_case_name = implode('', array_map(function ($n) {
+                return ucfirst(strtolower($n));
+            }, explode('_', $name)));
+            $classname = 'Ticketack\\WP\\Shortcodes\\'.$camel_case_name.'Shortcode';
+
+            $this->shortcodes[$classname] = $file;
+        }
     }
 
     /**
@@ -121,19 +155,19 @@ class TKTApp
 
         // Instantiate actions
         foreach ($this->actions as $classname => $filename) {
-            require_once(TKT_ACTIONS.'/'.$filename);
+            require_once($filename);
             $action = new $classname($this);
         }
 
         // Instantiate filters
         foreach ($this->filters as $classname => $filename) {
-            require_once(TKT_FILTERS.'/'.$filename);
+            require_once($filename);
             $filter = new $classname($this);
         }
 
         // Instantiate shortcodes
         foreach ($this->shortcodes as $classname => $filename) {
-            require_once(TKT_SHORTCODES.'/'.$filename);
+            require_once($filename);
             $shortcode = new $classname($this);
         }
     }

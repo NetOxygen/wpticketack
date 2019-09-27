@@ -17,7 +17,7 @@ class Screening extends TKTModel implements \JsonSerializable
 
     // - Support only Youtube videos for now
     //   see https://www.regextester.com/94360
-    const TRAILER_REGEXP = '/^(http(s)?:\/\/)?((w){3}.)?youtu(be|.be)?(\.com)?\/.+/i';
+    const TRAILER_REGEXP = '/^(http:\/\/|https:\/\/)((player.)?vimeo\.com|youtu\.be|www\.youtube\.com)\/([\w\/]+)([\?].*)?$/i';
 
     /**
      * @override
@@ -217,6 +217,14 @@ class Screening extends TKTModel implements \JsonSerializable
             }
             unset($properties['pricings']);
         }
+        if (array_key_exists('description', $properties)) {
+            $this->description = (array)$properties['description'];
+            unset($properties['description']);
+        }
+        if (array_key_exists('opaque', $properties)) {
+            $this->opaque = (array)$properties['opaque'];
+            unset($properties['opaque']);
+        }
         parent::__construct($properties);
     }
 
@@ -301,8 +309,12 @@ class Screening extends TKTModel implements \JsonSerializable
         return $this->_id;
     }
 
-    public function title($lang)
+    public function title($lang = null)
     {
+        if (is_null($lang)) {
+            return $this->title;
+        }
+
         return isset($this->title[$lang]) ? $this->title[$lang] : null;
     }
 
@@ -325,8 +337,12 @@ class Screening extends TKTModel implements \JsonSerializable
         return ($original != $localized) ? $original : null;
     }
 
-    public function description($lang)
+    public function description($lang = null)
     {
+        if (is_null($lang)) {
+            return $this->description;
+        }
+
         return isset($this->description[$lang]) ? $this->description[$lang] : null;
     }
 

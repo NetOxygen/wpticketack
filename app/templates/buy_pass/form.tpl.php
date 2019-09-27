@@ -17,7 +17,7 @@ use Ticketack\WP\TKTApp;
     <div class="col">
       <form>
         <fieldset>
-          <legend>Vos informations</legend>
+          <legend><?= tkt_t("Vos informations") ?></legend>
           <div class="row">
             <div id="field-wrapper-firstname" class="field-wrapper col-md-4" style="display: block;">
               <div class="form-group">
@@ -101,7 +101,15 @@ use Ticketack\WP\TKTApp;
             </div>
           </div>
 
-          <input type="hidden" name="no_photo" value="true"/>
+          <div class="row">
+            <div id="field-wrapper-photo" class="col-md-12 field-wrapper form-group" style="display: none;">
+                <label class="required" for="photo"><?= tkt_t('Photo') ?></label>
+                <div>
+                    <small><?= tkt_t("Sans photo, une pièce d'identité sera systématiquement demandée à l'entrée des salles et aux caisses."); ?></small>
+                </div>
+                <input name="photo" type="file" class="form-control field" id="photo" accept="image/*" data-component="Form/ImageDataUrl" required>
+            </div>
+          </div>
         </fieldset>
 
         <fieldset>
@@ -114,6 +122,10 @@ use Ticketack\WP\TKTApp;
             </div>
           </div>
         </fieldset>
+        <div class="row mt-2">
+            <div class="col-md-12 alert alert-success"></div>
+            <div class="col-md-12 alert alert-danger"></div>
+        </div>
       </form>
     </div>
   </div>

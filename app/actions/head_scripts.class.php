@@ -41,7 +41,7 @@ class HeadScriptsAction extends TKTAction
         <script>
             // moment locale must be injected globally because it\'s needed
             // before the config initialization
-            window.moment_locale = "'.substr(get_locale(), 0, 2).'";
+            window.moment_locale = "'.TKT_LANG.'";
             var require = {
                 baseUrl: "'.tkt_assets_url('build/js').'",
                 urlArgs: "v='.TKT_ASSETS_VERSION.'",
@@ -57,11 +57,13 @@ class HeadScriptsAction extends TKTAction
                         "program_url": "'.tkt_program_url().'",
                         "cart_url": "'.tkt_cart_url().'",
                         "cart_reset_url": "'.tkt_cart_reset_url().'",
+                        "lang": "'.TKT_LANG.'",
                     },
                     "i18n": '.json_encode(LocalesHelper::dump_js_locales(), JSON_PRETTY_PRINT).'
                 },
                 paths: {
-                    "app": "'.tkt_assets_url('build/js/app').'"
+                    "app": "'.tkt_assets_url('build/js/app').'",
+                    "wp_theme": "'.sprintf("%s/ticketack/front", get_template_directory_uri()).'"
                 }
             };
         </script>

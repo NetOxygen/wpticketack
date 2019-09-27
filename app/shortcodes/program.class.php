@@ -60,6 +60,7 @@ class ProgramShortcode extends TKTShortcode
 
         try {
             $query = Screening::all()
+                // TODO: We should not filter on future screenings only for festivals !!!
                 ->in_the_future()
                 ->filter_pricings_for_sellers(['eshop'])
                 ->order_by_start_at();

@@ -41,8 +41,10 @@ define(['lodash', 'jquery', 'moment', 'async', 'state'], function dependencies(_
                     if (!componentName)
                         return;
 
+                    let is_wp_theme_component = _.startsWith(componentName, 'wp_theme');
+                    let namespace = !is_wp_theme_component ? 'app/' : '';
                     tasks.push((done) => {
-                        require(['app/' + componentName], (Component) => {
+                        require([namespace + componentName], (Component) => {
                             let c;
                             if (typeof Component === 'function') {
                                 c = new Component($componentItem, app_state);
