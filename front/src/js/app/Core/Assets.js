@@ -1,5 +1,5 @@
 // Assets manager
-define(['module', 'logger', 'urijs/URI'], function dependencies(module, logger, URI) {
+define(['module', 'logger', 'urijs'], function dependencies(module, logger, URI) {
 
     function Assets() {
         this.base_url = module.config().base_url || '';
