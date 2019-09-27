@@ -21,6 +21,7 @@ define('TKT_ASSETS_VERSION', '1.1.4.2019061301');
 define("TKT_BASE", (dirname(__FILE__)));
 define("TKT_CONFIG", (TKT_BASE.'/config'));
 define("TKT_APP", (TKT_BASE.'/app'));
+define("TKT_CLI", (TKT_BASE.'/cli'));
 define("TKT_ACTIONS", TKT_APP.'/actions');
 define("TKT_FILTERS", TKT_APP.'/filters');
 define("TKT_SHORTCODES", TKT_APP.'/shortcodes');
@@ -55,6 +56,7 @@ $app->register_action('Ticketack\WP\Actions\AdminSettingsAction', 'admin_setting
 $app->register_action('Ticketack\WP\Actions\AssetsAction', 'assets.class.php');
 $app->register_action('Ticketack\WP\Actions\SyncPostsAction', 'sync_posts.class.php');
 $app->register_action('Ticketack\WP\Actions\SyncArticlesAction', 'sync_articles.class.php');
+$app->register_action('Ticketack\WP\Actions\SyncPeopleAction', 'sync_people.class.php');
 $app->register_action('Ticketack\WP\Actions\TranslationAction', 'translation.class.php');
 $app->register_action('Ticketack\WP\Actions\CustomTypesAction', 'custom_types.class.php');
 $app->register_shortcode('Ticketack\WP\Shortcodes\ProgramShortcode', 'program.class.php');
@@ -67,5 +69,6 @@ $app->register_shortcode('Ticketack\WP\Shortcodes\FilterRowsShortcode', 'filter_
 $app->register_shortcode('Ticketack\WP\Shortcodes\DaysFilterShortcode', 'days_filter.class.php');
 $app->register_shortcode('Ticketack\WP\Shortcodes\UserConnectShortcode', 'user_connect.class.php');
 $app->register_shortcode('Ticketack\WP\Shortcodes\BuyPassShortcode', 'buy_pass.class.php');
+$app->register_shortcode('Ticketack\WP\Shortcodes\PeopleShortcode', 'people.class.php');
 
 $app->start();
