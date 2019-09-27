@@ -586,3 +586,32 @@ function tkt_screening_data_attributes($screening, $attributes)
 
     return implode(' ', $values);
 }
+
+/**
+ * Generate html data attributes based on defined attributes
+ *
+ * @param TKTPerson $person
+ * @param array $attributes
+ */
+function tkt_person_data_attributes($person, $attributes)
+{
+    $meta   = get_post_meta($person->ID);
+    $values = [];
+    if (in_array('name', $attributes)) {
+        $values[] = 'data-name="'.$person->post_content.'"';
+    }
+
+    if (in_array('country', $attributes)) {
+        $values[] = 'data-country="'.$meta['country'][0].'"';
+    }
+
+    if (in_array('company', $attributes)) {
+        $values[] = 'data-company="'.$meta['company'][0].'"';
+    }
+
+    if (in_array('profession', $attributes)) {
+        $values[] = 'data-profession="'.$meta['profession'][0].'"';
+    }
+
+    return implode(' ', $values);
+}
