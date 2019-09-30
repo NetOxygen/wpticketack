@@ -47,7 +47,6 @@ define(
                 this.$filters.each((i, f) => {
                     let criteria = $(f).data('criteria');
                     let value    = $(f).data(criteria);
-                    console.log('value', value);
                     if (!value)
                         return;
                     if ($(this.target + '[data-' + criteria + '*="' + value + '"]').length == 0)

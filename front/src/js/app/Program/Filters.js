@@ -70,7 +70,6 @@ define(
             },
 
             filter_on_day: function (value) {
-                console.log(value);
                 if (!value)
                     return;
 
@@ -78,7 +77,6 @@ define(
             },
 
             filter_on_time: function (value) {
-                console.log(value);
                 if (!value)
                     return;
 
@@ -94,7 +92,6 @@ define(
             },
 
             filter_on_place: function (value) {
-                console.log(value);
                 if (!value)
                     return;
 
