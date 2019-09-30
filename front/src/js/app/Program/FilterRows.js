@@ -9,7 +9,7 @@
  *    data-criterium="date,section,..."
  *
  *    <!-- Optional -->
- *    data-class="tkt_program_event"
+ *    data-target="tkt_program_event"
  * >
  *   <ul>
  *     <li class="tkt-filter>...</div>
@@ -83,9 +83,8 @@ define(
                         $(this.target).not('[data-' + criteria + '*="' + value + '"]').removeClass('to_show');
                 });
 
-
                 $(this.target).hide();
-                $(this.target + '.to_show').fadeIn();
+                $(this.target.replace(',', '.to_show,') + '.to_show').fadeIn();
             },
 
             detach: function() {
