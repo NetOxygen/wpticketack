@@ -253,12 +253,6 @@ msgid ""
 "Aucun événement programmé actuellement, revenez nous visiter prochainement."
 msgstr "No event currently scheduled, come back soon."
 
-msgid "Billets"
-msgstr "Tickets"
-
-msgid "Il ne reste que quelques places !"
-msgstr "There are only a few places !"
-
 msgid "Tout"
 msgstr "All"
 
@@ -291,9 +285,6 @@ msgstr "Casting"
 
 msgid "Complet !"
 msgstr "Complete !"
-
-msgid "Il ne reste que quelques places"
-msgstr "There are only a few places"
 
 msgid "Complet"
 msgstr "Complete"
@@ -464,24 +455,6 @@ msgstr "Display the cart content"
 
 msgid "Vente des différents types d'abonnements"
 msgstr "Sell different pass types"
-
-msgid "Synopsis"
-msgstr ""
-
-msgid "Details"
-msgstr ""
-
-msgid "Durée"
-msgstr ""
-
-msgid "min"
-msgstr ""
-
-msgid "Casting"
-msgstr ""
-
-msgid "Achetez vos billets"
-msgstr ""
 
 msgid "Voir mes réservations"
 msgstr "my bookings"
