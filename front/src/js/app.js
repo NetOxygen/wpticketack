@@ -24,7 +24,7 @@ requirejs.config({
         ticketack: './ext/ticketack',
         exif: './ext/exif-js.min',
         filetodataurl: './ext/fileinput-to-dataurl',
-        urijs: '../../node_modules/urijs/src',
+        urijs: '../../node_modules/urijs/src/jquery.URI.min',
         moment: '../../node_modules/moment/min/moment-with-locales.min',
         postal: '../../node_modules/postal/lib/postal.min',
         lodash: '../../node_modules/lodash/lodash.min',
