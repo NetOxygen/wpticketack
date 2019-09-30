@@ -28,15 +28,15 @@ class CustomTypesAction extends TKTAction
             'menu_name'          => _x('Ticketack Events', 'admin menu', 'wpticketack' ),
             'name_admin_bar'     => _x('Ticketack Event', 'add new on admin bar', 'wpticketack' ),
             'add_new'            => _x('Add New', 'event', 'wpticketack' ),
-            'add_new_item'       => tkt_t('Add New Ticketack Event'),
-            'new_item'           => tkt_t('New Ticketack Event'),
-            'edit_item'          => tkt_t('Edit Ticketack Event'),
-            'view_item'          => tkt_t('View Ticketack Event'),
-            'all_items'          => tkt_t('All Ticketack Events'),
-            'search_items'       => tkt_t('Search Ticketack Events'),
-            'parent_item_colon'  => tkt_t('Parent Ticketack Events:'),
-            'not_found'          => tkt_t('No events found.'),
-            'not_found_in_trash' => tkt_t('No events found in Trash.')
+            'add_new_item'       => tkt_t('Ajouter un event Ticketack'),
+            'new_item'           => tkt_t('Nouvel event Ticketack'),
+            'edit_item'          => tkt_t('Modifier cet event Ticketack'),
+            'view_item'          => tkt_t('Afficher cet event Ticketack'),
+            'all_items'          => tkt_t('Tous les events Ticketack'),
+            'search_items'       => tkt_t('Rechercher les events Ticketack'),
+            'parent_item_colon'  => tkt_t('Parent:'),
+            'not_found'          => tkt_t('Aucun event Ticketack trouvé.'),
+            'not_found_in_trash' => tkt_t('Aucun event Ticketack trouvé dans la corbeille.')
         );
 
         $args_event = array(
@@ -61,15 +61,15 @@ class CustomTypesAction extends TKTAction
             'menu_name'          => _x('Ticketack Articles', 'admin menu', 'wpticketack' ),
             'name_admin_bar'     => _x('Ticketack Article', 'add new on admin bar', 'wpticketack' ),
             'add_new'            => _x('Add New', 'article', 'wpticketack' ),
-            'add_new_item'       => tkt_t('Add New Ticketack Article'),
-            'new_item'           => tkt_t('New Ticketack Article'),
-            'edit_item'          => tkt_t('Edit Ticketack Article'),
-            'view_item'          => tkt_t('View Ticketack Article'),
-            'all_items'          => tkt_t('All Ticketack Articles'),
-            'search_items'       => tkt_t('Search Ticketack Articles'),
-            'parent_item_colon'  => tkt_t('Parent Ticketack Article:'),
-            'not_found'          => tkt_t('No article found.'),
-            'not_found_in_trash' => tkt_t('No article found in Trash.')
+            'add_new_item'       => tkt_t('Ajouter un article Ticketack'),
+            'new_item'           => tkt_t('Nouvel article Ticketack'),
+            'edit_item'          => tkt_t('Modifier cet article Ticketack'),
+            'view_item'          => tkt_t('Afficher cet article Ticketack'),
+            'all_items'          => tkt_t('Tous les articles Ticketack'),
+            'search_items'       => tkt_t('Rechercher les articles Ticketack'),
+            'parent_item_colon'  => tkt_t('Parent:'),
+            'not_found'          => tkt_t('Aucun article Ticketack trouvé.'),
+            'not_found_in_trash' => tkt_t('Aucun article Ticketack trouvé dans la corbeille.')
         );
 
         $args_article = array(
