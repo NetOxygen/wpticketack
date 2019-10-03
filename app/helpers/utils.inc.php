@@ -597,20 +597,30 @@ function tkt_person_data_attributes($person, $attributes)
 {
     $meta   = get_post_meta($person->ID);
     $values = [];
+    $tags   = [];
+
     if (in_array('name', $attributes)) {
         $values[] = 'data-name="'.$person->post_content.'"';
+        $tags[]   = $person->post_content;
     }
 
     if (in_array('country', $attributes)) {
         $values[] = 'data-country="'.$meta['country'][0].'"';
+        $tags[]   = $meta['country'][0];
     }
 
     if (in_array('company', $attributes)) {
         $values[] = 'data-company="'.$meta['company'][0].'"';
+        $tags[]   = $meta['company'][0];
     }
 
     if (in_array('profession', $attributes)) {
         $values[] = 'data-profession="'.$meta['profession'][0].'"';
+        $tags[]   = $meta['profession'][0];
+    }
+
+    if (in_array('tags', $attributes)) {
+        $values[] = 'data-tags="'.implode(' ', array_unique($tags)).'"';
     }
 
     return implode(' ', $values);
