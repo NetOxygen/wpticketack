@@ -21,6 +21,7 @@
     "jquery": "^1.12.4",
     "jquery-serializejson": "^2.9.0",
     "lodash": "^4.17.11",
+    "match-sorter": "^4.0.2",
     "moment": "^2.22.2",
     "natives": "^1.1.6",
     "postal": "^2.0.5",
