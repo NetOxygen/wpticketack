@@ -19,7 +19,7 @@ if ($data['photos'][0]) {
     <?php endif;?>
     </div>
     <div class="col-sm-8">
-        <h2><?= the_title(); ?></h2>
+        <h3><?= the_title(); ?></h3>
         <div class="row">
             <div class="col-6"><?= tkt_t('Country') ?></div>
             <div class="col-6"><?= $data['country'][0] ?></div>
