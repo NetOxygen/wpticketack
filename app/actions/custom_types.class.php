@@ -94,15 +94,15 @@ class CustomTypesAction extends TKTAction
             'menu_name'          => _x('Ticketack People', 'admin menu', 'wpticketack' ),
             'name_admin_bar'     => _x('Ticketack Person', 'add new on admin bar', 'wpticketack' ),
             'add_new'            => _x('Add New', 'person', 'wpticketack' ),
-            'add_new_item'       => tkt_t('Add New Ticketack Person'),
-            'new_item'           => tkt_t('New Ticketack Person'),
-            'edit_item'          => tkt_t('Edit Ticketack Person'),
-            'view_item'          => tkt_t('View Ticketack Person'),
-            'all_items'          => tkt_t('All Ticketack People'),
-            'search_items'       => tkt_t('Search Ticketack People'),
-            'parent_item_colon'  => tkt_t('Parent Ticketack Person:'),
-            'not_found'          => tkt_t('No person found.'),
-            'not_found_in_trash' => tkt_t('No person found in Trash.')
+            'add_new_item'       => tkt_t('Ajouter une personne Ticketack'),
+            'new_item'           => tkt_t('Nouvelle personne Ticketack'),
+            'edit_item'          => tkt_t('Modifier cette personne Ticketack'),
+            'view_item'          => tkt_t('Afficher cette personne Ticketack'),
+            'all_items'          => tkt_t('Tous les poeple Ticketack'),
+            'search_items'       => tkt_t('Rechercher les people Ticketack'),
+            'parent_item_colon'  => tkt_t('Parent:'),
+            'not_found'          => tkt_t('Aucune personne Ticketack trouvée.'),
+            'not_found_in_trash' => tkt_t('Aucune personne Ticketack trouvée dans la corbeille.')
         );
 
         $args_person = array(
