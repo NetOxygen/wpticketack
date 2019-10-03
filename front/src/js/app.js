@@ -24,12 +24,13 @@ requirejs.config({
         ticketack: './ext/ticketack',
         exif: './ext/exif-js.min',
         filetodataurl: './ext/fileinput-to-dataurl',
-        urijs: '../../node_modules/urijs/src/jquery.URI.min',
+        urijs: '../../node_modules/urijs/src/URI',
         moment: '../../node_modules/moment/min/moment-with-locales.min',
         postal: '../../node_modules/postal/lib/postal.min',
         lodash: '../../node_modules/lodash/lodash.min',
         hammer: '../../node_modules/hammerjs/hammer.min',
-        jqueryjson: '../../node_modules/jquery-serializejson/jquery.serializejson.min'
+        jqueryjson: '../../node_modules/jquery-serializejson/jquery.serializejson.min',
+        matchsorter: '../../node_modules/match-sorter/dist/match-sorter.umd.min'
     }
 });
 
