@@ -72,6 +72,10 @@ class PeopleShortcode extends TKTShortcode
         $companies   = array_filter(array_unique($companies));
         $countries   = array_filter(array_unique($countries));
 
+        sort($professions);
+        sort($companies);
+        sort($countries);
+
         // Querying to get filtered people
         $people = new \WP_Query($args);
 
