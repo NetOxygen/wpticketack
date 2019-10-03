@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-30 13:02+0200\n"
+"POT-Creation-Date: 2019-10-03 15:48+0200\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Belkacem Alidra <belkacem.alidra@netoxygen.ch>\n"
+"Last-Translator: Alain Pellaux <alain.pellaux@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -84,7 +84,9 @@ msgstr ""
 msgid ""
 "Sans photo, une pièce d'identité sera systématiquement demandée à l'entrée "
 "des salles et aux caisses."
-msgstr "Ohne Foto wird am Eingang der Räume und an den Kassen systematisch ein Ausweis angefordert."
+msgstr ""
+"Ohne Foto wird am Eingang der Räume und an den Kassen systematisch ein "
+"Ausweis angefordert."
 
 msgid "Tous ces champs sont requis"
 msgstr "Alle diese Felder müssen ausgefüllt werden."
@@ -97,6 +99,15 @@ msgstr "Bitte wählen Sie das gewünschte Datum aus:"
 
 msgid "Veuillez choisir l'heure désirée :"
 msgstr "Bitte wählen Sie die gewünschte Zeit aus:"
+
+msgid "Réserver une place sur mon abonnement"
+msgstr "Reservieren Sie einen Platz in meinem Abonnement"
+
+msgid "Acheter"
+msgstr "Kaufen"
+
+msgid "Entrée libre"
+msgstr ""
 
 msgid "Merci, votre commande est réservée dans votre panier pour 30 minutes."
 msgstr "Vielen Dank, Ihre Bestellung bleibt 30 Minuten in Ihrem Warenkorb."
@@ -139,9 +150,6 @@ msgid ""
 msgstr ""
 "Sie können mit Ihrem Abonnement keinen Sitzplatz für diese Sitzung "
 "reservieren."
-
-msgid "Réserver une place sur mon abonnement"
-msgstr "Reservieren Sie einen Platz in meinem Abonnement"
 
 msgid "Afficher mes réservations"
 msgstr "Meine Buchungen ansehen"
@@ -240,11 +248,29 @@ msgstr "Trennt mich von mir"
 msgid "Connectez-vous !"
 msgstr "Verbinden!"
 
-msgid "Acheter"
-msgstr "Kaufen"
-
 msgid "un abonnement"
 msgstr "ein Abo"
+
+msgid "Recherche"
+msgstr "Suche"
+
+msgid "Rechercher"
+msgstr "Suchen"
+
+msgid "Tous"
+msgstr "Alle"
+
+msgid "Compagnie"
+msgstr "Firma"
+
+msgid "Profession"
+msgstr "Beruf"
+
+msgid "Country"
+msgstr "Land"
+
+msgid "Company"
+msgstr "Firma"
 
 msgid "Aucun article dans cette catégorie, revenez nous visiter prochainement."
 msgstr "Keine Artikel in dieser Kategorie, kommen Sie bald wieder."
@@ -388,6 +414,33 @@ msgid "Aucun article Ticketack trouvé dans la corbeille."
 msgstr "Es wurden keine Ticketack-Artikel im Warenkorb gefunden."
 
 msgid "Articles importés depuis Ticketack"
+msgstr "Aus Ticketack importierte Elemente"
+
+msgid "Ajouter une personne Ticketack"
+msgstr "Neue Ticketack Person hinzufügen"
+
+msgid "Nouvelle personne Ticketack"
+msgstr "Neue Person Ticketack"
+
+msgid "Modifier cette personne Ticketack"
+msgstr "Dieses Person Ticketack ändern"
+
+msgid "Afficher cette personne Ticketack"
+msgstr "Diese Person Ticketack ansehen"
+
+msgid "Tous les poeple Ticketack"
+msgstr "Alle Person Ticketack"
+
+msgid "Rechercher les people Ticketack"
+msgstr "Suche nach Person Ticketack "
+
+msgid "Aucune personne Ticketack trouvée."
+msgstr "Keine Person Ticketack gefunden."
+
+msgid "Aucune personne Ticketack trouvée dans la corbeille."
+msgstr "Es wurden keine Person Ticketack im Warenkorb gefunden."
+
+msgid "Personnes importées depuis Ticketack"
 msgstr "Aus Ticketack importierte Elemente"
 
 msgid "API"
