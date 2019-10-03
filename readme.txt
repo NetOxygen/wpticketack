@@ -2,7 +2,7 @@
 Tags: ticketack
 Requires at least: 4.6
 Tested up to: 5.2
-Stable tag: 2.3.1
+Stable tag: 2.4.0
 Requires PHP: 5.6
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -34,6 +34,18 @@ This section describes how to install the plugin and get it working.
 == Screenshots ==
 
 == Changelog ==
+
+= 2.4.0 =
+* Handle theme provided shortcodes and JS components
+* Add ScreeningsList template for booking form
+* Handle Vimeo trailers
+* Add photo support on buy pass shortcode
+* Add required and requested fields support on buy pass shortcode
+* Enhance translations
+* Add data-target support on filter_rows shortcode
+* Fix lang on redirection to ticketack cart
+* Fix carousel format
+* Fix pricings popovers
 
 = 2.3.1 =
 * Small fix

@@ -51,10 +51,13 @@ class FilterRowsShortcode extends TKTShortcode
             }
         }
 
+        $target = isset($atts['target']) ? $atts['target'] : null;
+
         return TKTTemplate::render(
             'filters/filter_rows',
             (object)[
-                "rows" => $rows
+                "rows"   => $rows,
+                "target" => $target
             ]
         );
     }

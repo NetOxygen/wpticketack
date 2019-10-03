@@ -555,6 +555,12 @@ function tkt_event_data_attributes($event, $attributes)
         $values[] = 'data-type="'.$event->opaque('type').'"';
     }
 
+    if (in_array('date', $attributes)) {
+        foreach ($event->screenings() as $s) {
+            $values[] = 'data-date="'.$s->start_at()->format('Y-m-d').'"';
+        }
+    }
+
     return implode(' ', $values);
 }
 

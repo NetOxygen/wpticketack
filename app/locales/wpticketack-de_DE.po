@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-20 20:15+0200\n"
+"POT-Creation-Date: 2019-09-30 13:02+0200\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Belkacem Alidra <dev@b-alidra.com>\n"
+"Last-Translator: Belkacem Alidra <belkacem.alidra@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -32,338 +32,80 @@ msgstr "Zum Warenkorb gehen"
 msgid "Ajouter au panier"
 msgstr "Zum Warenkorb hinzufügen"
 
+#, fuzzy
+msgid "Vos informations"
+msgstr "Weitere Informationen"
+
 msgid "Prénom"
 msgstr "Vorname"
 
 msgid "Votre prénom"
 msgstr "Dein Name"
 
-msgid "Add New Ticketack Event"
-msgstr "Neues Ticketack-Event hinzufügen"
+msgid "Nom"
+msgstr "Name"
 
-msgid "New Ticketack Event"
-msgstr "Neues Ticketack-Event"
+msgid "Votre nom"
+msgstr "Dein Name"
 
-msgid "Edit Ticketack Event"
-msgstr "Ticketack-Event bearbeiten"
-
-msgid "View Ticketack Event"
-msgstr "Ticketack-Event anzeigen"
-
-msgid "All Ticketack Events"
-msgstr "Alle Ticketack-Events"
-
-msgid "Search Ticketack Events"
-msgstr "Ticketack-Events suchen"
-
-msgid "Parent Ticketack Events:"
-msgstr "Übergeordnete Ticketack-Events"
-
-msgid "No events found."
-msgstr "Keine Events gefunden"
-
-msgid "No events found in Trash."
-msgstr "Keine Ereignisse im Papierkorb gefunden"
-
-msgid "Événements importés depuis Ticketack"
-msgstr "Von Ticketack importierte Ereignisse"
-
-msgid "Add New Ticketack Article"
-msgstr "Neuen Ticketack-Artikel hinzufügen"
-
-msgid "New Ticketack Article"
-msgstr "Neuer Ticketack-Artikel"
-
-msgid "Edit Ticketack Article"
-msgstr "Ticketack-Artikel bearbeiten"
-
-msgid "View Ticketack Article"
-msgstr "Ticketack-Artikel ansehen"
-
-msgid "All Ticketack Articles"
-msgstr "Alle Ticketack-Artikel"
-
-msgid "Search Ticketack Articles"
-msgstr "Suche Ticketack Artikel"
-
-msgid "Parent Ticketack Article:"
-msgstr "Eltern-Ticketack-Artikel:"
-
-msgid "No article found."
-msgstr "Kein Artikel gefunden."
-
-msgid "No article found in Trash."
-msgstr "Kein Artikel in Papierkorb gefunden."
-
-msgid "Articles importés depuis Ticketack"
-msgstr "Aus Ticketack importierte Elemente"
-
-msgid "API"
+msgid "Email"
 msgstr ""
 
-msgid "Pages"
-msgstr ""
+msgid "Votre email"
+msgstr "Deine E-Mail-Adresse"
 
-msgid "Images"
-msgstr ""
+msgid "Adresse"
+msgstr "Adresse"
 
-msgid "Abonnements"
-msgstr "Abonnements"
+msgid "Votre adresse"
+msgstr "Ihre Adresse"
 
-msgid "Langues"
-msgstr ""
+msgid "Numéro postal"
+msgstr "Postnummer"
 
-msgid "Documentation"
-msgstr ""
+msgid "NPA"
+msgstr "NPA"
 
-msgid "Accès à Ticketack"
-msgstr ""
+msgid "Ville"
+msgstr "Stadt"
 
-msgid "URL de l'engine"
-msgstr ""
+msgid "Pays"
+msgstr "Land"
 
-msgid "URL du eshop"
-msgstr ""
+msgid "Âge"
+msgstr "Alter"
 
-msgid "Shortcodes disponibles"
-msgstr "Shortcodes verfügbar"
+msgid "Genre"
+msgstr "Art"
 
-msgid "Affichage en liste"
-msgstr "Listendarstellung"
-
-msgid "Affichage des prochaines séances en liste"
-msgstr "Anzeige der nächsten Sitzungen in der Liste"
-
-msgid "Affichage en grille"
-msgstr "Gitteranzeige"
-
-msgid "Affichage des prochains films en grille de 4"
-msgstr "Anzeige der nächsten Filme im Raster von 4 Bildern"
-
-msgid "Affichage en galerie"
-msgstr "In der Galerie anzeigen"
-
-msgid "Affichage des prochains films en galerie de 4 colonnes"
-msgstr "Anzeige der nächsten Filme in einer 4-spaltigen Galerie"
-
-msgid "Panier"
-msgstr "Warenkorb"
-
-msgid "Affichage du contenu du panier"
-msgstr "Anzeigen des Inhalts des Warenkorbs"
-
-msgid "Clé d'API"
-msgstr ""
-
-msgid "Programme"
-msgstr ""
-
-msgid "Panier"
-msgstr ""
-
-msgid "Dimensions des images"
-msgstr ""
-
-msgid "Largeur des grandes images"
-msgstr ""
-
-msgid "Hauteur des grandes images"
-msgstr ""
-
-msgid "Largeur des images moyennes"
-msgstr ""
-
-msgid "Hauteur des images moyennes"
-msgstr ""
-
-msgid "Serveur proxy d'images"
-msgstr ""
-
-msgid "Serveur proxy"
-msgstr ""
-
-msgid "Vente des différents types d'abonnements"
-msgstr "Verkauf der verschiedenen Arten von Abonnements"
-
-msgid "Champs à saisir pour chaque type d'abonnement"
-msgstr ""
-
-msgid "Langue par défaut"
-msgstr ""
-
-msgid "Options avancées"
-msgstr ""
-
-msgid "Saisissez les slugs des pages contenant les différents shortcodes"
-msgstr ""
-
-msgid "Saisissez les informations d'accès à la billetterie"
-msgstr ""
-
-msgid "Dimensions des grandes et moyennes images (en px)."
-msgstr ""
-
-msgid "Configuration du serveur proxy d'images."
-msgstr ""
-
-msgid "Configuration de la vente d'abonnements."
-msgstr ""
-
-msgid "Configuration des langues."
+msgid "Photo"
 msgstr ""
 
 msgid ""
-"Ne modifiez les valeurs ci-dessous que si vous savez ce que vous faites."
-msgstr ""
+"Sans photo, une pièce d'identité sera systématiquement demandée à l'entrée "
+"des salles et aux caisses."
+msgstr "Ohne Foto wird am Eingang der Räume und an den Kassen systematisch ein Ausweis angefordert."
 
-msgid "Ticketack n'est pas configuré."
-msgstr ""
+msgid "Tous ces champs sont requis"
+msgstr "Alle diese Felder müssen ausgefüllt werden."
 
-msgid "Accéder aux réglages"
-msgstr "Auf die Einstellungen zugreifen"
+msgid "Tarifs :"
+msgstr "Preise:"
 
-msgid "Il ne reste que quelques places"
-msgstr "Es gibt nur noch wenige Plätze"
+msgid "Veuillez choisir la date désirée :"
+msgstr "Bitte wählen Sie das gewünschte Datum aus:"
 
-msgid "Pas de réponse"
-msgstr "Keine Antwort"
+msgid "Veuillez choisir l'heure désirée :"
+msgstr "Bitte wählen Sie die gewünschte Zeit aus:"
 
-msgid "Féminin"
-msgstr "Weiblich"
+msgid "Merci, votre commande est réservée dans votre panier pour 30 minutes."
+msgstr "Vielen Dank, Ihre Bestellung bleibt 30 Minuten in Ihrem Warenkorb."
 
-msgid "Masculin"
-msgstr "Männlich"
+msgid "Continuer"
+msgstr "Fortsetzen"
 
-msgid "Billets"
-msgstr "Zum Warenkorb hinzufügen"
-
-msgid "Il ne reste que quelques places !"
-msgstr "Es gibt nur noch wenige Plätze!"
-
-msgid "Autre"
-msgstr "Andere"
-
-msgid "Veuillez choisir au moins un billet"
-msgstr "Bitte wählen Sie mindestens einen Ball aus."
-
-msgid "Veuillez remplir les deux champs"
-msgstr "Bitte füllen Sie beide Felder aus."
-
-msgid "Les informations que vous avez saisies sont invalides"
-msgstr "Die von Ihnen eingegebenen Informationen sind ungültig."
-
-msgid "Une erreur est survenue. Veuillez ré-essayer ultérieurement."
-msgstr ""
-"Es ist ein Fehler aufgetreten. Bitte versuchen Sie es später noch einmal."
-
-msgid ""
-"Vous ne pouvez pas réserver de place pour cette séance avec votre abonnement."
-msgstr ""
-"Sie können mit Ihrem Abonnement keinen Sitzplatz für diese Sitzung "
-"reservieren."
-
-msgid ""
-"Vous ne pouvez pas réserver plus de place pour cette séance avec votre "
-"abonnement."
-msgstr ""
-"Sie können mit Ihrem Abonnement keinen Sitzplatz für diese Sitzung "
-"reservieren."
-
-msgid "Veuillez choisir un tarif"
-msgstr "Bitte wählen Sie einen Tarif aus"
-
-msgid "Vous avez choisi :"
-msgstr "Du hast gewählt:"
-
-msgid "Valider"
-msgstr "Validieren"
-
-msgid "Votre panier a été mis à jour"
-msgstr "Ihr Warenkorb wurde aktualisiert."
-
-msgid "Plus d'informations"
-msgstr "Weitere Informationen"
-
-msgid "Commander"
-msgstr "Zur Bestellung"
-
-msgid "Il ne reste que quelques articles"
-msgstr "Es sind nur noch wenige Artikel vorhanden."
-
-msgid "Plus de stock"
-msgstr "Keine Lagerbestände mehr"
-
-msgid "Tout"
-msgstr "Tout"
-
-msgid "Details"
-msgstr "Details"
-
-msgid "Quand"
-msgstr "Wenn die"
-
-msgid "min"
-msgstr "min"
-
-msgid "Section"
-msgstr "Abschnitt"
-
-msgid "Synopsis"
-msgstr "Synopse"
-
-msgid "Films"
-msgstr "Filme"
-
-msgid "Achetez vos billets"
-msgstr "Kaufen Sie Ihre Tickets"
-
-msgid "Durée"
-msgstr "Dauer"
-
-msgid "Casting"
-msgstr "Gießen"
-
-msgid "Aucun article dans cette catégorie, revenez nous visiter prochainement."
-msgstr "Keine Artikel in dieser Kategorie, kommen Sie bald wieder."
-
-msgid "Vous avez choisi :"
-msgstr ""
-
-msgid "Sélectionnez votre contenance et votre quantité :"
-msgstr ""
-
-msgid "Total"
-msgstr ""
-
-msgid "Veuillez choisir au moins un produit"
-msgstr "Bitte wählen Sie mindestens ein Produkt aus"
-
-msgid "Valider"
-msgstr ""
-
-msgid ""
-"Aucun événement programmé actuellement, revenez nous visiter prochainement."
-msgstr ""
-"Derzeit sind keine Veranstaltungen geplant. Besuchen Sie uns bald wieder."
-
-msgid "Billets"
-msgstr "Zum Warenkorb hinzufügen"
-
-msgid "Il ne reste que quelques places !"
-msgstr "Es gibt nur noch wenige Plätze!"
-
-msgid "Complet !"
-msgstr "Fertig!"
-
-msgid "Il ne reste que quelques places"
-msgstr "Es gibt nur noch wenige Plätze"
-
-msgid "Complet"
-msgstr "Fertig"
-
-msgid ""
-"Aucuné séance programmée actuellement, revenez nous visiter prochainement."
-msgstr "Derzeit ist keine Sitzung geplant, komm bald wieder."
+msgid "ma visite"
+msgstr "mein besuch"
 
 msgid ""
 "Entrez le nombre de place(s) que vous souhaitez ajouter à votre panier :"
@@ -392,32 +134,50 @@ msgstr "Code"
 msgid "Me connecter"
 msgstr "Einloggen"
 
+msgid ""
+"Vous ne pouvez pas réserver de place pour cette séance avec votre abonnement."
+msgstr ""
+"Sie können mit Ihrem Abonnement keinen Sitzplatz für diese Sitzung "
+"reservieren."
+
 msgid "Réserver une place sur mon abonnement"
 msgstr "Reservieren Sie einen Platz in meinem Abonnement"
 
 msgid "Afficher mes réservations"
 msgstr "Meine Buchungen ansehen"
 
-msgid "Merci, votre commande est réservée dans votre panier pour 30 minutes."
-msgstr "Vielen Dank, Ihre Bestellung bleibt 30 Minuten in Ihrem Warenkorb."
+msgid "Shortcodes disponibles"
+msgstr "Shortcodes verfügbar"
 
-msgid "Accéder au panier"
-msgstr "Zum Warenkorb gehen"
+msgid "Affichage en liste"
+msgstr "Listendarstellung"
 
-msgid "Continuer"
-msgstr "Fortsetzen"
+msgid "Affichage des prochaines séances en liste"
+msgstr "Anzeige der nächsten Sitzungen in der Liste"
 
-msgid "ma visite"
-msgstr "mein besuch"
+msgid "Affichage en grille"
+msgstr "Gitteranzeige"
 
-msgid "Veuillez choisir la date désirée :"
-msgstr "Bitte wählen Sie das gewünschte Datum aus:"
+msgid "Affichage des prochains films en grille de 4"
+msgstr "Anzeige der nächsten Filme im Raster von 4 Bildern"
 
-msgid "Veuillez choisir l'heure désirée :"
-msgstr "Bitte wählen Sie die gewünschte Zeit aus:"
+msgid "Affichage en galerie"
+msgstr "In der Galerie anzeigen"
 
-msgid "Ajouter au panier"
-msgstr "Zum Warenkorb hinzufügen"
+msgid "Affichage des prochains films en galerie de 4 colonnes"
+msgstr "Anzeige der nächsten Filme in einer 4-spaltigen Galerie"
+
+msgid "Panier"
+msgstr "Warenkorb"
+
+msgid "Affichage du contenu du panier"
+msgstr "Anzeigen des Inhalts des Warenkorbs"
+
+msgid "Abonnements"
+msgstr "Abonnements"
+
+msgid "Vente des différents types d'abonnements"
+msgstr "Verkauf der verschiedenen Arten von Abonnements"
 
 msgid "Votre panier est vide"
 msgstr "Ihr Einkaufswagen ist leer"
@@ -428,8 +188,9 @@ msgstr "Einkauf"
 msgid "Prix"
 msgstr "Preis"
 
+#, fuzzy
 msgid "Total :"
-msgstr ""
+msgstr "Total"
 
 msgid "Finaliser ma commande"
 msgstr "Meine Bestellung abschließen"
@@ -443,12 +204,191 @@ msgstr "meine Bestellung"
 msgid "mes réservations"
 msgstr "meine Buchungen"
 
-#, fuzzy
-msgid "Vos informations"
+msgid ""
+"Aucun événement programmé actuellement, revenez nous visiter prochainement."
+msgstr ""
+"Derzeit sind keine Veranstaltungen geplant. Besuchen Sie uns bald wieder."
+
+msgid "Plus d'informations"
 msgstr "Weitere Informationen"
 
-msgid "Prénom"
-msgstr "Vorname"
+msgid ""
+"Aucuné séance programmée actuellement, revenez nous visiter prochainement."
+msgstr "Derzeit ist keine Sitzung geplant, komm bald wieder."
+
+msgid "Il ne reste que quelques places"
+msgstr "Es gibt nur noch wenige Plätze"
+
+msgid "Complet"
+msgstr "Fertig"
+
+msgid "Billets"
+msgstr "Zum Warenkorb hinzufügen"
+
+msgid "Il ne reste que quelques places !"
+msgstr "Es gibt nur noch wenige Plätze!"
+
+msgid "Complet !"
+msgstr "Fertig!"
+
+msgid "Voir mes réservations"
+msgstr "Siehe meine Buchungen"
+
+msgid "Me déconnecter"
+msgstr "Trennt mich von mir"
+
+msgid "Connectez-vous !"
+msgstr "Verbinden!"
+
+msgid "Acheter"
+msgstr "Kaufen"
+
+msgid "un abonnement"
+msgstr "ein Abo"
+
+msgid "Aucun article dans cette catégorie, revenez nous visiter prochainement."
+msgstr "Keine Artikel in dieser Kategorie, kommen Sie bald wieder."
+
+msgid "Vous avez choisi :"
+msgstr "Du hast gewählt:"
+
+msgid "Valider"
+msgstr "Validieren"
+
+msgid "Commander"
+msgstr "Zur Bestellung"
+
+msgid "Il ne reste que quelques articles"
+msgstr "Es sind nur noch wenige Artikel vorhanden."
+
+msgid "Plus de stock"
+msgstr "Keine Lagerbestände mehr"
+
+msgid "Tout"
+msgstr "Tout"
+
+msgid "Details"
+msgstr "Details"
+
+msgid "Quand"
+msgstr "Wenn die"
+
+msgid "Section"
+msgstr "Abschnitt"
+
+msgid "Synopsis"
+msgstr "Synopse"
+
+msgid "Films"
+msgstr "Filme"
+
+msgid "Achetez vos billets"
+msgstr "Kaufen Sie Ihre Tickets"
+
+msgid "Durée"
+msgstr "Dauer"
+
+msgid "min"
+msgstr "min"
+
+msgid "Casting"
+msgstr "Gießen"
+
+msgid "Veuillez choisir au moins un billet"
+msgstr "Bitte wählen Sie mindestens einen Ball aus."
+
+msgid "Veuillez remplir les deux champs"
+msgstr "Bitte füllen Sie beide Felder aus."
+
+msgid "Les informations que vous avez saisies sont invalides"
+msgstr "Die von Ihnen eingegebenen Informationen sind ungültig."
+
+msgid "Une erreur est survenue. Veuillez ré-essayer ultérieurement."
+msgstr ""
+"Es ist ein Fehler aufgetreten. Bitte versuchen Sie es später noch einmal."
+
+msgid ""
+"Vous ne pouvez pas réserver plus de place pour cette séance avec votre "
+"abonnement."
+msgstr ""
+"Sie können mit Ihrem Abonnement keinen Sitzplatz für diese Sitzung "
+"reservieren."
+
+msgid "Veuillez choisir un tarif"
+msgstr "Bitte wählen Sie einen Tarif aus"
+
+msgid "Votre panier a été mis à jour"
+msgstr "Ihr Warenkorb wurde aktualisiert."
+
+msgid "Pas de réponse"
+msgstr "Keine Antwort"
+
+msgid "Féminin"
+msgstr "Weiblich"
+
+msgid "Masculin"
+msgstr "Männlich"
+
+msgid "Autre"
+msgstr "Andere"
+
+#, fuzzy
+msgid "Ajouter un event Ticketack"
+msgstr "Zum Warenkorb hinzufügen"
+
+msgid "Nouvel event Ticketack"
+msgstr "Neue Ticketack event"
+
+msgid "Modifier cet event Ticketack"
+msgstr "Dieses Event Ticketack ändern"
+
+msgid "Afficher cet event Ticketack"
+msgstr "Diese Veranstaltung ansehen Ticketack"
+
+msgid "Tous les events Ticketack"
+msgstr "Alle Ticketack event"
+
+msgid "Rechercher les events Ticketack"
+msgstr "Suche nach Ticketack event"
+
+msgid "Parent:"
+msgstr "Elternteil:"
+
+msgid "Aucun event Ticketack trouvé."
+msgstr "Keine Ticketack event gefunden."
+
+msgid "Aucun event Ticketack trouvé dans la corbeille."
+msgstr "Es wurden keine Ticketack event im Warenkorb gefunden."
+
+msgid "Événements importés depuis Ticketack"
+msgstr "Von Ticketack importierte Ereignisse"
+
+msgid "Ajouter un article Ticketack"
+msgstr "Hinzufügen eines Ticketack-Artikels"
+
+msgid "Nouvel article Ticketack"
+msgstr "Neuer Ticketack-Artikel"
+
+msgid "Modifier cet article Ticketack"
+msgstr "Diesen Artikel ändern Ticketack"
+
+msgid "Afficher cet article Ticketack"
+msgstr "Diesen Artikel ansehen Ticketack"
+
+msgid "Tous les articles Ticketack"
+msgstr "Alle Ticketack-Artikel"
+
+msgid "Rechercher les articles Ticketack"
+msgstr "Ticketack-Artikel suchen"
+
+msgid "Aucun article Ticketack trouvé."
+msgstr "Keine Ticketack-Artikel gefunden."
+
+msgid "Aucun article Ticketack trouvé dans la corbeille."
+msgstr "Es wurden keine Ticketack-Artikel im Warenkorb gefunden."
+
+msgid "Articles importés depuis Ticketack"
+msgstr "Aus Ticketack importierte Elemente"
 
 msgid "API"
 msgstr "API"
@@ -468,26 +408,8 @@ msgstr "Dokumentation"
 msgid "Ticketack n'est pas configuré."
 msgstr "Ticketack ist nicht konfiguriert."
 
-msgid "Votre prénom"
-msgstr "Dein Name"
-
-msgid "Nom"
-msgstr "Name"
-
-msgid "Votre nom"
-msgstr "Dein Name"
-
-msgid "Email"
-msgstr ""
-
-msgid "Votre email"
-msgstr "Deine E-Mail-Adresse"
-
-msgid "Adresse"
-msgstr "Adresse"
-
-msgid "Votre adresse"
-msgstr "Ihre Adresse"
+msgid "Accéder aux réglages"
+msgstr "Auf die Einstellungen zugreifen"
 
 msgid "Accès à Ticketack"
 msgstr "Zugang zum Ticketack"
@@ -555,98 +477,3 @@ msgstr "Sprachkonfiguration."
 msgid ""
 "Ne modifiez les valeurs ci-dessous que si vous savez ce que vous faites."
 msgstr "Ändern Sie die folgenden Werte nur, wenn Sie wissen, was Sie tun."
-
-msgid "Numéro postal"
-msgstr "Postnummer"
-
-msgid "NPA"
-msgstr "NPA"
-
-msgid "Ville"
-msgstr "Stadt"
-
-msgid "Pays"
-msgstr "Land"
-
-msgid "Âge"
-msgstr "Alter"
-
-msgid "Genre"
-msgstr "Art"
-
-msgid "Photo"
-msgstr ""
-
-msgid ""
-"Sans photo, une pièce d'identité sera systématiquement demandée à l'entrée "
-"des salles et aux caisses."
-msgstr ""
-
-msgid "Tous ces champs sont requis"
-msgstr "Alle diese Felder müssen ausgefüllt werden."
-
-msgid "Tarifs :"
-msgstr "Preise:"
-
-msgid "Shortcodes disponibles"
-msgstr ""
-
-msgid "Affichage en liste"
-msgstr ""
-
-msgid "Affichage des prochaines séances en liste"
-msgstr ""
-
-msgid "Affichage en grille"
-msgstr ""
-
-msgid "Affichage des prochains films en grille de 4"
-msgstr ""
-
-msgid "Affichage en galerie"
-msgstr ""
-
-msgid "Affichage des prochains films en galerie de 4 colonnes"
-msgstr ""
-
-msgid "Affichage du contenu du panier"
-msgstr ""
-
-msgid "Vente des différents types d'abonnements"
-msgstr ""
-
-msgid "Synopsis"
-msgstr ""
-
-msgid "Details"
-msgstr ""
-
-msgid "Durée"
-msgstr ""
-
-msgid "min"
-msgstr ""
-
-msgid "Casting"
-msgstr ""
-
-msgid "Achetez vos billets"
-msgstr ""
-
-msgid "Voir mes réservations"
-msgstr "Siehe meine Buchungen"
-
-msgid "Me déconnecter"
-msgstr "Trennt mich von mir"
-
-msgid "Connectez-vous !"
-msgstr "Verbinden!"
-
-msgid "Acheter"
-msgstr "Kaufen"
-
-msgid "un abonnement"
-msgstr "ein Abo"
-
-#~ msgid "sous-titres"
-#~ msgstr "Untertitel"

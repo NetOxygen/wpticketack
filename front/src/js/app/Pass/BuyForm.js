@@ -33,8 +33,10 @@ define([
         },
 
         init: function() {
-            if (this.$pass.length == 1)
+            if (this.$pass.length == 1) {
                 this.sync_pass_form(this.$pass[0].data('type'));
+                this.$pass[0].addClass('show');
+            }
 
 
             $('form', this.$container).submit((e) => {

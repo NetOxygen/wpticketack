@@ -18475,7 +18475,6 @@ define('app/Booking/ScreeningsList', [
         this.ids = this.$container.data('ids').split(',');
         this.show_on_load = parseInt(this.getUrlParam('book')) == 1;
         this.selected_screening = this.getUrlParam('s_id');
-        console.log(this.selected_screening);
     }
     ScreeningsList.prototype = {
         attach: function attach() {
@@ -18746,7 +18745,6 @@ define('app/Booking/ScreeningsList', [
             var chosen_pricings = _.find(this.data.pricings, function (nb) {
                 return nb > 0;
             });
-            console.log(chosen_pricings);
             if (chosen_pricings > 0)
                 $('.add-to-cart-btn').css({ 'display': 'block' });
             else
@@ -20293,8 +20291,10 @@ define('app/Pass/BuyForm', [
         },
         init: function init() {
             var _this = this;
-            if (this.$pass.length == 1)
+            if (this.$pass.length == 1) {
                 this.sync_pass_form(this.$pass[0].data('type'));
+                this.$pass[0].addClass('show');
+            }
             $('form', this.$container).submit(function (e) {
                 e.preventDefault();
                 _this.add_to_cart($('button[type="submit"]', _this.$container).data('redirect'));
@@ -20544,7 +20544,6 @@ define('app/Program/FilterRows', [
             this.$filters.each(function (i, f) {
                 var criteria = $(f).data('criteria');
                 var value = $(f).data(criteria);
-                console.log('value', value);
                 if (!value)
                     return;
                 if ($(_this.target + '[data-' + criteria + '*="' + value + '"]').length == 0)
@@ -20575,7 +20574,7 @@ define('app/Program/FilterRows', [
                     $(_this2.target).not('[data-' + criteria + '*="' + value + '"]').removeClass('to_show');
             });
             $(this.target).hide();
-            $(this.target + '.to_show').fadeIn();
+            $(this.target.replace(',', '.to_show,') + '.to_show').fadeIn();
         },
         detach: function detach() {
         }
@@ -20632,13 +20631,11 @@ define('app/Program/Filters', [
             $(this.target + '[data-filter-show="true"]', this.$container).fadeIn();
         },
         filter_on_day: function filter_on_day(value) {
-            console.log(value);
             if (!value)
                 return;
             $(this.target).not('[data-day*="' + value + '"]').attr('data-filter-show', false);
         },
         filter_on_time: function filter_on_time(value) {
-            console.log(value);
             if (!value)
                 return;
             var parts = value.split('-');
@@ -20651,7 +20648,6 @@ define('app/Program/Filters', [
             });
         },
         filter_on_place: function filter_on_place(value) {
-            console.log(value);
             if (!value)
                 return;
             $(this.target).not('[data-place*="' + value + '"]').attr('data-filter-show', false);
@@ -24799,6 +24795,9 @@ requirejs.config({
         exif: './ext/exif-js.min',
         filetodataurl: './ext/fileinput-to-dataurl',
         urijs: '../../node_modules/urijs/src/URI',
+        punycode: '../../node_modules/urijs/src/punycode',
+        IPv6: '../../node_modules/urijs/src/IPv6',
+        SecondLevelDomains: '../../node_modules/urijs/src/SecondLevelDomains',
         moment: '../../node_modules/moment/min/moment-with-locales.min',
         postal: '../../node_modules/postal/lib/postal.min',
         lodash: '../../node_modules/lodash/lodash.min',

@@ -25,7 +25,6 @@ define( [
         this.ids                = this.$container.data('ids').split(',');
         this.show_on_load       = parseInt(this.getUrlParam('book')) == 1;
         this.selected_screening = this.getUrlParam('s_id');
-        console.log(this.selected_screening);
     }
 
     ScreeningsList.prototype = {
@@ -390,7 +389,6 @@ define( [
 
         show_or_hide_add_to_cart_button: function() {
             const chosen_pricings = _.find(this.data.pricings, (nb) => nb > 0);
-            console.log(chosen_pricings);
             if (chosen_pricings > 0)
                 $('.add-to-cart-btn').css({'display': 'block'});
             else

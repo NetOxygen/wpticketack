@@ -9,7 +9,7 @@
  *    data-criterium="date,section,..."
  *
  *    <!-- Optional -->
- *    data-class="tkt_program_event"
+ *    data-target="tkt_program_event"
  * >
  *   <ul>
  *     <li class="tkt-filter>...</div>
@@ -47,7 +47,6 @@ define(
                 this.$filters.each((i, f) => {
                     let criteria = $(f).data('criteria');
                     let value    = $(f).data(criteria);
-                    console.log('value', value);
                     if (!value)
                         return;
                     if ($(this.target + '[data-' + criteria + '*="' + value + '"]').length == 0)
@@ -83,9 +82,8 @@ define(
                         $(this.target).not('[data-' + criteria + '*="' + value + '"]').removeClass('to_show');
                 });
 
-
                 $(this.target).hide();
-                $(this.target + '.to_show').fadeIn();
+                $(this.target.replace(',', '.to_show,') + '.to_show').fadeIn();
             },
 
             detach: function() {
