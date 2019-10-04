@@ -17,11 +17,7 @@ define([
         this.$container = $container;
         this.$pass      = $('.pass', this.$container);
 
-        // Ensure $pass is always an array
-        if ('object' === typeof this.$pass)
-            this.$pass = [this.$pass];
-
-        this.$selected_pass = this.$pass[0];
+        this.$selected_pass = $(this.$pass[0]);
 
         this.$wrappers = $('.field-wrapper', this.$container);
         this.$fields   = $('.field-wrapper .field', this.$container);
@@ -34,8 +30,8 @@ define([
 
         init: function() {
             if (this.$pass.length == 1) {
-                this.sync_pass_form(this.$pass[0].data('type'));
-                this.$pass[0].addClass('show');
+                this.sync_pass_form(this.$selected_pass.data('type'));
+                this.$selected_pass.addClass('show');
             }
 
 
