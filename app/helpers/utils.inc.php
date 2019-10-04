@@ -149,6 +149,12 @@ function tkt_assets_url($path)
 function tkt_program_url($query = "")
 {
     $path = TKTApp::get_instance()->get_config('pages.program');
+
+    if (TKT_WPML_INSTALLED) {
+        $page = get_page_by_path($path);
+        $path = str_replace(site_url(), '', apply_filters('wpml_permalink', get_permalink($page->ID)));
+}
+
     if (!empty($query)) {
         $path .= '?'.$query;
     }
@@ -166,9 +172,16 @@ function tkt_program_url($query = "")
  */
 function tkt_cart_url()
 {
+    $path = TKTApp::get_instance()->get_config('pages.cart');
+
+    if (TKT_WPML_INSTALLED) {
+        $page = get_page_by_path($path);
+        return apply_filters('wpml_permalink', get_permalink($page->ID));
+    }
+
     return get_site_url(
         /*$blog_id*/null,
-        TKTApp::get_instance()->get_config('pages.cart')
+        $path
     );
 }
 
