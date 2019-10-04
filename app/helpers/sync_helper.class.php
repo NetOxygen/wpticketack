@@ -18,6 +18,8 @@ class SyncHelper
     public static function sync_events()
     {
         $default_lang = TKTApp::get_instance()->get_config('i18n.default_lang', 'fr');
+        $tags_filter  = TKTApp::get_instance()->get_config('import.tags_filter', '');
+        $tags         = empty($tags_filter) ? [] : explode(',', $tags_filter);
 
         ini_set('memory_limit', '512M');
         ini_set('max_execution_time', 0);
@@ -26,7 +28,7 @@ class SyncHelper
             switch_to_locale('fr_FR');
         }
 
-        $events = static::load_next_events();
+        $events = static::load_next_events($tags);
 
         if (!empty($events)) {
             array_map(function ($e) use ($i, $default_lang) {
@@ -50,7 +52,7 @@ class SyncHelper
         }
     }
 
-    protected static function load_next_events()
+    protected static function load_next_events($tags = [])
     {
         $screenings = Screening::all()
             ->in_the_future()
@@ -58,6 +60,19 @@ class SyncHelper
             ->get('_id,title,start_at,stop_at,description,cinema_hall,films,opaque');
 
         $events = Event::from_screenings($screenings);
+
+        if (!empty($tags)) {
+            $events = array_values(array_filter($events, function ($e) use ($tags) {
+                $event_tags = $e->opaque('tags', []);
+                foreach ($event_tags as $t) {
+                    if (in_array($t[TKT_LANG], $tags)) {
+                        return true;
+                    }
+                }
+
+                return false;
+            }));
+        }
 
         return $events;
     }

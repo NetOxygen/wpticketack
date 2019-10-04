@@ -161,6 +161,21 @@ class AdminSettingsAction extends TKTAction
         );
 
         add_settings_section(
+            'ticketack_import', // ID
+            tkt_t('Import'), // Title
+            array( $this, 'import_section_info' ), // Callback
+            'ticketack-import' // Page
+        );
+
+        add_settings_field(
+            'tags_filter', // ID
+            tkt_t('Filtrer sur les tags'), // Title
+            array( $this, 'tags_filter_callback' ), // Callback
+            'ticketack-import', // Page
+            'ticketack_import' // Section
+        );
+
+        add_settings_section(
             'ticketack_advanced', // ID
             tkt_t('Options avancées'), // Title
             array( $this, 'advanced_section_info' ), // Callback
@@ -244,6 +259,15 @@ class AdminSettingsAction extends TKTAction
         print tkt_t("Configuration des langues.");
     }
     public function default_lang_callback() { return $this->input('default_lang', 'tkt_i18n', 'fr'); }
+
+    /**
+     * Print the Section text
+     */
+    public function import_section_info()
+    {
+        print tkt_t("Configuration de l'import");
+    }
+    public function tags_filter_callback() { return $this->input('tags_filter', 'tkt_import', ''); }
 
     /** 
      * Print the Section text

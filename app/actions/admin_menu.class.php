@@ -42,7 +42,7 @@ class AdminMenuAction extends TKTAction
     {
         $sections = [
             'tkt_pages', 'tkt_api', 'tkt_images_dimensions',
-            'tkt_images_proxy', 'tkt_pass', 'tkt_advanced', 'tkt_i18n'
+            'tkt_images_proxy', 'tkt_pass', 'tkt_advanced', 'tkt_i18n', 'tkt_import'
         ];
         foreach ($sections as $section) {
             if (isset($_POST[$section])) {
@@ -65,6 +65,7 @@ class AdminMenuAction extends TKTAction
             'images'   => tkt_t('Images'),
             'pass'     => tkt_t('Abonnements'),
             'i18n'     => tkt_t('Langues'),
+            'import'   => tkt_t('Import'),
             'doc'      => tkt_t('Documentation')
         ];
 ?>

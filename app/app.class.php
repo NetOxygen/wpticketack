@@ -71,6 +71,7 @@ class TKTApp
             'images_proxy'      => (array)get_option('tkt_images_proxy'),
             'pass'              => (array)get_option('tkt_pass'),
             'i18n'              => (array)get_option('tkt_i18n'),
+            'import'            => (array)get_option('tkt_import'),
             'advanced'          => (array)get_option('tkt_advanced')
         ];
     }
