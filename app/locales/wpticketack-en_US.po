@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-30 12:53+0200\n"
+"POT-Creation-Date: 2019-10-03 15:50+0200\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Belkacem Alidra <belkacem.alidra@netoxygen.ch>\n"
+"Last-Translator: Alain Pellaux <alain.pellaux@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -99,6 +99,15 @@ msgstr "Please choose a date"
 msgid "Veuillez choisir l'heure désirée :"
 msgstr "Please choose a time"
 
+msgid "Réserver une place sur mon abonnement"
+msgstr "Book on my pass"
+
+msgid "Acheter"
+msgstr "Buy"
+
+msgid "Entrée libre"
+msgstr ""
+
 msgid "Merci, votre commande est réservée dans votre panier pour 30 minutes."
 msgstr "Thank you, your order is reserved in your cart for 30 minutes."
 
@@ -136,9 +145,6 @@ msgstr "Login"
 msgid ""
 "Vous ne pouvez pas réserver de place pour cette séance avec votre abonnement."
 msgstr "You  can not book this screening with your pass"
-
-msgid "Réserver une place sur mon abonnement"
-msgstr "Book on my pass"
 
 msgid "Afficher mes réservations"
 msgstr "Show my bookings"
@@ -235,11 +241,23 @@ msgstr "Logout"
 msgid "Connectez-vous !"
 msgstr "Login !"
 
-msgid "Acheter"
-msgstr "Buy"
-
 msgid "un abonnement"
 msgstr "a pass"
+
+msgid "Recherche"
+msgstr "Search"
+
+msgid "Rechercher"
+msgstr "Search for"
+
+msgid "Tous"
+msgstr "All"
+
+msgid "Compagnie"
+msgstr "Company"
+
+msgid "Profession"
+msgstr "Job"
 
 msgid "Aucun article dans cette catégorie, revenez nous visiter prochainement."
 msgstr "No screening currently scheduled, come back soon."
@@ -284,7 +302,7 @@ msgid "Durée"
 msgstr "Duration"
 
 msgid "min"
-msgstr "mi"
+msgstr "min"
 
 msgid "Casting"
 msgstr "Casting"
@@ -380,6 +398,33 @@ msgid "Aucun article Ticketack trouvé dans la corbeille."
 msgstr "No Ticketack article found in Trash"
 
 msgid "Articles importés depuis Ticketack"
+msgstr "Events imported from Ticketack"
+
+msgid "Ajouter une personne Ticketack"
+msgstr "Add new ticketack person"
+
+msgid "Nouvelle personne Ticketack"
+msgstr "New Ticketack person"
+
+msgid "Modifier cette personne Ticketack"
+msgstr "Edit Ticketack person"
+
+msgid "Afficher cette personne Ticketack"
+msgstr "View Ticketack person"
+
+msgid "Tous les poeple Ticketack"
+msgstr "All Ticketack people"
+
+msgid "Rechercher les people Ticketack"
+msgstr "Search Ticketack people"
+
+msgid "Aucune personne Ticketack trouvée."
+msgstr "No Ticketack person found"
+
+msgid "Aucune personne Ticketack trouvée dans la corbeille."
+msgstr "No Ticketack person found in Trash"
+
+msgid "Personnes importées depuis Ticketack"
 msgstr "Events imported from Ticketack"
 
 msgid "API"

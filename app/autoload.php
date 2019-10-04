@@ -7,6 +7,7 @@ require_once(TKT_SHORTCODES.'/shortcode.class.php');
 require_once(TKT_SHORTCODES.'/program.class.php');
 require_once(TKT_TEMPLATES.'/template.class.php');
 require_once(TKT_HELPERS.'/sync_helper.class.php');
+require_once(TKT_HELPERS.'/sync_people_helper.class.php');
 require_once(TKT_HELPERS.'/locales_helper.class.php');
 require_once(TKT_HELPERS.'/utils.inc.php');
 require_once(TKT_LIB.'/base/api.class.php');
@@ -26,3 +27,7 @@ require_once(TKT_LIB.'/models/tickettype.class.php');
 require_once(TKT_LIB.'/models/window.class.php');
 require_once(TKT_LIB.'/models/article.class.php');
 require_once(TKT_LIB.'/models/articlecategory.class.php');
+
+if (defined('WP_CLI')) {
+    require_once(TKT_CLI.'/tkt_people_commands.class.php');
+}

@@ -88,7 +88,41 @@ class CustomTypesAction extends TKTAction
             'supports'           => array('title', 'editor', 'author', 'thumbnail', 'page-attributes', 'custom-fields' )
         );
 
+        $labels_person = array(
+            'name'               => _x('Ticketack People', 'Ticketack people', 'wpticketack' ),
+            'singular_name'      => _x('Ticketack Person', 'Ticketack person', 'wpticketack' ),
+            'menu_name'          => _x('Ticketack People', 'admin menu', 'wpticketack' ),
+            'name_admin_bar'     => _x('Ticketack Person', 'add new on admin bar', 'wpticketack' ),
+            'add_new'            => _x('Add New', 'person', 'wpticketack' ),
+            'add_new_item'       => tkt_t('Ajouter une personne Ticketack'),
+            'new_item'           => tkt_t('Nouvelle personne Ticketack'),
+            'edit_item'          => tkt_t('Modifier cette personne Ticketack'),
+            'view_item'          => tkt_t('Afficher cette personne Ticketack'),
+            'all_items'          => tkt_t('Tous les poeple Ticketack'),
+            'search_items'       => tkt_t('Rechercher les people Ticketack'),
+            'parent_item_colon'  => tkt_t('Parent:'),
+            'not_found'          => tkt_t('Aucune personne Ticketack trouvée.'),
+            'not_found_in_trash' => tkt_t('Aucune personne Ticketack trouvée dans la corbeille.')
+        );
+
+        $args_person = array(
+            'labels'             => $labels_person,
+            'description'        => tkt_t('Personnes importées depuis Ticketack'),
+            'public'             => true,
+            'publicly_queryable' => true,
+            'show_ui'            => true,
+            'show_in_menu'       => true,
+            'query_var'          => true,
+            'rewrite'            => array('slug' => 'people'),
+            'capability_type'    => 'page',
+            'has_archive'        => true,
+            'hierarchical'       => true,
+            'menu_position'      => null,
+            'supports'           => array('title', 'editor', 'author', 'thumbnail', 'page-attributes', 'custom-fields' )
+        );
+
         register_post_type('tkt-event', $args_event);
         register_post_type('tkt-article', $args_article);
+        register_post_type('tkt-person', $args_person);
     }
 }

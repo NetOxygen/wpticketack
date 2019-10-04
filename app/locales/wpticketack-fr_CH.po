@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-30 12:55+0200\n"
+"POT-Creation-Date: 2019-10-03 15:48+0200\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Belkacem Alidra <belkacem.alidra@netoxygen.ch>\n"
+"Last-Translator: Alain Pellaux <alain.pellaux@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -97,6 +97,15 @@ msgstr ""
 msgid "Veuillez choisir l'heure désirée :"
 msgstr ""
 
+msgid "Réserver une place sur mon abonnement"
+msgstr ""
+
+msgid "Acheter"
+msgstr ""
+
+msgid "Entrée libre"
+msgstr ""
+
 msgid "Merci, votre commande est réservée dans votre panier pour 30 minutes."
 msgstr ""
 
@@ -133,9 +142,6 @@ msgstr ""
 
 msgid ""
 "Vous ne pouvez pas réserver de place pour cette séance avec votre abonnement."
-msgstr ""
-
-msgid "Réserver une place sur mon abonnement"
 msgstr ""
 
 msgid "Afficher mes réservations"
@@ -233,10 +239,28 @@ msgstr ""
 msgid "Connectez-vous !"
 msgstr ""
 
-msgid "Acheter"
+msgid "un abonnement"
 msgstr ""
 
-msgid "un abonnement"
+msgid "Recherche"
+msgstr ""
+
+msgid "Rechercher"
+msgstr ""
+
+msgid "Tous"
+msgstr ""
+
+msgid "Compagnie"
+msgstr ""
+
+msgid "Profession"
+msgstr ""
+
+msgid "Country"
+msgstr ""
+
+msgid "Company"
 msgstr ""
 
 msgid "Aucun article dans cette catégorie, revenez nous visiter prochainement."
@@ -377,6 +401,33 @@ msgid "Aucun article Ticketack trouvé dans la corbeille."
 msgstr ""
 
 msgid "Articles importés depuis Ticketack"
+msgstr ""
+
+msgid "Ajouter une personne Ticketack"
+msgstr ""
+
+msgid "Nouvelle personne Ticketack"
+msgstr ""
+
+msgid "Modifier cette personne Ticketack"
+msgstr ""
+
+msgid "Afficher cette personne Ticketack"
+msgstr ""
+
+msgid "Tous les poeple Ticketack"
+msgstr ""
+
+msgid "Rechercher les people Ticketack"
+msgstr ""
+
+msgid "Aucune personne Ticketack trouvée."
+msgstr ""
+
+msgid "Aucune personne Ticketack trouvée dans la corbeille."
+msgstr ""
+
+msgid "Personnes importées depuis Ticketack"
 msgstr ""
 
 msgid "API"

@@ -35,7 +35,8 @@ requirejs.config({
         postal: '../../node_modules/postal/lib/postal.min',
         lodash: '../../node_modules/lodash/lodash.min',
         hammer: '../../node_modules/hammerjs/hammer.min',
-        jqueryjson: '../../node_modules/jquery-serializejson/jquery.serializejson.min'
+        jqueryjson: '../../node_modules/jquery-serializejson/jquery.serializejson.min',
+        matchsorter: '../../node_modules/match-sorter/dist/match-sorter.umd.min'
     }
 });
 
@@ -67,4 +68,5 @@ require([
     'app/Program/Filters',
     'app/Ui/PlusMinus',
     'app/Ui/ScreenSaver',
+    'app/People/Filter',
 ]);
