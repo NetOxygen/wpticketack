@@ -569,9 +569,19 @@ function tkt_event_data_attributes($event, $attributes)
     }
 
     if (in_array('date', $attributes)) {
+        $dates = [];
         foreach ($event->screenings() as $s) {
-            $values[] = 'data-date="'.$s->start_at()->format('Y-m-d').'"';
+            $dates[] = $s->start_at()->format('Y-m-d');
         }
+            $values[] = 'data-date="'.implode(',', $dates).'"';
+    }
+
+    if (in_array('tags', $attributes)) {
+        $tags = [];
+        foreach ($event->opaque('tags', []) as $tag) {
+            $tags[] = $tag[TKT_LANG];
+        }
+        $values[] = 'data-tags="'.implode(',', $tags).'"';
     }
 
     return implode(' ', $values);
@@ -601,6 +611,14 @@ function tkt_screening_data_attributes($screening, $attributes)
 
     if (in_array('section', $attributes)) {
         $values[] = 'data-section="'.$screening->opaque('section', [])[TKTApp::get_instance()->get_config('i18n.default_lang')].'"';
+    }
+
+    if (in_array('tags', $attributes)) {
+        $tags = [];
+        foreach ($screening->opaque('tags', []) as $tag) {
+            $tags[] = $tag[TKT_LANG];
+        }
+        $values[] = 'data-tags="'.implode(',', $tags).'"';
     }
 
     return implode(' ', $values);

@@ -49,6 +49,7 @@ class ProgramShortcode extends TKTShortcode
     {
         $template      = isset($atts['template']) ? $atts['template'] : static::LIST_TEMPLATE;
         $layout        = isset($atts['layout']) ? $atts['layout'] : static::SCREENINGS_LAYOUT;
+        $tags          = isset($atts['tags']) ? explode(',', $atts['tags']) : null;
         $section_ids   = isset($atts['section_ids']) ? explode(',', $atts['section_ids']) : null;
         $xsection_ids  = isset($atts['xsection_ids']) ? explode(',', $atts['xsection_ids']) : null;
         $item_width    = isset($atts['item_width']) ? intval($atts['item_width']) : static::DEFAULT_ITEM_WIDTH;
@@ -94,6 +95,18 @@ class ProgramShortcode extends TKTShortcode
 
             switch ($layout) {
                 case static::SCREENINGS_LAYOUT:
+                    if (!empty($tags)) {
+                        $screenings = array_filter($screenings, function ($s) use ($tags) {
+                            $screening_tags = $s->opaque('tags', []);
+                            foreach ($screening_tags as $tag) {
+                                if (in_array($tag[TKT_LANG], $tags)) {
+                                    return true;
+                                }
+                            }
+                            return false;
+                        });
+                    }
+
                     if (!empty($xsection_ids)) {
                         $screenings = array_filter($screenings, function ($s) use ($xsection_ids) {
                             $movies = $s->movies();
@@ -155,6 +168,18 @@ class ProgramShortcode extends TKTShortcode
 
                 case static::EVENTS_LAYOUT:
                     $events = Event::from_screenings($screenings);
+                    if (!empty($tags)) {
+                        $events = array_filter($events, function ($e) use ($tags) {
+                            $event_tags = $e->opaque('tags', []);
+                            foreach ($event_tags as $tag) {
+                                if (in_array($tag[TKT_LANG], $tags)) {
+                                    return true;
+                                }
+                            }
+                            return false;
+                        });
+                    }
+
                     if (!empty($section_ids)) {
                         $events = array_filter($events, function ($e) use ($section_ids) {
                             $sections = $e->opaque('sections');
