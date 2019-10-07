@@ -29,6 +29,11 @@ class SyncPeopleHelper
         return simplexml_load_file(static::details_url($person_id));
     }
 
+    public static function fetch_person_details_from_xml($xml)
+    {
+        return simplexml_load_string($xml);
+    }
+
     public static function must_be_imported($details)
     {
         return static::has_tag(static::TAG_PROGUEST, $details);
@@ -82,7 +87,7 @@ class SyncPeopleHelper
         return !empty($photos) ? $photos: '';
     }
 
-    protected static function details_url($id)
+    public static function details_url($id)
     {
         return str_replace('__ID__', $id, static::EVENTIVAL_PEOPLE_DETAILS_URL);
     }
