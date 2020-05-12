@@ -40,5 +40,7 @@ class ThumbnailFilter extends TKTFilter
                 return '<img src="'.$posters[0]->url.'" />';
             }
         }
+
+        return $args;
     }
 }
