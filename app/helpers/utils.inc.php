@@ -561,6 +561,14 @@ function tkt_event_data_attributes($event, $attributes)
         }
     }
 
+    if (in_array('section', $attributes)) {
+        $sections = [];
+        foreach ($event->screenings() as $s) {
+            $sections[] = $s->opaque('section', [])[TKTApp::get_instance()->get_config('i18n.default_lang')];
+        }
+        $values[] = 'data-section="'.implode(',', $sections).'"';
+    }
+
     return implode(' ', $values);
 }
 
