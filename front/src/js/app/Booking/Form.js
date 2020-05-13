@@ -43,14 +43,8 @@ define( [
         },
 
         init: function() {
-            TKTApi.getScreeningsInfo(this.ids, (err, status, rsp) => {
-                this.data.screenings = rsp.map((s) => {
-                    let screening = new Screening(s);
-                    screening.eligible_types = s.eligible_types;
-
-                    return screening;
-                });
-                this.data.screenings = _.sortBy(this.data.screenings, (s) => s.start_at);
+            Screening.getInfos(this.ids, (err, screenings) => {
+                this.data.screenings = _.sortBy(screenings, (s) => s.start_at);
                 this.build_form();
                 this.initialized = true;
             });

@@ -36,11 +36,10 @@ define(
             (i) => i.item_id
         );
 
-        TKTApi.getScreeningsInfo(screening_ids, (err, status, rsp) => {
+        Screening.getInfos(screening_ids, (err, screenings) => {
             if (err)
                 return callback(err);
 
-            const screenings = _.map(rsp, (s) => new Screening(s));
             this.items = _.map(this.items, (i) => {
                 if (i.type === CartItem.SCREENING_TYPE)
                     i.screening = _.find(screenings, (s) => s._id === i.item_id);

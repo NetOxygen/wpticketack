@@ -19,8 +19,8 @@
  * </[*]>
  */
 define(
-    ['jquery', 'lodash', 'async', 'api'],
-    function dependencies($, _, async, TKTApi) {
+    ['jquery', 'lodash', 'async', 'api', 'Screening'],
+    function dependencies($, _, async, TKTApi, Screening) {
 
     const MIN_SEATS_OCCUPATION = 90;
 
@@ -54,31 +54,13 @@ define(
 
             let map = {};
 
-            // The chunk size could be more precise. For now, we
-            // know it works for 100 (for parc-aventure.ticketack.com)
-            // and not for 120.
-            const chunks = _.chunk(ids, 100);
-            const tasks  = _.map(chunks, (ids) => {
-                return (done) => {
-                    TKTApi.getScreeningsInfo(ids, (err, status, rsp) => {
-                        if (err)
-                            return done(err);
-
-                        _.each(rsp, (s) => {
-                            map[s._id] = {
-                                seats: s.seats,
-                                sold_here: _.keys(s.pricings).length > 0 || s.eligible_types.length > 0
-                            }
-                        });
-
-                        return done(/*err*/null);
-                    });
-                };
-            });
-
-            async.parallel(tasks, (err, results) => {
-                if (err)
-                    return err;
+            Screening.getInfos(ids, (err, screenings) => {
+                _.each(screenings, (s) => {
+                    map[s._id] = {
+                        seats: s.seats,
+                        sold_here: (_.keys(s.pricings) || []).length > 0 || (s.eligible_types || []).length > 0
+                    }
+                });
 
                 _.each(items, (i) => {
                     let ids = $(i).attr('data-bookability-ids').split(',');
