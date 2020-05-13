@@ -54,7 +54,10 @@ define(
 
             let map = {};
 
-            const chunks = _.chunk(ids, 150);
+            // The chunk size could be more precise. For now, we
+            // know it works for 100 (for parc-aventure.ticketack.com)
+            // and not for 120.
+            const chunks = _.chunk(ids, 100);
             const tasks  = _.map(chunks, (ids) => {
                 return (done) => {
                     TKTApi.getScreeningsInfo(ids, (err, status, rsp) => {
