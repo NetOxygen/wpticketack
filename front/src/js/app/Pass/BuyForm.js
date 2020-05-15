@@ -9,9 +9,9 @@
  * >
  */
 define([
-        'config', 'postal', 'lodash', 'jquery', 'jqueryjson', 'api', 'i18n', 'exif', 'filetodataurl'
+        'config', 'postal', 'lodash', 'jquery', 'api', 'i18n',
     ], function dependencies(
-        config, postal, _, $, $json, TKTApi, i18n, EXIF, filetodataurl) {
+        config, postal, _, $, TKTApi, i18n) {
 
     function BuyForm($container, state) {
         this.$container = $container;
@@ -29,10 +29,8 @@ define([
         },
 
         init: function() {
-            if (this.$pass.length == 1) {
-                this.sync_pass_form(this.$pass[0].data('type'));
-                this.$pass[0].addClass('show');
-            }
+            this.sync_pass_form(this.$pass.eq(0).data('type'));
+            this.$pass.eq(0).addClass('show');
 
             $('.pass_title', this.$container).click(e => {
                 const $title = $(e.target);
