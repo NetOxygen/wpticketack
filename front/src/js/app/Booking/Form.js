@@ -112,7 +112,7 @@ define( [
                 (err, status, rsp) => {
                     if (err) {
                         return $('.pricings-error')
-                            .html(rsp.errorMsg)
+                            .html((rsp || {}).errorMsg)
                             .removeClass('d-none');
                     }
 

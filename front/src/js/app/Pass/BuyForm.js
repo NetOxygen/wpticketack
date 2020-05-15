@@ -17,11 +17,7 @@ define([
         this.$container = $container;
         this.$pass      = $('.pass', this.$container);
 
-        // Ensure $pass is always an array
-        if ('object' === typeof this.$pass)
-            this.$pass = [this.$pass];
-
-        this.$selected_pass = this.$pass[0];
+        this.$selected_pass = this.$pass.eq(0)
 
         this.$wrappers = $('.field-wrapper', this.$container);
         this.$fields   = $('.field-wrapper .field', this.$container);
@@ -38,6 +34,12 @@ define([
                 this.$pass[0].addClass('show');
             }
 
+            $('.pass_title', this.$container).click(e => {
+                const $title = $(e.target);
+                const $pass = $('.pass', $title.closest('.card'));
+                const type = $pass.data('type');
+                this.sync_pass_form(type);
+            });
 
             $('form', this.$container).submit((e) => {
                 e.preventDefault();
