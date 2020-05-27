@@ -77,7 +77,7 @@ define(
             if (err)
                 return err;
 
-            results.flat().map(s => {
+            _.flatten(results).map(s => {
                 const screening = new Screening(s);
                 screening.eligible_types = s.eligible_types;
 
