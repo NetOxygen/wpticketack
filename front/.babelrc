@@ -1,5 +1,9 @@
 {
-    "presets": ["env"],
+    "presets": [
+        [
+            "@babel/preset-env",
+        ]
+    ],
     "ignore": [ "node_modules" ],
     "compact": true,
     "minified": true,

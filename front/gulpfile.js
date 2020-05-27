@@ -51,7 +51,7 @@ gulp.task('babel:dev', () =>
   gulp.src(dirs.js_src)
     .pipe(sourcemaps.init())
     .pipe(babel({
-      presets: ['env']
+      presets: ['@babel/preset-env']
     }).on('error', babel.logError))
     .pipe(amdOptimize("app", {
       name: "app",
@@ -67,7 +67,7 @@ gulp.task('babel:prod', ['copy-require'], () =>
   gulp.src(dirs.js_src)
     .pipe(sourcemaps.init())
     .pipe(babel({
-      presets: ['env']
+      presets: ['@babel/preset-env']
     }))
     .pipe(amdOptimize("app", {
       name: "app",
