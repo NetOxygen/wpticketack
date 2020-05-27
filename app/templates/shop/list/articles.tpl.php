@@ -20,7 +20,7 @@ use Ticketack\WP\Templates\TKTTemplate;
   <?php else: ?>
     <?php foreach ($data->articles as $article) : ?>
     <div class="tkt_article">
-        <?= TKTTemplate::render('article/list/article', (object)[ 'article' => $article ]) ?>
+        <?= TKTTemplate::render('shop/list/article', (object)[ 'article' => $article ]) ?>
     </div>
     <?php endforeach; ?>
   <?php endif; ?>

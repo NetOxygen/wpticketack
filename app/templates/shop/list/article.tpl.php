@@ -58,7 +58,6 @@ $image_url     = tkt_img_proxy_url($s->first_poster()->url, $images_width, $imag
           </span>
         </div>
       </div>
-<!--
       <div class="row">
         <div class="col">
           <span class="more-infos">
@@ -83,7 +82,6 @@ $image_url     = tkt_img_proxy_url($s->first_poster()->url, $images_width, $imag
           </span>
         </div>
       </div>
--->
     </div>
 
   </div>

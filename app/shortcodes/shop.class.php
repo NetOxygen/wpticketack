@@ -2,18 +2,18 @@
 namespace Ticketack\WP\Shortcodes;
 
 use Ticketack\WP\Templates\TKTTemplate;
-use Ticketack\WP\Core\Models\Article;
+use Ticketack\Core\Models\Article;
 use Ticketack\Core\Base\TKTApiException;
 
 /**
- * Article shortcode
+ * Shop shortcode
  *
  * Usage:
  *
  * [tkt_article [template="list|grid|gallery"] [category_ids="1,2,3"]]
  *
  */
-class ArticleShortcode extends TKTShortcode
+class ShopShortcode extends TKTShortcode
 {
     const LIST_TEMPLATE      = 'list';
     const GRID_TEMPLATE      = 'grid';
@@ -28,7 +28,7 @@ class ArticleShortcode extends TKTShortcode
      */
     public function get_tag()
     {
-        return "tkt_article";
+        return "tkt_shop";
     }
 
     /**
@@ -52,7 +52,7 @@ class ArticleShortcode extends TKTShortcode
             $articles = $query->get('_id,name,additional_name,description,variants,posters');
 
             return TKTTemplate::render(
-                'article/'.$template.'/articles',
+                'shop/'.$template.'/articles',
                 (object)[
                     'articles' => $articles,
                 ]
