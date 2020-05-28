@@ -5,7 +5,7 @@
  * Description: Ticketack integration
  * Text Domain: wpticketack
  * Domain Path: /app/locales
- * Version: 2.4.2
+ * Version: 2.4.3
  * Author: Net Oxygen Sàrl
  * Author URI: https://netoxygen.ch
  * License: GPLv3
@@ -16,7 +16,7 @@ use Ticketack\WP\TKTApp;
 date_default_timezone_set(get_option('timezone_string'));
 setlocale(LC_TIME, get_locale().'.UTF-8');
 
-define('TKT_ASSETS_VERSION', '2.4.1.2020051302');
+define('TKT_ASSETS_VERSION', '2.4.3.2020052801');
 
 define("TKT_BASE", (dirname(__FILE__)));
 define("TKT_CONFIG", (TKT_BASE.'/config'));
@@ -61,6 +61,7 @@ $app->register_action('Ticketack\WP\Actions\TranslationAction', 'translation.cla
 $app->register_action('Ticketack\WP\Actions\CustomTypesAction', 'custom_types.class.php');
 $app->register_shortcode('Ticketack\WP\Shortcodes\ProgramShortcode', 'program.class.php');
 $app->register_shortcode('Ticketack\WP\Shortcodes\EventShortcode', 'event.class.php');
+$app->register_shortcode('Ticketack\WP\Shortcodes\EventPosterShortcode', 'event_poster.class.php');
 $app->register_shortcode('Ticketack\WP\Shortcodes\NextScreeningShortcode', 'next_screening.class.php');
 $app->register_shortcode('Ticketack\WP\Shortcodes\ArticleShortcode', 'article.class.php');
 $app->register_shortcode('Ticketack\WP\Shortcodes\ShopShortcode', 'shop.class.php');
