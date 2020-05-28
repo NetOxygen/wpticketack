@@ -61,7 +61,6 @@ $app->register_action('Ticketack\WP\Actions\TranslationAction', 'translation.cla
 $app->register_action('Ticketack\WP\Actions\CustomTypesAction', 'custom_types.class.php');
 $app->register_shortcode('Ticketack\WP\Shortcodes\ProgramShortcode', 'program.class.php');
 $app->register_shortcode('Ticketack\WP\Shortcodes\EventShortcode', 'event.class.php');
-$app->register_shortcode('Ticketack\WP\Shortcodes\EventPosterShortcode', 'event_poster.class.php');
 $app->register_shortcode('Ticketack\WP\Shortcodes\NextScreeningShortcode', 'next_screening.class.php');
 $app->register_shortcode('Ticketack\WP\Shortcodes\ArticleShortcode', 'article.class.php');
 $app->register_shortcode('Ticketack\WP\Shortcodes\ShopShortcode', 'shop.class.php');
