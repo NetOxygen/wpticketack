@@ -11,7 +11,7 @@ use Ticketack\Core\Base\TKTApiException;
  *
  * Usage:
  *
- * [tkt_next_screening]
+ * [tkt_next_screening output="[title|date|time|datetime|venue|poster]"]
  */
 class NextScreeningShortcode extends TKTShortcode
 {
@@ -33,16 +33,32 @@ class NextScreeningShortcode extends TKTShortcode
      */
     public function run($atts, $content)
     {
-        $screening = current(Screening::all()
-            ->in_the_future()
-            ->filter_pricings_for_sellers(['eshop'])
-            ->order_by_start_at()
-            ->get('_id,title,start_at,stop_at,cinema_hall.name,cinema_hall._id,films,opaque'));
+        static $screening = null;
+
+        $output         = isset($atts['output']) ? $atts['output'] : null;
+        $allowed_fields = ['title','date','time','datetime','venue','poster'];
+
+        if (!empty($output) && !in_array($output, $allowed_fields)) {
+            return sprintf(
+                '%s is not allowed. Please use one of %s.',
+                $output,
+                implode('|', $allowed_fields)
+            );
+        }
+
+        if (is_null($screening)) {
+            $screening = current(Screening::all()
+                ->in_the_future()
+                ->filter_pricings_for_sellers(['eshop'])
+                ->order_by_start_at()
+                ->get('_id,title,start_at,stop_at,cinema_hall.name,cinema_hall._id,films,opaque'));
+        }
 
         return TKTTemplate::render(
             'next_screening/next_screening',
             (object)[
-                'screening' => $screening
+                'screening' => $screening,
+                'output'    => $output
             ]
         );
     }
