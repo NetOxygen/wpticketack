@@ -115,9 +115,6 @@ Ticketack.prototype.loadCart = function(callback) {
         if (err)
             return callback && callback(err, status, rsp);
 
-        localStorage.setItem('tkt_session_id', rsp.session_id);
-        that.session_id = rsp.session_id;
-
         return callback && callback(null, status, rsp);
     });
 };
@@ -488,16 +485,18 @@ Ticketack.prototype.request = function(method, url, data, headers, callback) {
         headers: headers,
         crossDomain: true,
         xhrFields: { withCredentials: true }
-    }).done(
-        function (data, textStatus, jqXHR) {
-            return callback(null, jqXHR.status, jqXHR.responseJSON);
+    }).done((data, textStatus, jqXHR) => {
+        const rsp = jqXHR.responseJSON;
+        if ('session_id' in rsp) {
+            localStorage.setItem('tkt_session_id', rsp.session_id);
+            this.session_id = rsp.session_id;
         }
-    ).fail(
-        function (jqXHR) {
-            var rsp = jqXHR.responseText.length ? JSON.parse(jqXHR.responseText) : null;
-            return callback(new Error(), jqXHR.status, rsp);
-        }
-    );
+
+        return callback(null, jqXHR.status, jqXHR.responseJSON);
+    }).fail((jqXHR) => {
+        var rsp = jqXHR.responseText.length ? JSON.parse(jqXHR.responseText) : null;
+        return callback(new Error(), jqXHR.status, rsp);
+    });
 };
 
 (function (root, factory) {
