@@ -43,7 +43,7 @@ class HeadScriptsAction extends TKTAction
             // before the config initialization
             window.moment_locale = "'.TKT_LANG.'";
             var require = {
-                baseUrl: "'.tkt_assets_url('build/js').'",
+                baseUrl: "'.plugin_dir_url( TKT_APP ).'front/build/js",
                 urlArgs: "v='.TKT_ASSETS_VERSION.'",
                 config: {
                     "assets": {
@@ -62,7 +62,7 @@ class HeadScriptsAction extends TKTAction
                     "i18n": '.json_encode(LocalesHelper::dump_js_locales(), JSON_PRETTY_PRINT).'
                 },
                 paths: {
-                    "app": "'.tkt_assets_url('build/js/app').'",
+                    "app": "app",
                     "wp_theme": "'.sprintf("%s/ticketack/front", get_template_directory_uri()).'"
                 }
             };
