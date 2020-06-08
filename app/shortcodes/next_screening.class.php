@@ -11,7 +11,7 @@ use Ticketack\Core\Base\TKTApiException;
  *
  * Usage:
  *
- * [tkt_next_screening output="[title|date|time|datetime|venue|poster]"]
+ * [tkt_next_screening output="[title|date|time|datetime|venue|poster|url]"]
  */
 class NextScreeningShortcode extends TKTShortcode
 {
@@ -36,7 +36,8 @@ class NextScreeningShortcode extends TKTShortcode
         static $screening = null;
 
         $output         = isset($atts['output']) ? $atts['output'] : null;
-        $allowed_fields = ['title','date','time','datetime','venue','poster'];
+        $with_link      = isset($atts['with_link']) ? !!$atts['with_link'] : false;
+        $allowed_fields = ['title','date','time','datetime','venue','poster', 'url'];
 
         if (!empty($output) && !in_array($output, $allowed_fields)) {
             return sprintf(
@@ -58,7 +59,8 @@ class NextScreeningShortcode extends TKTShortcode
             'next_screening/next_screening',
             (object)[
                 'screening' => $screening,
-                'output'    => $output
+                'output'    => $output,
+                'with_link' => $with_link
             ]
         );
     }

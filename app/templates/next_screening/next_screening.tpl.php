@@ -9,7 +9,8 @@ use Ticketack\Core\Models\Event;
  * Input:
  * $data: {
  *   "screening": { ... },
- *   "output": "title|date|time|datetime|venue|poster"
+ *   "output": "title|date|time|datetime|venue|poster|url",
+ *   "with_link": true|false
  * }
  */
 
@@ -48,25 +49,33 @@ $image_url     = tkt_img_proxy_url($m->first_poster()->url, $images_width, $imag
 </div>
 <?php else: ?>
     <?php
+    $value = '';
     switch ($output) {
         case 'title':
-            echo $m->localized_title_or_original(TKT_LANG);
+            $value = $m->localized_title_or_original(TKT_LANG);
             break;
         case 'date':
-            echo tkt_date_to_min_s($s->start_at());
+            $value = tkt_date_to_min_s($s->start_at());
             break;
         case 'time':
-            echo tkt_date_and_time_to_time_s($s->start_at());
+            $value = tkt_date_and_time_to_time_s($s->start_at());
             break;
         case 'datetime':
-            echo tkt_date_and_time_to_min_s($s->start_at());
+            $value = tkt_date_and_time_to_min_s($s->start_at());
             break;
         case 'venue':
-            echo $s->place()->name();
+            $value = $s->place()->name();
             break;
         case 'poster':
-            echo '<img src="'.$image_url.'" />';
+            $value = '<img src="'.$image_url.'" />';
+            break;
+        case 'url':
+            $value = tkt_event_book_url($m, $s);
             break;
     }
+    if ($data->with_link) {
+        $value = sprintf('<a href="%s">%s</a>', tkt_event_book_url($m, $s), $value);
+    }
+    echo $value;
     ?>
 <?php endif; ?>
