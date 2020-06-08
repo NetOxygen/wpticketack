@@ -487,7 +487,7 @@ Ticketack.prototype.request = function(method, url, data, headers, callback) {
         xhrFields: { withCredentials: true }
     }).done((data, textStatus, jqXHR) => {
         const rsp = jqXHR.responseJSON;
-        if ('session_id' in rsp) {
+        if (rsp && 'session_id' in rsp) {
             localStorage.setItem('tkt_session_id', rsp.session_id);
             this.session_id = rsp.session_id;
         }
