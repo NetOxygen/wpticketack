@@ -15,7 +15,7 @@ use Ticketack\Core\Models\Screening;
 
 $e = $data->tkt_event;
 
-$title   = get_post_meta($e->ID, 'title')[0];
+$title   = json_decode(get_post_meta($e->ID, 'title')[0]);
 $posters = array_map(function ($s) {
     return json_decode($s);
 }, get_post_meta($e->ID, 'posters'))[0];
@@ -51,7 +51,7 @@ $nb_slides = count($trailers) + count($posters);
     <div class="row">
       <div class="col">
         <span class="title">
-          <?= $title ?>
+          <?= $title->{TKT_LANG} ?>
         </span>
       </div>
     </div>
@@ -77,7 +77,7 @@ $nb_slides = count($trailers) + count($posters);
               <?php endforeach; ?>
               <?php foreach ($posters as $i => $p) : ?>
               <div class="carousel-item <?= count($trailers) == 0 && $i == 0 ? 'active' : '' ?>">
-                <img class="d-block w-100" src="<?= tkt_img_proxy_url($p->url, $images_width, $images_height) ?>" alt="<?= $title ?>">
+                <img class="d-block w-100" src="<?= tkt_img_proxy_url($p->url, $images_width, $images_height) ?>" alt="<?= $title->{TKT_LANG} ?>">
               </div>
               <?php endforeach; ?>
             </div>
