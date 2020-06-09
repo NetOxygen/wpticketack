@@ -69,4 +69,5 @@ require([
     'app/Ui/PlusMinus',
     'app/Ui/ScreenSaver',
     'app/People/Filter',
+    'app/BuyArticle/Form'
 ]);

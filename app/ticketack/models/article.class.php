@@ -2,6 +2,7 @@
 namespace Ticketack\Core\Models;
 
 use Ticketack\Core\Base\TKTModel;
+use Ticketack\WP\TKTApp;
 
 /**
  * Ticketack Engine Article.
@@ -13,25 +14,27 @@ class Article extends TKTModel implements \JsonSerializable
     // - some eventival URLs ends with '?'
     const POSTER_REGEXP = '/\.(jpe?g|png|gif)(\?)?$/i';
 
-    // - Support only Youtube videos for now
-    //   see https://www.regextester.com/94360
-    const TRAILER_REGEXP = '/^(http(s)?:\/\/)?((w){3}.)?youtu(be|.be)?(\.com)?\/.+/i';
+    const STOCK_TYPE_ARTICLE = 'article';
+    const STOCK_TYPE_VARIANT = 'variant';
+    const STOCK_TYPE_NONE    = 'none';
 
     /**
      * @override
      */
     public static $resource = 'articles';
 
-    protected $_id                   = null;
-    protected $name                  = null;
-    protected $additional_name       = null;
-    protected $description           = null;
-    protected $category              = null;
-    protected $pos                   = null;
-    protected $stock                 = null;
-    protected $supplier              = null;
-    protected $posters               = array();
-    protected $variants              = array();
+    protected $_id               = null;
+    protected $name              = null;
+    protected $short_description = null;
+    protected $category          = null;
+    protected $sort_weight       = 0;
+    protected $description       = null;
+    protected $pos               = null;
+    protected $stocks            = [];
+    protected $stock_type        = null;
+    protected $supplier          = null;
+    protected $posters           = [];
+    protected $variants          = [];
 
     /**
      * @return true if given id is a valid article id, false otherwise.
@@ -39,6 +42,34 @@ class Article extends TKTModel implements \JsonSerializable
     public static function is_valid_id($id)
     {
         return tkt_is_uuidv4($id);
+    }
+
+    /**
+     * Filter articles by salepoint
+     */
+    public static function scope_in_pos($req, $pos_id)
+    {
+        return $req->query('pos_ids', $pos_id);
+    }
+
+    /**
+     * Filter articles by ids
+     */
+    public static function scope_in_ids($req, $ids)
+    {
+        return $req->query('article_ids', $ids);
+    }
+
+    /**
+     * Filter articles by variants
+     */
+    public static function scope_by_variant($req, $variant_ids)
+    {
+        if (!is_array($variant_ids)) {
+            $variant_ids = [$variant_ids];
+        }
+
+        return $req->query('variant_ids', implode(',', $variant_ids));
     }
 
     /**
@@ -54,6 +85,46 @@ class Article extends TKTModel implements \JsonSerializable
     }
 
     /**
+     * Filter articles by gtin
+     */
+    public static function scope_by_gtin($req, $gtin)
+    {
+        return $req->query('gtin', $gtin);
+    }
+
+    /**
+     * scope adding stocks for every salepoints in variants.
+     */
+    public static function scope_with_stocks_by_salepoint($req)
+    {
+        return $req->add_post_process(function ($status, $articles) {
+            if (No2_HTTP::is_success($status)) {
+                $articles = array_map(function ($article) {
+                    foreach ($article->variants() as $variant) {
+                        if ($article->stock_type === static::STOCK_TYPE_ARTICLE) {
+                            foreach ($article->stocks() as $stock) {
+                                foreach ($stock->salepoint_ids() as $salepoint) {
+                                    $variant->set_stocks_by_salepoint($salepoint, $stock->availability());
+                                }
+                            }
+                        } elseif ($article->stock_type === static::STOCK_TYPE_VARIANT) {
+                            foreach ($variant->stocks() as $stock) {
+                                foreach ($stock->salepoint_ids() as $salepoint) {
+                                    $variant->set_stocks_by_salepoint($salepoint, $stock->availability());
+                                }
+                            }
+                        } else {
+                            //
+                        }
+                    }
+                    return $article;
+                }, $articles);
+            }
+            return $articles;
+        });
+    }
+
+    /**
      * @override
      * XXX: if you change something here, double check jsonSerialize() and
      * update the unit test
@@ -61,10 +132,18 @@ class Article extends TKTModel implements \JsonSerializable
     public function __construct(array &$properties = [])
     {
         if (array_key_exists('variants', $properties)) {
-            $this->variants = array_map(function ($obj) {
-                return new Variant($obj);
-            }, $properties['variants']);
+            $this->variants = [];
+            foreach ($properties['variants'] as $obj) {
+                array_push($this->variants, new ArticleVariant($this, $obj));
+            }
             unset($properties['variants']);
+        }
+        if (array_key_exists('stocks', $properties)) {
+            $this->stocks = [];
+            foreach ($properties['stocks'] as $obj) {
+                array_push($this->stocks, new ArticleStock($obj));
+            }
+            unset($properties['stocks']);
         }
         parent::__construct($properties);
     }
@@ -88,15 +167,20 @@ class Article extends TKTModel implements \JsonSerializable
         return null;
     }
 
-    public function additional_name($lang)
+    public function category()
     {
-        if (isset($this->additional_name[$lang])) {
-            return $this->additional_name[$lang];
+        return $this->category;
+    }
+
+    public function short_description($lang)
+    {
+        if (isset($this->short_description[$lang])) {
+            return $this->short_description[$lang];
         }
 
         $default_lang = TKTApp::get_instance()->get_config('i18n.default_lang', 'fr');
-        if (isset($this->additional_name[$default_lang])) {
-            return $this->additional_name[$default_lang];
+        if (isset($this->short_description[$default_lang])) {
+            return $this->short_description[$default_lang];
         }
 
         return null;
@@ -116,9 +200,9 @@ class Article extends TKTModel implements \JsonSerializable
         return null;
     }
 
-    public function category()
+    public function sort_weight()
     {
-        return $this->category;
+        return intval($this->sort_weight);
     }
 
     public function pos()
@@ -126,9 +210,9 @@ class Article extends TKTModel implements \JsonSerializable
         return $this->pos;
     }
 
-    public function stock()
+    public function stocks()
     {
-        return $this->stock;
+        return $this->stocks;
     }
 
     public function supplier()
@@ -141,13 +225,31 @@ class Article extends TKTModel implements \JsonSerializable
         return $this->variants;
     }
 
+    /**
+     * Get a variant by its _id
+     *
+     * @return ArticleVariant if found, null otherwise
+     */
+    public function variant($variant_id)
+    {
+        foreach ($this->variants as $v) {
+            if ($v->_id() == $variant_id) {
+                return $v;
+            }
+        };
+
+        return null;
+    }
+
     public function price()
     {
+        // FIXME: Remove hardcoded currency
         return $this->variants()[0]->price('CHF');
     }
 
     public function value()
     {
+        // FIXME: Remove hardcoded currency
         return $this->variants()[0]->value('CHF');
     }
 
@@ -175,6 +277,11 @@ class Article extends TKTModel implements \JsonSerializable
         return array_map(function ($poster) {
             return (object)$poster;
         }, $posters);
+    }
+
+    public function stock_type()
+    {
+        return $this->stock_type;
     }
 
     /**
@@ -205,14 +312,16 @@ class Article extends TKTModel implements \JsonSerializable
     public function jsonSerialize()
     {
         $ret = [
-            'name'            => $this->name,
-            'additional_name' => !empty($this->additional_name) ? $this->additional_name : [],
-            'category'        => $this->category(),
-            'pos'             => $this->pos(),
-            'stock'           => $this->stock(),
-            'supplier'        => $this->supplier(),
-            'posters'         => $this->posters(),
-            'variants'        => !empty($this->variants) ? $this->variants : []
+            'name'              => $this->name,
+            'short_description' => !empty($this->short_description) ? $this->short_description : [],
+            'category'          => $this->category(),
+            'sort_weight'       => $this->sort_weight(),
+            'pos'               => $this->pos(),
+            'stocks'            => $this->stocks(),
+            'stock_type'        => $this->stock_type(),
+            'supplier'          => $this->supplier(),
+            'posters'           => $this->posters(),
+            'variants'          => !empty($this->variants) ? $this->variants : []
         ];
 
         if ($this->has_id()) {

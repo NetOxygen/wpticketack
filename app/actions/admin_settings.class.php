@@ -69,6 +69,14 @@ class AdminSettingsAction extends TKTAction
         );
 
         add_settings_field(
+            'shop', // ID
+            tkt_t('Shop'), // Title
+            array( $this, 'shop_callback' ), // Callback
+            'ticketack-pages', // Page
+            'ticketack_pages' // Section
+        );
+
+        add_settings_field(
             'cart', // ID
             tkt_t('Panier'), // Title
             array( $this, 'cart_callback' ), // Callback
@@ -193,6 +201,7 @@ class AdminSettingsAction extends TKTAction
         print tkt_t("Saisissez les slugs des pages contenant les différents shortcodes");
     }
     public function program_callback() { return $this->input('program', 'tkt_pages', 'program'); }
+    public function shop_callback() { return $this->input('shop', 'tkt_pages', 'shop'); }
     public function cart_callback() { return $this->input('cart', 'tkt_pages', 'cart'); }
 
     /** 
