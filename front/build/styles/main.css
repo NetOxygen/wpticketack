@@ -1,4 +1,4 @@
-/* Built on Tue Jun 09 2020 21:27:32 GMT+0200 (Central European Summer Time) */ 
+/* Built on Thu Jun 11 2020 12:26:20 GMT+0200 (Central European Summer Time) */ 
 .tkt-wrapper {
   /*!
  * Bootstrap v4.5.0 (https://getbootstrap.com/)
@@ -6381,7 +6381,7 @@
   padding: 0; }
 
 .tkt-section {
-  padding: 20px; }
+  padding: 20px 0; }
   .tkt-section.tkt-full-section {
     padding: 0; }
   .tkt-section .tkt-section-title {
@@ -6503,14 +6503,9 @@ input::-webkit-inner-spin-button {
     .tkt-badge-split.tkt-badge-split-rev .tkt-badge-part:last-child {
       flex: 1; } }
 
-.tkt-article .infos-section {
-  background: #F0F0F0; }
-  .tkt-article .infos-section .name {
-    font-weight: bold;
-    text-transform: uppercase; }
-
-.tkt-article .buy-section {
-  background: #212121; }
+.tkt-article .infos-section .name {
+  font-weight: bold;
+  text-transform: uppercase; }
 
 body.single-tkt-article header.entry-header {
   /* title is handled by the tkt-article template */
