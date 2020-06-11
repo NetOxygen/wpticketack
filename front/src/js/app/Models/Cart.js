@@ -7,6 +7,9 @@ define(
 
     Cart.type = 'cart';
 
+    Cart.CHECKOUT_STEP_CONFIRM       = 'confirm';
+    Cart.CHECKOUT_STEP_GO_TO_PAYMENT = 'go_to_payment';
+
     /**
      * Constructor
      *

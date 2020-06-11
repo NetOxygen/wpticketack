@@ -174,6 +174,19 @@ function tkt_cart_url()
 }
 
 /**
+ * Get the Thank you page url
+ *
+ * @return string
+ */
+function tkt_thank_you_url()
+{
+    return get_site_url(
+        /*$blog_id*/null,
+        TKTApp::get_instance()->get_config('pages.thank_you')
+    );
+}
+
+/**
  * Get the eshop buy pass page url
  *
  * @return string

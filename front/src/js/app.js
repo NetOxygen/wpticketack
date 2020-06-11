@@ -56,6 +56,7 @@ require([
     'app/Booking/ScreeningsList',
     'app/Cart/Cart',
     'app/Cart/CartIcon',
+    'app/Checkout/Checkout',
     'app/Form/ImageDataUrl',
     'app/User/UserConnect',
     'app/Media/Carousel',
