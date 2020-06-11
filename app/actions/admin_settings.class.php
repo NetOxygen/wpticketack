@@ -286,11 +286,11 @@ class AdminSettingsAction extends TKTAction
     {
         print tkt_t("Saisissez les slugs des pages contenant les différents shortcodes");
     }
-    public function program_callback() { return $this->input('program', 'tkt_pages', 'program'); }
-    public function shop_callback() { return $this->input('shop', 'tkt_pages', 'shop'); }
-    public function cart_callback() { return $this->input('cart', 'tkt_pages', 'cart'); }
-    public function checkout_callback() { return $this->input('checkout', 'tkt_pages', 'checkout'); }
-    public function thank_you_callback() { return $this->input('thank_you', 'tkt_pages', 'thank_you'); }
+    public function program_callback() { return $this->page_choice('program', 'tkt_pages', 'program'); }
+    public function shop_callback() { return $this->page_choice('shop', 'tkt_pages', 'shop'); }
+    public function cart_callback() { return $this->page_choice('cart', 'tkt_pages', 'cart'); }
+    public function checkout_callback() { return $this->page_choice('checkout', 'tkt_pages', 'checkout'); }
+    public function thank_you_callback() { return $this->page_choice('thank_you', 'tkt_pages', 'thank_you'); }
 
     /** 
      * Print the Section text
@@ -370,7 +370,15 @@ class AdminSettingsAction extends TKTAction
     {
         print tkt_t("Configuration des langues.");
     }
-    public function default_lang_callback() { return $this->input('default_lang', 'tkt_i18n', 'fr'); }
+    public function default_lang_callback() {
+        return $this->choice('default_lang', 'tkt_i18n', [
+            // TODO: get langs from WPML
+            'Français' => 'fr',
+            'Anglais'  => 'en',
+            'Allemand' => 'de',
+            'Italien'  => 'it'
+        ], 'fr');
+    }
 
     /** 
      * Print the Section text
@@ -435,11 +443,37 @@ class AdminSettingsAction extends TKTAction
     public function choice($name, $group, $choices, $default = null)
     {
         $this->options = get_option($group);
-        $value = isset($this->options[$name]) ? esc_attr($this->options[$name]) : $default;
+        $value         = isset($this->options[$name]) ?
+            esc_attr($this->options[$name]) :
+            $default;
         printf('<select id="%s" name="%s[%s]">', $name, $group, $name);
         foreach ($choices as $label => $v) {
             echo '
                 <option value="'.$v.'" '.($value === $v ? "selected" : "").' >'.$label.'</option>';
+        }
+        echo '</select>';
+    }
+
+    /**
+     * Get an option page choice input
+     *
+     * @param string $name: The option name
+     * @param string $group: The option group
+     * @param string $default: The option default value
+     */
+    public function page_choice($name, $group, $default = null)
+    {
+        $pages         = $this->get_pages();
+        $this->options = get_option($group);
+        $value         = isset($this->options[$name]) ?
+            esc_attr($this->options[$name]) :
+            $default;
+        printf('<select id="%s" name="%s[%s]">', $name, $group, $name);
+        if (!empty($pages)) {
+            foreach ($pages as $label => $v) {
+                echo '
+                    <option value="'.$v.'" '.($value === $v ? "selected" : "").' >'.$label.'</option>';
+            }
         }
         echo '</select>';
     }
@@ -461,5 +495,31 @@ class AdminSettingsAction extends TKTAction
             $name,
             $value
         );
+    }
+
+    public function get_pages()
+    {
+        static $all_pages = null;
+        if (isset($all_pages) && $all_pages != null) {
+            return $all_pages;
+        }
+
+        $pages = get_pages('sort_column=menu_order');
+        if ($pages != null) {
+            foreach ($pages as $page) {
+                $ancestor_ids = get_ancestors($page->ID, 'page');
+
+                $slug = implode('/', array_map(function ($id) {
+                    $tr_ancestor_id = icl_object_id($id, 'page', FALSE, default_lang());
+                    return get_post($tr_ancestor_id)->post_name;
+                }, $ancestor_ids));
+
+                $slug .= '/'.translated_slug_by_id($page->ID, 'page', default_lang(), $page->post_name);
+                $label = str_repeat('-', count($ancestor_ids)).$page->post_title;
+                $all_pages[$label] = $slug;
+            }
+        }
+
+        return $all_pages;
     }
 }
