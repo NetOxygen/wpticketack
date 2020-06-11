@@ -13,7 +13,7 @@ use Ticketack\Core\Base\TKTRequest;
  *
  * Usage:
  *
- * [tkt_article [template="list|grid|gallery"] [category_ids="1,2,3"]]
+ * [tkt_shop [category_ids="1,2,3"]]
  *
  */
 class ShopShortcode extends TKTShortcode
