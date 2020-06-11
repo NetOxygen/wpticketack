@@ -174,6 +174,19 @@ function tkt_cart_url()
 }
 
 /**
+ * Get the Checkout page url
+ *
+ * @return string
+ */
+function tkt_checkout_url()
+{
+    return get_site_url(
+        /*$blog_id*/null,
+        TKTApp::get_instance()->get_config('pages.checkout')
+    );
+}
+
+/**
  * Get the Thank you page url
  *
  * @return string

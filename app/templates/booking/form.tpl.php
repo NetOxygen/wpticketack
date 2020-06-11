@@ -18,6 +18,9 @@ use Ticketack\WP\Templates\TKTTemplate;
       <div
         class="booking-form v2"
         data-component="Booking/Form"
+        data-redirect="<?= TKTApp::get_instance()->get_config('cart.cart_redirect', 'none') ?>"
+        data-cart-url="<?= tkt_cart_url() ?>"
+        data-checkout-url="<?= tkt_checkout_url() ?>"
         data-show-on-load="<?= tkt_get_url_param( 'book', -1 ) == 1 ? 'true' : 'false' ?>"
         data-ids="<?= implode(',', $data->ids) ?>">
       </div>

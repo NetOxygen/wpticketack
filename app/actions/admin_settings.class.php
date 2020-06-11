@@ -292,7 +292,8 @@ class AdminSettingsAction extends TKTAction
     }
     public function cart_redirect_callback() {
         return $this->choice('cart_redirect', 'tkt_cart', [
-            'Aucune' => 'none',
+            'Aucune'           => 'none',
+            'Vers le panier'   => 'cart',
             'Vers le checkout' => 'checkout'
         ]);
     }
