@@ -139,6 +139,33 @@ function tkt_assets_url($path)
     return plugin_dir_url( TKT_APP ) . 'front/' . $path . '?v=' . TKT_ASSETS_VERSION;
 
 }
+/**
+ * Get a link to a page by its slug, in the current language
+ *
+ * @param string $slug in the default language
+ * @param string $query
+ *
+ * @return string
+ */
+function tkt_page_url($slug, $query = "")
+{
+    $url = get_site_url(/*$blog_id*/null, $slug);
+
+    if (TKT_WPML_INSTALLED) {
+        // get the page in default language
+        $page = get_page_by_path($slug, OBJECT, 'page');
+        if (current_lang() != default_lang()) {
+            // get the slug in current language
+            $translated_slug = translated_slug_by_id($page->ID, 'page', current_lang(), $slug);
+            // get the page in current language
+            $page = get_page_by_path($slug, OBJECT, 'page');
+        }
+
+        $url = apply_filters('wpml_permalink', get_permalink($page->ID));
+    }
+
+    return sprintf('%s%s', $url, (!empty($query) ? '?'.$query : ''));
+}
 
 /**
  * Get the Program page url
@@ -149,15 +176,8 @@ function tkt_assets_url($path)
  */
 function tkt_program_url($query = "")
 {
-    $path = TKTApp::get_instance()->get_config('pages.program');
-    if (!empty($query)) {
-        $path .= '?'.$query;
-    }
-
-    return get_site_url(
-        /*$blog_id*/null,
-        /*$path*/$path
-    );
+    $slug = TKTApp::get_instance()->get_config('pages.program');
+    return tkt_page_url($slug, $query);
 }
 
 /**
@@ -169,15 +189,8 @@ function tkt_program_url($query = "")
  */
 function tkt_shop_url($query = "")
 {
-    $path = TKTApp::get_instance()->get_config('pages.shop');
-    if (!empty($query)) {
-        $path .= '?'.$query;
-    }
-
-    return get_site_url(
-        /*$blog_id*/null,
-        /*$path*/$path
-    );
+    $slug = TKTApp::get_instance()->get_config('pages.shop');
+    return tkt_page_url($slug, $query);
 }
 
 /**
@@ -187,10 +200,8 @@ function tkt_shop_url($query = "")
  */
 function tkt_cart_url()
 {
-    return get_site_url(
-        /*$blog_id*/null,
-        TKTApp::get_instance()->get_config('pages.cart')
-    );
+    $slug = TKTApp::get_instance()->get_config('pages.cart');
+    return tkt_page_url($slug, $query);
 }
 
 /**
@@ -200,10 +211,8 @@ function tkt_cart_url()
  */
 function tkt_checkout_url()
 {
-    return get_site_url(
-        /*$blog_id*/null,
-        TKTApp::get_instance()->get_config('pages.checkout')
-    );
+    $slug = TKTApp::get_instance()->get_config('pages.checkout');
+    return tkt_page_url($slug, $query);
 }
 
 /**
@@ -213,10 +222,8 @@ function tkt_checkout_url()
  */
 function tkt_thank_you_url()
 {
-    return get_site_url(
-        /*$blog_id*/null,
-        TKTApp::get_instance()->get_config('pages.thank_you')
-    );
+    $slug = TKTApp::get_instance()->get_config('pages.thank_you');
+    return tkt_page_url($slug, $query);
 }
 
 /**
@@ -325,43 +332,6 @@ function tkt_article_details_url($article)
           tkt_get_article_slug($article, TKT_LANG)
         )
     );
-}
-
-/**
- * Get an article buy url
- *
- * @param Article $article
- *
- * @return string
- */
-function tkt_article_buy_url($article)
-{
-    if (!$article) {
-        return "";
-    }
-
-    if (TKT_LANG == 'de') { // FIXME: replace 'de' by default language
-	    return get_site_url(
-		/*$blog_id*/null,
-		sprintf(
-		    "%s/%s_%s?book=1",
-		    TKTApp::get_instance()->get_config('pages.article'),
-		    $article->_id(),
-		    sanitize_title($screening->name('de')) // FIXME: replace 'de' by default language
-		)
-	    );
-     } else {
-	    return get_site_url(
-		/*$blog_id*/null,
-		sprintf(
-		    "%s/%s/%s_%s?book=1",
-                    TKT_LANG,
-		    TKTApp::get_instance()->get_config('pages.article'),
-		    $article->_id(),
-		    sanitize_title($article->name(TKT_LANG)) 
-		)
-	    );
-    }
 }
 
 /**
@@ -567,7 +537,7 @@ function tkt_t($str) {
 function tkt_get_event_slug($event, $lang)
 {
     $title = $event->title($lang);
-    $slug  = sanitize_title($title).($lang === TKTApp::get_instance()->get_config('i18n.default_lang', 'fr') ? '' : '-'.$lang);
+    $slug  = sanitize_title($title).($lang === default_lang() ? '' : '-'.$lang);
 
     return $slug;
 }
@@ -575,7 +545,7 @@ function tkt_get_event_slug($event, $lang)
 function tkt_get_article_slug($article, $lang)
 {
     $title = $article->name($lang);
-    $slug  = sanitize_title($title).($lang === TKTApp::get_instance()->get_config('i18n.default_lang', 'fr') ? '' : '-'.$lang);
+    $slug  = sanitize_title($title).($lang === default_lang() ? '' : '-'.$lang);
 
     return $slug;
 }
@@ -644,7 +614,7 @@ function tkt_event_data_attributes($event, $attributes)
     if (in_array('section', $attributes)) {
         $sections = [];
         foreach ($event->screenings() as $s) {
-            $sections[] = $s->opaque('section', [])[TKTApp::get_instance()->get_config('i18n.default_lang')];
+            $sections[] = $s->opaque('section', [])[default_lang()];
         }
         $values[] = 'data-section="'.implode(',', $sections).'"';
     }
@@ -675,7 +645,7 @@ function tkt_screening_data_attributes($screening, $attributes)
     }
 
     if (in_array('section', $attributes)) {
-        $values[] = 'data-section="'.$screening->opaque('section', [])[TKTApp::get_instance()->get_config('i18n.default_lang')].'"';
+        $values[] = 'data-section="'.$screening->opaque('section', [])[default_lang()].'"';
     }
 
     return implode(' ', $values);
@@ -718,4 +688,52 @@ function tkt_person_data_attributes($person, $attributes)
     }
 
     return implode(' ', $values);
+}
+
+/**
+ * Get the configured default lang
+ *
+ * @return string
+ */
+function default_lang()
+{
+    return TKTApp::get_instance()->get_config('i18n.default_lang', 'fr');
+}
+
+/**
+ * Get the configured default lang
+ *
+ * @return string
+ */
+function current_lang()
+{
+    if (!TKT_WPML_INSTALLED) {
+        return TKTApp::get_instance()->get_config('i18n.default_lang', 'fr');
+    }
+
+    return ICL_LANGUAGE_CODE;
+}
+
+/**
+ * Get the translated slug of a post
+ *
+ * @param int $id: The post id
+ * @param string $type: The post type (post, page, tkt-event, ...)
+ * @param string $lang: The desired language
+ * @param string $default: default value
+ *
+ * @return string: The slug in the desired language
+ */
+function translated_slug_by_id($id, $type, $lang, $default)
+{
+    if (!TKT_WPML_INSTALLED) {
+        return $default;
+    }
+
+    // get the post ID in $lang
+    $post_id = icl_object_id($id, $type, FALSE, $lang);
+    // get the post object
+    $post_obj = get_post($post_id);
+
+    return $post_obj->post_name;
 }
