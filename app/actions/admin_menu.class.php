@@ -41,7 +41,7 @@ class AdminMenuAction extends TKTAction
     public function create_admin_page()
     {
         $sections = [
-            'tkt_pages', 'tkt_api', 'tkt_images_dimensions',
+            'tkt_pages', 'tkt_cart', 'tkt_checkout', 'tkt_api', 'tkt_images_dimensions',
             'tkt_images_proxy', 'tkt_pass', 'tkt_advanced', 'tkt_i18n'
         ];
         foreach ($sections as $section) {
@@ -62,6 +62,8 @@ class AdminMenuAction extends TKTAction
         $tabs = [
             'api'      => tkt_t('API'),
             'pages'    => tkt_t('Pages'),
+            'cart'     => tkt_t('Panier'),
+            'checkout' => tkt_t('Checkout'),
             'images'   => tkt_t('Images'),
             'pass'     => tkt_t('Abonnements'),
             'i18n'     => tkt_t('Langues'),

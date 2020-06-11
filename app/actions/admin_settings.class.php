@@ -76,6 +76,92 @@ class AdminSettingsAction extends TKTAction
             'ticketack_pages' // Section
         );
 
+        add_settings_field(
+            'checkout', // ID
+            tkt_t('Checkout'), // Title
+            array( $this, 'checkout_callback' ), // Callback
+            'ticketack-pages', // Page
+            'ticketack_pages' // Section
+        );
+
+        add_settings_field(
+            'thank_you', // ID
+            tkt_t('Remerciements'), // Title
+            array( $this, 'thank_you_callback' ), // Callback
+            'ticketack-pages', // Page
+            'ticketack_pages' // Section
+        );
+
+        add_settings_section(
+            'ticketack_cart', // ID
+            tkt_t('Panier'), // Title
+            array( $this, 'cart_section_info' ), // Callback
+            'ticketack-cart' // Page
+        );
+
+        add_settings_field(
+            'cart_redirect', // ID
+            tkt_t('Redirection à la mise au panier'), // Title
+            array( $this, 'cart_redirect_callback' ), // Callback
+            'ticketack-cart', // Page
+            'ticketack_cart' // Section
+        );
+
+        add_settings_section(
+            'ticketack_checkout', // ID
+            tkt_t('Checkout'), // Title
+            array( $this, 'checkout_section_info' ), // Callback
+            'ticketack-checkout' // Page
+        );
+
+        add_settings_field(
+            'cgv', // ID
+            tkt_t('URL des CGV'), // Title
+            array( $this, 'cgv_callback' ), // Callback
+            'ticketack-checkout', // Page
+            'ticketack_checkout' // Section
+        );
+
+        add_settings_field(
+            'privacy', // ID
+            tkt_t('URL des conditions de protection des données'), // Title
+            array( $this, 'privacy_callback' ), // Callback
+            'ticketack-checkout', // Page
+            'ticketack_checkout' // Section
+        );
+
+        add_settings_field(
+            'requested_fields', // ID
+            tkt_t('Informations optionnelles à saisir'), // Title
+            array( $this, 'requested_fields_callback' ), // Callback
+            'ticketack-checkout', // Page
+            'ticketack_checkout' // Section
+        );
+
+        add_settings_field(
+            'required_fields', // ID
+            tkt_t('Informations obligatoires à saisir'), // Title
+            array( $this, 'required_fields_callback' ), // Callback
+            'ticketack-checkout', // Page
+            'ticketack_checkout' // Section
+        );
+
+        add_settings_field(
+            'allow_later', // ID
+            tkt_t('Autoriser les réservations'), // Title
+            array( $this, 'allow_later_callback' ), // Callback
+            'ticketack-checkout', // Page
+            'ticketack_checkout' // Section
+        );
+
+        add_settings_field(
+            'allow_postfinance', // ID
+            tkt_t('Autoriser Postfinance'), // Title
+            array( $this, 'allow_postfinance_callback' ), // Callback
+            'ticketack-checkout', // Page
+            'ticketack_checkout' // Section
+        );
+
         add_settings_section(
             'ticketack_images_dimensions', // ID
             tkt_t('Dimensions des images'), // Title
@@ -194,6 +280,37 @@ class AdminSettingsAction extends TKTAction
     }
     public function program_callback() { return $this->input('program', 'tkt_pages', 'program'); }
     public function cart_callback() { return $this->input('cart', 'tkt_pages', 'cart'); }
+    public function checkout_callback() { return $this->input('checkout', 'tkt_pages', 'checkout'); }
+    public function thank_you_callback() { return $this->input('thank_you', 'tkt_pages', 'thank_you'); }
+
+    /** 
+     * Print the Section text
+     */
+    public function cart_section_info()
+    {
+        print tkt_t("Configurez le comportement du panier");
+    }
+    public function cart_redirect_callback() {
+        return $this->choice('cart_redirect', 'tkt_cart', [
+            'Aucune' => 'none',
+            'Vers le checkout' => 'checkout'
+        ]);
+    }
+
+    /** 
+     * Print the Section text
+     */
+    public function checkout_section_info()
+    {
+        print tkt_t("Saisissez les informations concernant la page de paiement");
+    }
+    public function cgv_callback() { return $this->input('cgv', 'tkt_checkout', 'https://my-site.tld/cgv'); }
+    public function privacy_callback() { return $this->input('privacy', 'tkt_checkout', 'https://my-site.tld/privacy'); }
+    public function requested_fields_callback() { return $this->input('requested_fields', 'tkt_checkout', 'firstname,lastname,email,address,zip,city,phone,cellphone', 'firstname,lastname,email,address,zip,city,phone,cellphone'); }
+    public function required_fields_callback() { return $this->input('required_fields', 'tkt_checkout', 'email', 'email'); }
+    public function allow_later_callback() { return $this->boolean('allow_later', 'tkt_checkout', '1'); }
+    public function allow_postfinance_callback() { return $this->boolean('allow_postfinance', 'tkt_checkout', '1'); }
+
 
     /** 
      * Print the Section text
@@ -259,6 +376,7 @@ class AdminSettingsAction extends TKTAction
      * @param string $name: The option name
      * @param string $group: The option group
      * @param string $placeholder: The option placeholder
+     * @param string $default: The option default value
      */
     public function input($name, $group, $placeholder = null, $default = null)
     {
@@ -272,6 +390,48 @@ class AdminSettingsAction extends TKTAction
             $value,
             $placeholder != null ? $placeholder : ''
         );
+    }
+
+    /**
+     * Get an option boolean input
+     *
+     * @param string $name: The option name
+     * @param string $group: The option group
+     * @param string $default: The option default value
+     */
+    public function boolean($name, $group, $default = null)
+    {
+        $this->options = get_option($group);
+        $value = isset($this->options[$name]) ? intval(esc_attr($this->options[$name])) : $default;
+        printf(
+            '<select id="%s" name="%s[%s]">
+                <option value="1" '.($value === 1 ? "selected" : "").'>Oui</option>
+                <option value="0" '.($value === 0 ? "selected" : "").'>Non</option>
+             </select>',
+            $name,
+            $group,
+            $name
+        );
+    }
+
+    /**
+     * Get an option choice input
+     *
+     * @param string $name: The option name
+     * @param string $group: The option group
+     * @param array $choices: The option choices
+     * @param string $default: The option default value
+     */
+    public function choice($name, $group, $choices, $default = null)
+    {
+        $this->options = get_option($group);
+        $value = isset($this->options[$name]) ? esc_attr($this->options[$name]) : $default;
+        printf('<select id="%s" name="%s[%s]">', $name, $group, $name);
+        foreach ($choices as $label => $v) {
+            echo '
+                <option value="'.$v.'" '.($value === $v ? "selected" : "").' >'.$label.'</option>';
+        }
+        echo '</select>';
     }
 
     /**
