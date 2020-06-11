@@ -9,7 +9,8 @@ use Ticketack\WP\TKTApp;
  * Input: {
  *   "cart": Cart instance,
  *   "program_url": String,
- *   "cart_reset_url": String
+ *   "cart_reset_url": String,
+ *   "hide_links": ['finalize', 'cancel', 'continue']
  * }
  */
 ?>
@@ -56,6 +57,7 @@ use Ticketack\WP\TKTApp;
         </div>
     </div>
 
+        <% if (!hide_links.includes('finalize')) { %>
     <div class="row">
         <div class="col finish-cart-wrapper">
             <!--
@@ -68,7 +70,9 @@ use Ticketack\WP\TKTApp;
             </a>
         </div>
     </div>
+        <% } %>
 
+        <% if (!hide_links.includes('cancel')) { %>
     <div class="row">
         <div class="col cancel-order-wrapper">
             <div class="cancel-order" >
@@ -76,7 +80,9 @@ use Ticketack\WP\TKTApp;
             </div>
         </div>
     </div>
+        <% } %>
 
+        <% if (!hide_links.includes('continue')) { %>
     <div class="row">
         <div class="col continue-shopping-wrapper">
             <div class="continue-shopping" >
@@ -84,5 +90,6 @@ use Ticketack\WP\TKTApp;
             </div>
         </div>
     </div>
+        <% } %>
     <% } %>
 </div>

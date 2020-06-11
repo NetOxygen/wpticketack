@@ -20,8 +20,12 @@ define(
             this[key] = val;
         });
 
-        if (this.order_id && this.order_id.length)
-            this.id = parseInt(this.order_id.split('-')[1]);
+        if (this.order_id && this.order_id.length) {
+            const parts = this.order_id.split('-');
+            this.id = parts.length > 1 && parts[1].length > 0 ?
+                parseInt(parts[1]) :
+                null;
+        }
 
         this.items = _.map(this.items, (i) => new CartItem(i));
     }
@@ -55,6 +59,15 @@ define(
         const total = _.reduce(this.items, (memo, item) => memo + parseFloat(item.amount), 0).toFixed(2);
 
         return `${total} CHF`;
+    };
+
+    Cart.load = function (callback) {
+        TKTApi.loadCart((err, status, rsp) => {
+            if (err)
+                return callback(err);
+
+            return callback(/*err*/null, new Cart(rsp));
+        });
     };
 
     return Cart;

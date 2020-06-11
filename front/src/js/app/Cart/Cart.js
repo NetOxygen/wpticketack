@@ -15,6 +15,7 @@ define(
     function Cart($container, state) {
         this.$container = $container;
         this.cart       = {};
+        this.hide_links = (this.$container.data('hide-links') || '').split(',');
     }
 
     Cart.prototype = {
@@ -96,11 +97,11 @@ define(
         load_cart: function(callback) {
             callback = callback || ((err) => {});
 
-            TKTApi.loadCart((err, status, rsp) => {
+            CartModel.load((err, cart) => {
                 if (err)
                     return callback(err);
 
-                this.cart = new CartModel(rsp);
+                this.cart = cart;
                 this.cart.loadItemsInfos((err) => {
                     if (err)
                         return callback(err);
@@ -110,17 +111,7 @@ define(
 
                     this.bind_remove_item_icons();
 
-                    /* for fabrica, we need to set the carts as pending until
-                     * the customer has finished his order...
-                     */
-                    if (window.TKT_SET_CARTS_PENDING && this.cart.id) {
-                        this.set_pending((err, rsp) => {
-                            if (err)
-                                return callback(err);
-                        });
-                    } else {
-                        return callback();
-                    }
+                    return callback();
                 });
             });
         },
@@ -130,7 +121,8 @@ define(
                 cart: this.cart,
                 program_url: config.get('program_url'),
                 cart_reset_url: config.get('cart_reset_url'),
-                validate_cart_url: this.cart.validate_cart_url + '?PHPSESSID=' + TKTApi.session_id + '&lang=' + config.get('lang')
+                validate_cart_url: this.cart.validate_cart_url + '?PHPSESSID=' + TKTApi.session_id + '&lang=' + config.get('lang'),
+                hide_links: this.hide_links
             }));
         },
 
