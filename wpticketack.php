@@ -47,7 +47,7 @@ $app = TKTApp::get_instance();
 
 $app->register_filter('Ticketack\WP\Filters\MailpoetFilter', 'mailpoet.class.php');
 $app->register_filter('Ticketack\WP\Filters\BodyClassFilter', 'body_class.class.php');
-$app->register_filter('Ticketack\WP\Filters\TktEventContentFilter', 'tkt_event_content.class.php');
+$app->register_filter('Ticketack\WP\Filters\TktContentFilter', 'tkt_content.class.php');
 $app->register_filter('Ticketack\WP\Filters\ThumbnailFilter', 'thumbnail.class.php');
 $app->register_action('Ticketack\WP\Actions\HeadScriptsAction', 'head_scripts.class.php');
 $app->register_action('Ticketack\WP\Actions\AdminNoticesAction', 'admin_notices.class.php');

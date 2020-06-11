@@ -1,7 +1,7 @@
 <?php
 namespace Ticketack\WP\Actions;
 
-use Ticketack\WP\helpers\SyncHelper;
+use Ticketack\WP\helpers\SyncArticlesHelper;
 
 /**
  * Sync articles action
@@ -17,8 +17,8 @@ class SyncArticlesAction extends TKTAction
     public function get_tag()
     {
         return [
-            "admin_head-edit.php"    => "add_link",
-            "admin_post_sync_events" => "run"
+            "admin_head-edit.php"      => "add_link",
+            "admin_post_sync_articles" => "run"
         ];
     }
 
@@ -32,7 +32,7 @@ class SyncArticlesAction extends TKTAction
 <script type="text/javascript">
   jQuery(document).ready(function ($) {
     var sync_link = $('<a href="{$action_link}" class="page-title-action">Importer depuis Ticketack</a>');
-    $("body.post-type-tkt-event #wpbody-content > .wrap > a.page-title-action").after(sync_link);
+    $("body.post-type-tkt-article #wpbody-content > .wrap > a.page-title-action").after(sync_link);
   });
 </script>
 JS;
@@ -44,7 +44,7 @@ JS;
      */
     public function run()
     {
-        SyncHelper::sync_articles();
+        SyncArticlesHelper::sync_articles();
 
         wp_redirect("/wp-admin/edit.php?post_type=tkt-article");
         exit;

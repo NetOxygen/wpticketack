@@ -161,6 +161,26 @@ function tkt_program_url($query = "")
 }
 
 /**
+ * Get the Shop page url
+ *
+ * @param string $query
+ *
+ * @return string
+ */
+function tkt_shop_url($query = "")
+{
+    $path = TKTApp::get_instance()->get_config('pages.shop');
+    if (!empty($query)) {
+        $path .= '?'.$query;
+    }
+
+    return get_site_url(
+        /*$blog_id*/null,
+        /*$path*/$path
+    );
+}
+
+/**
  * Get the Cart page url
  *
  * @return string
@@ -278,6 +298,31 @@ function tkt_event_book_url($event, $screening = null)
             'events',
         tkt_get_event_slug($event, TKT_LANG),
             (!is_null($screening) ? '&s_id='.$screening->_id() : '')
+        )
+    );
+}
+
+/**
+ * Get an article details url
+ *
+ * @param Article $article
+ *
+ * @return string
+ */
+function tkt_article_details_url($article)
+{
+    if (TKT_WPML_INSTALLED) {
+        $slug = tkt_get_article_slug($article, TKT_LANG);
+        $page = get_page_by_path($slug, OBJECT, 'tkt-article');
+        return apply_filters('wpml_permalink', get_permalink($page->ID));
+    }
+
+    return get_site_url(
+        /*$blog_id*/null,
+        sprintf(
+            '%s/%s',
+            'events',
+          tkt_get_article_slug($article, TKT_LANG)
         )
     );
 }
@@ -522,6 +567,14 @@ function tkt_t($str) {
 function tkt_get_event_slug($event, $lang)
 {
     $title = $event->title($lang);
+    $slug  = sanitize_title($title).($lang === TKTApp::get_instance()->get_config('i18n.default_lang', 'fr') ? '' : '-'.$lang);
+
+    return $slug;
+}
+
+function tkt_get_article_slug($article, $lang)
+{
+    $title = $article->name($lang);
     $slug  = sanitize_title($title).($lang === TKTApp::get_instance()->get_config('i18n.default_lang', 'fr') ? '' : '-'.$lang);
 
     return $slug;

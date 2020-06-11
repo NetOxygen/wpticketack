@@ -1,50 +1,15 @@
 .tkt-article {
-    .name {
-
-    }
-    .description {
-
-    }
-    .article-variants {
-        .article-variants-form {
-            .variants-title {}
-            .variants-article-name {}
-            .poster-wrapper { margin: 30px auto; }
-            .variants-subtitle {}
-            .variants-wrapper {
-                .variant-wrapper {
-                    .variant-name {}
-                    .variant-sub {
-                        cursor: pointer;
-                    }
-                    .variant-quantity {}
-                    .variant-add {
-                        cursor: pointer;
-                    }
-                    .variant-price {
-                        text-align: right;
-                    }
-                }
-                .variant-total-row {
-                    height: 80px;
-                    .variant-total-label,
-                    .variant-total {
-                        text-align: right;
-                    }
-                }
-            }
-            .variants-error,
-            .variants-submit-error {
-                display: none;
-                color: #FF0000;
-            }
-
-            .variants-submit {
-                display: none;
-            }
-            .go-to-cart {
-                display: none;
-            }
+    .infos-section {
+        .name {
+            font-weight: bold;
+            text-transform: uppercase;
         }
+    }
+}
+
+body.single-tkt-article {
+    header.entry-header {
+        /* title is handled by the tkt-article template */
+        display: none;
     }
 }

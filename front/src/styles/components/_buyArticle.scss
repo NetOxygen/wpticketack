@@ -1,0 +1,51 @@
+.buy-article-form {
+    display: flex;
+    flex-direction: column;
+    .variants-form {
+      flex: 1;
+      padding-right: 1rem;
+      margin-top: 0;
+
+      .pricings-form {
+        .pricing-row {
+          margin-top: 0;
+          margin-bottom: 0.5rem;
+
+          .tkt-badge-split {
+            .tkt-badge-part {
+              flex: none;
+
+              .variant-qty {
+                font-weight: bold;
+              }
+              .pricing-name {
+                font-size: 1rem;
+              }
+              .pricing-price {
+                font-size: 1rem;
+              }
+
+              &.tkt-minus-btn,
+              &.tkt-plus-btn {
+                font-weight: bold;
+                padding: 0 15px;
+                font-size: 25px;
+                line-height: 32px;
+              }
+            }
+          }
+        }
+        .add-to-cart-btn { }
+      }
+    }
+    .success-panel {
+      flex: 1;
+      padding-right: 1rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+  .booking-form {
+    flex-direction: column;
+  }
+}

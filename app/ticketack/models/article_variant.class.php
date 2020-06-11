@@ -10,41 +10,53 @@ use Ticketack\Core\Base\CHF;
  *  Instances are *immutable*.
  */
 
-class Variant implements \JsonSerializable
+class ArticleVariant implements \JsonSerializable
 {
-    protected $_id              = null;
-    protected $name             = null;
-    protected $stock            = null;
-    protected $stock_factor     = null;
-    protected $ean13            = null;
-    protected $sku              = null;
-    protected $price            = [];
-    protected $purchasing_price = [];
-    protected $value            = [];
-    protected $vat              = 0;
+    protected $_id                 = null;
+    protected $name                = null;
+    protected $stocks              = null;
+    protected $stock_factor        = null;
+    protected $gtin                = null;
+    protected $sku                 = null;
+    protected $price               = [];
+    protected $purchasing_price    = [];
+    protected $variable_price      = false;
+    protected $value               = [];
+    protected $vat                 = 0;
+    protected $stocks_by_salepoint = [];
+
+    protected $article = null;
 
     /**
      * @throw Exception
      */
-    public function __construct(array &$properties = [])
+    public function __construct(Article $article, array &$properties = [])
     {
         $this->name         = $properties['name'];
+        $this->article      = $article;
         $this->stock        = $properties['stock'];
-        $this->stock_factor = $properties['stock_factor'];
-        $this->ean13        = isset($properties['ean13']) ? (string)$properties['ean13'] : "";
+        $this->stock_factor = isset($properties['stock_factor']) ? $properties['stock_factor'] : -1;
+        $this->gtin         = isset($properties['gtin']) ? (string)$properties['gtin'] : "";
         $this->sku          = isset($properties['sku']) ? (string)$properties['sku'] : "";
-        $this->price        = (object)['CHF' => CHF::parse(CHF::prepare($properties['price']['CHF']))];
+        if (isset($properties['price'])) {
+            // FIXME: Remove hardcoded currency
+            $this->price = (object)['CHF' => CHF::parse(CHF::prepare($properties['price']['CHF']))];
+        } else {
+            $this->price = new \stdClass();
+        }
 
         if (isset($properties['_id'])) {
             $this->_id = $properties['_id'];
         }
 
+        // FIXME: Remove hardcoded currency
         if (isset($properties['value']) && isset($properties['value']['CHF'])) {
             $this->value = (object)['CHF' => CHF::parse(CHF::prepare($properties['value']['CHF']))];
         } else {
             $this->value = $this->price;
         }
 
+        // FIXME: Remove hardcoded currency
         if (isset($properties['purchasing_price']) && isset($properties['purchasing_price']['CHF'])) {
             $this->purchasing_price = (object)['CHF' => CHF::parse(CHF::prepare($properties['purchasing_price']['CHF']))];
         } else {
@@ -65,11 +77,22 @@ class Variant implements \JsonSerializable
      *
      * @param string $_id
      *
-     * @return TKTArticleVariant
+     * @return ArticleVariant
      */
     public function set_id($_id)
     {
         $this->_id = $_id;
+
+        return $this;
+    }
+
+    public function set_stocks_by_salepoint($salepoint, $quantity)
+    {
+        if (!array_key_exists($salepoint, $this->stocks_by_salepoint)) {
+            $this->stocks_by_salepoint[$salepoint] = $quantity;
+        } elseif ($quantity !== null) {
+            $this->stocks_by_salepoint[$salepoint] += $quantity;
+        }
 
         return $this;
     }
@@ -100,9 +123,9 @@ class Variant implements \JsonSerializable
         return is_float($this->stock_factor) ? (float)$this->stock_factor : (int)$this->stock_factor;
     }
 
-    public function ean13()
+    public function gtin()
     {
-        return !empty($this->ean13) ? (string)$this->ean13 : "";
+        return !empty($this->gtin) ? (string)$this->gtin : "";
     }
 
     public function sku()
@@ -125,6 +148,11 @@ class Variant implements \JsonSerializable
         return isset($this->purchasing_price->$currency) ? $this->purchasing_price->$currency : null;
     }
 
+    public function is_variable_price()
+    {
+        return $this->variable_price;
+    }
+
     public function vat()
     {
         return $this->vat;
@@ -138,15 +166,17 @@ class Variant implements \JsonSerializable
     public function jsonSerialize()
     {
         $ret = [
-            'name'             => $this->name(),
-            'stock'            => $this->stock(),
-            'stock_factor'     => $this->stock_factor(),
-            'ean13'            => $this->ean13(),
-            'sku'              => $this->sku(),
-            'price'            => $this->price,
-            'value'            => $this->value,
-            'purchasing_price' => $this->purchasing_price,
-            'vat'              => $this->vat()
+            'name'                => $this->name(),
+            'stocks'              => $this->stock(),
+            'stock_factor'        => $this->stock_factor(),
+            'stocks_by_salepoint' => $this->stocks_by_salepoint,
+            'gtin'                => $this->gtin(),
+            'sku'                 => $this->sku(),
+            'price'               => $this->price,
+            'value'               => $this->value,
+            'purchasing_price'    => $this->purchasing_price,
+            'variable_price'      => $this->variable_price,
+            'vat'                 => $this->vat()
         ];
 
         if ($this->has_id()) {
