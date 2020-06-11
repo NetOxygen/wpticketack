@@ -18,6 +18,9 @@ use Ticketack\WP\Templates\TKTTemplate;
             <div
                 class="buy-article-form"
                 data-component="BuyArticle/Form"
+                data-redirect="<?= TKTApp::get_instance()->get_config('cart.cart_redirect', 'none') ?>"
+                data-cart-url="<?= tkt_cart_url() ?>"
+                data-checkout-url="<?= tkt_checkout_url() ?>"
                 data-article-id="<?= $data->article->_id() ?>"
                 data-variants="<?= htmlspecialchars(json_encode($data->article->variants())) ?>"
             >

@@ -6,6 +6,9 @@
  * <div
  *    <!-- Required -->
  *    data-component="Booking/Form"
+ *    data-redirect="none|cart|checkout"
+ *    data-cart-url="https://..."
+ *    data-checkout-url="https://..."
  *    data-ids="12345678-1234-1234-1234-123456789012,..."
  * >
  */

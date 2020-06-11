@@ -7,6 +7,9 @@
  *    <!-- Required -->
  *    data-component="BuyArticle/Form"
  *    data-article-id="12345678-1234-1234-1234-123456789012"
+ *    data-redirect="none|cart|checkout"
+ *    data-cart-url="https://..."
+ *    data-checkout-url="https://..."
  *    data-ids="12345678-1234-1234-1234-123456789012,..."
  * >
  */
@@ -20,12 +23,10 @@ define( [
         moment, CartModel) {
 
     function Form($container, state) {
-        this.$container  = $container;
-        this.initialized = false;
-
-        //this.ids                = this.$container.data('ids').split(',');
-        //this.show_on_load       = parseInt(this.getUrlParam('book')) == 1;
-        //this.selected_screening = this.getUrlParam('s_id');
+        this.$container   = $container;
+        this.redirect     = this.$container.data('redirect');
+        this.cart_url     = this.$container.data('cart-url');
+        this.checkout_url = this.$container.data('checkout-url');
     }
 
     Form.prototype = {
@@ -48,7 +49,6 @@ define( [
             this.data.variants   = this.$container.data('variants');
 
             this.build_form();
-            this.initialized = true;
         },
 
         init_store: function() {
@@ -167,17 +167,26 @@ define( [
                             .removeClass('d-none');
                     }
 
-                // Hide forms and show success message
-                $('.variants-form').addClass('d-none');
-                $('.success-panel').removeClass('d-none');
+                    switch (this.redirect) {
+                        case 'cart':
+                            window.location.href = this.cart_url;
+                            break;
+                        case 'checkout':
+                            window.location.href = this.checkout_url;
+                            break;
+                        default:
+                            // Hide forms and show success message
+                            $('.variants-form').addClass('d-none');
+                            $('.success-panel').removeClass('d-none');
 
-                // Reload and emit cart update
-                TKTApi.loadCart((err, status, rsp) => {
-                    if (err)
-                        return;
+                            // Reload and emit cart update
+                            TKTApi.loadCart((err, status, rsp) => {
+                                if (err)
+                                    return;
 
-                    this.emit_cart_update(new CartModel(rsp));
-                });
+                                this.emit_cart_update(new CartModel(rsp));
+                            });
+                    }
             });
         },
 
