@@ -58,6 +58,16 @@ use Ticketack\WP\TKTApp;
             </figcaption>
         </figure>
     </div>
+    <div class="shortcode">
+        <h3><?= tkt_t('Shop') ?></h3>
+        <figure>
+            <img src="<?= tkt_assets_url('build/images/admin/screen-shop.png') ?>"/>
+            <figcaption>
+                <label><?= tkt_t('Affichage du shop') ?></label>
+                [tkt_shop category_ids="1,2,3"][/tkt_shop]
+            </figcaption>
+        </figure>
+    </div>
 </div>
 <style type="text/css">
     .row {
