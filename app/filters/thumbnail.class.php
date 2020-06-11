@@ -22,7 +22,7 @@ class ThumbnailFilter extends TKTFilter
     public function run($args = null)
     {
         $post = get_post();
-        if ( $post->post_type == 'tkt-event' && is_single() ) {
+        if ( in_array($post->post_type, ['tkt-event', 'tkt-article']) && is_single() ) {
             return null;
         }
         $raw_posters = get_post_meta($post->ID, 'posters');
