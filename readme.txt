@@ -2,7 +2,7 @@
 Tags: ticketack
 Requires at least: 4.6
 Tested up to: 5.4.1
-Stable tag: 2.4.5
+Stable tag: 2.5.0
 Requires PHP: 5.6
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -34,6 +34,16 @@ This section describes how to install the plugin and get it working.
 == Screenshots ==
 
 == Changelog ==
+
+= 2.5.0 =
+* feat: Add the Checkout process shortcode
+* feat: Add the shop
+* feat: Add overridables UI options
+* feat: Add url output and with_link attribute to tkt_next_screening shortcode
+* feat: Add cart and checkout options
+* feat: Add hide_links attribute on cart shortcode
+* fix: Redirections to cart or program when on a translated page
+* fix: Movies title which appeared as objects
 
 = 2.4.5 =
 * feat: add output option to tkt_next_screening shortcode
