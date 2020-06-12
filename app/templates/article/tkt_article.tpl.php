@@ -33,7 +33,7 @@ $nb_slides = count($posters);
 ?>
 <div class="tkt-wrapper">
     <div class="tkt-article" data-component="Articles/Article" data-id="<?= $article->_id() ?>">
-        <section class="tkt-section infos-section">
+        <section class="tkt-section tkt-light-section article-infos-section">
             <div class="row">
                 <div class="col">
                     <h2 class="name"><?= $article->name(TKT_LANG) ?></h2>
@@ -67,7 +67,7 @@ $nb_slides = count($posters);
             </div>
         </section>
 
-        <section class="tkt-section buy-section">
+        <section class="tkt-section tkt-dark-section buy-section">
             <h3 class="tkt-section-title">
                 <?= tkt_t('Acheter') ?>
             </h3>

@@ -9,7 +9,7 @@
     }
 
     .dates-wrapper {
-      border: 1px solid $base_color;
+      border: 1px solid $btn_bg_color;
       padding: 0.5rem;
       float: left;
       height: 200px;
@@ -115,10 +115,9 @@
 
         .day {
           margin: 0.25rem;
-          &.active {
-            background-color: $assertive_color;
-            color: $light_color;
-          }
+          width: calc(25% - 0.5rem);
+          text-align: center;
+          cursor: pointer;
         }
       }
 
@@ -135,10 +134,9 @@
 
         .date {
           margin: 0.25rem;
-          &.active {
-              background-color: $assertive_color;
-              color: $light_color;
-          }
+          width: calc(25% - 0.5rem);
+          text-align: center;
+          cursor: pointer;
         }
       }
     }
@@ -154,8 +152,6 @@
 
           .tkt-badge-split {
             .tkt-badge-part {
-              flex: none;
-
               .pricing-qty {
                 font-weight: bold;
               }

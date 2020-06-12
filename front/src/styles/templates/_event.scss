@@ -3,8 +3,6 @@
       background: #212121;
   }
   .infos-section {
-    background: #F0F0F0;
-
     .synopsis {
       .title {
         display: block;
@@ -74,7 +72,7 @@
             font-weight: bold;
 
             a {
-                color: $base_color;
+                color: $text_color;
                 text-decoration: none;
             }
         }
@@ -87,7 +85,6 @@
   }
 
   .book-section {
-    background: #212121;
     .show-booking-form {
       display: block;
       margin-top: 1rem;
@@ -107,7 +104,8 @@
 }
 
 body.single-tkt-event {
-    header.entry-header {
+    header.entry-header,
+    .entry-content > p {
         /* title is handled by the kt-event template */
         display: none;
     }

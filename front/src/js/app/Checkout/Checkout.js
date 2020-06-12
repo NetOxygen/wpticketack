@@ -28,7 +28,6 @@ define(
         this.$fieldsets     = $('fieldset', this.$form);
         this.$fields        = $('.data-field', this.$container);
         this.$pmField       = $('#payment-method-field', this.$container);
-        this.$cartAmount    = $('#tkt-checkout-cart-amount', this.$container);
         this.$submitButtons = $('.submit-button', this.$container);
 
         // messages panels
@@ -43,19 +42,16 @@ define(
         },
 
         init: function() {
-            // first, load the cart
-            Cart.load((err, cart) => {
-                if (err)
-                    this.show_error(i18n.t('Une erreur est survenue lors du chargement de votre panier'));
+            postal.subscribe({
+                channel: "cart",
+                topic: "update",
+                callback: (data, envelope) => {
+                    this.cart = data.cart;
 
-                this.cart = cart;
-
-                // update cart total field
-                this.$cartAmount.html(this.cart.cart_amount);
-
-                // check empty cart
-                if (!this.cart.id || !this.cart.items.length) {
-                    this.switch_to_info_msg(i18n.t('Votre panier est vide'));
+                    // check empty cart
+                    if (!this.cart.id || !this.cart.items.length) {
+                        this.hide_form();
+                    }
                 }
             });
 
@@ -117,10 +113,8 @@ define(
             window.location.href = uri;
         },
 
-        switch_to_info_msg: function (msg) {
-            this.$infoMsg.html(msg);
+        hide_form: function (msg) {
             this.$fieldsets.hide();
-            this.$infoMsg.fadeIn();
         },
 
         show_success: function (msg) {

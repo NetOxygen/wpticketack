@@ -40,58 +40,6 @@ define(
                         this.load_cart();
                 }
             });
-
-            /* we bind automatic checkout on .finish-cart-btn links */
-            $(document).on('click', '.finish-cart-btn', (e) => {
-                e.preventDefault();
-
-                let user_data = {};
-                const firstname = $('#firstname-input', this.$container).val();
-                const lastname  = $('#lastname-input', this.$container).val();
-                const tab       = $('#tab-input', this.$container).val();
-                const email     = $('#email-input', this.$container).val();
-                if (firstname)
-                    user_data.firstname = firstname;
-                if (lastname)
-                    user_data.lastname = lastname;
-                if (tab)
-                    user_data.tab = tab;
-                if (email)
-                    user_data.email = email;
-                this.checkout(user_data, (err, rsp) => {
-                    if (err)
-                        return;
-
-                    this.cart = {};
-                    $('#cart').fadeOut();
-                    $('#checkout-confirm-popup').fadeIn();
-                });
-            });
-
-            /* .open-cart-btn is only used for now on Fabrica */
-            $(document).on('click', '.open-cart-btn', (e) => {
-                e.preventDefault();
-
-                $('#cart').fadeOut();
-                let user_data = {};
-                const tab = $('#tab-input', this.$container).val();
-                if (tab)
-                    user_data.tab = tab;
-
-                this.set_user_data(user_data, (err, rsp) => {
-                    if (err)
-                        return;
-                    this.set_open((err, rsp) => {
-                        if (err)
-                            return;
-                        this.get_new((err, rsp) => {
-                            if (err)
-                                return;
-                            $('#checkout-confirm-popup').fadeIn();
-                        });
-                    });
-                });
-            });
         },
 
         load_cart: function(callback) {
@@ -121,7 +69,6 @@ define(
                 cart: this.cart,
                 program_url: config.get('program_url'),
                 cart_reset_url: config.get('cart_reset_url'),
-                validate_cart_url: this.cart.validate_cart_url + '?PHPSESSID=' + TKTApi.session_id + '&lang=' + config.get('lang'),
                 hide_links: this.hide_links
             }));
         },

@@ -32,7 +32,7 @@ $xs_size: 32px;
       height: calc(#{$size} * 0.6);
       top: calc(#{$size} * 0.2);
       left: calc(#{$size} * 0.2);
-      border-color: transparent $assertive_color transparent $assertive_color;
+      border-color: transparent $active_color transparent $active_color;
       -webkit-animation: lds-double-ring_reverse 1s linear infinite;
       animation: lds-double-ring_reverse 1s linear infinite;
     }

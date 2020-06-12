@@ -256,10 +256,27 @@ class AdminSettingsAction extends TKTAction
 
         add_settings_section(
             'ticketack_advanced', // ID
-            tkt_t('Options avancées'), // Title
+            tkt_t('Customisation css'), // Title
             array( $this, 'advanced_section_info' ), // Callback
             'ticketack-advanced' // Page
         );
+
+        $variables = get_overridable_scss_variables();
+        foreach ($variables as $key => $value) {
+            add_settings_field(
+                $key, // ID
+                tkt_t(str_replace('_', ' ', ucfirst(strtolower($key)))), // Title
+                [$this, 'color_callback'], // Callback
+                'ticketack-advanced', // Page
+                'ticketack_advanced', // Section
+                [
+                    'name'        => $key,
+                    'group'       => 'tkt_advanced',
+                    'placeholder' => $value,
+                    'value'     => $value
+                ]
+            );
+        }
     }
 
     /**
@@ -387,6 +404,31 @@ class AdminSettingsAction extends TKTAction
     {
         print tkt_t("Ne modifiez les valeurs ci-dessous que si vous savez ce que vous faites.");
     }
+    public function color_callback($args) {
+        return $this->color_input($args['name'], $args['group'], $args['placeholder'], $args['value'], $args);
+    }
+
+    /**
+     * Get an option color input
+     *
+     * @param string $name: The option name
+     * @param string $group: The option group
+     * @param string $placeholder: The option placeholder
+     * @param string $default: The option default value
+     */
+    public function color_input($name, $group, $placeholder = null, $default = null)
+    {
+        $this->options = get_option($group);
+        $value = isset($this->options[$name]) ? esc_attr($this->options[$name]) : $default;
+        printf(
+            '<div style="float: left; padding-left: 20px; background-color: '.$value.'"><input type="text" id="%s" name="%s[%s]" value="%s" placeholder="%s"/><div>',
+            $name,
+            $group,
+            $name,
+            $value,
+            $placeholder != null ? $placeholder : ''
+        );
+    }
 
     /**
      * Get an option input
@@ -510,11 +552,11 @@ class AdminSettingsAction extends TKTAction
                 $ancestor_ids = get_ancestors($page->ID, 'page');
 
                 $slug = implode('/', array_map(function ($id) {
-                    $tr_ancestor_id = icl_object_id($id, 'page', FALSE, default_lang());
+                    $tr_ancestor_id = icl_object_id($id, 'page', FALSE, tkt_defaulkt_lang());
                     return get_post($tr_ancestor_id)->post_name;
                 }, $ancestor_ids));
 
-                $slug .= '/'.translated_slug_by_id($page->ID, 'page', default_lang(), $page->post_name);
+                $slug .= '/'.tkt_translated_slug_by_id($page->ID, 'page', tkt_defaulkt_lang(), $page->post_name);
                 $label = str_repeat('-', count($ancestor_ids)).$page->post_title;
                 $all_pages[$label] = $slug;
             }

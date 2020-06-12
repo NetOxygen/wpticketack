@@ -51,7 +51,7 @@ class AdminMenuAction extends TKTAction
                     die('WordPress nonce error, please reload the form and try again');
                 }
                 if ($section == 'tkt_pass') {
-                    update_option($section, array_map('sanitize_textarea_field', $_POST[$section]));
+                    update_option($section, array_map('sanitize_textarea_field', $options));
                 } else {
                     update_option($section, array_map('sanitize_text_field', $_POST[$section]));
                 }
@@ -67,6 +67,7 @@ class AdminMenuAction extends TKTAction
             'images'   => tkt_t('Images'),
             'pass'     => tkt_t('Abonnements'),
             'i18n'     => tkt_t('Langues'),
+            'advanced' => tkt_t('Paramètres avancés'),
             'doc'      => tkt_t('Documentation')
         ];
 ?>
@@ -86,7 +87,9 @@ class AdminMenuAction extends TKTAction
 
             <?= TKTTemplate::render_admin($active_tab); ?>
         </div>
-<?php
+
+        <?php
+        tkt_compile_scss_override();
     }
 
     /**

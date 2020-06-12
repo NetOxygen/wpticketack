@@ -6,6 +6,9 @@
  * <div
  *    <!-- Required -->
  *    data-component="Pass/BuyForm"
+ *    data-redirect="none|cart|checkout"
+ *    data-cart-url="https://..."
+ *    data-checkout-url="https://..."
  * >
  */
 define([
@@ -14,8 +17,11 @@ define([
         config, postal, _, $, TKTApi, i18n) {
 
     function BuyForm($container, state) {
-        this.$container = $container;
-        this.$pass      = $('.pass', this.$container);
+        this.$container   = $container;
+        this.$pass        = $('.pass', this.$container);
+        this.redirect     = this.$container.data('redirect');
+        this.cart_url     = this.$container.data('cart-url');
+        this.checkout_url = this.$container.data('checkout-url');
 
         this.$selected_pass = this.$pass.eq(0)
 
@@ -41,7 +47,7 @@ define([
 
             $('form', this.$container).submit((e) => {
                 e.preventDefault();
-                this.add_to_cart($('button[type="submit"]', this.$container).data('redirect'));
+                this.add_to_cart();
                 return false;
             });
 
@@ -50,7 +56,7 @@ define([
             }
         },
 
-        add_to_cart: function(redirect) {
+        add_to_cart: function() {
             let userdata = $('.field:visible,.opaque_field', this.$container)
                 .filter(function(i) { return !!($(this).val()); })
                 .serializeJSON();
@@ -73,27 +79,21 @@ define([
                 if (err)
                     return this.show_error(i18n.t('Une erreur est survenue. Veuillez ré-essayer ultérieurement.'));
 
-                let url = null;
-                switch (redirect) {
-                    case 'none':
-                        this.show_success(i18n.t('Votre panier a été mis à jour'));
-                        break;
+                switch (this.redirect) {
                     case 'cart':
-                        url = config.get('cart_url');
+                        window.location.href = this.cart_url;
                         break;
-                    case 'tkt_cart':
-                        url = TKTApi.getCartViewUrl();
+                    case 'checkout':
+                        window.location.href = this.checkout_url;
                         break;
-                    case 'tkt_checkout':
-                        url = TKTApi.getCheckoutUrl();
-                        break;
+                    default:
+                        this.show_success(i18n.t('Votre panier a été mis à jour'));
+                        postal.publish({
+                            channel: "cart",
+                            topic: "reload"
+                        });
                 }
-                url && (window.location.href = url);
 
-                postal.publish({
-                    channel: "cart",
-                    topic: "reload"
-                });
             });
         },
 

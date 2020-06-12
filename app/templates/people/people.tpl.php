@@ -34,7 +34,7 @@ use Ticketack\WP\Templates\TKTTemplate;
             </div>
             <div class="col-md-3">
                 <h4><?= tkt_t('Recherche') ?></h4>
-                <input type="text" class="tkt-filter-tags form-control" placeholder="<?= tkt_t('Rechercher') ?>">
+                <input type="text" class="tkt-input form-control tkt-filter-tags form-control" placeholder="<?= tkt_t('Rechercher') ?>">
                 <h4><?= tkt_t('Pays') ?></h4>
                 <ul>
                     <li class="reset-filter"><a class="tkt-filter-country" href="#"><?= tkt_t('Tous') ?></a></li>

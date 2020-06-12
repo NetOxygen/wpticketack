@@ -48,13 +48,15 @@ $nb_slides = count($trailers) + count($posters);
 <div class="tkt-wrapper tkt_event">
   <div id="tkt-event">
 
-    <div class="row">
-      <div class="col">
-        <span class="title">
-          <?= $title->{TKT_LANG} ?>
-        </span>
+    <section class="tkt-section title-section">
+      <div class="row">
+        <div class="col">
+          <h3 class="tkt-section-title">
+            <?= $title->{TKT_LANG} ?>
+          </h3>
+        </div>
       </div>
-    </div>
+    </section>
     <?php if ($nb_slides > 0) : ?>
     <section class="tkt-full-section carousel-section">
       <div class="row">
@@ -97,7 +99,7 @@ $nb_slides = count($trailers) + count($posters);
     </section>
     <?php endif; ?>
 
-    <section class="tkt-section infos-section">
+    <section class="tkt-section tkt-light-sectioninfos-section">
       <?php if (!empty($description)) : ?>
       <div class="row">
         <div class="col">

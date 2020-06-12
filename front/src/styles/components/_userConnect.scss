@@ -6,9 +6,6 @@
       display: block;
       margin-bottom: 0.5rem;
   }
-  .disconnect-btn {
-    width: 100%;
-  }
   .connect-panel {
     text-align: center;
 
@@ -16,14 +13,6 @@
       text-transform: uppercase;
       line-height: 1.2rem;
       display: block;
-
-      a {
-        color: $active_color;
-
-        &:hover {
-          color: $assertive_color;
-        }
-      }
     }
     input {
       width: 100%;
@@ -39,16 +28,16 @@
     }
 
     ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-      color: $dark_color;
+      color: lighten($text_color, 20%);
       opacity: 1; /* Firefox */
     }
 
     :-ms-input-placeholder { /* Internet Explorer 10-11 */
-      color: $dark_color;
+      color: lighten($text_color, 20%);
     }
 
     ::-ms-input-placeholder { /* Microsoft Edge */
-      color: $dark_color;
+      color: lighten($text_color, 20%);
     }
 
     .connect-btn {

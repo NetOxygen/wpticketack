@@ -41,7 +41,7 @@ $image_url     = tkt_img_proxy_url($article->first_poster()->url, $images_width,
         </div>
 
         <div class="col-sm-12 text-center mt-4">
-            <a class="btn btn-primary" href="<?= tkt_article_details_url($article) ?>">
+            <a class="button" href="<?= tkt_article_details_url($article) ?>">
                 <?= tkt_t('Plus d\'informations'); ?>
             </a>
         </div>

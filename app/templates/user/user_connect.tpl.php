@@ -25,27 +25,24 @@ use Ticketack\WP\TKTApp;
         <div class="row">
             <div class="col">
                 <div class="user-infos">
-                    <span class="dark"><%= [ticket.contact.firstname, ticket.contact.lastname].join(' ') %></span>
+                    <span><%= [ticket.contact.firstname, ticket.contact.lastname].join(' ') %></span>
                 </div>
-            	<span class="dark">
-                    <a href="<%= ticket_view_url %>">
-                        <?= tkt_t("Voir mes réservations") ?>
-                    </a>
-            	</span>
-				<br/>
-                <button class="button button-small button-invert disconnect-btn">
+                <a class="btn button"href="<%= ticket_view_url %>">
+                    <?= tkt_t("Voir mes réservations") ?>
+                </a>
+                <button class="btn button disconnect-btn">
                     <?= tkt_t('Me déconnecter') ?>
                 </button>
             </div>
         </div>
         <% } else { %>
         <div class="connect-panel">
-            <span class="dark"><?= tkt_t('Vous avez un abonnement ?') ?></span>
-            <span class="dark"><?= tkt_t('Connectez-vous !') ?></span>
+            <span><?= tkt_t('Vous avez un abonnement ?') ?></span>
+            <span><?= tkt_t('Connectez-vous !') ?></span>
 
             <div class="row">
                 <div class="col">
-                    <input type="text" class="input input-invert text-center pass-number-input" placeholder="<?= tkt_t('ID') ?>"/>
+                    <input type="text" class="tkt-input input-invert form-control text-center pass-number-input" placeholder="<?= tkt_t('ID') ?>"/>
                 </div>
             </div>
 
@@ -58,14 +55,14 @@ use Ticketack\WP\TKTApp;
             <div class="row">
                 <div class="col text-right">
                     <div class="error pass-error d-none"></div>
-                    <button class="button button-small button-invert connect-btn">
+                    <button class="button button-small connect-btn">
                         <?= tkt_t('Me connecter') ?>
                     </button>
                 </div>
             </div>
 
-            <span class="dark">
-            <a href="<?= tkt_buy_pass_url() ?>"><?= tkt_t('Acheter') ?></a> <?= tkt_t('un abonnement') ?>
+            <span>
+            <a class="" href="<?= tkt_buy_pass_url() ?>"><?= tkt_t('Acheter') ?></a> <?= tkt_t('un abonnement') ?>
             </span>
         </div>
         <% } %>

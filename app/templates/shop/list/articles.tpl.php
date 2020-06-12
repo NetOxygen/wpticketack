@@ -14,7 +14,7 @@ use Ticketack\WP\Templates\TKTTemplate;
  * }
  */
 ?>
-<div id="tkt-shop" class="tkt-wrapper" data-component="Article/AvailabilityState">
+<div id="tkt-shop" class="tkt-wrapper">
     <?php if (empty($data->articles)) : ?>
         <h3 class="no-event-title"><?= tkt_t('Aucun article dans cette catégorie, revenez nous visiter prochainement.') ?></h3>
     <?php else: ?>

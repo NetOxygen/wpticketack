@@ -32,7 +32,7 @@ class CartShortcode extends TKTShortcode
      */
     public function run($atts, $content)
     {
-        $hidden_links = array_key_exists('hide_links', $atts) ? $atts['hide_links'] : '';
+        $hidden_links = array_key_exists('hide_links', (array)$atts) ? $atts['hide_links'] : '';
 
         return TKTTemplate::render(
             'cart/cart',

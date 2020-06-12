@@ -23,6 +23,7 @@ const build_dir = './build';
 const KARMA_PORT = 9876;
 
 const dirs = {
+  css_root: src_dir + '/styles/',
   css_src: src_dir + '/styles/**/*.scss',
   js_src: src_dir + '/js/**/*.js',
   js_src_exclude: [ '!./node_moules/**/*.js' ],
@@ -89,6 +90,14 @@ gulp.task('copy-require', () => {
         .pipe(rename({ suffix: '.min' }))
         .pipe(gulp.dest(dirs.js_dest));
 });
+gulp.task('create-scss-override', () => {
+    gulp.src([
+        dirs.css_root + '/_common.scss',
+        dirs.css_root + '/templates/*.scss',
+        dirs.css_root + '/components/*.scss'
+    ]).pipe(concat('override.scss'))
+      .pipe(gulp.dest(dirs.css_dest));
+});
 
 // Test
 gulp.task('test', function (done) {
@@ -113,7 +122,7 @@ gulp.task('sass:prod', () =>
     .pipe(gulp.dest(dirs.css_dest))
 );
 gulp.task('sass:watch', () =>
-  gulp.watch(dirs.css_src, ['sass:dev'])
+  gulp.watch(dirs.css_src, ['sass:dev', 'create-scss-override'])
 );
 
 // Images
@@ -168,6 +177,6 @@ gulp.task('zip', [/*'prod'*/], function () {
 });
 
 gulp.task('default', ['sass:watch', 'images:watch', 'babel:watch']);
-gulp.task('dev', ['clean', 'sass:dev', 'babel:dev', 'images:dev']);
-gulp.task('prod', ['sass:prod', 'babel:prod', 'images:prod']);
+gulp.task('dev', ['clean', 'sass:dev', 'babel:dev', 'images:dev', 'create-scss-override']);
+gulp.task('prod', ['sass:prod', 'babel:prod', 'images:prod', 'create-scss-override']);
 gulp.task('wp:release', ['zip']);

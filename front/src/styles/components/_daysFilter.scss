@@ -11,26 +11,23 @@
             text-align: center;
             border: 1px solid #e0e0e0;
             border-left: none;
-            background-color: $dark_color;
+            background-color: $badge_bg_color;
             padding: 0.75rem 0;
             &:first-child {
                 border-left: 1px solid #e0e0e0;
             }
             a {
                 text-decoration: none !important;
-                color: $light_color;
+                color: $text_color;
                 span.tkt-day-filter-day {
 
                 }
                 span.tkt-day-filter-date {
 
                 }
-                &:hover {
-                    color: $light_color;
-                }
             }
             &.active {
-                background-color: $grey_color;
+                background-color: $active_color;
             }
         }
     }

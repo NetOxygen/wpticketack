@@ -24,7 +24,7 @@ use Ticketack\WP\TKTApp;
         <% _.mapKeys(variants, function(variant, key) { %>
         <div class="row pricing-row">
             <div class="col">
-                <span class="tkt-badge tkt-badge-split flex-rev-on-mobile">
+                <span class="tkt-badge tkt-badge-plus-minus tkt-badge-split flex-rev-on-mobile">
                     <span class="tkt-badge-part tkt-grey-badge tkt-minus-btn text-center">-</span>
                     <span class="tkt-badge-part tkt-light-badge text-center">
                         <span class="variant-qty">
@@ -40,7 +40,7 @@ use Ticketack\WP\TKTApp;
                     </span>
                     <span class="tkt-badge-part tkt-dark-badge tkt-plus-btn text-center">+</span>
                 </span>
-                <input type="hidden" data-variant="<%= key %>" class="input variant-input" value="0"/>
+                <input type="hidden" data-variant="<%= key %>" class="tkt-input variant-input" value="0"/>
             </div>
         </div>
         <% }) %>

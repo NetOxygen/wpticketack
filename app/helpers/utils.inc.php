@@ -2,6 +2,7 @@
 
 use Ticketack\WP\TKTApp;
 use Ticketack\WP\Helpers\SyncHelper;
+use ScssPhp\ScssPhp\Compiler;
 
 /**
  * Utils functions
@@ -154,9 +155,9 @@ function tkt_page_url($slug, $query = "")
     if (TKT_WPML_INSTALLED) {
         // get the page in default language
         $page = get_page_by_path($slug, OBJECT, 'page');
-        if (current_lang() != default_lang()) {
+        if (tkt_current_lang() != tkt_defaulkt_lang()) {
             // get the slug in current language
-            $translated_slug = translated_slug_by_id($page->ID, 'page', current_lang(), $slug);
+            $translated_slug = translated_slug_by_id($page->ID, 'page', tkt_current_lang(), $slug);
             // get the page in current language
             $page = get_page_by_path($slug, OBJECT, 'page');
         }
@@ -537,7 +538,7 @@ function tkt_t($str) {
 function tkt_get_event_slug($event, $lang)
 {
     $title = $event->title($lang);
-    $slug  = sanitize_title($title).($lang === default_lang() ? '' : '-'.$lang);
+    $slug  = sanitize_title($title).($lang === tkt_defaulkt_lang() ? '' : '-'.$lang);
 
     return $slug;
 }
@@ -545,7 +546,7 @@ function tkt_get_event_slug($event, $lang)
 function tkt_get_article_slug($article, $lang)
 {
     $title = $article->name($lang);
-    $slug  = sanitize_title($title).($lang === default_lang() ? '' : '-'.$lang);
+    $slug  = sanitize_title($title).($lang === tkt_defaulkt_lang() ? '' : '-'.$lang);
 
     return $slug;
 }
@@ -614,7 +615,7 @@ function tkt_event_data_attributes($event, $attributes)
     if (in_array('section', $attributes)) {
         $sections = [];
         foreach ($event->screenings() as $s) {
-            $sections[] = $s->opaque('section', [])[default_lang()];
+            $sections[] = $s->opaque('section', [])[tkt_defaulkt_lang()];
         }
         $values[] = 'data-section="'.implode(',', $sections).'"';
     }
@@ -645,7 +646,7 @@ function tkt_screening_data_attributes($screening, $attributes)
     }
 
     if (in_array('section', $attributes)) {
-        $values[] = 'data-section="'.$screening->opaque('section', [])[default_lang()].'"';
+        $values[] = 'data-section="'.$screening->opaque('section', [])[tkt_defaulkt_lang()].'"';
     }
 
     return implode(' ', $values);
@@ -695,7 +696,7 @@ function tkt_person_data_attributes($person, $attributes)
  *
  * @return string
  */
-function default_lang()
+function tkt_defaulkt_lang()
 {
     return TKTApp::get_instance()->get_config('i18n.default_lang', 'fr');
 }
@@ -705,10 +706,10 @@ function default_lang()
  *
  * @return string
  */
-function current_lang()
+function tkt_current_lang()
 {
     if (!TKT_WPML_INSTALLED) {
-        return TKTApp::get_instance()->get_config('i18n.default_lang', 'fr');
+        return tkt_defaulkt_lang();
     }
 
     return ICL_LANGUAGE_CODE;
@@ -736,4 +737,54 @@ function translated_slug_by_id($id, $type, $lang, $default)
     $post_obj = get_post($post_id);
 
     return $post_obj->post_name;
+}
+
+/**
+ * Return a list of overridable scss variables.
+ */
+function get_overridable_scss_variables()
+{
+    return [
+        'text_color' => '#000',
+        'link_color' => '#007BFF',
+        'active_color' => '#1C99E2',
+        'btn_bg_color' => '#121212',
+        'btn_text_color' => '#FFFFFF',
+        'input_bg_color' => '#FFFFFF',
+        'input_text_color' => '#000000',
+        'section_padding' => '20px',
+        'light_section_bg_color' => '#F0F0F0',
+        'light_section_text_color' => '#000',
+        'dark_section_bg_color' => '#212121',
+        'dark_section_text_color' => '#FFF',
+        'badge_bg_color' => '#FFF',
+        'badge_text_color' => '#000',
+        'badge_active_bg_color' => '#1C99E2',
+        'badge_active_text_color' => '#FFF',
+        'badge_title_bg_color' => '#000',
+        'badge_title_text_color' => '#FFF',
+        'badge_value_bg_color' => '#333',
+        'badge_value_text_color' => '#FFF',
+        'border_radius' => '4px',
+    ];
+}
+
+/**
+ * Compile scss override file with the variables
+ * provided by `get_overridable_scss_variables()`.
+ */
+function tkt_compile_scss_override()
+{
+    $scss = new Compiler();
+    $scss->setImportPaths(plugin_dir_path(TKT_APP).'front/build/styles');
+    $scss->setFormatter('ScssPhp\ScssPhp\Formatter\Crunched');
+
+    $variables = get_overridable_scss_variables();
+    foreach ($variables as $name => $value) {
+        $variables[$name] = TKTApp::get_instance()->get_config('advanced.'.$name, $value);
+    }
+    $scss->setVariables($variables);
+
+    $output_path = TKT_OVERRIDE_DIR.'/tkt_override.css';
+    file_put_contents($output_path, $scss->compile('@import "override.scss";'));
 }

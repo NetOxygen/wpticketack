@@ -59,7 +59,10 @@ class ShopShortcode extends TKTShortcode
             return TKTTemplate::render(
                 'shop/'.$template.'/articles',
                 (object)[
-                    'articles' => array_chunk($articles, $item_width),
+                    'articles' => array_chunk(
+                        $articles,
+                        (int)(12 / $item_width)
+                    ),
                 ]
             );
         } catch (TKTApiException $e) {

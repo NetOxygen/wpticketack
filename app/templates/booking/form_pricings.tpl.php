@@ -17,7 +17,7 @@ use Ticketack\WP\TKTApp;
     <div class="pricings-form">
         <div class="row">
             <div class="col">
-                <span class="assertive">
+                <span>
                     <?= tkt_t('Entrez le nombre de place(s) que vous souhaitez ajouter à votre panier :') ?>
                 </span>
             </div>
@@ -25,7 +25,7 @@ use Ticketack\WP\TKTApp;
         <% _.mapKeys(screening.pricings, function(p, key) { %>
         <div class="row pricing-row">
             <div class="col">
-                <span class="tkt-badge tkt-badge-split flex-rev-on-mobile">
+                <span class="tkt-badge tkt-badge-split flex-rev-on-mobile tkt-badge-plus-minus">
                     <span class="tkt-badge-part tkt-grey-badge tkt-minus-btn text-center">-</span>
                     <span class="tkt-badge-part tkt-light-badge text-center">
                         <span class="pricing-qty">
@@ -72,7 +72,7 @@ use Ticketack\WP\TKTApp;
                         <span class="pass-number"><?= tkt_t('ID') ?></span>
                     </div>
                     <div class="col">
-                        <input type="text" class="input pass-number-input"/>
+                        <input type="text" class="tkt-input pass-number-input"/>
                     </div>
                 </div>
                 <div class="row">
@@ -80,7 +80,7 @@ use Ticketack\WP\TKTApp;
                         <span class="pass-key"><?= tkt_t('Code') ?></span>
                     </div>
                     <div class="col">
-                        <input type="password" class="input pass-key-input"/>
+                        <input type="password" class="tkt-input form-control pass-key-input"/>
                     </div>
                 </div>
                 <div class="row">
