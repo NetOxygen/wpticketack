@@ -1,6 +1,7 @@
 <?php
 namespace Ticketack\WP\Actions;
 
+use Ticketack\WP\TKTApp;
 use Ticketack\WP\Templates\TKTTemplate;
 
 /**
@@ -89,6 +90,7 @@ class AdminMenuAction extends TKTAction
         </div>
 
         <?php
+        TKTApp::get_instance()->load_config();
         tkt_compile_scss_override();
     }
 
