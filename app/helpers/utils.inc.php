@@ -725,7 +725,7 @@ function tkt_current_lang()
  *
  * @return string: The slug in the desired language
  */
-function translated_slug_by_id($id, $type, $lang, $default)
+function tkt_translated_slug_by_id($id, $type, $lang, $default)
 {
     if (!TKT_WPML_INSTALLED) {
         return $default;
