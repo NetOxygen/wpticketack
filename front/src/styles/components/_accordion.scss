@@ -1,0 +1,21 @@
+.tkt-accordion {
+    .card {
+        .card-header {
+            .card-title {
+                button {
+
+                }
+            }
+        }
+        .card-content {
+            display: none;
+
+            &.show {
+                display: block;
+            }
+            .card-body {
+
+            }
+        }
+    }
+}
