@@ -553,7 +553,7 @@ class AdminSettingsAction extends TKTAction
                 $ancestor_ids = get_ancestors($page->ID, 'page');
 
                 $slug = implode('/', array_map(function ($id) {
-                    $tr_ancestor_id = icl_object_id($id, 'page', FALSE, tkt_defaulkt_lang());
+                    $tr_ancestor_id = TKT_WPML_INSTALLED ? icl_object_id($id, 'page', FALSE, tkt_defaulkt_lang()) : $id;
                     return get_post($tr_ancestor_id)->post_name;
                 }, $ancestor_ids));
 
