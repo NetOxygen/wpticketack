@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-03 15:48+0200\n"
+"POT-Creation-Date: 2020-06-15 19:16+0200\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Alain Pellaux <alain.pellaux@netoxygen.ch>\n"
+"Last-Translator: Belkacem Alidra <belkacem.alidra@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -30,6 +30,25 @@ msgid "Accéder au panier"
 msgstr ""
 
 msgid "Ajouter au panier"
+msgstr ""
+
+msgid "Acheter"
+msgstr ""
+
+msgid "Merci, votre commande est réservée dans votre panier pour 30 minutes."
+msgstr ""
+
+msgid "Continuer"
+msgstr ""
+
+msgid "ma visite"
+msgstr ""
+
+msgid ""
+"Entrez le nombre d'éléments (s) que vous souhaitez ajouter à votre panier :"
+msgstr ""
+
+msgid "Ajouter à mon panier"
 msgstr ""
 
 msgid "Vos informations"
@@ -100,26 +119,11 @@ msgstr ""
 msgid "Réserver une place sur mon abonnement"
 msgstr ""
 
-msgid "Acheter"
-msgstr ""
-
 msgid "Entrée libre"
-msgstr ""
-
-msgid "Merci, votre commande est réservée dans votre panier pour 30 minutes."
-msgstr ""
-
-msgid "Continuer"
-msgstr ""
-
-msgid "ma visite"
 msgstr ""
 
 msgid ""
 "Entrez le nombre de place(s) que vous souhaitez ajouter à votre panier :"
-msgstr ""
-
-msgid "Ajouter à mon panier"
 msgstr ""
 
 msgid "Vous avez un abonnement ?"
@@ -147,40 +151,16 @@ msgstr ""
 msgid "Afficher mes réservations"
 msgstr ""
 
-msgid "Shortcodes disponibles"
-msgstr ""
-
-msgid "Affichage en liste"
-msgstr ""
-
-msgid "Affichage des prochaines séances en liste"
-msgstr ""
-
-msgid "Affichage en grille"
-msgstr ""
-
-msgid "Affichage des prochains films en grille de 4"
-msgstr ""
-
-msgid "Affichage en galerie"
-msgstr ""
-
-msgid "Affichage des prochains films en galerie de 4 colonnes"
-msgstr ""
-
-msgid "Panier"
-msgstr ""
-
-msgid "Affichage du contenu du panier"
-msgstr ""
-
-msgid "Abonnements"
-msgstr ""
-
-msgid "Vente des différents types d'abonnements"
+msgid ""
+"La documentation est disponible <a target=\"_blank\" href=\"https://"
+"ticketack.com/documentation/Fran%C3%A7ais/Ticketack%20-%20Vente%20en%20ligne"
+"%20et%20Int%C3%A9gration%20billetterie.pdf\">à cette adresse</a>"
 msgstr ""
 
 msgid "Votre panier est vide"
+msgstr ""
+
+msgid "Votre panier"
 msgstr ""
 
 msgid "Achats"
@@ -242,6 +222,55 @@ msgstr ""
 msgid "un abonnement"
 msgstr ""
 
+msgid "Nous vous remercions pour votre commande."
+msgstr ""
+
+#, php-format
+msgid ""
+"J'accepte les <a target=\"_blank\" href=\"%s\">conditions générales de "
+"vente</a> et la <a target=\"_blank\" href=\"%s\">politique de protection des "
+"données</a>"
+msgstr ""
+
+msgid "Aucun moyen de paiement configué."
+msgstr ""
+
+msgid "Vos données de facturation"
+msgstr ""
+
+msgid "Adresse e-mail"
+msgstr ""
+
+msgid "Votre adresse e-mail"
+msgstr ""
+
+msgid "Confirmation de votre adresse e-mail"
+msgstr ""
+
+msgid "Saisissez une deuxième fois votre adresse"
+msgstr ""
+
+msgid "Téléphone fixe"
+msgstr ""
+
+msgid "Votre numéro de téléphone"
+msgstr ""
+
+msgid "Téléphone portable"
+msgstr ""
+
+msgid "Réserver (paiement sur place)"
+msgstr ""
+
+msgid "Procéder au paiement par carte bancaire"
+msgstr ""
+
+msgid "Une erreur est survenue lors de votre commande."
+msgstr ""
+
+msgid "Merci de bien vouloir réessayer."
+msgstr ""
+
 msgid "Recherche"
 msgstr ""
 
@@ -270,15 +299,6 @@ msgid "Vous avez choisi :"
 msgstr ""
 
 msgid "Valider"
-msgstr ""
-
-msgid "Commander"
-msgstr ""
-
-msgid "Il ne reste que quelques articles"
-msgstr ""
-
-msgid "Plus de stock"
 msgstr ""
 
 msgid "Tout"
@@ -436,10 +456,22 @@ msgstr ""
 msgid "Pages"
 msgstr ""
 
+msgid "Panier"
+msgstr ""
+
+msgid "Checkout"
+msgstr ""
+
 msgid "Images"
 msgstr ""
 
+msgid "Abonnements"
+msgstr ""
+
 msgid "Langues"
+msgstr ""
+
+msgid "Paramètres avancés"
 msgstr ""
 
 msgid "Documentation"
@@ -464,6 +496,33 @@ msgid "Clé d'API"
 msgstr ""
 
 msgid "Programme"
+msgstr ""
+
+msgid "Shop"
+msgstr ""
+
+msgid "Remerciements"
+msgstr ""
+
+msgid "Redirection à la mise au panier"
+msgstr ""
+
+msgid "URL des CGV"
+msgstr ""
+
+msgid "URL des conditions de protection des données"
+msgstr ""
+
+msgid "Informations optionnelles à saisir"
+msgstr ""
+
+msgid "Informations obligatoires à saisir"
+msgstr ""
+
+msgid "Autoriser les réservations"
+msgstr ""
+
+msgid "Autoriser Postfinance"
 msgstr ""
 
 msgid "Dimensions des images"
@@ -493,10 +552,16 @@ msgstr ""
 msgid "Langue par défaut"
 msgstr ""
 
-msgid "Options avancées"
+msgid "Customisation css"
 msgstr ""
 
 msgid "Saisissez les slugs des pages contenant les différents shortcodes"
+msgstr ""
+
+msgid "Configurez le comportement du panier"
+msgstr ""
+
+msgid "Saisissez les informations concernant la page de paiement"
 msgstr ""
 
 msgid "Saisissez les informations d'accès à la billetterie"

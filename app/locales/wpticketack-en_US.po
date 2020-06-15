@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-03 15:50+0200\n"
+"POT-Creation-Date: 2020-06-15 19:17+0200\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Alain Pellaux <alain.pellaux@netoxygen.ch>\n"
+"Last-Translator: Belkacem Alidra <belkacem.alidra@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -31,6 +31,25 @@ msgstr "Add to cart"
 
 msgid "Ajouter au panier"
 msgstr "Add to cart"
+
+msgid "Acheter"
+msgstr "Buy"
+
+msgid "Merci, votre commande est réservée dans votre panier pour 30 minutes."
+msgstr "Thank you, your order is reserved in your cart for 30 minutes."
+
+msgid "Continuer"
+msgstr "Continue"
+
+msgid "ma visite"
+msgstr "my visit"
+
+msgid ""
+"Entrez le nombre d'éléments (s) que vous souhaitez ajouter à votre panier :"
+msgstr "Enter the number of items you want to add to your cart"
+
+msgid "Ajouter à mon panier"
+msgstr "Add to my cart"
 
 msgid "Vos informations"
 msgstr "Your informations"
@@ -102,27 +121,12 @@ msgstr "Please choose a time"
 msgid "Réserver une place sur mon abonnement"
 msgstr "Book on my pass"
 
-msgid "Acheter"
-msgstr "Buy"
-
 msgid "Entrée libre"
-msgstr ""
-
-msgid "Merci, votre commande est réservée dans votre panier pour 30 minutes."
-msgstr "Thank you, your order is reserved in your cart for 30 minutes."
-
-msgid "Continuer"
-msgstr "Continue"
-
-msgid "ma visite"
-msgstr "my visit"
+msgstr "Free entry"
 
 msgid ""
 "Entrez le nombre de place(s) que vous souhaitez ajouter à votre panier :"
 msgstr "Enter the number of tickets you want to add to your cart"
-
-msgid "Ajouter à mon panier"
-msgstr "Add to my cart"
 
 msgid "Vous avez un abonnement ?"
 msgstr "You have a pass?"
@@ -149,40 +153,20 @@ msgstr "You  can not book this screening with your pass"
 msgid "Afficher mes réservations"
 msgstr "Show my bookings"
 
-msgid "Shortcodes disponibles"
-msgstr "Available shortcodes"
-
-msgid "Affichage en liste"
-msgstr "List display"
-
-msgid "Affichage des prochaines séances en liste"
-msgstr "Display screenings in list"
-
-msgid "Affichage en grille"
-msgstr "Grid display"
-
-msgid "Affichage des prochains films en grille de 4"
-msgstr "Display movies in a 4 columns grid"
-
-msgid "Affichage en galerie"
-msgstr "Gallery display"
-
-msgid "Affichage des prochains films en galerie de 4 colonnes"
-msgstr "Display movies in a 4 columns gallery"
-
-msgid "Panier"
-msgstr "Cart"
-
-msgid "Affichage du contenu du panier"
-msgstr "Display the cart content"
-
-msgid "Abonnements"
-msgstr "Pass"
-
-msgid "Vente des différents types d'abonnements"
-msgstr "Sell different pass types"
+msgid ""
+"La documentation est disponible <a target=\"_blank\" href=\"https://"
+"ticketack.com/documentation/Fran%C3%A7ais/Ticketack%20-%20Vente%20en%20ligne"
+"%20et%20Int%C3%A9gration%20billetterie.pdf\">à cette adresse</a>"
+msgstr ""
+"The documentation is available on <a target=\"_blank\" href=\"https://"
+"https://ticketack.com/documentation/English/Ticketack%20-%20Ticketing"
+"%20eshop%20and%20website%20integration.pdf\">this page</a>"
 
 msgid "Votre panier est vide"
+msgstr "Your cart is empty"
+
+#, fuzzy
+msgid "Votre panier"
 msgstr "Your cart is empty"
 
 msgid "Achats"
@@ -244,6 +228,57 @@ msgstr "Login !"
 msgid "un abonnement"
 msgstr "a pass"
 
+msgid "Nous vous remercions pour votre commande."
+msgstr "Thank you for your order"
+
+#, php-format
+msgid ""
+"J'accepte les <a target=\"_blank\" href=\"%s\">conditions générales de "
+"vente</a> et la <a target=\"_blank\" href=\"%s\">politique de protection des "
+"données</a>"
+msgstr "I accept the <a target=\"_blank\" href=\"%s\">general terms "
+"and conditions of sale</a> and the <a target=\"_blank\" href=\"%s\">data "
+"protection policy</a>."
+
+msgid "Aucun moyen de paiement configué."
+msgstr "No payment method configured"
+
+msgid "Vos données de facturation"
+msgstr "Your invoicing data"
+
+msgid "Adresse e-mail"
+msgstr "E-mail address"
+
+msgid "Votre adresse e-mail"
+msgstr "Your e-mail address"
+
+msgid "Confirmation de votre adresse e-mail"
+msgstr "Confirm your e-mail address"
+
+msgid "Saisissez une deuxième fois votre adresse"
+msgstr "Enter your e-mail address a second time"
+
+msgid "Téléphone fixe"
+msgstr "Fix phone"
+
+msgid "Votre numéro de téléphone"
+msgstr "Your phone number"
+
+msgid "Téléphone portable"
+msgstr "Cellular phone"
+
+msgid "Réserver (paiement sur place)"
+msgstr "Book (on site payment)"
+
+msgid "Procéder au paiement par carte bancaire"
+msgstr "Pay with a credit card"
+
+msgid "Une erreur est survenue lors de votre commande."
+msgstr "An error has occurred during your order."
+
+msgid "Merci de bien vouloir réessayer."
+msgstr "Please try again."
+
 msgid "Recherche"
 msgstr "Search"
 
@@ -259,6 +294,13 @@ msgstr "Company"
 msgid "Profession"
 msgstr "Job"
 
+msgid "Country"
+msgstr "Country"
+
+#, fuzzy
+msgid "Company"
+msgstr "Company"
+
 msgid "Aucun article dans cette catégorie, revenez nous visiter prochainement."
 msgstr "No screening currently scheduled, come back soon."
 
@@ -267,15 +309,6 @@ msgstr "You chose"
 
 msgid "Valider"
 msgstr "Confirm"
-
-msgid "Commander"
-msgstr "my order"
-
-msgid "Il ne reste que quelques articles"
-msgstr "There are only a few places"
-
-msgid "Plus de stock"
-msgstr "No more stock"
 
 msgid "Tout"
 msgstr "All"
@@ -433,11 +466,23 @@ msgstr "API"
 msgid "Pages"
 msgstr "Pages"
 
+msgid "Panier"
+msgstr "Cart"
+
+msgid "Checkout"
+msgstr "Checkout"
+
 msgid "Images"
 msgstr "Images"
 
+msgid "Abonnements"
+msgstr "Pass"
+
 msgid "Langues"
 msgstr "Languages"
+
+msgid "Paramètres avancés"
+msgstr "Advanced parameters"
 
 msgid "Documentation"
 msgstr "Documentation"
@@ -462,6 +507,33 @@ msgstr "API key"
 
 msgid "Programme"
 msgstr "Program"
+
+msgid "Shop"
+msgstr "Shop"
+
+msgid "Remerciements"
+msgstr "Thank you page"
+
+msgid "Redirection à la mise au panier"
+msgstr "On add to cart redirection"
+
+msgid "URL des CGV"
+msgstr "GTC URL"
+
+msgid "URL des conditions de protection des données"
+msgstr "URL of the data protection conditions"
+
+msgid "Informations optionnelles à saisir"
+msgstr "Optional informations to be entered"
+
+msgid "Informations obligatoires à saisir"
+msgstr "Mandatory informations to be entered"
+
+msgid "Autoriser les réservations"
+msgstr "Allow bookings"
+
+msgid "Autoriser Postfinance"
+msgstr "Allow Postfinance"
 
 msgid "Dimensions des images"
 msgstr "Images dimensions"
@@ -490,11 +562,17 @@ msgstr "Mandatory fields for each pass type"
 msgid "Langue par défaut"
 msgstr "Default language"
 
-msgid "Options avancées"
-msgstr "Advanced options"
+msgid "Customisation css"
+msgstr "CSS customization"
 
 msgid "Saisissez les slugs des pages contenant les différents shortcodes"
 msgstr "Set the slugs of the pages which contain the shortcodes"
+
+msgid "Configurez le comportement du panier"
+msgstr "Customize the cart behavior"
+
+msgid "Saisissez les informations concernant la page de paiement"
+msgstr "Set the checkout page informations"
 
 msgid "Saisissez les informations d'accès à la billetterie"
 msgstr "Set the ticketing system access informations"
@@ -514,6 +592,42 @@ msgstr "Languages configuration"
 msgid ""
 "Ne modifiez les valeurs ci-dessous que si vous savez ce que vous faites."
 msgstr "Change these settings only if you know what you are doing."
+
+#~ msgid "Shortcodes disponibles"
+#~ msgstr "Available shortcodes"
+
+#~ msgid "Affichage en liste"
+#~ msgstr "List display"
+
+#~ msgid "Affichage des prochaines séances en liste"
+#~ msgstr "Display screenings in list"
+
+#~ msgid "Affichage en grille"
+#~ msgstr "Grid display"
+
+#~ msgid "Affichage des prochains films en grille de 4"
+#~ msgstr "Display movies in a 4 columns grid"
+
+#~ msgid "Affichage en galerie"
+#~ msgstr "Gallery display"
+
+#~ msgid "Affichage des prochains films en galerie de 4 colonnes"
+#~ msgstr "Display movies in a 4 columns gallery"
+
+#~ msgid "Vente des différents types d'abonnements"
+#~ msgstr "Sell different pass types"
+
+#~ msgid "Commander"
+#~ msgstr "my order"
+
+#~ msgid "Il ne reste que quelques articles"
+#~ msgstr "There are only a few places"
+
+#~ msgid "Plus de stock"
+#~ msgstr "No more stock"
+
+#~ msgid "Options avancées"
+#~ msgstr "Advanced options"
 
 #~ msgid "Clé du serveur proxy"
 #~ msgstr "Server key"
