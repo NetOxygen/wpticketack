@@ -22,7 +22,7 @@ $types = $data->tickettypes;
 
     <?php else : ?>
 
-      <div id="pass-accordion">
+      <div id="pass-accordion" class="tkt-accordion">
         <?php foreach ($types as $tickettype) :?>
           <div class="card" id="pass-<?= $tickettype->_id() ?>">
             <div class="card-header">
@@ -32,7 +32,7 @@ $types = $data->tickettypes;
                 </button>
               </h5>
             </div>
-            <div id="item-<?= $tickettype->_id(); ?>" data-type="<?= $tickettype->_id(); ?>" class="pass">
+            <div id="item-<?= $tickettype->_id(); ?>" data-type="<?= $tickettype->_id(); ?>" class="card-content pass">
               <div class="card-body">
                 <p><?= nl2br(tkt_html($tickettype->description(TKT_LANG))) ?></p>
                 <input type="hidden" class="required-fields" id="<?= $tickettype->_id().'-fields' ?>" value="<?= implode(',', $tickettype->required_fields()) ?>"
