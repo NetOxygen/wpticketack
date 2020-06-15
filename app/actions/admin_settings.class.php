@@ -421,7 +421,7 @@ class AdminSettingsAction extends TKTAction
         $this->options = get_option($group);
         $value = isset($this->options[$name]) ? esc_attr($this->options[$name]) : $default;
         printf(
-            '<div style="float: left; padding-left: 20px; background-color: '.$value.'"><input type="text" id="%s" name="%s[%s]" value="%s" placeholder="%s"/><div>',
+            '<input data-jscolor="" type="text" id="%s" name="%s[%s]" value="%s" placeholder="%s"/><div>',
             $name,
             $group,
             $name,
