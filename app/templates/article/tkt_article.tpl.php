@@ -41,23 +41,20 @@ $nb_slides = count($posters);
             </div>
             <div class="row">
                 <div class="col-sm-12 col-md-4">
-                    <div id="article-carousel" data-component="Media/Carousel" data-format="1">
-                    <div class="carousel-inner">
+                    <div id="article-carousel" data-component="Media/Carousel" data-format="1" class="glide">
+                    <div class="glide__track" data-glide-el="track">
+                      <ul class="glide__slides">
                       <?php foreach ($posters as $i => $p) : ?>
-                      <div class="carousel-item <?= $i == 0 ? 'active' : '' ?>">
+                      <li class="glide__slide <?= $i == 0 ? 'active' : '' ?>">
                         <img class="d-block w-100" src="<?= tkt_img_proxy_url($p->url, $images_width, $images_height) ?>" alt="<?= $article->name(TKT_LANG) ?>">
-                      </div>
+                      </li>
                       <?php endforeach; ?>
                     </div>
                     <?php if ($nb_slides > 1) : ?>
-                    <a class="carousel-control-prev" href="#article-carousel" role="button" data-slide="prev">
-                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                      <span class="sr-only">Précédent</span>
-                    </a>
-                    <a class="carousel-control-next" href="#article-carousel" role="button" data-slide="next">
-                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                      <span class="sr-only">Suivant</span>
-                    </a>
+                    <div class="glide__arrows" data-glide-el="controls">
+                      <button class="glide__arrow glide__arrow--left" data-glide-dir="<"><</button>
+                      <button class="glide__arrow glide__arrow--right" data-glide-dir=">">></button>
+                    </div>
                     <?php endif; ?>
                   </div>
                 </div>

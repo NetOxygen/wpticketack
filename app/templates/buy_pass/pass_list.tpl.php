@@ -22,17 +22,17 @@ $types = $data->tickettypes;
 
     <?php else : ?>
 
-      <div id="accordion">
+      <div id="pass-accordion">
         <?php foreach ($types as $tickettype) :?>
           <div class="card" id="pass-<?= $tickettype->_id() ?>">
             <div class="card-header">
               <h5 class="card-title mb-0">
-                <button data-toggle="collapse" data-target="#item-<?= $tickettype->_id(); ?>" class="btn btn-link pass_title" aria-expanded="true" aria-controls="#item-<?= $tickettype->_id(); ?>">
+                <button class="btn btn-link pass_title" aria-expanded="true" aria-controls="#item-<?= $tickettype->_id(); ?>">
                   <?= tkt_h($tickettype->name(TKT_LANG)) ?>
                 </button>
               </h5>
             </div>
-            <div id="item-<?= $tickettype->_id(); ?>" data-type="<?= $tickettype->_id(); ?>" class="pass collapse" data-parent="#accordion">
+            <div id="item-<?= $tickettype->_id(); ?>" data-type="<?= $tickettype->_id(); ?>" class="pass">
               <div class="card-body">
                 <p><?= nl2br(tkt_html($tickettype->description(TKT_LANG))) ?></p>
                 <input type="hidden" class="required-fields" id="<?= $tickettype->_id().'-fields' ?>" value="<?= implode(',', $tickettype->required_fields()) ?>"
@@ -42,7 +42,7 @@ $types = $data->tickettypes;
                     <label>
                       <input class="choose-pass" type="radio" name="user[pass]" value="<?= $key; ?>">
                       <?php if (!empty($pricing->description(TKT_LANG))) :?>
-                        <?= tkt_h($pricing->name(TKT_LANG)) ?> (<?= $pricing->price('CHF') ?>) <a class="popoverdata" href="#" title="<?= tkt_h($pricing->description(TKT_LANG)) ?>" rel="popover" data-placement="bottom" data-toggle="tooltip"  data-trigger="hover"><span class="glyphicon glyphicon-info-sign" /></a>
+                        <?= tkt_h($pricing->name(TKT_LANG)) ?> (<?= $pricing->price('CHF') ?>) <a class="popoverdata" href="#" title="<?= tkt_h($pricing->description(TKT_LANG)) ?>" rel="popover" data-placement="bottom" data-trigger="hover"><span class="glyphicon glyphicon-info-sign" /></a>
                       <?php else: ?>
                         <?= tkt_h($pricing->name(TKT_LANG)) ?> (<?= $pricing->price('CHF') ?>)
                       <?php endif;?>

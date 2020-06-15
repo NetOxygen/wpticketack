@@ -22,7 +22,7 @@ class AssetsAction extends TKTAction
      */
     public function run()
     {
-        wp_enqueue_style('tkt-main-css', tkt_assets_url('build/styles/main.css'));
+        wp_enqueue_style('tkt-main-css', tkt_assets_url('build/main.css'));
         if (file_exists(TKT_OVERRIDE_DIR.'/tkt_override.css')) {
             wp_enqueue_style('tkt-override-css', get_template_directory_uri().'/tkt_override.css?t='.time());
         }

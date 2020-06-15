@@ -4,7 +4,6 @@
 
         width: 933px;
         height: 1408px;
-        background: url('../images/articles/bg_popup.png');
         position: absolute;
         top: 50%;
         left: 50%;
@@ -16,7 +15,6 @@
         .close-variants {
             width: 53px;
             height: 53px;
-            background: url('../images/articles/close_popup.png');
             position: absolute;
             top: 30px;
             right: 30px;
@@ -37,13 +35,11 @@
                     display: inline-block;
                     width: 32px;
                     height: 36px;
-                    background: url('../images/articles/left_arrow.png');
                     margin-top: 9px;
                 }
                 .variant-quantity {
                     width: 53px;
                     height: 53px;
-                    background: url('../images/articles/round_small.png');
                     line-height: 53px;
                     font-size: 22px;
                 }
@@ -51,7 +47,6 @@
                     display: inline-block;
                     width: 32px;
                     height: 36px;
-                    background: url('../images/articles/right_arrow.png');
                     margin-top: 9px;
                 }
                 .variant-price {
@@ -84,7 +79,6 @@
             bottom: 50px;
             left: 50%;
             transform: translate(-50%, 0);
-            background: url('../images/articles/go_btn.png');
             line-height: 171px;
             font-size: 27px;
             color: #FFFFFF;
