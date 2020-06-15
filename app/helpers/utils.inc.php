@@ -776,7 +776,7 @@ function get_overridable_scss_variables()
 function tkt_compile_scss_override()
 {
     $scss = new Compiler();
-    $scss->setImportPaths(plugin_dir_path(TKT_APP).'front/src/styles/');
+    $scss->setImportPaths(plugin_dir_path(TKT_APP).'front/build/');
     $scss->setFormatter('ScssPhp\ScssPhp\Formatter\Crunched');
 
     $variables = get_overridable_scss_variables();

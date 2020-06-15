@@ -1,6 +1,7 @@
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const WebpackShellPlugin = require('webpack-shell-plugin');
 
 module.exports = {
     context: __dirname,
@@ -10,6 +11,7 @@ module.exports = {
         filename: 'app.js',
     },
     plugins: [
+        new WebpackShellPlugin({onBuildEnd:['../scripts/generate_override.sh']}),
         new CleanWebpackPlugin(),
         new MiniCssExtractPlugin(),
     ],
