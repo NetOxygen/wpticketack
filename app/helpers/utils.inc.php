@@ -213,7 +213,14 @@ function tkt_cart_url()
 function tkt_checkout_url()
 {
     $slug = TKTApp::get_instance()->get_config('pages.checkout');
-    return tkt_page_url($slug, $query);
+    if (!empty($slug)) {
+        return tkt_page_url($slug, $query);
+    }
+
+    return sprintf(
+        "%s/cart/validate",
+        TKTApp::get_instance()->get_config('ticketack.eshop_uri')
+    );
 }
 
 /**
@@ -224,7 +231,11 @@ function tkt_checkout_url()
 function tkt_thank_you_url()
 {
     $slug = TKTApp::get_instance()->get_config('pages.thank_you');
-    return tkt_page_url($slug, $query);
+    if (!empty($slug)) {
+        return tkt_page_url($slug, $query);
+    }
+
+    return null;
 }
 
 /**
@@ -236,7 +247,7 @@ function tkt_buy_pass_url()
 {
     return sprintf(
         "%s/pass/new",
-        TKTApp::get_instance()->get_config('base.eshop_uri')
+        TKTApp::get_instance()->get_config('ticketack.eshop_uri')
     );
 }
 
@@ -249,7 +260,7 @@ function tkt_cart_reset_url()
 {
     return sprintf(
         "%s/cart/reset",
-        TKTApp::get_instance()->get_config('base.eshop_uri')
+        TKTApp::get_instance()->get_config('ticketack.eshop_uri')
     );
 }
 
