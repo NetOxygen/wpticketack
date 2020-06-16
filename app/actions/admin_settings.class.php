@@ -511,7 +511,7 @@ class AdminSettingsAction extends TKTAction
             esc_attr($this->options[$name]) :
             $default;
         printf('<select id="%s" name="%s[%s]">', $name, $group, $name);
-        echo '<option>---</option>';
+        echo '<option value="">---</option>';
         if (!empty($pages)) {
             foreach ($pages as $label => $v) {
                 echo '
