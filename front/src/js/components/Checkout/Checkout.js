@@ -15,6 +15,7 @@ import URI from 'urijs';
  * <div
  *    <!-- Required -->
  *    data-component="Checkout/Checkout"
+ *    data-redirect="https://..."
  * >
  */
 export default class CartIcon extends Component {

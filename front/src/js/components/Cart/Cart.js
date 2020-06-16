@@ -154,23 +154,6 @@ export default class Cart extends Component {
         });
     }
 
-    checkout(user_data, callback) {
-        callback  = callback || ((err) => {});
-        user_data = user_data || {};
-
-        TKTApi.pay(this.cart.id, 'POS_CASH', user_data, (err, status, rsp) => {
-            if (err)
-                return callback(err);
-
-            TKTApi.confirm(this.cart.id, (err, status, rsp) => {
-                if (err)
-                    return callback(err);
-
-                return callback(/*err*/null, rsp);
-            });
-        });
-    }
-
     emit_update() {
         postal.publish({
             channel: "cart",
