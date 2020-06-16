@@ -8,7 +8,8 @@
 }
 
 body.single-tkt-article {
-    header.entry-header {
+    header.entry-header,
+    .entry-content > p {
         /* title is handled by the tkt-article template */
         display: none;
     }
