@@ -5,6 +5,7 @@
 echo
 echo "Generating override.scss file"
 
-cat src/styles/*/*.scss > build/override.scss
+cat src/styles/_common.scss > build/override.scss
+cat src/styles/*/*.scss >> build/override.scss
 
 echo "*** DONE ***"

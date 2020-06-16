@@ -420,8 +420,11 @@ class AdminSettingsAction extends TKTAction
     {
         $this->options = get_option($group);
         $value = isset($this->options[$name]) ? esc_attr($this->options[$name]) : $default;
+        if (strpos($value, '#') !== 0) {
+            $value = '#'.$value;
+        }
         printf(
-            '<input data-jscolor="" type="text" id="%s" name="%s[%s]" value="%s" placeholder="%s"/><div>',
+            '<input data-jscolor="{hash:true}" type="text" id="%s" name="%s[%s]" value="%s" placeholder="%s"/><div>',
             $name,
             $group,
             $name,
