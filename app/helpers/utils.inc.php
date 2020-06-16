@@ -157,7 +157,7 @@ function tkt_page_url($slug, $query = "")
         $page = get_page_by_path($slug, OBJECT, 'page');
         if (tkt_current_lang() != tkt_defaulkt_lang()) {
             // get the slug in current language
-            $translated_slug = translated_slug_by_id($page->ID, 'page', tkt_current_lang(), $slug);
+            $translated_slug = tkt_translated_slug_by_id($page->ID, 'page', tkt_current_lang(), $slug);
             // get the page in current language
             $page = get_page_by_path($slug, OBJECT, 'page');
         }
