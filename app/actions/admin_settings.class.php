@@ -263,6 +263,9 @@ class AdminSettingsAction extends TKTAction
 
         $variables = get_overridable_scss_variables();
         foreach ($variables as $key => $value) {
+            if ($key == 'border_radius') {
+                continue;
+            }
             add_settings_field(
                 $key, // ID
                 tkt_t(str_replace('_', ' ', ucfirst(strtolower($key)))), // Title
@@ -277,6 +280,14 @@ class AdminSettingsAction extends TKTAction
                 ]
             );
         }
+
+        add_settings_field(
+            'border_radius', // ID
+            tkt_t('Border radius'), // Title
+            array( $this, 'border_radius_callback' ), // Callback
+            'ticketack-advanced', // Page
+            'ticketack_advanced' // Section
+        );
     }
 
     /**
@@ -407,6 +418,7 @@ class AdminSettingsAction extends TKTAction
     public function color_callback($args) {
         return $this->color_input($args['name'], $args['group'], $args['placeholder'], $args['value'], $args);
     }
+    public function border_radius_callback() { return $this->input('border_radius', 'tkt_advanced', '4px', '4px'); }
 
     /**
      * Get an option color input
