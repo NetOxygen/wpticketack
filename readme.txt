@@ -2,7 +2,7 @@
 Tags: ticketack
 Requires at least: 4.6
 Tested up to: 5.4.1
-Stable tag: 2.6.5
+Stable tag: 2.6.6
 Requires PHP: 5.6
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -35,10 +35,14 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
-= 2.6.5
+= 2.6.6 =
+* ui: Rework templates (please check your template overrides)
+* ui: Clean styles
+
+= 2.6.5 =
 * fix: Fix translation bug
 
-= 2.6.4
+= 2.6.4 =
 * fix: Fix pages options bug
 * fix: Fix scss compilation process
 
