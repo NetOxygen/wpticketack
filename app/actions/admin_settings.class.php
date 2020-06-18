@@ -556,11 +556,11 @@ class AdminSettingsAction extends TKTAction
                 $ancestor_ids = get_ancestors($page->ID, 'page');
 
                 $slug = implode('/', array_map(function ($id) {
-                    $tr_ancestor_id = TKT_WPML_INSTALLED ? icl_object_id($id, 'page', FALSE, tkt_defaulkt_lang()) : $id;
+                    $tr_ancestor_id = TKT_WPML_INSTALLED ? icl_object_id($id, 'page', FALSE, tkt_default_lang()) : $id;
                     return get_post($tr_ancestor_id)->post_name;
                 }, $ancestor_ids));
 
-                $slug .= '/'.tkt_translated_slug_by_id($page->ID, 'page', tkt_defaulkt_lang(), $page->post_name);
+                $slug .= '/'.tkt_translated_slug_by_id($page->ID, 'page', tkt_default_lang(), $page->post_name);
                 $label = str_repeat('-', count($ancestor_ids)).$page->post_title;
                 $all_pages[$label] = $slug;
             }

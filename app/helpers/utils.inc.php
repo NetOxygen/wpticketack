@@ -155,7 +155,7 @@ function tkt_page_url($slug, $query = "")
     if (TKT_WPML_INSTALLED) {
         // get the page in default language
         $page = get_page_by_path($slug, OBJECT, 'page');
-        if (tkt_current_lang() != tkt_defaulkt_lang()) {
+        if (tkt_current_lang() != tkt_default_lang()) {
             // get the slug in current language
             $translated_slug = tkt_translated_slug_by_id($page->ID, 'page', tkt_current_lang(), $slug);
             // get the page in current language
@@ -549,7 +549,7 @@ function tkt_t($str) {
 function tkt_get_event_slug($event, $lang)
 {
     $title = $event->title($lang);
-    $slug  = sanitize_title($title).($lang === tkt_defaulkt_lang() ? '' : '-'.$lang);
+    $slug  = sanitize_title($title).($lang === tkt_default_lang() ? '' : '-'.$lang);
 
     return $slug;
 }
@@ -557,7 +557,7 @@ function tkt_get_event_slug($event, $lang)
 function tkt_get_article_slug($article, $lang)
 {
     $title = $article->name($lang);
-    $slug  = sanitize_title($title).($lang === tkt_defaulkt_lang() ? '' : '-'.$lang);
+    $slug  = sanitize_title($title).($lang === tkt_default_lang() ? '' : '-'.$lang);
 
     return $slug;
 }
@@ -626,7 +626,7 @@ function tkt_event_data_attributes($event, $attributes)
     if (in_array('section', $attributes)) {
         $sections = [];
         foreach ($event->screenings() as $s) {
-            $sections[] = $s->opaque('section', [])[tkt_defaulkt_lang()];
+            $sections[] = $s->opaque('section', [])[tkt_default_lang()];
         }
         $values[] = 'data-section="'.implode(',', $sections).'"';
     }
@@ -657,7 +657,7 @@ function tkt_screening_data_attributes($screening, $attributes)
     }
 
     if (in_array('section', $attributes)) {
-        $values[] = 'data-section="'.$screening->opaque('section', [])[tkt_defaulkt_lang()].'"';
+        $values[] = 'data-section="'.$screening->opaque('section', [])[tkt_default_lang()].'"';
     }
 
     return implode(' ', $values);
@@ -707,7 +707,7 @@ function tkt_person_data_attributes($person, $attributes)
  *
  * @return string
  */
-function tkt_defaulkt_lang()
+function tkt_default_lang()
 {
     return TKTApp::get_instance()->get_config('i18n.default_lang', 'fr');
 }
@@ -720,7 +720,7 @@ function tkt_defaulkt_lang()
 function tkt_current_lang()
 {
     if (!TKT_WPML_INSTALLED) {
-        return tkt_defaulkt_lang();
+        return tkt_default_lang();
     }
 
     return ICL_LANGUAGE_CODE;
