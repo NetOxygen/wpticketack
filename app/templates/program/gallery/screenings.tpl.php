@@ -24,7 +24,7 @@ $nb_per_row = 12 / $item_width;
         <h3 class="no-screening-title">Aucune séance à afficher</h3>
         <?php else: ?>
 
-        <div class="row">
+        <div class="row no-gutters">
             <?php foreach($data->screenings as $screening) : ?>
             <div class="tkt_program_screening col-12 col-sm-6 col-md-<?= $item_width ?>" <?= tkt_screening_data_attributes($screening, $data->filter_fields) ?>>
                 <?= TKTTemplate::render('program/gallery/screening', (object)[ 'screening' => $screening ]) ?>
