@@ -65,6 +65,9 @@ class SyncHelper
     protected static function create_post($event, $lang)
     {
         $title = $event->title($lang);
+        if (empty($title)) {
+            $title = $event->title(tkt_default_lang());
+        }
         $slug  = tkt_get_event_slug($event, $lang);
         // WP automatically prepends 'http://' to the guid !
         $guid  = 'http://'.$slug;

@@ -549,6 +549,9 @@ function tkt_t($str) {
 function tkt_get_event_slug($event, $lang)
 {
     $title = $event->title($lang);
+    if (empty($title)) {
+        $title = $event->title(tkt_default_lang());
+    }
     $slug  = sanitize_title($title).($lang === tkt_default_lang() ? '' : '-'.$lang);
 
     return $slug;
