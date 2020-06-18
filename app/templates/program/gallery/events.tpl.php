@@ -24,9 +24,9 @@ $nb_per_row = 12 / $item_width;
         <h3 class="no-event-title"><?= tkt_t('Aucun événement programmé actuellement, revenez nous visiter prochainement.') ?></h3>
         <?php else: ?>
 
-        <div class="row">
+        <div class="row no-gutters">
             <?php foreach($data->events as $event) : ?>
-            <div class="tkt_program_evenp col-12 col-sm-6 col-md-<?= $item_width ?>" data-type="<?= $event->opaque('type') ?>" <?= tkt_event_data_attributes($event, $data->filter_fields) ?>>
+            <div class="tkt_program_event col-12 col-sm-6 col-md-<?= $item_width ?>" data-type="<?= $event->opaque('type') ?>" <?= tkt_event_data_attributes($event, $data->filter_fields) ?>>
                 <?= TKTTemplate::render('program/gallery/event', (object)[ 'event' => $event ]) ?>
             </div>
             <?php endforeach; ?>
