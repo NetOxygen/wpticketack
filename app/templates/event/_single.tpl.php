@@ -96,7 +96,7 @@ $nb_slides = count($trailers) + count($posters);
     </section>
     <?php endif; ?>
 
-    <section class="tkt-section tkt-light-sectioninfos-section">
+    <section class="tkt-section tkt-light-section infos-section">
       <?php if (!empty($description)) : ?>
       <div class="row">
         <div class="col">
