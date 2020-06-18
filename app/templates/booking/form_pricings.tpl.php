@@ -56,7 +56,7 @@ use Ticketack\WP\TKTApp;
     </div>
     <% } %>
     <% if (screening.eligible_types.length) { %>
-    <div class="pass-form">
+    <div class="pass-form mt-3">
         <div class="connect-panel">
             <div class="row">
                 <div class="col">
@@ -68,15 +68,15 @@ use Ticketack\WP\TKTApp;
             </div>
             <div class="connect-panel-form d-none">
                 <div class="row">
-                    <div class="col">
+                    <div class="col col-sm-2">
                         <span class="pass-number"><?= tkt_t('ID') ?></span>
                     </div>
                     <div class="col">
-                        <input type="text" class="tkt-input pass-number-input"/>
+                        <input type="text" class="tkt-input form-control pass-number-input"/>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col">
+                    <div class="col col-sm-2">
                         <span class="pass-key"><?= tkt_t('Code') ?></span>
                     </div>
                     <div class="col">
@@ -84,7 +84,7 @@ use Ticketack\WP\TKTApp;
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col">
+                    <div class="col mt-3">
                       <div class="error pass-error d-none"></div>
                         <button class="button connect-btn active" >
                             <?= tkt_t('Me connecter') ?>
@@ -93,17 +93,10 @@ use Ticketack\WP\TKTApp;
                 </div>
             </div>
             <div class="row">
-                <div class="col">
+                <div class="col mt-3">
                     <div class="buy-pass-link">
                         <span><?= TKT_LANG == 'fr' ? "Acheter un abonnement: " : "Buy a pass: " ?></span>
                         <ul class="eligible-types-list">
-                            <% _.forEach(screening.eligible_types, function(t) { %>
-                            <li>
-                                <a href="<?= TKT_LANG == 'fr' ? "/infos-pratiques/billets-passes/" : "/en/infos-pratiques/tickets-passes/" ?>">
-                                    <%= t.name.<?= TKT_LANG ?> %>
-                                </a>
-                            </li>
-                        <% }) %>
                         </ul>
                     </div>
                 </div>
