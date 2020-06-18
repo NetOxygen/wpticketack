@@ -126,7 +126,7 @@ export default class ScreeningsList extends Component {
                 if (err)
                     return;
 
-                this.emit_cart_update(new CartModel(rsp));
+                this.emit_cart_update(new Cart(rsp));
             });
         });
     }
