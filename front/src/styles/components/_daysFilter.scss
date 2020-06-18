@@ -19,12 +19,8 @@
             a {
                 text-decoration: none !important;
                 color: $text_color;
-                span.tkt-day-filter-day {
-
-                }
-                span.tkt-day-filter-date {
-
-                }
+                span.tkt-day-filter-day {}
+                span.tkt-day-filter-date {}
             }
             &.active {
                 background-color: $active_color;

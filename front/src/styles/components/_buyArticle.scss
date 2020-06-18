@@ -2,49 +2,60 @@
     display: flex;
     flex-direction: column;
     .variants-form {
-      flex: 1;
-      padding-right: 1rem;
-      margin-top: 0;
+        flex: 1;
+        padding-right: 1rem;
+        margin-top: 0;
 
-      .pricings-form {
-        .pricing-row {
-          margin-top: 0;
-          margin-bottom: 0.5rem;
+        .pricings-form {
+            .pricing-row {
+                margin-top: 0;
+                margin-bottom: 0.5rem;
 
-          .tkt-badge-split {
-            .tkt-badge-part {
+                .tkt-badge-split {
+                    .tkt-badge-part {
 
-              .variant-qty {
-                font-weight: bold;
-              }
-              .pricing-name {
-                font-size: 1rem;
-              }
-              .pricing-price {
-                font-size: 1rem;
-              }
+                        .variant-qty {}
+                        .pricing-name {}
+                        .pricing-price {}
 
-              &.tkt-minus-btn,
-              &.tkt-plus-btn {
-                font-weight: bold;
-                padding: 0 15px;
-                font-size: 25px;
-                line-height: 32px;
-              }
+                        &.tkt-minus-btn,
+                        &.tkt-plus-btn {
+                            cursor: pointer;
+                            font-weight: bold;
+                            padding: 0 15px;
+                            font-size: 25px;
+                            line-height: 32px;
+                        }
+                    }
+                }
             }
-          }
+            .add-to-cart-btn { }
         }
-        .add-to-cart-btn { }
-      }
     }
     .success-panel {
-      flex: 1;
-      padding-right: 1rem;
+        flex: 1;
+        padding-right: 1rem;
     }
 }
 
 @media screen and (max-width: 768px) {
-  .booking-form {
-    flex-direction: column;
-  }
+    .booking-form {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .buy-article-form {
+        .variants-form {
+            .pricings-form {
+                .pricing-row {
+                    .tkt-badge-split {
+                        .tkt-badge-part {
+                            max-width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

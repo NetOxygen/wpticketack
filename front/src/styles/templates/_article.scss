@@ -1,16 +1,13 @@
-.tkt-article {
-    .infos-section {
-        .name {
-            font-weight: bold;
-            text-transform: uppercase;
-        }
-    }
-}
-
+/* title is handled by the tkt-article template */
 body.single-tkt-article {
     header.entry-header,
     .entry-content > p {
-        /* title is handled by the tkt-article template */
+        display: none;
+    }
+}
+article.type-tkt-article {
+    .entry-title,
+    .entry-content > p {
         display: none;
     }
 }
