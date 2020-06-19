@@ -28,7 +28,7 @@ export default class FilterRows extends Component {
      * @constructor
      */
     constructor($container, state) {
-        super($container, satte);
+        super($container, state);
 
         this.criterium = this.$container.data('criterium').split(',');
         this.target      = this.$container.data('target') ||
