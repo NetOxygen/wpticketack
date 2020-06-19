@@ -4,6 +4,16 @@
     max-height: 100%;
     overflow: hidden;
 
+    &.glide {
+        height: 100%;
+        .glide__track {
+            height: 100%;
+            .glide__slides {
+                height: 100%;
+                margin-left: 0;
+            }
+        }
+    }
     .tkt-event-carousel-trailer-wrapper {
         height: 100%;
         .tkt-event-carousel-trailer {
