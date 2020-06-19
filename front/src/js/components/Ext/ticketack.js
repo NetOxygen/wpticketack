@@ -163,8 +163,6 @@ Ticketack.prototype.addPassToCart = function(pass, pricing, userdata, callback) 
         "user": userdata,
         "format": "json"
     };
-    if (this.session_id)
-        data.PHPSESSID = this.session_id;
 
     return this.post(this.passesViewUrl, data, callback);
 };
@@ -183,13 +181,7 @@ Ticketack.prototype.addPassToCart = function(pass, pricing, userdata, callback) 
  */
 Ticketack.prototype.addArticlesToCart = function(articles, callback) {
     var data = { "articles":  articles };
-    return this.request(
-        'POST',
-        this.parametrize_url(this.cartAddArticlesUrl, {}, true),
-        data,
-        { "Content-type": "application/json" },
-        callback
-    );
+    return this.post_json(this.parametrize_url(this.cartAddArticlesUrl, {}), data, callback);
 };
 
 /**
@@ -199,13 +191,7 @@ Ticketack.prototype.addArticlesToCart = function(articles, callback) {
  * @param {Function} callback: The callback function
  */
 Ticketack.prototype.setPending = function(cart_id, callback) {
-    return this.request(
-        'PUT',
-        this.cartSetPendingUrl + cart_id,
-        {},
-        { "Content-type": "application/json" },
-        callback
-    );
+    return this.put_json(this.parametrize_url(this.cartSetPendingUrl + cart_id, {}), {}, callback);
 };
 
 /**
@@ -215,13 +201,7 @@ Ticketack.prototype.setPending = function(cart_id, callback) {
  * @param {Function} callback: The callback function
  */
 Ticketack.prototype.setOpen = function(cart_id, callback) {
-    return this.request(
-        'PUT',
-        this.cartSetOpenUrl + cart_id,
-        {},
-        { "Content-type": "application/json" },
-        callback
-    );
+    return this.put_json(this.parametrize_url(this.cartSetOpenUrl + cart_id, {}), {}, callback);
 };
 
 /**
@@ -230,13 +210,7 @@ Ticketack.prototype.setOpen = function(cart_id, callback) {
  * @param {Function} callback: The callback function
  */
 Ticketack.prototype.getNew = function(callback) {
-    return this.request(
-        'GET',
-        this.cartGetNewUrl,
-        {},
-        { "Content-type": "application/json" },
-        callback
-    );
+    return this.get_json(this.parametrize_url(this.cartGetNewUrl, {}), {}, callback);
 };
 
 /**
@@ -249,13 +223,7 @@ Ticketack.prototype.setUserData = function(cart_id, user_data, callback) {
     var data = {
         "user_data": user_data
     };
-    return this.request(
-        'PUT',
-        this.cartUserDataUrl + cart_id,
-        data,
-        { "Content-type": "application/json" },
-        callback
-    );
+    return this.put_json(this.cartUserDataUrl + cart_id, data, callback);
 };
 
 /**
@@ -271,13 +239,7 @@ Ticketack.prototype.pay = function(cart_id, payment_method, user_data, callback)
         "payment_method": payment_method,
         "user": user_data
     };
-    return this.request(
-        'POST',
-        this.payUrl + cart_id,
-        data,
-        { "Content-type": "application/json" },
-        callback
-    );
+    return this.post_json(this.parametrize_url(this.payUrl + cart_id, {}), data, callback);
 };
 
 /**
@@ -287,13 +249,7 @@ Ticketack.prototype.pay = function(cart_id, payment_method, user_data, callback)
  * @param {Function} callback: The callback function
  */
 Ticketack.prototype.confirm = function(cart_id, callback) {
-    return this.request(
-        'POST',
-        this.confirmUrl + cart_id,
-        {},
-        { "Content-type": "application/json" },
-        callback
-    );
+    return this.post_json(this.parametrize_url(this.confirmUrl + cart_id, {}), data, callback);
 };
 
 /**
@@ -304,7 +260,7 @@ Ticketack.prototype.confirm = function(cart_id, callback) {
  */
 Ticketack.prototype.removeFromCart = function(index, callback) {
     var data = { "index": index };
-    return this.post(this.cartRemoveUrl, data, callback);
+    return this.post(this.parametrize_url(this.cartRemoveUrl, {}), data, callback);
 }
 
 /**
@@ -369,7 +325,7 @@ Ticketack.prototype.viewTicket = function(callback) {
  */
 Ticketack.prototype.updateTicketEmail = function(email, callback) {
     var url = this.parametrize_url(this.updateTicketEmailUrl, {}, true);
-    return this.patch(url, { "email": email }, callback);
+    return this.patch_json(url, { "email": email }, callback);
 }
 
 /**
@@ -433,6 +389,44 @@ Ticketack.prototype.post = function(url, data, callback) {
 };
 
 /**
+ * Make a JSON POST request
+ *
+ * @param {String} url
+ * @param {Object} data
+ * @param {Function} callback
+ */
+Ticketack.prototype.post_json = function(url, data, callback) {
+    data        = data || {};
+    data.format = "json"
+    data.lang   = this.lang;
+    if (this.session_id)
+        data.PHPSESSID = this.session_id;
+    return this.request('POST', url, data, {'Content-type': 'application/json'}, callback);
+};
+
+/**
+ * Make an HTTP PUT request
+ *
+ * @param {String} url
+ * @param {Object} data
+ * @param {Function} callback
+ */
+Ticketack.prototype.put = function(url, data, callback) {
+    return this.request('PUT', url, data, {}, callback);
+};
+
+/**
+ * Make a JSON PUT request
+ *
+ * @param {String} url
+ * @param {Object} data
+ * @param {Function} callback
+ */
+Ticketack.prototype.put = function(url, data, callback) {
+    return this.request('PUT', url, data, {'Content-type': 'application/json'}, callback);
+};
+
+/**
  * Make an HTTP PATCH request
  *
  * @param {String} url
@@ -440,12 +434,18 @@ Ticketack.prototype.post = function(url, data, callback) {
  * @param {Function} callback
  */
 Ticketack.prototype.patch = function(url, data, callback) {
-    // ALl requests in this lib should be sent with the application/json content type.
-    // For now, all but the one sent in PATCH (because it calls the "new" api/controllers),
-    // are using application/x-www-form-urlencoded.
-    // When all the calls are made to the new controllers, we should set the json
-    // content type by default
-    return this.request('PATCH', url, data, { "Content-type": "application/json" }, callback);
+    return this.request('PATCH', url, data, {}, callback);
+};
+
+/**
+ * Make a JSON PATCH request
+ *
+ * @param {String} url
+ * @param {Object} data
+ * @param {Function} callback
+ */
+Ticketack.prototype.patch_json = function(url, data, callback) {
+    return this.request('PATCH', url, data, {'Content-type': 'application/json'}, callback);
 };
 
 Ticketack.prototype.parametrize_url = function(url, params, json = false) {
