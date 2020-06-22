@@ -49,7 +49,7 @@ export default class Cart extends Component {
     }
 
     load_cart(callback) {
-        callback = callback || ((err) => {});
+        callback = callback || ((err, cart) => {});
 
         CartModel.load((err, cart) => {
             if (err)
@@ -63,9 +63,12 @@ export default class Cart extends Component {
                 this.build_table();
                 this.emit_update();
 
-                this.bind_remove_item_icons();
+                this.bind_remove_item_icons((err, cart) => {
+                 if (err)
+                    console.error(err);
+                });
 
-                return callback();
+                return callback(/*err*/null, cart);
             });
         });
     }
@@ -92,7 +95,15 @@ export default class Cart extends Component {
             });
         });
 
-        $('.tkt-reset-cart-btn').on('click', this.reset_cart.bind(this));
+        $('.tkt-reset-cart-btn').on('click', (e) => {
+            e.preventDefault();
+            this.reset_cart((err) => {
+                if (err)
+                    console.error(err);
+
+                this.load_cart(callback);
+            });
+        });
     }
 
     remove_item(item_id, callback) {
@@ -101,18 +112,11 @@ export default class Cart extends Component {
         });
     }
 
-    reset_cart(e) {
-        e.preventDefault();
+    reset_cart(callback) {
+        callback  = callback || ((err) => {});
 
-        const tasks = _.map($('.tkt-remove-cart-item'), (x) => {
-            return (done) => {
-                let item_id = parseInt($(x).data('item'));
-                this.remove_item(item_id, done);
-            };
-        });
-
-        async.parallel(tasks, (err, results) => {
-            return this.load_cart();
+        TKTApi.resetCart((err, status, rsp) => {
+            return callback(err);
         });
     }
 

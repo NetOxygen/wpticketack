@@ -14,7 +14,7 @@
  *     - List the available passes
  *     - Update e-mail information in ticket
  *
- * @version 5.2.0 - 2019-06-13
+ * @version 5.3.0 - 2020-06-22
  *
  * @copyright NetOxygen 2015-2018
  *
@@ -37,6 +37,7 @@ var Ticketack = function(eshopUrl, apiKey, lang) {
 
     this.cartJsonUrl           = this.eshopUrl + "cart/view_json";
     this.cartRemoveUrl         = this.eshopUrl + "cart/remove";
+    this.cartResetUrl          = this.eshopUrl + "cart/reset";
     this.cartAddUrl            = this.eshopUrl + "screening/buy/";
     this.cartAddArticlesUrl    = this.eshopUrl + "articles/add_to_cart";
     this.cartSetPendingUrl     = this.eshopUrl + "carts/pending/id/";
@@ -261,6 +262,15 @@ Ticketack.prototype.confirm = function(cart_id, callback) {
 Ticketack.prototype.removeFromCart = function(index, callback) {
     var data = { "index": index };
     return this.post(this.parametrize_url(this.cartRemoveUrl, {}), data, callback);
+}
+
+/**
+ * Reset a cart
+ *
+ * @param {Function} callback: The callback function
+ */
+Ticketack.prototype.resetCart = function(callback) {
+    return this.get(this.parametrize_url(this.cartResetUrl, {}), {}, callback);
 }
 
 /**

@@ -66,8 +66,10 @@ export default class Screening extends BaseModel {
             return true;
         });
 
-        if (ids.length === 0)
+        if (ids.length === 0) {
+            Screening.isAlreadyGettingInfos = false;
             return callback(/*err*/null, infos);
+        }
 
         // The chunk size could be more precise. For now, we
         // know it works for 100 (for parc-aventure.ticketack.com)
@@ -85,8 +87,11 @@ export default class Screening extends BaseModel {
         });
 
         async.parallel(tasks, (err, results) => {
+            // release lock
+            Screening.isAlreadyGettingInfos = false;
+
             if (err)
-                return err;
+                return callback(err);
 
             _.flatten(results).map(s => {
                 const screening = new Screening(s);
@@ -97,9 +102,6 @@ export default class Screening extends BaseModel {
 
                 infos.push(screening);
             });
-
-            // release lock
-            Screening.isAlreadyGettingInfos = false;
 
             return callback(/*err*/null, infos);
         });
