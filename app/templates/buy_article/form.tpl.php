@@ -8,7 +8,8 @@ use Ticketack\WP\Templates\TKTTemplate;
  *
  * Input:
  * $data: {
- *   "article": { ... }
+ *   "article": { ... },
+ *   "salepoint_id": "12345678-1234-1234-1234-123456789012"
  * }
  */
 
@@ -23,7 +24,7 @@ use Ticketack\WP\Templates\TKTTemplate;
                 data-cart-url="<?= tkt_cart_url() ?>"
                 data-checkout-url="<?= tkt_checkout_url() ?>"
                 data-article-id="<?= $data->article->_id() ?>"
-                data-variants="<?= htmlspecialchars(json_encode($data->article->variants())) ?>"
+                data-salepoint-id="<?= $data->salepoint_id ?>"
             >
             </div>
         </div>
@@ -31,9 +32,9 @@ use Ticketack\WP\Templates\TKTTemplate;
 
     <!-- Underscore.js templates used by client side -->
     <script type="text/template" id="tkt-buy-article-form-pricings-tpl">
-        <?= TKTTEmplate::render('buy_article/form_pricings', (object)[]) ?>
+        <?= TKTTEmplate::render('buy_article/form_pricings', $data) ?>
     </script>
     <script type="text/template" id="tkt-buy-article-form-success-tpl">
-          <?= TKTTEmplate::render('buy_article/form_success', (object)[]) ?>
+          <?= TKTTEmplate::render('buy_article/form_success', $data) ?>
     </script>
 </div>

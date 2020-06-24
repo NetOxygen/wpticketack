@@ -2,6 +2,7 @@
 
 use Ticketack\WP\TKTApp;
 use Ticketack\Core\Models\Article;
+use Ticketack\Core\Models\User;
 use Ticketack\Core\Base\TKTApiException;
 use Ticketack\WP\Templates\TKTTemplate;
 
@@ -23,6 +24,10 @@ try {
         $e->getMessage()
     );
 }
+
+
+$user      = User::get_current();
+$salepoint = current($user->salepoints());
 
 $images_width  = TKTApp::get_instance()->get_config('images_dimensions.medium_width');
 $images_height = TKTApp::get_instance()->get_config('images_dimensions.medium_height');
@@ -69,7 +74,10 @@ $nb_slides = count($posters);
                 <?= tkt_t('Acheter') ?>
             </h3>
 
-            <?= TKTTemplate::render('buy_article/form', (object)[ 'article' => $article ]) ?>
+            <?= TKTTemplate::render('buy_article/form', (object)[
+                'article'      => $article,
+                'salepoint_id' => $salepoint
+            ]) ?>
         </section>
 
     </div>
