@@ -263,7 +263,7 @@ class AdminSettingsAction extends TKTAction
 
         $variables = get_overridable_scss_variables();
         foreach ($variables as $key => $value) {
-            if ($key == 'border_radius') {
+            if ($key == 'border_radius' || $key == 'section_padding') {
                 continue;
             }
             add_settings_field(
@@ -280,6 +280,14 @@ class AdminSettingsAction extends TKTAction
                 ]
             );
         }
+
+        add_settings_field(
+            'section_padding', // ID
+            tkt_t('Sections padding'), // Title
+            array( $this, 'section_padding_callback' ), // Callback
+            'ticketack-advanced', // Page
+            'ticketack_advanced' // Section
+        );
 
         add_settings_field(
             'border_radius', // ID
@@ -418,6 +426,8 @@ class AdminSettingsAction extends TKTAction
     public function color_callback($args) {
         return $this->color_input($args['name'], $args['group'], $args['placeholder'], $args['value'], $args);
     }
+    public function section_padding_callback() { return $this->input('section_padding', 'tkt_advanced', '20px', '20px'); }
+
     public function border_radius_callback() { return $this->input('border_radius', 'tkt_advanced', '4px', '4px'); }
 
     /**

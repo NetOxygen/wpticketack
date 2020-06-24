@@ -760,6 +760,7 @@ function get_overridable_scss_variables()
 {
     return [
         'text_color' => '#000',
+        'error_color' => '#ce6060',
         'link_color' => '#007BFF',
         'active_color' => '#1C99E2',
         'btn_bg_color' => '#121212',
