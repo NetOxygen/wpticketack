@@ -98,7 +98,7 @@ class Article extends TKTModel implements \JsonSerializable
     public static function scope_with_stocks_by_salepoint($req)
     {
         return $req->add_post_process(function ($status, $articles) {
-            if (No2_HTTP::is_success($status)) {
+            if ($status === 200) {
                 $articles = array_map(function ($article) {
                     foreach ($article->variants() as $variant) {
                         if ($article->stock_type === static::STOCK_TYPE_ARTICLE) {
@@ -153,8 +153,11 @@ class Article extends TKTModel implements \JsonSerializable
         return $this->_id;
     }
 
-    public function name($lang)
+    public function name($lang = null)
     {
+        if (is_null($lang)) {
+            return $this->name;
+        }
         if (isset($this->name[$lang])) {
             return $this->name[$lang];
         }
@@ -172,8 +175,12 @@ class Article extends TKTModel implements \JsonSerializable
         return $this->category;
     }
 
-    public function short_description($lang)
+    public function short_description($lang = null)
     {
+        if (is_null($lang)) {
+            return $this->short_description;
+        }
+
         if (isset($this->short_description[$lang])) {
             return $this->short_description[$lang];
         }
@@ -186,8 +193,12 @@ class Article extends TKTModel implements \JsonSerializable
         return null;
     }
 
-    public function description($lang)
+    public function description($lang = null)
     {
+        if (is_null($lang)) {
+            return $this->description;
+        }
+
         if (isset($this->description[$lang])) {
             return $this->description[$lang];
         }
@@ -241,16 +252,20 @@ class Article extends TKTModel implements \JsonSerializable
         return null;
     }
 
-    public function price()
+    public function price($currency = null)
     {
-        // FIXME: Remove hardcoded currency
-        return $this->variants()[0]->price('CHF');
+        if (!$currency) {
+            $currency = TKTApp::get_instance()::get_config('currency', 'CHF');
+        }
+        return $this->variants()[0]->price($currency);
     }
 
-    public function value()
+    public function value($currency = null)
     {
-        // FIXME: Remove hardcoded currency
-        return $this->variants()[0]->value('CHF');
+        if (!$currency) {
+            $currency = TKTApp::get_instance()::get_config('currency', 'CHF');
+        }
+        return $this->variants()[0]->value($currency);
     }
 
     /**

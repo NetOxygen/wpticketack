@@ -21,6 +21,21 @@ class Articlecategory extends TKTModel implements \JsonSerializable
     protected $posters     = null;
     protected $parent      = null;
 
+    public static function scope_root($req)
+    {
+        return $req->query('root', true);
+    }
+
+    public static function scope_in_pos($req, $pos_id)
+    {
+        return $req->query('pos_ids', $pos_id);
+    }
+
+    public static function scope_child_of($req, $parent)
+    {
+        return $req->query('parent', $parent);
+    }
+
     public static function scope_ids($req, $articlecategories_ids)
     {
         return $req->query(

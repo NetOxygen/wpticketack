@@ -1,7 +1,8 @@
 <?php
 namespace Ticketack\Core\Models;
 
-use Ticketack\Core\Base\CHF;
+use Ticketack\WP\TKTApp;
+use Ticketack\Core\Base\Currency\Currency;
 
 /**
  * Ticketack Engine helper for article variant (used in Articles).
@@ -14,7 +15,7 @@ class ArticleVariant implements \JsonSerializable
 {
     protected $_id                 = null;
     protected $name                = null;
-    protected $stocks              = null;
+    protected $stocks              = [];
     protected $stock_factor        = null;
     protected $gtin                = null;
     protected $sku                 = null;
@@ -32,15 +33,14 @@ class ArticleVariant implements \JsonSerializable
      */
     public function __construct(Article $article, array &$properties = [])
     {
-        $this->name         = $properties['name'];
+        $currency           = TKTApp::get_instance()->get_config('currency', 'CHF');
         $this->article      = $article;
-        $this->stock        = $properties['stock'];
+        $this->name         = isset($properties['name']) ? $properties['name'] : new stdClass();
         $this->stock_factor = isset($properties['stock_factor']) ? $properties['stock_factor'] : -1;
         $this->gtin         = isset($properties['gtin']) ? (string)$properties['gtin'] : "";
         $this->sku          = isset($properties['sku']) ? (string)$properties['sku'] : "";
         if (isset($properties['price'])) {
-            // FIXME: Remove hardcoded currency
-            $this->price = (object)['CHF' => CHF::parse(CHF::prepare($properties['price']['CHF']))];
+            $this->price = (object)[$currency => Currency::parse(Currency::prepare($properties['price'][$currency]))];
         } else {
             $this->price = new \stdClass();
         }
@@ -49,25 +49,35 @@ class ArticleVariant implements \JsonSerializable
             $this->_id = $properties['_id'];
         }
 
-        // FIXME: Remove hardcoded currency
-        if (isset($properties['value']) && isset($properties['value']['CHF'])) {
-            $this->value = (object)['CHF' => CHF::parse(CHF::prepare($properties['value']['CHF']))];
+        if (isset($properties['value']) && isset($properties['value'][$currency])) {
+            $this->value = (object)[$currency => Currency::parse(Currency::prepare($properties['value'][$currency]))];
         } else {
             $this->value = $this->price;
         }
 
-        // FIXME: Remove hardcoded currency
-        if (isset($properties['purchasing_price']) && isset($properties['purchasing_price']['CHF'])) {
-            $this->purchasing_price = (object)['CHF' => CHF::parse(CHF::prepare($properties['purchasing_price']['CHF']))];
+        if (isset($properties['purchasing_price']) && isset($properties['purchasing_price'][$currency])) {
+            $this->purchasing_price = (object)[$currency => Currency::parse(Currency::prepare($properties['purchasing_price'][$currency]))];
         } else {
-            $this->purchasing_price = (object)['CHF' => CHF::parse('0.00')];
+            $this->purchasing_price = (object)[$currency => Currency::parse('0.00')];
         }
 
-        $vat = floatval($properties['vat']);
+        if (isset($properties['variable_price'])) {
+            $this->variable_price = (boolean)$properties['variable_price'];
+        }
+
+        $vat = isset($properties['vat']) ? floatval($properties['vat']) : 0.00;
         if ($vat < 0 || $vat > 100) {
             throw new \InvalidArgumentException("$vat: invalid vat value");
         }
         $this->vat = $vat;
+
+        if (array_key_exists('stocks', $properties)) {
+            $this->stocks = [];
+            foreach ($properties['stocks'] as $obj) {
+                array_push($this->stocks, new ArticleStock($obj));
+            }
+            unset($properties['stocks']);
+        }
     }
 
     /* setters */
@@ -113,9 +123,9 @@ class ArticleVariant implements \JsonSerializable
         return isset($this->name[$lang]) ? $this->name[$lang] : null;
     }
 
-    public function stock()
+    public function stocks()
     {
-        return is_float($this->stock) ? (float)$this->stock : (int)$this->stock;
+        return $this->stocks;
     }
 
     public function stock_factor()
@@ -135,16 +145,25 @@ class ArticleVariant implements \JsonSerializable
 
     public function price($currency = 'CHF')
     {
+        if (!$currency) {
+            $currency = TKTApp::get_instance()->get_config('currency', 'CHF');
+        }
         return isset($this->price->$currency) ? $this->price->$currency : null;
     }
 
-    public function value($currency = 'CHF')
+    public function value($currency = null)
     {
+        if (!$currency) {
+            $currency = TKTApp::get_instance()->get_config('currency', 'CHF');
+        }
         return isset($this->value->$currency) ? $this->value->$currency : null;
     }
 
-    public function purchasing_price($currency = 'CHF')
+    public function purchasing_price($currency = null)
     {
+        if (!$currency) {
+            $currency = TKTApp::get_instance()->get_config('currency', 'CHF');
+        }
         return isset($this->purchasing_price->$currency) ? $this->purchasing_price->$currency : null;
     }
 
@@ -167,9 +186,10 @@ class ArticleVariant implements \JsonSerializable
     {
         $ret = [
             'name'                => $this->name(),
-            'stocks'              => $this->stock(),
+            'stocks'              => $this->stocks(),
             'stock_factor'        => $this->stock_factor(),
             'stocks_by_salepoint' => $this->stocks_by_salepoint,
+            'stock_type'          => $this->article->stock_type(),
             'gtin'                => $this->gtin(),
             'sku'                 => $this->sku(),
             'price'               => $this->price,
