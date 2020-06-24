@@ -4,6 +4,7 @@ namespace Ticketack\WP\Shortcodes;
 use Ticketack\WP\Templates\TKTTemplate;
 use Ticketack\WP\TKTApp;
 use Ticketack\Core\Models\Article;
+use Ticketack\Core\Models\User;
 use Ticketack\Core\Base\TKTApiException;
 use Ticketack\Core\Base\No2_HTTP;
 use Ticketack\Core\Base\TKTRequest;
@@ -45,7 +46,9 @@ class ShopShortcode extends TKTShortcode
         $template     = isset($atts['template']) ? $atts['template'] : static::LIST_TEMPLATE;
         $category_ids = isset($atts['category_ids']) ? explode(',', $atts['category_ids']) : null;
         $item_width   = isset($atts['item_width']) ? $atts['item_width'] : static::DEFAULT_ITEM_WIDTH;
-        $salepoints   = $this->get_salepoints();
+
+        $user       = User::get_current();
+        $salepoints = $user->salepoints();
 
         try {
             $query = Article::all()->in_pos(implode(',', $salepoints));
@@ -62,7 +65,7 @@ class ShopShortcode extends TKTShortcode
                     'articles' => array_chunk(
                         $articles,
                         (int)(12 / $item_width)
-                    ),
+                    )
                 ]
             );
         } catch (TKTApiException $e) {
@@ -71,17 +74,5 @@ class ShopShortcode extends TKTShortcode
                 $e->getMessage()
             );
         }
-    }
-
-    protected function get_salepoints()
-    {
-        // Get current user salepoints
-        $api_key = TKTApp::get_instance()->get_config('ticketack.api_key');
-        $rsp     = TKTRequest::request(TKTRequest::GET, sprintf('/authentication/%s', $api_key));
-        if ($rsp->status !== No2_HTTP::OK) {
-            throw new TKTApiException(sprintf("%d: Authentification failed, impossible to get user's salepoints", $rsp->status));
-        }
-
-        return $rsp->data['salepoints'];
     }
 }

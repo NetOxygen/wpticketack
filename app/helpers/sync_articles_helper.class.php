@@ -6,6 +6,7 @@ use Ticketack\Core\Base\No2_HTTP;
 use Ticketack\Core\Base\TKTRequest;
 use Ticketack\Core\Base\TKTApiException;
 use Ticketack\Core\Models\Article;
+use Ticketack\Core\Models\User;
 use Ticketack\WP\TKTApp;
 
 /**
@@ -26,14 +27,9 @@ class SyncArticlesHelper extends SyncHelper
             switch_to_locale('fr_FR');
         }
 
-        // Get current user salepoints
-        $api_key = TKTApp::get_instance()->get_config('ticketack.api_key');
-        $rsp     = TKTRequest::request(TKTRequest::GET, sprintf('/authentication/%s', $api_key));
-        if ($rsp->status !== No2_HTTP::OK) {
-            throw new TKTApiException(sprintf("%d: Authentification failed, impossible to get user's salepoints", $rsp->status));
-        }
-
-        $articles = static::load_articles($rsp->data['salepoints']);
+        $user       = User::get_current();
+        $salepoints = $user->salepoints();
+        $articles   = static::load_articles($rsp->data['salepoints']);
 
         if (!empty($articles)) {
             array_map(function ($article) use ($default_lang) {
