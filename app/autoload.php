@@ -24,6 +24,7 @@ require_once(TKT_LIB.'/models/place.class.php');
 require_once(TKT_LIB.'/models/pricing.class.php');
 require_once(TKT_LIB.'/models/screening.class.php');
 require_once(TKT_LIB.'/models/tickettype.class.php');
+require_once(TKT_LIB.'/models/user.class.php');
 require_once(TKT_LIB.'/models/window.class.php');
 require_once(TKT_LIB.'/models/article.class.php');
 require_once(TKT_LIB.'/models/article_stock.class.php');
