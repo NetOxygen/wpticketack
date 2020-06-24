@@ -1,5 +1,5 @@
 <?php
-namespace Ticketack\Core\Base;
+namespace Ticketack\Core\Base\Currency;
 
 /**
  * Money interface.
@@ -28,6 +28,20 @@ interface Money
      *   an instance of this class on success, null otherwise.
      */
     public static function parse($money);
+
+    /**
+     * public getter for units
+     *
+     * @return an int.
+     */
+    public function units();
+
+    /**
+     * public getter for cents
+     *
+     * @return an int.
+     */
+    public function cents();
 
     /**
      * public getter for this money's currency.

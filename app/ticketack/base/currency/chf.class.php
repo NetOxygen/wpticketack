@@ -1,5 +1,5 @@
 <?php
-namespace Ticketack\Core\Base;
+namespace Ticketack\Core\Base\Currency;
 
 /**
  * CHF (Swiss Franc) Model.
@@ -9,15 +9,17 @@ namespace Ticketack\Core\Base;
 
 class CHF implements Money, \JsonSerializable
 {
-    // computed by max_francs_value(), don't access directly.
-    static private $max_francs_value = null;
+    // computed by max_units_value(), don't access directly.
+    static private $max_units_value = null;
 
-    public static function max_francs_value()
+    static protected $regexp = '/^\s*(?:CHF\s+|Fr\.\s+)?(\-?\d{1,3}(?:\'\d\d\d)*|\d+)(?:\.(\d\d*|-))?\s*$/';
+
+    public static function max_units_value()
     {
-        if (is_null(static::$max_francs_value)) {
-            static::$max_francs_value = preg_replace('/\d\d$/', '', strval(PHP_INT_MAX));
+        if (is_null(static::$max_units_value)) {
+            static::$max_units_value = preg_replace('/\d\d$/', '', strval(PHP_INT_MAX));
         }
-        return static::$max_francs_value;
+        return static::$max_units_value;
     }
 
     /**
@@ -40,59 +42,55 @@ class CHF implements Money, \JsonSerializable
      */
     public static function parse($money)
     {
-        $regexp = '/^\s*(?:CHF\s+|Fr\.\s+)?(\d{1,3}(?:\'\d\d\d)*|\d+)(?:\.(\d\d|-))?\s*$/';
         if ($money instanceof static) {
             return $money;
         }
 
         $result  = null;
         $matches = [];
-        if (preg_match($regexp, strval($money), $matches)) {
-            $francs = str_replace("'", "", $matches[1]);
+        if (preg_match(static::$regexp, strval($money), $matches)) {
+            $units  = str_replace("'", "", $matches[1]);
             $cents  = (count($matches) < 3 || $matches[2] === '-' ? 0 : $matches[2]);
-            $result = new static($francs, $cents);
+            $result = new static($units, $cents);
         }
         return $result;
     }
 
-    protected $francs;
+    protected $units;
     protected $cents;
-    protected $currency;
+    protected $currency = 'CHF';
 
     /**
      * CHF constructor
      *
      * This constructor is protected, use CHF::parse() instead.
      *
-     * @param $francs (int)
-     *   The amount of francs
+     * @param $units (int)
+     *   The amount of units
      *
      * @param $cents (int)
      *   The amount of cents
      */
-    protected function __construct($francs, $cents)
+    protected function __construct($units, $cents)
     {
-        $this->currency = 'CHF';
-        $this->francs   = intval($francs);
+        $this->units   = intval($units);
         $this->cents    = intval($cents);
 
-        if ($this->francs() < 0) {
-            throw new \InvalidArgumentException('francs cannot be lesser than zero');
-        } elseif ($this->cents() < 0) {
-            throw new \InvalidArgumentException('cents cannot be lesser than zero');
+        if ($this->cents() < 0) {
+            throw new InvalidArgumentException('cents cannot be lesser than zero');
         } elseif ($this->cents() >= 100) {
-            throw new \InvalidArgumentException('cents cannot be greater than 99');
+            throw new InvalidArgumentException('cents cannot be greater than 99');
         }
     }
 
     /**
-     * public getter for francs
+     * public getter for units
      *
      * @return an int.
      */
-    public function francs()
+    public function units()
     {
-        return $this->francs;
+        return $this->units;
     }
 
     /**
@@ -125,7 +123,7 @@ class CHF implements Money, \JsonSerializable
     {
         $other = static::parse($opaque);
         return ($other instanceof static &&
-            $this->francs() === $other->francs() &&
+            $this->units() === $other->units() &&
             $this->cents()  === $other->cents()
         );
     }
@@ -146,16 +144,16 @@ class CHF implements Money, \JsonSerializable
     {
         $to_add = static::parse($other);
         if (is_null($to_add)) {
-            throw new \InvalidArgumentException($other);
+            throw new InvalidArgumentException($other);
         }
 
-        $francs = $this->francs() + $to_add->francs();
+        $units  = $this->units() + $to_add->units();
         $cents  = $this->cents()  + $to_add->cents();
         if ($cents >= 100) { // at most 99 + 99 = 198
-            $francs += 1;
-            $cents  -= 100;
+            $units += 1;
+            $cents -= 100;
         }
-        return new static($francs, $cents);
+        return new static($units, $cents);
     }
 
     /**
@@ -166,10 +164,11 @@ class CHF implements Money, \JsonSerializable
     public function value()
     {
         return floatval(
-            $this->francs() +
+            $this->units() +
             $this->cents() / 100
         );
     }
+
     /**
      * Convert a CHF instance into a string.
      *
@@ -178,12 +177,12 @@ class CHF implements Money, \JsonSerializable
      */
     public function __toString()
     {
-        return sprintf("%s %d.%02d", $this->currency(), $this->francs(), $this->cents());
+        return sprintf("%s %d.%02d", $this->currency(), $this->units(), $this->cents());
     }
 
     public function jsonSerialize()
     {
-        return sprintf("%d.%02d", $this->francs(), $this->cents());
+        return (float)sprintf("%d.%02d", $this->units(), $this->cents());
     }
 
     /**
