@@ -47,6 +47,7 @@ var Ticketack = function(eshopUrl, apiKey, lang) {
     this.payUrl                = this.eshopUrl + "carts/pay/id/";
     this.confirmUrl            = this.eshopUrl + "carts/confirm/id/";
     this.screeningUrl          = this.eshopUrl + "screening/info_json/";
+    this.articlesUrl           = this.eshopUrl + "articles/list";
     this.bookUrl               = this.eshopUrl + "screening/book_on_ticket/";
     this.unbookUrl             = this.eshopUrl + "ticket/cancel_booking_json/";
     this.checkUrl              = this.eshopUrl + "screening/bookability/";
@@ -131,6 +132,7 @@ Ticketack.prototype.getScreeningsInfo = function(screening_refs, callback) {
     return this.get(url, {}, callback);
 }
 
+
 /**
  * Add a screening to cart
  *
@@ -184,6 +186,17 @@ Ticketack.prototype.addArticlesToCart = function(articles, callback) {
     var data = { "articles":  articles };
     return this.post_json(this.parametrize_url(this.cartAddArticlesUrl, {}), data, callback);
 };
+
+/**
+ * Fetch the informations about one or more articles
+ *
+ * @param {Array} articles_ids: Array with articles ids
+ * @param {Function} callback: The callback function
+ */
+Ticketack.prototype.getArticlesInfo = function(articles_ids, callback) {
+    var url = this.parametrize_url(this.articlesUrl, { "article_ids": articles_ids.join(",") }, true);
+    return this.get(url, {}, callback);
+}
 
 /**
  * Set the cart in PENDING mode

@@ -41,4 +41,8 @@ export default class ArticleVariant extends BaseModel {
 
         return this.stocks_by_salepoint[salepoint_id] / this.stock_factor;
     }
+
+    getFormattedPrice() {
+        return this.price['CHF'].toFixed(2);
+    }
 }

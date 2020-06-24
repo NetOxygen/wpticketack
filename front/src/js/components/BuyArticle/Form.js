@@ -1,6 +1,6 @@
 import { Component, Config, i18n, Template } from '../Core';
 import { Api as TKTApi } from '../Ticketack';
-import { Cart } from '../Models';
+import { Article, Cart } from '../Models';
 import _ from 'lodash';
 import postal from 'postal';
 import moment from 'moment';
@@ -29,31 +29,40 @@ export default class ArticleForm extends Component {
     constructor($container, state) {
         super($container, state);
 
-        this.redirect     = this.$container.data('redirect');
-        this.cart_url     = this.$container.data('cart-url');
-        this.checkout_url = this.$container.data('checkout-url');
+        this.article_id      = this.$container.data('article-id');
+        this.salepoint_id    = this.$container.data('salepoint-id');
+        this.redirect        = this.$container.data('redirect');
+        this.cart_url        = this.$container.data('cart-url');
+        this.checkout_url    = this.$container.data('checkout-url');
+        this.chosen_variants = {};
     }
 
     attach() {
         super.attach();
 
-        this.init_store();
         this.init();
     }
 
     init() {
-        this.data.article_id = this.$container.data('article-id');
-        this.data.variants   = this.$container.data('variants');
+        Article.getInfos([this.article_id], /*forceReload*/true, (err, articles) => {
+            if (err)
+                console.error(err);
+            else {
+                this.article  = articles[0];
 
-        this.build_form();
-    }
+                this.chosen_variants = {};
+                this.article.variants.map((variant, variant_index) => {
+                    this.chosen_variants[variant_index] = {
+                        _id: variant._id,
+                        price: variant.getFormattedPrice(),
+                        stock: variant.getStockForSalepoint(this.salepoint_id),
+                        quantity: 0
+                    };
+                });
 
-    init_store() {
-        this.data = {
-            article_id: null, // selected article id
-            variants: [],     // current variants
-            articles: [],     // selected variants
-        };
+                this.build_form();
+            }
+        });
     }
 
     emit_cart_update(cart) {
@@ -78,7 +87,8 @@ export default class ArticleForm extends Component {
     build_variants_form() {
         // render template
         this.$variants_form.html(Template.render('tkt-buy-article-form-pricings-tpl', {
-            variants: this.data.variants
+            article: this.article,
+            salepoint_id: this.salepoint_id
         }));
 
         // bind pricings minus buttons if any
@@ -95,6 +105,8 @@ export default class ArticleForm extends Component {
                 $t.removeClass('tkt-grey-badge').addClass('tkt-dark-badge');
             else
                 $t.removeClass('tkt-dark-badge').addClass('tkt-grey-badge');
+
+            $('.tkt-plus-btn', $t.parent()).removeClass('tkt-out-of-stock-badge')
         });
 
         // bind pricings plus buttons if any
@@ -102,18 +114,30 @@ export default class ArticleForm extends Component {
             const $t     = $(e.target);
             const $input = $t.parent().next('.variant-input').eq(0);
             const val    = parseInt($input.val());
-            $input.val(val + 1).trigger('change');
-            const $qty = $t.parent().find('.variant-qty').eq(0);
-            $qty.text(val + 1);
-            $('.tkt-minus-btn', $t.parent())
-                .removeClass('tkt-grey-badge')
-                .addClass('tkt-dark-badge');
+
+            const variant = this.chosen_variants[$input.data('variant')];
+            if (variant.stock > val) {
+                const new_val = val + 1;
+                $input.val(new_val).trigger('change');
+
+                const $qty = $t.parent().find('.variant-qty').eq(0);
+                $qty.text(val + 1);
+
+                $('.tkt-minus-btn', $t.parent())
+                    .removeClass('tkt-grey-badge')
+                    .addClass('tkt-dark-badge');
+
+                if (variant.stock == new_val) {
+                    $t.addClass('tkt-out-of-stock-badge');
+                }
+            }
         });
 
         // bind variant fields
         $('.variant-input', this.$container).change((e) => {
             const $input = $(e.target);
-            this.data.articles[$input.data('variant')] = parseInt($input.val());
+            const variant_index = $input.data('variant');
+            this.chosen_variants[$input.data('variant')].quantity = parseInt($input.val());
         });
 
         // bind add-to-cart button
@@ -131,37 +155,60 @@ export default class ArticleForm extends Component {
     }
 
     process_add_to_cart() {
-        $('.variants-error').html("").addClass('d-none');
+        $('.error-panel').html("").addClass('d-none');
+        $('.tkt-variant-error-msg').html("").addClass('d-none');
         $('.success-panel').addClass('d-none');
 
 
-        // Check chosen articles
-        const chosen_articles = _.find(this.data.articles, (nb) => nb > 0);
-        if (!chosen_articles) {
-            return $('.variants-error')
+        // Check chosen variants
+        this.chosen_variants = _.filter(this.chosen_variants, (v) => v.quantity > 0);
+        if (this.chosen_variants.length === 0) {
+            return $('.error-panel')
                 .html(i18n.t('Veuillez choisir au moins un article'))
                 .removeClass('d-none');
         }
 
-        const variants = [];
-        this.data.articles.map((quantity, key) => {
-            variants.push({
-                _id: this.data.variants[key]._id,
-                quantity: quantity,
-                price: this.data.variants[key].price['CHF']
-            });
-        })
         // Add to cart
         TKTApi.addArticlesToCart(
             [{
-                _id: this.data.article_id,
-                variants: variants
+                _id: this.article_id,
+                variants: this.chosen_variants
             }],
             (err, status, rsp) => {
-                if (err) {
-                    return $('.variants-error')
-                        .html((rsp || {}).errorMsg)
+                this.chosen_variants = {};
+                if (err && status != 409) {
+                    return $('.error-panel')
+                        .html(i18n.t('Une erreur est survenue'))
                         .removeClass('d-none');
+                }
+
+                const hasAvailabilityError = (status === 409);
+                if (this.redirect === 'none' && hasAvailabilityError) {
+                    Article.getInfos([this.article_id], /*forceReload*/true, (err, articles) => {
+                        if (err)
+                            console.error(err);
+                        else {
+                            this.article  = articles[0];
+                            this.build_variants_form();
+
+                            if ('articles' in rsp) {
+                                rsp.articles.map(article => {
+                                    article.variants.map(variant => {
+                                        if (!variant.flash || !variant.flash.error)
+                                            return;
+
+                                        const $variant_error_panel = $('.tkt-variant-error-msg[data-variant-id="' + variant._id + '"]');
+                                        if (!$variant_error_panel)
+                                            return;
+
+                                        $variant_error_panel
+                                            .html(variant.flash.error)
+                                            .removeClass('d-none');
+                                    });
+                                });
+                            }
+                        }
+                    });
                 }
 
                 switch (this.redirect) {
@@ -173,7 +220,8 @@ export default class ArticleForm extends Component {
                         break;
                     default:
                         // Hide forms and show success message
-                        $('.variants-form').addClass('d-none');
+                        if (!hasAvailabilityError)
+                            $('.variants-form').addClass('d-none');
                         $('.success-panel').removeClass('d-none');
 
                         // Reload and emit cart update
