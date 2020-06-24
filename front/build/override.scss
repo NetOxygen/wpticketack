@@ -114,6 +114,12 @@
                     background-color: $badge_title_bg_color;
                     border-color: darken($badge_title_bg_color, 10%);
                     max-width: 50px;
+
+                    &.tkt-out-of-stock-badge  {
+                        cursor: default !important;
+                        background-color: $error_color;
+                        border-color: darken($error_color, 10%);
+                    }
                 }
             }
         }
@@ -432,15 +438,36 @@
                             font-size: 25px;
                             line-height: 32px;
                         }
+
+                        &.out-of-stock {
+                            background-color: $error_color;
+                        }
                     }
+                }
+                .tkt-variant-error-msg {
+                    background-color: $dark_section_bg_color;
+                    border: 1px solid darken($error_color, 10%);
+                    color: $error_color;
+                    padding: 5px;
+                    border-radius: $border_radius;
+                    margin-bottom: 10px;
                 }
             }
             .add-to-cart-btn { }
+            .error-panel {
+                background-color: $dark_section_bg_color;
+                border: 1px solid darken($error_color, 10%);
+                color: $error_color;
+                padding: 5px;
+                border-radius: $border_radius;
+                margin-bottom: 10px;
+            }
         }
     }
     .success-panel {
         flex: 1;
         padding-right: 1rem;
+        margin-top: 10px;
     }
 }
 
