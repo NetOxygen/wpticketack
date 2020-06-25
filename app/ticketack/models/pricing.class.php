@@ -1,7 +1,7 @@
 <?php
 namespace Ticketack\Core\Models;
 
-use Ticketack\Core\Base\CHF;
+use Ticketack\Core\Base\Currency\CHF;
 
 /**
  * Ticketack Engine helper for pricings (used in Tickettypes, Tickets and Screenings).
