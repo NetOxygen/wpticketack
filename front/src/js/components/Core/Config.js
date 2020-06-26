@@ -1,3 +1,5 @@
+import moment from 'moment';
+
 /**
  * Config manager
  */
@@ -13,6 +15,9 @@ class Config {
      */
     constructor() {
         this.params = window.tkt_config;
+
+        // configure globally moment locale
+        moment.locale(this.get('lang', 'fr'));
     }
 
     /**
