@@ -263,7 +263,7 @@ Ticketack.prototype.pay = function(cart_id, payment_method, user_data, callback)
  * @param {Function} callback: The callback function
  */
 Ticketack.prototype.confirm = function(cart_id, callback) {
-    return this.post_json(this.parametrize_url(this.confirmUrl + cart_id, {}), data, callback);
+    return this.post_json(this.parametrize_url(this.confirmUrl + cart_id, {}), {}, callback);
 };
 
 /**
