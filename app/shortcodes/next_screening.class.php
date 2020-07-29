@@ -37,6 +37,7 @@ class NextScreeningShortcode extends TKTShortcode
 
         $output         = isset($atts['output']) ? $atts['output'] : null;
         $with_link      = isset($atts['with_link']) ? !!$atts['with_link'] : false;
+        $places         = isset($atts['places']) ? explode(',', $atts['places']) : [];
         $allowed_fields = ['title','date','time','datetime','venue','poster', 'url'];
 
         if (!empty($output) && !in_array($output, $allowed_fields)) {
@@ -48,11 +49,21 @@ class NextScreeningShortcode extends TKTShortcode
         }
 
         if (is_null($screening)) {
-            $screening = current(Screening::all()
+            $screenings = Screening::all()
                 ->in_the_future()
                 ->filter_pricings_for_sellers(['eshop'])
                 ->order_by_start_at()
-                ->get('_id,title,start_at,stop_at,cinema_hall.name,cinema_hall._id,films,opaque'));
+                ->get('_id,title,start_at,stop_at,cinema_hall.name,cinema_hall._id,films,opaque');
+            if (!empty($places)) {
+                $screenings = array_filter($screenings, function ($s) use ($places) {
+                    return in_array($s->place()->_id(), $places);
+                });
+            }
+            $screening = !empty($screenings) ? current($screenings) : null;
+        }
+
+        if (!$screening) {
+            return tkt_t('Aucune séance à venir.');
         }
 
         return TKTTemplate::render(
