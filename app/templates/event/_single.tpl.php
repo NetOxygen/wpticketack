@@ -73,6 +73,7 @@ $nb_slides = count($trailers) + count($posters);
                     data-component="Media/YoutubeVideo"
                     data-video-id="<?= tkt_yt_video_id($t->url) ?>"
                     data-video-image="<?= tkt_img_proxy_url($t->image, $images_width, $images_height) ?>"
+                    data-controls="1"
                     data-bs4-carousel-id="event-carousel">
                   </div>
                 </div>
