@@ -52,7 +52,7 @@ class AdminMenuAction extends TKTAction
                     die('WordPress nonce error, please reload the form and try again');
                 }
                 if ($section == 'tkt_pass') {
-                    update_option($section, array_map('sanitize_textarea_field', $options));
+                    update_option($section, array_map('sanitize_textarea_field', $_POST[$section]));
                 } else {
                     update_option($section, array_map('sanitize_text_field', $_POST[$section]));
                 }
