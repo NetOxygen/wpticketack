@@ -10,6 +10,7 @@ use Ticketack\WP\TKTApp;
  *   "cart": Cart instance,
  *   "program_url": String,
  *   "cart_reset_url": String,
+ *   "checkout_url": String,
  *   "hide_links": ['finalize', 'cancel', 'continue']
  * }
  */
@@ -68,7 +69,7 @@ use Ticketack\WP\TKTApp;
             <% if (!hide_links.includes('finalize')) { %>
         <div class="row">
             <div class="col finish-cart-wrapper">
-                <a href="<?= tkt_checkout_url() ?>" class="button active">
+                <a href="<%= checkout_url %>" class="button active">
                     <?= tkt_t('Finaliser ma commande') ?>
                 </a>
             </div>

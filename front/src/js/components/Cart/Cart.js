@@ -78,6 +78,7 @@ export default class Cart extends Component {
             cart: this.cart,
             program_url: Config.get('program_url'),
             cart_reset_url: Config.get('cart_reset_url'),
+            checkout_url: TKTApi.getCheckoutUrl(),
             hide_links: this.hide_links
         }));
     }
