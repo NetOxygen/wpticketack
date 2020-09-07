@@ -78,7 +78,6 @@ export default class BuyForm extends Component {
 
     add_to_cart() {
         let userdata = serialize(this.$form[0], { hash: true });
-        userdata.no_photo = true;
 
         this.$selected_pass = $('.choose-pass:checked', this.$container).parents('.pass');
         let type            = this.$selected_pass.data('type');
@@ -94,6 +93,7 @@ export default class BuyForm extends Component {
         }
 
         TKTApi.addPassToCart(type, pricing, userdata, (err, status, rsp) => {
+            /* TODO: Handle no_photo field */
             if (err)
                 return this.show_error(i18n.t('Une erreur est survenue. Veuillez ré-essayer ultérieurement.'));
 
