@@ -1,4 +1,6 @@
-(function ($) {
+import { EXIF } from 'exif-js';
+
+const FileInputToDataUrl = ($) => {
     var settings = {};
 
     $.fn.fileinput_to_dataurl = function(options) {
@@ -118,4 +120,8 @@
             });
         }
     }
-}(jQuery));
+}
+
+FileInputToDataUrl(jQuery);
+
+export default FileInputToDataUrl;
