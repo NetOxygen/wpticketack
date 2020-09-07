@@ -12,6 +12,7 @@ import { FilterRows as ProgramFilterRows } from './components/Program';
 import { Filters as ProgramFilters } from './components/Program';
 import { PlusMinus } from './components/Ui';
 import { UserConnect } from './components/User';
+import { ImageDataUrl } from './components/Form';
 
 import '../styles/main.scss';
 
@@ -22,6 +23,7 @@ loader.registerComponent('Booking/ScreeningsList', ScreeningsList);
 loader.registerComponent('BuyArticle/Form', ArticleForm);
 loader.registerComponent('Cart/Cart', Cart);
 loader.registerComponent('Cart/CartIcon', CartIcon);
+loader.registerComponent('Form/ImageDataUrl', ImageDataUrl);
 loader.registerComponent('Checkout/Checkout', Checkout);
 loader.registerComponent('Media/Carousel', Carousel);
 loader.registerComponent('Media/Loading', Loading);
