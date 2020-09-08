@@ -2,18 +2,22 @@
 
 .tkt-wrapper {
     @import "../../node_modules/bootstrap/scss/bootstrap.scss";
+    @import "node_modules/@glidejs/glide/src/assets/sass/glide.core";
+    @import "node_modules/@glidejs/glide/src/assets/sass/glide.theme";
 }
 
 @import "common.scss";
 @import "templates/article.scss";
-@import "templates/articles.scss";
 @import "templates/cart.scss";
 @import "templates/program.scss";
 @import "templates/event.scss";
 @import "templates/filter.scss";
 @import "templates/form.scss";
+@import "templates/shop.scss";
+@import "components/_accordion.scss";
 @import "components/_bookabilityState.scss";
 @import "components/_bookingForm.scss";
+@import "components/_buyArticle.scss";
 @import "components/_carousel.scss";
 @import "components/_cartIcon.scss";
 @import "components/_daysFilter.scss";

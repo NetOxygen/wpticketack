@@ -39,44 +39,29 @@ class HeadScriptsAction extends TKTAction
 
         echo '
         <script>
-            // moment locale and timezone must be injected globally because it\'s needed
-            // before the config initialization
-            window.moment_locale   = "'.TKT_LANG.'";
-            window.moment_timezone = "'.get_option('timezone_string').'";
-            var require = {
-                baseUrl: "'.tkt_assets_url('build/js').'",
-                urlArgs: "v='.TKT_ASSETS_VERSION.'",
-                config: {
-                    "assets": {
-                        version: "1",
-                        base_url: "'.get_site_url().'/"
-                    },
-                    "config": {
-                        "engine_uri": "'.$app->get_config('ticketack.engine_uri').'/",
-                        "eshop_uri": "'.$app->get_config('ticketack.eshop_uri').'/",
-                        "api_key": "'.$app->get_config('ticketack.api_key').'",
-                        "program_url": "'.tkt_program_url().'",
-                        "cart_url": "'.tkt_cart_url().'",
-                        "cart_reset_url": "'.tkt_cart_reset_url().'",
-                        "lang": "'.TKT_LANG.'",
-                    },
-                    "i18n": '.json_encode(LocalesHelper::dump_js_locales(), JSON_PRETTY_PRINT).'
-                },
-                paths: {
-                    "app": "'.tkt_assets_url('build/js/app').'",
-                    "wp_theme": "'.sprintf("%s/ticketack/front", get_template_directory_uri()).'"
-                }
-            };
-        </script>
-        <script src="'.tkt_assets_url('build/js/require.min.js').'"></script>
-        <script>
             if (typeof jQuery === "function") {
-                define("jquery", function () { return jQuery; });
                 /* Wordpress version of jQuery doesn\'t expose the $ global object */
                 window.$ = jQuery;
             }
-            require(["app"]);
+            // moment locale must be injected globally because it\'s needed
+            // before the config initialization
+            window.moment_locale = "'.TKT_LANG.'";
+            window.moment_timezone = "'.get_option('timezone_string').'";
+            window.tkt_config = {
+                version: "1",
+                base_url: "'.get_site_url().'/",
+                "engine_uri": "'.$app->get_config('ticketack.engine_uri').'/",
+                "eshop_uri": "'.$app->get_config('ticketack.eshop_uri').'/",
+                "api_key": "'.$app->get_config('ticketack.api_key').'",
+                "program_url": "'.tkt_program_url().'",
+                "shop_url": "'.tkt_shop_url().'",
+                "cart_url": "'.tkt_cart_url().'",
+                "cart_reset_url": "'.tkt_cart_reset_url().'",
+                "lang": "'.TKT_LANG.'",
+                "i18n": '.json_encode(LocalesHelper::dump_js_locales(), JSON_PRETTY_PRINT).'
+            };
         </script>
+        <script src="'.tkt_assets_url('build/app.js').'"></script>
 ';
     }
 }

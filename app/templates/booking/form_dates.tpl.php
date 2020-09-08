@@ -25,7 +25,7 @@ use Ticketack\WP\TKTApp;
 <div class="tkt-wrapper">
     <div class="row">
         <div class="col">
-            <span class="assertive">
+            <span>
                 <?= tkt_t('Veuillez choisir la date désirée :') ?>
             </span>
             <div class="days-wrapper">
@@ -41,7 +41,7 @@ use Ticketack\WP\TKTApp;
 
             <br/>
 
-            <span class="assertive">
+            <span>
                 <?= tkt_t('Veuillez choisir l\'heure désirée :') ?>
             </span>
             <div class="dates-wrapper">

@@ -8,7 +8,7 @@ use Ticketack\WP\Templates\TKTTemplate;
  *
  * Usage:
  *
- * [tkt_cart]
+ * [tkt_cart hidden_links="finalize,cancel,continue"]
  *
  * Default layout is "screenings"
  */
@@ -32,9 +32,13 @@ class CartShortcode extends TKTShortcode
      */
     public function run($atts, $content)
     {
+        $hidden_links = array_key_exists('hide_links', (array)$atts) ? $atts['hide_links'] : '';
+
         return TKTTemplate::render(
             'cart/cart',
-            (object)[]
+            (object)[
+                'hidden_links' => $hidden_links
+            ]
         );
     }
 }

@@ -1,13 +1,29 @@
-$base_color: #000;
-$active_color: #0056b3;         // Blue (links...)
-$assertive_color: #0056b3;      // Orange (titles, ...)
-$success_color: #ffffff;      // Orange (titles, ...)
-$error_color: #f85050;      // Orange (titles, ...)
-$dark_color: #000;
-$grey_color: #333;;
-$light_color: #FFFFFF;
+$text_color: #000 !default;
+$error_color: #ce6060 !default;
+$link_color: #007BFF;
+$active_color: #1C99E2 !default;
+$btn_bg_color: #121212 !default;
+$btn_text_color: #FFFFFF !default;
+$input_bg_color: #FFFFFF !default;
+$input_text_color: #000000 !default;
+$section_padding: 20px !default;
+$light_section_bg_color: #F0F0F0 !default;
+$light_section_text_color: #000 !default;
+$dark_section_bg_color: #212121 !default;
+$dark_section_text_color: #FFF !default;
+$badge_bg_color: #FFF !default;
+$badge_text_color: #000 !default;
+$badge_active_bg_color: #1C99E2 !default;
+$badge_active_text_color: #FFF !default;
+$badge_title_bg_color: #000 !default;
+$badge_title_text_color: #FFF !default;
+$badge_value_bg_color: #333 !default;
+$badge_value_text_color: #FFF !default;
+$border_radius: 4px;
 
-$slider_width: 924px;
-$slider_height: 520px;
-$program_poster_width: 682px;
-$program_poster_height: 384px;
+
+
+$slider_width: 924px !default;
+$slider_height: 520px !default;
+$program_poster_width: 682px !default;
+$program_poster_height: 384px !default;

@@ -55,7 +55,7 @@ class ProgramShortcode extends TKTShortcode
         $item_width    = isset($atts['item_width']) ? intval($atts['item_width']) : static::DEFAULT_ITEM_WIDTH;
         $order         = isset($atts['order']) ? $atts['order'] : ($layout == static::SCREENINGS_LAYOUT ? static::CHRONO_ORDER : static::ALPHA_ORDER);
         $top_filter    = isset($atts['top_filter']) ? $atts['top_filter'] : null;
-        $day           = isset($atts['day']) ? $atts['day'] : tkt_get_url_param('d');
+        $day           = tkt_get_url_param('d', (isset($atts['day']) ? $atts['day'] : null));
         $places        = isset($atts['places']) ? explode(',', $atts['places']) : [];
         $filter_fields = isset($atts['filter_fields']) ? explode(',', $atts['filter_fields']) : [];
 

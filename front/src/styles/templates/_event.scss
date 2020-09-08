@@ -1,114 +1,72 @@
 .tkt_event {
-  .carousel-section {
-      background: #212121;
-  }
-  .infos-section {
-    background: #F0F0F0;
-
-    .synopsis {
-      .title {
-        display: block;
-        text-transform: uppercase;
-        font-size: 1.3rem;
-        line-height: 1.3rem;
-      }
-      .text {
-        display: inline-block;
-        text-align: justify;
-        font-size: 1.3rem;
-        line-height: 1.8rem;
-      }
+    .carousel-section {
+        color: $dark_section_text_color;
+        background-color: $dark_section_bg_color;
+        border: 1px solid darken($dark_section_bg_color, 5%);
     }
-
-    .left-col {
-      .screening-date {
-        text-transform: uppercase;
-        font-size: 1.8rem;
-        line-height: 1.0rem;
-
-        p {
-          text-transform: uppercase;
-          font-size: 1.8rem;
-          line-height: 1.8rem;
-        }
-      }
-      .title {
-        text-transform: uppercase;
-        font-size: 1.8rem;
-        line-height: 1.2rem;
-      }
-      .genre {
-        text-transform: uppercase;
-        font-size: 1.3rem;
-        line-height: 1.2rem;
-        display: block;
-        margin-top: 0.7rem;
-        margin-bottom: 0.4rem;
-      }
-      .free-text-one {
-        p {
-          text-transform: uppercase;
-          font-size: 1rem;
-          line-height: 1rem;
-          display: block;
-        }
-      }
-    }
-  }
-
-  .movies-section {
-    background: #E6E6E6;
-
-    .tkt-section-title {
-      margin-bottom: 1rem;
-    }
-    .movies-wrapper {
-      .movie-wrapper {
-        margin-bottom: 1rem;
-        .movie-poster {
-            height: 100%;
-            min-height: 200px;
-            background-size: cover;
-        }
-        .movie-title {
-            font-weight: bold;
-
-            a {
-                color: $base_color;
-                text-decoration: none;
+    .infos-section {
+        .synopsis {
+            .text {
+                display: inline-block;
+                text-align: justify;
             }
         }
+    }
 
-        &:last-child {
-            margin-bottom: 0;
+    .movies-section {
+        color: $dark_section_text_color;
+        background-color: $dark_section_bg_color;
+        border: 1px solid darken($dark_section_bg_color, 5%);
+
+        .tkt-section-title {
+            margin-bottom: 1rem;
         }
-      }
+        .movies-wrapper {
+            .movie-wrapper {
+                margin-bottom: 1rem;
+                .movie-poster {
+                    height: 100%;
+                    min-height: 200px;
+                    background-size: cover;
+                }
+                .movie-title {
+                    font-weight: bold;
+
+                    a {
+                        color: $text_color;
+                        text-decoration: none;
+                    }
+                }
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
     }
-  }
 
-  .book-section {
-    background: #212121;
-    .show-booking-form {
-      display: block;
-      margin-top: 1rem;
-      text-transform: uppercase;
-      font-size: 1.7rem;
-      line-height: 1.4rem;
+    .book-section {
+        .show-booking-form {
+            display: block;
+            margin-top: 1rem;
 
-      .show-if-bookable {
-        font-size: 1.7rem !important;
-      }
+            .show-if-bookable {}
 
-      .show-if-almost-not-bookable {
-        font-size: 1.1rem;
-      }
+            .show-if-almost-not-bookable {}
+        }
     }
-  }
 }
 
+/* title and content are handled by the tkt-event template */
 body.single-tkt-event {
-    header.entry-header {
-        /* title is handled by the kt-event template */
+    header.entry-header,
+    .entry-content > p {
+        display: none;
+    }
+}
+article.type-tkt-event {
+    .entry-title,
+    .entry-content > p {
         display: none;
     }
 }

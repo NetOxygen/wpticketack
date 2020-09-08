@@ -150,13 +150,11 @@ svn delete --force --quiet $SVNPATH/trunk/composer.json
 svn delete --force --quiet $SVNPATH/trunk/composer.lock
 svn delete --force --quiet $SVNPATH/trunk/README.md
 svn delete --force --quiet $SVNPATH/trunk/scripts
-svn delete --force --quiet $SVNPATH/trunk/front/.babelrc
-svn delete --force --quiet $SVNPATH/trunk/front/gulpfile.js
-svn delete --force --quiet $SVNPATH/trunk/front/karma.conf.js
-svn delete --force --quiet $SVNPATH/trunk/front/package-lock.json
 svn delete --force --quiet $SVNPATH/trunk/front/package.json
+svn delete --force --quiet $SVNPATH/trunk/front/webpack.common.js
+svn delete --force --quiet $SVNPATH/trunk/front/webpack.dev.js
+svn delete --force --quiet $SVNPATH/trunk/front/webpack.prod.js
 svn delete --force --quiet $SVNPATH/trunk/front/src/
-svn delete --force --quiet $SVNPATH/trunk/front/test/
 svn delete --force --quiet $SVNPATH/trunk/front/yarn-error.log
 svn delete --force --quiet $SVNPATH/trunk/front/yarn.lock
 

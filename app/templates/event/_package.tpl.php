@@ -59,10 +59,11 @@ $nb_slides = count($trailers) + count($posters);
     <section class="tkt-full-section carousel-section">
       <div class="row">
         <div class="col">
-          <div id="event-carousel" data-component="Media/Carousel">
-            <div class="carousel-inner">
+          <div id="event-carousel" data-component="Media/Carousel" class="glide">
+            <div class="glide__track" data-glide-el="track">
+              <ul class="glide__slides">
               <?php foreach ($trailers as $i => $t) : ?>
-              <div class="carousel-item <?= $i == 0 ? 'active' : '' ?>">
+              <li class="glide__slide <?= $i == 0 ? 'active' : '' ?>">
                 <div class="tkt-event-carousel-trailer-wrapper d-block w-100">
                   <div
                     id="tkt-event-carousel-trailer-<?= $i ?>"
@@ -73,23 +74,19 @@ $nb_slides = count($trailers) + count($posters);
                     data-bs4-carousel-id="event-carousel">
                   </div>
                 </div>
-              </div>
+              </li>
               <?php endforeach; ?>
               <?php foreach ($posters as $i => $p) : ?>
-              <div class="carousel-item <?= count($trailers) == 0 && $i == 0 ? 'active' : '' ?>">
-                <img class="d-block w-100" src="<?= tkt_img_proxy_url($p->url, $images_width, $images_height) ?>" alt="<?= $title ?>">
-              </div>
+              <li class="glide__slide <?= count($trailers) == 0 && $i == 0 ? 'active' : '' ?>">
+                <img class="d-block w-100" src="<?= tkt_img_proxy_url($p->url, $images_width, $images_height) ?>" alt="<?= $title->{TKT_LANG} ?>">
+              </li>
               <?php endforeach; ?>
             </div>
             <?php if ($nb_slides > 1) : ?>
-            <a class="carousel-control-prev" href="#event-carousel" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="sr-only">Précédent</span>
-            </a>
-            <a class="carousel-control-next" href="#event-carousel" role="button" data-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="sr-only">Suivant</span>
-            </a>
+            <div class="glide__arrows" data-glide-el="controls">
+              <button class="glide__arrow glide__arrow--left" data-glide-dir="<"><</button>
+              <button class="glide__arrow glide__arrow--right" data-glide-dir=">">></button>
+            </div>
             <?php endif; ?>
           </div>
         </div>

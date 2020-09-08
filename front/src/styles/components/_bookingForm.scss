@@ -1,195 +1,113 @@
 .booking-form {
-  .dates-form {
-    margin-top: 1.5rem;
-
-    span.dates-title {
-      margin-top: 0.5rem;
-      display: block;
-      font-size: 1.3rem;
-    }
-
-    .dates-wrapper {
-      border: 1px solid $base_color;
-      padding: 0.5rem;
-      float: left;
-      height: 200px;
-      overflow-y: auto;
-
-      .date-wrapper {
-        cursor: pointer;
-
-        span.date {
-          font-size: 1.2rem;
-          text-transform: uppercase;
-        }
-      }
-    }
-  }
-  .tickets-form {
-    margin-top: 1.5rem;
-
-    .pricings-form {
-      span.tickets-title {
-        font-size: 1.3rem;
-      }
-
-      .pricing-row {
-        margin-top: 0.5rem;
-        margin-bottom: 0.5rem;
-
-        .pricing-name {
-          text-transform: uppercase;
-          font-size: 1.3rem;
-          font-weight: normal;
-        }
-        .pricing-price {
-          font-size: 1.3rem;
-        }
-        .pricing-input {
-          width: 40px;
-        }
-      }
-      .add-to-cart-btn {
-        margin-top: 1rem;
-      }
-    }
-    .pass-form {
-      max-width: 440px;
-      margin-top: 2rem;
-
-      .connect-panel {
-        span.pass-title {
-          font-size: 1.3rem;
-        }
-        .connect-panel-form {
-          .pass-number {
-            font-size: 1.3rem;
-          }
-          .pass-number-input {
-            padding: 0;
-          }
-          .pass-key {
-            font-size: 1.3rem;
-          }
-          .pass-key-input {
-            padding: 0;
-          }
-          .connect-btn {
-            margin-top: 0.5rem;
-          }
-        }
-      }
-      .book-panel {
-        .book-btn {
-
-        }
-        .show-bookings-btn {
-          margin-top: 1rem;
-        }
-      }
-    }
-  }
-  .success-panel {
-    margin-top: 1.9rem;
-    .success-title {
-
-    }
-    .continue-shopping {
-      margin-top: 1rem;
-    }
-  }
-
-  &.v2 {
     display: flex;
     flex-direction: column;
     .dates-form {
-      flex: 1;
-      margin-top: 0;
-      padding-right: 1rem;
+        flex: 1;
+        margin-top: 0;
+        padding-right: 1rem;
 
-      .days-wrapper {
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
-        flex-wrap: wrap;
+        .days-wrapper {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            flex-wrap: wrap;
 
-        .day {
-          margin: 0.25rem;
-          &.active {
-            background-color: $assertive_color;
-            color: $light_color;
-          }
+            .day {
+                margin: 0.25rem;
+                width: calc(25% - 0.5rem);
+                text-align: center;
+                cursor: pointer;
+            }
         }
-      }
 
-      .dates-wrapper {
-        border: none;
-        padding: 0;
-        float: none;
-        height: auto;
-        overflow-y: visible;
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
-        flex-wrap: wrap;
+        .dates-wrapper {
+            border: none;
+            padding: 0;
+            float: none;
+            height: auto;
+            overflow-y: visible;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            flex-wrap: wrap;
 
-        .date {
-          margin: 0.25rem;
-          &.active {
-              background-color: $assertive_color;
-              color: $light_color;
-          }
+            .date {
+                margin: 0.25rem;
+                width: calc(25% - 0.5rem);
+                text-align: center;
+                cursor: pointer;
+            }
         }
-      }
     }
     .tickets-form {
-      flex: 1;
-      padding-right: 1rem;
-      margin-top: 0;
+        flex: 1;
+        padding-right: 1rem;
+        margin-top: 0;
 
-      .pricings-form {
-        .pricing-row {
-          margin-top: 0;
-          margin-bottom: 0.5rem;
+        .pricings-form {
+            .pricing-row {
+                margin-top: 0;
+                margin-bottom: 0.5rem;
 
-          .tkt-badge-split {
-            .tkt-badge-part {
-              flex: none;
+                .tkt-badge-split {
+                    .tkt-badge-part {
+                        .pricing-qty {
+                            font-weight: bold;
+                        }
+                        .pricing-name {}
+                        .pricing-price {}
 
-              .pricing-qty {
-                font-weight: bold;
-              }
-              .pricing-name {
-                font-size: 1rem;
-              }
-              .pricing-price {
-                font-size: 1rem;
-              }
-
-              &.tkt-minus-btn,
-              &.tkt-plus-btn {
-                font-weight: bold;
-                padding: 0 15px;
-                font-size: 25px;
-                line-height: 32px;
-              }
+                        &.tkt-minus-btn,
+                        &.tkt-plus-btn {
+                            cursor: pointer;
+                            font-weight: bold;
+                            padding: 0 15px;
+                            font-size: 25px;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                        }
+                    }
+                }
             }
-          }
+            .add-to-cart-btn { }
         }
-        .add-to-cart-btn { }
-      }
     }
     .success-panel {
-      flex: 1;
-      padding-right: 1rem;
+        flex: 1;
+        padding-right: 1rem;
     }
-  }
 }
 
 @media screen and (max-width: 768px) {
- .booking-form {
-   &.v2 {
-     flex-direction: column;
-   }
- }
+    .booking-form {
+        flex-direction: column;
+        .dates-form {
+            .days-wrapper {
+                .day {
+                    width: 100%;
+                }
+            }
+
+            .dates-wrapper {
+                .date {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .tickets-form {
+        .pricings-form {
+            .pricing-row {
+                .tkt-badge-split {
+                    .tkt-badge-part {
+                        max-width: 100%;
+                    }
+                }
+            }
+        }
+    }
 }

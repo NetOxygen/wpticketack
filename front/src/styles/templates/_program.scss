@@ -1,288 +1,267 @@
 #tkt_program {
-  margin: 0 auto;
-  ul.tkt-filters {
-    list-style-type: none;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    margin: 0 auto;
+    ul.tkt-filters {
+        list-style-type: none;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
 
-    li.tkt-filter {
-      &:hover,
-      &.active {
-        .tkt-filter-name {
-          background: #791e88;
-        }
-      }
-
-      .tkt-filter-name {
-        display: block;
-        background: #000000;
-        color: #FFFFFF;
-        margin: 0 7px;
-        padding: 2px 7px;
-        cursor: pointer;
-      }
-
-      .tkt-filter-date {
-        display: block;
-        text-align: center;
-        font-weight: bold;
-        text-transform: uppercase;
-      }
-    }
-  }
-
-  .tkt_program_screening {
-    padding-bottom: 1.1rem;
-
-    .screening-inner {
-      > .row {
-        position: relative;
-        padding-top: 15px;
-
-        .poster-background {
-          position: absolute;
-          top: 0;
-          width: 100%;
-          height: calc(100% + 15px);
-          background-repeat: no-repeat;
-          background-size: cover;
-
-          .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-          }
-        }
-        .left-col {
-          .poster-wrapper {
-            img.poster {
-            }
-          }
-        }
-        .right-col {
-          .date {
-            text-transform: uppercase;
-            font-size: 1.8rem;
-            line-height: 1.5rem;
-
-            * {
-              text-transform: uppercase;
-              font-size: 1.8rem;
-              line-height: 1.5rem;
+        li.tkt-filter {
+            &:hover,
+            &.active {
+                .tkt-filter-name {
+                    background: #791e88;
+                }
             }
 
-            p {
-              margin-bottom: 5px;
+            .tkt-filter-name {
+                display: block;
+                background: #000000;
+                color: #FFFFFF;
+                margin: 0 7px;
+                padding: 2px 7px;
+                cursor: pointer;
             }
-          }
-          .title {
-            text-transform: uppercase;
-            font-size: 1.7rem;
-            line-height: 1.7rem;
-          }
-          .genre {
-            text-transform: uppercase;
-            font-size: 1.5rem;
-            line-height: 1.3rem;
-            display: inline-block;
-            margin-top: 0.7rem;
-          }
-          .more-infos {
-            text-transform: uppercase;
-            font-size: 1.2rem;
-            line-height: 1.2rem;
-            display: inline-block;
-            margin-top: 1.8rem;
-            vertical-align: bottom;
-          }
-          .tickets {
-            text-transform: uppercase;
-            font-size: 1.2rem;
-            line-height: 1.2rem;
-            display: block;
-          }
-          .screening-complete {
-            text-transform: uppercase;
-            font-size: 1.2rem;
-            line-height: 1.2rem;
-          }
+
+            .tkt-filter-date {
+                display: block;
+                text-align: center;
+                font-weight: bold;
+                text-transform: uppercase;
+            }
         }
+    }
 
-        &:first-child {
-          padding-top: 10px;
+    .tkt_program_screening {
+        padding-bottom: 1.1rem;
+
+        .screening-inner {
+            > .row {
+                position: relative;
+                padding-top: 15px;
+
+                .poster-background {
+                    position: absolute;
+                    top: 0;
+                    width: 100%;
+                    height: calc(100% + 15px);
+                    background-repeat: no-repeat;
+                    background-size: cover;
+
+                    .overlay {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background-color: rgba(0, 0, 0, 0.5);
+                    }
+                }
+                .left-col {
+                    .poster-wrapper {
+                        img.poster {
+                        }
+                    }
+                }
+                .right-col {
+                    .date {
+                        p {
+                            margin-bottom: 5px;
+                        }
+                    }
+                    .title {}
+                    .genre {
+                        display: inline-block;
+                    }
+                    .more-infos {
+                        display: inline-block;
+                        vertical-align: bottom;
+                    }
+                    .tickets {
+                        display: block;
+                    }
+                    .screening-complete {
+                        font-weight: bold;
+                    }
+                }
+
+                &:first-child {
+                    padding-top: 10px;
+                }
+            }
         }
-      }
     }
-  }
 
-  .tkt_program_event {
-    @extend .tkt_program_screening;
+    .tkt_program_event {
+        @extend .tkt_program_screening;
 
-    .event-inner {
-      @extend .screening-inner;
+        .event-inner {
+            @extend .screening-inner;
 
-      .event-complete {
-        @extend .screening-complete;
-      }
+            .event-complete {
+                @extend .screening-complete;
+            }
+        }
     }
-  }
 }
 
 #tkt_program.tkt-gallery {
-  .tkt_program_screening {
-    padding-bottom: 0 !important;
+    .tkt_program_screening {
+        padding-bottom: 0 !important;
 
-    .poster-wrapper {
-      height: 100%;
-      width: 100%;
+        .poster-wrapper {
+            height: 100%;
+            width: 100%;
 
-      a {
-        background-size: cover;
-        background-position: center center;
-        width: 100%;
-        height: 100%;
-
-        img {
-          margin: 0 10px;
-          width: calc(100% - 20px);
-        }
-
-        &:hover {
-          span {
-            display: inherit;
-          }
-        }
-
-        span {
-          display: none;
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          color: #FFFFFF;
-          text-shadow: 0 0 4px #000000;
-          text-transform: uppercase;
-          font-size: 20px;
-        }
-      }
-    }
-  }
-
-  .tkt_program_event {
-    @extend .tkt_program_screening;
-
-    .tkt-wrapper.event-inner {
-      position: relative;
-
-      .poster-wrapper {
-        img {
-          display: block;
-          margin: 0 auto;
-        }
-      }
-
-      .infos-wrapper {
-        position: absolute;
-        top: 10px;
-        left: 0;
-        bottom: 0;
-        display: none;
-        overflow: hidden;
-        padding: 10px;
-        width: 100%;
-        background: rgba(0, 0, 0, 0.8);
-        text-align: center;
-        flex-direction: column;
-        justify-content: center;
-      }
-
-      &:hover {
-        .infos-wrapper {
-          display: flex;
-
-          a, a:visited, a:hover {
-            color: #FFFFFF;
-          }
-
-          span.title {
             a {
-              color: #FFFFFF;
-              font-size: 1.8rem;
-              line-height: 1.8rem;
-              font-weight: bold;
-            }
-          }
+                background-size: cover;
+                background-position: center center;
+                width: 100%;
+                height: 100%;
 
-          span.genre {
-            color: #FFFFFF;
-            font-size: 1.6rem;
-            line-height: 1.6rem;
-          }
+                img {
+                    margin: 0 10px;
+                    width: calc(100% - 20px);
+                    height: calc(100% - 10px);
+                }
 
-          span.more-infos {
-            a:hover {
-              text-decoration: none;
+                &:hover {
+                    .event-infos {
+                        display: flex;
+                    }
+                }
+
+                .event-infos {
+                    display: none;
+                    position: absolute;
+                    top: 0;
+                    left: 10px;
+                    right: 10px;
+                    bottom: 10px;
+                    background: rgba(0, 0, 0, 0.5);
+                    justify-content: center;
+                    align-items: center;
+
+                    span {
+                        text-transform: uppercase;
+                        color: #FFFFFF;
+                        text-align: center;
+                    }
+                }
             }
-          }
         }
-      }
-
-      .screenings-wrapper {
-        margin: 0.7rem 0;
-
-        .screening-btn {
-          padding: 5px 10px;
-          margin: 5px 0;
-          border-radius: 9px;
-          line-height: 15px;
-
-          a {
-            display: flex;
-            flex-direction: column;
-            font-size: 1.0rem;
-
-            .screening-btn-tags {
-                padding-left: 20px;
-                text-align: left;
-            }
-          }
-
-          a, a:visited, a:hover {
-            color: #121212;
-            text-decoration: none;
-          }
-        }
-      }
     }
-  }
+
+    .tkt_program_event {
+        @extend .tkt_program_screening;
+
+        .tkt-wrapper.event-inner {
+            position: relative;
+
+            .poster-wrapper {
+                img {
+                    display: block;
+                    margin: 0 auto;
+                }
+            }
+
+            .infos-wrapper {
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                right: 0px;
+                bottom: 0px;
+                display: none;
+                overflow: hidden;
+                padding: 10px;
+                background: rgba(0, 0, 0, 0.8);
+                text-align: center;
+                flex-direction: column;
+                justify-content: center;
+            }
+
+            &:hover {
+                .infos-wrapper {
+                    display: flex;
+
+                    a, a:visited, a:hover {
+                        color: #FFFFFF;
+                    }
+
+                    span.title {
+                        a {
+                            color: #FFFFFF;
+                            font-weight: bold;
+                        }
+                    }
+
+                    span.genre {
+                        color: #FFFFFF;
+                    }
+
+                    span.more-infos {
+                        a:hover {
+                            text-decoration: none;
+                        }
+                    }
+                }
+            }
+
+            .screenings-wrapper {
+                margin: 0.7rem 0;
+                overflow-y: auto;
+                /* hide scrollbar */
+                margin-right: -25px;
+                padding-right: 25px;
+
+                .screening-btn {
+                    padding: 5px 10px;
+                    margin: 5px 0;
+                    border-radius: 9px;
+                    line-height: 15px;
+
+                    a {
+                        display: flex;
+                        flex-direction: column;
+
+                        .screening-btn-tags {
+                            padding-left: 20px;
+                            text-align: left;
+                        }
+                    }
+
+                    a, a:visited, a:hover {
+                        color: #121212;
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+    }
 }
 
 @media (min-width: 992px) {
-  #tkt_program {
-    .tkt_program_screening {
-      padding-bottom: 1.5rem;
+    #tkt_program {
+        .tkt_program_screening {
+            padding-bottom: 1.5rem;
 
-      .screening-inner {
-        > .row {
-          .right-col {
-            .tickets {
-              margin-bottom: -0.2rem;
+            .screening-inner {
+                > .row {
+                    .right-col {
+                        .tickets {
+                            margin-bottom: -0.2rem;
+                        }
+                    }
+                }
             }
-          }
         }
-      }
     }
-  }
 }
 
 @media (max-width: 767px) {
-  #tkt_program {
-    .tkt_program_screening {
-      margin-bottom: 0.7rem;
+    #tkt_program {
+        .tkt_program_screening {
+            margin-bottom: 0.7rem;
+        }
     }
-  }
 }

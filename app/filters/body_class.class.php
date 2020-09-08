@@ -43,6 +43,10 @@ class BodyClassFilter extends TKTFilter
 
         if ($post->post_type == 'tkt-event') {
             $classes[] = 'body_tkt_event';
+        } elseif ($post->post_type == 'tkt-article') {
+            $classes[] = 'body_tkt_article';
+        } elseif ($post->post_type == 'tkt-people') {
+            $classes[] = 'body_tkt_people';
         }
 
         return $classes;

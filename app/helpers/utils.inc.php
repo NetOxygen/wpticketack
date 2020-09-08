@@ -2,6 +2,7 @@
 
 use Ticketack\WP\TKTApp;
 use Ticketack\WP\Helpers\SyncHelper;
+use ScssPhp\ScssPhp\Compiler;
 
 /**
  * Utils functions
@@ -136,7 +137,35 @@ function tkt_datetime_to_iso8601($d)
  */
 function tkt_assets_url($path)
 {
-    return plugin_dir_url( TKT_APP ) . 'front/' . $path;
+    return plugin_dir_url( TKT_APP ) . 'front/' . $path . '?v=' . TKT_ASSETS_VERSION;
+
+}
+/**
+ * Get a link to a page by its slug, in the current language
+ *
+ * @param string $slug in the default language
+ * @param string $query
+ *
+ * @return string
+ */
+function tkt_page_url($slug, $query = "")
+{
+    $url = get_site_url(/*$blog_id*/null, $slug);
+
+    if (TKT_WPML_INSTALLED) {
+        // get the page in default language
+        $page = get_page_by_path($slug, OBJECT, 'page');
+        if (tkt_current_lang() != tkt_default_lang()) {
+            // get the slug in current language
+            $translated_slug = tkt_translated_slug_by_id($page->ID, 'page', tkt_current_lang(), $slug);
+            // get the page in current language
+            $page = get_page_by_path($slug, OBJECT, 'page');
+        }
+
+        $url = apply_filters('wpml_permalink', get_permalink($page->ID));
+    }
+
+    return sprintf('%s%s', $url, (!empty($query) ? '?'.$query : ''));
 }
 
 /**
@@ -148,21 +177,21 @@ function tkt_assets_url($path)
  */
 function tkt_program_url($query = "")
 {
-    $path = TKTApp::get_instance()->get_config('pages.program');
-
-    if (TKT_WPML_INSTALLED) {
-        $page = get_page_by_path($path);
-        $path = str_replace(site_url(), '', apply_filters('wpml_permalink', get_permalink($page->ID)));
+    $slug = TKTApp::get_instance()->get_config('pages.program');
+    return tkt_page_url($slug, $query);
 }
 
-    if (!empty($query)) {
-        $path .= '?'.$query;
-    }
-
-    return get_site_url(
-        /*$blog_id*/null,
-        /*$path*/$path
-    );
+/**
+ * Get the Shop page url
+ *
+ * @param string $query
+ *
+ * @return string
+ */
+function tkt_shop_url($query = "")
+{
+    $slug = TKTApp::get_instance()->get_config('pages.shop');
+    return tkt_page_url($slug, $query);
 }
 
 /**
@@ -172,17 +201,41 @@ function tkt_program_url($query = "")
  */
 function tkt_cart_url()
 {
-    $path = TKTApp::get_instance()->get_config('pages.cart');
+    $slug = TKTApp::get_instance()->get_config('pages.cart');
+    return tkt_page_url($slug, $query);
+}
 
-    if (TKT_WPML_INSTALLED) {
-        $page = get_page_by_path($path);
-        return apply_filters('wpml_permalink', get_permalink($page->ID));
+/**
+ * Get the Checkout page url
+ *
+ * @return string
+ */
+function tkt_checkout_url()
+{
+    $slug = TKTApp::get_instance()->get_config('pages.checkout');
+    if (!empty($slug)) {
+        return tkt_page_url($slug, $query);
     }
 
-    return get_site_url(
-        /*$blog_id*/null,
-        $path
+    return sprintf(
+        "%s/cart/validate",
+        TKTApp::get_instance()->get_config('ticketack.eshop_uri')
     );
+}
+
+/**
+ * Get the Thank you page url
+ *
+ * @return string
+ */
+function tkt_thank_you_url()
+{
+    $slug = TKTApp::get_instance()->get_config('pages.thank_you');
+    if (!empty($slug)) {
+        return tkt_page_url($slug, $query);
+    }
+
+    return null;
 }
 
 /**
@@ -194,7 +247,7 @@ function tkt_buy_pass_url()
 {
     return sprintf(
         "%s/pass/new",
-        TKTApp::get_instance()->get_config('base.eshop_uri')
+        TKTApp::get_instance()->get_config('ticketack.eshop_uri')
     );
 }
 
@@ -207,7 +260,7 @@ function tkt_cart_reset_url()
 {
     return sprintf(
         "%s/cart/reset",
-        TKTApp::get_instance()->get_config('base.eshop_uri')
+        TKTApp::get_instance()->get_config('ticketack.eshop_uri')
     );
 }
 
@@ -269,40 +322,28 @@ function tkt_event_book_url($event, $screening = null)
 }
 
 /**
- * Get an article buy url
+ * Get an article details url
  *
  * @param Article $article
  *
  * @return string
  */
-function tkt_article_buy_url($article)
+function tkt_article_details_url($article)
 {
-    if (!$article) {
-        return "";
+    if (TKT_WPML_INSTALLED) {
+        $slug = tkt_get_article_slug($article, TKT_LANG);
+        $page = get_page_by_path($slug, OBJECT, 'tkt-article');
+        return apply_filters('wpml_permalink', get_permalink($page->ID));
     }
 
-    if (TKT_LANG == 'de') { // FIXME: replace 'de' by default language
-	    return get_site_url(
-		/*$blog_id*/null,
-		sprintf(
-		    "%s/%s_%s?book=1",
-		    TKTApp::get_instance()->get_config('pages.article'),
-		    $article->_id(),
-		    sanitize_title($screening->name('de')) // FIXME: replace 'de' by default language
-		)
-	    );
-     } else {
-	    return get_site_url(
-		/*$blog_id*/null,
-		sprintf(
-		    "%s/%s/%s_%s?book=1",
-                    TKT_LANG,
-		    TKTApp::get_instance()->get_config('pages.article'),
-		    $article->_id(),
-		    sanitize_title($article->name(TKT_LANG)) 
-		)
-	    );
-    }
+    return get_site_url(
+        /*$blog_id*/null,
+        sprintf(
+            '%s/%s',
+            'events',
+          tkt_get_article_slug($article, TKT_LANG)
+        )
+    );
 }
 
 /**
@@ -508,7 +549,18 @@ function tkt_t($str) {
 function tkt_get_event_slug($event, $lang)
 {
     $title = $event->title($lang);
-    $slug  = sanitize_title($title).($lang === TKTApp::get_instance()->get_config('i18n.default_lang', 'fr') ? '' : '-'.$lang);
+    if (empty($title)) {
+        $title = $event->title(tkt_default_lang());
+    }
+    $slug  = sanitize_title($title).($lang === tkt_default_lang() ? '' : '-'.$lang);
+
+    return $slug;
+}
+
+function tkt_get_article_slug($article, $lang)
+{
+    $title = $article->name($lang);
+    $slug  = sanitize_title($title).($lang === tkt_default_lang() ? '' : '-'.$lang);
 
     return $slug;
 }
@@ -584,6 +636,14 @@ function tkt_event_data_attributes($event, $attributes)
         $values[] = 'data-tags="'.implode(',', $tags).'"';
     }
 
+    if (in_array('section', $attributes)) {
+        $sections = [];
+        foreach ($event->screenings() as $s) {
+            $sections[] = $s->opaque('section', [])[tkt_default_lang()];
+        }
+        $values[] = 'data-section="'.implode(',', $sections).'"';
+    }
+
     return implode(' ', $values);
 }
 
@@ -610,7 +670,7 @@ function tkt_screening_data_attributes($screening, $attributes)
     }
 
     if (in_array('section', $attributes)) {
-        $values[] = 'data-section="'.$screening->opaque('section', [])[TKTApp::get_instance()->get_config('i18n.default_lang')].'"';
+        $values[] = 'data-section="'.$screening->opaque('section', [])[tkt_default_lang()].'"';
     }
 
     if (in_array('tags', $attributes)) {
@@ -661,4 +721,103 @@ function tkt_person_data_attributes($person, $attributes)
     }
 
     return implode(' ', $values);
+}
+
+/**
+ * Get the configured default lang
+ *
+ * @return string
+ */
+function tkt_default_lang()
+{
+    return TKTApp::get_instance()->get_config('i18n.default_lang', 'fr');
+}
+
+/**
+ * Get the configured default lang
+ *
+ * @return string
+ */
+function tkt_current_lang()
+{
+    if (!TKT_WPML_INSTALLED) {
+        return tkt_default_lang();
+    }
+
+    return ICL_LANGUAGE_CODE;
+}
+
+/**
+ * Get the translated slug of a post
+ *
+ * @param int $id: The post id
+ * @param string $type: The post type (post, page, tkt-event, ...)
+ * @param string $lang: The desired language
+ * @param string $default: default value
+ *
+ * @return string: The slug in the desired language
+ */
+function tkt_translated_slug_by_id($id, $type, $lang, $default)
+{
+    if (!TKT_WPML_INSTALLED) {
+        return $default;
+    }
+
+    // get the post ID in $lang
+    $post_id = icl_object_id($id, $type, FALSE, $lang);
+    // get the post object
+    $post_obj = get_post($post_id);
+
+    return $post_obj->post_name;
+}
+
+/**
+ * Return a list of overridable scss variables.
+ */
+function get_overridable_scss_variables()
+{
+    return [
+        'text_color' => '#000',
+        'error_color' => '#ce6060',
+        'link_color' => '#007BFF',
+        'active_color' => '#1C99E2',
+        'btn_bg_color' => '#121212',
+        'btn_text_color' => '#FFFFFF',
+        'input_bg_color' => '#FFFFFF',
+        'input_text_color' => '#000000',
+        'section_padding' => '20px',
+        'light_section_bg_color' => '#F0F0F0',
+        'light_section_text_color' => '#000',
+        'dark_section_bg_color' => '#212121',
+        'dark_section_text_color' => '#FFF',
+        'badge_bg_color' => '#FFF',
+        'badge_text_color' => '#000',
+        'badge_active_bg_color' => '#1C99E2',
+        'badge_active_text_color' => '#FFF',
+        'badge_title_bg_color' => '#000',
+        'badge_title_text_color' => '#FFF',
+        'badge_value_bg_color' => '#333',
+        'badge_value_text_color' => '#FFF',
+        'border_radius' => '4px',
+    ];
+}
+
+/**
+ * Compile scss override file with the variables
+ * provided by `get_overridable_scss_variables()`.
+ */
+function tkt_compile_scss_override()
+{
+    $scss = new Compiler();
+    $scss->setImportPaths(plugin_dir_path(TKT_APP).'front/build/');
+    $scss->setFormatter('ScssPhp\ScssPhp\Formatter\Crunched');
+
+    $variables = get_overridable_scss_variables();
+    foreach ($variables as $name => $value) {
+        $variables[$name] = TKTApp::get_instance()->get_config('advanced.'.$name, $value);
+    }
+    $scss->setVariables($variables);
+
+    $output_path = TKT_OVERRIDE_DIR.'/tkt_override.css';
+    file_put_contents($output_path, $scss->compile('@import "override.scss";'));
 }

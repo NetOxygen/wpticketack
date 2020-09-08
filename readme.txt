@@ -1,8 +1,8 @@
 === Ticketack ===
 Tags: ticketack
 Requires at least: 4.6
-Tested up to: 5.2
-Stable tag: 2.4.0
+Tested up to: 5.5.1
+Stable tag: 2.7.3
 Requires PHP: 5.6
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -34,6 +34,94 @@ This section describes how to install the plugin and get it working.
 == Screenshots ==
 
 == Changelog ==
+
+= 2.7.3 =
+* fix: Fix photo field in pass form
+
+= 2.7.2 =
+* fix: Fix pass config
+
+= 2.7.1 =
+* feat: Enhance link from cart to checkout page
+
+= 2.7.0 =
+* feat: Activate video controls on event template
+* feat: Add places filter on next_screening shortcode
+
+= 2.6.11 =
+* fix: Fix confirm bug
+
+= 2.6.10 =
+* fix: Fix pass bug
+
+= 2.6.9 =
+* feat: Better handle articles stocks
+* fix: Fix remove item from cart
+
+= 2.6.8 =
+* fix: Fix bugs on Safari
+
+= 2.6.7 =
+* fix: Fix cart bug
+* fix: Fix border radius option
+
+= 2.6.6 =
+* ui: Rework templates (please check your template overrides)
+* ui: Clean styles
+
+= 2.6.5 =
+* fix: Fix translation bug
+
+= 2.6.4 =
+* fix: Fix pages options bug
+* fix: Fix scss compilation process
+
+= 2.6.3 =
+* feat: Add color picker for color config
+* feat: Enhance translation
+* fix: Fix scss compilation process
+
+= 2.6.2 =
+* fix: Fix deploy
+
+= 2.6.1 =
+* fix: Fix accordion
+* fix: Fix admin bug in pages option
+
+= 2.6.0 =
+* feat: Get rid of RequireJS and Bootstrap (js) to maximize compatibility
+* fix: Enhance scss compilation process
+* fix: FIx slug translation bug
+
+= 2.5.0 =
+* feat: Add the Checkout process shortcode
+* feat: Add the shop
+* feat: Add overridables UI options
+* feat: Add url output and with_link attribute to tkt_next_screening shortcode
+* feat: Add cart and checkout options
+* feat: Add hide_links attribute on cart shortcode
+* fix: Redirections to cart or program when on a translated page
+* fix: Movies title which appeared as objects
+
+= 2.4.5 =
+* feat: add output option to tkt_next_screening shortcode
+* fix: add to cxart on Safari
+
+= 2.4.4 =
+* fix: small bug
+
+= 2.4.3 =
+* feat: new tkt_next_screening shortcode
+* fix: accordion bug in buy pass page
+* fix: Edge (un)compatibility
+
+= 2.4.2 =
+* Better handle getting screening infos
+
+= 2.4.1 =
+* Get the infos for more than 100 screenings
+* Fix program shortcode day filter
+* Fix post images bug
 
 = 2.4.0 =
 * Handle theme provided shortcodes and JS components

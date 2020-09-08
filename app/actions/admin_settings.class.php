@@ -69,11 +69,105 @@ class AdminSettingsAction extends TKTAction
         );
 
         add_settings_field(
+            'shop', // ID
+            tkt_t('Shop'), // Title
+            array( $this, 'shop_callback' ), // Callback
+            'ticketack-pages', // Page
+            'ticketack_pages' // Section
+        );
+
+        add_settings_field(
             'cart', // ID
             tkt_t('Panier'), // Title
             array( $this, 'cart_callback' ), // Callback
             'ticketack-pages', // Page
             'ticketack_pages' // Section
+        );
+
+        add_settings_field(
+            'checkout', // ID
+            tkt_t('Checkout'), // Title
+            array( $this, 'checkout_callback' ), // Callback
+            'ticketack-pages', // Page
+            'ticketack_pages' // Section
+        );
+
+        add_settings_field(
+            'thank_you', // ID
+            tkt_t('Remerciements'), // Title
+            array( $this, 'thank_you_callback' ), // Callback
+            'ticketack-pages', // Page
+            'ticketack_pages' // Section
+        );
+
+        add_settings_section(
+            'ticketack_cart', // ID
+            tkt_t('Panier'), // Title
+            array( $this, 'cart_section_info' ), // Callback
+            'ticketack-cart' // Page
+        );
+
+        add_settings_field(
+            'cart_redirect', // ID
+            tkt_t('Redirection à la mise au panier'), // Title
+            array( $this, 'cart_redirect_callback' ), // Callback
+            'ticketack-cart', // Page
+            'ticketack_cart' // Section
+        );
+
+        add_settings_section(
+            'ticketack_checkout', // ID
+            tkt_t('Checkout'), // Title
+            array( $this, 'checkout_section_info' ), // Callback
+            'ticketack-checkout' // Page
+        );
+
+        add_settings_field(
+            'cgv', // ID
+            tkt_t('URL des CGV'), // Title
+            array( $this, 'cgv_callback' ), // Callback
+            'ticketack-checkout', // Page
+            'ticketack_checkout' // Section
+        );
+
+        add_settings_field(
+            'privacy', // ID
+            tkt_t('URL des conditions de protection des données'), // Title
+            array( $this, 'privacy_callback' ), // Callback
+            'ticketack-checkout', // Page
+            'ticketack_checkout' // Section
+        );
+
+        add_settings_field(
+            'requested_fields', // ID
+            tkt_t('Informations optionnelles à saisir'), // Title
+            array( $this, 'requested_fields_callback' ), // Callback
+            'ticketack-checkout', // Page
+            'ticketack_checkout' // Section
+        );
+
+        add_settings_field(
+            'required_fields', // ID
+            tkt_t('Informations obligatoires à saisir'), // Title
+            array( $this, 'required_fields_callback' ), // Callback
+            'ticketack-checkout', // Page
+            'ticketack_checkout' // Section
+        );
+
+        add_settings_field(
+            'allow_later', // ID
+            tkt_t('Autoriser les réservations'), // Title
+            array( $this, 'allow_later_callback' ), // Callback
+            'ticketack-checkout', // Page
+            'ticketack_checkout' // Section
+        );
+
+        add_settings_field(
+            'allow_postfinance', // ID
+            tkt_t('Autoriser Postfinance'), // Title
+            array( $this, 'allow_postfinance_callback' ), // Callback
+            'ticketack-checkout', // Page
+            'ticketack_checkout' // Section
         );
 
         add_settings_section(
@@ -177,9 +271,45 @@ class AdminSettingsAction extends TKTAction
 
         add_settings_section(
             'ticketack_advanced', // ID
-            tkt_t('Options avancées'), // Title
+            tkt_t('Customisation css'), // Title
             array( $this, 'advanced_section_info' ), // Callback
             'ticketack-advanced' // Page
+        );
+
+        $variables = get_overridable_scss_variables();
+        foreach ($variables as $key => $value) {
+            if ($key == 'border_radius' || $key == 'section_padding') {
+                continue;
+            }
+            add_settings_field(
+                $key, // ID
+                tkt_t(str_replace('_', ' ', ucfirst(strtolower($key)))), // Title
+                [$this, 'color_callback'], // Callback
+                'ticketack-advanced', // Page
+                'ticketack_advanced', // Section
+                [
+                    'name'        => $key,
+                    'group'       => 'tkt_advanced',
+                    'placeholder' => $value,
+                    'value'     => $value
+                ]
+            );
+        }
+
+        add_settings_field(
+            'section_padding', // ID
+            tkt_t('Sections padding'), // Title
+            array( $this, 'section_padding_callback' ), // Callback
+            'ticketack-advanced', // Page
+            'ticketack_advanced' // Section
+        );
+
+        add_settings_field(
+            'border_radius', // ID
+            tkt_t('Border radius'), // Title
+            array( $this, 'border_radius_callback' ), // Callback
+            'ticketack-advanced', // Page
+            'ticketack_advanced' // Section
         );
     }
 
@@ -207,8 +337,41 @@ class AdminSettingsAction extends TKTAction
     {
         print tkt_t("Saisissez les slugs des pages contenant les différents shortcodes");
     }
-    public function program_callback() { return $this->input('program', 'tkt_pages', 'program'); }
-    public function cart_callback() { return $this->input('cart', 'tkt_pages', 'cart'); }
+    public function program_callback() { return $this->page_choice('program', 'tkt_pages', 'program'); }
+    public function shop_callback() { return $this->page_choice('shop', 'tkt_pages', 'shop'); }
+    public function cart_callback() { return $this->page_choice('cart', 'tkt_pages', 'cart'); }
+    public function checkout_callback() { return $this->page_choice('checkout', 'tkt_pages', 'checkout'); }
+    public function thank_you_callback() { return $this->page_choice('thank_you', 'tkt_pages', 'thank_you'); }
+
+    /** 
+     * Print the Section text
+     */
+    public function cart_section_info()
+    {
+        print tkt_t("Configurez le comportement du panier");
+    }
+    public function cart_redirect_callback() {
+        return $this->choice('cart_redirect', 'tkt_cart', [
+            'Aucune'           => 'none',
+            'Vers le panier'   => 'cart',
+            'Vers le checkout' => 'checkout'
+        ]);
+    }
+
+    /** 
+     * Print the Section text
+     */
+    public function checkout_section_info()
+    {
+        print tkt_t("Saisissez les informations concernant la page de paiement");
+    }
+    public function cgv_callback() { return $this->input('cgv', 'tkt_checkout', 'https://my-site.tld/cgv'); }
+    public function privacy_callback() { return $this->input('privacy', 'tkt_checkout', 'https://my-site.tld/privacy'); }
+    public function requested_fields_callback() { return $this->input('requested_fields', 'tkt_checkout', 'firstname,lastname,email,address,zip,city,phone,cellphone', 'firstname,lastname,email,address,zip,city,phone,cellphone'); }
+    public function required_fields_callback() { return $this->input('required_fields', 'tkt_checkout', 'email', 'email'); }
+    public function allow_later_callback() { return $this->boolean('allow_later', 'tkt_checkout', '1'); }
+    public function allow_postfinance_callback() { return $this->boolean('allow_postfinance', 'tkt_checkout', '1'); }
+
 
     /** 
      * Print the Section text
@@ -258,7 +421,15 @@ class AdminSettingsAction extends TKTAction
     {
         print tkt_t("Configuration des langues.");
     }
-    public function default_lang_callback() { return $this->input('default_lang', 'tkt_i18n', 'fr'); }
+    public function default_lang_callback() {
+        return $this->choice('default_lang', 'tkt_i18n', [
+            // TODO: get langs from WPML
+            'Français' => 'fr',
+            'Anglais'  => 'en',
+            'Allemand' => 'de',
+            'Italien'  => 'it'
+        ], 'fr');
+    }
 
     /**
      * Print the Section text
@@ -276,6 +447,37 @@ class AdminSettingsAction extends TKTAction
     {
         print tkt_t("Ne modifiez les valeurs ci-dessous que si vous savez ce que vous faites.");
     }
+    public function color_callback($args) {
+        return $this->color_input($args['name'], $args['group'], $args['placeholder'], $args['value'], $args);
+    }
+    public function section_padding_callback() { return $this->input('section_padding', 'tkt_advanced', '20px', '20px'); }
+
+    public function border_radius_callback() { return $this->input('border_radius', 'tkt_advanced', '4px', '4px'); }
+
+    /**
+     * Get an option color input
+     *
+     * @param string $name: The option name
+     * @param string $group: The option group
+     * @param string $placeholder: The option placeholder
+     * @param string $default: The option default value
+     */
+    public function color_input($name, $group, $placeholder = null, $default = null)
+    {
+        $this->options = get_option($group);
+        $value = isset($this->options[$name]) ? esc_attr($this->options[$name]) : $default;
+        if (strpos($value, '#') !== 0) {
+            $value = '#'.$value;
+        }
+        printf(
+            '<input data-jscolor="{hash:true}" type="text" id="%s" name="%s[%s]" value="%s" placeholder="%s"/><div>',
+            $name,
+            $group,
+            $name,
+            $value,
+            $placeholder != null ? $placeholder : ''
+        );
+    }
 
     /**
      * Get an option input
@@ -283,6 +485,7 @@ class AdminSettingsAction extends TKTAction
      * @param string $name: The option name
      * @param string $group: The option group
      * @param string $placeholder: The option placeholder
+     * @param string $default: The option default value
      */
     public function input($name, $group, $placeholder = null, $default = null)
     {
@@ -296,6 +499,75 @@ class AdminSettingsAction extends TKTAction
             $value,
             $placeholder != null ? $placeholder : ''
         );
+    }
+
+    /**
+     * Get an option boolean input
+     *
+     * @param string $name: The option name
+     * @param string $group: The option group
+     * @param string $default: The option default value
+     */
+    public function boolean($name, $group, $default = null)
+    {
+        $this->options = get_option($group);
+        $value = isset($this->options[$name]) ? intval(esc_attr($this->options[$name])) : $default;
+        printf(
+            '<select id="%s" name="%s[%s]">
+                <option value="1" '.($value === 1 ? "selected" : "").'>Oui</option>
+                <option value="0" '.($value === 0 ? "selected" : "").'>Non</option>
+             </select>',
+            $name,
+            $group,
+            $name
+        );
+    }
+
+    /**
+     * Get an option choice input
+     *
+     * @param string $name: The option name
+     * @param string $group: The option group
+     * @param array $choices: The option choices
+     * @param string $default: The option default value
+     */
+    public function choice($name, $group, $choices, $default = null)
+    {
+        $this->options = get_option($group);
+        $value         = isset($this->options[$name]) ?
+            esc_attr($this->options[$name]) :
+            $default;
+        printf('<select id="%s" name="%s[%s]">', $name, $group, $name);
+        foreach ($choices as $label => $v) {
+            echo '
+                <option value="'.$v.'" '.($value === $v ? "selected" : "").' >'.$label.'</option>';
+        }
+        echo '</select>';
+    }
+
+    /**
+     * Get an option page choice input
+     *
+     * @param string $name: The option name
+     * @param string $group: The option group
+     * @param string $default: The option default value
+     */
+    public function page_choice($name, $group, $default = null)
+    {
+        $pages         = $this->get_pages();
+        $this->options = get_option($group);
+        $value         = isset($this->options[$name]) ?
+            esc_attr($this->options[$name]) :
+            $default;
+        printf('<select id="%s" name="%s[%s]">', $name, $group, $name);
+        echo '<option value="">---</option>';
+        if (!empty($pages)) {
+            foreach ($pages as $label => $v) {
+                echo '
+                    <option value="'.$v.'" '.($value === $v ? "selected" : "").' >'.$label.'</option>';
+            }
+        }
+        echo '</select>';
     }
 
     /**
@@ -315,5 +587,31 @@ class AdminSettingsAction extends TKTAction
             $name,
             $value
         );
+    }
+
+    public function get_pages()
+    {
+        static $all_pages = null;
+        if (isset($all_pages) && $all_pages != null) {
+            return $all_pages;
+        }
+
+        $pages = get_pages('sort_column=menu_order');
+        if ($pages != null) {
+            foreach ($pages as $page) {
+                $ancestor_ids = get_ancestors($page->ID, 'page');
+
+                $slug = implode('/', array_map(function ($id) {
+                    $tr_ancestor_id = TKT_WPML_INSTALLED ? icl_object_id($id, 'page', FALSE, tkt_default_lang()) : $id;
+                    return get_post($tr_ancestor_id)->post_name;
+                }, $ancestor_ids));
+
+                $slug .= '/'.tkt_translated_slug_by_id($page->ID, 'page', tkt_default_lang(), $page->post_name);
+                $label = str_repeat('-', count($ancestor_ids)).$page->post_title;
+                $all_pages[$label] = $slug;
+            }
+        }
+
+        return $all_pages;
     }
 }

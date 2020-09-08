@@ -2,18 +2,22 @@
 namespace Ticketack\WP\Shortcodes;
 
 use Ticketack\WP\Templates\TKTTemplate;
-use Ticketack\WP\Core\Models\Article;
+use Ticketack\WP\TKTApp;
+use Ticketack\Core\Models\Article;
+use Ticketack\Core\Models\User;
 use Ticketack\Core\Base\TKTApiException;
+use Ticketack\Core\Base\No2_HTTP;
+use Ticketack\Core\Base\TKTRequest;
 
 /**
- * Article shortcode
+ * Shop shortcode
  *
  * Usage:
  *
- * [tkt_article [template="list|grid|gallery"] [category_ids="1,2,3"]]
+ * [tkt_shop [category_ids="1,2,3"]]
  *
  */
-class ArticleShortcode extends TKTShortcode
+class ShopShortcode extends TKTShortcode
 {
     const LIST_TEMPLATE      = 'list';
     const GRID_TEMPLATE      = 'grid';
@@ -28,7 +32,7 @@ class ArticleShortcode extends TKTShortcode
      */
     public function get_tag()
     {
-        return "tkt_article";
+        return "tkt_shop";
     }
 
     /**
@@ -41,20 +45,27 @@ class ArticleShortcode extends TKTShortcode
     {
         $template     = isset($atts['template']) ? $atts['template'] : static::LIST_TEMPLATE;
         $category_ids = isset($atts['category_ids']) ? explode(',', $atts['category_ids']) : null;
+        $item_width   = isset($atts['item_width']) ? $atts['item_width'] : static::DEFAULT_ITEM_WIDTH;
+
+        $user       = User::get_current();
+        $salepoints = $user->salepoints();
 
         try {
-            $query = Article::all();
+            $query = Article::all()->in_pos(implode(',', $salepoints));
 
             if (!empty($category_ids)) {
                 $query = $query->in_category($category_ids);
             }
 
-            $articles = $query->get('_id,name,additional_name,description,variants,posters');
+            $articles = $query->get('_id,name,short_description,description,category,stock_type,stocks,variants,posters');
 
             return TKTTemplate::render(
-                'article/'.$template.'/articles',
+                'shop/'.$template.'/articles',
                 (object)[
-                    'articles' => $articles,
+                    'articles' => array_chunk(
+                        $articles,
+                        (int)(12 / $item_width)
+                    )
                 ]
             );
         } catch (TKTApiException $e) {

@@ -15,7 +15,7 @@ use Ticketack\Core\Models\Screening;
 
 $e = $data->tkt_event;
 
-$title   = get_post_meta($e->ID, 'title')[0];
+$title   = json_decode(get_post_meta($e->ID, 'title')[0]);
 $posters = array_map(function ($s) {
     return json_decode($s);
 }, get_post_meta($e->ID, 'posters'))[0];
@@ -48,21 +48,24 @@ $nb_slides = count($trailers) + count($posters);
 <div class="tkt-wrapper tkt_event">
   <div id="tkt-event">
 
-    <div class="row">
-      <div class="col">
-        <span class="title">
-          <?= $title ?>
-        </span>
+    <section class="tkt-section title-section">
+      <div class="row">
+        <div class="col">
+          <h3 class="tkt-section-title">
+            <?= $title->{TKT_LANG} ?>
+          </h3>
+        </div>
       </div>
-    </div>
+    </section>
     <?php if ($nb_slides > 0) : ?>
     <section class="tkt-full-section carousel-section">
       <div class="row">
         <div class="col">
-          <div id="event-carousel" data-component="Media/Carousel">
-            <div class="carousel-inner">
+          <div id="event-carousel" data-component="Media/Carousel" class="glide">
+            <div class="glide__track" data-glide-el="track">
+              <ul class="glide__slides">
               <?php foreach ($trailers as $i => $t) : ?>
-              <div class="carousel-item <?= $i == 0 ? 'active' : '' ?>">
+              <li class="glide__slide <?= $i == 0 ? 'active' : '' ?>">
                 <div class="tkt-event-carousel-trailer-wrapper d-block w-100">
                   <div
                     id="tkt-event-carousel-trailer-<?= $i ?>"
@@ -70,26 +73,23 @@ $nb_slides = count($trailers) + count($posters);
                     data-component="Media/YoutubeVideo"
                     data-video-id="<?= tkt_yt_video_id($t->url) ?>"
                     data-video-image="<?= tkt_img_proxy_url($t->image, $images_width, $images_height) ?>"
+                    data-controls="1"
                     data-bs4-carousel-id="event-carousel">
                   </div>
                 </div>
-              </div>
+              </li>
               <?php endforeach; ?>
               <?php foreach ($posters as $i => $p) : ?>
-              <div class="carousel-item <?= count($trailers) == 0 && $i == 0 ? 'active' : '' ?>">
-                <img class="d-block w-100" src="<?= tkt_img_proxy_url($p->url, $images_width, $images_height) ?>" alt="<?= $title ?>">
-              </div>
+              <li class="glide__slide <?= count($trailers) == 0 && $i == 0 ? 'active' : '' ?>">
+                <img class="d-block w-100" src="<?= tkt_img_proxy_url($p->url, $images_width, $images_height) ?>" alt="<?= $title->{TKT_LANG} ?>">
+              </li>
               <?php endforeach; ?>
             </div>
             <?php if ($nb_slides > 1) : ?>
-            <a class="carousel-control-prev" href="#event-carousel" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="sr-only">Précédent</span>
-            </a>
-            <a class="carousel-control-next" href="#event-carousel" role="button" data-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="sr-only">Suivant</span>
-            </a>
+            <div class="glide__arrows" data-glide-el="controls">
+              <button class="glide__arrow glide__arrow--left" data-glide-dir="<"><</button>
+              <button class="glide__arrow glide__arrow--right" data-glide-dir=">">></button>
+            </div>
             <?php endif; ?>
           </div>
         </div>
@@ -97,7 +97,7 @@ $nb_slides = count($trailers) + count($posters);
     </section>
     <?php endif; ?>
 
-    <section class="tkt-section infos-section">
+    <section class="tkt-section tkt-light-section infos-section">
       <?php if (!empty($description)) : ?>
       <div class="row">
         <div class="col">
