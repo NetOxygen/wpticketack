@@ -1,8 +1,11 @@
 define(function (require) {
-    var moment = require('moment');
+    const moment = require('moment');
     moment.locale(window.moment_locale || 'fr');
 
-    var components = require('components');
+    const moment_timezone = require('moment-timezone');
+    moment.tz.setDefault(window.moment_timezone || 'Europe/Zurich');
+
+    const components = require('components');
     components.attach();
 });
 

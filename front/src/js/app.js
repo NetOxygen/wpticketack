@@ -24,6 +24,7 @@ requirejs.config({
         ticketack: './ext/ticketack',
         exif: './ext/exif-js.min',
         filetodataurl: './ext/fileinput-to-dataurl',
+        cookies: '../../node_modules/js-cookie/src/js.cookie',
 
         // URIjs stuff
         urijs: '../../node_modules/urijs/src/URI',
@@ -32,6 +33,7 @@ requirejs.config({
         SecondLevelDomains: '../../node_modules/urijs/src/SecondLevelDomains',
 
         moment: '../../node_modules/moment/min/moment-with-locales.min',
+        "moment-timezone": '../../node_modules/moment-timezone/builds/moment-timezone-with-data.min',
         postal: '../../node_modules/postal/lib/postal.min',
         lodash: '../../node_modules/lodash/lodash.min',
         hammer: '../../node_modules/hammerjs/hammer.min',

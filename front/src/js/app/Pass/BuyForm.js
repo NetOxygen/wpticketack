@@ -34,16 +34,11 @@ define([
                 this.$selected_pass.addClass('show');
             }
 
-
             $('form', this.$container).submit((e) => {
                 e.preventDefault();
                 this.add_to_cart($('button[type="submit"]', this.$container).data('redirect'));
                 return false;
             });
-
-            if ($('.popoverdata', this.$container).length) {
-                $('.popoverdata', this.$container).tooltip();
-            }
         },
 
         add_to_cart: function(redirect) {

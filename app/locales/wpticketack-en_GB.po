@@ -304,8 +304,8 @@ msgstr "Duration"
 msgid "min"
 msgstr "min"
 
-msgid "Casting"
-msgstr "Casting"
+msgid "Distribution"
+msgstr "Cast"
 
 msgid "Veuillez choisir au moins un billet"
 msgstr "Please choose a date"

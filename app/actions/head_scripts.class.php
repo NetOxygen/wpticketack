@@ -39,9 +39,10 @@ class HeadScriptsAction extends TKTAction
 
         echo '
         <script>
-            // moment locale must be injected globally because it\'s needed
+            // moment locale and timezone must be injected globally because it\'s needed
             // before the config initialization
-            window.moment_locale = "'.TKT_LANG.'";
+            window.moment_locale   = "'.TKT_LANG.'";
+            window.moment_timezone = "'.get_option('timezone_string').'";
             var require = {
                 baseUrl: "'.tkt_assets_url('build/js').'",
                 urlArgs: "v='.TKT_ASSETS_VERSION.'",

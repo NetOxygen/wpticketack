@@ -76,7 +76,7 @@ msgid "Âge"
 msgstr "Alter"
 
 msgid "Genre"
-msgstr "Art"
+msgstr "Genre"
 
 msgid "Photo"
 msgstr ""
@@ -196,9 +196,8 @@ msgstr "Einkauf"
 msgid "Prix"
 msgstr "Preis"
 
-#, fuzzy
 msgid "Total :"
-msgstr "Total"
+msgstr "Total:"
 
 msgid "Finaliser ma commande"
 msgstr "Meine Bestellung abschließen"
@@ -297,7 +296,7 @@ msgid "Details"
 msgstr "Details"
 
 msgid "Quand"
-msgstr "Wenn die"
+msgstr "Wann"
 
 msgid "Section"
 msgstr "Abschnitt"
@@ -317,8 +316,8 @@ msgstr "Dauer"
 msgid "min"
 msgstr "min"
 
-msgid "Casting"
-msgstr "Gießen"
+msgid "Distribution"
+msgstr "Cast"
 
 msgid "Veuillez choisir au moins un billet"
 msgstr "Bitte wählen Sie mindestens einen Ball aus."

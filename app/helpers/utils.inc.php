@@ -474,7 +474,7 @@ if (!function_exists('tkt_img_proxy_url')) {
         return sprintf(
             "https://%s/?%s",
             $proxy_img_host,
-            http_build_query(['url' => $remote_url, 'w' => $max_width, 'h' => $max_height, 'output' => $webp, 'q' => 70])
+            http_build_query(['url' => $remote_url, 'w' => $max_width, 'h' => $max_height, 'output' => $webp, 'q' => 70, 'fit' => 'outside'])
         );
     }
 }

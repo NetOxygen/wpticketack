@@ -190,7 +190,7 @@ define( [
         },
 
         check_bookability: function(callback) {
-            if (!this.data.screening._id)
+            if (!this.data.screening || !this.data.screening._id)
                 return new Error("No screening");
 
             TKTApi.checkBookability(this.data.screening._id, (err, status, rsp) => {
@@ -210,8 +210,8 @@ define( [
                     } else {
                         $('.book-btn', this.$container).addClass('d-none');
                         const msg = this.data.bookability.screening_already_booked ?
-                            i18n.t("Vous ne pouvez pas réserver plus de place pour cette séance avec votre abonnement.") :
-                            i18n.t("Vous ne pouvez pas réserver de place pour cette séance avec votre abonnement.");
+                            i18n.t("Vous ne pouvez pas réserver plus de place pour cette séance avec votre pass.") :
+                            i18n.t("Vous ne pouvez pas réserver de place pour cette séance avec votre pass.");
                         $('.book-form-error', this.$container)
                             .html(msg)
                             .removeClass('d-none');
@@ -269,10 +269,12 @@ define( [
         build_tickets_form: function() {
             // render template
             const ticket_view_url = TKTApi.getTicketViewUrl();
-            this.$tickets_form.html(Template.render('tkt-booking-screenings-list-pricings-tpl', {
-                screening: this.data.screening,
-                ticket_view_url
-            }));
+            this.$tickets_form
+                .hide()
+                .html(Template.render('tkt-booking-screenings-list-pricings-tpl', {
+                    screening: this.data.screening,
+                    ticket_view_url
+                }));
 
             // bind pricings minus buttons if any
             $('.tkt-minus-btn', this.$container).click((e) => {
@@ -293,6 +295,7 @@ define( [
             });
             // bind pricings plus buttons if any
             $('.tkt-plus-btn', this.$container).click((e) => {
+                console.log('clicked on plus btn');
                 const $t     = $(e.target);
                 const $input = $t.parent().next('.pricing-input').eq(0);
                 const val    = parseInt($input.val());
@@ -378,7 +381,9 @@ define( [
 
             this.data.screening = _.find(this.data.screenings, (s) => s._id === screening_id );
             this.build_tickets_form();
-            this.$tickets_form.appendTo($('.date[data-screening_id="' + screening_id + '"]').parent());
+            this.$tickets_form
+                .appendTo($('.date[data-screening_id="' + screening_id + '"]').parent())
+                .fadeIn();
 
             this.check_bookability();
         },
@@ -402,7 +407,7 @@ define( [
             this.reset_store_on_screening_change();
 
             this.data.screening = null;
-            this.$tickets_form.remove();
+            this.$tickets_form.html("");
         },
 
         getUrlParam(name) {

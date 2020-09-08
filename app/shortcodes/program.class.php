@@ -85,7 +85,30 @@ class ProgramShortcode extends TKTShortcode
                 $query = $query->order_by_start_at();
             }
 
-            $screenings = $query->get('_id,title,start_at,stop_at,cinema_hall.name,cinema_hall._id,films,opaque');
+            $fields = [
+                '_id',
+                'title',
+                'start_at',
+                'stop_at',
+                'cinema_hall.name',
+                'cinema_hall._id',
+                'films._id',
+                'films.title',
+                'films.section',
+                'films.opaque.sections',
+                'films.opaque.tags',
+                'films.opaque.categories',
+                'films.opaque.duration',
+                'films.opaque.posters',
+                'films.opaque.people',
+                'films.opaque.countries',
+                'films.opaque.languages',
+                'films.opaque.film_types',
+                'films.opaque.year',
+                'films.opaque.premiere_type',
+                'opaque'
+            ];
+            $screenings = $query->get(implode(',', $fields));
 
             if (!empty($places)) {
                 $screenings = array_filter($screenings, function ($s) use ($places) {

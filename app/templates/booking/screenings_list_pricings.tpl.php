@@ -8,7 +8,7 @@
  * }
  */
 ?>
-<% if (_.keys(screening.pricings).length) { %>
+<% if (screening && _.keys(screening.pricings).length) { %>
 <div class="pricings-form">
     <div class="error pricings-error d-none"></div>
     <button class="button book-btn active d-none my-3">
@@ -55,7 +55,7 @@
         <?= tkt_t('Ajouter au panier') ?>
     </button>
 </div>
-<% } else if (screening.opaque.booking_mode === 'free') { %>
+<% } else if (screening && screening.opaque.booking_mode === 'free') { %>
 <div class="pricings-form">
     <?= tkt_t("Entrée libre") ?>
 </div>

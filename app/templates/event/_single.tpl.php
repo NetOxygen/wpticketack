@@ -156,7 +156,7 @@ $nb_slides = count($trailers) + count($posters);
 
         <div class="col-md right-col">
           <?php if (!empty($opaque->people)) : ?>
-          <h3 class="tkt-section-title"><?= tkt_t('Casting') ?></h3>
+          <h3 class="tkt-section-title"><?= tkt_t('Distribution') ?></h3>
           <?php foreach ($opaque->people as $p) : ?>
           <div class="row">
             <div class="col">

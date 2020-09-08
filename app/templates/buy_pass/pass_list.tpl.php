@@ -56,7 +56,22 @@ $types = $data->tickettypes;
         </div>
       <?php endforeach; ?>
     </div>
+<script>
+$(document).ready(function () {
+    $('.popoverdata').popover();
+    // Open first pass if there is only one
+    var pass = $('.pass_title');
+    if (pass.length == 1) {
+        $(pass[0]).trigger('click');
 
+        // Open first pricing if there is only one
+        var pricings = $('.choose-pass');
+        if (pricings.length == 1) {
+            $(pricings[0]).trigger('click');
+        }
+    }
+});
+</script>
     <?php endif; ?>
 
 </div>

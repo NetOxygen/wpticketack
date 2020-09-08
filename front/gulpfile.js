@@ -108,7 +108,7 @@ gulp.task('sass:dev', () =>
 );
 gulp.task('sass:prod', () =>
   gulp.src(dirs.css_src)
-    .pipe(sass().on('error', sass.logError))
+    .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
     .pipe(inject.prepend('/* Built on ' + Date() + ' */ \n'))
     .pipe(gulp.dest(dirs.css_dest))
 );
