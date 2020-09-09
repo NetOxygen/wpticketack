@@ -336,8 +336,8 @@ export default class ScreeningsList extends Component {
     build_success_panel() {
         // render template
         this.$success_panel.html(Template.render('tkt-booking-screenings-list-success-tpl', {
-            program_url: config.get('program_url'),
-            cart_url: config.get('cart_url')
+            program_url: Config.get('program_url'),
+            cart_url: Config.get('cart_url')
         }));
     }
 
