@@ -263,8 +263,16 @@ class AdminSettingsAction extends TKTAction
 
         add_settings_field(
             'tags_filter', // ID
-            tkt_t('Filtrer sur les tags'), // Title
+            tkt_t('Filtrer les events sur les tags suivants'), // Title
             array( $this, 'tags_filter_callback' ), // Callback
+            'ticketack-import', // Page
+            'ticketack_import' // Section
+        );
+
+        add_settings_field(
+            'save_attachments', // ID
+            tkt_t('Télécharger les images à la une'), // Title
+            array( $this, 'save_attachments_callback' ), // Callback
             'ticketack-import', // Page
             'ticketack_import' // Section
         );
@@ -439,6 +447,7 @@ class AdminSettingsAction extends TKTAction
         print tkt_t("Configuration de l'import");
     }
     public function tags_filter_callback() { return $this->input('tags_filter', 'tkt_import', ''); }
+    public function save_attachments_callback() { return $this->boolean('save_attachments', 'tkt_import', false); }
 
     /** 
      * Print the Section text

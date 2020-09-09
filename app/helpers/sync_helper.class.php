@@ -17,9 +17,10 @@ class SyncHelper
 
     public static function sync_events()
     {
-        $default_lang = TKTApp::get_instance()->get_config('i18n.default_lang', 'fr');
-        $tags_filter  = TKTApp::get_instance()->get_config('import.tags_filter', '');
-        $tags         = empty($tags_filter) ? [] : explode(',', $tags_filter);
+        $default_lang     = TKTApp::get_instance()->get_config('i18n.default_lang', 'fr');
+        $tags_filter      = TKTApp::get_instance()->get_config('import.tags_filter', '');
+        $tags             = empty($tags_filter) ? [] : explode(',', $tags_filter);
+        $save_attachments = (bool)TKTApp::get_instance()->get_config('import.save_attachments', false);
 
         ini_set('memory_limit', '800M');
         ini_set('max_execution_time', 0);
@@ -36,8 +37,8 @@ class SyncHelper
             define( 'WP_IMPORTING', true );
 
             $languages = TKT_WPML_INSTALLED ? icl_get_languages('skip_missing=N&orderby=KEY&order=DIR&link_empty_to=str') : [];
-            array_map(function ($e) use ($i, $languages, $default_lang) {
-                $def_post_id = static::create_post($e, $default_lang);
+            array_map(function ($e) use ($i, $languages, $default_lang, $save_attachments) {
+                $def_post_id = static::create_post($e, $default_lang, $save_attachments);
 
                 if (is_null($def_post_id) || !TKT_WPML_INSTALLED) {
                     return;
@@ -47,7 +48,7 @@ class SyncHelper
                     if ($lang == $default_lang) {
                         continue;
                     }
-                    $tr_post_id = static::create_post($e, $lang);
+                    $tr_post_id = static::create_post($e, $lang, $save_attachments);
                     if (!is_null($tr_post_id)) {
                         static::link_translations($def_post_id, $tr_post_id, $lang);
                     }
@@ -91,7 +92,7 @@ class SyncHelper
         return $events;
     }
 
-    protected static function create_post($event, $lang)
+    protected static function create_post($event, $lang, $save_attachments)
     {
         $title = $event->title($lang);
         if (empty($title)) {
@@ -112,8 +113,6 @@ class SyncHelper
             "guid"          => $guid
         ];
 
-$before = time();
-error_log("TKT_EVENTS: looking for existing post \n",3,'/tmp/tkt_events.log');
         // Check for any existing post
         $existing_post = get_post(static::get_id_from_guid($guid));
         if (!is_null($existing_post)) {
@@ -123,20 +122,61 @@ error_log("TKT_EVENTS: looking for existing post \n",3,'/tmp/tkt_events.log');
 
             $post['ID'] = $existing_post->ID;
         }
-error_log('TKT_EVENTS: finished looking for existing post in '.(time() - $before)." seconds\n",3,'/tmp/tkt_events.log');
 
-$before = time();
-error_log("TKT_EVENTS: inserting post \n",3,'/tmp/tkt_events.log');
         // Save post image
         $post_id = wp_insert_post($post);
-error_log('TKT_EVENTS: finished inserting post in '.(time() - $before)." seconds\n",3,'/tmp/tkt_events.log');
 
-$before = time();
-error_log("TKT_EVENTS: saving metas \n",3,'/tmp/tkt_events.log');
+        if ($save_attachments && count($event->posters()) > 0) {
+            static::save_event_image($event, $post_id, $lang);
+        }
+
         static::save_post_metas($event, $post_id, $lang);
-error_log('TKT_EVENTS: finished saving metas in '.(time() - $before)." seconds\n",3,'/tmp/tkt_events.log');
 
         return $post_id;
+    }
+
+    protected static function save_event_image($event, $post_id, $lang = 'fr')
+    {                                                                                           
+        if (count($event->posters()) == 0) {
+            return false;
+        }                                     
+                                      
+        $poster     = $event->posters()[0];
+        $url        = $poster->url;
+        $basename   = basename($url);                  
+        $upload_dir = wp_upload_dir();
+        $dest_path  = $upload_dir['path'].'/'.$basename;
+        $dest_url   = $upload_dir['url'].'/'.$basename;
+        $filetype   = wp_check_filetype($basename, null);
+                                                             
+        $existing_attachment_id = get_post_meta($post_id, '_thumbnail_id', /*$single*/true);
+        if (!empty($existing_attachment_id) && intval($existing_attachment_id) > 0) {
+            // Post already has an attachment                                                       
+            $existing_attachment = get_post($existing_attachment_id);
+                                                                                    
+            if ($existing_attachment && $existing_attachment->guid == $dest_url) {
+                // The attachment has the same name: not changed ???
+                static::link_attachment_to_post($post_id, $existing_attachment_id->ID);
+                return false;                                   
+            }            
+         
+            // We could delete the existing attachment here if wanted
+        }                                                          
+     
+        if (!static::download_attachment($url, $dest_path)) {       
+            return false;                                                                       
+        }
+                                                            
+        $image_id = static::create_attachment(
+            $existing_attachment_id,  
+            $dest_url,                                                                                                                                                                                            
+            $filetype['type'],     
+            $event->localized_title_or_original($lang),
+            $dest_path,
+            $post_id
+        );
+
+        static::link_attachment_to_post($post_id, $image_id);
     }
 
     protected static function save_post_metas($event, $post_id, $lang)
