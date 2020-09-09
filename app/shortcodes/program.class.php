@@ -52,6 +52,7 @@ class ProgramShortcode extends TKTShortcode
         $tags          = isset($atts['tags']) ? explode(',', $atts['tags']) : null;
         $section_ids   = isset($atts['section_ids']) ? explode(',', $atts['section_ids']) : null;
         $xsection_ids  = isset($atts['xsection_ids']) ? explode(',', $atts['xsection_ids']) : null;
+        $screening_section_ids = isset($atts['screening_section_ids']) ? explode(',', $atts['screening_section_ids']) : null;
         $item_width    = isset($atts['item_width']) ? intval($atts['item_width']) : static::DEFAULT_ITEM_WIDTH;
         $order         = isset($atts['order']) ? $atts['order'] : ($layout == static::SCREENINGS_LAYOUT ? static::CHRONO_ORDER : static::ALPHA_ORDER);
         $top_filter    = isset($atts['top_filter']) ? $atts['top_filter'] : null;
@@ -79,6 +80,10 @@ class ProgramShortcode extends TKTShortcode
 
             if (!empty($section_ids)) {
                 $query = $query->in_movie_sections($section_ids);
+            }
+
+            if (!empty($screening_section_ids)) {
+                $query = $query->in_screening_sections($screening_section_ids);
             }
 
             if (static::CHRONO_ORDER == $order) {

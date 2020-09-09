@@ -92,6 +92,18 @@ class Screening extends TKTModel implements \JsonSerializable
     }
 
     /**
+     * scope filtering screenings sections
+     */
+    public static function scope_in_screening_sections($req, $sections)
+    {
+        if (!is_array($sections)) {
+            $sections = [$sections];
+        }
+
+        return $req->query('sections_ids', implode(',', $sections));
+    }
+
+    /**
      * scope filtering screenings on start_at values.
      */
     public static function scope_start_at_lte($req, $when)
