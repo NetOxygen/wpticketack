@@ -6,6 +6,9 @@
     @import "node_modules/@glidejs/glide/src/assets/sass/glide.theme";
 }
 
+// FIXME Find a way to wrap css inside tkt-wrapper (does not work for now)
+@import "node_modules/flatpickr/dist/flatpickr.min";
+
 @import "common.scss";
 @import "templates/article.scss";
 @import "templates/cart.scss";

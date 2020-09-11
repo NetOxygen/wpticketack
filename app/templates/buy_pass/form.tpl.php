@@ -89,6 +89,13 @@ use Ticketack\WP\TKTApp;
             </div>
 
             <div class="row">
+              <div id="field-wrapper-birthdate" class="col-md-12 field-wrapper form-group" style="display: none;">
+                <label class="required" for="birthdate"><?= tkt_t('Date de naissance') ?></label>
+                <input name="birthdate" type="text" class="tkt-input form-control field" id="birthdate" data-component="Form/Calendar" placeholder="<?= tkt_t("Date de naissance") ?>" required data-date-format="d.m.Y" />
+              </div>
+            </div>
+
+            <div class="row">
               <div id="field-wrapper-sex" class="col-md-12 field-wrapper form-group" style="display: none;">
                 <label class="required" for="sex"><?= tkt_t('Genre') ?></label>
                 <select name="sex" id="sex" class="tkt-input form-control field" required>
