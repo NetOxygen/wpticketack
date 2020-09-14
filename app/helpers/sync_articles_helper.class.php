@@ -29,7 +29,7 @@ class SyncArticlesHelper extends SyncHelper
 
         $user       = User::get_current();
         $salepoints = $user->salepoints();
-        $articles   = static::load_articles($rsp->data['salepoints']);
+        $articles   = static::load_articles($salepoints);
 
         if (!empty($articles)) {
             array_map(function ($article) use ($default_lang) {
