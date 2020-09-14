@@ -11,7 +11,8 @@ class Api extends Ticketack {
     constructor() {
         super(
             Config.get('eshop_uri'),
-            Config.get('api_key')
+            Config.get('api_key'),
+            Config.get('lang')
         );
     }
 }
