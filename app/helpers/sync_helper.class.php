@@ -136,41 +136,41 @@ class SyncHelper
     }
 
     protected static function save_event_image($event, $post_id, $lang = 'fr')
-    {                                                                                           
+    {
         if (count($event->posters()) == 0) {
             return false;
-        }                                     
-                                      
+        }
+
         $poster     = $event->posters()[0];
         $url        = $poster->url;
-        $basename   = basename($url);                  
+        $basename   = basename($url);
         $upload_dir = wp_upload_dir();
         $dest_path  = $upload_dir['path'].'/'.$basename;
         $dest_url   = $upload_dir['url'].'/'.$basename;
         $filetype   = wp_check_filetype($basename, null);
-                                                             
+
         $existing_attachment_id = get_post_meta($post_id, '_thumbnail_id', /*$single*/true);
         if (!empty($existing_attachment_id) && intval($existing_attachment_id) > 0) {
-            // Post already has an attachment                                                       
+            // Post already has an attachment
             $existing_attachment = get_post($existing_attachment_id);
-                                                                                    
+
             if ($existing_attachment && $existing_attachment->guid == $dest_url) {
                 // The attachment has the same name: not changed ???
                 static::link_attachment_to_post($post_id, $existing_attachment_id->ID);
-                return false;                                   
-            }            
-         
+                return false;
+            }
+
             // We could delete the existing attachment here if wanted
-        }                                                          
-     
-        if (!static::download_attachment($url, $dest_path)) {       
-            return false;                                                                       
         }
-                                                            
+
+        if (!static::download_attachment($url, $dest_path)) {
+            return false;
+        }
+
         $image_id = static::create_attachment(
-            $existing_attachment_id,  
-            $dest_url,                                                                                                                                                                                            
-            $filetype['type'],     
+            $existing_attachment_id,
+            $dest_url,
+            $filetype['type'],
             $event->localized_title_or_original($lang),
             $dest_path,
             $post_id
