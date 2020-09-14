@@ -33,7 +33,7 @@ class SyncArticlesHelper extends SyncHelper
 
         if (!empty($articles)) {
             array_map(function ($article) use ($default_lang) {
-                $def_post_id = static::create_post($article, $default_lang);
+                $def_post_id = static::create_post($article, $default_lang, /* save_attachments */false);
 
                 if (is_null($def_post_id) || !TKT_WPML_INSTALLED) {
                     return;
@@ -44,7 +44,7 @@ class SyncArticlesHelper extends SyncHelper
                     if ($lang == $default_lang) {
                         continue;
                     }
-                    $tr_post_id = static::create_post($article, $lang);
+                    $tr_post_id = static::create_post($article, $lang, /* save_attachments */false);
                     if (!is_null($tr_post_id)) {
                         static::link_translations($def_post_id, $tr_post_id, $lang);
                     }
@@ -62,7 +62,7 @@ class SyncArticlesHelper extends SyncHelper
         return $articles;
     }
 
-    protected static function create_post($article, $lang)
+    protected static function create_post($article, $lang, $save_attachments)
     {
         $title = $article->name($lang);
         $slug  = tkt_get_article_slug($article, $lang);
