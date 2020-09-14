@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-15 19:17+0200\n"
+"POT-Creation-Date: 2020-09-14 11:57+0200\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Belkacem Alidra <belkacem.alidra@netoxygen.ch>\n"
+"Last-Translator: Alain Pellaux <alain.pellaux@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -46,6 +46,9 @@ msgstr ""
 
 msgid ""
 "Entrez le nombre d'éléments (s) que vous souhaitez ajouter à votre panier :"
+msgstr ""
+
+msgid "Épuisé"
 msgstr ""
 
 msgid "Ajouter à mon panier"
@@ -91,6 +94,9 @@ msgid "Pays"
 msgstr ""
 
 msgid "Âge"
+msgstr ""
+
+msgid "Date de naissance"
 msgstr ""
 
 msgid "Genre"
@@ -286,12 +292,6 @@ msgstr ""
 msgid "Profession"
 msgstr ""
 
-msgid "Country"
-msgstr ""
-
-msgid "Company"
-msgstr ""
-
 msgid "Aucun article dans cette catégorie, revenez nous visiter prochainement."
 msgstr ""
 
@@ -331,6 +331,9 @@ msgstr ""
 msgid "Distribution"
 msgstr ""
 
+msgid "Aucune séance à venir."
+msgstr ""
+
 msgid "Veuillez choisir au moins un billet"
 msgstr ""
 
@@ -343,9 +346,11 @@ msgstr ""
 msgid "Une erreur est survenue. Veuillez ré-essayer ultérieurement."
 msgstr ""
 
+msgid "Vous ne pouvez pas réserver de place pour cette séance avec votre pass."
+msgstr ""
+
 msgid ""
-"Vous ne pouvez pas réserver plus de place pour cette séance avec votre "
-"abonnement."
+"Vous ne pouvez pas réserver plus de place pour cette séance avec votre pass."
 msgstr ""
 
 msgid "Veuillez choisir un tarif"
@@ -471,6 +476,9 @@ msgstr ""
 msgid "Langues"
 msgstr ""
 
+msgid "Import"
+msgstr ""
+
 msgid "Paramètres avancés"
 msgstr ""
 
@@ -552,7 +560,19 @@ msgstr ""
 msgid "Langue par défaut"
 msgstr ""
 
+msgid "Filtrer les events sur les tags suivants"
+msgstr ""
+
+msgid "Télécharger les images à la une"
+msgstr ""
+
 msgid "Customisation css"
+msgstr ""
+
+msgid "Sections padding"
+msgstr ""
+
+msgid "Border radius"
 msgstr ""
 
 msgid "Saisissez les slugs des pages contenant les différents shortcodes"
@@ -577,6 +597,9 @@ msgid "Configuration de la vente d'abonnements."
 msgstr ""
 
 msgid "Configuration des langues."
+msgstr ""
+
+msgid "Configuration de l'import"
 msgstr ""
 
 msgid ""
