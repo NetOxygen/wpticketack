@@ -2,7 +2,7 @@
 Tags: ticketack
 Requires at least: 4.6
 Tested up to: 5.5.1
-Stable tag: 2.7.3
+Stable tag: 2.8.0
 Requires PHP: 5.6
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -34,6 +34,14 @@ This section describes how to install the plugin and get it working.
 == Screenshots ==
 
 == Changelog ==
+
+= 2.8.0 =
+* feat: Add birthdate form field
+* feat: Handle child themes for overrides
+* feat: Add configuration to download attachments on import
+* feat: Add screening_section_ids attribute on program shortcode
+* fix: Fix config call in ScreeningsList component
+* fix: Fix lang configuration
 
 = 2.7.3 =
 * fix: Fix photo field in pass form
