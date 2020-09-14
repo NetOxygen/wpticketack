@@ -58,7 +58,7 @@ function r($required_fields, $field) {
                 </div>
               </div>
               <?php endif; ?>
-    
+
               <?php if (in_array('lastname', $requested_fields)) : ?>
               <div id="field-wrapper-lastname" class="field-wrapper col-md-6" style="display: block;">
                 <div class="form-group">
@@ -67,7 +67,7 @@ function r($required_fields, $field) {
                 </div>
               </div>
               <?php endif; ?>
-    
+
               <?php if (in_array('email', $requested_fields)) : ?>
               <div id="field-wrapper-email" class="field-wrapper col-6" style="display: block;">
                 <div class="form-group">
@@ -120,6 +120,16 @@ function r($required_fields, $field) {
                 <input name="user[cellphone]" type="tel" class="tkt-input form-control data-field" id="cellphone" placeholder="<?= tkt_t("Votre numéro de téléphone") ?>" <?= r($required_fields, 'cellphone') ?> />
               </div>
               <?php endif; ?>
+
+              <?php if (in_array('birthdate', $requested_fields)) : ?>
+                <div class="row">
+                  <div id="field-wrapper-birthdate" class="col-md-12 field-wrapper form-group">
+                    <label class="required" for="birthdate"><?= tkt_t('Date de naissance') ?></label>
+                    <input name="user[birthdate]" type="text" class="tkt-input form-control data-field" id="birthdate" data-component="Form/Calendar" placeholder="<?= tkt_t("Date de naissance") ?>" required data-date-format="d.m.Y" />
+                  </div>
+                </div>
+              <? endif; ?>
+
 
               <?php if (empty($cgv_url)) : ?>
               <input name="user[conditions]" value="checked" type="hidden" class="data-field">

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-03 15:48+0200\n"
+"POT-Creation-Date: 2020-09-14 11:59+0200\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Alain Pellaux <alain.pellaux@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -31,6 +31,31 @@ msgstr "Zum Warenkorb gehen"
 
 msgid "Ajouter au panier"
 msgstr "Zum Warenkorb hinzufügen"
+
+msgid "Acheter"
+msgstr "Kaufen"
+
+msgid "Merci, votre commande est réservée dans votre panier pour 30 minutes."
+msgstr "Vielen Dank, Ihre Bestellung bleibt 30 Minuten in Ihrem Warenkorb."
+
+msgid "Continuer"
+msgstr "Fortsetzen"
+
+msgid "ma visite"
+msgstr "mein besuch"
+
+#, fuzzy
+msgid ""
+"Entrez le nombre d'éléments (s) que vous souhaitez ajouter à votre panier :"
+msgstr ""
+"Geben Sie die Anzahl Plätze ein, die Sie Ihrem Einkaufswagen hinzufügen "
+"möchten:"
+
+msgid "Épuisé"
+msgstr ""
+
+msgid "Ajouter à mon panier"
+msgstr "Meinem Warenkorb hinzufügen"
 
 #, fuzzy
 msgid "Vos informations"
@@ -75,6 +100,9 @@ msgstr "Land"
 msgid "Âge"
 msgstr "Alter"
 
+msgid "Date de naissance"
+msgstr "Geburstag"
+
 msgid "Genre"
 msgstr "Genre"
 
@@ -103,29 +131,14 @@ msgstr "Bitte wählen Sie die gewünschte Zeit aus:"
 msgid "Réserver une place sur mon abonnement"
 msgstr "Reservieren Sie einen Platz in meinem Abonnement"
 
-msgid "Acheter"
-msgstr "Kaufen"
-
 msgid "Entrée libre"
 msgstr ""
-
-msgid "Merci, votre commande est réservée dans votre panier pour 30 minutes."
-msgstr "Vielen Dank, Ihre Bestellung bleibt 30 Minuten in Ihrem Warenkorb."
-
-msgid "Continuer"
-msgstr "Fortsetzen"
-
-msgid "ma visite"
-msgstr "mein besuch"
 
 msgid ""
 "Entrez le nombre de place(s) que vous souhaitez ajouter à votre panier :"
 msgstr ""
 "Geben Sie die Anzahl Plätze ein, die Sie Ihrem Einkaufswagen hinzufügen "
 "möchten:"
-
-msgid "Ajouter à mon panier"
-msgstr "Meinem Warenkorb hinzufügen"
 
 msgid "Vous avez un abonnement ?"
 msgstr "Hast du ein Abonnement?"
@@ -154,40 +167,17 @@ msgstr ""
 msgid "Afficher mes réservations"
 msgstr "Meine Buchungen ansehen"
 
-msgid "Shortcodes disponibles"
-msgstr "Shortcodes verfügbar"
-
-msgid "Affichage en liste"
-msgstr "Listendarstellung"
-
-msgid "Affichage des prochaines séances en liste"
-msgstr "Anzeige der nächsten Sitzungen in der Liste"
-
-msgid "Affichage en grille"
-msgstr "Gitteranzeige"
-
-msgid "Affichage des prochains films en grille de 4"
-msgstr "Anzeige der nächsten Filme im Raster von 4 Bildern"
-
-msgid "Affichage en galerie"
-msgstr "In der Galerie anzeigen"
-
-msgid "Affichage des prochains films en galerie de 4 colonnes"
-msgstr "Anzeige der nächsten Filme in einer 4-spaltigen Galerie"
-
-msgid "Panier"
-msgstr "Warenkorb"
-
-msgid "Affichage du contenu du panier"
-msgstr "Anzeigen des Inhalts des Warenkorbs"
-
-msgid "Abonnements"
-msgstr "Abonnements"
-
-msgid "Vente des différents types d'abonnements"
-msgstr "Verkauf der verschiedenen Arten von Abonnements"
+msgid ""
+"La documentation est disponible <a target=\"_blank\" href=\"https://"
+"ticketack.com/documentation/Fran%C3%A7ais/Ticketack%20-%20Vente%20en%20ligne"
+"%20et%20Int%C3%A9gration%20billetterie.pdf\">à cette adresse</a>"
+msgstr ""
 
 msgid "Votre panier est vide"
+msgstr "Ihr Einkaufswagen ist leer"
+
+#, fuzzy
+msgid "Votre panier"
 msgstr "Ihr Einkaufswagen ist leer"
 
 msgid "Achats"
@@ -250,6 +240,59 @@ msgstr "Verbinden!"
 msgid "un abonnement"
 msgstr "ein Abo"
 
+msgid "Nous vous remercions pour votre commande."
+msgstr ""
+
+#, php-format
+msgid ""
+"J'accepte les <a target=\"_blank\" href=\"%s\">conditions générales de "
+"vente</a> et la <a target=\"_blank\" href=\"%s\">politique de protection des "
+"données</a>"
+msgstr ""
+
+msgid "Aucun moyen de paiement configué."
+msgstr ""
+
+msgid "Vos données de facturation"
+msgstr ""
+
+#, fuzzy
+msgid "Adresse e-mail"
+msgstr "Adresse"
+
+#, fuzzy
+msgid "Votre adresse e-mail"
+msgstr "Ihre Adresse"
+
+msgid "Confirmation de votre adresse e-mail"
+msgstr ""
+
+msgid "Saisissez une deuxième fois votre adresse"
+msgstr ""
+
+msgid "Téléphone fixe"
+msgstr ""
+
+msgid "Votre numéro de téléphone"
+msgstr ""
+
+msgid "Téléphone portable"
+msgstr ""
+
+msgid "Réserver (paiement sur place)"
+msgstr ""
+
+msgid "Procéder au paiement par carte bancaire"
+msgstr ""
+
+#, fuzzy
+msgid "Une erreur est survenue lors de votre commande."
+msgstr ""
+"Es ist ein Fehler aufgetreten. Bitte versuchen Sie es später noch einmal."
+
+msgid "Merci de bien vouloir réessayer."
+msgstr ""
+
 msgid "Recherche"
 msgstr "Suche"
 
@@ -265,12 +308,6 @@ msgstr "Firma"
 msgid "Profession"
 msgstr "Beruf"
 
-msgid "Country"
-msgstr "Land"
-
-msgid "Company"
-msgstr "Firma"
-
 msgid "Aucun article dans cette catégorie, revenez nous visiter prochainement."
 msgstr "Keine Artikel in dieser Kategorie, kommen Sie bald wieder."
 
@@ -279,15 +316,6 @@ msgstr "Du hast gewählt:"
 
 msgid "Valider"
 msgstr "Validieren"
-
-msgid "Commander"
-msgstr "Zur Bestellung"
-
-msgid "Il ne reste que quelques articles"
-msgstr "Es sind nur noch wenige Artikel vorhanden."
-
-msgid "Plus de stock"
-msgstr "Keine Lagerbestände mehr"
 
 msgid "Tout"
 msgstr "Tout"
@@ -319,6 +347,9 @@ msgstr "min"
 msgid "Distribution"
 msgstr "Cast"
 
+msgid "Aucune séance à venir."
+msgstr ""
+
 msgid "Veuillez choisir au moins un billet"
 msgstr "Bitte wählen Sie mindestens einen Ball aus."
 
@@ -332,9 +363,15 @@ msgid "Une erreur est survenue. Veuillez ré-essayer ultérieurement."
 msgstr ""
 "Es ist ein Fehler aufgetreten. Bitte versuchen Sie es später noch einmal."
 
+#, fuzzy
+msgid "Vous ne pouvez pas réserver de place pour cette séance avec votre pass."
+msgstr ""
+"Sie können mit Ihrem Abonnement keinen Sitzplatz für diese Sitzung "
+"reservieren."
+
+#, fuzzy
 msgid ""
-"Vous ne pouvez pas réserver plus de place pour cette séance avec votre "
-"abonnement."
+"Vous ne pouvez pas réserver plus de place pour cette séance avec votre pass."
 msgstr ""
 "Sie können mit Ihrem Abonnement keinen Sitzplatz für diese Sitzung "
 "reservieren."
@@ -448,11 +485,26 @@ msgstr "API"
 msgid "Pages"
 msgstr "Seiten"
 
+msgid "Panier"
+msgstr "Warenkorb"
+
+msgid "Checkout"
+msgstr ""
+
 msgid "Images"
 msgstr "Bilder"
 
+msgid "Abonnements"
+msgstr "Abonnements"
+
 msgid "Langues"
 msgstr "Sprachen"
+
+msgid "Import"
+msgstr ""
+
+msgid "Paramètres avancés"
+msgstr ""
 
 msgid "Documentation"
 msgstr "Dokumentation"
@@ -477,6 +529,35 @@ msgstr "API-Schlüssel"
 
 msgid "Programme"
 msgstr "Programm"
+
+msgid "Shop"
+msgstr ""
+
+msgid "Remerciements"
+msgstr ""
+
+msgid "Redirection à la mise au panier"
+msgstr ""
+
+#, fuzzy
+msgid "URL des CGV"
+msgstr "Eshop-URL"
+
+msgid "URL des conditions de protection des données"
+msgstr ""
+
+msgid "Informations optionnelles à saisir"
+msgstr ""
+
+msgid "Informations obligatoires à saisir"
+msgstr ""
+
+#, fuzzy
+msgid "Autoriser les réservations"
+msgstr "Siehe meine Buchungen"
+
+msgid "Autoriser Postfinance"
+msgstr ""
 
 msgid "Dimensions des images"
 msgstr "Bildabmessungen"
@@ -505,10 +586,31 @@ msgstr "Felder, die für jede Art von Abonnement einzugeben sind."
 msgid "Langue par défaut"
 msgstr "Standardsprache"
 
-msgid "Options avancées"
-msgstr "Erweiterte Optionen"
+msgid "Filtrer les events sur les tags suivants"
+msgstr ""
+
+msgid "Télécharger les images à la une"
+msgstr ""
+
+msgid "Customisation css"
+msgstr ""
+
+#, fuzzy
+msgid "Sections padding"
+msgstr "Abschnitt"
+
+msgid "Border radius"
+msgstr ""
 
 msgid "Saisissez les slugs des pages contenant les différents shortcodes"
+msgstr "Geben Sie die Slugs der Seiten mit den verschiedenen Shortcodes ein."
+
+#, fuzzy
+msgid "Configurez le comportement du panier"
+msgstr "Anzeigen des Inhalts des Warenkorbs"
+
+#, fuzzy
+msgid "Saisissez les informations concernant la page de paiement"
 msgstr "Geben Sie die Slugs der Seiten mit den verschiedenen Shortcodes ein."
 
 msgid "Saisissez les informations d'accès à la billetterie"
@@ -526,6 +628,52 @@ msgstr "Konfiguration des Abonnementverkaufs."
 msgid "Configuration des langues."
 msgstr "Sprachkonfiguration."
 
+#, fuzzy
+msgid "Configuration de l'import"
+msgstr "Sprachkonfiguration."
+
 msgid ""
 "Ne modifiez les valeurs ci-dessous que si vous savez ce que vous faites."
 msgstr "Ändern Sie die folgenden Werte nur, wenn Sie wissen, was Sie tun."
+
+#~ msgid "Shortcodes disponibles"
+#~ msgstr "Shortcodes verfügbar"
+
+#~ msgid "Affichage en liste"
+#~ msgstr "Listendarstellung"
+
+#~ msgid "Affichage des prochaines séances en liste"
+#~ msgstr "Anzeige der nächsten Sitzungen in der Liste"
+
+#~ msgid "Affichage en grille"
+#~ msgstr "Gitteranzeige"
+
+#~ msgid "Affichage des prochains films en grille de 4"
+#~ msgstr "Anzeige der nächsten Filme im Raster von 4 Bildern"
+
+#~ msgid "Affichage en galerie"
+#~ msgstr "In der Galerie anzeigen"
+
+#~ msgid "Affichage des prochains films en galerie de 4 colonnes"
+#~ msgstr "Anzeige der nächsten Filme in einer 4-spaltigen Galerie"
+
+#~ msgid "Vente des différents types d'abonnements"
+#~ msgstr "Verkauf der verschiedenen Arten von Abonnements"
+
+#~ msgid "Country"
+#~ msgstr "Land"
+
+#~ msgid "Company"
+#~ msgstr "Firma"
+
+#~ msgid "Commander"
+#~ msgstr "Zur Bestellung"
+
+#~ msgid "Il ne reste que quelques articles"
+#~ msgstr "Es sind nur noch wenige Artikel vorhanden."
+
+#~ msgid "Plus de stock"
+#~ msgstr "Keine Lagerbestände mehr"
+
+#~ msgid "Options avancées"
+#~ msgstr "Erweiterte Optionen"

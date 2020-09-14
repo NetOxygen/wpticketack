@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-15 19:17+0200\n"
+"POT-Creation-Date: 2020-09-14 11:58+0200\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Belkacem Alidra <belkacem.alidra@netoxygen.ch>\n"
+"Last-Translator: Alain Pellaux <alain.pellaux@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -47,6 +47,9 @@ msgstr "my visit"
 msgid ""
 "Entrez le nombre d'éléments (s) que vous souhaitez ajouter à votre panier :"
 msgstr "Enter the number of items you want to add to your cart"
+
+msgid "Épuisé"
+msgstr ""
 
 msgid "Ajouter à mon panier"
 msgstr "Add to my cart"
@@ -92,6 +95,9 @@ msgstr "Country"
 
 msgid "Âge"
 msgstr "Age"
+
+msgid "Date de naissance"
+msgstr "Birthdate"
 
 msgid "Genre"
 msgstr "Genre"
@@ -159,8 +165,8 @@ msgid ""
 "%20et%20Int%C3%A9gration%20billetterie.pdf\">à cette adresse</a>"
 msgstr ""
 "The documentation is available on <a target=\"_blank\" href=\"https://"
-"https://ticketack.com/documentation/English/Ticketack%20-%20Ticketing"
-"%20eshop%20and%20website%20integration.pdf\">this page</a>"
+"https://ticketack.com/documentation/English/Ticketack%20-%20Ticketing%20eshop"
+"%20and%20website%20integration.pdf\">this page</a>"
 
 msgid "Votre panier est vide"
 msgstr "Your cart is empty"
@@ -236,9 +242,10 @@ msgid ""
 "J'accepte les <a target=\"_blank\" href=\"%s\">conditions générales de "
 "vente</a> et la <a target=\"_blank\" href=\"%s\">politique de protection des "
 "données</a>"
-msgstr "I accept the <a target=\"_blank\" href=\"%s\">general terms "
-"and conditions of sale</a> and the <a target=\"_blank\" href=\"%s\">data "
-"protection policy</a>."
+msgstr ""
+"I accept the <a target=\"_blank\" href=\"%s\">general terms and conditions "
+"of sale</a> and the <a target=\"_blank\" href=\"%s\">data protection policy</"
+"a>."
 
 msgid "Aucun moyen de paiement configué."
 msgstr "No payment method configured"
@@ -294,13 +301,6 @@ msgstr "Company"
 msgid "Profession"
 msgstr "Job"
 
-msgid "Country"
-msgstr "Country"
-
-#, fuzzy
-msgid "Company"
-msgstr "Company"
-
 msgid "Aucun article dans cette catégorie, revenez nous visiter prochainement."
 msgstr "No screening currently scheduled, come back soon."
 
@@ -340,6 +340,9 @@ msgstr "min"
 msgid "Distribution"
 msgstr "Cast"
 
+msgid "Aucune séance à venir."
+msgstr ""
+
 msgid "Veuillez choisir au moins un billet"
 msgstr "Please choose a date"
 
@@ -352,9 +355,13 @@ msgstr "The information you have entered is invalid"
 msgid "Une erreur est survenue. Veuillez ré-essayer ultérieurement."
 msgstr "An error has occurred. Please try again later."
 
+#, fuzzy
+msgid "Vous ne pouvez pas réserver de place pour cette séance avec votre pass."
+msgstr "You  can not book this screening with your pass"
+
+#, fuzzy
 msgid ""
-"Vous ne pouvez pas réserver plus de place pour cette séance avec votre "
-"abonnement."
+"Vous ne pouvez pas réserver plus de place pour cette séance avec votre pass."
 msgstr "You  can not book this screening with your pass"
 
 msgid "Veuillez choisir un tarif"
@@ -481,6 +488,9 @@ msgstr "Pass"
 msgid "Langues"
 msgstr "Languages"
 
+msgid "Import"
+msgstr ""
+
 msgid "Paramètres avancés"
 msgstr "Advanced parameters"
 
@@ -562,8 +572,21 @@ msgstr "Mandatory fields for each pass type"
 msgid "Langue par défaut"
 msgstr "Default language"
 
+msgid "Filtrer les events sur les tags suivants"
+msgstr ""
+
+msgid "Télécharger les images à la une"
+msgstr ""
+
 msgid "Customisation css"
 msgstr "CSS customization"
+
+#, fuzzy
+msgid "Sections padding"
+msgstr "Section"
+
+msgid "Border radius"
+msgstr ""
 
 msgid "Saisissez les slugs des pages contenant les différents shortcodes"
 msgstr "Set the slugs of the pages which contain the shortcodes"
@@ -589,9 +612,20 @@ msgstr "Pass sale configuration."
 msgid "Configuration des langues."
 msgstr "Languages configuration"
 
+#, fuzzy
+msgid "Configuration de l'import"
+msgstr "Languages configuration"
+
 msgid ""
 "Ne modifiez les valeurs ci-dessous que si vous savez ce que vous faites."
 msgstr "Change these settings only if you know what you are doing."
+
+#~ msgid "Country"
+#~ msgstr "Country"
+
+#, fuzzy
+#~ msgid "Company"
+#~ msgstr "Company"
 
 #~ msgid "Shortcodes disponibles"
 #~ msgstr "Available shortcodes"
