@@ -2,7 +2,7 @@
 Tags: ticketack
 Requires at least: 4.6
 Tested up to: 5.5.1
-Stable tag: 2.8.0
+Stable tag: 2.8.1
 Requires PHP: 5.6
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -34,6 +34,13 @@ This section describes how to install the plugin and get it working.
 == Screenshots ==
 
 == Changelog ==
+
+= 2.8.1 =
+
+* fix: Article slug when no WPML installed
+* fix: Add country list
+* feat: Add ability to send admin notices
+* fix: Don't throw exception when on backoffice
 
 = 2.8.0 =
 * feat: Add birthdate form field
