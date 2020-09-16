@@ -828,3 +828,25 @@ function tkt_compile_scss_override()
     $output_path = TKT_OVERRIDE_DIR.'/tkt_override.css';
     file_put_contents($output_path, $scss->compile('@import "override.scss";'));
 }
+
+/**
+ * Add a flash notice to {prefix}options table until a full page refresh is done
+ *
+ * @param string $notice our notice message
+ * @param string $type This can be "info", "warning", "error" or "success", "warning" as default
+ * @param boolean $dismissible set this to true to add is-dismissible functionality to your notice
+ * @return void
+ */
+function tkt_flash_notice($notice = '', $type = 'warning', $dismissible = true)
+{
+    $notices = get_option('tkt_flash_notices', []);
+
+    array_push($notices, [
+        'notice'      => $notice,
+        'type'        => $type,
+        'dismissible' => $dismissible ? 'is-dismissible' : ''
+    ]);
+
+    // Then we update the option with our notices array
+    update_option('tkt_flash_notices', $notices);
+}

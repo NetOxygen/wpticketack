@@ -27,17 +27,30 @@ class AdminNoticesAction extends TKTAction
         global $pagenow;
 
         if ($pagenow != 'options-general.php' && !TKTApp::get_instance()->is_configured()) {
-            echo sprintf(
-                '<div class="notice notice-warning is-dismissible">
-                    <p>
-                        %s
-                        <a href="%s">%s</a>
-                    </p>
-                </div>',
-                tkt_t('Ticketack n\'est pas configuré.'),
-                admin_url('options-general.php?page=ticketack-admin'),
-                tkt_t('Accéder aux réglages')
+            tkt_flash_notice(
+                sprintf(
+                    '%s <a href="%s">%s</a>',
+                    tkt_t('Ticketack n\'est pas configuré.'),
+                    admin_url('options-general.php?page=ticketack-admin'),
+                    tkt_t('Accéder aux réglages')
+                )
             );
+        }
+
+        // Iterates trough notices and display them
+        $notices = get_option('tkt_flash_notices', []);
+
+        foreach ($notices as $notice) {
+            printf('<div class="notice notice-%s %s"><p>%s</p></div>',
+                $notice['type'],
+                $notice['dismissible'],
+                $notice['notice']
+            );
+        }
+
+        // Reset our options to prevent notices being displayed forever
+        if(!empty($notices)) {
+            delete_option('tkt_flash_notices', []);
         }
     }
 }
