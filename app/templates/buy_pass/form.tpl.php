@@ -69,6 +69,11 @@ use Ticketack\WP\TKTApp;
               <div id="field-wrapper-country" class="form-group field-wrapper col-md-12" style="display: none;">
                 <label class="required" for="country"><?= tkt_t("Pays"); ?></label>
                 <select name="country" id="country" class="tkt-input form-control field" required>
+                  <option value=""></option>
+                  <?php $countries = tkt_get_countries();
+                  foreach ($countries as $country) {
+                    echo '<option value="'.$country[tkt_current_lang()].'">'.$country[tkt_current_lang()].'</option>';
+                  } ?>
                 </select>
               </div>
             </div>
