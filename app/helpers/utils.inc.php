@@ -340,7 +340,7 @@ function tkt_article_details_url($article)
         /*$blog_id*/null,
         sprintf(
             '%s/%s',
-            'events',
+            'articles',
           tkt_get_article_slug($article, TKT_LANG)
         )
     );
