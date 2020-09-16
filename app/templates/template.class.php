@@ -17,10 +17,18 @@ class TKTTemplate
 
         $filepath = TKT_TEMPLATES.'/'.$template.'.tpl.php';
         if (!file_exists($filepath)) {
-            throw new \Exception(sprintf(
-                "Template file %s not found",
-                $filepath
-            ));
+            if (is_admin()) {
+                tkt_flash_notice(sprintf(
+                    "Template file %s not found",
+                    $filepath
+                ), "error");
+                return false;
+            } else {
+                throw new \Exception(sprintf(
+                    "Template file %s not found",
+                    $filepath
+                ));
+            }
         }
 
         return static::output($filepath, $data);
