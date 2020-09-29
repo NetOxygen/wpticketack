@@ -35,7 +35,7 @@ $types = $data->tickettypes;
             <div id="item-<?= $tickettype->_id(); ?>" data-type="<?= $tickettype->_id(); ?>" class="card-content pass">
               <div class="card-body">
                 <p><?= nl2br(tkt_html($tickettype->description(TKT_LANG))) ?></p>
-                <input type="hidden" class="required-fields" id="<?= $tickettype->_id().'-fields' ?>" value="<?= implode(',', $tickettype->required_fields()) ?>"
+                <input type="hidden" class="required-fields" id="<?= $tickettype->_id().'-fields' ?>" value="<?= implode(',', $tickettype->required_fields()) ?>" />
                 <b><?= tkt_t('Tarifs :') ?></b>
                 <?php foreach ($tickettype->pricings() as $key => $pricing) :?>
                   <div class="radio">
@@ -52,9 +52,8 @@ $types = $data->tickettypes;
               </div>
             </div>
           </div>
-        </div>
-      <?php endforeach; ?>
-    </div>
+        <?php endforeach; ?>
+      </div>
     <?php endif; ?>
   </section>
 </div>
