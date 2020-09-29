@@ -79,6 +79,21 @@ use Ticketack\WP\TKTApp;
             </div>
 
             <div class="row">
+              <div id="field-wrapper-phone" class="field-wrapper col-md-6">
+                <div class="form-group">
+                  <label class="required" for="phone"><?= tkt_t("Téléphone fixe"); ?></label>
+                  <input name="phone" type="text" class="tkt-input form-control field" id="phone" placeholder="<?= tkt_t("Téléphone fixe") ?>" required />
+                </div>
+              </div>
+              <div id="field-wrapper-cellphone" class="field-wrapper col-md-6">
+                <div class="form-group">
+                  <label class="required" for="cellphone"><?= tkt_t("Téléphone portable"); ?></label>
+                  <input name="cellphone" type="text" class="tkt-input form-control field" id="cellphone" placeholder="<?= tkt_t("Téléphone portable") ?>" required />
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
               <div id="field-wrapper-age" class="col-md-12 field-wrapper form-group" style="display: none;">
                 <label class="required" for="age"><?= tkt_t('Âge') ?></label>
                 <select name="age" id="age" class="tkt-input form-control field" required>
