@@ -20,7 +20,7 @@ export default class State {
      * Restore previous state from storage
      */
     restore() {
-        this.state = localStorage.getItem(STATE_KEY) || {};
+        this.state = localStorage.getItem(State.STATE_KEY) || {};
 
         if (_.isString(this.state))
             this.state = JSON.parse(this.state);
@@ -33,7 +33,7 @@ export default class State {
      */
     save() {
         this.needs_to_read_from_storage = true;
-        return localStorage.setItem(STATE_KEY, JSON.stringify(this.state));
+        return localStorage.setItem(State.STATE_KEY, JSON.stringify(this.state));
     }
 
     /**
@@ -47,6 +47,25 @@ export default class State {
 
         dottie.set(this.state, path, value);
         this.save();
+    }
+
+    /**
+     * Unset a state value
+     * @param {String} path - The path
+     */
+    unset(path) {
+        return this.set(path, undefined);
+    }
+
+    /**
+     * Check if the state contains the path
+     * @param {String} path - The path
+     */
+    has(path) {
+        if (_.isArray(path))
+            path = path.join('.');
+
+        return dottie.exists(this.state, path);
     }
 
     /**

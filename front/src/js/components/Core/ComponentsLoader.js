@@ -26,6 +26,7 @@ export default class ComponentsLoader {
      */
     constructor() {
         this.app_state = new State();
+        this.app_state.restore();
     }
 
     /**
@@ -66,7 +67,7 @@ export default class ComponentsLoader {
                     const className = this.registeredComponents[alias];
                     const component = new className(
                         $componentItem,
-                        this.state
+                        this.app_state
                     );
                     component.attach();
                     this.attachedComponents.push(component);
