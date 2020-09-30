@@ -59,7 +59,7 @@ $types = $data->tickettypes;
 </div>
 
 <script>
-$(document).ready(function () {
+jQuery(document).ready(function ($) {
     $('.popoverdata').popover();
     // Open first pass if there is only one
     var pass = $('.pass_title');
