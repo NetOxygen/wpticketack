@@ -71,6 +71,8 @@ export default class UserConnect extends Component {
                         .removeClass('d-none');
 
                 this.data.ticket = new Ticket(rsp);
+                this.state.set('user.ticket', this.data.ticket);
+
                 this.emit_connection_update(this.data.ticket);
 
                 // Redirect to ticket activation if needed
@@ -82,8 +84,10 @@ export default class UserConnect extends Component {
 
     disconnect_pass() {
         TKTApi.logoutTicket((err, status, rsp) => {
-            if (!err)
+            if (!err) {
+                this.state.unset('user.ticket');
                 this.emit_connection_update(null);
+            }
         });
     }
 
