@@ -137,7 +137,7 @@ export default class BuyForm extends Component {
     }
 
     sync_pass_pricings() {
-        if (!this.activePass)
+        if (!(this.tickettypes || []).length || !this.activePass)
             return;
         const userTicket       = this.state.get('user.ticket');
         const tickettype       = this.tickettypes.find(tickettype => tickettype._id === this.activePass);

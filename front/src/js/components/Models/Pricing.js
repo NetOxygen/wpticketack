@@ -23,7 +23,6 @@ export default class Pricing extends BaseModel {
     }
 
     rulesMatch(roles, tickettype) {
-        console.log(this.rules);
         if (('only_for_roles' in this.rules) && this.rules.only_for_roles.length > 0) {
             if (!roles.filter(r => this.only_for_roles.includes(r)).length === 0)
                 return false;
