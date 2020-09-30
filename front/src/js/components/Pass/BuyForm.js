@@ -1,4 +1,5 @@
 import { Component, i18n } from '../Core';
+import { Tickettype } from '../Models';
 import { Api as TKTApi } from '../Ticketack';
 import _ from 'lodash';
 import postal from 'postal';
@@ -27,8 +28,10 @@ export default class BuyForm extends Component {
         this.$pass        = $('.pass', this.$container);
         this.$titles      = $('.pass_title', this.$container);
         this.redirect     = this.$container.data('redirect');
-        this.cart_url     = this.$container.data('cart-url');
-        this.checkout_url = this.$container.data('checkout-url');
+        this.cartUrl      = this.$container.data('cart-url');
+        this.checkoutUrl  = this.$container.data('checkout-url');
+        this.tickettypes  = [];
+        this.activePass   = null;
 
         this.$selected_pass = this.$pass.eq(0)
 
@@ -43,15 +46,32 @@ export default class BuyForm extends Component {
     }
 
     init() {
-        this.sync_pass_form(this.$pass.eq(0).data('type'));
-        this.$titles.eq(0).addClass('open');
-        this.$pass.eq(0).addClass('open').show();
+        TKTApi.getPasses((err, status, tickettypes) => {
+            this.tickettypes = tickettypes.map(tickettype => new Tickettype(tickettype));
+
+            this.activePass = this.$pass.eq(0).data('type');
+            this.sync_pass_pricings();
+            this.sync_pass_form();
+            this.$titles.eq(0).addClass('open');
+            this.$pass.eq(0).addClass('open').show();
+        });
+
+        postal.subscribe({
+            channel: "connection",
+            topic: "update",
+            callback: (data, envelope) => {
+                this.sync_pass_pricings();
+            }
+        });
+
         $('.pass_title').click((e) => {
             var $title = $(e.target);
-            var $card = $title.closest('.card');
-            var $pass = $card.find('.pass');
-            var type = $pass.data('type');
-            this.sync_pass_form(type);
+            var $card  = $title.closest('.card');
+            var $pass  = $card.find('.pass');
+
+            this.activePass = $pass.data('type'); ;
+            this.sync_pass_pricings();
+            this.sync_pass_form();
             $('.pass_title').removeClass('open');
             $('.pass', this.$container).removeClass('open');
             if (!$pass.is(':visible')) {
@@ -60,13 +80,6 @@ export default class BuyForm extends Component {
             }
             $('.pass:not(.open)', this.$container).hide();
             $('.pass.open', this.$container).fadeIn();
-        });
-
-        $('.pass_title', this.$container).click(e => {
-            const $title = $(e.target);
-            const $pass = $('.pass', $title.closest('.card'));
-            const type = $pass.data('type');
-            this.sync_pass_form(type);
         });
 
         $('form', this.$container).submit((e) => {
@@ -99,10 +112,10 @@ export default class BuyForm extends Component {
 
             switch (this.redirect) {
                 case 'cart':
-                    window.location.href = this.cart_url;
+                    window.location.href = this.cartUrl;
                     break;
                 case 'checkout':
-                    window.location.href = this.checkout_url;
+                    window.location.href = this.checkoutUrl;
                     break;
                 default:
                     this.show_success(i18n.t('Votre panier a été mis à jour'));
@@ -123,8 +136,30 @@ export default class BuyForm extends Component {
         $('.alert-danger', this.$container).html(msg).show();
     }
 
-    sync_pass_form (pass) {
-        let fields_to_show   = $('#' + pass + '-fields').val().split(',');
+    sync_pass_pricings() {
+        if (!this.activePass)
+            return;
+        const userTicket       = this.state.get('user.ticket');
+        const tickettype       = this.tickettypes.find(tickettype => tickettype._id === this.activePass);
+        const matchingPricings = tickettype.getMatchingPricings('eshop', userTicket ? userTicket.type._id : null);
+
+        const $shownPricings = $(`#item-${this.activePass} .radio input`);
+        $shownPricings.each((i, p) => {
+            const $p         = $(p);
+            const $container = $p.closest('.radio');
+
+            $container.hide();
+
+            const pricing = tickettype.pricings[$(p).val()];
+            if (matchingPricings.filter(p => p.key === pricing.key).length > 0)
+                $container.show();
+        });
+    }
+
+    sync_pass_form() {
+        if (!this.activePass)
+            return;
+        let fields_to_show   = $('#' + this.activePass + '-fields').val().split(',');
         let required_fields  = [];
         let requested_fields = [];
 
