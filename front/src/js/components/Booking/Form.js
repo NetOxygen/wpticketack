@@ -60,6 +60,8 @@ export default class BookingForm extends Component {
             this.build_form();
             this.initialized = true;
         });
+
+        this.listen_to_message();
     }
 
     init_store() {
@@ -71,6 +73,22 @@ export default class BookingForm extends Component {
             ticket: {},     // active ticket
             bookability: {} //selected screening bookability with  active ticket
         };
+    }
+
+    listen_to_message() {
+        window.addEventListener('message', e => {
+            if (e.data.action === 'tkt::go_to_cart') {
+                switch (this.redirect) {
+                    case 'checkout':
+                        window.location.href = this.checkout_url;
+                        break;
+                    case 'cart':
+                    default:
+                        window.location.href = this.cart_url;
+                        break;
+                }
+            }
+        });
     }
 
     reset_store_on_screening_change() {

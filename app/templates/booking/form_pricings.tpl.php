@@ -14,49 +14,60 @@ use Ticketack\WP\TKTApp;
 ?>
 <div class="tkt-wrapper">
     <% if (_.keys(screening.pricings).length) { %>
-    <div class="pricings-form">
-        <div class="row">
-            <div class="col">
-                <span>
-                    <?= tkt_t('Entrez le nombre de place(s) que vous souhaitez ajouter à votre panier :') ?>
-                </span>
-            </div>
-        </div>
-        <% _.mapKeys(screening.pricings, function(p, key) { %>
-        <div class="row pricing-row">
-            <div class="col">
-                <span class="tkt-badge tkt-badge-split flex-rev-on-mobile tkt-badge-plus-minus">
-                    <span class="tkt-badge-part tkt-grey-badge tkt-minus-btn text-center">-</span>
-                    <span class="tkt-badge-part tkt-light-badge text-center">
-                        <span class="pricing-qty">
-                            0
-                        </span>
-                        x
-                        <span class="pricing-name">
-                            <%= p.name.<?= TKT_LANG ?> %> :
-                <% if (p.description.<?= TKT_LANG ?>) { %>
-                     <a class="popoverdata" href="javascript:;" title="<%= p.description.<?= TKT_LANG ?> %>" rel="popover" data-placement="bottom" data-toggle="tooltip"  data-trigger="hover"><span class="glyphicon glyphicon-info-sign" /></a>
-                <% } %>
-                        </span>
-                        <span class="pricing-price">
-                            <%= p.price.CHF.toFixed(2) %> CHF
-                        </span>
+        <% if ('map_only_bookings' in screening.opaque && screening.opaque.map_only_bookings) { %>
+            <div class="row">
+                <div class="col">
+                    <span>
+                        <?= tkt_t('Sélectionnez le(s) place(s) que vous souhaitez ajouter à votre panier :') ?>
                     </span>
-                    <span class="tkt-badge-part tkt-dark-badge tkt-plus-btn text-center">+</span>
-                </span>
-                <input type="hidden" data-pricing="<%= key %>" class="input pricing-input" value="0"/>
+                    <iframe width="100%" style="min-height: 500px" frameborder="0" src="<%= TKTApi.getScreeningMapUrl(screening._id) %>"></iframe>
+                </div>
             </div>
-        </div>
-        <% }) %>
-        <div class="row">
-            <div class="col">
-                <div class="error pricings-error d-none"></div>
-                <button class="button add-to-cart-btn active" >
-                    <?= tkt_t('Ajouter à mon panier') ?>
-                </button>
+        <% } else { %>
+            <div class="pricings-form">
+                <div class="row">
+                    <div class="col">
+                        <span>
+                            <?= tkt_t('Entrez le nombre de place(s) que vous souhaitez ajouter à votre panier :') ?>
+                        </span>
+                    </div>
+                </div>
+                <% _.mapKeys(screening.pricings, function(p, key) { %>
+                <div class="row pricing-row">
+                    <div class="col">
+                        <span class="tkt-badge tkt-badge-split flex-rev-on-mobile tkt-badge-plus-minus">
+                            <span class="tkt-badge-part tkt-grey-badge tkt-minus-btn text-center">-</span>
+                            <span class="tkt-badge-part tkt-light-badge text-center">
+                                <span class="pricing-qty">
+                                    0
+                                </span>
+                                x
+                                <span class="pricing-name">
+                                    <%= p.name.<?= TKT_LANG ?> %> :
+                        <% if (p.description.<?= TKT_LANG ?>) { %>
+                             <a class="popoverdata" href="javascript:;" title="<%= p.description.<?= TKT_LANG ?> %>" rel="popover" data-placement="bottom" data-toggle="tooltip"  data-trigger="hover"><span class="glyphicon glyphicon-info-sign" /></a>
+                        <% } %>
+                                </span>
+                                <span class="pricing-price">
+                                    <%= p.price.CHF.toFixed(2) %> CHF
+                                </span>
+                            </span>
+                            <span class="tkt-badge-part tkt-dark-badge tkt-plus-btn text-center">+</span>
+                        </span>
+                        <input type="hidden" data-pricing="<%= key %>" class="input pricing-input" value="0"/>
+                    </div>
+                </div>
+                <% }) %>
+                <div class="row">
+                    <div class="col">
+                        <div class="error pricings-error d-none"></div>
+                        <button class="button add-to-cart-btn active" >
+                            <?= tkt_t('Ajouter à mon panier') ?>
+                        </button>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
+        <% } %>
     <% } %>
     <% if (screening.eligible_types.length) { %>
     <div class="pass-form mt-3">

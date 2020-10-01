@@ -34,6 +34,7 @@ var Ticketack = function(eshopUrl, apiKey, lang) {
     this.ticketViewUrl         = this.eshopUrl + "ticket/view/";
     this.passesViewUrl         = this.eshopUrl + "pass/new/";
     this.screeningViewUrl      = this.eshopUrl + "screening/buy/";
+    this.screeningMapUrl       = this.eshopUrl + "screening/map/";
 
     this.cartJsonUrl           = this.eshopUrl + "cart/view_json";
     this.cartRemoveUrl         = this.eshopUrl + "cart/remove";
@@ -101,6 +102,11 @@ Ticketack.prototype.getPassesViewUrl = function(tickettype_id, pricing_id) {
  */
 Ticketack.prototype.getScreeningViewUrl = function(screening_ref) {
     var url = this.parametrize_url(this.screeningViewUrl + screening_ref, {});
+    return url;
+}
+
+Ticketack.prototype.getScreeningMapUrl = function(screening_id) {
+    var url = this.parametrize_url(this.screeningMapUrl + screening_id, {});
     return url;
 }
 
