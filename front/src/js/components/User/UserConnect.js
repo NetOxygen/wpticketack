@@ -31,6 +31,13 @@ export default class UserConnect extends Component {
 
     init() {
         TKTApi.viewTicket((err, status, rsp) => {
+            const ticket = !err ? new Ticket(rsp) : null;
+
+            if (err)
+                this.state.unset('user.ticket');
+            else
+                this.state.set('user.ticket', ticket);
+
             this.render(!err ? new Ticket(rsp) : null);
         });
 
