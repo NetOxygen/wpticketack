@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import { Api as TKTApi } from '../Ticketack';
 
 /**
  * Template manager
@@ -14,6 +15,8 @@ class Template {
         const $tpl = $('#' + template_id);
         if (!$tpl.length)
             return null;
+
+        data.TKTApi = TKTApi;
 
         return _.template($tpl.html())(data);
     };
