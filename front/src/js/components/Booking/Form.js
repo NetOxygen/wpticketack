@@ -47,7 +47,7 @@ export default class BookingForm extends Component {
             channel: "connection",
             topic: "update",
             callback: (data, envelope) => {
-                this.check_bookability();
+                this.check_bookability(this.build_tickets_form);
             }
         });
 
@@ -59,6 +59,15 @@ export default class BookingForm extends Component {
             this.data.screenings = _.sortBy(screenings, (s) => s.start_at);
             this.build_form();
             this.initialized = true;
+        });
+
+        TKTApi.viewTicket((err, status, rsp) => {
+            const ticket = !err ? new Ticket(rsp) : null;
+
+            if (err)
+                this.state.unset('user.ticket');
+            else
+                this.state.set('user.ticket', ticket);
         });
     }
 
@@ -195,6 +204,7 @@ export default class BookingForm extends Component {
                         .removeClass('d-none');
 
                 this.data.ticket = new Ticket(rsp);
+                this.state.set('user.ticket', this.data.ticket);
                 this.emit_connection_update(this.data.ticket);
 
                 // Redirect to ticket activation if needed
@@ -235,6 +245,7 @@ export default class BookingForm extends Component {
                 $('.connect-panel', this.$container).removeClass('d-none');
                 $('.book-panel', this.$container).addClass('d-none');
             }
+             callback && callback();
         });
     }
 
@@ -287,10 +298,19 @@ export default class BookingForm extends Component {
     }
 
     build_tickets_form() {
+        if (!this.data.screening)
+            return;
+
         // render template
         const ticket_view_url = TKTApi.getTicketViewUrl();
+        const userTicket      = this.state.get('user.ticket');
+        const screening       = {
+            ...this.data.screening,
+            pricings: this.data.screening.getMatchingPricings('eshop', (userTicket ? userTicket.type._id : null))
+        }
+
         this.$tickets_form.html(Template.render('tkt-booking-form-pricings-tpl', {
-            screening: this.data.screening,
+            screening: screening,
             ticket_view_url
         }));
 

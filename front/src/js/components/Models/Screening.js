@@ -1,5 +1,6 @@
 import BaseModel from './Base';
 import { Api as TKTApi } from '../Ticketack';
+import Pricing from './Pricing';
 import _ from 'lodash';
 import async from 'async';
 import moment from 'moment';
@@ -8,7 +9,8 @@ import moment from 'moment';
  * Screening model
  */
 export default class Screening extends BaseModel {
-    static type        = 'screening';
+    static type = 'screening';
+
     static infos_cache = new (function() {
         this.set = (id, screening) => {
             this[id] = screening;
@@ -38,6 +40,13 @@ export default class Screening extends BaseModel {
 
             return b;
         });
+
+        if (this.pricings) {
+            Object.keys(this.pricings).map((pricingId) => {
+                this.pricings[pricingId]= new Pricing(this.pricings[pricingId]);
+                this.pricings[pricingId].key = pricingId;
+            });
+        }
     }
 
     /**
@@ -105,5 +114,16 @@ export default class Screening extends BaseModel {
 
             return callback(/*err*/null, infos);
         });
+    }
+
+    getMatchingPricings(roles, tickettype) {
+        const allowedPricings = [];
+        Object.keys(this.pricings).map(pricingId => {
+            const pricing = this.pricings[pricingId];
+            if (pricing.rulesMatch(roles, tickettype))
+                allowedPricings.push(pricing);
+        })
+
+        return allowedPricings;
     }
 }
