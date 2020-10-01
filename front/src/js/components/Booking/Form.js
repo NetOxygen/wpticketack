@@ -47,7 +47,8 @@ export default class BookingForm extends Component {
             channel: "connection",
             topic: "update",
             callback: (data, envelope) => {
-                this.check_bookability(this.build_tickets_form);
+                this.build_tickets_form();
+                this.check_bookability();
             }
         });
 
