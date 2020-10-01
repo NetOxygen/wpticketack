@@ -59,6 +59,17 @@ var Ticketack = function(eshopUrl, apiKey, lang) {
 };
 
 /**
+ *
+ * Set the current session ID
+ *
+ * @param {String} session_id
+ */
+Ticketack.prototype.set_session_id = function(session_id) {
+    localStorage.setItem('tkt_session_id', session_id);
+    this.session_id = session_id;
+}
+
+/**
  * User cart url getter
  */
 Ticketack.prototype.getCartViewUrl   = function() {
@@ -518,8 +529,7 @@ Ticketack.prototype.request = function(method, url, data, headers, callback) {
     }).done((data, textStatus, jqXHR) => {
         const rsp = jqXHR.responseJSON;
         if (rsp && 'session_id' in rsp) {
-            localStorage.setItem('tkt_session_id', rsp.session_id);
-            this.session_id = rsp.session_id;
+            this.set_session_id(rsp.session_id);
         }
 
         return callback(null, jqXHR.status, jqXHR.responseJSON);
