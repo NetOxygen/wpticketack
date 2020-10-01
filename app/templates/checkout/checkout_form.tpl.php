@@ -128,7 +128,7 @@ function r($required_fields, $field) {
                     <input name="user[birthdate]" type="text" class="tkt-input form-control data-field" id="birthdate" data-component="Form/Calendar" placeholder="<?= tkt_t("Date de naissance") ?>" required data-date-format="d.m.Y" />
                   </div>
                 </div>
-              <? endif; ?>
+              <?php endif; ?>
 
 
               <?php if (empty($cgv_url)) : ?>
