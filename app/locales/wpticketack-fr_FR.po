@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-14 11:57+0200\n"
+"POT-Creation-Date: 2020-10-01 15:33+0200\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Alain Pellaux <alain.pellaux@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -93,6 +93,12 @@ msgstr ""
 msgid "Pays"
 msgstr ""
 
+msgid "Téléphone fixe"
+msgstr ""
+
+msgid "Téléphone portable"
+msgstr ""
+
 msgid "Âge"
 msgstr ""
 
@@ -126,6 +132,9 @@ msgid "Réserver une place sur mon abonnement"
 msgstr ""
 
 msgid "Entrée libre"
+msgstr ""
+
+msgid "Sélectionnez le(s) place(s) que vous souhaitez ajouter à votre panier :"
 msgstr ""
 
 msgid ""
@@ -256,13 +265,7 @@ msgstr ""
 msgid "Saisissez une deuxième fois votre adresse"
 msgstr ""
 
-msgid "Téléphone fixe"
-msgstr ""
-
 msgid "Votre numéro de téléphone"
-msgstr ""
-
-msgid "Téléphone portable"
 msgstr ""
 
 msgid "Réserver (paiement sur place)"
