@@ -151,7 +151,7 @@ export default class BuyForm extends Component {
             $container.hide();
 
             const pricing = tickettype.pricings[$(p).val()];
-            if (matchingPricings.filter(p => p.key === pricing.key).length > 0)
+            if (pricing.key in matchingPricings)
                 $container.show();
         });
     }
