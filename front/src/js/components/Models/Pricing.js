@@ -19,7 +19,9 @@ export default class Pricing extends BaseModel {
                 this.rules.not_before = moment(this.rules.not_before);
               if ('not_after' in this.rules)
                 this.rules.not_after = moment(this.rules.not_after);
-          }
+        } else {
+            this.rules = {};
+        }
     }
 
     rulesMatch(roles, tickettype) {
