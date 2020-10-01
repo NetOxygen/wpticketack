@@ -325,7 +325,8 @@ Ticketack.prototype.loginTicket = function(number, key, callback) {
  * @param callback
  */
 Ticketack.prototype.logoutTicket = function(callback) {
-    return this.get(this.logoutUrl, {}, callback);
+    var url = this.parametrize_url(this.logoutUrl, {}, true);
+    return this.get(url, {}, callback);
 };
 
 /**
