@@ -13,6 +13,7 @@ import { Filters as ProgramFilters } from './components/Program';
 import { PlusMinus } from './components/Ui';
 import { UserConnect } from './components/User';
 import { Calendar, ImageDataUrl } from './components/Form';
+import { Shop } from './components/Shop';
 
 import '../styles/main.scss';
 
@@ -37,5 +38,6 @@ loader.registerComponent('Program/FilterRows', ProgramFilterRows);
 loader.registerComponent('Program/Filters', ProgramFilters);
 loader.registerComponent('Ui/PlusMinus', PlusMinus);
 loader.registerComponent('User/UserConnect', UserConnect);
+loader.registerComponent('Shop/Shop', Shop);
 
 loader.attach();

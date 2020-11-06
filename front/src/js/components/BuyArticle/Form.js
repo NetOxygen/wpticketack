@@ -93,6 +93,7 @@ export default class ArticleForm extends Component {
 
         // bind pricings minus buttons if any
         $('.tkt-minus-btn', this.$container).click((e) => {
+            e.stopPropagation();
             const $t     = $(e.target);
             const $input = $t.parent().next('.variant-input').eq(0);
             const val    = parseInt($input.val());
@@ -111,6 +112,7 @@ export default class ArticleForm extends Component {
 
         // bind pricings plus buttons if any
         $('.tkt-plus-btn', this.$container).click((e) => {
+            e.stopPropagation();
             const $t     = $(e.target);
             const $input = $t.parent().next('.variant-input').eq(0);
             const val    = parseInt($input.val());
@@ -131,6 +133,8 @@ export default class ArticleForm extends Component {
                     $t.addClass('tkt-out-of-stock-badge');
                 }
             }
+
+            return false;
         });
 
         // bind variant fields
@@ -142,7 +146,8 @@ export default class ArticleForm extends Component {
 
         // bind add-to-cart button
         $('.add-to-cart-btn').click((e) => {
-          this.process_add_to_cart();
+            e.stopPropagation();
+            this.process_add_to_cart();
         });
     }
 

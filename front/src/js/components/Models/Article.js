@@ -42,9 +42,13 @@ export default class Article extends BaseModel {
      * @param {Function} callback - Callback function
      */
     static getInfos = (ids, forceReload, callback) => {
+        callback = callback || (() => {
+            console.log('callback not defined');
+        });
+
         if (Article.isAlreadyGettingInfos)
             return setTimeout(
-                () => Article.getInfos(ids, callback),
+                () => Article.getInfos(ids, forceReload, callback),
                 500
             );
 

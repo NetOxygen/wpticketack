@@ -205,4 +205,15 @@ class ArticleVariant implements \JsonSerializable
 
         return $ret;
     }
+
+    public function has_stock_for_salepoint($salepoint_id)
+    {
+        foreach ($this->stocks as $s) {
+            if ($s->check_stock($salepoint_id)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }

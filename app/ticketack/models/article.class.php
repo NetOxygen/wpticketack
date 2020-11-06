@@ -236,6 +236,31 @@ class Article extends TKTModel implements \JsonSerializable
         return $this->variants;
     }
 
+    public function has_stock_for_salepoint($salepoint_id)
+    {
+        switch ($this->stock_type) {
+            case static::STOCK_TYPE_NONE:
+                return true;
+            case static::STOCK_TYPE_ARTICLE:
+                foreach ($this->stocks as $s) {
+                    if ($s->check_stock($salepoint_id)) {
+                        return true;
+                    }
+                }
+
+                return false;
+            case static::STOCK_TYPE_VARIANT:
+                foreach ($this->variants as $v) {
+                    if ($v->has_stock_for_salepoint($salepoint_id)) {
+                        return true;
+                    }
+                }
+
+                return false;
+            default:
+                return false;
+        }
+    }
     /**
      * Get a variant by its _id
      *

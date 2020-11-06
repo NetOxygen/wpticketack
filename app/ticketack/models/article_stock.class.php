@@ -54,4 +54,13 @@ class ArticleStock implements \JsonSerializable
 
         return $ret;
     }
+
+    public function check_stock($salepoint_id)
+    {
+        if (in_array($salepoint_id, $this->salepoint_ids) && $this->availability > 0) {
+            return true;
+        }
+
+        return false;
+    }
 }

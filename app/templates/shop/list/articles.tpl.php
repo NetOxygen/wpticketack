@@ -29,3 +29,11 @@ use Ticketack\WP\Templates\TKTTemplate;
         <?php endforeach; ?>
     <?php endif; ?>
 </div>
+
+<!-- Underscore.js templates used by client side -->
+<script type="text/template" id="tkt-buy-article-form-pricings-tpl">
+    <?= TKTTEmplate::render('buy_article/form_pricings', $data) ?>
+</script>
+<script type="text/template" id="tkt-buy-article-form-success-tpl">
+    <?= TKTTEmplate::render('buy_article/form_success', $data) ?>
+</script>
