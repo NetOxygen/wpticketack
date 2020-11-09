@@ -1335,20 +1335,29 @@ article.type-tkt-event {
                 color: $btn_text_color;
                 text-transform: uppercase;
             }
-            .button {
+            .add-to-cart {
                 margin: auto;
-                margin-top: 10px;
-                display: inline-block;
             }
             .add-var-from-shop {
                 margin-top: 5px;
             }
             .buy-article-form {
-                position: fixed;
-                bottom: 0;
-                right: 15px;
-                border: 3px solid #f1f1f1;
-                z-index: 9;
+                position: fixed; /* Stay in place */
+                z-index: 50; /* Sit on top */
+                left: 0;
+                top: 0;
+                right: 0;
+                bottom:0;
+                overflow: auto; /* Enable scroll if needed */
+                border-radius: 4px;
+                text-align: center;
+                background-color: rgba(0,0,0,0.4);
+                .variants-form {
+                    position: absolute;
+                    z-index: 100;
+                    left: 35%;
+                    top: 50%;
+                }
             }
         }
     }
