@@ -197,9 +197,11 @@ function tkt_shop_url($query = "")
 /**
  * Get the Cart page url
  *
+ * @param string $query
+ *
  * @return string
  */
-function tkt_cart_url()
+function tkt_cart_url($query = "")
 {
     $slug = TKTApp::get_instance()->get_config('pages.cart');
     return tkt_page_url($slug, $query);
@@ -208,9 +210,11 @@ function tkt_cart_url()
 /**
  * Get the Checkout page url
  *
+ * @param string $query
+ *
  * @return string
  */
-function tkt_checkout_url()
+function tkt_checkout_url($query = "")
 {
     $slug = TKTApp::get_instance()->get_config('pages.checkout');
     if (!empty($slug)) {
@@ -226,9 +230,11 @@ function tkt_checkout_url()
 /**
  * Get the Thank you page url
  *
+ * @param string $query
+ *
  * @return string
  */
-function tkt_thank_you_url()
+function tkt_thank_you_url($query = "")
 {
     $slug = TKTApp::get_instance()->get_config('pages.thank_you');
     if (!empty($slug)) {
