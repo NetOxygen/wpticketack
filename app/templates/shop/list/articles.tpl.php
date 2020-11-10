@@ -8,9 +8,9 @@ use Ticketack\WP\Templates\TKTTemplate;
  *
  * Input:
  * $data: {
- *   "articles": [
- *
- *   ]
+ *   "articles": [ ... ],
+ *   "hide_sorters": true|false,
+ *   "sort": ""
  * }
  */
 ?>
@@ -18,6 +18,13 @@ use Ticketack\WP\Templates\TKTTemplate;
     <?php if (empty($data->articles)) : ?>
         <h3 class="no-event-title"><?= tkt_t('Aucun article dans cette catégorie, revenez nous visiter prochainement.') ?></h3>
     <?php else: ?>
+        <?php if (!$data->hide_sorters) : ?>
+        <div class="tkt-articles-toolbar">
+            <div class="tkt-articles-sort-wrapper">
+                <?= TKTTEmplate::render('shop/sort/sort', $data) ?>
+            </div>
+        </div>
+        <?php endif; ?>
         <?php foreach ($data->articles as $chunk) : ?>
             <div class="row mb-4">
             <?php foreach ($chunk as $article) : ?>

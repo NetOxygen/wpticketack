@@ -43,9 +43,20 @@ class ShopShortcode extends TKTShortcode
      */
     public function run($atts, $content)
     {
-        $template     = isset($atts['template']) ? $atts['template'] : static::LIST_TEMPLATE;
-        $category_ids = isset($atts['category_ids']) ? explode(',', $atts['category_ids']) : null;
-        $item_width   = isset($atts['item_width']) ? $atts['item_width'] : static::DEFAULT_ITEM_WIDTH;
+        $template      = isset($atts['template']) ? $atts['template'] : static::LIST_TEMPLATE;
+        $category_ids  = isset($atts['category_ids']) ? explode(',', $atts['category_ids']) : null;
+        $item_width    = isset($atts['item_width']) ? $atts['item_width'] : static::DEFAULT_ITEM_WIDTH;
+        $hide_sorters  = isset($atts['hide_sorters']) ? !!$atts['hide_sorters'] : false;
+        $only_in_stock = isset($atts['only_in_stock']) ? $atts['only_in_stock'] : false;
+        $nb            = isset($atts['nb']) ? $atts['nb'] : -1;
+        $exclude       = isset($atts['exclude']) ? $atts['exclude'] : null;
+        $sort          = isset($atts['sort']) ? $atts['sort'] : tkt_get_url_param('sort');
+
+        // if sort is defined in the shortcode,
+        // never show the sorters
+        if (isset($atts['sort'])) {
+            $hide_sorters = true;
+        }
 
         $user       = User::get_current();
         $salepoints = $user->salepoints();
@@ -59,13 +70,37 @@ class ShopShortcode extends TKTShortcode
 
             $articles = $query->get('_id,name,short_description,description,category,stock_type,stocks,variants,posters');
 
+            if ($only_in_stock) {
+                $salepoint = current($salepoints);
+                $articles  = array_values(array_filter($articles, function ($article) use ($salepoint) {
+                    return $article->has_stock_for_salepoint($salepoint);
+                }));
+            }
+
+            if (!is_null($exclude)) {
+                $articles = array_values(array_filter($articles, function ($article) use ($exclude) {
+                    return $article->_id() != $exclude;
+                }));
+            }
+
+            if (!is_null($sort)) {
+                $articles = Article::sort($articles, $sort);
+            }
+
+            if ($nb > 0) {
+                $articles = array_slice($articles, 0, $nb);
+            }
+
+
             return TKTTemplate::render(
                 'shop/'.$template.'/articles',
                 (object)[
                     'articles' => array_chunk(
                         $articles,
                         (int)(12 / $item_width)
-                    )
+                    ),
+                    'sort'         => $sort,
+                    'hide_sorters' => $hide_sorters
                 ]
             );
         } catch (TKTApiException $e) {

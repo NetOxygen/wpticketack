@@ -49,16 +49,15 @@ $salepoint  = current($salepoints);
             <span class="short_description"><?= $article->short_description(TKT_LANG) ?></span>
         </div>
 
-        <?php if (!$article->has_stock_for_salepoint($salepoint)) : ?>
-            <span class="article-out-of-stock"><?= tkt_t("Épuisé") ?></span>
-            </br>
-        <?php endif; ?>
-        <div class="col-sm-12 text-center mt-4">
+        <div class="col-sm-12 text-center mt-3 mb-3">
             <a class="button" href="<?= tkt_article_details_url($article) ?>">
                 <?= tkt_t('Plus d\'informations'); ?>
             </a>
         </div>
-        <?php if ($article->has_stock_for_salepoint($salepoint)) : ?>
+        <?php if (!$article->has_stock_for_salepoint($salepoint)) : ?>
+            <span class="article-out-of-stock"><?= tkt_t("Épuisé") ?></span>
+            </br>
+        <?php else : ?>
             </br>
             <div class="add-to-cart" data-component="Shop/Shop">
                 <button class="button add-to-cart-from-shop">

@@ -1,17 +1,29 @@
 #tkt-shop {
+    .tkt-articles-toolbar {
+        background: #F0F0F0;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-bottom: 1px solid #F0F0F0;
+
+        .tkt-articles-sort {
+            .form-group.row {
+                margin-bottom: 0;
+            }
+        }
+    }
+
     .tkt-article {
         .article-inner {
             border: solid 1px #F0F0F0;
             padding: 1rem;
+
             .article-out-of-stock {
                 margin: auto;
-                padding: 0.3rem;
+                padding: 0 6px;
                 display: inline-block;
                 border: 1px solid darken($error_color, 10%);
-                border-radius: 5px;
-                background-color: $error_color;
-                color: $btn_text_color;
-                text-transform: uppercase;
+                color: $error_color;
+                font-size: 12px;
             }
             .add-to-cart {
                 margin: auto;
@@ -29,12 +41,23 @@
                 overflow: auto; /* Enable scroll if needed */
                 border-radius: 4px;
                 text-align: center;
-                background-color: rgba(0,0,0,0.4);
-                .variants-form {
+                background-color: rgba(0,0,0,0.95);
+
+                .variants-form,
+                .success-panel {
                     position: absolute;
                     z-index: 100;
-                    left: 35%;
+                    left: 50%;
                     top: 50%;
+                    transform: translate(-50%, -50%);
+                    background: #717070;
+                    padding: 10px;
+                    border: 1px solid #9E9E9E;
+
+                    .assertive,
+                    .success-title {
+                        color: #FFFFFF;
+                    }
                 }
             }
         }

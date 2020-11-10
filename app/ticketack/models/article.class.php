@@ -22,6 +22,7 @@ class Article extends TKTModel implements \JsonSerializable
     const SORT_TYPE_REV_ALPHA  = 'rev-alpha';
     const SORT_TYPE_INCR_PRICE = 'incr-price';
     const SORT_TYPE_DECR_PRICE = 'decr-price';
+    const SORT_TYPE_RANDOM     = 'random';
 
     /**
      * @override
@@ -353,6 +354,11 @@ class Article extends TKTModel implements \JsonSerializable
 
     public static function sort($articles, $sort_type)
     {
+        if ($sort_type === static::SORT_TYPE_RANDOM) {
+            shuffle($articles);
+            return $articles;
+        }
+
         $cmp = function ($a, $b) { return 0; };
 
         switch ($sort_type) {
