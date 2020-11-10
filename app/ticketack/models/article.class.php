@@ -18,6 +18,11 @@ class Article extends TKTModel implements \JsonSerializable
     const STOCK_TYPE_VARIANT = 'variant';
     const STOCK_TYPE_NONE    = 'none';
 
+    const SORT_TYPE_ALPHA      = 'alpha';
+    const SORT_TYPE_REV_ALPHA  = 'rev-alpha';
+    const SORT_TYPE_INCR_PRICE = 'incr-price';
+    const SORT_TYPE_DECR_PRICE = 'decr-price';
+
     /**
      * @override
      */
@@ -344,6 +349,50 @@ class Article extends TKTModel implements \JsonSerializable
     public function has_description()
     {
         return is_array($this->description);
+    }
+
+    public static function sort($articles, $sort_type)
+    {
+        $cmp = function ($a, $b) { return 0; };
+
+        switch ($sort_type) {
+            case static::SORT_TYPE_ALPHA;
+                $cmp = function ($a, $b) {
+                    $name_a = strtolower($a->name(TKT_LANG));
+                    $name_b = strtolower($b->name(TKT_LANG));
+                    return strcmp($name_a, $name_b);
+                };
+                break;
+            case static::SORT_TYPE_REV_ALPHA;
+                $cmp = function ($a, $b) {
+                    $name_a = strtolower($a->name(TKT_LANG));
+                    $name_b = strtolower($b->name(TKT_LANG));
+                    return strcmp($name_b, $name_a);
+                };
+                break;
+            case static::SORT_TYPE_INCR_PRICE;
+                $cmp = function ($a, $b) {
+                    $price_a = $a->price()->value();
+                    $price_b = $b->price()->value();
+                    return $price_a > $price_b ? 1 : (
+                        $price_a < $price_b ? -1 : 0
+                    );
+                };
+                break;
+            case static::SORT_TYPE_DECR_PRICE;
+                $cmp = function ($a, $b) {
+                    $price_a = $a->price()->value();
+                    $price_b = $b->price()->value();
+                    return $price_a < $price_b ? 1 : (
+                        $price_a > $price_b ? -1 : 0
+                    );
+                };
+                break;
+        }
+
+        usort($articles, $cmp);
+
+        return $articles;
     }
 
     /**
