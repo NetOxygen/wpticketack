@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-01 15:33+0200\n"
+"POT-Creation-Date: 2020-11-19 22:58+0100\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Alain Pellaux <alain.pellaux@netoxygen.ch>\n"
+"Last-Translator: Belkacem Alidra <belkacem.alidra@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -44,8 +44,7 @@ msgstr ""
 msgid "ma visite"
 msgstr ""
 
-msgid ""
-"Entrez le nombre d'éléments (s) que vous souhaitez ajouter à votre panier :"
+msgid "Entrez le nombre d'éléments que vous souhaitez ajouter à votre panier :"
 msgstr ""
 
 msgid "Épuisé"
@@ -187,6 +186,12 @@ msgstr ""
 msgid "Total :"
 msgstr ""
 
+msgid "Utiliser un code promo"
+msgstr ""
+
+msgid "Valider"
+msgstr ""
+
 msgid "Finaliser ma commande"
 msgstr ""
 
@@ -295,13 +300,13 @@ msgstr ""
 msgid "Profession"
 msgstr ""
 
+msgid "Trier par"
+msgstr ""
+
 msgid "Aucun article dans cette catégorie, revenez nous visiter prochainement."
 msgstr ""
 
 msgid "Vous avez choisi :"
-msgstr ""
-
-msgid "Valider"
 msgstr ""
 
 msgid "Tout"
@@ -360,6 +365,15 @@ msgid "Veuillez choisir un tarif"
 msgstr ""
 
 msgid "Votre panier a été mis à jour"
+msgstr ""
+
+msgid "Code promo invalide"
+msgstr ""
+
+msgid "Impossible d'utiliser ce code promo"
+msgstr ""
+
+msgid "Le code promo a bien été pris en compte"
 msgstr ""
 
 msgid "Pas de réponse"

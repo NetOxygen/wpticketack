@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-01 15:29+0200\n"
+"POT-Creation-Date: 2020-11-19 22:58+0100\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Alain Pellaux <alain.pellaux@netoxygen.ch>\n"
+"Last-Translator: Belkacem Alidra <belkacem.alidra@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -44,12 +44,11 @@ msgstr "Continue"
 msgid "ma visite"
 msgstr "my visit"
 
-msgid ""
-"Entrez le nombre d'éléments (s) que vous souhaitez ajouter à votre panier :"
+msgid "Entrez le nombre d'éléments que vous souhaitez ajouter à votre panier :"
 msgstr "Enter the number of items you want to add to your cart"
 
 msgid "Épuisé"
-msgstr ""
+msgstr "Out of stock"
 
 msgid "Ajouter à mon panier"
 msgstr "Add to my cart"
@@ -136,7 +135,6 @@ msgstr "Book on my pass"
 msgid "Entrée libre"
 msgstr "Free entry"
 
-#, fuzzy
 msgid "Sélectionnez le(s) place(s) que vous souhaitez ajouter à votre panier :"
 msgstr "Select tickets you want to add to your cart"
 
@@ -193,6 +191,12 @@ msgstr "Price"
 
 msgid "Total :"
 msgstr "Total :"
+
+msgid "Utiliser un code promo"
+msgstr "Use a coupon code"
+
+msgid "Valider"
+msgstr "Confirm"
 
 msgid "Finaliser ma commande"
 msgstr "Finish my order"
@@ -305,14 +309,14 @@ msgstr "Company"
 msgid "Profession"
 msgstr "Job"
 
+msgid "Trier par"
+msgstr "Sort by"
+
 msgid "Aucun article dans cette catégorie, revenez nous visiter prochainement."
 msgstr "No screening currently scheduled, come back soon."
 
 msgid "Vous avez choisi :"
 msgstr "You chose"
-
-msgid "Valider"
-msgstr "Confirm"
 
 msgid "Tout"
 msgstr "All"
@@ -345,7 +349,7 @@ msgid "Distribution"
 msgstr "Cast"
 
 msgid "Aucune séance à venir."
-msgstr ""
+msgstr "No sessions to come."
 
 msgid "Veuillez choisir au moins un billet"
 msgstr "Please choose a date"
@@ -359,20 +363,27 @@ msgstr "The information you have entered is invalid"
 msgid "Une erreur est survenue. Veuillez ré-essayer ultérieurement."
 msgstr "An error has occurred. Please try again later."
 
-#, fuzzy
 msgid "Vous ne pouvez pas réserver de place pour cette séance avec votre pass."
 msgstr "You  can not book this screening with your pass"
 
-#, fuzzy
 msgid ""
 "Vous ne pouvez pas réserver plus de place pour cette séance avec votre pass."
-msgstr "You  can not book this screening with your pass"
+msgstr "You can not book more seats for this screening with your pass"
 
 msgid "Veuillez choisir un tarif"
 msgstr "Please choose a pricing"
 
 msgid "Votre panier a été mis à jour"
 msgstr "Your cart has been updated"
+
+msgid "Code promo invalide"
+msgstr "Invalid coupon code"
+
+msgid "Impossible d'utiliser ce code promo"
+msgstr "Cannot use this coupon code"
+
+msgid "Le code promo a bien été pris en compte"
+msgstr "The coupon code has been taken into account"
 
 msgid "Pas de réponse"
 msgstr "No answer"
@@ -493,7 +504,7 @@ msgid "Langues"
 msgstr "Languages"
 
 msgid "Import"
-msgstr ""
+msgstr "Import"
 
 msgid "Paramètres avancés"
 msgstr "Advanced parameters"
@@ -577,10 +588,10 @@ msgid "Langue par défaut"
 msgstr "Default language"
 
 msgid "Filtrer les events sur les tags suivants"
-msgstr ""
+msgstr "Filter events by the following tags"
 
 msgid "Télécharger les images à la une"
-msgstr ""
+msgstr "Download images"
 
 msgid "Customisation css"
 msgstr "CSS customization"
@@ -590,7 +601,7 @@ msgid "Sections padding"
 msgstr "Section"
 
 msgid "Border radius"
-msgstr ""
+msgstr "Border radius"
 
 msgid "Saisissez les slugs des pages contenant les différents shortcodes"
 msgstr "Set the slugs of the pages which contain the shortcodes"

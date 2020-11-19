@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-01 15:31+0200\n"
+"POT-Creation-Date: 2020-11-19 23:02+0100\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Alain Pellaux <alain.pellaux@netoxygen.ch>\n"
+"Last-Translator: Belkacem Alidra <belkacem.alidra@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -45,14 +45,13 @@ msgid "ma visite"
 msgstr "mein besuch"
 
 #, fuzzy
-msgid ""
-"Entrez le nombre d'éléments (s) que vous souhaitez ajouter à votre panier :"
+msgid "Entrez le nombre d'éléments que vous souhaitez ajouter à votre panier :"
 msgstr ""
 "Geben Sie die Anzahl Plätze ein, die Sie Ihrem Einkaufswagen hinzufügen "
 "möchten:"
 
 msgid "Épuisé"
-msgstr ""
+msgstr "Nicht vorrätig"
 
 msgid "Ajouter à mon panier"
 msgstr "Meinem Warenkorb hinzufügen"
@@ -143,8 +142,7 @@ msgstr ""
 #, fuzzy
 msgid "Sélectionnez le(s) place(s) que vous souhaitez ajouter à votre panier :"
 msgstr ""
-"Wählen Sie die Plätze ein, die Sie Ihrem Einkaufswagen hinzufügen "
-"möchten:"
+"Wählen Sie die Plätze ein, die Sie Ihrem Einkaufswagen hinzufügen möchten:"
 
 msgid ""
 "Entrez le nombre de place(s) que vous souhaitez ajouter à votre panier :"
@@ -200,6 +198,12 @@ msgstr "Preis"
 
 msgid "Total :"
 msgstr "Total:"
+
+msgid "Utiliser un code promo"
+msgstr "Verwenden Sie einen Gutscheincode"
+
+msgid "Valider"
+msgstr "Validieren"
 
 msgid "Finaliser ma commande"
 msgstr "Meine Bestellung abschließen"
@@ -266,7 +270,7 @@ msgid "Aucun moyen de paiement configué."
 msgstr ""
 
 msgid "Vos données de facturation"
-msgstr ""
+msgstr "Ihre Rechnungsdaten"
 
 #, fuzzy
 msgid "Adresse e-mail"
@@ -314,14 +318,14 @@ msgstr "Firma"
 msgid "Profession"
 msgstr "Beruf"
 
+msgid "Trier par"
+msgstr ""
+
 msgid "Aucun article dans cette catégorie, revenez nous visiter prochainement."
 msgstr "Keine Artikel in dieser Kategorie, kommen Sie bald wieder."
 
 msgid "Vous avez choisi :"
 msgstr "Du hast gewählt:"
-
-msgid "Valider"
-msgstr "Validieren"
 
 msgid "Tout"
 msgstr "Tout"
@@ -387,6 +391,15 @@ msgstr "Bitte wählen Sie einen Tarif aus"
 
 msgid "Votre panier a été mis à jour"
 msgstr "Ihr Warenkorb wurde aktualisiert."
+
+msgid "Code promo invalide"
+msgstr "Ungültiger Promo-Code"
+
+msgid "Impossible d'utiliser ce code promo"
+msgstr "Kann diesen Gutscheincode nicht verwenden"
+
+msgid "Le code promo a bien été pris en compte"
+msgstr "Der Gutscheincode wurde berücksichtigt"
 
 msgid "Pas de réponse"
 msgstr "Keine Antwort"
