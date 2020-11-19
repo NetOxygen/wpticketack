@@ -18,7 +18,7 @@ use Ticketack\WP\TKTApp;
         <div class="row">
             <div class="col">
                 <span class="assertive">
-                    <?= tkt_t('Entrez le nombre d\'éléments (s) que vous souhaitez ajouter à votre panier :') ?>
+                    <?= tkt_t('Entrez le nombre d\'éléments que vous souhaitez ajouter à votre panier :') ?>
                 </span>
             </div>
         </div>
@@ -38,7 +38,6 @@ use Ticketack\WP\TKTApp;
                             </span>
                             <span class="pricing-price">
                                 <%= variant.price.CHF %> CHF
-                                <%= variant.getStockForSalepoint(salepoint_id) %>
                             </span>
                         </span>
                         <span class="tkt-badge-part tkt-dark-badge tkt-plus-btn text-center">+</span>

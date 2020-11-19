@@ -33,8 +33,8 @@ use Ticketack\WP\TKTApp;
                     <thead>
                         <tr>
                             <th scope="col"><?= tkt_t('Achats') ?></th>
-                            <th scope="col"><?= tkt_t('Prix') ?></th>
-                            <th scope="col"></th>
+                            <th scope="col" width="120px"><?= tkt_t('Prix') ?></th>
+                            <th scope="col" width="20px"></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -66,15 +66,30 @@ use Ticketack\WP\TKTApp;
             </div>
         </div>
 
-            <% if (!hide_links.includes('finalize')) { %>
         <div class="row">
-            <div class="col finish-cart-wrapper">
+            <% if (!hide_links.includes('promo')) { %>
+            <div class="col col-12 col-sm-6 use-promo-code-wrapper">
+                <div class="input-group mb-2">
+                    <input type="text" class="promo-code-input form-control" placeholder="<?= tkt_t('Utiliser un code promo') ?>" />
+                    <div class="input-group-append">
+                        <a href="javascript:;" class="promo-code-button button active">
+                            <?= tkt_t('Valider') ?>
+                        </a>
+                    </div>
+                </div>
+                <div class="alert alert-danger promo-code-error d-none"></div>
+                <div class="alert alert-success promo-code-success d-none"></div>
+            </div>
+            <% } %>
+
+            <% if (!hide_links.includes('finalize')) { %>
+            <div class="col col-12 col-sm-6 finish-cart-wrapper">
                 <a href="<%= checkout_url %>" class="button active">
                     <?= tkt_t('Finaliser ma commande') ?>
                 </a>
             </div>
-        </div>
             <% } %>
+        </div>
 
             <% if (!hide_links.includes('cancel')) { %>
         <div class="row">

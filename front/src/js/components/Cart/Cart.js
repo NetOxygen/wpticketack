@@ -1,4 +1,4 @@
-import { Component, Config, Template } from '../Core';
+import { Component, Config, i18n, Template } from '../Core';
 import { Api as TKTApi } from '../Ticketack';
 import { Cart as CartModel } from '../Models';
 import async from 'async';
@@ -23,6 +23,8 @@ export default class Cart extends Component {
 
         this.cart       = {};
         this.hide_links = (this.$container.data('hide-links') || '').split(',');
+        this.$promoCodeInput  = $('.promo-code-input', this.$container);
+        this.$promoCodeButton = $('.promo-code-button', this.$container);
     }
 
     attach() {
@@ -81,6 +83,35 @@ export default class Cart extends Component {
             checkout_url: TKTApi.getCheckoutUrl(),
             hide_links: this.hide_links
         }));
+        $('.promo-code-button', this.$container).on('click', () => {
+            const $promoCodeInput  = $('.promo-code-input', this.$container);
+            const code = $promoCodeInput.val();
+            if (code && code.length)
+                this.usePromoCode(code);
+        });
+    }
+
+    usePromoCode(code) {
+        $('.promo-code-error').html("").addClass('d-none');
+        $('.promo-code-success').html("").addClass('d-none');
+
+        TKTApi.usePromoCode(code, (err, status, rsp) => {
+            if (err) {
+                const msg = status === 404 ?
+                    'Code promo invalide' :
+                    'Impossible d\'utiliser ce code promo';
+
+                return $('.promo-code-error')
+                    .html(i18n.t(msg))
+                    .removeClass('d-none');
+            }
+
+            this.load_cart();
+
+            /*return $('.promo-code-success')
+                .html(i18n.t('Le code promo a bien été pris en compte'))
+                .removeClass('d-none');*/
+        });
     }
 
     bind_remove_item_icons(callback) {

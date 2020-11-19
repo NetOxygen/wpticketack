@@ -48,8 +48,8 @@ class HeadScriptsAction extends TKTAction
             window.moment_locale = "'.TKT_LANG.'";
             window.moment_timezone = "'.get_option('timezone_string').'";
             window.tkt_config = {
-                version: "1",
-                base_url: "'.get_site_url().'/",
+                "version": "1",
+                "base_url": "'.get_site_url().'/",
                 "engine_uri": "'.$app->get_config('ticketack.engine_uri').'/",
                 "eshop_uri": "'.$app->get_config('ticketack.eshop_uri').'/",
                 "api_key": "'.$app->get_config('ticketack.api_key').'",
@@ -57,6 +57,7 @@ class HeadScriptsAction extends TKTAction
                 "shop_url": "'.tkt_shop_url().'",
                 "cart_url": "'.tkt_cart_url().'",
                 "cart_reset_url": "'.tkt_cart_reset_url().'",
+                "checkout_url": "'.tkt_checkout_url().'",
                 "lang": "'.TKT_LANG.'",
                 "i18n": '.json_encode(LocalesHelper::dump_js_locales(), JSON_PRETTY_PRINT).'
             };

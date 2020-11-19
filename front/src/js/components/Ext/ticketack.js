@@ -41,6 +41,7 @@ var Ticketack = function(eshopUrl, apiKey, lang) {
     this.cartResetUrl          = this.eshopUrl + "cart/reset";
     this.cartAddUrl            = this.eshopUrl + "screening/buy/";
     this.cartAddArticlesUrl    = this.eshopUrl + "articles/add_to_cart";
+    this.cartUsePromoCodeUrl   = this.eshopUrl + "carts/use_promo_code";
     this.cartSetPendingUrl     = this.eshopUrl + "carts/pending/id/";
     this.cartSetOpenUrl        = this.eshopUrl + "carts/open/id/";
     this.cartGetNewUrl         = this.eshopUrl + "carts/new/";
@@ -202,6 +203,17 @@ Ticketack.prototype.addPassToCart = function(pass, pricing, userdata, callback) 
 Ticketack.prototype.addArticlesToCart = function(articles, callback) {
     var data = { "articles":  articles };
     return this.post_json(this.parametrize_url(this.cartAddArticlesUrl, {}), data, callback);
+};
+
+/**
+ * Use a promo code
+ *
+ * @param {String} code: The promo code to use
+ * @param {Function} callback: The callback function
+ */
+Ticketack.prototype.usePromoCode = function(code, callback) {
+    var data = { "code":  code };
+    return this.post_json(this.parametrize_url(this.cartUsePromoCodeUrl, {}), data, callback);
 };
 
 /**
