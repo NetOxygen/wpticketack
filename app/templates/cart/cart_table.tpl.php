@@ -66,7 +66,7 @@ use Ticketack\WP\TKTApp;
             </div>
         </div>
 
-        <div class="row">
+        <div class="row justify-content-md-end">
             <% if (!hide_links.includes('promo')) { %>
             <div class="col col-12 col-sm-6 use-promo-code-wrapper">
                 <div class="input-group mb-2">
