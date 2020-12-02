@@ -65,6 +65,27 @@
     .tkt-articles-pagination-wrapper {
         display: flex;
         justify-content: center;
+
+        .tkt-articles-pagination {
+            .btn-group {
+                button.button {
+                    padding: 0;
+                    color: $btn_text_color;
+
+                    a.btn.btn-link {
+                        color: $btn_text_color;
+                    }
+
+                    &.active {
+                        background-color: $active_color;
+                        border-color: darken($active_color, 5%);
+                        a.btn.btn-link {
+                            font-weight: bold;
+                        }
+                    }
+                }
+            }
+        }
     }
 
 }

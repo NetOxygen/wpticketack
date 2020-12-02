@@ -91,6 +91,7 @@ class ShopShortcode extends TKTShortcode
                 $articles = Article::sort($articles, $sort);
             }
 
+            $nb = min($nb, count($articles));
             if ($nb > 0) {
                 $articles = array_slice($articles, 0, $nb);
             }
