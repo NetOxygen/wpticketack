@@ -578,48 +578,6 @@ function tkt_get_article_slug($article, $lang)
     return $slug;
 }
 
-// Keep in sync with : app/controllers/screening.class.php in eshop
-function tkt_people_activities($activity = null, $lang = null)
-{
-    $activities = [
-        "actor"             => ["fr" => "Acteur", "en" => "Actor"],
-        "actors"            => ["fr" => "Acteurs", "en" => "Actors"],
-        "cast"              => ["fr" => "Acteurs", "en" => "Actors"],
-        "camera"            => ["fr" => "Caméra", "en" => "Camera"],
-        "co-producer"       => ["fr" => "Co-producteur", "en" => "Co-producer"],
-        "co-producers"      => ["fr" => "Co-producteurs", "en" => "Co-producers"],
-        "creator"           => ["fr" => "Créateur", "en" => "Creator"],
-        "creators"          => ["fr" => "Créateurs", "en" => "Creators"],
-        "director"          => ["fr" => "Réalisateur", "en" => "Director"],
-        "directors"         => ["fr" => "Réalisateurs", "en" => "Directors"],
-        "editor"            => ["fr" => "Montage", "en" => "Editor"],
-        "editing"           => ["fr" => "Montage", "en" => "Editor"],
-        "music"             => ["fr" => "Musique", "en" => "Music"],
-        "producer"          => ["fr" => "Producteur", "en" => "Producer"],
-        "producers"         => ["fr" => "Producteurs", "en" => "Producers"],
-        "photography"       => ["fr" => "Photographie", "en" => "Photography"],
-        "screenplay"        => ["fr" => "Scénario", "en" => "Screenplay"],
-        "writer"            => ["fr" => "Scénario", "en" => "Writer"],
-        "writers"           => ["fr" => "Scénario", "en" => "Writers"],
-        "sound"             => ["fr" => "Son", "en" => "Sound"],
-        "production design" => ["fr" => "Design de production", "en" => "Production design"]
-    ];
-
-    $ret = $activities;
-
-    if (!is_null($activity)) {
-        $activity = strtolower($activity);
-        $ret      = isset($ret[$activity]) ? $ret[$activity] : null;
-    }
-
-    if (!is_null($lang) && !is_null($ret)) {
-        $lang = strtolower($lang);
-        $ret  = isset($ret[$lang]) ? $ret[$lang] : null;
-    }
-
-    return $ret;
-}
-
 /**
  * Generate html data attributes based on defined attributes
  *

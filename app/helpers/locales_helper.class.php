@@ -27,4 +27,35 @@ class LocalesHelper
             'Montant trop élevé'                                                           => tkt_t('Montant trop élevé'),
         ];
     }
+
+    /**
+     * This function is used to let gettext know about some dynamic strings
+     * that should be translated (Kronos data, ...)
+     */
+    private static function dummy_function_for_dyunamic_contents()
+    {
+        $dummy = [
+            tkt_t('actor'),
+            tkt_t('actors'),
+            tkt_t('cast'),
+            tkt_t('camera'),
+            tkt_t('co-producer'),
+            tkt_t('co-producers'),
+            tkt_t('creator'),
+            tkt_t('creators'),
+            tkt_t('director'),
+            tkt_t('directors'),
+            tkt_t('editor'),
+            tkt_t('editing'),
+            tkt_t('music'),
+            tkt_t('producer'),
+            tkt_t('producers'),
+            tkt_t('photography'),
+            tkt_t('screenplay'),
+            tkt_t('writer'),
+            tkt_t('writers'),
+            tkt_t('sound'),
+            tkt_t('production design')
+        ];
+    }
 }

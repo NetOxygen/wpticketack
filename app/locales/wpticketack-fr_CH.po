@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-02 23:39+0100\n"
+"POT-Creation-Date: 2020-12-03 00:11+0100\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Belkacem Alidra <belkacem.alidra@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -405,6 +405,69 @@ msgstr ""
 
 msgid "Montant trop élevé"
 msgstr ""
+
+msgid "actor"
+msgstr "acteur"
+
+msgid "actors"
+msgstr "acteurs"
+
+msgid "cast"
+msgstr "acteurs"
+
+msgid "camera"
+msgstr "caméra"
+
+msgid "co-producer"
+msgstr "co-producteur"
+
+msgid "co-producers"
+msgstr "co-producteurs"
+
+msgid "creator"
+msgstr "créateur"
+
+msgid "creators"
+msgstr "créateurs"
+
+msgid "director"
+msgstr "réalisateur"
+
+msgid "directors"
+msgstr "réalisateurs"
+
+msgid "editor"
+msgstr "montage"
+
+msgid "editing"
+msgstr "montage"
+
+msgid "music"
+msgstr "musique"
+
+msgid "producer"
+msgstr "producteur"
+
+msgid "producers"
+msgstr "producteurs"
+
+msgid "photography"
+msgstr "photographie"
+
+msgid "screenplay"
+msgstr "scénario"
+
+msgid "writer"
+msgstr "scénario"
+
+msgid "writers"
+msgstr "scénario"
+
+msgid "sound"
+msgstr "son"
+
+msgid "production design"
+msgstr "design de production"
 
 msgid "Pas de réponse"
 msgstr ""

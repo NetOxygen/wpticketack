@@ -161,7 +161,7 @@ $nb_slides = count($trailers) + count($posters);
           <div class="row">
             <div class="col">
               <span class="tkt-badge tkt-badge-split">
-                <span class="tkt-badge-part tkt-dark-badge"><?= $p->activity ?></span>
+                <span class="tkt-badge-part tkt-dark-badge"><?= ucfirst(strtolower(tkt_t($p->activity))) ?></span>
                 <span class="tkt-badge-part tkt-grey-badge"><?= $p->firstname.' '.$p->lastname ?></span>
               </span>
             </div>

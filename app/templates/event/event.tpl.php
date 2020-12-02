@@ -37,11 +37,8 @@ if (!empty($e->opaque('description'))) {
 }
 
 $people     = [];
-$activities = tkt_people_activities();
 foreach ($e->opaque('people') as $p) {
-    $activity = isset($activities[strtolower($p['activity'])]) ?
-        $activities[strtolower($p['activity'])][TKT_LANG] :
-        $p['activity'];
+    $activity = tkt_t($p['activity']);
     if (!isset($people[$activity])) {
         $people[$activity] = [];
     }
