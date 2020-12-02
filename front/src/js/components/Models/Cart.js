@@ -62,12 +62,19 @@ export default class Cart extends BaseModel {
     };
 
     /**
+     * Get this cart total
+     * @return {Number}
+     */
+    getTotal() {
+        return _.reduce(this.items, (memo, item) => memo + parseFloat(item.amount), 0);
+    };
+
+    /**
      * Get this cart formatted total
      * @return {String}
      */
     getFormattedTotal() {
-        const total = _.reduce(this.items, (memo, item) => memo + parseFloat(item.amount), 0).toFixed(2);
-
+        const total = this.getTotal().toFixed(2);
         return `${total} CHF`;
     };
 

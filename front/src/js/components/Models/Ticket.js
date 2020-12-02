@@ -1,4 +1,5 @@
 import BaseModel from './Base';
+import { Api as TKTApi } from '../Ticketack';
 import _ from 'lodash';
 import moment from 'moment';
 
@@ -27,4 +28,33 @@ export default class Ticket extends BaseModel {
           });
         }
     }
+
+    /**
+     * Get this ticket wallet balance
+     * @return {String}
+     */
+    getWalletBalance() {
+        return this.wallet.balance;
+    };
+
+    /**
+     * Get this ticket formatted wallet balance
+     * @return {String}
+     */
+    getFormattedWalletBalance() {
+        return `${this.getWalletBalance().toFixed(2)} ${this.wallet.currency}`;
+    };
+
+    /**
+     * Load the cart from Ticketack
+     * @param {Function} callback  -Callback function
+     */
+    static load(callback) {
+        TKTApi.viewTicket((err, status, rsp) => {
+            if (err)
+                return callback(err);
+
+            return callback(/*err*/null, new Ticket(rsp));
+        });
+    };
 }

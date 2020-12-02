@@ -1,6 +1,6 @@
 import { Component, Config, i18n, Template } from '../Core';
 import { Api as TKTApi } from '../Ticketack';
-import { Cart as CartModel } from '../Models';
+import { Ticket, Cart as CartModel } from '../Models';
 import async from 'async';
 import postal from 'postal';
 
@@ -32,12 +32,15 @@ export default class Cart extends Component {
     }
 
     init() {
-        this.load_cart();
+        this.loadTicket(() => {
+            this.loadCart();
+        });
+
         postal.subscribe({
             channel: "cart",
             topic: "reload",
             callback: (data, envelope) => {
-                this.load_cart();
+                this.loadCart();
             }
         });
         postal.subscribe({
@@ -45,12 +48,19 @@ export default class Cart extends Component {
             topic: "update",
             callback: (data, envelope) => {
                 if (!data.internal)
-                    this.load_cart();
+                    this.loadCart();
             }
         });
     }
 
-    load_cart(callback) {
+    loadTicket(callback) {
+        Ticket.load((err, ticket) => {
+            this.ticket = !err ? ticket : null;
+            callback && callback();
+        });
+    }
+
+    loadCart(callback) {
         callback = callback || ((err, cart) => {});
 
         CartModel.load((err, cart) => {
@@ -78,6 +88,7 @@ export default class Cart extends Component {
     build_table() {
         this.$container.html(Template.render('tkt-cart-table-tpl', {
             cart: this.cart,
+            ticket: this.ticket,
             program_url: Config.get('program_url'),
             cart_reset_url: Config.get('cart_reset_url'),
             checkout_url: TKTApi.getCheckoutUrl(),
@@ -88,6 +99,12 @@ export default class Cart extends Component {
             const code = $promoCodeInput.val();
             if (code && code.length)
                 this.usePromoCode(code);
+        });
+        $('.wallet-button', this.$container).on('click', () => {
+            const $promoAmountInput  = $('.wallet-input', this.$container);
+            const amount = $promoAmountInput.val();
+            if (amount && amount > 0)
+                this.useWallet(amount);
         });
     }
 
@@ -106,11 +123,47 @@ export default class Cart extends Component {
                     .removeClass('d-none');
             }
 
-            this.load_cart();
+            this.loadCart();
 
             /*return $('.promo-code-success')
                 .html(i18n.t('Le code promo a bien été pris en compte'))
                 .removeClass('d-none');*/
+        });
+    }
+
+    useWallet(amount) {
+        $('.wallet-error').html("").addClass('d-none');
+        $('.wallet-success').html("").addClass('d-none');
+
+        // Force negative amount
+        if (amount > 0)
+            amount *= -1;
+
+        if ((this.cart.getTotal() + amount) < 0)
+            return $('.wallet-error')
+                .html(i18n.t('Montant trop élevé'))
+                .removeClass('d-none');
+
+        TKTApi.useWallet(this.ticket.id, amount, /*vat*/0, (err, status, rsp) => {
+            if (err) {
+                let msg = 'Impossible d\'utiliser votre porte-monnaie';
+                switch (status) {
+                    case 404:
+                        msg ='Ticket invalide';
+                        break
+                    case 410:
+                        msg ='Montant trop élevé';
+                        break;
+                }
+
+                return $('.wallet-error')
+                    .html(i18n.t(msg))
+                    .removeClass('d-none');
+            }
+
+            this.loadTicket(() => {
+                this.loadCart();
+            });
         });
     }
 
@@ -123,7 +176,7 @@ export default class Cart extends Component {
                 if (err)
                     return callback(err);
 
-                return this.load_cart(callback);
+                return this.loadCart(callback);
             });
         });
 
@@ -133,7 +186,7 @@ export default class Cart extends Component {
                 if (err)
                     console.error(err);
 
-                this.load_cart(callback);
+                this.loadCart(callback);
             });
         });
     }
@@ -178,7 +231,7 @@ export default class Cart extends Component {
             if (err)
                 return callback(err);
 
-            return this.load_cart(callback);
+            return this.loadCart(callback);
         });
     }
 

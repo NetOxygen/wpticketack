@@ -8,6 +8,7 @@ use Ticketack\WP\TKTApp;
  *
  * Input: {
  *   "cart": Cart instance,
+ *   "ticket": Ticket instance, if the user is connected,
  *   "program_url": String,
  *   "cart_reset_url": String,
  *   "checkout_url": String,
@@ -66,9 +67,38 @@ use Ticketack\WP\TKTApp;
             </div>
         </div>
 
+        <% if (cart.getTotal() > 0 && ticket && ticket.getWalletBalance() > 0 && !hide_links.includes('wallet')) { %>
+        <hr/>
         <div class="row justify-content-md-end">
-            <% if (!hide_links.includes('promo')) { %>
-            <div class="col col-12 col-sm-6 use-promo-code-wrapper">
+            <div class="col col-12 use-wallet-wrapper">
+                <h4>
+                    <?= tkt_t('Vous disposez de') ?>
+                    <%= ticket.getFormattedWalletBalance() %>
+                    <?= tkt_t('sur votre porte-monnaie') ?>
+                </h4>
+                <span><?= tkt_t('Saisissez ci-dessous le montant que vous souhaitez utiliser') ?></span>
+                <div class="input-group mb-2">
+                    <input type="number" min="0" max="<%= Math.min(ticket.getWalletBalance(), cart.getTotal()) %>" class="wallet-input form-control" placeholder="15.50" value="<%= Math.min(ticket.getWalletBalance(), cart.getTotal()) %>"/>
+                    <div class="input-group-append">
+                        <a href="javascript:;" class="wallet-button button active">
+                            <?= tkt_t('Utiliser mon porte-monnaie') ?>
+                        </a>
+                    </div>
+                </div>
+                <div class="alert alert-danger wallet-error d-none"></div>
+                <div class="alert alert-success wallet-success d-none"></div>
+            </div>
+        </div>
+        <% } %>
+
+        <% if (!hide_links.includes('promo')) { %>
+        <hr/>
+        <div class="row justify-content-md-end">
+            <div class="col col-12 use-promo-code-wrapper">
+                <h4>
+                    <?= tkt_t('Vous disposez d\'un code promo ?') ?>
+                </h4>
+                <span><?= tkt_t('Saisissez ci-dessous votre code promo') ?></span>
                 <div class="input-group mb-2">
                     <input type="text" class="promo-code-input form-control" placeholder="<?= tkt_t('Utiliser un code promo') ?>" />
                     <div class="input-group-append">
@@ -80,8 +110,11 @@ use Ticketack\WP\TKTApp;
                 <div class="alert alert-danger promo-code-error d-none"></div>
                 <div class="alert alert-success promo-code-success d-none"></div>
             </div>
-            <% } %>
+        </div>
+        <% } %>
 
+        <hr/>
+        <div class="row justify-content-md-end">
             <% if (!hide_links.includes('finalize')) { %>
             <div class="col col-12 col-sm-6 finish-cart-wrapper">
                 <a href="<%= checkout_url %>" class="button active">

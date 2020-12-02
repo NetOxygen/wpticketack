@@ -42,6 +42,7 @@ var Ticketack = function(eshopUrl, apiKey, lang) {
     this.cartAddUrl            = this.eshopUrl + "screening/buy/";
     this.cartAddArticlesUrl    = this.eshopUrl + "articles/add_to_cart";
     this.cartUsePromoCodeUrl   = this.eshopUrl + "carts/use_promo_code";
+    this.cartUseWalletUrl      = this.eshopUrl + "carts/add_wallet_operation";
     this.cartSetPendingUrl     = this.eshopUrl + "carts/pending/id/";
     this.cartSetOpenUrl        = this.eshopUrl + "carts/open/id/";
     this.cartGetNewUrl         = this.eshopUrl + "carts/new/";
@@ -214,6 +215,19 @@ Ticketack.prototype.addArticlesToCart = function(articles, callback) {
 Ticketack.prototype.usePromoCode = function(code, callback) {
     var data = { "code":  code };
     return this.post_json(this.parametrize_url(this.cartUsePromoCodeUrl, {}), data, callback);
+};
+
+/**
+ * Use a ticket wallet
+ *
+ * @param {UUID} ticket_id: The ticket _id
+ * @param {Number} amount: The amount to use
+ * @param {Number} vat: The VAT to apply. Optional, default 0.
+ * @param {Function} callback: The callback function
+ */
+Ticketack.prototype.useWallet = function(ticket_id, amount, vat, callback) {
+    var data = { ticket_id, amount, vat };
+    return this.post_json(this.parametrize_url(this.cartUseWalletUrl, {}), data, callback);
 };
 
 /**
