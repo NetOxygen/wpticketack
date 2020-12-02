@@ -34,13 +34,25 @@ class FilterRowsShortcode extends TKTShortcode
         foreach ($atts as $att => $value) {
             if (strpos($att, 'row-') === 0) {
                 $key        = substr($att, 4);
-                $rows[$key] = [];
                 $values     = explode('|', $value);
 
                 if (empty($values)) {
                     continue;
                 }
 
+                if ($key === 'next-days') {
+                    $key     = 'date';
+                    $nb_days = (int)current($values);
+                    $values  = [];
+
+                    $now = new \Datetime();
+                    for ($i = 0; $i < $nb_days; $i++) {
+                        $values[] = sprintf('%s:%s', $now->format('Y-m-d'), tkt_date_to_min_s($now));
+                        $now->modify('+1 day');
+                    }
+                }
+
+                $rows[$key] = [];
                 foreach ($values as $v) {
                     $parts        = explode(':', $v);
                     $rows[$key][] = [
