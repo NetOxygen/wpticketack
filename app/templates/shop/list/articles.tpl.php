@@ -8,12 +8,18 @@ use Ticketack\WP\Templates\TKTTemplate;
  *
  * Input:
  * $data: {
- *   "articles": [ ... ],
- *   "hide_sorters": true|false,
- *   "sort": ""
+ *   "articles"             : [ ... ],
+ *   "hide_sorters"         : true|false,
+ *   "sort"                 : "",
+ *   "pagination"           : [
+ *      "show_pagination"   : bool,
+ *      "tkt_page"          : int,
+ *      "total_page"        : int
+ *   ]
  * }
  */
 ?>
+
 <div id="tkt-shop" class="tkt-wrapper">
     <?php if (empty($data->articles)) : ?>
         <h3 class="no-event-title"><?= tkt_t('Aucun article dans cette catégorie, revenez nous visiter prochainement.') ?></h3>
@@ -34,6 +40,11 @@ use Ticketack\WP\Templates\TKTTemplate;
             <?php endforeach; ?>
             </div>
         <?php endforeach; ?>
+        <?php if ($data->pagination->show) : ?>
+            <div class="tkt-articles-pagination-wrapper">
+                <?= TKTTEmplate::render('shop/pagination/pagination', $data) ?>
+            </div>
+        <?php endif; ?>
     <?php endif; ?>
 </div>
 
