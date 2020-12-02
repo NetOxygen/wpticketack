@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-19 22:58+0100\n"
+"POT-Creation-Date: 2020-12-02 23:39+0100\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Belkacem Alidra <belkacem.alidra@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -186,6 +186,24 @@ msgstr ""
 msgid "Total :"
 msgstr ""
 
+msgid "Vous disposez de"
+msgstr ""
+
+msgid "sur votre porte-monnaie"
+msgstr ""
+
+msgid "Saisissez ci-dessous le montant que vous souhaitez utiliser"
+msgstr ""
+
+msgid "Utiliser mon porte-monnaie"
+msgstr ""
+
+msgid "Vous disposez d'un code promo ?"
+msgstr ""
+
+msgid "Saisissez ci-dessous votre code promo"
+msgstr ""
+
 msgid "Utiliser un code promo"
 msgstr ""
 
@@ -309,6 +327,12 @@ msgstr ""
 msgid "Vous avez choisi :"
 msgstr ""
 
+msgid "Précédente"
+msgstr ""
+
+msgid "Suivante"
+msgstr ""
+
 msgid "Tout"
 msgstr ""
 
@@ -374,6 +398,12 @@ msgid "Impossible d'utiliser ce code promo"
 msgstr ""
 
 msgid "Le code promo a bien été pris en compte"
+msgstr ""
+
+msgid "sur votre porte monnaie électronique"
+msgstr ""
+
+msgid "Montant trop élevé"
 msgstr ""
 
 msgid "Pas de réponse"

@@ -21,7 +21,10 @@ class LocalesHelper
             'Votre panier a été mis à jour'                                                => tkt_t('Votre panier a été mis à jour'),
             'Code promo invalide'                                                          => tkt_t('Code promo invalide'),
             'Impossible d\'utiliser ce code promo'                                         => tkt_t('Impossible d\'utiliser ce code promo'),
-            'Le code promo a bien été pris en compte'                                      => tkt_t('Le code promo a bien été pris en compte')
+            'Le code promo a bien été pris en compte'                                      => tkt_t('Le code promo a bien été pris en compte'),
+            'Vous disposez de'                                                             => tkt_t('Vous disposez de'),
+            'sur votre porte monnaie électronique'                                         => tkt_t('sur votre porte monnaie électronique'),
+            'Montant trop élevé'                                                           => tkt_t('Montant trop élevé'),
         ];
     }
 }
