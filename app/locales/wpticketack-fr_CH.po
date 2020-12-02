@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-03 00:11+0100\n"
+"POT-Creation-Date: 2020-12-03 00:23+0100\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Belkacem Alidra <belkacem.alidra@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -418,6 +418,9 @@ msgstr "acteurs"
 msgid "camera"
 msgstr "caméra"
 
+msgid "cinematographer"
+msgstr "caméra"
+
 msgid "co-producer"
 msgstr "co-producteur"
 
@@ -445,6 +448,9 @@ msgstr "montage"
 msgid "music"
 msgstr "musique"
 
+msgid "printcontact"
+msgstr "contact copie"
+
 msgid "producer"
 msgstr "producteur"
 
@@ -455,6 +461,9 @@ msgid "photography"
 msgstr "photographie"
 
 msgid "screenplay"
+msgstr "scénario"
+
+msgid "screenwriter"
 msgstr "scénario"
 
 msgid "writer"
