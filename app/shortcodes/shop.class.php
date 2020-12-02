@@ -19,11 +19,12 @@ use Ticketack\Core\Base\TKTRequest;
  */
 class ShopShortcode extends TKTShortcode
 {
-    const LIST_TEMPLATE      = 'list';
-    const GRID_TEMPLATE      = 'grid';
-    const GALLERY_TEMPLATE   = 'gallery';
-    const SLIDER_TEMPLATE    = 'slider';
-    const DEFAULT_ITEM_WIDTH = 12;
+    const LIST_TEMPLATE                 = 'list';
+    const GRID_TEMPLATE                 = 'grid';
+    const GALLERY_TEMPLATE              = 'gallery';
+    const SLIDER_TEMPLATE               = 'slider';
+    const DEFAULT_ITEM_WIDTH            = 12;
+    const DEFAULT_NB_ARTICLES_BY_PAGE    = 9;
 
     /**
      * Get this Shortcode tag
@@ -51,6 +52,9 @@ class ShopShortcode extends TKTShortcode
         $nb            = isset($atts['nb']) ? $atts['nb'] : -1;
         $exclude       = isset($atts['exclude']) ? $atts['exclude'] : null;
         $sort          = isset($atts['sort']) ? $atts['sort'] : tkt_get_url_param('sort');
+        $show          = isset($atts['show_pagination']) ? $atts['show_pagination'] : true;
+        $tkt_page      = isset($atts['tkt_page']) ? $atts['tkt_page'] : tkt_get_url_param('tkt_page', 1);
+        $nb_by_page    = isset($atts['nb_by_page']) ? intval($atts['nb_by_page']) : static::DEFAULT_NB_ARTICLES_BY_PAGE;
 
         // if sort is defined in the shortcode,
         // never show the sorters
@@ -91,6 +95,12 @@ class ShopShortcode extends TKTShortcode
                 $articles = array_slice($articles, 0, $nb);
             }
 
+            if ($nb_by_page > 0 && ($nb_by_page < $nb || $nb < 0)) {
+                $total_page = ceil(count($articles) / $nb_by_page);
+                $articles   = array_slice($articles, ($nb_by_page * ($tkt_page - 1)), $nb_by_page);
+            } else {
+                $show = false;
+            }
 
             return TKTTemplate::render(
                 'shop/'.$template.'/articles',
@@ -99,8 +109,13 @@ class ShopShortcode extends TKTShortcode
                         $articles,
                         (int)(12 / $item_width)
                     ),
-                    'sort'         => $sort,
-                    'hide_sorters' => $hide_sorters
+                    'sort'              => $sort,
+                    'hide_sorters'      => $hide_sorters,
+                    'pagination'        => (object)[
+                        'show'          => $show,
+                        'tkt_page'      => $tkt_page,
+                        'total_page'    => $total_page,
+                    ]
                 ]
             );
         } catch (TKTApiException $e) {
