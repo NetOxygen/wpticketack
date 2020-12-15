@@ -1,6 +1,8 @@
 <?php
 namespace Ticketack\WP\Actions;
 
+use Ticketack\WP\TKTApp;
+
 /**
  * Assets action
  */
@@ -27,5 +29,15 @@ class AssetsAction extends TKTAction
             wp_enqueue_style('tkt-override-css', get_template_directory_uri().'/tkt_override.css?t='.time());
         }
         wp_enqueue_script('jquery');
+        $load_underscore_at_the_end = (bool)TKTApp::get_instance()->get_config('advanced.load_underscore_at_the_end', false);
+        if ($load_underscore_at_the_end) {
+            wp_enqueue_script(
+                'underscore',
+                /*src*/'',
+                /*deps*/[],
+                /*ver*/false,
+                /*in_footer*/true
+            );
+        }
     }
 }

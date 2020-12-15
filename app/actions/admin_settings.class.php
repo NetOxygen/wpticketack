@@ -279,8 +279,23 @@ class AdminSettingsAction extends TKTAction
 
         add_settings_section(
             'ticketack_advanced', // ID
-            tkt_t('Customisation css'), // Title
+            tkt_t('Librairies JS'), // Title
             array( $this, 'advanced_section_info' ), // Callback
+            'ticketack-advanced' // Page
+        );
+
+        add_settings_field(
+            'load_underscore_at_the_end', // ID
+            tkt_t('Charger underscore.js après le module'), // Title
+            array( $this, 'load_underscore_at_the_end_callback' ), // Callback
+            'ticketack-advanced', // Page
+            'ticketack_advanced' // Section
+        );
+
+        add_settings_section(
+            'ticketack_advanced_css', // ID
+            tkt_t('Customisation CSS'), // Title
+            array( $this, 'advanced_css_section_info' ), // Callback
             'ticketack-advanced' // Page
         );
 
@@ -294,7 +309,7 @@ class AdminSettingsAction extends TKTAction
                 tkt_t(str_replace('_', ' ', ucfirst(strtolower($key)))), // Title
                 [$this, 'color_callback'], // Callback
                 'ticketack-advanced', // Page
-                'ticketack_advanced', // Section
+                'ticketack_advanced_css', // Section
                 [
                     'name'        => $key,
                     'group'       => 'tkt_advanced',
@@ -309,7 +324,7 @@ class AdminSettingsAction extends TKTAction
             tkt_t('Sections padding'), // Title
             array( $this, 'section_padding_callback' ), // Callback
             'ticketack-advanced', // Page
-            'ticketack_advanced' // Section
+            'ticketack_advanced_css' // Section
         );
 
         add_settings_field(
@@ -317,7 +332,7 @@ class AdminSettingsAction extends TKTAction
             tkt_t('Border radius'), // Title
             array( $this, 'border_radius_callback' ), // Callback
             'ticketack-advanced', // Page
-            'ticketack_advanced' // Section
+            'ticketack_advanced_css' // Section
         );
     }
 
@@ -447,12 +462,17 @@ class AdminSettingsAction extends TKTAction
         print tkt_t("Configuration de l'import");
     }
     public function tags_filter_callback() { return $this->input('tags_filter', 'tkt_import', ''); }
-    public function save_attachments_callback() { return $this->boolean('save_attachments', 'tkt_import', false); }
+    public function save_attachments_callback() { return $this->boolean('save_attachments', 'tkt_import', false, /*inversed*/true); }
 
     /** 
      * Print the Section text
      */
     public function advanced_section_info()
+    {
+        print tkt_t("Ne modifiez les valeurs ci-dessous que si vous avez des conflits javascript avec d'autres plugins.");
+    }
+    public function load_underscore_at_the_end_callback() { return $this->boolean('load_underscore_at_the_end', 'tkt_advanced', '0', /*inversed*/true); }
+    public function advanced_css_section_info()
     {
         print tkt_t("Ne modifiez les valeurs ci-dessous que si vous savez ce que vous faites.");
     }
@@ -517,19 +537,31 @@ class AdminSettingsAction extends TKTAction
      * @param string $group: The option group
      * @param string $default: The option default value
      */
-    public function boolean($name, $group, $default = null)
+    public function boolean($name, $group, $default = null, $inversed = false)
     {
         $this->options = get_option($group);
         $value = isset($this->options[$name]) ? intval(esc_attr($this->options[$name])) : $default;
-        printf(
-            '<select id="%s" name="%s[%s]">
-                <option value="1" '.($value === 1 ? "selected" : "").'>Oui</option>
-                <option value="0" '.($value === 0 ? "selected" : "").'>Non</option>
-             </select>',
-            $name,
-            $group,
-            $name
-        );
+        if ($inversed) {
+            printf(
+                '<select id="%s" name="%s[%s]">
+                    <option value="0" '.($value === 0 ? "selected" : "").'>Non</option>
+                    <option value="1" '.($value === 1 ? "selected" : "").'>Oui</option>
+                 </select>',
+                $name,
+                $group,
+                $name
+            );
+        } else {
+            printf(
+                '<select id="%s" name="%s[%s]">
+                    <option value="1" '.($value === 1 ? "selected" : "").'>Oui</option>
+                    <option value="0" '.($value === 0 ? "selected" : "").'>Non</option>
+                 </select>',
+                $name,
+                $group,
+                $name
+            );
+        }
     }
 
     /**

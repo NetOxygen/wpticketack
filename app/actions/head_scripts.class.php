@@ -27,7 +27,8 @@ class HeadScriptsAction extends TKTAction
      */
     public function get_priority()
     {
-        return 1000000;
+        $load_underscore_at_the_end = (bool)TKTApp::get_instance()->get_config('advanced.load_underscore_at_the_end', false);
+        return $load_underscore_at_the_end ? -100000 : 100000;
     }
 
     /**
