@@ -46,6 +46,7 @@ class ShopShortcode extends TKTShortcode
     {
         $template      = isset($atts['template']) ? $atts['template'] : static::LIST_TEMPLATE;
         $category_ids  = isset($atts['category_ids']) ? explode(',', $atts['category_ids']) : null;
+        $tags          = isset($atts['tags']) ? explode(',', $atts['tags']) : null;
         $item_width    = isset($atts['item_width']) ? $atts['item_width'] : static::DEFAULT_ITEM_WIDTH;
         $hide_sorters  = isset($atts['hide_sorters']) ? !!$atts['hide_sorters'] : false;
         $only_in_stock = isset($atts['only_in_stock']) ? $atts['only_in_stock'] : false;
@@ -70,6 +71,10 @@ class ShopShortcode extends TKTShortcode
 
             if (!empty($category_ids)) {
                 $query = $query->in_category($category_ids);
+            }
+
+            if (!empty($tags)) {
+                $query = $query->with_tags($tags);
             }
 
             $articles = $query->get('_id,name,short_description,description,category,stock_type,stocks,variants,posters');

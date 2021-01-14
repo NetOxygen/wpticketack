@@ -33,6 +33,7 @@ class Article extends TKTModel implements \JsonSerializable
     protected $name              = null;
     protected $short_description = null;
     protected $category          = null;
+    protected $tags              = [];
     protected $sort_weight       = 0;
     protected $description       = null;
     protected $pos               = null;
@@ -88,6 +89,18 @@ class Article extends TKTModel implements \JsonSerializable
         }
 
         return $req->query('category_ids', implode(',', $category_ids));
+    }
+
+    /**
+     * scope to filter by tags
+     */
+    public static function scope_with_tags($req, $tags)
+    {
+        if (!is_array($tags)) {
+            $tags = [$tags];
+        }
+
+        return $req->query('tags', implode(',', $tags));
     }
 
     /**
@@ -197,6 +210,11 @@ class Article extends TKTModel implements \JsonSerializable
         }
 
         return null;
+    }
+
+    public function tags()
+    {
+        return $this->tags;
     }
 
     public function description($lang = null)
@@ -352,6 +370,11 @@ class Article extends TKTModel implements \JsonSerializable
         return is_array($this->description);
     }
 
+    public function has_tags()
+    {
+        return is_array($this->tags) && !empty($this->tags);
+    }
+
     public static function sort($articles, $sort_type)
     {
         if ($sort_type === static::SORT_TYPE_RANDOM) {
@@ -421,6 +444,10 @@ class Article extends TKTModel implements \JsonSerializable
 
         if ($this->has_id()) {
             $ret['_id'] = $this->_id();
+        }
+
+        if ($this->has_tags()) {
+            $ret['tags'] = $this->tags();
         }
 
         if ($this->has_description()) {
