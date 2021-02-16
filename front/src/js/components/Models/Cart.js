@@ -1,5 +1,6 @@
 import BaseModel from './Base';
 import CartItem from './CartItem';
+import Article from './Article';
 import Screening from './Screening';
 import { Api as TKTApi } from '../Ticketack';
 
@@ -41,25 +42,64 @@ export default class Cart extends BaseModel {
         if (!this.items || this.items.length === 0)
             return callback(/*err*/null);
 
-        let screening_ids = _.map(
+        let screeningIds = _.map(
             _.filter(this.items, (i) => i.type === CartItem.SCREENING_TYPE),
             (i) => i.item_id
         );
 
-        Screening.getInfos(screening_ids, (err, screenings) => {
-            if (err)
-                return callback(err);
+        if (screeningIds.length > 0) {
+            Screening.getInfos(screeningIds, (err, screenings) => {
+                if (err)
+                    return callback(err);
 
-            this.items = _.map(this.items, (i) => {
-                if (i.type === CartItem.SCREENING_TYPE)
-                    i.screening = _.find(screenings, (s) => s._id === i.item_id);
+                this.items = _.map(this.items, (i) => {
+                    if (i.type === CartItem.SCREENING_TYPE)
+                        i.screening = _.find(screenings, (s) => s._id === i.item_id);
 
-                return i;
+                    return i;
+                });
+
+                return callback(/*err*/null);
             });
+        }
 
-            return callback(/*err*/null);
-        });
+        let articleIds = _.map(
+            _.filter(this.items, (i) => i.type === CartItem.ARTICLE_TYPE),
+            (i) => i.item_id
+        );
+
+        if (articleIds.length > 0) {
+            Article.getInfos(articleIds, /*force_reload*/false, (err, articles) => {
+                if (err)
+                    return callback(err);
+
+                this.items = _.map(this.items, (i) => {
+                    if (i.type === CartItem.ARTICLE_TYPE)
+                        i.article = _.find(articles, (a) => a.getVariant(i.item_id));
+
+                    return i;
+                });
+
+                return callback(/*err*/null);
+            });
+        }
     };
+
+    /**
+     * Get this items quantity
+     * @return {Number}
+     */
+    mergeItems() {
+        this.mergedItems = {};
+        this.items.forEach((item) => {
+            if (!(item.item_id in this.mergedItems))
+                this.mergedItems[item.item_id] = item;
+            else
+                this.mergedItems[item.item_id].quantity += 1;
+        })
+
+        this.mergedItems = _.values(this.mergedItems);
+    }
 
     /**
      * Get this cart total
@@ -75,7 +115,7 @@ export default class Cart extends BaseModel {
      */
     getFormattedTotal() {
         const total = this.getTotal().toFixed(2);
-        return `${total} CHF`;
+        return `CHF ${total}`;
     };
 
     /**

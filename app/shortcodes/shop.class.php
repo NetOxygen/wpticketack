@@ -24,7 +24,9 @@ class ShopShortcode extends TKTShortcode
     const GALLERY_TEMPLATE              = 'gallery';
     const SLIDER_TEMPLATE               = 'slider';
     const DEFAULT_ITEM_WIDTH            = 12;
-    const DEFAULT_NB_ARTICLES_BY_PAGE    = 9;
+    const DEFAULT_NB_ARTICLES_BY_PAGE   = 9;
+    const ADD_TO_CART_MODE_POPUP        = 'popup';
+    const ADD_TO_CART_MODE_DIRECT       = 'direct';
 
     /**
      * Get this Shortcode tag
@@ -44,18 +46,19 @@ class ShopShortcode extends TKTShortcode
      */
     public function run($atts, $content)
     {
-        $template      = isset($atts['template']) ? $atts['template'] : static::LIST_TEMPLATE;
-        $category_ids  = isset($atts['category_ids']) ? explode(',', $atts['category_ids']) : null;
-        $tags          = isset($atts['tags']) ? explode(',', $atts['tags']) : null;
-        $item_width    = isset($atts['item_width']) ? $atts['item_width'] : static::DEFAULT_ITEM_WIDTH;
-        $hide_sorters  = isset($atts['hide_sorters']) ? !!$atts['hide_sorters'] : false;
-        $only_in_stock = isset($atts['only_in_stock']) ? $atts['only_in_stock'] : false;
-        $nb            = isset($atts['nb']) ? $atts['nb'] : -1;
-        $exclude       = isset($atts['exclude']) ? $atts['exclude'] : null;
-        $sort          = isset($atts['sort']) ? $atts['sort'] : tkt_get_url_param('sort');
-        $show          = isset($atts['show_pagination']) ? $atts['show_pagination'] : true;
-        $tkt_page      = isset($atts['tkt_page']) ? $atts['tkt_page'] : tkt_get_url_param('tkt_page', 1);
-        $nb_by_page    = isset($atts['nb_by_page']) ? intval($atts['nb_by_page']) : static::DEFAULT_NB_ARTICLES_BY_PAGE;
+        $template         = isset($atts['template']) ? $atts['template'] : static::LIST_TEMPLATE;
+        $category_ids     = isset($atts['category_ids']) ? explode(',', $atts['category_ids']) : null;
+        $tags             = isset($atts['tags']) ? explode(',', $atts['tags']) : null;
+        $item_width       = isset($atts['item_width']) ? $atts['item_width'] : static::DEFAULT_ITEM_WIDTH;
+        $hide_sorters     = isset($atts['hide_sorters']) ? !!$atts['hide_sorters'] : false;
+        $only_in_stock    = isset($atts['only_in_stock']) ? $atts['only_in_stock'] : false;
+        $nb               = isset($atts['nb']) ? $atts['nb'] : -1;
+        $exclude          = isset($atts['exclude']) ? $atts['exclude'] : null;
+        $sort             = isset($atts['sort']) ? $atts['sort'] : tkt_get_url_param('sort');
+        $show             = isset($atts['show_pagination']) ? $atts['show_pagination'] : true;
+        $tkt_page         = isset($atts['tkt_page']) ? $atts['tkt_page'] : tkt_get_url_param('tkt_page', 1);
+        $nb_by_page       = isset($atts['nb_by_page']) ? intval($atts['nb_by_page']) : static::DEFAULT_NB_ARTICLES_BY_PAGE;
+        $add_to_cart_mode = isset($atts['add_to_cart_mode']) ? $atts['add_to_cart_mode'] : static::ADD_TO_CART_MODE_POPUP;
 
         // if sort is defined in the shortcode,
         // never show the sorters
@@ -117,6 +120,7 @@ class ShopShortcode extends TKTShortcode
                     ),
                     'sort'              => $sort,
                     'hide_sorters'      => $hide_sorters,
+                    'add_to_cart_mode'  => $add_to_cart_mode,
                     'pagination'        => (object)[
                         'show'          => $show,
                         'tkt_page'      => $tkt_page,

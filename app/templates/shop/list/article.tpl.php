@@ -5,6 +5,7 @@ use Ticketack\Core\Models\User;
 use Ticketack\Core\Models\Article;
 use Ticketack\Core\Base\TKTApiException;
 use Ticketack\WP\Templates\TKTTemplate;
+use Ticketack\WP\Shortcodes\ShopShortcode;
 
 /**
  * Article template
@@ -12,6 +13,7 @@ use Ticketack\WP\Templates\TKTTemplate;
  * Input:
  * $data: {
  *   "article": { ... }
+ *   "add_to_cart_mode" : popup|direct,
  * }
  */
 
@@ -54,11 +56,13 @@ $salepoint  = current($salepoints);
                 <?= tkt_t('Plus d\'informations'); ?>
             </a>
         </div>
+        <div class="col-sm-12 text-center mt-3 mb-3">
         <?php if (!$article->has_stock_for_salepoint($salepoint)) : ?>
             <span class="article-out-of-stock"><?= tkt_t("Épuisé") ?></span>
             </br>
         <?php else : ?>
             </br>
+            <?php if ($data->add_to_cart_mode === ShopShortcode::ADD_TO_CART_MODE_POPUP || count($article->variants()) > 1) : ?>
             <div class="add-to-cart" data-component="Shop/Shop">
                 <button class="button add-to-cart-from-shop">
                     <?= tkt_t("Acheter") ?>
@@ -78,6 +82,21 @@ $salepoint  = current($salepoints);
                     </section>
                 </div>
             </div>
+            <?php else : ?>
+                <button
+                    class="button direct-add-to-cart-from-shop"
+                    data-component="BuyArticle/AddToCartButton"
+                    data-redirect="<?= TKTApp::get_instance()->get_config('cart.cart_redirect', 'none')      ?>"
+                    data-cart-url="<?= tkt_cart_url() ?>"
+                    data-checkout-url="<?= tkt_checkout_url() ?>"
+                    data-article-id="<?= $article->_id() ?>"
+                    data-salepoint-id="<?= $salepoint ?>"
+                >
+                    <i class="glyphicon glyphicon-plus add-to-cart-indicator"></i>&nbsp;
+                    <?= tkt_t("AJouter au panier") ?>
+                </button>
+            <?php endif; ?>
         <?php endif; ?>
+        </div>
     </div>
 </div>

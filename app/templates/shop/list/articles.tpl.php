@@ -10,6 +10,7 @@ use Ticketack\WP\Templates\TKTTemplate;
  * $data: {
  *   "articles"             : [ ... ],
  *   "hide_sorters"         : true|false,
+ *   "add_to_cart_mode"     : popup|direct,
  *   "sort"                 : "",
  *   "pagination"           : [
  *      "show_pagination"   : bool,
@@ -35,7 +36,7 @@ use Ticketack\WP\Templates\TKTTemplate;
             <div class="row mb-4">
             <?php foreach ($chunk as $article) : ?>
                 <div class="col tkt-article">
-                    <?= TKTTemplate::render('shop/list/article', (object)[ 'article' => $article ]) ?>
+                    <?= TKTTemplate::render('shop/list/article', (object)[ 'article' => $article, 'add_to_cart_mode' => $data->add_to_cart_mode ]) ?>
                 </div>
             <?php endforeach; ?>
             </div>

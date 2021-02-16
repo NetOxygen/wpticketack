@@ -9,6 +9,9 @@ export default class CartItem extends BaseModel {
     static type = 'cart_item';
 
     static SCREENING_TYPE = 'screening';
+    static ARTICLE_TYPE   = 'article';
+    static WALLET_TYPE    = 'wallet';
+    static SHIPPING_TYPE  = 'shipping';
 
     /**
      * @constructor
@@ -16,7 +19,9 @@ export default class CartItem extends BaseModel {
      */
     constructor(cartItem) {
         super(cartItem);
-        this.expire = moment(this.expire);
+
+        this.expire   = moment(this.expire);
+        this.quantity = this.quantity || 1;
     }
 
     /**
@@ -40,6 +45,16 @@ export default class CartItem extends BaseModel {
      * @return {String}
      */
     getFormattedPrice() {
-        return `${this.amount} CHF`;
+        return `CHF ${this.amount}`;
     };
+
+    /**
+     * Get this cart item url poster
+     * @return {String}
+     */
+    getFormattedPoster() {
+        if (this.article.posters[0]) {
+            return this.article.posters[0]["url"];
+        }
+    }
 }

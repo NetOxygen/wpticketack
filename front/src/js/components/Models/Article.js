@@ -37,6 +37,16 @@ export default class Article extends BaseModel {
     }
 
     /**
+     * Get a variant by its id
+     *
+     * @param {UUID} variant id
+     * @return {ArticleVariant} if found, undefined otherwise
+     */
+    getVariant(_id) {
+        return _.find(this.variants, ['_id', _id]);
+    }
+
+    /**
      * Load some articles infos
      * @param {Array} ids - The ids to get infos for
      * @param {Function} callback - Callback function
