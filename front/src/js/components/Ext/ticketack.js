@@ -553,6 +553,9 @@ Ticketack.prototype.request = function(method, url, data, headers, callback) {
         crossDomain: true,
         xhrFields: { withCredentials: true }
     }).done((data, textStatus, jqXHR) => {
+        if (!('responseJSON' in jqXHR))
+            jqXHR.responseJSON = jqXHR.responseText ? JSON.parse(jqXHR.responseText) : {};
+
         const rsp = jqXHR.responseJSON;
         if (rsp && 'session_id' in rsp) {
             this.set_session_id(rsp.session_id);

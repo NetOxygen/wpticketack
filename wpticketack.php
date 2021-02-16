@@ -66,6 +66,8 @@ $app->register_shortcode('Ticketack\WP\Shortcodes\ArticleShortcode', 'article.cl
 $app->register_shortcode('Ticketack\WP\Shortcodes\ShopShortcode', 'shop.class.php');
 $app->register_shortcode('Ticketack\WP\Shortcodes\CartShortcode', 'cart.class.php');
 $app->register_shortcode('Ticketack\WP\Shortcodes\CartIconShortcode', 'cart_icon.class.php');
+$app->register_shortcode('Ticketack\WP\Shortcodes\CartItemsShortcode', 'cart_items.class.php');
+$app->register_shortcode('Ticketack\WP\Shortcodes\CartSummaryShortcode', 'cart_summary.class.php');
 $app->register_shortcode('Ticketack\WP\Shortcodes\CheckoutShortcode', 'checkout.class.php');
 $app->register_shortcode('Ticketack\WP\Shortcodes\FilterShortcode', 'filter.class.php');
 $app->register_shortcode('Ticketack\WP\Shortcodes\FilterRowsShortcode', 'filter_rows.class.php');

@@ -1,7 +1,7 @@
 import { ComponentsLoader } from './components/Core';
 import { BookingForm, ScreeningsList } from './components/Booking';
 import { ArticleForm, AddArticleToCartButton } from './components/BuyArticle';
-import { Cart, CartIcon } from './components/Cart';
+import { Cart, CartIcon, CartItems, CartSummary } from './components/Cart';
 import { Checkout } from './components/Checkout';
 import { Carousel, Loading, YoutubeVideo } from './components/Media';
 import { BuyForm } from './components/Pass';
@@ -25,6 +25,8 @@ loader.registerComponent('BuyArticle/Form', ArticleForm);
 loader.registerComponent('BuyArticle/AddToCartButton', AddArticleToCartButton);
 loader.registerComponent('Cart/Cart', Cart);
 loader.registerComponent('Cart/CartIcon', CartIcon);
+loader.registerComponent('Cart/CartItems', CartItems);
+loader.registerComponent('Cart/CartSummary', CartSummary);
 loader.registerComponent('Form/Calendar', Calendar);
 loader.registerComponent('Form/ImageDataUrl', ImageDataUrl);
 loader.registerComponent('Checkout/Checkout', Checkout);
