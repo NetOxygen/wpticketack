@@ -73,6 +73,7 @@ class TKTApp
             'pages'             => (array)get_option('tkt_pages'),
             'cart'              => (array)get_option('tkt_cart'),
             'checkout'          => (array)get_option('tkt_checkout'),
+            'registration'      => (array)get_option('tkt_registration'),
             'ticketack'         => (array)get_option('tkt_api'),
             'images_dimensions' => (array)get_option('tkt_images_dimensions'),
             'images_proxy'      => (array)get_option('tkt_images_proxy'),

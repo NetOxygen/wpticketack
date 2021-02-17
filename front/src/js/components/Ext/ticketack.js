@@ -54,6 +54,7 @@ var Ticketack = function(eshopUrl, apiKey, lang) {
     this.bookUrl               = this.eshopUrl + "screening/book_on_ticket/";
     this.unbookUrl             = this.eshopUrl + "ticket/cancel_booking_json/";
     this.checkUrl              = this.eshopUrl + "screening/bookability/";
+    this.registrationUrl       = this.eshopUrl + "users/register/";
     this.loginUrl              = this.eshopUrl + "ticket/view_json/";
     this.logoutUrl             = this.eshopUrl + "ticket/disable_book_mode_json/";
     this.updateTicketEmailUrl  = this.eshopUrl + "tickets/contact_email/";
@@ -340,6 +341,19 @@ Ticketack.prototype.resetCart = function(callback) {
 Ticketack.prototype.checkBookability = function(screening_ref, callback) {
     var url = this.parametrize_url(this.checkUrl + screening_ref, {}, true);
     return this.get(url, {}, callback);
+};
+
+/**
+ * User registration
+ *
+ * Registers a user
+ *
+ * @param user_data: The user data
+ * @param callback
+ */
+Ticketack.prototype.register = function(user_data, callback) {
+    var data = ('user' in user_data) ? user_data : { 'user': user_data };
+    return this.post_json(this.registrationUrl, data, callback);
 };
 
 /**

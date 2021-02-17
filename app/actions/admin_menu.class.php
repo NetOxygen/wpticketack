@@ -42,7 +42,7 @@ class AdminMenuAction extends TKTAction
     public function create_admin_page()
     {
         $sections = [
-            'tkt_pages', 'tkt_cart', 'tkt_checkout', 'tkt_api', 'tkt_images_dimensions',
+            'tkt_pages', 'tkt_cart', 'tkt_checkout', 'tkt_registration', 'tkt_api', 'tkt_images_dimensions',
             'tkt_images_proxy', 'tkt_pass', 'tkt_advanced', 'tkt_i18n', 'tkt_import'
         ];
         foreach ($sections as $section) {
@@ -61,16 +61,17 @@ class AdminMenuAction extends TKTAction
 
         $active_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'api';
         $tabs = [
-            'api'      => tkt_t('API'),
-            'pages'    => tkt_t('Pages'),
-            'cart'     => tkt_t('Panier'),
-            'checkout' => tkt_t('Checkout'),
-            'images'   => tkt_t('Images'),
-            'pass'     => tkt_t('Abonnements'),
-            'i18n'     => tkt_t('Langues'),
-            'import'   => tkt_t('Import'),
-            'advanced' => tkt_t('Paramètres avancés'),
-            'doc'      => tkt_t('Documentation')
+            'api'          => tkt_t('API'),
+            'pages'        => tkt_t('Pages'),
+            'cart'         => tkt_t('Panier'),
+            'checkout'     => tkt_t('Checkout'),
+            'registration' => tkt_t('Registration'),
+            'images'       => tkt_t('Images'),
+            'pass'         => tkt_t('Abonnements'),
+            'i18n'         => tkt_t('Langues'),
+            'import'       => tkt_t('Import'),
+            'advanced'     => tkt_t('Paramètres avancés'),
+            'doc'          => tkt_t('Documentation')
         ];
 ?>
         <div class="wrap">

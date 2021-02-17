@@ -4,6 +4,7 @@ import Component from './Component';
 import ComponentsLoader from './ComponentsLoader';
 import Csrf from './Csrf';
 import i18n from './i18n';
+import Invalid from './Invalid';
 import Logger from './Logger';
 import State from './State';
 import Template from './Template';
@@ -15,6 +16,7 @@ export {
     ComponentsLoader,
     Csrf,
     i18n,
+    Invalid,
     Logger,
     State,
     Template,

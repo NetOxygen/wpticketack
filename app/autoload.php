@@ -4,7 +4,6 @@ require_once(TKT_APP.'/app.class.php');
 require_once(TKT_ACTIONS.'/action.class.php');
 require_once(TKT_FILTERS.'/filter.class.php');
 require_once(TKT_SHORTCODES.'/shortcode.class.php');
-require_once(TKT_SHORTCODES.'/program.class.php');
 require_once(TKT_TEMPLATES.'/template.class.php');
 require_once(TKT_HELPERS.'/sync_helper.class.php');
 require_once(TKT_HELPERS.'/sync_articles_helper.class.php');

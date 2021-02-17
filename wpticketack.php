@@ -72,6 +72,7 @@ $app->register_shortcode('Ticketack\WP\Shortcodes\CheckoutShortcode', 'checkout.
 $app->register_shortcode('Ticketack\WP\Shortcodes\FilterShortcode', 'filter.class.php');
 $app->register_shortcode('Ticketack\WP\Shortcodes\FilterRowsShortcode', 'filter_rows.class.php');
 $app->register_shortcode('Ticketack\WP\Shortcodes\DaysFilterShortcode', 'days_filter.class.php');
+$app->register_shortcode('Ticketack\WP\Shortcodes\UserRegisterShortcode', 'user_register.class.php');
 $app->register_shortcode('Ticketack\WP\Shortcodes\UserConnectShortcode', 'user_connect.class.php');
 $app->register_shortcode('Ticketack\WP\Shortcodes\BuyPassShortcode', 'buy_pass.class.php');
 $app->register_shortcode('Ticketack\WP\Shortcodes\PeopleShortcode', 'people.class.php');

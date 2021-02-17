@@ -28,8 +28,10 @@ $terms_link = sprintf(
     $privacy_url
 );
 
-function r($required_fields, $field) {
-    return in_array($field, $required_fields) ? 'required' : '';
+if (!function_exists('r')) {
+    function r($required_fields, $field) {
+        return in_array($field, $required_fields) ? 'required' : '';
+    }
 }
 ?>
 

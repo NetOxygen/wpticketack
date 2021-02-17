@@ -93,6 +93,14 @@ class AdminSettingsAction extends TKTAction
         );
 
         add_settings_field(
+            'registration', // ID
+            tkt_t('Registration'), // Title
+            array( $this, 'registration_callback' ), // Callback
+            'ticketack-pages', // Page
+            'ticketack_pages' // Section
+        );
+
+        add_settings_field(
             'thank_you', // ID
             tkt_t('Remerciements'), // Title
             array( $this, 'thank_you_callback' ), // Callback
@@ -168,6 +176,37 @@ class AdminSettingsAction extends TKTAction
             array( $this, 'allow_postfinance_callback' ), // Callback
             'ticketack-checkout', // Page
             'ticketack_checkout' // Section
+        );
+
+        add_settings_section(
+            'ticketack_registration', // ID
+            tkt_t('Registration'), // Title
+            array( $this, 'registration_section_info' ), // Callback
+            'ticketack-registration' // Page
+        );
+
+        add_settings_field(
+            'allow_registration', // ID
+            tkt_t('Autoriser l\'enregistrement des utilisateurs'), // Title
+            array( $this, 'allow_registration_callback' ), // Callback
+            'ticketack-registration', // Page
+            'ticketack_registration' // Section
+        );
+
+        add_settings_field(
+            'requested_fields', // ID
+            tkt_t('Informations optionnelles à saisir'), // Title
+            array( $this, 'registration_requested_fields_callback' ), // Callback
+            'ticketack-registration', // Page
+            'ticketack_registration' // Section
+        );
+
+        add_settings_field(
+            'required_fields', // ID
+            tkt_t('Informations obligatoires à saisir'), // Title
+            array( $this, 'registration_required_fields_callback' ), // Callback
+            'ticketack-registration', // Page
+            'ticketack_registration' // Section
         );
 
         add_settings_section(
@@ -364,6 +403,7 @@ class AdminSettingsAction extends TKTAction
     public function shop_callback() { return $this->page_choice('shop', 'tkt_pages', 'shop'); }
     public function cart_callback() { return $this->page_choice('cart', 'tkt_pages', 'cart'); }
     public function checkout_callback() { return $this->page_choice('checkout', 'tkt_pages', 'checkout'); }
+    public function registration_callback() { return $this->page_choice('registration', 'tkt_pages', 'registration'); }
     public function thank_you_callback() { return $this->page_choice('thank_you', 'tkt_pages', 'thank_you'); }
 
     /** 
@@ -394,6 +434,17 @@ class AdminSettingsAction extends TKTAction
     public function required_fields_callback() { return $this->input('required_fields', 'tkt_checkout', 'email', 'email'); }
     public function allow_later_callback() { return $this->boolean('allow_later', 'tkt_checkout', '1'); }
     public function allow_postfinance_callback() { return $this->boolean('allow_postfinance', 'tkt_checkout', '1'); }
+
+    /** 
+     * Print the Section text
+     */
+    public function registration_section_info()
+    {
+        print tkt_t("Configuration de l'enregistrement des utilisateurs");
+    }
+    public function registration_requested_fields_callback() { return $this->input('requested_fields', 'tkt_registration', 'firstname,lastname,email,address,zip,city,phone,cellphone', 'firstname,lastname,email,address,zip,city,phone,cellphone'); }
+    public function registration_required_fields_callback() { return $this->input('required_fields', 'tkt_registration', 'firstname,lastname,email', 'firstname,lastname,email'); }
+    public function allow_registration_callback() { return $this->boolean('allow_registration', 'tkt_registration', '1'); }
 
 
     /** 
