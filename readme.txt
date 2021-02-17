@@ -2,7 +2,7 @@
 Tags: ticketack
 Requires at least: 4.6
 Tested up to: 5.6
-Stable tag: 2.16.0
+Stable tag: 2.17.0
 Requires PHP: 5.6
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -34,6 +34,13 @@ This section describes how to install the plugin and get it working.
 == Screenshots ==
 
 == Changelog ==
+
+= 2.17.0 =
+
+* feat: Add add_to_cart_mode attribute on shop shortcode
+* feat: Add tkt_cart_items and tkt_cart_summary shortcodes
+* feat: Add tkt_user_register shortcode
+* i18n: Add translations
 
 = 2.16.0 =
 
