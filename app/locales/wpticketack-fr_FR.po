@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-15 13:29+0100\n"
+"POT-Creation-Date: 2021-02-17 18:31+0100\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Belkacem Alidra <belkacem.alidra@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -222,6 +222,28 @@ msgstr ""
 msgid "mes réservations"
 msgstr ""
 
+msgid "Résumé du panier"
+msgstr ""
+
+msgid "Panier"
+msgstr ""
+
+#, fuzzy
+msgid "produit(s)"
+msgstr "producteurs"
+
+msgid "Livraison"
+msgstr ""
+
+msgid "Total TTC"
+msgstr ""
+
+msgid "Code promo"
+msgstr ""
+
+msgid "OK"
+msgstr ""
+
 msgid ""
 "Aucun événement programmé actuellement, revenez nous visiter prochainement."
 msgstr ""
@@ -246,6 +268,45 @@ msgid "Il ne reste que quelques places !"
 msgstr ""
 
 msgid "Complet !"
+msgstr ""
+
+msgid "Saisissez vos informations personnelles"
+msgstr ""
+
+msgid "Société"
+msgstr ""
+
+msgid "Votre société"
+msgstr ""
+
+msgid "Adresse e-mail"
+msgstr ""
+
+msgid "Votre adresse e-mail"
+msgstr ""
+
+msgid "Confirmation de votre adresse e-mail"
+msgstr ""
+
+msgid "Saisissez une deuxième fois votre adresse"
+msgstr ""
+
+msgid "Votre numéro de téléphone"
+msgstr ""
+
+msgid "Mot de passe"
+msgstr ""
+
+msgid "Choisissez un mot de passe"
+msgstr ""
+
+msgid "Confirmation de votre mot de passe"
+msgstr ""
+
+msgid "Saisissez une deuxième fois votre mot de passe"
+msgstr ""
+
+msgid "Créer mon compte"
 msgstr ""
 
 msgid "Voir mes réservations"
@@ -274,21 +335,6 @@ msgid "Aucun moyen de paiement configué."
 msgstr ""
 
 msgid "Vos données de facturation"
-msgstr ""
-
-msgid "Adresse e-mail"
-msgstr ""
-
-msgid "Votre adresse e-mail"
-msgstr ""
-
-msgid "Confirmation de votre adresse e-mail"
-msgstr ""
-
-msgid "Saisissez une deuxième fois votre adresse"
-msgstr ""
-
-msgid "Votre numéro de téléphone"
 msgstr ""
 
 msgid "Réserver (paiement sur place)"
@@ -331,6 +377,9 @@ msgid "Précédente"
 msgstr ""
 
 msgid "Suivante"
+msgstr ""
+
+msgid "AJouter au panier"
 msgstr ""
 
 msgid "Tout"
@@ -404,6 +453,60 @@ msgid "sur votre porte monnaie électronique"
 msgstr ""
 
 msgid "Montant trop élevé"
+msgstr ""
+
+msgid "E-mail"
+msgstr ""
+
+msgid "Rue"
+msgstr ""
+
+msgid "Code postal"
+msgstr ""
+
+msgid "Téléphone"
+msgstr ""
+
+msgid "Télépĥone portable"
+msgstr ""
+
+msgid "Sexe"
+msgstr ""
+
+msgid "Langue"
+msgstr ""
+
+msgid "n'est pas supporté"
+msgstr ""
+
+msgid "est manquant"
+msgstr ""
+
+msgid "existe déjà"
+msgstr ""
+
+msgid "n'est pas une chaine de caractère"
+msgstr ""
+
+msgid "est vide"
+msgstr ""
+
+msgid "est trop court"
+msgstr ""
+
+msgid "est trop grand"
+msgstr ""
+
+msgid "est invalide"
+msgstr ""
+
+msgid "n'est pas un objet"
+msgstr ""
+
+msgid "n'est pas un tableau"
+msgstr ""
+
+msgid "n'est pas un booléen"
 msgstr ""
 
 msgid "actor"
@@ -580,11 +683,11 @@ msgstr ""
 msgid "Pages"
 msgstr ""
 
-msgid "Panier"
-msgstr ""
-
 msgid "Checkout"
 msgstr ""
+
+msgid "Registration"
+msgstr "Enregistrement"
 
 msgid "Images"
 msgstr ""
@@ -652,6 +755,9 @@ msgstr ""
 msgid "Autoriser Postfinance"
 msgstr ""
 
+msgid "Autoriser l'enregistrement des utilisateurs"
+msgstr ""
+
 msgid "Dimensions des images"
 msgstr ""
 
@@ -707,6 +813,9 @@ msgid "Configurez le comportement du panier"
 msgstr ""
 
 msgid "Saisissez les informations concernant la page de paiement"
+msgstr ""
+
+msgid "Configuration de l'enregistrement des utilisateurs"
 msgstr ""
 
 msgid "Saisissez les informations d'accès à la billetterie"
