@@ -393,6 +393,81 @@
         flex: 1;
         padding-right: 1rem;
     }
+
+    &.screenings-list {
+        display: flex;
+        flex-direction: column;
+        .dates-form {
+            flex: 1;
+            margin-top: 0;
+            padding-right: 1rem;
+
+
+            .dates-wrapper {
+                border: none;
+                padding: 0;
+                float: none;
+                height: auto;
+                overflow-y: visible;
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                flex-wrap: wrap;
+
+                .date {
+                    margin: 0;
+                    width: 100%;
+                    text-align: center;
+                    cursor: pointer;
+                }
+            }
+        }
+        .tickets-form {
+            flex: 1;
+            padding-right: 0;
+            margin-top: 0.5rem;
+
+            .pricings-form {
+                .pricing-row {
+                    margin-top: 0;
+                    margin-bottom: 0.5rem;
+                    border-bottom: 1px solid #A0A0A0;
+
+                    &:last-child {
+                        border-bottom: none;
+                    }
+
+                    .tkt-badge-split {
+                        .tkt-badge-part {
+                            padding: 0px 15px;
+                            flex: 1;
+                            line-height: 24px;
+                            font-size: 14px;
+
+                            .pricing-qty { font-weight: normal; }
+                            .pricing-name {}
+                            .pricing-price {}
+
+                            &.tkt-minus-btn, &.tkt-plus-btn {
+                                cursor: pointer;
+                                font-weight: bold;
+                                padding: 0 15px;
+                                font-size: 20px;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                            }
+                        }
+                    }
+                }
+                .add-to-cart-btn { }
+            }
+        }
+        .success-panel {
+            flex: 1;
+            padding-right: 1rem;
+        }
+    }
 }
 
 @media screen and (max-width: 768px) {
