@@ -234,7 +234,7 @@ export default class BookingForm extends Component {
     }
 
     check_bookability(callback) {
-        if (!this.data.screening._id)
+        if (!this.data.screening || !this.data.screening._id)
             return new Error("No screening");
 
         TKTApi.checkBookability(this.data.screening._id, (err, status, rsp) => {
@@ -309,11 +309,13 @@ export default class BookingForm extends Component {
             }
         }
 
-        let d_to_select = $(
-            '.days-wrapper .day[data-screening_id*="' + s_to_select + '"]'
-        ).data('day');
-        this.select_day(d_to_select);
-        this.select_screening(s_to_select);
+        if (s_to_select) {
+            let d_to_select = $(
+                '.days-wrapper .day[data-screening_id*="' + s_to_select + '"]'
+            ).data('day');
+            this.select_day(d_to_select);
+            this.select_screening(s_to_select);
+        }
     }
 
     build_tickets_form() {

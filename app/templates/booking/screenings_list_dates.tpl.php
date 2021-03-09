@@ -13,24 +13,22 @@
     <div class="col">
         <div class="dates-wrapper">
         <% _.forEach(screenings, function(s) { %>
-            <div class="date-wrapper">
-                <span data-screening_id="<%= s._id %>" class="date">
-                    <%= s.start_at.format("dddd Do") + ' / ' + s.start_at.format("HH[h]") + (s.start_at.minutes() > 0 ? s.start_at.format("mm") : "") %> <span>/</span>
-                    <%= s.cinema_hall.name %>
-                    <% if(s.opaque) { %>
-                        <% if (s.opaque.additional_info) { %>
-                            <% if (s.opaque.additional_info.<?= TKT_LANG ?> && s.opaque.additional_info.<?= TKT_LANG ?> != 'COMPLET') { %>
-                                    <%= ' <span>/</span> ' + s.opaque.additional_info.<?= TKT_LANG ?> %>
-                            <% } %>
+            <span data-screening_id="<%= s._id %>" class="tkt-badge tkt-light-badge date">
+                <%= s.start_at.format("dddd Do") + ' / ' + s.start_at.format("HH[h]") + (s.start_at.minutes() > 0 ? s.start_at.format("mm") : "") %> <span>/</span>
+                <%= s.cinema_hall.name %>
+                <% if(s.opaque) { %>
+                    <% if (s.opaque.additional_info) { %>
+                        <% if (s.opaque.additional_info.<?= TKT_LANG ?> && s.opaque.additional_info.<?= TKT_LANG ?> != 'COMPLET') { %>
+                                <%= ' <span>/</span> ' + s.opaque.additional_info.<?= TKT_LANG ?> %>
                         <% } %>
                     <% } %>
-                    <% if (s.seats) { %>
-                        <% if (s.seats.available == 0 && s.buckets.length > 0) { %>
-                            <span>/</span> <span class="full-label">COMPLET</span>
-                        <% } %>
+                <% } %>
+                <% if (s.seats) { %>
+                    <% if (s.seats.available == 0 && s.buckets.length > 0) { %>
+                        <span>/</span> <span class="full-label">COMPLET</span>
                     <% } %>
-                </span>
-            </div>
+                <% } %>
+            </span>
         <% }) %>
         </div>
     </div>

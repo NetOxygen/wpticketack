@@ -14,6 +14,7 @@
     <button class="button book-btn active d-none my-3">
         <?= tkt_t("Réserver une place sur mon abonnement") ?>
     </button>
+<!--
     <% if (screening.eligible_types.length) { %>
     <ul class="elligible-types-list mt-3">
         <% screening.eligible_types.map(function (t) { %>
@@ -27,26 +28,29 @@
         <% }); %>
     </ul>
     <% } %>
-    <table>
+-->
+    <table width="100%">
     <% _.mapKeys(screening.pricings, function(p, key) { %>
     <tr class="pricing-row">
         <td>
             <span class="pricing-name"><%= p.name.<?= TKT_LANG ?> %></span>
         </td>
         <td width="60px">
-            <div>
-                <span class="tkt-minus-btn text-center">-</span>
-                <span class="text-center">
-                    <span class="pricing-qty"> 0 </span>
-                </span>
-                <span class="tkt-plus-btn text-center">+</span>
-            </div>
-            <input type="hidden" data-pricing="<%= key %>" class="input pricing-input" value="0"/>
-        </td>
-        <td width="60px">
             <span class="pricing-price">
                 <%= p.price.CHF.toFixed(0) %>.-
             </span>
+        </td>
+        <td width="60px">
+            <span class="tkt-badge tkt-badge-split flex-rev-on-mobile tkt-badge-plus-minus">
+                <span class="tkt-badge-part tkt-grey-badge tkt-minus-btn text-center">-</span>
+                <span class="tkt-badge-part tkt-light-badge text-center">
+                    <span class="pricing-qty">
+                        0
+                    </span>
+                </span>
+                <span class="tkt-badge-part tkt-dark-badge tkt-plus-btn text-center">+</span>
+            </span>
+            <input type="hidden" data-pricing="<%= key %>" class="input pricing-input" value="0"/>
         </td>
     </tr>
     <% }) %>
