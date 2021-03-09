@@ -192,7 +192,7 @@ $nb_slides = count($trailers) + count($posters);
         </div>
       </div>
 
-      <?= TKTTemplate::render('booking/form', (object)[ 'ids' => $ids ]) ?>
+      <?= do_shortcode('[tkt_booking_form layout="form" theme="dark" ids="'.implode(',', $ids).'" /]') ?>
 
     </section>
   </div>

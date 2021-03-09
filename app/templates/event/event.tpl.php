@@ -146,7 +146,7 @@ $images_height = TKTApp::get_instance()->get_config('images_dimensions.big_heigh
     </div>
   </div>
 
-  <?= TKTTemplate::render('booking/form', (object)[ 'ids' => $ids ]) ?>
+  <?= do_shortcode('[tkt_booking_form layout="form" theme="dark" ids="'.implode(',', $ids).'" /]') ?>
 
   <div class="row">
     <div class="col">
