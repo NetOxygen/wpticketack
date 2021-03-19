@@ -38,7 +38,6 @@ export default class Cart extends BaseModel {
      * @param {Function} callback - Callback function
      */
     loadItemsInfos(callback) {
-
         if (!this.items || this.items.length === 0)
             return callback(/*err*/null);
 
@@ -46,6 +45,15 @@ export default class Cart extends BaseModel {
             _.filter(this.items, (i) => i.type === CartItem.SCREENING_TYPE),
             (i) => i.item_id
         );
+
+        let articleIds = _.map(
+            _.filter(this.items, (i) => i.type === CartItem.ARTICLE_TYPE),
+            (i) => i.item_id
+        );
+
+        if (screeningIds.length == 0 && articleIds.length == 0) {
+            return callback(/*err*/null);
+        }
 
         if (screeningIds.length > 0) {
             Screening.getInfos(screeningIds, (err, screenings) => {
@@ -62,11 +70,6 @@ export default class Cart extends BaseModel {
                 return callback(/*err*/null);
             });
         }
-
-        let articleIds = _.map(
-            _.filter(this.items, (i) => i.type === CartItem.ARTICLE_TYPE),
-            (i) => i.item_id
-        );
 
         if (articleIds.length > 0) {
             Article.getInfos(articleIds, /*force_reload*/false, (err, articles) => {
