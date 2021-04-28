@@ -172,7 +172,7 @@ if (!function_exists('r')) {
                 <?php endif; ?>
 
                 <?php if ($allow_postfinance) : ?>
-                <button type="submit" class="submit-button button" data-payment-method="POSTFINANCE" data-redirect="<?= $data->redirect ?>">
+                <button type="submit" class="submit-button button" data-payment-method="PROXYPAY" data-redirect="<?= $data->redirect ?>">
                 <span class="glyphicon glyphicon-credit-card"></span> <?= tkt_t('Procéder au paiement par carte bancaire') ?>
                 </button>
                 <?php endif; ?>

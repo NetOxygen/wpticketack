@@ -172,7 +172,7 @@ class AdminSettingsAction extends TKTAction
 
         add_settings_field(
             'allow_postfinance', // ID
-            tkt_t('Autoriser Postfinance'), // Title
+            tkt_t('Autoriser les achats'), // Title
             array( $this, 'allow_postfinance_callback' ), // Callback
             'ticketack-checkout', // Page
             'ticketack_checkout' // Section

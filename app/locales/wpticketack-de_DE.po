@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-15 13:31+0100\n"
+"POT-Creation-Date: 2021-04-28 04:01+0200\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Belkacem Alidra <belkacem.alidra@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -228,6 +228,30 @@ msgstr "my order"
 msgid "mes réservations"
 msgstr "my bookings"
 
+#, fuzzy
+msgid "Résumé du panier"
+msgstr "Add to cart"
+
+msgid "Panier"
+msgstr "Cart"
+
+msgid "produit(s)"
+msgstr ""
+
+msgid "Livraison"
+msgstr ""
+
+#, fuzzy
+msgid "Total TTC"
+msgstr "Total"
+
+#, fuzzy
+msgid "Code promo"
+msgstr "Invalid coupon code"
+
+msgid "OK"
+msgstr ""
+
 msgid ""
 "Aucun événement programmé actuellement, revenez nous visiter prochainement."
 msgstr "No event currently scheduled, come back soon."
@@ -253,6 +277,49 @@ msgstr "There are only a few places !"
 
 msgid "Complet !"
 msgstr "Complete !"
+
+#, fuzzy
+msgid "Saisissez vos informations personnelles"
+msgstr "Set the checkout page informations"
+
+msgid "Société"
+msgstr ""
+
+msgid "Votre société"
+msgstr ""
+
+msgid "Adresse e-mail"
+msgstr "E-mail address"
+
+msgid "Votre adresse e-mail"
+msgstr "Your e-mail address"
+
+msgid "Confirmation de votre adresse e-mail"
+msgstr "Confirm your e-mail address"
+
+msgid "Saisissez une deuxième fois votre adresse"
+msgstr "Enter your e-mail address a second time"
+
+msgid "Votre numéro de téléphone"
+msgstr "Your phone number"
+
+#, fuzzy
+msgid "Mot de passe"
+msgstr "Birthdate"
+
+msgid "Choisissez un mot de passe"
+msgstr ""
+
+#, fuzzy
+msgid "Confirmation de votre mot de passe"
+msgstr "Confirm your e-mail address"
+
+#, fuzzy
+msgid "Saisissez une deuxième fois votre mot de passe"
+msgstr "Enter your e-mail address a second time"
+
+msgid "Créer mon compte"
+msgstr ""
 
 msgid "Voir mes réservations"
 msgstr "my bookings"
@@ -284,21 +351,6 @@ msgstr "No payment method configured"
 
 msgid "Vos données de facturation"
 msgstr "Your invoicing data"
-
-msgid "Adresse e-mail"
-msgstr "E-mail address"
-
-msgid "Votre adresse e-mail"
-msgstr "Your e-mail address"
-
-msgid "Confirmation de votre adresse e-mail"
-msgstr "Confirm your e-mail address"
-
-msgid "Saisissez une deuxième fois votre adresse"
-msgstr "Enter your e-mail address a second time"
-
-msgid "Votre numéro de téléphone"
-msgstr "Your phone number"
 
 msgid "Réserver (paiement sur place)"
 msgstr "Book (on site payment)"
@@ -341,6 +393,10 @@ msgstr "Previous"
 
 msgid "Suivante"
 msgstr "Next"
+
+#, fuzzy
+msgid "AJouter au panier"
+msgstr "Add to cart"
 
 msgid "Tout"
 msgstr "All"
@@ -414,6 +470,66 @@ msgstr "on your wallet"
 
 msgid "Montant trop élevé"
 msgstr "Amount too high"
+
+#, fuzzy
+msgid "E-mail"
+msgstr "Email"
+
+msgid "Rue"
+msgstr ""
+
+#, fuzzy
+msgid "Code postal"
+msgstr "Zip"
+
+#, fuzzy
+msgid "Téléphone"
+msgstr "Fix phone"
+
+#, fuzzy
+msgid "Télépĥone portable"
+msgstr "Cellular phone"
+
+msgid "Sexe"
+msgstr ""
+
+#, fuzzy
+msgid "Langue"
+msgstr "Languages"
+
+msgid "n'est pas supporté"
+msgstr ""
+
+msgid "est manquant"
+msgstr ""
+
+msgid "existe déjà"
+msgstr ""
+
+msgid "n'est pas une chaine de caractère"
+msgstr ""
+
+msgid "est vide"
+msgstr ""
+
+msgid "est trop court"
+msgstr ""
+
+msgid "est trop grand"
+msgstr ""
+
+#, fuzzy
+msgid "est invalide"
+msgstr "Invalid coupon code"
+
+msgid "n'est pas un objet"
+msgstr ""
+
+msgid "n'est pas un tableau"
+msgstr ""
+
+msgid "n'est pas un booléen"
+msgstr ""
 
 msgid "actor"
 msgstr ""
@@ -590,11 +706,12 @@ msgstr "API"
 msgid "Pages"
 msgstr "Pages"
 
-msgid "Panier"
-msgstr "Cart"
-
 msgid "Checkout"
 msgstr "Checkout"
+
+#, fuzzy
+msgid "Registration"
+msgstr "Cast"
 
 msgid "Images"
 msgstr "Images"
@@ -659,8 +776,11 @@ msgstr "Mandatory informations to be entered"
 msgid "Autoriser les réservations"
 msgstr "Allow bookings"
 
-msgid "Autoriser Postfinance"
-msgstr "Allow Postfinance"
+msgid "Autoriser les achats"
+msgstr "Allow purchases"
+
+msgid "Autoriser l'enregistrement des utilisateurs"
+msgstr ""
 
 msgid "Dimensions des images"
 msgstr "Images dimensions"
@@ -719,6 +839,10 @@ msgstr "Customize the cart behavior"
 msgid "Saisissez les informations concernant la page de paiement"
 msgstr "Set the checkout page informations"
 
+#, fuzzy
+msgid "Configuration de l'enregistrement des utilisateurs"
+msgstr "Languages configuration"
+
 msgid "Saisissez les informations d'accès à la billetterie"
 msgstr "Set the ticketing system access informations"
 
@@ -747,6 +871,9 @@ msgstr "Change these settings only if you know what you are doing."
 msgid ""
 "Ne modifiez les valeurs ci-dessous que si vous savez ce que vous faites."
 msgstr "Change these settings only if you know what you are doing."
+
+#~ msgid "Autoriser Postfinance"
+#~ msgstr "Allow Postfinance"
 
 #~ msgid "Country"
 #~ msgstr "Country"
