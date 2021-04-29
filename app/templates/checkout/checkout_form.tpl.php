@@ -109,6 +109,18 @@ if (!function_exists('r')) {
               </div>
               <?php endif; ?>
 
+              <?php if (in_array('country', $requested_fields)) : ?>
+              <div id="field-wrapper-country" class="field-wrapper form-group col-6">
+                <label class="<?= r($required_fields, 'country') ?>" for="country"><?= tkt_t("Pays"); ?></label>
+                <select name="user[country]" id="country" class="tkt-input form-control data-field" <?= r($required_fields, 'country') ?>>
+                  <option value=""></option>
+                  <?php foreach (tkt_get_countries() as $country) : ?>
+                  <option value="<?= $country[TKT_LANG] ?>"><?= $country[TKT_LANG] ?></option>
+                  <?php endforeach; ?>
+                </select>
+              </div>
+              <?php endif; ?>
+
               <?php if (in_array('phone', $requested_fields)) : ?>
               <div id="field-wrapper-phone" class="field-wrapper form-group col-6">
                 <label class="<?= r($required_fields, 'phone') ?>" for="phone"><?= tkt_t("Téléphone fixe"); ?></label>
@@ -123,6 +135,18 @@ if (!function_exists('r')) {
               </div>
               <?php endif; ?>
 
+              <?php if (in_array('age', $requested_fields)) : ?>
+              <div id="field-wrapper-age" class="field-wrapper form-group col-6">
+                <label class="<?= r($required_fields, 'age') ?>" for="age"><?= tkt_t("Âge"); ?></label>
+                <select name="user[age]" id="age" class="tkt-input form-control data-field" <?= r($required_fields, 'age') ?>>
+                  <option value=""></option>
+                  <?php foreach (tkt_get_ages() as $age) : ?>
+                  <option value="<?= $age ?>"><?= $age ?></option>
+                  <?php endforeach; ?>
+                </select>
+              </div>
+              <?php endif; ?>
+
               <?php if (in_array('birthdate', $requested_fields)) : ?>
                 <div class="row">
                   <div id="field-wrapper-birthdate" class="col-md-12 field-wrapper form-group">
@@ -132,6 +156,17 @@ if (!function_exists('r')) {
                 </div>
               <?php endif; ?>
 
+              <?php if (in_array('sex', $requested_fields)) : ?>
+              <div id="field-wrapper-sex" class="field-wrapper form-group col-6">
+                <label class="<?= r($required_fields, 'sex') ?>" for="sex"><?= tkt_t("Genre"); ?></label>
+                <select name="user[sex]" id="sex" class="tkt-input form-control data-field" <?= r($required_fields, 'sex') ?>>
+                  <option value=""></option>
+                  <?php foreach (tkt_get_sexes() as $value => $label) : ?>
+                  <option value="<?= $value ?>"><?= $label ?></option>
+                  <?php endforeach; ?>
+                </select>
+              </div>
+              <?php endif; ?>
 
               <?php if (empty($cgv_url)) : ?>
               <input name="user[conditions]" value="checked" type="hidden" class="data-field">
@@ -187,4 +222,3 @@ if (!function_exists('r')) {
   </section>
   <?php endif; ?>
 </div>
-

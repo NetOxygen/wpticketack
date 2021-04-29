@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-28 04:01+0200\n"
+"POT-Creation-Date: 2021-04-30 01:01+0200\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Belkacem Alidra <belkacem.alidra@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -90,7 +90,7 @@ msgid "Ville"
 msgstr "City"
 
 msgid "Pays"
-msgstr "Country"
+msgstr "Land"
 
 msgid "Téléphone fixe"
 msgstr "Fix phone"
@@ -105,7 +105,7 @@ msgid "Date de naissance"
 msgstr "Birthdate"
 
 msgid "Genre"
-msgstr "Genre"
+msgstr "Geschlecht"
 
 msgid "Photo"
 msgstr "Photo"
@@ -478,22 +478,18 @@ msgstr "Email"
 msgid "Rue"
 msgstr ""
 
-#, fuzzy
 msgid "Code postal"
 msgstr "Zip"
 
-#, fuzzy
 msgid "Téléphone"
 msgstr "Fix phone"
 
-#, fuzzy
 msgid "Télépĥone portable"
 msgstr "Cellular phone"
 
 msgid "Sexe"
-msgstr ""
+msgstr "Geschlecht"
 
-#, fuzzy
 msgid "Langue"
 msgstr "Languages"
 
