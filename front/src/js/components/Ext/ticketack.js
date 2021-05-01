@@ -13,10 +13,12 @@
  *     - Cancel a booking on a ticket
  *     - List the available passes
  *     - Update e-mail information in ticket
+ *     - Register, login and logout user
+ *     - Get current user profile
  *
- * @version 5.3.0 - 2020-06-22
+ * @version 5.4.0 - 2021-05-02
  *
- * @copyright NetOxygen 2015-2018
+ * @copyright NetOxygen 2015-2021
  *
  * @param {String} eshopUrl: The Ticketack instance base URL
  * @param {String} apiKey: The API key
@@ -27,6 +29,7 @@ var Ticketack = function(eshopUrl, apiKey, lang) {
     this.session_id            = localStorage.getItem('tkt_session_id') != undefined ? localStorage.getItem('tkt_session_id') : "";
     this.eshopUrl              = eshopUrl;
     this.apiKey                = apiKey;
+    this.userApiKey            = localStorage.getItem('tkt_api_key') != undefined ? localStorage.getItem('tkt_api_key') : null;
     this.lang                  = lang ? lang : '';
 
     this.cartViewUrl           = this.eshopUrl + "cart/view/";
@@ -55,8 +58,11 @@ var Ticketack = function(eshopUrl, apiKey, lang) {
     this.unbookUrl             = this.eshopUrl + "ticket/cancel_booking_json/";
     this.checkUrl              = this.eshopUrl + "screening/bookability/";
     this.registrationUrl       = this.eshopUrl + "users/register/";
-    this.loginUrl              = this.eshopUrl + "ticket/view_json/";
-    this.logoutUrl             = this.eshopUrl + "ticket/disable_book_mode_json/";
+    this.profileUrl            = this.eshopUrl + "users/profile/";
+    this.loginUrl              = this.eshopUrl + "users/login/";
+    this.logoutUrl             = this.eshopUrl + "users/logout/";
+    this.loginTicketUrl        = this.eshopUrl + "ticket/view_json/";
+    this.logoutTicketUrl       = this.eshopUrl + "ticket/disable_book_mode_json/";
     this.updateTicketEmailUrl  = this.eshopUrl + "tickets/contact_email/";
     this.passesUrl             = this.eshopUrl + "pass/tickettypes_json/";
 };
@@ -70,6 +76,26 @@ var Ticketack = function(eshopUrl, apiKey, lang) {
 Ticketack.prototype.set_session_id = function(session_id) {
     localStorage.setItem('tkt_session_id', session_id);
     this.session_id = session_id;
+}
+
+/**
+ *
+ * Set the current user API key
+ *
+ * @param {String} apikey
+ */
+Ticketack.prototype.set_user_api_key = function(apikey) {
+    localStorage.setItem('tkt_api_key', apikey);
+    this.userApiKey = apikey;
+}
+
+/**
+ *
+ * Remove the current user API key
+ */
+Ticketack.prototype.unset_user_api_key = function(apikey) {
+    localStorage.removeItem('tkt_api_key');
+    this.userApiKey = null;
 }
 
 /**
@@ -357,6 +383,48 @@ Ticketack.prototype.register = function(user_data, callback) {
 };
 
 /**
+ * Get current user profile
+ *
+ * @param callback
+ */
+Ticketack.prototype.getProfile = function(callback) {
+    var url = this.parametrize_url(this.profileUrl, {}, true);
+    return this.get(url, {}, (err, status, rsp) => {
+        if (err)
+            this.unset_user_api_key();
+
+        return callback && callback(err, status, rsp);
+    });
+};
+
+/**
+ * User authentication
+ *
+ * Authenticates the user
+ *
+ * @param username: The user username
+ * @param password: The user password
+ * @param callback
+ */
+Ticketack.prototype.loginUser = function(username, password, callback) {
+    var data = { username, password };
+
+    return this.post_json(this.loginUrl, data, callback);
+};
+
+/**
+ * User logout
+ *
+ * @param callback
+ */
+Ticketack.prototype.logoutUser = function(callback) {
+    return this.post_json(this.logoutUrl, {}, (err, status, rsp) => {
+        this.unset_user_api_key();
+        return callback && callback(err, status, rsp);
+    });
+};
+
+/**
  * Ticket authentication
  *
  * Authenticates the user ticket
@@ -371,7 +439,7 @@ Ticketack.prototype.loginTicket = function(number, key, callback) {
         "ticket_key":    key
     };
 
-    return this.post(this.loginUrl, data, callback);
+    return this.post(this.loginTicketUrl, data, callback);
 };
 
 /**
@@ -382,7 +450,7 @@ Ticketack.prototype.loginTicket = function(number, key, callback) {
  * @param callback
  */
 Ticketack.prototype.logoutTicket = function(callback) {
-    var url = this.parametrize_url(this.logoutUrl, {}, true);
+    var url = this.parametrize_url(this.logoutTicketUrl, {}, true);
     return this.get(url, {}, callback);
 };
 
@@ -394,7 +462,7 @@ Ticketack.prototype.logoutTicket = function(callback) {
  * @param callback
  */
 Ticketack.prototype.viewTicket = function(callback) {
-    return this.post(this.loginUrl, {}, callback);
+    return this.post(this.loginTicketUrl, {}, callback);
 };
 
 /**
@@ -556,6 +624,8 @@ Ticketack.prototype.parametrize_url = function(url, params, json = false) {
 Ticketack.prototype.request = function(method, url, data, headers, callback) {
     headers = headers || {};
     headers['X-API-Key'] = this.apiKey;
+    if (this.userApiKey != null)
+        headers['X-API-Key'] = this.userApiKey;
 
     if (headers['Content-type'] && headers['Content-type'] == 'application/json')
         data = JSON.stringify(data);
@@ -573,6 +643,9 @@ Ticketack.prototype.request = function(method, url, data, headers, callback) {
         const rsp = jqXHR.responseJSON;
         if (rsp && 'session_id' in rsp) {
             this.set_session_id(rsp.session_id);
+        }
+        if (rsp && 'user' in rsp && 'apikey' in rsp.user) {
+            this.set_user_api_key(rsp.user.apikey);
         }
 
         return callback(null, jqXHR.status, jqXHR.responseJSON);

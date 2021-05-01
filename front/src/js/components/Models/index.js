@@ -7,6 +7,7 @@ import CartSummary from './CartSummary';
 import Screening from './Screening';
 import Ticket from './Ticket';
 import Tickettype from './Tickettype';
+import User from './User';
 import Pricing from './Pricing';
 
 export {
@@ -19,5 +20,6 @@ export {
     Screening,
     Ticket,
     Tickettype,
+    User,
     Pricing,
 }
