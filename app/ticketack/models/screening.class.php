@@ -15,9 +15,9 @@ class Screening extends TKTModel implements \JsonSerializable
     // - some eventival URLs ends with '?'
     const POSTER_REGEXP = '/\.(jpe?g|png|gif)(\?)?$/i';
 
-    // - Support only Youtube videos for now
-    //   see https://www.regextester.com/94360
-    const TRAILER_REGEXP = '/^(http:\/\/|https:\/\/)((player.)?vimeo\.com|youtu\.be|www\.youtube\.com)\/([\w\/]+)([\?].*)?$/i';
+    // - Support Youtube and Vimeo videos
+    //   see https://regexr.com/5sm04
+    const TRAILER_REGEXP = '/^(http:\/\/|https:\/\/)((player\.|www\.)?vimeo\.com|youtu\.be|(www\.)?youtube\.com)\/([\w]+[\/]?)?([\?]?.*)?$/i';
 
     /**
      * @override
