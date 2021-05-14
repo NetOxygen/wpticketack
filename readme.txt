@@ -2,7 +2,7 @@
 Tags: ticketack
 Requires at least: 4.6
 Tested up to: 5.6
-Stable tag: 2.19.0
+Stable tag: 2.20.0
 Requires PHP: 5.6
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -34,6 +34,13 @@ This section describes how to install the plugin and get it working.
 == Screenshots ==
 
 == Changelog ==
+
+= 2.20.0 =
+
+* feat: Introduce user account
+* feat: Add tkt_user_login shortcode
+* feat: Handle age, sex and country checkout fields
+* fix: Regex for Youtube videos
 
 = 2.19.0 =
 
