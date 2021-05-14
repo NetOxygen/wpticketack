@@ -3,7 +3,7 @@
 use Ticketack\WP\TKTApp;
 
 /**
- * User registerion template
+ * User registration template
  *
  * Input:
  * $data: {}
@@ -19,13 +19,12 @@ if (!function_exists('r')) {
 }
 ?>
 <div class="tkt-wrapper" data-component="User/UserRegister">
-  <section class="tkt-section tkt-dark-section tkt-register-section">
+  <section class="tkt-section tkt-light-section tkt-register-section">
     <div class="row">
       <div class="col">
         <form class="register-form">
           <?php if (!empty($requested_fields)) : ?>
           <fieldset id="registration-fields">
-            <h3 class="tkt-section-title"><?= tkt_t("Saisissez vos informations personnelles") ?></h3>
             <div class="row">
               <?php if (in_array('firstname', $requested_fields)) : ?>
               <div id="field-wrapper-firstname" class="field-wrapper col-md-6" style="display: block;">
@@ -109,7 +108,7 @@ if (!function_exists('r')) {
               <?php if (in_array('birthdate', $requested_fields)) : ?>
               <div id="field-wrapper-birthdate" class="col-md-12 field-wrapper form-group">
                 <label class="required" for="birthdate"><?= tkt_t('Date de naissance') ?></label>
-                <input name="user[contact][birthdate]" type="text" class="tkt-input form-control data-field" id="birthdate" data-component="Form/Calendar" placeholder="<?= tkt_t("Date de naissance") ?>" required data-date-format="d.m.Y" />
+                <input name="user[contact][birthdate]" type="text" class="tkt-input form-control data-field" id="birthdate" data-component="Form/Calendar" placeholder="<?= tkt_t("Date de naissance") ?>" required data-alt-format="<?= tkt_t('j F Y') ?>" />
               </div>
               <?php endif; ?>
 
@@ -130,13 +129,27 @@ if (!function_exists('r')) {
               <div id="field-wrapper-password" class="field-wrapper col-6" style="display: block;">
                 <div class="form-group">
                   <label class="<?= r($required_fields, 'password') ?>" for="password"><?= tkt_t("Mot de passe"); ?></label>
-                  <input name="user[password]" type="password" class="tkt-input form-control data-field" id="password" placeholder="<?= tkt_t("Choisissez un mot de passe") ?>"  />
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="fa fa-lock"></i>
+                      </span>
+                    </div>
+                    <input name="user[password]" type="password" class="tkt-input form-control data-field" id="password" placeholder="<?= tkt_t("Choisissez un mot de passe") ?>"  />
+                  </div>
                 </div>
               </div>
               <div id="field-wrapper-password" class="field-wrapper col-6" style="display: block;">
                 <div class="form-group">
                   <label class="<?= r($required_fields, 'password') ?>" for="password"><?= tkt_t("Confirmation de votre mot de passe"); ?></label>
-                  <input name="user[password2]" type="password" class="tkt-input form-control data-field" id="password" placeholder="<?= tkt_t("Saisissez une deuxième fois votre mot de passe") ?>" required />
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="fa fa-lock"></i>
+                      </span>
+                    </div>
+                    <input name="user[password2]" type="password" class="tkt-input form-control data-field" id="password" placeholder="<?= tkt_t("Saisissez une deuxième fois votre mot de passe") ?>" required />
+                  </div>
                 </div>
               </div>
               <div class="col-md-12">
@@ -150,19 +163,40 @@ if (!function_exists('r')) {
           <div id="registration-messages" class="row mt-2">
             <div class="col-12">
               <div style="display: none;" class="text-center alert alert-info info-msg"></div>
-              <div style="display: none;" class="text-center alert alert-success success-msg"></div>
               <div style="display: none;" class="text-center alert alert-danger error-msg"></div>
+              <div style="display: none;" class="text-center alert alert-success success-msg">
+                <?= tkt_t('Votre compte a bien été créé') ?><br/>
+                <b><?= tkt_t('Veuillez l\'activer en cliquant sur le lien que vous avez reçu par e-mail.') ?></b><br /><br />
+                <?php if (tkt_login_url()) : ?>
+                <a class="btn button" href="<?= tkt_login_url() ?>">
+                  <i class="fa fa-sign-in-alt"></i>
+                  <?= tkt_t('Connexion') ?>
+                </a>
+                <?php endif; ?>
+              </div>
             </div>
           </div>
 
           <fieldset id="registration-submit" >
             <div id="submit-section" class="row">
               <div class="col-md-12 text-center">
-                <button type="submit" class="submit-button button" data-payment-method="POSTFINANCE" data-redirect="<?= $data->redirect ?>">
+                <button type="submit" class="submit-button button" data-redirect="<?= $data->redirect ?>">
                   <span class="glyphicon glyphicon-ok"></span> <?= tkt_t('Créer mon compte') ?>
                 </button>
               </div>
             </div>
+
+            <?php if (tkt_login_url()) : ?>
+            <hr />
+            <div class="row">
+                <div class="col text-center">
+                <a href="<?= tkt_login_url() ?>">
+                        <?= tkt_t('Déjà un compte. Connectez-vous !') ?>
+                    </a>
+                </div>
+            </div>
+            <?php endif; ?>
+
           </fieldset>
 
         </form>

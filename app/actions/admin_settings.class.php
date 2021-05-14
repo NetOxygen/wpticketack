@@ -109,6 +109,14 @@ class AdminSettingsAction extends TKTAction
         );
 
         add_settings_field(
+            'account', // ID
+            tkt_t('My account'), // Title
+            array( $this, 'account_callback' ), // Callback
+            'ticketack-pages', // Page
+            'ticketack_pages' // Section
+        );
+
+        add_settings_field(
             'thank_you', // ID
             tkt_t('Remerciements'), // Title
             array( $this, 'thank_you_callback' ), // Callback
@@ -413,6 +421,7 @@ class AdminSettingsAction extends TKTAction
     public function checkout_callback() { return $this->page_choice('checkout', 'tkt_pages', 'checkout'); }
     public function registration_callback() { return $this->page_choice('registration', 'tkt_pages', 'registration'); }
     public function login_callback() { return $this->page_choice('login', 'tkt_pages', 'login'); }
+    public function account_callback() { return $this->page_choice('account', 'tkt_pages', 'account'); }
     public function thank_you_callback() { return $this->page_choice('thank_you', 'tkt_pages', 'thank_you'); }
 
     /** 

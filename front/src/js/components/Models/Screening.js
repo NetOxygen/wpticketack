@@ -50,15 +50,50 @@ export default class Screening extends BaseModel {
     }
 
     /**
+     * Get this screening localized title
+     *
+     * @return {String}
+     */
+    getTitle(lang) {
+        if (!(lang in this.title))
+            return this.title.original;
+
+        return this.title.fr;
+    }
+
+    /**
+     * Get this screening formatted start_at date
+     * @return {String}
+     */
+    getFormattedStartAt() {
+        return this.start_at.format('LLL');
+    };
+
+    /**
+     * Get this screening first poster
+     *
+     * @return {String}
+     */
+    getFirstPosterUrl() {
+        if (!this.opaque.posters || this.opaque.posters.length == 0)
+            return null;
+
+        return this.opaque.posters[0].url;
+    }
+
+    /**
      * Load some screenings infos
      * @param {Array} ids - The ids to get infoos for
      * @param {Function} callback - Callback function
      */
     static getInfos = (ids, callback) => {
+        if (!ids || ids.length == 0)
+            return callback(/*err*/null, []);
+
         if (Screening.isAlreadyGettingInfos)
             return setTimeout(
                 () => Screening.getInfos(ids, callback),
-                500
+                20
             );
 
         // lock to prevent concurrent calls

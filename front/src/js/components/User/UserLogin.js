@@ -1,4 +1,4 @@
-import { Component, Template } from '../Core';
+import { Component, Template, Config } from '../Core';
 import { Api as TKTApi } from '../Ticketack';
 import { User } from '../Models';
 import postal from 'postal';
@@ -19,6 +19,8 @@ export default class UserLogin extends Component {
      */
     constructor($container, state) {
         super($container, state);
+        this.userAccountUrl  = Config.get('user_account_url');
+        this.registrationUrl = Config.get('registration_url');
         this.data = {
             user_infos: {}
         };
@@ -35,28 +37,29 @@ export default class UserLogin extends Component {
 
             if (err)
                 this.state.unset('user.account');
-            else
+            else {
+                if (this.user_account_url)
+                    window.location.href = this.user_account_url;
                 this.state.set('user.account', user);
+            }
 
-            this.render(user);
+            this.render();
         });
 
         postal.subscribe({
             channel: "login",
             topic: "update",
             callback: (data, envelope) => {
-                this.render(data.user);
+                this.render();
             }
         });
     }
 
-    emit_login_update(user) {
+    emit_login_update() {
         postal.publish({
             channel: "login",
             topic: "update",
-            data: {
-                user: user
-            }
+            data: {}
         });
     }
 
@@ -76,11 +79,13 @@ export default class UserLogin extends Component {
                     return $('.user-error')
                         .html('Les informations que vous avez saisies sont invalides')
                         .removeClass('d-none');
+                else if (this.user_account_url)
+                    window.location.href = this.user_account_url;
 
                 this.data.user = new User(rsp.user);
                 this.state.set('user.account', this.data.user);
 
-                this.emit_login_update(this.data.user);
+                this.emit_login_update();
 
             }
         );
@@ -90,14 +95,21 @@ export default class UserLogin extends Component {
         TKTApi.logoutUser((err, status, rsp) => {
             if (!err) {
                 this.state.unset('user.account');
-                this.emit_login_update(null);
+                this.emit_login_update();
             }
         });
     }
 
-    render(user) {
-        const user_account_url = TKTApi.getTicketViewUrl();
-        this.$container.html(Template.render('tkt-user-login-tpl', { user, user_account_url }));
+    render() {
+        const user = this.state.get('user.account');
+        if (user && this.userAccountUrl)
+            return window.location.href = this.userAccountUrl;
+
+        this.$container.html(Template.render('tkt-user-login-tpl', {
+            user,
+            userAccountUrl: this.userAccountUrl,
+            registrationUrl: this.registrationUrl
+        }));
 
         // bind pass fields
         $('.username-input,.password-input', this.$container).change((e) => {

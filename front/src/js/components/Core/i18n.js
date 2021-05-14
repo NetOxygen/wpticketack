@@ -8,6 +8,7 @@ class i18n {
      * @constructor
      */
     constructor() {
+        this.lang         = Config.get('lang');
         this.translations = Config.get('i18n', {});
     }
 

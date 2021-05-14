@@ -178,7 +178,7 @@ function tkt_page_url($slug, $query = "")
 function tkt_program_url($query = "")
 {
     $slug = TKTApp::get_instance()->get_config('pages.program');
-    return tkt_page_url($slug, $query);
+    return $slug ? tkt_page_url($slug, $query) : null;
 }
 
 /**
@@ -191,7 +191,7 @@ function tkt_program_url($query = "")
 function tkt_shop_url($query = "")
 {
     $slug = TKTApp::get_instance()->get_config('pages.shop');
-    return tkt_page_url($slug, $query);
+    return $slug ? tkt_page_url($slug, $query) : null;
 }
 
 /**
@@ -204,7 +204,7 @@ function tkt_shop_url($query = "")
 function tkt_cart_url($query = "")
 {
     $slug = TKTApp::get_instance()->get_config('pages.cart');
-    return tkt_page_url($slug, $query);
+    return $slug ? tkt_page_url($slug, $query) : null;
 }
 
 /**
@@ -350,6 +350,45 @@ function tkt_article_details_url($article)
           tkt_get_article_slug($article, TKT_LANG)
         )
     );
+}
+
+/**
+ * Get the login page url
+ *
+ * @param string $query
+ *
+ * @return string
+ */
+function tkt_login_url($query = "")
+{
+    $slug = TKTApp::get_instance()->get_config('pages.login');
+    return $slug ? tkt_page_url($slug, $query) : null;
+}
+
+/**
+ * Get the registration page url
+ *
+ * @param string $query
+ *
+ * @return string
+ */
+function tkt_registration_url($query = "")
+{
+    $slug = TKTApp::get_instance()->get_config('pages.registration');
+    return $slug ? tkt_page_url($slug, $query) : null;
+}
+
+/**
+ * Get the user account page url
+ *
+ * @param string $query
+ *
+ * @return string
+ */
+function tkt_user_account_url($query = "")
+{
+    $slug = TKTApp::get_instance()->get_config('pages.account');
+    return $slug ? tkt_page_url($slug, $query) : null;
 }
 
 /**

@@ -1,6 +1,7 @@
 import Article from './Article';
 import ArticleVariant from './ArticleVariant';
 import BaseModel from './Base';
+import Booking from './Booking';
 import Cart from './Cart';
 import CartItem from './CartItem';
 import CartSummary from './CartSummary';
@@ -14,6 +15,7 @@ export {
     Article,
     ArticleVariant,
     BaseModel,
+    Booking,
     Cart,
     CartItem,
     CartSummary,

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-30 00:59+0200\n"
+"POT-Creation-Date: 2021-05-03 02:23+0200\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Belkacem Alidra <belkacem.alidra@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -279,6 +279,26 @@ msgid "Complet !"
 msgstr "Complete !"
 
 #, fuzzy
+msgid "Mon compte"
+msgstr "Create your account"
+
+msgid "Me déconnecter"
+msgstr "Logout"
+
+msgid "Identifiant"
+msgstr "Login"
+
+#, fuzzy
+msgid "Mot de passe"
+msgstr "Birthdate"
+
+msgid "Connexion"
+msgstr "Login"
+
+msgid "Pas encore de compte. Créez-en un !"
+msgstr "No account yet. Create one!"
+
+#, fuzzy
 msgid "Saisissez vos informations personnelles"
 msgstr "Set the checkout page informations"
 
@@ -303,9 +323,8 @@ msgstr "Enter your e-mail address a second time"
 msgid "Votre numéro de téléphone"
 msgstr "Your phone number"
 
-#, fuzzy
-msgid "Mot de passe"
-msgstr "Birthdate"
+msgid "j F Y"
+msgstr "F j, Y"
 
 msgid "Choisissez un mot de passe"
 msgstr "Choose a password"
@@ -321,11 +340,43 @@ msgstr "Enter your e-mail address a second time"
 msgid "Créer mon compte"
 msgstr "Create your account"
 
-msgid "Voir mes réservations"
+#, fuzzy
+msgid "Mes abonnements"
+msgstr "a pass"
+
+#, fuzzy
+msgid "Mes informations"
+msgstr "Your informations"
+
+#, fuzzy
+msgid "Mes réservations"
 msgstr "my bookings"
 
-msgid "Me déconnecter"
-msgstr "Logout"
+#, fuzzy
+msgid "Mes commandes"
+msgstr "my order"
+
+#, fuzzy
+msgid "Vous n'avez pas encore de commande."
+msgstr "Thank you for your order"
+
+msgid "#"
+msgstr "#"
+
+msgid "Date"
+msgstr "Date"
+
+msgid "Prix total"
+msgstr "Total"
+
+msgid "Paiement"
+msgstr "Payment"
+
+msgid "Statut"
+msgstr "Status"
+
+msgid "Voir mes réservations"
+msgstr "my bookings"
 
 msgid "Connectez-vous !"
 msgstr "Login !"
@@ -478,15 +529,12 @@ msgstr "Email"
 msgid "Rue"
 msgstr "Street"
 
-#, fuzzy
 msgid "Code postal"
 msgstr "Zip"
 
-#, fuzzy
 msgid "Téléphone"
 msgstr "Fix phone"
 
-#, fuzzy
 msgid "Télépĥone portable"
 msgstr "Cellular phone"
 
@@ -529,6 +577,54 @@ msgstr "is not an array"
 
 msgid "n'est pas un booléen"
 msgstr "is not a boolean"
+
+msgid "En attente"
+msgstr "Pending"
+
+msgid "En cours"
+msgstr "In progress"
+
+msgid "Paiement en cours"
+msgstr "Payment in progress"
+
+msgid "Payée"
+msgstr "Paid"
+
+msgid "Terminée"
+msgstr "Completed"
+
+msgid "Erreur"
+msgstr "Error"
+
+msgid "Annulée"
+msgstr "Cancelled
+
+msgid "Postfinance"
+msgstr "Postfinance"
+
+msgid "Proxypay"
+msgstr "Proxypay"
+
+msgid "Virement"
+msgstr "Bank transfer"
+
+msgid "Gratuit"
+msgstr "Free"
+
+msgid "Réservation"
+msgstr "Reservation"
+
+msgid "Espèces"
+msgstr "Cash"
+
+msgid "Monnayeur"
+msgstr "Cash collector"
+
+msgid "Carte bancaire"
+msgstr "Credit card"
+
+msgid "Porte-monnaie"
+msgstr "Wallet"
 
 msgid "actor"
 msgstr ""
@@ -754,6 +850,12 @@ msgstr "Program"
 msgid "Shop"
 msgstr "Shop"
 
+msgid "Login"
+msgstr "Login"
+
+msgid "My account"
+msgstr "My account"
+
 msgid "Remerciements"
 msgstr "Thank you page"
 
@@ -779,7 +881,7 @@ msgid "Autoriser les achats"
 msgstr "Allow purchases"
 
 msgid "Autoriser l'enregistrement des utilisateurs"
-msgstr "llow users registration"
+msgstr "Allow users registration"
 
 msgid "Dimensions des images"
 msgstr "Images dimensions"
@@ -869,9 +971,6 @@ msgstr ""
 msgid ""
 "Ne modifiez les valeurs ci-dessous que si vous savez ce que vous faites."
 msgstr "Change these settings only if you know what you are doing."
-
-#~ msgid "Autoriser Postfinance"
-#~ msgstr "Allow Postfinance"
 
 #~ msgid "Country"
 #~ msgstr "Country"

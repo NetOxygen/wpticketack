@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-30 01:01+0200\n"
+"POT-Creation-Date: 2021-05-03 02:27+0200\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Belkacem Alidra <belkacem.alidra@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -278,6 +278,25 @@ msgstr "There are only a few places !"
 msgid "Complet !"
 msgstr "Complete !"
 
+msgid "Mon compte"
+msgstr ""
+
+msgid "Me déconnecter"
+msgstr "Logout"
+
+msgid "Identifiant"
+msgstr ""
+
+#, fuzzy
+msgid "Mot de passe"
+msgstr "Birthdate"
+
+msgid "Connexion"
+msgstr ""
+
+msgid "Pas encore de compte. Créez-en un !"
+msgstr ""
+
 #, fuzzy
 msgid "Saisissez vos informations personnelles"
 msgstr "Set the checkout page informations"
@@ -303,9 +322,8 @@ msgstr "Enter your e-mail address a second time"
 msgid "Votre numéro de téléphone"
 msgstr "Your phone number"
 
-#, fuzzy
-msgid "Mot de passe"
-msgstr "Birthdate"
+msgid "j F Y"
+msgstr ""
 
 msgid "Choisissez un mot de passe"
 msgstr ""
@@ -321,11 +339,43 @@ msgstr "Enter your e-mail address a second time"
 msgid "Créer mon compte"
 msgstr ""
 
-msgid "Voir mes réservations"
+#, fuzzy
+msgid "Mes abonnements"
+msgstr "a pass"
+
+#, fuzzy
+msgid "Mes informations"
+msgstr "Your informations"
+
+#, fuzzy
+msgid "Mes réservations"
 msgstr "my bookings"
 
-msgid "Me déconnecter"
-msgstr "Logout"
+#, fuzzy
+msgid "Mes commandes"
+msgstr "my order"
+
+#, fuzzy
+msgid "Vous n'avez pas encore de commande."
+msgstr "Thank you for your order"
+
+msgid "#"
+msgstr ""
+
+msgid "Date"
+msgstr ""
+
+msgid "Prix total"
+msgstr ""
+
+msgid "Paiement"
+msgstr ""
+
+msgid "Statut"
+msgstr ""
+
+msgid "Voir mes réservations"
+msgstr "my bookings"
 
 msgid "Connectez-vous !"
 msgstr "Login !"
@@ -526,6 +576,58 @@ msgstr ""
 
 msgid "n'est pas un booléen"
 msgstr ""
+
+msgid "En attente"
+msgstr ""
+
+msgid "En cours"
+msgstr ""
+
+msgid "Paiement en cours"
+msgstr ""
+
+msgid "Payée"
+msgstr ""
+
+msgid "Terminée"
+msgstr ""
+
+msgid "Erreur"
+msgstr ""
+
+#, fuzzy
+msgid "Annulée"
+msgstr "Cancel"
+
+#, fuzzy
+msgid "Postfinance"
+msgstr "Allow Postfinance"
+
+msgid "Proxypay"
+msgstr ""
+
+msgid "Virement"
+msgstr ""
+
+msgid "Gratuit"
+msgstr ""
+
+#, fuzzy
+msgid "Réservation"
+msgstr "my bookings"
+
+msgid "Espèces"
+msgstr ""
+
+msgid "Monnayeur"
+msgstr ""
+
+msgid "Carte bancaire"
+msgstr ""
+
+#, fuzzy
+msgid "Porte-monnaie"
+msgstr "at your disposal on your wallet"
 
 msgid "actor"
 msgstr ""
@@ -751,6 +853,12 @@ msgstr "Program"
 msgid "Shop"
 msgstr "Shop"
 
+msgid "Login"
+msgstr ""
+
+msgid "My account"
+msgstr ""
+
 msgid "Remerciements"
 msgstr "Thank you page"
 
@@ -867,9 +975,6 @@ msgstr "Change these settings only if you know what you are doing."
 msgid ""
 "Ne modifiez les valeurs ci-dessous que si vous savez ce que vous faites."
 msgstr "Change these settings only if you know what you are doing."
-
-#~ msgid "Autoriser Postfinance"
-#~ msgstr "Allow Postfinance"
 
 #~ msgid "Country"
 #~ msgstr "Country"

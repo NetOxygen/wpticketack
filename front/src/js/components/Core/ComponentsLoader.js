@@ -67,7 +67,8 @@ export default class ComponentsLoader {
                     const className = this.registeredComponents[alias];
                     const component = new className(
                         $componentItem,
-                        this.app_state
+                        this.app_state,
+                        this
                     );
                     component.attach();
                     this.attachedComponents.push(component);

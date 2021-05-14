@@ -3,9 +3,11 @@ import CartItem from './CartItem';
 import Article from './Article';
 import Screening from './Screening';
 import { Api as TKTApi } from '../Ticketack';
+import { i18n } from '../Core';
 
 import { Api } from '../Ticketack';
 import _ from 'lodash';
+import moment from 'moment';
 
 /**
  * Cart model
@@ -15,6 +17,14 @@ export default class Cart extends BaseModel {
 
     static CHECKOUT_STEP_CONFIRM       = 'confirm';
     static CHECKOUT_STEP_GO_TO_PAYMENT = 'go_to_payment';
+
+    static STATUS_PENDING_STATUS   = 'PENDING';
+    static STATUS_OPEN             = 'OPEN';
+    static STATUS_PAYING           = 'PAYING';
+    static STATUS_PAID             = 'PAID';
+    static STATUS_COMPLETED        = 'COMPLETED';
+    static STATUS_ACTIVATION_ERROR = 'ACTIVATION_ERROR';
+    static STATUS_CANCELED         = 'CANCELED';
 
     /**
      * @constructor
@@ -109,6 +119,10 @@ export default class Cart extends BaseModel {
      * @return {Number}
      */
     getTotal() {
+        if (!this.items || this.items.length == 0)
+            // loadItemsInfos has not been called
+            return this.amount / 100;
+
         return _.reduce(this.items, (memo, item) => memo + parseFloat(item.amount), 0);
     };
 
@@ -119,6 +133,51 @@ export default class Cart extends BaseModel {
     getFormattedTotal() {
         const total = this.getTotal().toFixed(2);
         return `CHF ${total}`;
+    };
+
+    /**
+     * Get this cart formatted date
+     * @return {String}
+     */
+    getFormattedDate() {
+        return moment(this.created_at).format('LL');
+    };
+
+    /**
+     * Get this cart payment method
+     * @return {String}
+     */
+    getFormattedPaymentMethod() {
+        return i18n.t(this.payment_method);
+    };
+
+    /**
+     * Get this cart status
+     * @return {String}
+     */
+    getFormattedStatus() {
+        return i18n.t(this.status);
+    };
+
+    /**
+     * Get the color to represent this cart status
+     * @return {String}
+     */
+    getStatusColorClassname() {
+        switch (this.status) {
+            case Cart.STATUS_COMPLETED:
+                return 'success';
+            case Cart.STATUS_PAYING:
+            case Cart.STATUS_PAID:
+                return 'info';
+            case Cart.STATUS_OPEN:
+            case Cart.STATUS_PENDING_STATUS:
+                return 'warning';
+            case Cart.STATUS_ACTIVATION_ERROR:
+            case Cart.STATUS_CANCELED:
+            default:
+                return 'danger';
+        }
     };
 
     /**

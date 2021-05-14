@@ -53,7 +53,30 @@ class LocalesHelper
             'EINVAL'                                                                       => tkt_t('est invalide'),
             'EISNOTOBJ'                                                                    => tkt_t('n\'est pas un objet'),
             'EISNOTARRAY'                                                                  => tkt_t('n\'est pas un tableau'),
-            'EISNOTBOOL'                                                                   => tkt_t('n\'est pas un booléen')
+            'EISNOTBOOL'                                                                   => tkt_t('n\'est pas un booléen'),
+            'PENDING_STATUS'                                                               => tkt_t('En attente'),
+            'OPEN'                                                                         => tkt_t('En cours'),
+            'PAYING'                                                                       => tkt_t('Paiement en cours'),
+            'PAID'                                                                         => tkt_t('Payée'),
+            'COMPLETED'                                                                    => tkt_t('Terminée'),
+            'ACTIVATION_ERROR'                                                             => tkt_t('Erreur'),
+            'CANCELED'                                                                     => tkt_t('Annulée'),
+            'POSTFINANCE'                                                                  => tkt_t('Postfinance'),
+            'PROXYPAY'                                                                     => tkt_t('Proxypay'),
+            'ESHOP_TRANSFER'                                                               => tkt_t('Virement'),
+            'NULL_PAYMENT'                                                                 => tkt_t('Gratuit'),
+            'LATER_PAYMENT'                                                                => tkt_t('Réservation'),
+            'POS_CASH'                                                                     => tkt_t('Espèces'),
+            'POS_CASH_COLLECTOR'                                                           => tkt_t('Monnayeur'),
+            'POS_SUMUP'                                                                    => tkt_t('Carte bancaire'),
+            'POS_OTHER_EFT'                                                                => tkt_t('Carte bancaire'),
+            'POS_ZVT_EFT'                                                                  => tkt_t('Carte bancaire'),
+            'POS_WALLET'                                                                   => tkt_t('Porte-monnaie'),
+            'POS_TRANSFER'                                                                 => tkt_t('Virement'),
+            'ACTIVATED'                                                                    => tkt_t('Activé'),
+            'NEW'                                                                          => tkt_t('Inactif'),
+            'PENDING'                                                                      => tkt_t('En attente de paiement'),
+            'BLOCKED'                                                                      => tkt_t('Bloqué')
         ];
     }
 

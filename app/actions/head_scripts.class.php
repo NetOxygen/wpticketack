@@ -59,6 +59,9 @@ class HeadScriptsAction extends TKTAction
                 "cart_url": "'.tkt_cart_url().'",
                 "cart_reset_url": "'.tkt_cart_reset_url().'",
                 "checkout_url": "'.tkt_checkout_url().'",
+                "login_url": "'.tkt_login_url().'",
+                "registration_url": "'.tkt_registration_url().'",
+                "user_account_url": "'.tkt_user_account_url().'",
                 "lang": "'.TKT_LANG.'",
                 "i18n": '.json_encode(LocalesHelper::dump_js_locales(), JSON_PRETTY_PRINT).'
             };

@@ -15,7 +15,8 @@ use Ticketack\WP\TKTApp;
  *
  * JS Input: {
  *   "user": User instance, if the user is logged in,
- *   "user_account_url": Link to see the user account
+ *   "userAccountUrl": Link to see the user account,
+ *   "registrationUrl": Link to the registration page
  * }
  */
 ?>
@@ -27,10 +28,11 @@ use Ticketack\WP\TKTApp;
                 <div class="user-infos">
                     <span><%= [user.contact.firstname, user.contact.lastname].join(' ') %></span>
                 </div>
-                <a class="btn button"href="<%= user_account_url %>">
+                <a class="btn button"href="<%= userAccountUrl %>">
                     <?= tkt_t("Mon compte") ?>
                 </a>
                 <button class="btn button logout-btn">
+                    <i class="fa fa-sign-out-alt"></i>
                     <?= tkt_t('Me déconnecter') ?>
                 </button>
             </div>
@@ -49,13 +51,24 @@ use Ticketack\WP\TKTApp;
             </div>
 
             <div class="row">
-                <div class="col text-right">
-                    <div class="error user-error d-none"></div>
-                    <button class="btn btn-primary button button-small login-btn">
+                <div class="col text-center">
+                    <div class="error user-error d-none text-center text-danger"></div>
+                    <button class="btn btn-primary button login-btn">
+                        <i class="fa fa-sign-in-alt"></i>
                         <?= tkt_t('Connexion') ?>
                     </button>
                 </div>
             </div>
+            <% if (registrationUrl) { %>
+            <hr />
+            <div class="row">
+                <div class="col text-center">
+                    <a href="<%= registrationUrl %>">
+                        <?= tkt_t('Pas encore de compte. Créez-en un !') ?>
+                    </a>
+                </div>
+            </div>
+            <% } %>
         </div>
         <% } %>
     </div>

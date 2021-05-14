@@ -35,6 +35,8 @@ var Ticketack = function(eshopUrl, apiKey, lang) {
     this.cartViewUrl           = this.eshopUrl + "cart/view/";
     this.checkoutUrl           = this.eshopUrl + "cart/validate/";
     this.ticketViewUrl         = this.eshopUrl + "ticket/view/";
+    this.ticketPdfUrl          = this.eshopUrl + "ticket/pdf/";
+    this.ticketQRCodeUrl       = this.eshopUrl + "ticket/qrcode/";
     this.passesViewUrl         = this.eshopUrl + "pass/new/";
     this.screeningViewUrl      = this.eshopUrl + "screening/buy/";
     this.screeningMapUrl       = this.eshopUrl + "screening/map/";
@@ -119,6 +121,22 @@ Ticketack.prototype.getCheckoutUrl   = function() {
  */
 Ticketack.prototype.getTicketViewUrl = function() {
     var url = this.parametrize_url(this.ticketViewUrl, {});
+    return url;
+}
+
+/**
+ * Ticket PDF url getter
+ */
+Ticketack.prototype.getTicketPdfUrl = function(_id) {
+    var url = this.parametrize_url(this.ticketPdfUrl, { 'uuid': _id });
+    return url;
+}
+
+/**
+ * Ticket QR Code url getter
+ */
+Ticketack.prototype.getTicketQRCodeUrl = function(_id) {
+    var url = this.parametrize_url(this.ticketQRCodeUrl, { 'uuid': _id });
     return url;
 }
 
@@ -398,6 +416,19 @@ Ticketack.prototype.getProfile = function(callback) {
 };
 
 /**
+ * Update current user profile
+ *
+ * @param {Object} User data
+ * @param callback
+ */
+Ticketack.prototype.updateProfile = function(user, callback) {
+    const url  = this.parametrize_url(this.profileUrl, {}, true);
+    const data = { user };
+
+    return this.put_json(url, data, callback);
+};
+
+/**
  * User authentication
  *
  * Authenticates the user
@@ -571,7 +602,7 @@ Ticketack.prototype.put = function(url, data, callback) {
  * @param {Object} data
  * @param {Function} callback
  */
-Ticketack.prototype.put = function(url, data, callback) {
+Ticketack.prototype.put_json = function(url, data, callback) {
     return this.request('PUT', url, data, {'Content-type': 'application/json'}, callback);
 };
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-30 00:58+0200\n"
+"POT-Creation-Date: 2021-05-03 02:23+0200\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Belkacem Alidra <belkacem.alidra@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -270,6 +270,24 @@ msgstr ""
 msgid "Complet !"
 msgstr ""
 
+msgid "Mon compte"
+msgstr ""
+
+msgid "Me déconnecter"
+msgstr ""
+
+msgid "Identifiant"
+msgstr ""
+
+msgid "Mot de passe"
+msgstr ""
+
+msgid "Connexion"
+msgstr ""
+
+msgid "Pas encore de compte. Créez-en un !"
+msgstr ""
+
 msgid "Saisissez vos informations personnelles"
 msgstr ""
 
@@ -294,7 +312,7 @@ msgstr ""
 msgid "Votre numéro de téléphone"
 msgstr ""
 
-msgid "Mot de passe"
+msgid "j F Y"
 msgstr ""
 
 msgid "Choisissez un mot de passe"
@@ -309,10 +327,37 @@ msgstr ""
 msgid "Créer mon compte"
 msgstr ""
 
-msgid "Voir mes réservations"
+msgid "Mes abonnements"
 msgstr ""
 
-msgid "Me déconnecter"
+msgid "Mes informations"
+msgstr ""
+
+msgid "Mes réservations"
+msgstr ""
+
+msgid "Mes commandes"
+msgstr ""
+
+msgid "Vous n'avez pas encore de commande."
+msgstr ""
+
+msgid "#"
+msgstr ""
+
+msgid "Date"
+msgstr ""
+
+msgid "Prix total"
+msgstr ""
+
+msgid "Paiement"
+msgstr ""
+
+msgid "Statut"
+msgstr ""
+
+msgid "Voir mes réservations"
 msgstr ""
 
 msgid "Connectez-vous !"
@@ -507,6 +552,55 @@ msgid "n'est pas un tableau"
 msgstr ""
 
 msgid "n'est pas un booléen"
+msgstr ""
+
+msgid "En attente"
+msgstr ""
+
+msgid "En cours"
+msgstr ""
+
+msgid "Paiement en cours"
+msgstr ""
+
+msgid "Payée"
+msgstr ""
+
+msgid "Terminée"
+msgstr ""
+
+msgid "Erreur"
+msgstr ""
+
+msgid "Annulée"
+msgstr ""
+
+msgid "Postfinance"
+msgstr ""
+
+msgid "Proxypay"
+msgstr ""
+
+msgid "Virement"
+msgstr ""
+
+msgid "Gratuit"
+msgstr ""
+
+#, fuzzy
+msgid "Réservation"
+msgstr "Enregistrement"
+
+msgid "Espèces"
+msgstr ""
+
+msgid "Monnayeur"
+msgstr ""
+
+msgid "Carte bancaire"
+msgstr ""
+
+msgid "Porte-monnaie"
 msgstr ""
 
 msgid "actor"
@@ -729,6 +823,12 @@ msgid "Programme"
 msgstr ""
 
 msgid "Shop"
+msgstr ""
+
+msgid "Login"
+msgstr ""
+
+msgid "My account"
 msgstr ""
 
 msgid "Remerciements"

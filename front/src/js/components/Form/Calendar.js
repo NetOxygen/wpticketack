@@ -21,7 +21,9 @@ export default class Calendar extends Component {
     constructor($container, state) {
         super($container, state);
 
-        this.date_format = this.$container.data('date-format') || 'd.m.Y';
+        this.dateFormat  = this.$container.data('date-format') || 'Y-m-d';
+        this.altFormat   = this.$container.data('alt-format') || this.dateFormat;
+        this.defaultDate = this.$container.data('default-date') || '';
     }
 
     attach() {
@@ -43,7 +45,10 @@ export default class Calendar extends Component {
     init() {
         flatpickr(this.$container, {
             locale: this.get_locale(),
-            dateFormat: this.date_format
+            altInput: true,
+            dateFormat: this.dateFormat,
+            altFormat: this.altFormat,
+            defaultDate: this.defaultDate,
         });
     }
 }

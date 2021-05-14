@@ -11,7 +11,7 @@ import { Filter as ProgramFilter } from './components/Program';
 import { FilterRows as ProgramFilterRows } from './components/Program';
 import { Filters as ProgramFilters } from './components/Program';
 import { PlusMinus } from './components/Ui';
-import { UserRegister, UserLogin, UserConnect } from './components/User';
+import { UserRegister, UserLogin, UserAccount, UserConnect } from './components/User';
 import { Calendar, ImageDataUrl } from './components/Form';
 import { Shop } from './components/Shop';
 
@@ -41,6 +41,7 @@ loader.registerComponent('Program/FilterRows', ProgramFilterRows);
 loader.registerComponent('Program/Filters', ProgramFilters);
 loader.registerComponent('Ui/PlusMinus', PlusMinus);
 loader.registerComponent('User/UserLogin', UserLogin);
+loader.registerComponent('User/UserAccount', UserAccount);
 loader.registerComponent('User/UserConnect', UserConnect);
 loader.registerComponent('User/UserRegister', UserRegister);
 loader.registerComponent('Shop/Shop', Shop);

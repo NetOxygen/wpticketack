@@ -1,4 +1,4 @@
-import { Component, i18n, Invalid } from '../Core';
+import { Component, i18n, Invalid, Config } from '../Core';
 import { Api as TKTApi } from '../Ticketack';
 import serialize from 'form-serialize';
 
@@ -18,6 +18,8 @@ export default class UserRegister extends Component {
      */
     constructor($container, state) {
         super($container, state);
+
+        this.loginUrl = Config.get('login_url');
 
         this.$form            = $('form', this.$container);
         this.$fieldsWrapper   = $('#registration-fields', this.$container);
@@ -54,7 +56,6 @@ export default class UserRegister extends Component {
         if (userdata.user.password != userdata.user.password2)
             return this.show_error(i18n.t('Les mots de passe ne correspondent pas.'));
 
-        delete(userdata.user.password2);
         delete(userdata.user.contact.email2);
 
         TKTApi.register(userdata, (err, status, rsp) => {
@@ -63,7 +64,7 @@ export default class UserRegister extends Component {
                 return this.show_error(i18n.t('Une erreur est survenue. Veuillez ré-essayer ultérieurement.'));
 
             if (rsp.success)
-                return this.show_success(i18n.t('Votre compte a bien été créé'));
+                return this.show_success();
 
             if (rsp.invalid)
                 this.show_error(Invalid.interpret(rsp.invalid).join('<br/>'));
@@ -71,14 +72,14 @@ export default class UserRegister extends Component {
     }
 
     reset_messages() {
-        $('.alert-success', this.$container).html("").hide();
+        $('.alert-success', this.$container).hide();
         $('.alert-danger', this.$container).html("").hide();
     }
 
-    show_success(msg) {
+    show_success() {
         this.$fieldsWrapper.hide();
         this.$submitWrapper.hide();
-        $('.alert-success', this.$container).html(msg).show();
+        $('.alert-success', this.$container).show();
     }
 
     show_error(msg) {

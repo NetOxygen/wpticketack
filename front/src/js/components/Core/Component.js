@@ -23,10 +23,12 @@ export default class Component {
      * @constructor
      * @param {DOMElement} $container - The DOM node to attach this component to
      * @param {State} $container - The global state
+     * @param {ComponentsLoader} $loader - The global components loader
      */
-    constructor($container, state) {
+    constructor($container, state, loader) {
         this.$container = $container;
         this.state      = state;
+        this.loader     = loader;
         this.uniqid     = moment().format('HHmmssSSSSSSSSS') +
             '' + Math.floor((Math.random() * 100000) + 1);
     }
