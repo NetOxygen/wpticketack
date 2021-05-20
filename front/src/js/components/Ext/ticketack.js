@@ -16,7 +16,7 @@
  *     - Register, login and logout user
  *     - Get current user profile
  *
- * @version 5.4.0 - 2021-05-02
+ * @version 5.4.1 - 2021-05-20
  *
  * @copyright NetOxygen 2015-2021
  *
@@ -67,6 +67,12 @@ var Ticketack = function(eshopUrl, apiKey, lang) {
     this.logoutTicketUrl       = this.eshopUrl + "ticket/disable_book_mode_json/";
     this.updateTicketEmailUrl  = this.eshopUrl + "tickets/contact_email/";
     this.passesUrl             = this.eshopUrl + "pass/tickettypes_json/";
+
+    window.addEventListener('message', (e) => {
+        if ('session_id' in e.data) {
+            this.set_session_id(e.data.session_id);
+        }
+    });
 };
 
 /**
