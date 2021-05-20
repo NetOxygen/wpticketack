@@ -87,7 +87,7 @@ export default class BookingForm extends Component {
 
     listen_to_message() {
         window.addEventListener('message', e => {
-            if (e.data.action === 'tkt::go_to_cart') {
+            if (e.data.action === 'tkt::map:close') {
                 switch (this.redirect) {
                     case 'checkout':
                         window.location.href = this.checkout_url;
