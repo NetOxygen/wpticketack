@@ -25,8 +25,8 @@ export default class BookingForm extends Component {
      * @param {DOMElement} $container - The DOM node to attach this component to
      * @param {State} $container - The global state
      */
-    constructor($container, state) {
-        super($container, state);
+    constructor($container, state, loader) {
+        super($container, state, loader);
 
         this.initialized = false;
 
@@ -278,7 +278,7 @@ export default class BookingForm extends Component {
         this.build_success_panel();
     }
 
-    build_dates_form() {
+    build_dates_form() { 
         // render template
         this.$dates_form.html(Template.render('tkt-booking-form-dates-tpl', {
             screenings: this.data.screenings,
@@ -286,7 +286,7 @@ export default class BookingForm extends Component {
 
         // bind dates choices
         $('.dates-wrapper .date').click((e) => {
-            let $date = $(e.target);;
+            let $date = $(e.target);
             if (!$date.data('screening_id'))
                 $date = $date.closest('[data-screening_id]');
             this.select_screening($date.data('screening_id'));
@@ -295,6 +295,12 @@ export default class BookingForm extends Component {
         if ($('.days-wrapper')) {
             $('.days-wrapper .day').click((e) => {
                 this.select_day($(e.target).data('day'));
+            });
+        }
+
+        if ($('.days-wrapper #calendar')) {
+            $('#calendar').change((e) => {
+                this.select_day($('#calendar').val());
             });
         }
 
@@ -316,6 +322,8 @@ export default class BookingForm extends Component {
             this.select_day(d_to_select);
             this.select_screening(s_to_select);
         }
+
+        this.loader.attach();
     }
 
     build_tickets_form() {
@@ -408,7 +416,7 @@ export default class BookingForm extends Component {
 
         $('.dates-wrapper .date').hide();
         $('.dates-wrapper .date[data-day="' + day + '"]').show();
-    }
+   }
 
     select_day (day) {
         this.activate_day(day);
@@ -418,6 +426,16 @@ export default class BookingForm extends Component {
         if (data_screening_id) {
             const first_screening = data_screening_id.split(',')[0];
             this.select_screening(first_screening);
+        } else {
+            //by calendar
+            if (day) {
+                const date = moment(day).format("dddd D MMMM");
+                this.activate_day(date);
+
+                const screening_id = $('.dates-wrapper span[data-day="' + date + '"]').attr('data-screening_id');
+                this.select_screening(screening_id);
+                this.activate_screening(screening_id);
+            }
         }
     }
 

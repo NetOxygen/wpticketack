@@ -18,6 +18,63 @@
                 text-align: center;
                 cursor: pointer;
             }
+
+            .flatpickr-rContainer {
+                width: 100%;
+            }
+
+            .flatpickr-calendar.animate.inline {
+                width: 100%;
+            }
+
+            .flatpickr-days {
+                width: 100%;
+            }
+
+            .dayContainer {
+                min-width: 100% !important;
+                text-align: center;
+            }
+
+            .flatpickr-day {
+                max-width: 12%;
+                margin: 3px;
+                border-radius: 4px;
+                border: 2px solid #f1f1f1
+            }
+
+            .flatpickr-monthDropdown-months {
+                width: 50% !important;
+                text-align: center;
+            }
+
+            .numInputWrapper {
+               width: 50%;
+            }
+
+            .numInput.cur-year {
+                text-align: center;
+            }
+
+            .tkt-input.form-control.data-field.input {
+                text-align: center;
+            }
+
+            input.tkt-input.form-control.data-field.input {
+                border-bottom-right-radius: 0;
+                border-bottom-left-radius: 0;
+                border: none;
+            }
+
+            .flatpickr-calendar.inline {
+                display: block;
+                position: relative;
+                border-top-left-radius: 0;
+                border-top-right-radius: 0;
+                top: 0;
+                margin-left: 1px;
+                margin-right: 1px;
+            }
         }
 
         .dates-wrapper {

@@ -24,6 +24,8 @@ export default class Calendar extends Component {
         this.dateFormat  = this.$container.data('date-format') || 'Y-m-d';
         this.altFormat   = this.$container.data('alt-format') || this.dateFormat;
         this.defaultDate = this.$container.data('default-date') || '';
+        this.enable      = this.$container.data('enable') || '';
+        this.inline      = this.$container.data('inline') || false;
     }
 
     attach() {
@@ -49,6 +51,8 @@ export default class Calendar extends Component {
             dateFormat: this.dateFormat,
             altFormat: this.altFormat,
             defaultDate: this.defaultDate,
+            enable: this.enable.split(','),
+            inline: this.inline,
         });
     }
 }

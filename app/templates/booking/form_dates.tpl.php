@@ -16,12 +16,21 @@ use Ticketack\WP\TKTApp;
 <%
     var m = {};
     _.forEach(screenings, function(s) {
-        var day = s.start_at.format("dddd Do MMMM");
+        var day = s.start_at.format("dddd D MMMM");
         if (!m[day])
             m[day] = [];
         m[day].push(s);
     });
+
+
+    var dates = [];
+    _.forEach(screenings, function(s) {
+        var day = s.start_at.format("YYYY-MM-DD");
+        if (!dates.includes(day))
+            dates.push(day);
+    });
 %>
+
 <div class="tkt-wrapper">
     <div class="row">
         <div class="col">
@@ -29,14 +38,28 @@ use Ticketack\WP\TKTApp;
                 <?= tkt_t('Veuillez choisir la date désirée :') ?>
             </span>
             <div class="days-wrapper">
-                <% _.forEach(Object.keys(m), function(day) { %>
-                <span
-                    class="tkt-badge tkt-light-badge day"
-                    data-day="<%= day %>"
-                    data-screening_id="<%= _.map(m[day], function (s) { return s._id; }).join(',') %>">
-                    <%= day %>
-                </span>
-                <% }) %>
+                <% if (Object.keys(m).length > 6) { %>
+                    <input 
+                        id="calendar"
+                        type="text"
+                        class="tkt-input form-control data-field"
+                        data-component="Form/Calendar"
+                        required 
+                        data-alt-format="<?= tkt_t('l j F') ?>" 
+                        data-enable="<%= dates.join(',') %>"
+                        data-inline="true"
+                    />
+
+                <% } else { %>
+                    <% _.forEach(Object.keys(m), function(day) { %>
+                    <span
+                        class="tkt-badge tkt-light-badge day"
+                        data-day="<%= day %>"
+                        data-screening_id="<%= _.map(m[day], function (s) { return s._id; }).join(',') %>">
+                        <%= day %>
+                    </span>
+                    <% }) %>
+                <% } %>
             </div>
 
             <br/>
