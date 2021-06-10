@@ -1,17 +1,31 @@
-.tkt-user-connect {
-    .user-infos {
+.tkt-ticket-connect {
+    .ticket-infos {
         text-align: center;
-        text-transform: uppercase;
         display: block;
         margin-bottom: 0.5rem;
     }
     .connect-panel {
         text-align: center;
 
+        input#pass-id, input#pass-code {
+            width: 40%;
+            height: 40px;
+        }
+        .input-pass {
+            justify-content: center;
+        }
+        .ticketid_ticket {
+            font-family: Roboto,"Segoe UI", "Helvetica Neue",Arial,"Noto Sans",sans-serif;
+            color: #e34449;
+        }
+        .ticketid_id {
+            font-family: Roboto,"Segoe UI", "Helvetica Neue",Arial,"Noto Sans",sans-serif;
+            color: #000;
+            font-style: italic;
+            font-weight: bold;
+        }
         span {
-            text-transform: uppercase;
             line-height: 1.2rem;
-            display: block;
         }
         input {
             width: 100%;

@@ -79,6 +79,7 @@ $app->register_shortcode('Ticketack\WP\Shortcodes\UserAccountShortcode', 'user_a
 $app->register_shortcode('Ticketack\WP\Shortcodes\UserConnectShortcode', 'user_connect.class.php');
 $app->register_shortcode('Ticketack\WP\Shortcodes\BuyPassShortcode', 'buy_pass.class.php');
 $app->register_shortcode('Ticketack\WP\Shortcodes\PeopleShortcode', 'people.class.php');
+$app->register_shortcode('Ticketack\WP\Shortcodes\TicketConnectShortcode', 'ticket_connect.class.php');
 
 // Register shortcodes defined in THEME_ROOT/ticketack/shortcodes
 $app->register_theme_shortcodes();

@@ -4,16 +4,16 @@ import { Ticket } from '../Models';
 import postal from 'postal';
 
 /**
- * Show a user connection widget
+ * Show a ticket connection widget
  *
  * Usage:
  *
  * <div
  *    <!-- Required -->
- *    data-component="User/UserConnect"
+ *    data-component="Tcket/TicketConnect"
  * >
  */
-export default class UserConnect extends Component {
+export default class TicketConnect extends Component {
     /**
      * @constructor
      */
@@ -61,7 +61,7 @@ export default class UserConnect extends Component {
     }
 
     connect_pass() {
-        $('.user-connect-error', this.$container).html("").addClass('d-none');
+        $('.ticket-connect-error', this.$container).html("").addClass('d-none');
 
         if (!this.data.pass_infos.number || !this.data.pass_infos.key)
             return $('.pass-error')
@@ -100,7 +100,7 @@ export default class UserConnect extends Component {
 
     render(ticket) {
         const ticket_view_url = TKTApi.getTicketViewUrl();
-        this.$container.html(Template.render('tkt-user-connect-tpl', { ticket, ticket_view_url }));
+        this.$container.html(Template.render('tkt-ticket-connect-tpl', { ticket, ticket_view_url }));
 
         // bind pass fields
         $('.pass-number-input,.pass-key-input', this.$container).change((e) => {

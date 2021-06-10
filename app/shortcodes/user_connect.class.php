@@ -30,9 +30,6 @@ class UserConnectShortcode extends TKTShortcode
      */
     public function run($atts, $content)
     {
-        return TKTTemplate::render(
-            'user/user_connect',
-            (object)[]
-        );
+        return do_shortcode('[tkt_ticket_connect deprecated=true show_id_code_message=true][/tkt_ticket_connect]');
     }
 }
