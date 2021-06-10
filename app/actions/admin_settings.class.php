@@ -70,8 +70,16 @@ class AdminSettingsAction extends TKTAction
 
         add_settings_field(
             'shop', // ID
-            tkt_t('Shop'), // Title
+            tkt_t('Articles'), // Title
             array( $this, 'shop_callback' ), // Callback
+            'ticketack-pages', // Page
+            'ticketack_pages' // Section
+        );
+
+        add_settings_field(
+            'pass', // ID
+            tkt_t('Abonnements'), // Title
+            array( $this, 'pass_callback' ), // Callback
             'ticketack-pages', // Page
             'ticketack_pages' // Section
         );
@@ -102,7 +110,7 @@ class AdminSettingsAction extends TKTAction
 
         add_settings_field(
             'login', // ID
-            tkt_t('Login'), // Title
+            tkt_t('Connexion'), // Title
             array( $this, 'login_callback' ), // Callback
             'ticketack-pages', // Page
             'ticketack_pages' // Section
@@ -110,7 +118,7 @@ class AdminSettingsAction extends TKTAction
 
         add_settings_field(
             'account', // ID
-            tkt_t('My account'), // Title
+            tkt_t('Mon compte'), // Title
             array( $this, 'account_callback' ), // Callback
             'ticketack-pages', // Page
             'ticketack_pages' // Section
@@ -417,6 +425,7 @@ class AdminSettingsAction extends TKTAction
     }
     public function program_callback() { return $this->page_choice('program', 'tkt_pages', 'program'); }
     public function shop_callback() { return $this->page_choice('shop', 'tkt_pages', 'shop'); }
+    public function pass_callback() { return $this->page_choice('pass', 'tkt_pages', 'pass'); }
     public function cart_callback() { return $this->page_choice('cart', 'tkt_pages', 'cart'); }
     public function checkout_callback() { return $this->page_choice('checkout', 'tkt_pages', 'checkout'); }
     public function registration_callback() { return $this->page_choice('registration', 'tkt_pages', 'registration'); }

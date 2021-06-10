@@ -251,6 +251,10 @@ function tkt_thank_you_url($query = "")
  */
 function tkt_buy_pass_url()
 {
+    $slug = TKTApp::get_instance()->get_config('pages.pass');
+    if (!empty($slug)) {
+        return tkt_page_url($slug, $query);
+    }
     return sprintf(
         "%s/pass/new",
         TKTApp::get_instance()->get_config('ticketack.eshop_uri')
