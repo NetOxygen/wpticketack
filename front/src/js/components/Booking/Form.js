@@ -30,7 +30,7 @@ export default class BookingForm extends Component {
 
         this.initialized = false;
 
-        this.ids                = this.$container.data('ids').split(',');
+        this.ids                = (this.$container.data('ids') || '').toString().split(',');
         this.redirect           = this.$container.data('redirect');
         this.cart_url           = this.$container.data('cart-url');
         this.checkout_url       = this.$container.data('checkout-url');
