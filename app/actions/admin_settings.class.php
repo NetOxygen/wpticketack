@@ -296,8 +296,16 @@ class AdminSettingsAction extends TKTAction
 
         add_settings_field(
             'requested_pass_owner_data', // ID
-            tkt_t('Champs à saisir pour chaque type d\'abonnement'), // Title
+            tkt_t('Informations optionnelles à saisir pour chaque type d\'abonnement'), // Title
             array( $this, 'requested_pass_owner_data_callback' ), // Callback
+            'ticketack-pass', // Page
+            'ticketack_pass' // Section
+        );
+
+        add_settings_field(
+            'required_pass_owner_data', // ID
+            tkt_t('Informations obligatoires à saisir pour chaque type d\'abonnement'), // Title
+            array( $this, 'required_pass_owner_data_callback' ), // Callback
             'ticketack-pass', // Page
             'ticketack_pass' // Section
         );
@@ -514,6 +522,7 @@ class AdminSettingsAction extends TKTAction
         print tkt_t("Configuration de la vente d'abonnements.");
     }
     public function requested_pass_owner_data_callback() { return $this->textarea('requested_pass_owner_data', 'tkt_pass'); }
+    public function required_pass_owner_data_callback() { return $this->textarea('required_pass_owner_data', 'tkt_pass'); }
 
     /**
      * Print the Section text
