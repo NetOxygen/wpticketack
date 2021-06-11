@@ -52,7 +52,7 @@ if (!function_exists('r')) {
           <fieldset>
             <h3 class="tkt-section-title"><?= tkt_t("Vos données de facturation") ?></h3>
             <div class="row">
-              <?php if (in_array('firstname', $requested_fields)) : ?>
+              <?php if (in_array('firstname', $requested_fields) || in_array('firstname', $required_fields)) : ?>
               <div id="field-wrapper-firstname" class="field-wrapper col-md-6" style="display: block;">
                 <div class="form-group">
                    <label class="<?= r($required_fields, 'firstname') ?>" for="firstname"><?= tkt_t("Prénom"); ?></label>
@@ -61,7 +61,7 @@ if (!function_exists('r')) {
               </div>
               <?php endif; ?>
 
-              <?php if (in_array('lastname', $requested_fields)) : ?>
+              <?php if (in_array('lastname', $requested_fields) || in_array('lastname', $required_fields)) : ?>
               <div id="field-wrapper-lastname" class="field-wrapper col-md-6" style="display: block;">
                 <div class="form-group">
                   <label class="<?= r($required_fields, 'lastname') ?>" for="lastname"><?= tkt_t("Nom"); ?></label>
@@ -70,7 +70,7 @@ if (!function_exists('r')) {
               </div>
               <?php endif; ?>
 
-              <?php if (in_array('email', $requested_fields)) : ?>
+              <?php if (in_array('email', $requested_fields) || in_array('email', $required_fields)) : ?>
               <div id="field-wrapper-email" class="field-wrapper col-6" style="display: block;">
                 <div class="form-group">
                   <label class="<?= r($required_fields, 'email') ?>" for="email"><?= tkt_t("Adresse e-mail"); ?></label>
@@ -85,14 +85,14 @@ if (!function_exists('r')) {
               </div>
               <?php endif; ?>
 
-              <?php if (in_array('address', $requested_fields)) : ?>
+              <?php if (in_array('address', $requested_fields) || in_array('address', $required_fields)) : ?>
               <div id="field-wrapper-address" class="field-wrapper form-group col-12">
                 <label class="<?= r($required_fields, 'address') ?>" for="address"><?= tkt_t("Adresse"); ?></label>
                 <textarea name="user[address]" class="tkt-input form-control data-field" id="address" placeholder="<?= tkt_t("Votre adresse") ?>" <?= r($required_fields, 'address') ?>></textarea>
               </div>
               <?php endif; ?>
 
-              <?php if (in_array('zip', $requested_fields)) : ?> <div id="field-wrapper-zip" class="field-wrapper col-md-6">
+              <?php if (in_array('zip', $requested_fields) || in_array('zip', $required_fields)) : ?> <div id="field-wrapper-zip" class="field-wrapper col-md-6">
                 <div class="form-group">
                   <label class="<?= r($required_fields, 'zip') ?>" for="zip"><?= tkt_t("Numéro postal"); ?></label>
                   <input name="user[zip]" type="text" class="tkt-input form-control data-field" id="zip" placeholder="<?= tkt_t("NPA") ?>" <?= r($required_fields, 'zip') ?> />
@@ -100,7 +100,7 @@ if (!function_exists('r')) {
               </div>
               <?php endif; ?>
 
-              <?php if (in_array('city', $requested_fields)) : ?>
+              <?php if (in_array('city', $requested_fields) || in_array('city', $required_fields)) : ?>
               <div id="field-wrapper-city" class="field-wrapper col-md-6">
                 <div class="form-group">
                   <label class="<?= r($required_fields, 'city') ?>" for="city"><?= tkt_t("Ville"); ?></label>
@@ -109,7 +109,7 @@ if (!function_exists('r')) {
               </div>
               <?php endif; ?>
 
-              <?php if (in_array('country', $requested_fields)) : ?>
+              <?php if (in_array('country', $requested_fields) || in_array('country', $required_fields)) : ?>
               <div id="field-wrapper-country" class="field-wrapper form-group col-6">
                 <label class="<?= r($required_fields, 'country') ?>" for="country"><?= tkt_t("Pays"); ?></label>
                 <select name="user[country]" id="country" class="tkt-input form-control data-field" <?= r($required_fields, 'country') ?>>
@@ -121,21 +121,21 @@ if (!function_exists('r')) {
               </div>
               <?php endif; ?>
 
-              <?php if (in_array('phone', $requested_fields)) : ?>
+              <?php if (in_array('phone', $requested_fields) || in_array('phone', $required_fields)) : ?>
               <div id="field-wrapper-phone" class="field-wrapper form-group col-6">
                 <label class="<?= r($required_fields, 'phone') ?>" for="phone"><?= tkt_t("Téléphone fixe"); ?></label>
                 <input name="user[phone]" type="tel" class="tkt-input form-control data-field" id="phone" placeholder="<?= tkt_t("Votre numéro de téléphone") ?>" <?= r($required_fields, 'phone') ?> />
               </div>
               <?php endif; ?>
 
-              <?php if (in_array('cellphone', $requested_fields)) : ?>
+              <?php if (in_array('cellphone', $requested_fields) || in_array('cellphone', $required_fields)) : ?>
               <div id="field-wrapper-cellphone" class="field-wrapper form-group col-6">
                 <label class="<?= r($required_fields, 'cellphone') ?>" for="cellphone"><?= tkt_t("Téléphone portable"); ?></label>
                 <input name="user[cellphone]" type="tel" class="tkt-input form-control data-field" id="cellphone" placeholder="<?= tkt_t("Votre numéro de téléphone") ?>" <?= r($required_fields, 'cellphone') ?> />
               </div>
               <?php endif; ?>
 
-              <?php if (in_array('age', $requested_fields)) : ?>
+              <?php if (in_array('age', $requested_fields) || in_array('age', $required_fields)) : ?>
               <div id="field-wrapper-age" class="field-wrapper form-group col-6">
                 <label class="<?= r($required_fields, 'age') ?>" for="age"><?= tkt_t("Âge"); ?></label>
                 <select name="user[age]" id="age" class="tkt-input form-control data-field" <?= r($required_fields, 'age') ?>>
@@ -147,7 +147,7 @@ if (!function_exists('r')) {
               </div>
               <?php endif; ?>
 
-              <?php if (in_array('birthdate', $requested_fields)) : ?>
+              <?php if (in_array('birthdate', $requested_fields) || in_array('birthdate', $required_fields)) : ?>
                 <div class="row">
                   <div id="field-wrapper-birthdate" class="col-md-12 field-wrapper form-group">
                     <label class="required" for="birthdate"><?= tkt_t('Date de naissance') ?></label>
@@ -156,7 +156,7 @@ if (!function_exists('r')) {
                 </div>
               <?php endif; ?>
 
-              <?php if (in_array('sex', $requested_fields)) : ?>
+              <?php if (in_array('sex', $requested_fields) || in_array('sex', $required_fields)) : ?>
               <div id="field-wrapper-sex" class="field-wrapper form-group col-6">
                 <label class="<?= r($required_fields, 'sex') ?>" for="sex"><?= tkt_t("Genre"); ?></label>
                 <select name="user[sex]" id="sex" class="tkt-input form-control data-field" <?= r($required_fields, 'sex') ?>>
