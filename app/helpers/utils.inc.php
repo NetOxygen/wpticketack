@@ -494,40 +494,12 @@ function tkt_get_countries()
     ];
 }
 
-function tkt_pass_requested_fields($type)
-{
-    static $required_fields = null;
-
-    if ($requested_fields === null) {
-        $requested_fields_data = TKTApp::get_instance()->get_config('pass.requested_pass_owner_data');
-        if (empty($requested_fields_data)) {
-            return [];
-        }
-
-        $lines           = array_map('trim', explode(PHP_EOL, $requested_fields_data));
-        $requested_fields = [];
-        foreach ($lines as $l) {
-            $parts = explode(':', $l);
-            if (count($parts) != 2) {
-                continue;
-            }
-            $requested_fields[trim($parts[0])] = array_map('trim', explode(',', $parts[1]));
-        }
-    }
-
-    if (in_array($type, array_keys($requested_fields))) {
-        return $requested_fields[$type];
-    }
-
-    return $requested_fields['default'];
-}
-
 function tkt_pass_required_fields($type)
 {
     static $required_fields = null;
 
     if ($required_fields === null) {
-        $required_fields_data = TKTApp::get_instance()->get_config('pass.required_pass_owner_data');
+        $required_fields_data = TKTApp::get_instance()->get_config('pass.requested_pass_owner_data');
         if (empty($required_fields_data)) {
             return [];
         }
