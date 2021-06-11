@@ -123,7 +123,7 @@ use Ticketack\WP\TKTApp;
                     <?php
                       $sexes = tkt_get_sexes();
                       foreach ($sexes as $sex_key => $sex_value) {
-                          echo '<option value="'.$sex_key.'>'.$sex_value.'</option>';
+                          echo '<option value="'.$sex_key.'">'.$sex_value.'</option>';
                       }
                     ?>
                 </select>
