@@ -93,7 +93,7 @@ if (!function_exists('r')) {
 
               <?php if (in_array('phone', $requested_fields)) : ?>
               <div id="field-wrapper-phone" class="field-wrapper form-group col-6">
-                <label class="<?= r($required_fields, 'phone') ?>" for="phone"><?= tkt_t("Téléphone fixe"); ?></label>
+                <label class="<?= r($required_fields, 'phone') ?>" for="phone"><?= tkt_t("Téléphone"); ?></label>
                 <input name="user[contact][phone]" type="tel" class="tkt-input form-control data-field" id="phone" placeholder="<?= tkt_t("Votre numéro de téléphone") ?>" <?= r($required_fields, 'phone') ?> />
               </div>
               <?php endif; ?>

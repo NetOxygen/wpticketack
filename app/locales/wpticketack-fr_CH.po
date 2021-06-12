@@ -92,9 +92,6 @@ msgstr ""
 msgid "Pays"
 msgstr ""
 
-msgid "Téléphone fixe"
-msgstr ""
-
 msgid "Téléphone portable"
 msgstr ""
 

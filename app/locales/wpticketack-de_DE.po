@@ -92,11 +92,11 @@ msgstr "City"
 msgid "Pays"
 msgstr "Land"
 
-msgid "Téléphone fixe"
-msgstr "Fix phone"
+msgid "Téléphone"
+msgstr "Phone"
 
 msgid "Téléphone portable"
-msgstr "Cellular phone"
+msgstr "Cellphone"
 
 msgid "Âge"
 msgstr "Age"
@@ -521,7 +521,6 @@ msgstr "on your wallet"
 msgid "Montant trop élevé"
 msgstr "Amount too high"
 
-#, fuzzy
 msgid "E-mail"
 msgstr "Email"
 
@@ -531,11 +530,8 @@ msgstr ""
 msgid "Code postal"
 msgstr "Zip"
 
-msgid "Téléphone"
-msgstr "Fix phone"
-
 msgid "Télépĥone portable"
-msgstr "Cellular phone"
+msgstr "Cellphone"
 
 msgid "Sexe"
 msgstr "Geschlecht"

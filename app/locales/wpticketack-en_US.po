@@ -92,11 +92,8 @@ msgstr "City"
 msgid "Pays"
 msgstr "Country"
 
-msgid "Téléphone fixe"
-msgstr "Fix phone"
-
 msgid "Téléphone portable"
-msgstr "Cellular phone"
+msgstr "Cellphone"
 
 msgid "Âge"
 msgstr "Age"
@@ -522,7 +519,6 @@ msgstr "on your wallet"
 msgid "Montant trop élevé"
 msgstr "Amount too high"
 
-#, fuzzy
 msgid "E-mail"
 msgstr "Email"
 
@@ -597,7 +593,7 @@ msgid "Erreur"
 msgstr "Error"
 
 msgid "Annulée"
-msgstr "Cancelled
+msgstr "Cancelled"
 
 msgid "Postfinance"
 msgstr "Postfinance"
