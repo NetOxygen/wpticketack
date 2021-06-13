@@ -45,6 +45,7 @@ var Ticketack = function(eshopUrl, apiKey, lang) {
     this.cartRemoveUrl         = this.eshopUrl + "cart/remove";
     this.cartResetUrl          = this.eshopUrl + "cart/reset";
     this.cartAddUrl            = this.eshopUrl + "screening/buy/";
+    this.cartAddScreeningUrl   = this.eshopUrl + "screenings/add_to_cart";
     this.cartAddArticlesUrl    = this.eshopUrl + "articles/add_to_cart";
     this.cartUsePromoCodeUrl   = this.eshopUrl + "carts/use_promo_code";
     this.cartUseWalletUrl      = this.eshopUrl + "carts/add_wallet_operation";
@@ -206,6 +207,8 @@ Ticketack.prototype.getScreeningsInfo = function(screening_refs, callback) {
 /**
  * Add a screening to cart
  *
+ * @deprecated
+ *
  * @param {UUID|Number} screening_id: The screening ID
  * @param {Object} pricing: An object containing pricing properties. Ex: {"reduced": 1, "fullprice": 2}
  * @param {Function} callback: The callback function
@@ -215,7 +218,50 @@ Ticketack.prototype.addToCart = function(screening_id, pricing, callback) {
         "id":        screening_id,
         "pricing":   pricing || {}
     };
+    console.warn('Ticketack.addToCart() is deprecated. Please use Ticketack.addScreeningToCart().');
     return this.post(this.cartAddUrl + screening_id, data, callback);
+};
+
+/**
+ * Add a screening to cart
+ *
+ * @param {UUID|Number} screening_id: The screening ID
+ * @param {Array} bookings: An array of objects with the following properties:
+ *  {
+ *      "pricing": "pricing key",
+ *      "seat": "seat label",       // optional
+ *      "user_data": {              // optional
+ *          "firstname" => "",
+ *          "lastname" => "",
+ *          "email" => "",
+ *          "email2" => "",
+ *          "address" => "",
+ *          "city" => "",
+ *          "zip" => "",
+ *          "country" => "",
+ *          "age" => "",
+ *          "sex" => "",
+ *          "phone" => "",
+ *          "cellphone" => "",
+ *          "language" => "",
+ *          "birthdate" => "",
+ *          "newsletter" => "",
+ *          "survey" => "",
+ *          "conditions" => "",
+ *          "tab" => "",
+ *          "comment" => ""
+ *      }
+ *  }
+ * @param {Boolean} overbook: Set true to try to overbook if needed
+ * @param {Function} callback: The callback function
+ */
+Ticketack.prototype.addScreeningToCart = function(screening_id, bookings, overbook, callback) {
+    var data = {
+        "screening_id": screening_id,
+        "bookings": bookings,
+        "overbook": overbook
+    };
+    return this.post_json(this.cartAddScreeningUrl, data, callback);
 };
 
 /**

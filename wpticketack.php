@@ -60,6 +60,7 @@ $app->register_action('Ticketack\WP\Actions\SyncPeopleAction', 'sync_people.clas
 $app->register_action('Ticketack\WP\Actions\TranslationAction', 'translation.class.php');
 $app->register_action('Ticketack\WP\Actions\CustomTypesAction', 'custom_types.class.php');
 $app->register_shortcode('Ticketack\WP\Shortcodes\BookingFormShortcode', 'booking_form.class.php');
+$app->register_shortcode('Ticketack\WP\Shortcodes\BookingWizardShortcode', 'booking_wizard.class.php');
 $app->register_shortcode('Ticketack\WP\Shortcodes\ProgramShortcode', 'program.class.php');
 $app->register_shortcode('Ticketack\WP\Shortcodes\EventShortcode', 'event.class.php');
 $app->register_shortcode('Ticketack\WP\Shortcodes\NextScreeningShortcode', 'next_screening.class.php');
