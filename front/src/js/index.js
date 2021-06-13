@@ -1,5 +1,6 @@
 import { ComponentsLoader } from './components/Core';
 import { BookingForm, ScreeningsList } from './components/Booking';
+import { BookingWizard } from './components/BookingWizard';
 import { ArticleForm, AddArticleToCartButton } from './components/BuyArticle';
 import { Cart, CartIcon, CartItems, CartSummary } from './components/Cart';
 import { Checkout } from './components/Checkout';
@@ -21,6 +22,7 @@ import '../styles/main.scss';
 const loader = new ComponentsLoader();
 
 loader.registerComponent('Booking/Form', BookingForm);
+loader.registerComponent('BookingWizard/Wizard', BookingWizard);
 loader.registerComponent('Booking/ScreeningsList', ScreeningsList);
 loader.registerComponent('BuyArticle/Form', ArticleForm);
 loader.registerComponent('BuyArticle/AddToCartButton', AddArticleToCartButton);

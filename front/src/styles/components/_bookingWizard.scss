@@ -1,0 +1,390 @@
+$steps_menu_bg:#D1F9AA;
+$border_color:#FFFFFF;
+
+.booking-wizard {
+    .booking-wizard-wrapper {
+        height: 100%;
+        min-height: 500px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: stretch;
+        border-radius: 8px 0 0 8px;
+        moz-border-radius: 8px 0 0 8px;
+        webkit-border-radius: 8px 0 0 8px;
+        box-shadow: 0 0 5px 1px #ddd4d4;
+        background: #FFFFFF;
+        color: #333333;
+
+        .booking-wizard-left-wrapper {
+            flex: .33;
+            box-shadow: 0px 0px 5px 1px #ddd4d4;
+            border-top-left-radius: 8px;
+            border-bottom-left-radius: 8px;
+
+            .booking-wizard-menu-wrapper {
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+
+                .booking-wizard-menu-items {
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: stretch;
+
+                    .booking-wizard-menu-item {
+                        flex: 1;
+                        background: $steps_menu_bg;
+                        text-align: center;
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: center;
+                        border-bottom: 1px solid $border_color;
+
+                        &:first-child {
+                            border-top-left-radius: 8px;
+                            moz-border-top-left-radius: 8px;
+                            webkit-border-top-left-radius: 8px;
+
+                            .booking-wizard-menu-icon {
+                                border-top-left-radius: 8px;
+                                moz-border-top-left-radius: 8px;
+                                webkit-border-top-left-radius: 8px;
+                            }
+                        }
+
+                        &:last-child {
+                            border-bottom-left-radius: 8px;
+                            moz-border-bottom-left-radius: 8px;
+                            webkit-border-bottom-left-radius: 8px;
+                            border-bottom: none;
+
+                            .booking-wizard-menu-icon {
+                                border-bottom-left-radius: 8px;
+                                moz-border-bottom-left-radius: 8px;
+                                webkit-border-bottom-left-radius: 8px;
+                            }
+                        }
+
+                        &.accessible {
+                            cursor: pointer;
+                        }
+
+                        &.active {
+                            background: darken($steps_menu_bg, 10%);
+                            font-weight: bold;
+                            color: #333333;
+                        }
+
+                        &.forbidden {
+                            background: #EEE;
+                            font-weight: normal;
+                            color: #555;
+                        }
+
+                        .booking-wizard-menu-icon {
+                            padding: 10px;
+                            width: 35px;
+                            background: rgba(0, 0, 0, 0.2);
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            color: #FFFFFF;
+                        }
+
+                        .booking-wizard-menu-content {
+                            flex: 1;
+                            padding: 10px;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+
+                            .booking-wizard-menu-title {
+                                font-weight: bold;
+                            }
+
+                            .booking-wizard-menu-infos {
+                                font-size: 12px;
+                                font-style: italic;
+                            }
+                        }
+
+                        .booking-wizard-menu-content {
+                            span {
+
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .booking-wizard-right-wrapper {
+            flex: .67;
+            display: flex;
+            flex-direction: column;
+
+            .booking-wizard-top-navigation-wrapper {
+                height: 45px;
+                background: #EEEEEE;
+                border-bottom: 1px solid $border_color;
+                display: none!important;
+            }
+
+            .booking-wizard-content-wrapper {
+                flex: 1;
+                padding: 20px;
+
+                .booking-wizard-content {
+                    height: 100%;
+
+                    .booking-wizard-content-step {
+                        height: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+
+                        .booking-wizard-content-step-title {
+                            border-bottom: 1px solid #333;
+                            text-align: center;
+                            text-transform: initial;
+                        }
+
+                        .booking-wizard-content-step-content {
+                            flex: 1;
+                            display: flex;
+                            justify-content: center;
+                            flex-direction: column;
+
+                            .nb-runs-choices {
+                                height: 100%;
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: center;
+
+                                .nb-runs-choice {
+                                    cursor: pointer;
+                                    padding: 2rem;
+                                    text-align: center;
+                                    border-radius: 8px;
+                                    font-weight: bold;
+
+                                    &:hover {
+                                        background: #FAFAFA;
+                                    }
+                                }
+                            }
+                            .booking-wizard-time-choices {
+                                .booking-wizard-time-choice {
+                                    cursor: pointer;
+                                    width: calc(33% - 0.5rem);
+                                    display: inline-block;
+                                    text-align: center;
+                                    margin: 0.20rem;
+                                }
+                            }
+
+                            .booking-wizard-day-choice {
+                                display: flex;
+                                flex-direction: row;
+                                justify-content: flex-start;
+                                flex-wrap: wrap;
+
+                                .booking-wizard-calendar {
+                                    display: none !important;
+                                }
+
+                                .flatpickr-rContainer {
+                                    width: 100%;
+                                }
+
+                                .flatpickr-calendar.animate.inline {
+                                    width: 100%;
+                                }
+
+                                .flatpickr-days {
+                                    width: 100%;
+                                }
+
+                                .dayContainer {
+                                    min-width: 100% !important;
+                                    text-align: center;
+                                }
+
+                                .flatpickr-day {
+                                    max-width: 12%;
+                                    margin: 3px;
+                                    border-radius: 4px;
+                                    border: 2px solid #f1f1f1
+                                }
+
+                                .flatpickr-monthDropdown-months {
+                                    width: 50% !important;
+                                    text-align: center;
+                                }
+
+                                .numInputWrapper {
+                                   width: 50%;
+                                }
+
+                                .numInput.cur-year {
+                                    text-align: center;
+                                }
+
+                                .flatpickr-calendar.inline {
+                                    display: block;
+                                    position: relative;
+                                    border-top-left-radius: 0;
+                                    border-top-right-radius: 0;
+                                    top: 0;
+                                    margin-left: 1px;
+                                    margin-right: 1px;
+                                }
+                            }
+
+                            .booking-wizard-sizes-choices {
+                                .booking-wizard-sizes-choice-wrapper {
+                                    margin-bottom: 10px;
+
+                                    .input-group-text {
+                                        min-width: 120px;
+                                    }
+                                    .booking-wizard-sizes-choice {
+                                    }
+                                }
+
+                                .booking-wizard-sizes-next-button-wrapper {
+                                    margin-top: 10px;
+                                    .booking-wizard-sizes-next-button {
+
+                                    }
+                                }
+                            }
+
+                            .booking-wizard-pricings-choices {
+                                .booking-wizard-pricings-choice-wrapper {
+                                    margin-bottom: 10px;
+
+                                    .input-group-text {
+                                        min-width: 120px;
+                                    }
+                                    .booking-wizard-pricings-choice {
+                                    }
+                                }
+
+                                .booking-wizard-pricings-next-button-wrapper {
+                                    margin-top: 10px;
+                                    .booking-wizard-pricings-next-button {
+
+                                    }
+                                }
+                            }
+
+                            .booking-wizard-user-infos {
+                                .booking-wizard-user-info-wrapper {
+                                    margin-bottom: 10px;
+
+                                    .input-group-text {
+                                        min-width: 120px;
+                                    }
+                                    .booking-wizard-user-info {}
+                                }
+
+                                .booking-wizard-error-wrapper {
+                                    margin-top: 10px;
+
+                                    .booking-wizard-error {
+                                        display: none;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .booking-wizard-bottom-navigation-wrapper {
+                display: none!important;
+                height: 45px;
+                background: #EEEEEE;
+                border-top: 1px solid $border_color;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .booking-wizard {
+        .booking-wizard-wrapper {
+            .booking-wizard-left-wrapper {
+                flex: unset;
+                width: 35px;
+
+                .booking-wizard-menu-wrapper {
+                    .booking-wizard-menu-items {
+                        .booking-wizard-menu-item {
+                            .booking-wizard-menu-content {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .booking-wizard-right-wrapper {
+                flex: auto;
+
+                .booking-wizard-content-wrapper {
+                    padding: 10px;
+
+                    .booking-wizard-content {
+                        height: auto;
+
+                        .booking-wizard-content-step {
+                            .booking-wizard-content-step-title {
+                                margin-bottom: 20px;
+                            }
+
+                            .booking-wizard-content-step-content {
+                                .booking-wizard-time-choices {
+                                    .booking-wizard-time-choice {
+                                        cursor: pointer;
+                                        width: calc(33% - 0.5rem);
+                                        display: inline-block;
+                                        text-align: center;
+                                        margin: 0.10rem;
+                                    }
+                                }
+
+                                .booking-wizard-sizes-choices {
+                                    .booking-wizard-sizes-choice-wrapper {
+                                        .input-group-text {
+                                            min-width: 70px;
+                                        }
+                                    }
+                                }
+
+                                .booking-wizard-pricings-choices {
+                                    .booking-wizard-pricings-choice-wrapper {
+                                        .input-group-text {
+                                            min-width: 70px;
+                                        }
+                                    }
+                                }
+
+                                .booking-wizard-user-infos {
+                                    .booking-wizard-user-info-wrapper {
+                                        .input-group-text {
+                                            min-width: 70px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
