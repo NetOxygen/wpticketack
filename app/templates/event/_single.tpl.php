@@ -197,7 +197,7 @@ $nb_slides = count($trailers) + count($posters);
         </div>
       </div>
 
-      <?= do_shortcode('[tkt_booking_form layout="form" theme="dark" ids="'.implode(',', $ids).'" /]') ?>
+      <?= do_shortcode('[tkt_booking_form ids="'.implode(',', $ids).'" /]') ?>
 
     </section>
   </div>

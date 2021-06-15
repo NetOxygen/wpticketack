@@ -1,6 +1,6 @@
-import { Component, i18n, Template } from '../Core';
+import { Component, Config, i18n, Template } from '../Core';
 import { Api as TKTApi } from '../Ticketack';
-import { Cart, Screeningg } from '../Models';
+import { Cart } from '../Models';
 import _ from 'lodash';
 import async from 'async';
 import postal from 'postal';
@@ -18,7 +18,7 @@ import URI from 'urijs';
  *    data-redirect="https://..."
  * >
  */
-export default class CartIcon extends Component {
+export default class Checkout extends Component {
     /**
      * @constructor
      */
@@ -26,19 +26,8 @@ export default class CartIcon extends Component {
         super($container, state);
 
         // redirection url
-        this.redirect_url   = this.$container.data('redirect');
-
-        // form
-        this.$form          = $('form.checkout-form', this.$container);
-        this.$fieldsets     = $('fieldset', this.$form);
-        this.$fields        = $('.data-field', this.$container);
-        this.$pmField       = $('#payment-method-field', this.$container);
-        this.$submitButtons = $('.submit-button', this.$container);
-
-        // messages panels
-        this.$infoMsg       = $('.info-msg', this.$container);
-        this.$successMsg    = $('.success-msg', this.$container);
-        this.$errorMsg      = $('.error-msg', this.$container);
+        this.redirect_url = this.$container.data('redirect');
+        this.result       = this.getUrlParam('result');
     }
 
     attach() {
@@ -56,18 +45,94 @@ export default class CartIcon extends Component {
                 if (!this.cart.id || !this.cart.items.length) {
                     this.hide_form();
                 }
+
+                this.render();
             }
         });
 
-        // set payment method before form submit
+        this.render();
+    }
+
+    render() {
+        if (this.result === 'ok')
+            return this.$container.html(Template.render('tkt-checkout-result-ok-tpl', {}));
+
+        if (this.result === 'error')
+            return this.$container.html(Template.render('tkt-checkout-result-error-tpl', {}));
+
+        if (!this.cart)
+            return setTimeout(() => { this.render() }, 1000);
+
+        const missingDataItems = this.cart.getMissingDataItems();
+
+        if (this.cart.items.length == 0) {
+            $('.tkt-checkout-form-section', this.$container).hide();
+            $('.tkt-checkout-user-data-section', this.$container).hide();
+        } else if (missingDataItems && missingDataItems.length > 0) {
+            $('.tkt-checkout-form-section', this.$container).hide();
+            $('.tkt-checkout-user-data-section', this.$container)
+                .html(Template.render('tkt-checkout-user-data-tpl', {
+                    items: missingDataItems,
+                    requestedFields: Config.get('otp_requested_fields'),
+                    requiredFields: Config.get('otp_required_fields')
+                })).show();
+        } else {
+            $('.tkt-checkout-user-data-section', this.$container).hide();
+            $('.tkt-checkout-form-section', this.$container).show();
+        }
+
+        // forms
+        this.$checkoutForm  = $('form.checkout-form', this.$container);
+        this.$userDataForm  = $('form.user-data-form', this.$container);
+
+        this.$fieldsets     = $('fieldset', this.$checkoutForm);
+        this.$fields        = $('.data-field', this.$container);
+        this.$pmField       = $('#payment-method-field', this.$container);
+        this.$submitButtons = $('.submit-button', this.$container);
+
+        // messages panels
+        this.$infoMsg       = $('.info-msg', this.$container);
+        this.$successMsg    = $('.success-msg', this.$container);
+        this.$errorMsg      = $('.error-msg', this.$container);
+
+        this.setEventListeners();
+    }
+
+    setEventListeners() {
+        // user data
+        this.$userDataForm.submit(e => {
+            const data     = serialize(this.$userDataForm[0], { hash: true });
+            const userData = {};
+
+            Object.keys(data.user_data).map(key => {
+                userData[key.replace('index-', '')] = data.user_data[key];
+            });
+
+            TKTApi.setCartItemsUserData(this.cart.id, userData, (err, status, rsp) => {
+                if (err)
+                    return this.show_error(err, rsp);
+
+                Cart.load((err, cart) => {
+                    if (err)
+                        return callback(err);
+
+                    this.cart = cart;
+                    this.render();
+                });
+            });
+
+            return false;
+        });
+
+        // set payment method before checkoutForm submit
         this.$submitButtons.on('click', e => {
             this.$pmField.val($(e.target).data('payment-method'));
         });
 
-        // on form submit
-        this.$form.submit(e => {
+        // on checkoutForm submit
+        this.$checkoutForm.submit(e => {
             // get all 'data-field' values (user data + payment method)
-            let data = serialize(this.$form[0], { hash: true });
+            let data = serialize(this.$checkoutForm[0], { hash: true });
 
             // inject redirect url in user data
             if (this.redirect_url)
@@ -130,5 +195,15 @@ export default class CartIcon extends Component {
 
         this.$errorMsg.html(msg);
         this.$errorMsg.fadeIn();
+    }
+
+    getUrlParam(name) {
+        const url = window.location.href;
+        name = name.replace(/[\[\]]/g, '\\$&');
+        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, ' '));
     }
 }

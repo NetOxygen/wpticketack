@@ -53,6 +53,7 @@ var Ticketack = function(eshopUrl, apiKey, lang) {
     this.cartSetOpenUrl        = this.eshopUrl + "carts/open/id/";
     this.cartGetNewUrl         = this.eshopUrl + "carts/new/";
     this.cartUserDataUrl       = this.eshopUrl + "carts/user_data/";
+    this.cartItemsUserDataUrl  = this.eshopUrl + "carts/cart_items_user_data/";
     this.payUrl                = this.eshopUrl + "carts/pay/id/";
     this.confirmUrl            = this.eshopUrl + "carts/confirm/id/";
     this.screeningUrl          = this.eshopUrl + "screening/info_json/";
@@ -378,6 +379,20 @@ Ticketack.prototype.setUserData = function(cart_id, user_data, callback) {
         "user_data": user_data
     };
     return this.put_json(this.cartUserDataUrl + cart_id, data, callback);
+};
+
+/**
+ * Set a cart items user data
+ *
+ * @param {Object} user_data: An object containing the items user data,
+ *                            indexed by the items indexes.
+ * @param {Function} callback: The callback function
+ */
+Ticketack.prototype.setCartItemsUserData = function(cart_id, user_data, callback) {
+    var data = {
+        "user_data": user_data
+    };
+    return this.put_json(this.cartItemsUserDataUrl + cart_id, data, callback);
 };
 
 /**

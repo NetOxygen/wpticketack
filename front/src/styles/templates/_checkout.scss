@@ -1,0 +1,40 @@
+.tkt-wrapper.tkt-checkout {
+    .tkt-checkout-form {
+        .tkt-cart-section {
+
+        }
+        .tkt-checkout-user-data-section {
+            display: none;
+
+
+            .user-data-form {
+                .user-data-wrapper {
+                    border: 1px solid #A0A0A0;
+                    margin-bottom: 10px;
+
+                    .user-data-title {
+                        padding: 10px;
+                        border-bottom: 1px solid #A0A0A0;
+                        font-weight: bold;
+                    }
+
+                    .user-data-fields {
+                        padding: 10px;
+                    }
+                }
+            }
+        }
+        .tkt-checkout-form-section {
+            display: none;
+        }
+    }
+
+    .tkt-checkout-result {
+        .checkout-result-ok {
+
+        }
+        .checkout-result-error {
+
+        }
+    }
+}

@@ -1,4 +1,5 @@
 import BaseModel from './Base';
+import Config from '../Core/Config';
 import _ from 'lodash';
 import moment from 'moment';
 
@@ -56,5 +57,41 @@ export default class CartItem extends BaseModel {
         if (this.article.posters[0]) {
             return this.article.posters[0]["url"];
         }
+    }
+
+    /**
+     * Get this cart item user data
+     *
+     * @param {String} field
+     */
+    getUserData(field) {
+        return (field in this.user_data) ? this.user_data[field] : null;
+    }
+
+    /**
+     * Check if this cart item has any missing user data
+     *
+     * @note: We only handle one-time-pass for now.
+     */
+    hasMissingData() {
+        let hasMissingData = false;
+
+        if (this.type != CartItem.SCREENING_TYPE)
+            return hasMissingData ;
+
+        const requiredFields = Config.get('otp_required_fields');
+        if (_.isEmpty(requiredFields))
+            return hasMissingData;
+
+        requiredFields.map(field => {
+            if (!requiredFields.includes(field))
+                return;
+
+            if (!(field in this.user_data) || _.isEmpty(this.user_data[field])) {
+                hasMissingData = true;
+            }
+        });
+
+        return hasMissingData;
     }
 }

@@ -1,6 +1,7 @@
 <?php
 
 use Ticketack\WP\TKTApp;
+use Ticketack\WP\Templates\TKTTemplate;
 
 /**
  * Checkout form template
@@ -44,7 +45,9 @@ if (!function_exists('r')) {
 
   <?= do_shortcode('[tkt_cart hide_links="finalize,continue"][/tkt_cart]') ?>
 
-  <section class="tkt-section tkt-dark-section tkt-checkout-section">
+  <section class="tkt-section tkt-dark-section tkt-checkout-section tkt-checkout-user-data-section"></section>
+
+  <section class="tkt-section tkt-dark-section tkt-checkout-section tkt-checkout-form-section">
     <div class="row">
       <div class="col">
         <form class="checkout-form">
@@ -222,3 +225,8 @@ if (!function_exists('r')) {
   </section>
   <?php endif; ?>
 </div>
+
+<!-- Underscore.js templates used by client side -->
+<script type="text/template" id="tkt-checkout-user-data-tpl">
+    <?= TKTTEmplate::render('checkout/checkout_user_data', (object)[]) ?>
+</script>

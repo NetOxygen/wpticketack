@@ -3,6 +3,7 @@ namespace Ticketack\WP\Actions;
 
 use Ticketack\WP\TKTApp;
 use Ticketack\WP\Helpers\LocalesHelper;
+use Ticketack\Core\Models\Tickettype;
 
 /**
  * Head Scripts action
@@ -62,6 +63,10 @@ class HeadScriptsAction extends TKTAction
                 "login_url": "'.tkt_login_url().'",
                 "registration_url": "'.tkt_registration_url().'",
                 "user_account_url": "'.tkt_user_account_url().'",
+                "buyer_requested_fields": '.json_encode($app->get_config('checkout.requested_fields')).',
+                "buyer_required_fields": '.json_encode($app->get_config('checkout.required_fields')).',
+                "otp_requested_fields": '.json_encode(tkt_pass_required_fields(Tickettype::ONE_TIME_PASS_ID)).',
+                "otp_required_fields": '.json_encode(tkt_pass_required_fields(Tickettype::ONE_TIME_PASS_ID)).',
                 "lang": "'.TKT_LANG.'",
                 "i18n": '.json_encode(LocalesHelper::dump_js_locales(), JSON_PRETTY_PRINT).'
             };

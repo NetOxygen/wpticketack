@@ -181,6 +181,13 @@ export default class Cart extends BaseModel {
     };
 
     /**
+     * Returns an array with all items that miss some user data.
+     */
+    getMissingDataItems() {
+        return this.items.filter(item => item.hasMissingData());
+    }
+
+    /**
      * Load the cart from Ticketack
      * @param {Function} callback  -Callback function
      */
