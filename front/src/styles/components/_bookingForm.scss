@@ -1,3 +1,13 @@
+.ticketid_ticket {
+    font-family: Roboto,"Segoe UI", "Helvetica Neue",Arial,"Noto Sans",sans-serif;
+    color: #e34449;
+}
+.ticketid_id {
+    font-family: Roboto,"Segoe UI", "Helvetica Neue",Arial,"Noto Sans",sans-serif;
+    color: #000;
+    font-style: italic;
+    font-weight: bold;
+}
 .booking-form {
     display: flex;
     flex-direction: column;
@@ -211,18 +221,6 @@
     }
     .pass-form {
         .connect-panel {
-            .pass-title {
-                .ticketid_ticket {
-                    font-family: Roboto,"Segoe UI", "Helvetica Neue",Arial,"Noto Sans",sans-serif;
-                    color: #e34449;
-                }
-                .ticketid_id {
-                    font-family: Roboto,"Segoe UI", "Helvetica Neue",Arial,"Noto Sans",sans-serif;
-                    color: #000;
-                    font-style: italic;
-                    font-weight: bold;
-                }
-            }
             .connect-panel-form {
                 text-align: center;
 
@@ -243,16 +241,6 @@
                     margin: 0px;
                     padding: 0px;
                 }
-                .ticketid_ticket {
-                    font-family: Roboto,"Segoe UI", "Helvetica Neue",Arial,"Noto Sans",sans-serif;
-                    color: #e34449;
-                }
-                .ticketid_id {
-                    font-family: Roboto,"Segoe UI", "Helvetica Neue",Arial,"Noto Sans",sans-serif;
-                    color: #000;
-                    font-style: italic;
-                    font-weight: bold;
-                }
                 span {
                     line-height: 1.2rem;
                 }
@@ -261,9 +249,6 @@
 
                     &.pass-key-input {}
                     &.pass-number-input {}
-                }
-                .fas.fa-window-minimize.fa-2x.pr-1.pl-1 {
-                    width: 10%;
                 }
                 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
                     color: lighten($text_color, 20%);

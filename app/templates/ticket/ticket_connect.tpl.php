@@ -48,9 +48,9 @@ use Ticketack\WP\TKTApp;
               </div>
               <div class="col">
                   <div class="row mt-5 input-pass">
-                      <input id="pass-id" type="number" class="tkt-input input-invert form-control text-center pass-number-input" placeholder="<?= tkt_t('123456') ?>" maxlength="6"/>
-                      <i class="fas fa-window-minimize fa-2x pr-1 pl-1"></i>
-                      <input id="pass-code" type="password" class="input input-invert text-center pass-key-input" placeholder="<?= tkt_t('abcde') ?>" maxlength="6"/>
+                      <input id="pass-id" type="number" class="tkt-input input-invert form-control text-center pass-number-input" placeholder="123456" maxlength="6"/>
+                      <p class="minus">-</p>
+                      <input id="pass-code" type="password" class="input input-invert text-center pass-key-input" placeholder="abcde" maxlength="6"/>
                   </div>
               </div>
 
