@@ -1,3 +1,13 @@
+.tkt-ticketid_ticket {
+    font-family: Roboto,"Segoe UI", "Helvetica Neue",Arial,"Noto Sans",sans-serif;
+    color: #e34449;
+}
+.tkt-ticketid_id {
+    font-family: Roboto,"Segoe UI", "Helvetica Neue",Arial,"Noto Sans",sans-serif;
+    color: #000;
+    font-style: italic;
+    font-weight: bold;
+}
 .tkt-wrapper {
     a {
         color: $link_color;
@@ -242,6 +252,67 @@
                         flex: 1;
                     }
                 }
+            }
+        }
+    }
+    .connect-panel {
+        .ticket_connect {
+            text-align: center;
+
+            input#pass-id, input#pass-code {
+                width: 40%;
+                height: 40px;
+            }
+            .input-pass {
+                justify-content: center;
+            }
+            #pass-code::placeholder, #pass-id::placeholder {
+                opacity: 0.5;
+            }
+            .minus {
+                width: 15%;
+                font-size: 85px;
+                line-height: 0.5;
+                margin: 0px;
+                padding: 0px;
+            }
+            span {
+                line-height: 1.2rem;
+            }
+            .ticketid_ticket {
+                font-family: Roboto,"Segoe UI", "Helvetica Neue",Arial,"Noto Sans",sans-serif;
+                color: #e34449;
+            }
+            .ticketid_id {
+                font-family: Roboto,"Segoe UI", "Helvetica Neue",Arial,"Noto Sans",sans-serif;
+                color: #000;
+                font-style: italic;
+                font-weight: bold;
+            }
+            input {
+                width: 100%;
+                margin-top: 0.6rem;
+
+                &.pass-key-input {}
+                &.pass-number-input {}
+            }
+
+            ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+                color: lighten($text_color, 20%);
+                opacity: 1; /* Firefox */
+            }
+
+            :-ms-input-placeholder { /* Internet Explorer 10-11 */
+                color: lighten($text_color, 20%);
+            }
+
+            ::-ms-input-placeholder { /* Microsoft Edge */
+                color: lighten($text_color, 20%);
+            }
+
+            .connect-btn {
+                margin-top: 0.6rem;
+                margin-bottom: 0.8rem;
             }
         }
     }
@@ -1296,62 +1367,6 @@ $xs_size: 32px;
     right: 0;
     z-index: 9999;
 }
-.tkt-ticket-connect {
-    .ticket-infos {
-        text-align: center;
-        display: block;
-        margin-bottom: 0.5rem;
-    }
-    .connect-panel {
-        text-align: center;
-
-        input#pass-id, input#pass-code {
-            width: 40%;
-            height: 40px;
-        }
-        .input-pass {
-            justify-content: center;
-        }
-        .ticketid_ticket {
-            font-family: Roboto,"Segoe UI", "Helvetica Neue",Arial,"Noto Sans",sans-serif;
-            color: #e34449;
-        }
-        .ticketid_id {
-            font-family: Roboto,"Segoe UI", "Helvetica Neue",Arial,"Noto Sans",sans-serif;
-            color: #000;
-            font-style: italic;
-            font-weight: bold;
-        }
-        span {
-            line-height: 1.2rem;
-        }
-        input {
-            width: 100%;
-            margin-top: 0.6rem;
-
-            &.pass-key-input {}
-            &.pass-number-input {}
-        }
-
-        ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-            color: lighten($text_color, 20%);
-            opacity: 1; /* Firefox */
-        }
-
-        :-ms-input-placeholder { /* Internet Explorer 10-11 */
-            color: lighten($text_color, 20%);
-        }
-
-        ::-ms-input-placeholder { /* Microsoft Edge */
-            color: lighten($text_color, 20%);
-        }
-
-        .connect-btn {
-            margin-top: 0.6rem;
-            margin-bottom: 0.8rem;
-        }
-    }
-}
 .yt-video-container {
     display: flex;
     flex-direction: column;
@@ -1591,6 +1606,46 @@ article.type-tkt-article {
       
     }
   }
+}
+.tkt-wrapper.tkt-checkout {
+    .tkt-checkout-form {
+        .tkt-cart-section {
+
+        }
+        .tkt-checkout-user-data-section {
+            display: none;
+
+
+            .user-data-form {
+                .user-data-wrapper {
+                    border: 1px solid #A0A0A0;
+                    margin-bottom: 10px;
+
+                    .user-data-title {
+                        padding: 10px;
+                        border-bottom: 1px solid #A0A0A0;
+                        font-weight: bold;
+                    }
+
+                    .user-data-fields {
+                        padding: 10px;
+                    }
+                }
+            }
+        }
+        .tkt-checkout-form-section {
+            display: none;
+        }
+    }
+
+    .tkt-checkout-result {
+        .checkout-result-ok {
+
+        }
+        .checkout-result-error {
+
+        }
+    }
 }
 .tkt_event {
     .carousel-section {
