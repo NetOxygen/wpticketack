@@ -20,10 +20,10 @@ use Ticketack\WP\TKTApp;
  */
 ?>
 <script type="text/template" id="tkt-ticket-connect-tpl">
-<!-- Message for deprecated shortcode [tkt_usr_connect]. -->
+    <!-- Message for deprecated shortcode [tkt_usr_connect]. -->
     <?php if ($data->deprecated) : ?>
         <% console.error('WARNING :The shorcode [tkt_user_connect] is deprecated, and will be deleted.') %>
-        <% console.error('WARNING :Please use new shortcode is [tkt_ticket_connect][/tkt_ticket_connect], for to connect with your TICKETID'); %>
+        <% console.error('WARNING :Please use new shortcode [tkt_ticket_connect][/tkt_ticket_connect] to connect with your TicketID'); %>
     <?php endif; ?>
 
     <div class="tkt-ticket-connect">
@@ -57,8 +57,8 @@ use Ticketack\WP\TKTApp;
               <div class="row">
                   <div class="col text-center">
                       <div class="error pass-error d-none text-center text-danger"></div>
-                     <button class="btn btn-primary button login-btn connect-btn mt-5 mb-3">
-                       <i class="fa fa-sign-in-alt"></i> <?= tkt_t('Connexion') ?> 
+                      <button class="btn btn-primary button login-btn connect-btn mt-5 mb-3">
+                        <i class="fa fa-sign-in-alt"></i> <?= tkt_t('Connexion') ?> 
                       </button>
                   </div>
               </div>
@@ -68,22 +68,22 @@ use Ticketack\WP\TKTApp;
               </div>
               <br>
                 <?php if ($data->show_id_code_message) : ?>
-                  <div>
+                <div>
                     <?= tkt_t("Si vous n'avez pas de TicketID sur votre abonnement, saisissez l'ID dans le premier champ et le Code dans le second.") ?>
-                  </div>
+                </div>
                 <?php endif; ?>
-          </div>
-          <% } %>
-      </div>
+            </div>
+        <% } %>
+    </div>
 
 
-      <%
-      jQuery(document).ready(function($) {
-          $("#pass-id").keyup(function() {
-              if (this.value.length == this.maxLength) {
-                  $('#pass-code').focus();
-              }
-          });
-      });
-      %>
-  </script>
+    <%
+    jQuery(document).ready(function($) {
+        $("#pass-id").keyup(function() {
+            if (this.value.length == this.maxLength) {
+                $('#pass-code').focus();
+            }
+        });
+    });
+    %>
+</script>

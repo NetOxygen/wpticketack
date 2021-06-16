@@ -75,35 +75,39 @@ use Ticketack\WP\TKTApp;
             <div class="row">
                 <div class="col">
                     <span class="pass-title">
-                        <?= tkt_t('Vous avez un abonnement ?') ?>
+                        <?= str_replace('TicketID', '<span class="ticketid_ticket">Ticket</span><span class="ticketid_id">ID</span>', tkt_t("Vous avez un TicketID ?")) ?>
+
                         <a href="" class="show-connect-panel-form"><?= tkt_t('Connectez-vous') ?></a> <?= tkt_t('pour réserver.') ?><br/>
                     </span>
                 </div>
             </div>
             <div class="connect-panel-form d-none">
-                <div class="row">
-                    <div class="col col-sm-2">
-                        <span class="pass-number"><?= tkt_t('ID') ?></span>
-                    </div>
-                    <div class="col">
-                        <input type="text" class="tkt-input form-control pass-number-input"/>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col col-sm-2">
-                        <span class="pass-key"><?= tkt_t('Code') ?></span>
-                    </div>
-                    <div class="col">
-                        <input type="password" class="tkt-input form-control pass-key-input"/>
+                <div class="col">
+                    <div class="row mt-5 input-pass">
+                        <input id="pass-id" type="number" class="tkt-input input-invert form-control text-center pass-number-input" placeholder="<?= tkt_t('123456') ?>" maxlength="6"/>
+                        <p class="minus">-</p>
+                        <input id="pass-code" type="password" class="input input-invert text-center pass-key-input" placeholder="<?= tkt_t('abcde') ?>" maxlength="6"/>
                     </div>
                 </div>
+
                 <div class="row">
-                    <div class="col mt-3">
-                      <div class="error pass-error d-none"></div>
-                        <button class="button connect-btn active" >
-                            <?= tkt_t('Me connecter') ?>
-                        </button>
+                    <div class="col text-center">
+                        <div class="error pass-error d-none text-center text-danger"></div>
+                            <button class="btn btn-primary button login-btn connect-btn mt-5 mb-3">
+                                <i class="fa fa-sign-in-alt"></i> <?= tkt_t('Connexion') ?> 
+                            </button>
+                        </div>
                     </div>
+                    <hr>
+                    <div>
+                        <?= str_replace('TicketID', '<span class="ticketid_ticket">Ticket</span><span class="ticketid_id">ID</span>', tkt_t("Votre TicketID se trouve sur votre abonnement")) ?>
+                    </div>
+                    <br>
+                    <?php if ($data->show_id_code_message) : ?>
+                    <div>
+                        <?= tkt_t("Si vous n'avez pas de TicketID sur votre abonnement, saisissez l'ID dans le premier champ et le Code dans le second.") ?>
+                    </div>
+                    <?php endif; ?>
                 </div>
             </div>
             <div class="row">

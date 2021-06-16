@@ -276,6 +276,8 @@ export default class BookingForm extends Component {
 
         this.build_dates_form();
         this.build_success_panel();
+
+        this.loader.attach();
     }
 
     build_dates_form() { 
@@ -322,8 +324,6 @@ export default class BookingForm extends Component {
             this.select_day(d_to_select);
             this.select_screening(s_to_select);
         }
-
-        this.loader.attach();
     }
 
     build_tickets_form() {

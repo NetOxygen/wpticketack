@@ -209,6 +209,82 @@
             padding-right: 1rem;
         }
     }
+    .pass-form {
+        .connect-panel {
+            .pass-title {
+                .ticketid_ticket {
+                    font-family: Roboto,"Segoe UI", "Helvetica Neue",Arial,"Noto Sans",sans-serif;
+                    color: #e34449;
+                }
+                .ticketid_id {
+                    font-family: Roboto,"Segoe UI", "Helvetica Neue",Arial,"Noto Sans",sans-serif;
+                    color: #000;
+                    font-style: italic;
+                    font-weight: bold;
+                }
+            }
+            .connect-panel-form {
+                text-align: center;
+
+                input#pass-id, input#pass-code {
+                    width: 40%;
+                    height: 40px;
+                }
+                .input-pass {
+                    justify-content: center;
+                }
+                #pass-code::placeholder, #pass-id::placeholder {
+                    opacity: 0.5;
+                }
+                .minus {
+                    width: 15%;
+                    font-size: 85px;
+                    line-height: 0.5;
+                    margin: 0px;
+                    padding: 0px;
+                }
+                .ticketid_ticket {
+                    font-family: Roboto,"Segoe UI", "Helvetica Neue",Arial,"Noto Sans",sans-serif;
+                    color: #e34449;
+                }
+                .ticketid_id {
+                    font-family: Roboto,"Segoe UI", "Helvetica Neue",Arial,"Noto Sans",sans-serif;
+                    color: #000;
+                    font-style: italic;
+                    font-weight: bold;
+                }
+                span {
+                    line-height: 1.2rem;
+                }
+                input {
+                    margin-top: 0.6rem;
+
+                    &.pass-key-input {}
+                    &.pass-number-input {}
+                }
+                .fas.fa-window-minimize.fa-2x.pr-1.pl-1 {
+                    width: 10%;
+                }
+                ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+                    color: lighten($text_color, 20%);
+                    opacity: 1; /* Firefox */
+                }
+
+                :-ms-input-placeholder { /* Internet Explorer 10-11 */
+                    color: lighten($text_color, 20%);
+                }
+
+                ::-ms-input-placeholder { /* Microsoft Edge */
+                    color: lighten($text_color, 20%);
+                }
+
+                .connect-btn {
+                    margin-top: 0.6rem;
+                    margin-bottom: 0.8rem;
+                }
+            }
+        }
+    }
 }
 
 @media screen and (max-width: 768px) {
