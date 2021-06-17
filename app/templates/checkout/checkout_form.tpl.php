@@ -211,7 +211,7 @@ if (!function_exists('r')) {
 
                 <?php if ($allow_postfinance) : ?>
                 <button type="submit" class="submit-button button" data-payment-method="PROXYPAY" data-redirect="<?= $data->redirect ?>">
-                <span class="glyphicon glyphicon-credit-card"></span> <?= tkt_t('Procéder au paiement par carte bancaire') ?>
+                <span class="glyphicon glyphicon-credit-card"></span> <?= tkt_t('Procéder au paiement') ?>
                 </button>
                 <?php endif; ?>
                 <input type="hidden" id="payment-method-field" name="payment_method" class="data-field" />

@@ -8,14 +8,97 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-03 02:23+0200\n"
+"POT-Creation-Date: 2021-06-17 11:15+0200\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Belkacem Alidra <belkacem.alidra@netoxygen.ch>\n"
+"Last-Translator: Jonathan Ernst <jonathan.ernst@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#, fuzzy
+msgid "Veuillez choisir le nombre de descentes"
+msgstr "Please choose a time"
+
+msgid "descente"
+msgstr ""
+
+msgid "descentes consécutives"
+msgstr ""
+
+#, fuzzy
+msgid "Veuillez choisir une date"
+msgstr "Please choose a pricing"
+
+msgid "l j F"
+msgstr ""
+
+#, fuzzy
+msgid "Veuillez choisir une heure"
+msgstr "Please choose a pricing"
+
+#, fuzzy
+msgid "Veuillez choisir vos MountainCarts"
+msgstr "Please choose a pricing"
+
+#, fuzzy
+msgid "Taille"
+msgstr "City"
+
+#, fuzzy
+msgid "Étape suivante"
+msgstr "Next"
+
+msgid "Il n'y a plus de places pour cette date."
+msgstr ""
+
+#, fuzzy
+msgid "Veuillez choisir votre tarifs"
+msgstr "Please choose a pricing"
+
+#, fuzzy
+msgid "Choisissez un tarif"
+msgstr "Choose a password"
+
+#, fuzzy
+msgid "Veuillez saisir vos informations"
+msgstr "Your informations"
+
+msgid "Prenom"
+msgstr ""
+
+msgid "Nom"
+msgstr "Lastname"
+
+#, fuzzy
+msgid "Réserver"
+msgstr "to book."
+
+msgid "Nombre de descentes"
+msgstr ""
+
+msgid "1 descente"
+msgstr ""
+
+msgid "2 descentes"
+msgstr ""
+
+msgid "Date"
+msgstr "Date"
+
+msgid "Heure"
+msgstr ""
+
+msgid "Choix des MountainCarts"
+msgstr ""
+
+#, fuzzy
+msgid "Tarifs"
+msgstr "Pricings"
+
+msgid "Vos informations"
+msgstr "Your informations"
 
 msgid "Sélectionnez votre contenance et votre quantité :"
 msgstr "Select the quantity"
@@ -53,17 +136,11 @@ msgstr "Out of stock"
 msgid "Ajouter à mon panier"
 msgstr "Add to my cart"
 
-msgid "Vos informations"
-msgstr "Your informations"
-
 msgid "Prénom"
 msgstr "Firstname"
 
 msgid "Votre prénom"
 msgstr "Your firstname"
-
-msgid "Nom"
-msgstr "Lastname"
 
 msgid "Votre nom"
 msgstr "Your lastname"
@@ -91,6 +168,9 @@ msgstr "City"
 
 msgid "Pays"
 msgstr "Country"
+
+msgid "Téléphone"
+msgstr "Fix phone"
 
 msgid "Téléphone portable"
 msgstr "Cellphone"
@@ -139,7 +219,8 @@ msgid ""
 "Entrez le nombre de place(s) que vous souhaitez ajouter à votre panier :"
 msgstr "Enter the number of tickets you want to add to your cart"
 
-msgid "Vous avez un abonnement ?"
+#, fuzzy
+msgid "Vous avez un TicketID ?"
 msgstr "You have a pass?"
 
 msgid "Connectez-vous"
@@ -148,14 +229,16 @@ msgstr "Login"
 msgid "pour réserver."
 msgstr "to book."
 
-msgid "ID"
-msgstr "ID"
-
-msgid "Code"
-msgstr "Code"
-
-msgid "Me connecter"
+msgid "Connexion"
 msgstr "Login"
+
+msgid "Votre TicketID se trouve sur votre abonnement"
+msgstr ""
+
+msgid ""
+"Si vous n'avez pas de TicketID sur votre abonnement, saisissez l'ID dans le "
+"premier champ et le Code dans le second."
+msgstr ""
 
 msgid ""
 "Vous ne pouvez pas réserver de place pour cette séance avec votre abonnement."
@@ -172,6 +255,12 @@ msgstr ""
 "The documentation is available on <a target=\"_blank\" href=\"https://"
 "https://ticketack.com/documentation/English/Ticketack%20-%20Ticketing%20eshop"
 "%20and%20website%20integration.pdf\">this page</a>"
+
+msgid "Voir mes réservations"
+msgstr "my bookings"
+
+msgid "Me déconnecter"
+msgstr "Logout"
 
 msgid "Votre panier est vide"
 msgstr "Your cart is empty"
@@ -279,9 +368,6 @@ msgstr "Complete !"
 msgid "Mon compte"
 msgstr "Create your account"
 
-msgid "Me déconnecter"
-msgstr "Logout"
-
 msgid "Identifiant"
 msgstr "Login"
 
@@ -289,15 +375,8 @@ msgstr "Login"
 msgid "Mot de passe"
 msgstr "Birthdate"
 
-msgid "Connexion"
-msgstr "Login"
-
 msgid "Pas encore de compte. Créez-en un !"
 msgstr "No account yet. Create one!"
-
-#, fuzzy
-msgid "Saisissez vos informations personnelles"
-msgstr "Set the checkout page informations"
 
 msgid "Société"
 msgstr "Company"
@@ -334,34 +413,51 @@ msgstr "Confirm your e-mail address"
 msgid "Saisissez une deuxième fois votre mot de passe"
 msgstr "Enter your e-mail address a second time"
 
+msgid "Votre compte a bien été créé"
+msgstr ""
+
+msgid ""
+"Veuillez l'activer en cliquant sur le lien que vous avez reçu par e-mail."
+msgstr ""
+
 msgid "Créer mon compte"
 msgstr "Create your account"
 
 #, fuzzy
-msgid "Mes abonnements"
-msgstr "a pass"
+msgid "Déjà un compte. Connectez-vous !"
+msgstr "Login !"
 
 #, fuzzy
 msgid "Mes informations"
 msgstr "Your informations"
 
+msgid ""
+"Si vous souhaitez changer votre mot de passe, remplissez les champs ci-"
+"dessous."
+msgstr ""
+
 #, fuzzy
-msgid "Mes réservations"
-msgstr "my bookings"
+msgid "Nouveau mot de passe"
+msgstr "Choose a password"
+
+#, fuzzy
+msgid "Saisissez une deuxième fois votre nouveau mot de passe"
+msgstr "Enter your e-mail address a second time"
+
+#, fuzzy
+msgid "Modifier mes informations"
+msgstr "Your informations"
 
 #, fuzzy
 msgid "Mes commandes"
 msgstr "my order"
 
 #, fuzzy
-msgid "Vous n'avez pas encore de commande."
+msgid "Vous n'avez pas encore de commandes."
 msgstr "Thank you for your order"
 
 msgid "#"
 msgstr "#"
-
-msgid "Date"
-msgstr "Date"
 
 msgid "Prix total"
 msgstr "Total"
@@ -372,14 +468,27 @@ msgstr "Payment"
 msgid "Statut"
 msgstr "Status"
 
-msgid "Voir mes réservations"
-msgstr "my bookings"
+#, fuzzy
+msgid "Mes billets"
+msgstr "Buy  your tickets"
 
-msgid "Connectez-vous !"
-msgstr "Login !"
+#, fuzzy
+msgid "Vous n'avez pas encore de billets."
+msgstr "Thank you for your order"
 
-msgid "un abonnement"
-msgstr "a pass"
+#, fuzzy
+msgid "Télécharger"
+msgstr "Fix phone"
+
+#, fuzzy
+msgid "Réservations"
+msgstr "Reservation"
+
+msgid "Aucune réservation sur ce billet."
+msgstr ""
+
+msgid "Votre compte n'est pas activé."
+msgstr ""
 
 msgid "Nous vous remercions pour votre commande."
 msgstr "Thank you for your order"
@@ -403,8 +512,30 @@ msgstr "Your invoicing data"
 msgid "Réserver (paiement sur place)"
 msgstr "Book (on site payment)"
 
-msgid "Procéder au paiement par carte bancaire"
-msgstr "Pay with a credit card"
+msgid "Procéder au paiement"
+msgstr "To the payment process"
+
+msgid ""
+"Dans le cadre des conditions sanitaires actuelles, nous sommes tenus de "
+"demander à chaque détenteur de ticket les informations nécessaires pour le "
+"contacter si besoin.<br/>Nous vous remercions donc de bien vouloir remplir "
+"les informations ci-dessous."
+msgstr ""
+
+msgid "Ticket"
+msgstr ""
+
+msgid "Code postal"
+msgstr "Zip"
+
+msgid "Votre numéro, sans espace"
+msgstr "Your number, without space"
+
+msgid "* ces champs sont requis"
+msgstr "* these fields are required"
+
+msgid "Enregistrer"
+msgstr ""
 
 msgid "Une erreur est survenue lors de votre commande."
 msgstr "An error has occurred during your order."
@@ -526,12 +657,6 @@ msgstr "Email"
 msgid "Rue"
 msgstr "Street"
 
-msgid "Code postal"
-msgstr "Zip"
-
-msgid "Téléphone"
-msgstr "Fix phone"
-
 msgid "Télépĥone portable"
 msgstr "Cellular phone"
 
@@ -622,6 +747,19 @@ msgstr "Credit card"
 
 msgid "Porte-monnaie"
 msgstr "Wallet"
+
+msgid "Activé"
+msgstr ""
+
+msgid "Inactif"
+msgstr ""
+
+#, fuzzy
+msgid "En attente de paiement"
+msgstr "Pending"
+
+msgid "Bloqué"
+msgstr ""
 
 msgid "actor"
 msgstr ""
@@ -844,14 +982,8 @@ msgstr "API key"
 msgid "Programme"
 msgstr "Program"
 
-msgid "Shop"
-msgstr "Shop"
-
-msgid "Login"
-msgstr "Login"
-
-msgid "My account"
-msgstr "My account"
+msgid "Articles"
+msgstr ""
 
 msgid "Remerciements"
 msgstr "Thank you page"
@@ -968,6 +1100,42 @@ msgstr ""
 msgid ""
 "Ne modifiez les valeurs ci-dessous que si vous savez ce que vous faites."
 msgstr "Change these settings only if you know what you are doing."
+
+#~ msgid "ID"
+#~ msgstr "ID"
+
+#~ msgid "Code"
+#~ msgstr "Code"
+
+#~ msgid "Me connecter"
+#~ msgstr "Login"
+
+#, fuzzy
+#~ msgid "Saisissez vos informations personnelles"
+#~ msgstr "Set the checkout page informations"
+
+#, fuzzy
+#~ msgid "Mes abonnements"
+#~ msgstr "a pass"
+
+#, fuzzy
+#~ msgid "Mes réservations"
+#~ msgstr "my bookings"
+
+#~ msgid "un abonnement"
+#~ msgstr "a pass"
+
+#~ msgid "Procéder au paiement par carte bancaire"
+#~ msgstr "Pay with a credit card"
+
+#~ msgid "Shop"
+#~ msgstr "Shop"
+
+#~ msgid "Login"
+#~ msgstr "Login"
+
+#~ msgid "My account"
+#~ msgstr "My account"
 
 #~ msgid "Country"
 #~ msgstr "Country"

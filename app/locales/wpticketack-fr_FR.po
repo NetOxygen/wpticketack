@@ -8,14 +8,87 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-03 02:23+0200\n"
+"POT-Creation-Date: 2021-06-17 11:12+0200\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Belkacem Alidra <belkacem.alidra@netoxygen.ch>\n"
+"Last-Translator: Jonathan Ernst <jonathan.ernst@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+msgid "Veuillez choisir le nombre de descentes"
+msgstr ""
+
+msgid "descente"
+msgstr ""
+
+msgid "descentes consécutives"
+msgstr ""
+
+msgid "Veuillez choisir une date"
+msgstr ""
+
+msgid "l j F"
+msgstr ""
+
+msgid "Veuillez choisir une heure"
+msgstr ""
+
+msgid "Veuillez choisir vos MountainCarts"
+msgstr ""
+
+msgid "Taille"
+msgstr ""
+
+msgid "Étape suivante"
+msgstr ""
+
+msgid "Il n'y a plus de places pour cette date."
+msgstr ""
+
+msgid "Veuillez choisir votre tarifs"
+msgstr ""
+
+msgid "Choisissez un tarif"
+msgstr ""
+
+msgid "Veuillez saisir vos informations"
+msgstr ""
+
+msgid "Prenom"
+msgstr ""
+
+msgid "Nom"
+msgstr ""
+
+#, fuzzy
+msgid "Réserver"
+msgstr "Enregistrement"
+
+msgid "Nombre de descentes"
+msgstr ""
+
+msgid "1 descente"
+msgstr ""
+
+msgid "2 descentes"
+msgstr ""
+
+msgid "Date"
+msgstr ""
+
+msgid "Heure"
+msgstr ""
+
+msgid "Choix des MountainCarts"
+msgstr ""
+
+msgid "Tarifs"
+msgstr ""
+
+msgid "Vos informations"
+msgstr ""
 
 msgid "Sélectionnez votre contenance et votre quantité :"
 msgstr ""
@@ -53,16 +126,10 @@ msgstr ""
 msgid "Ajouter à mon panier"
 msgstr ""
 
-msgid "Vos informations"
-msgstr ""
-
 msgid "Prénom"
 msgstr ""
 
 msgid "Votre prénom"
-msgstr ""
-
-msgid "Nom"
 msgstr ""
 
 msgid "Votre nom"
@@ -90,6 +157,9 @@ msgid "Ville"
 msgstr ""
 
 msgid "Pays"
+msgstr ""
+
+msgid "Téléphone"
 msgstr ""
 
 msgid "Téléphone portable"
@@ -137,7 +207,7 @@ msgid ""
 "Entrez le nombre de place(s) que vous souhaitez ajouter à votre panier :"
 msgstr ""
 
-msgid "Vous avez un abonnement ?"
+msgid "Vous avez un TicketID ?"
 msgstr ""
 
 msgid "Connectez-vous"
@@ -146,13 +216,15 @@ msgstr ""
 msgid "pour réserver."
 msgstr ""
 
-msgid "ID"
+msgid "Connexion"
 msgstr ""
 
-msgid "Code"
+msgid "Votre TicketID se trouve sur votre abonnement"
 msgstr ""
 
-msgid "Me connecter"
+msgid ""
+"Si vous n'avez pas de TicketID sur votre abonnement, saisissez l'ID dans le "
+"premier champ et le Code dans le second."
 msgstr ""
 
 msgid ""
@@ -166,6 +238,12 @@ msgid ""
 "La documentation est disponible <a target=\"_blank\" href=\"https://"
 "ticketack.com/documentation/Fran%C3%A7ais/Ticketack%20-%20Vente%20en%20ligne"
 "%20et%20Int%C3%A9gration%20billetterie.pdf\">à cette adresse</a>"
+msgstr ""
+
+msgid "Voir mes réservations"
+msgstr ""
+
+msgid "Me déconnecter"
 msgstr ""
 
 msgid "Votre panier est vide"
@@ -270,22 +348,13 @@ msgstr ""
 msgid "Mon compte"
 msgstr ""
 
-msgid "Me déconnecter"
-msgstr ""
-
 msgid "Identifiant"
 msgstr ""
 
 msgid "Mot de passe"
 msgstr ""
 
-msgid "Connexion"
-msgstr ""
-
 msgid "Pas encore de compte. Créez-en un !"
-msgstr ""
-
-msgid "Saisissez vos informations personnelles"
 msgstr ""
 
 msgid "Société"
@@ -321,28 +390,43 @@ msgstr ""
 msgid "Saisissez une deuxième fois votre mot de passe"
 msgstr ""
 
+msgid "Votre compte a bien été créé"
+msgstr ""
+
+msgid ""
+"Veuillez l'activer en cliquant sur le lien que vous avez reçu par e-mail."
+msgstr ""
+
 msgid "Créer mon compte"
 msgstr ""
 
-msgid "Mes abonnements"
+msgid "Déjà un compte. Connectez-vous !"
 msgstr ""
 
 msgid "Mes informations"
 msgstr ""
 
-msgid "Mes réservations"
+msgid ""
+"Si vous souhaitez changer votre mot de passe, remplissez les champs ci-"
+"dessous."
+msgstr ""
+
+msgid "Nouveau mot de passe"
+msgstr ""
+
+msgid "Saisissez une deuxième fois votre nouveau mot de passe"
+msgstr ""
+
+msgid "Modifier mes informations"
 msgstr ""
 
 msgid "Mes commandes"
 msgstr ""
 
-msgid "Vous n'avez pas encore de commande."
+msgid "Vous n'avez pas encore de commandes."
 msgstr ""
 
 msgid "#"
-msgstr ""
-
-msgid "Date"
 msgstr ""
 
 msgid "Prix total"
@@ -354,13 +438,23 @@ msgstr ""
 msgid "Statut"
 msgstr ""
 
-msgid "Voir mes réservations"
+msgid "Mes billets"
 msgstr ""
 
-msgid "Connectez-vous !"
+msgid "Vous n'avez pas encore de billets."
 msgstr ""
 
-msgid "un abonnement"
+msgid "Télécharger"
+msgstr ""
+
+#, fuzzy
+msgid "Réservations"
+msgstr "Enregistrement"
+
+msgid "Aucune réservation sur ce billet."
+msgstr ""
+
+msgid "Votre compte n'est pas activé."
 msgstr ""
 
 msgid "Nous vous remercions pour votre commande."
@@ -382,7 +476,29 @@ msgstr ""
 msgid "Réserver (paiement sur place)"
 msgstr ""
 
-msgid "Procéder au paiement par carte bancaire"
+msgid "Procéder au paiement"
+msgstr ""
+
+msgid ""
+"Dans le cadre des conditions sanitaires actuelles, nous sommes tenus de "
+"demander à chaque détenteur de ticket les informations nécessaires pour le "
+"contacter si besoin.<br/>Nous vous remercions donc de bien vouloir remplir "
+"les informations ci-dessous."
+msgstr ""
+
+msgid "Ticket"
+msgstr ""
+
+msgid "Code postal"
+msgstr ""
+
+msgid "Votre numéro, sans espace"
+msgstr ""
+
+msgid "* ces champs sont requis"
+msgstr ""
+
+msgid "Enregistrer"
 msgstr ""
 
 msgid "Une erreur est survenue lors de votre commande."
@@ -503,12 +619,6 @@ msgstr ""
 msgid "Rue"
 msgstr ""
 
-msgid "Code postal"
-msgstr ""
-
-msgid "Téléphone"
-msgstr ""
-
 msgid "Télépĥone portable"
 msgstr ""
 
@@ -598,6 +708,18 @@ msgid "Carte bancaire"
 msgstr ""
 
 msgid "Porte-monnaie"
+msgstr ""
+
+msgid "Activé"
+msgstr ""
+
+msgid "Inactif"
+msgstr ""
+
+msgid "En attente de paiement"
+msgstr ""
+
+msgid "Bloqué"
 msgstr ""
 
 msgid "actor"
@@ -819,13 +941,7 @@ msgstr ""
 msgid "Programme"
 msgstr ""
 
-msgid "Shop"
-msgstr ""
-
-msgid "Login"
-msgstr ""
-
-msgid "My account"
+msgid "Articles"
 msgstr ""
 
 msgid "Remerciements"
