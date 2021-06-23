@@ -54,9 +54,8 @@ export default class BuyForm extends Component {
             this.sync_pass_form();
         });
 
-        //one pass
-        if (this.$titles.length == 1) {
-            this.$pass.eq(0).addClass('open').show();
+        if (this.$titles.length > 1) {
+            $('.tkt-pass-form-section', this.$container).hide();
         };
 
         postal.subscribe({
@@ -67,27 +66,18 @@ export default class BuyForm extends Component {
             }
         });
 
-        $('.tkt-pass-form-section', this.$container).hide();
+    
         $('.pass_title').click((e) => {
-            //one pass
-            if (this.$titles.length == 1) {
-                this.$pass.eq(0).addClass('open').show();
-                return;
-            };
-            $('.tkt-pass-form-section', this.$container).hide();
             var $title = $(e.target);
             var $card  = $title.closest('.card');
             var $pass  = $card.find('.pass');
             var $price = $pass.find('.choose-pass:checked', this.$container);
-            
-            //uncheck radio price
-            $price.prop('checked', this.$container, false);
 
-            if ($pass.find('.choose-pass', this.$container).length == 1 && !$pass.is(':visible') ) {
-                $pass.find('.choose-pass', this.$container).prop('checked', true);
-                $('.tkt-pass-form-section', this.$container).show();
+            if (this.$pass && this.$pass.length > 1) {
+                $price.prop('checked', false);
+                $('.tkt-pass-form-section', this.$container).hide();
             }
-            
+
             this.activePass = $pass.data('type'); ;
             this.sync_pass_pricings();
             this.sync_pass_form();
@@ -102,11 +92,6 @@ export default class BuyForm extends Component {
         });
 
         $('.choose-pass', this.$container).change((e) => {
-            var $title = $(e.target, this.$container);
-            var $card  = $title.closest('.card', this.$container);
-            var $pass  = $card.find('.pass', this.$container);
-            var $price = $pass.find('.choose-pass:checked', this.$container);
-
             $('.tkt-pass-form-section', this.$container).show();
         });
 
