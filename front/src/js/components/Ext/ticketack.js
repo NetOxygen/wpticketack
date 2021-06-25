@@ -43,7 +43,7 @@ var Ticketack = function(eshopUrl, apiKey, lang) {
 
     this.cartJsonUrl           = this.eshopUrl + "cart/view_json";
     this.cartRemoveUrl         = this.eshopUrl + "cart/remove";
-    this.cartResetUrl          = this.eshopUrl + "cart/reset";
+    this.cartResetUrl          = this.eshopUrl + "carts/reset";
     this.cartAddUrl            = this.eshopUrl + "screening/buy/";
     this.cartAddScreeningUrl   = this.eshopUrl + "screenings/add_to_cart";
     this.cartAddArticlesUrl    = this.eshopUrl + "articles/add_to_cart";
@@ -438,7 +438,7 @@ Ticketack.prototype.removeFromCart = function(index, callback) {
  * @param {Function} callback: The callback function
  */
 Ticketack.prototype.resetCart = function(callback) {
-    return this.get(this.parametrize_url(this.cartResetUrl, {}), {}, callback);
+    return this.post(this.parametrize_url(this.cartResetUrl, {}), {}, callback);
 }
 
 /**

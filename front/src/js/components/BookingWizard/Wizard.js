@@ -94,9 +94,9 @@ export default class BookingWizard extends Component {
             case 3:
                 this.state.selectedSizes = {};
             case 4:
-                this.state.selectedPricings = [];
-            case 5:
                 this.state.userInfos = [];
+            case 5:
+                this.state.selectedPricings = [];
         }
     }
 
@@ -159,6 +159,26 @@ export default class BookingWizard extends Component {
         });
 
         // step 5
+        $('.booking-wizard-user-info', this.$contentWrapper).on('change', (e) => {
+            this.state.userInfos = [];
+            $('.booking-wizard-user-info', this.$contentWrapper).each((i, input) => {
+                const field       = $(input).data('field');
+                const size        = $(input).data('size');
+                const ticketIndex = $(input).data('ticket-index');
+                const index       = $(input).data('index');
+
+                if (!(ticketIndex in this.state.userInfos))
+                    this.state.userInfos[ticketIndex] = {};
+                this.state.userInfos[ticketIndex][field] = $(input).val();
+            });
+            this.render();
+        });
+        $('.booking-wizard-next-button', this.$contentWrapper).on('click', (e) => {
+            this.next();
+        });
+
+        // step 6
+        this.hide_error();
         $('.booking-wizard-pricings-choice', this.$contentWrapper).on('change', (e) => {
             this.state.selectedPricings = [];
             const screeningPricings = this.state.selectedScreenings[0].pricings;
@@ -175,33 +195,12 @@ export default class BookingWizard extends Component {
             });
             this.render();
         });
-        $('.booking-wizard-pricings-next-button', this.$contentWrapper).on('click', (e) => {
-            this.next();
-        });
-
-        // step 6
-        $('.booking-wizard-user-info', this.$contentWrapper).on('change', (e) => {
-            this.state.userInfos = [];
-            $('.booking-wizard-user-info', this.$contentWrapper).each((i, input) => {
-                const field       = $(input).data('field');
-                const size        = $(input).data('size');
-                const ticketIndex = $(input).data('ticket-index');
-                const index       = $(input).data('index');
-
-                if (!(ticketIndex in this.state.userInfos))
-                    this.state.userInfos[ticketIndex] = {};
-                this.state.userInfos[ticketIndex][field] = $(input).val();
-            });
-            this.render();
-        });
         $('.booking-wizard-book-button', this.$contentWrapper).on('click', (e) => {
             this.book();
         });
     }
 
     book() {
-        this.hide_error();
-
         const screeningsToAdd = [];
         this.state.selectedScreenings.map(screening => {
             let ticketIndex = 0;

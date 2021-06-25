@@ -87,20 +87,17 @@ function itemClass(step) {
         </div>
     </div>
     <div class="<%= itemClass(5) %>" data-target="5">
-        <div class="booking-wizard-menu-icon"><i class="fa fa-list"></i></div>
+        <div class="booking-wizard-menu-icon"><i class="fa fa-user"></i></div>
         <div class="booking-wizard-menu-content">
-            <div class="booking-wizard-menu-title"><?= tkt_t('Tarifs') ?></div>
+            <div class="booking-wizard-menu-title"><?= tkt_t('Vos informations') ?></div>
             <div class="booking-wizard-menu-infos">
-                <% if (state.selectedPricings) { %>
-                    <%= state.selectedPricings.map(selection => selection.size+ ': CHF ' + selection.pricing.price.CHF).join(' - ') %>
-                <% } %>
             </div>
         </div>
     </div>
     <div class="<%= itemClass(6) %>" data-target="6">
-        <div class="booking-wizard-menu-icon"><i class="fa fa-user"></i></div>
+        <div class="booking-wizard-menu-icon"><i class="fa fa-list"></i></div>
         <div class="booking-wizard-menu-content">
-            <div class="booking-wizard-menu-title"><?= tkt_t('Vos informations') ?></div>
+            <div class="booking-wizard-menu-title"><?= tkt_t('Tarifs') ?></div>
             <div class="booking-wizard-menu-infos">
             </div>
         </div>

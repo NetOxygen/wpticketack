@@ -72,11 +72,10 @@ function getNbAvailableSeatsBySize(s) {
             availableSizes[size] = 0;
         availableSizes[size] += 1;
     });
-
     return availableSizes;
 }
 
-let availableSizes = {};
+let availableSizes = { S: 0, M: 0, L: 0, XL: 0};
 if (state.selectedScreenings.length == 1) {
     availableSizes = getNbAvailableSeatsBySize(state.selectedScreenings[0]);
 } else if (state.selectedScreenings.length == 2) {
@@ -226,6 +225,7 @@ function areUserInfosFilled() {
                 <% } else { %>
                     <div class="booking-wizard-warning-message">
                         <?= tkt_t("Il n'y a plus de places pour cette date.") ?>
+                    </div>
                 <% } %>
             </div>
         </div>
@@ -233,49 +233,6 @@ function areUserInfosFilled() {
     <% } %>
 
     <% if (state.step == 5) { %>
-    <div class="booking-wizard-content-step" data-step="5">
-        <h5 class="booking-wizard-content-step-title"><?= tkt_t('Veuillez choisir votre tarifs') ?> :</h5>
-        <div class="booking-wizard-content-step-content">
-            <div class="booking-wizard-pricings-choices">
-                <% if (Object.keys(state.selectedSizes).length > 0) { %>
-                    <% Object.keys(state.selectedSizes).map(size => { %>
-                        <% for (var i =1; i <= state.selectedSizes[size]; i++) { %>
-                        <div class="booking-wizard-pricings-choice-wrapper">
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">
-                                        <?= tkt_t('Taille') ?> <%= size %>
-                                    </span>
-                                </div>
-                                <select class="booking-wizard-pricings-choice form-control" data-size="<%= size %>" data-index="<%= i %>">
-                                    <option value=""><?= tkt_t('Choisissez un tarif') ?></option>
-                                    <% getAvailablePricings().map(pricing => { %>
-                                        <% var key = pricing.key; %>
-                                    <option value="<%= key %>" <%= isSelectedPricing(size, i, key) ? 'selected' : '' %>>
-                                        CHF <%= state.selectedScreenings[0].pricings[key].price.CHF %> -
-                                        <%= state.selectedScreenings[0].pricings[key].name['fr'] %>
-                                    </option>
-                                    <% }) %>
-                                </select>
-                            </div>
-                        </div>
-                        <% } %>
-                    <% }) %>
-                    <div class="booking-wizard-pricings-next-button-wrapper">
-                        <button class="button btn btn-block booking-wizard-pricings-next-button" <%= (state.selectedPricings || []).length < state.nbTickets ? 'disabled' : '' %>>
-                            <?= tkt_t("Étape suivante") ?>
-                        </button>
-                    </div>
-                <% } else { %>
-                    <div class="booking-wizard-warning-message">
-                        <?= tkt_t("Il n'y a plus de places pour cette date.") ?>
-                <% } %>
-            </div>
-        </div>
-    </div>
-    <% } %>
-
-    <% if (state.step == 6) { %>
     <div class="booking-wizard-content-step" data-step="5">
         <h5 class="booking-wizard-content-step-title"><?= tkt_t('Veuillez saisir vos informations') ?> :</h5>
         <div class="booking-wizard-content-step-content">
@@ -292,14 +249,59 @@ function areUserInfosFilled() {
                                     </span>
                                 </div>
                                 <input type="text" class="booking-wizard-user-info form-control" data-size="<%= size %>" data-field="firstname" data-ticket-index="<%= ticketIndex %>" data-index="<%= i %>" placeholder="<?= tkt_t('Prenom') ?>" value="<%= ticketIndex in state.userInfos ? state.userInfos[ticketIndex].firstname : '' %>" />
-                                <input type="text" class="booking-wizard-user-info form-control" data-size="<%= size %>" data-field="lastname" data-ticket-index="<%= ticketIndex %>" data-index="<%= i %>" placeholder="<?= tkt_t('Nom') ?>" value="<%= ticketIndex in state.userInfos ? state.userInfos[ticketIndex].lastname : '' %>" />
                             </div>
                         </div>
                         <% ticketIndex += 1; %>
                         <% } %>
                     <% }) %>
                     <div class="booking-wizard-user-info-next-button-wrapper">
-                        <button class="button btn btn-block booking-wizard-book-button" <%= !areUserInfosFilled() ? 'disabled' : '' %>>
+                        <button class="button btn btn-block booking-wizard-next-button" <%= !areUserInfosFilled() ? 'disabled' : '' %>>
+                            <?= tkt_t("Étape suivante") ?>
+                        </button>
+                    </div>
+                <% } else { %>
+                    <div class="booking-wizard-warning-message">
+                        <?= tkt_t("Il n'y a plus de places pour cette date.") ?>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+    </div>    
+    <% } %>
+
+    <% if (state.step == 6) { %>
+    <div class="booking-wizard-content-step" data-step="5">
+        <h5 class="booking-wizard-content-step-title"><?= tkt_t('Veuillez choisir votre tarifs') ?> :</h5>
+        <div class="booking-wizard-content-step-content">
+            <div class="booking-wizard-pricings-choices">
+                <% var ticketIndex = 0; %>
+                <% if (Object.keys(state.selectedSizes).length > 0) { %>
+                    <% Object.keys(state.selectedSizes).map(size => { %>
+                        <% for (var i =1; i <= state.selectedSizes[size]; i++) { %>
+                        <div class="booking-wizard-pricings-choice-wrapper">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <?= tkt_t('Taille') ?> <%= size %> - <%= state.userInfos[ticketIndex].firstname %>
+                                    </span>                                        
+                                </div>
+                                <select class="booking-wizard-pricings-choice form-control" data-size="<%= size %>" data-index="<%= i %>">
+                                    <option value=""><?= tkt_t('Choisissez un tarif') ?></option>
+                                    <% getAvailablePricings().map(pricing => { %>
+                                        <% var key = pricing.key; %>
+                                    <option value="<%= key %>" <%= isSelectedPricing(size, i, key) ? 'selected' : '' %>>
+                                        CHF <%= state.selectedScreenings[0].pricings[key].price.CHF %> -
+                                        <%= state.selectedScreenings[0].pricings[key].name['fr'] %>
+                                    </option>
+                                    <% }) %>
+                                </select>
+                            </div>
+                        </div>
+                        <% ticketIndex += 1; %>
+                        <% } %>
+                    <% }) %>
+                    <div class="booking-wizard-pricings-book-button-wrapper">
+                        <button class="button btn btn-block booking-wizard-book-button" <%= (state.selectedPricings || []).length < state.nbTickets ? 'disabled' : '' %>>
                             <?= tkt_t("Réserver") ?>
                         </button>
                     </div>
@@ -310,12 +312,11 @@ function areUserInfosFilled() {
                 <% } else { %>
                     <div class="booking-wizard-warning-message">
                         <?= tkt_t("Il n'y a plus de places pour cette date.") ?>
-
                     </div>
                 <% } %>
             </div>
         </div>
     </div>
-    <% } %>
 
+    <% } %>
 </div>
