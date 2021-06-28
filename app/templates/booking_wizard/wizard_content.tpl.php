@@ -283,14 +283,14 @@ function areUserInfosFilled() {
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">
                                         <?= tkt_t('Taille') ?> <%= size %> - <%= state.userInfos[ticketIndex].firstname %>
-                                    </span>                                        
+                                    </span>
                                 </div>
                                 <select class="booking-wizard-pricings-choice form-control" data-size="<%= size %>" data-index="<%= i %>">
                                     <option value=""><?= tkt_t('Choisissez un tarif') ?></option>
                                     <% getAvailablePricings().map(pricing => { %>
                                         <% var key = pricing.key; %>
                                     <option value="<%= key %>" <%= isSelectedPricing(size, i, key) ? 'selected' : '' %>>
-                                        CHF <%= state.selectedScreenings[0].pricings[key].price.CHF %> -
+                                        CHF <%= state.selectedScreenings[0].pricings[key].price.CHF * state.nbRuns %> -
                                         <%= state.selectedScreenings[0].pricings[key].name['fr'] %>
                                     </option>
                                     <% }) %>
