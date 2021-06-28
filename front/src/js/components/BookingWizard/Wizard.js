@@ -138,6 +138,7 @@ export default class BookingWizard extends Component {
             this.state.selectedScreenings = screeningIds.length > 0 ? this.state.screenings.filter((s) => {
                 return screeningIds.includes(s._id);
             }) : [];
+            this.state.selectedTimes = this.state.selectedScreenings.map(s => moment(s.start_at).format('LT')).join(' - ');
             this.next();
         });
 

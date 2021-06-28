@@ -65,11 +65,11 @@ function itemClass(step) {
     <div class="<%= itemClass(3) %>" data-target="3">
         <div class="booking-wizard-menu-icon"><i class="fa fa-clock"></i></div>
         <div class="booking-wizard-menu-content">
-            <div class="booking-wizard-menu-title"><?= tkt_t('Heure') ?></div>
+            <div class="booking-wizard-menu-title"><?= tkt_t('Départ') ?></div>
             <div class="booking-wizard-menu-infos">
-                <% if (state.time) { %>
+                <% if (state.selectedTimes) { %>
                 <span>
-                    <%= state.time %>
+                    <%= state.selectedTimes %>
                 </span>
                 <% } %>
             </div>
