@@ -37,8 +37,8 @@ use Ticketack\WP\TKTApp;
 
               <div id="field-wrapper-email" class="field-wrapper col-md-4" style="display: block;">
                 <div class="form-group">
-                  <label class="required" for="email"><?= tkt_t("Email"); ?></label>
-                  <input name="email" type="text" class="tkt-input form-control field" id="email" placeholder="<?= tkt_t("Votre email") ?>" required />
+                  <label class="required" for="email"><?= tkt_t("E-mail"); ?></label>
+                  <input name="email" type="text" class="tkt-input form-control field" id="email" placeholder="<?= tkt_t("Votre e-mail") ?>" required />
                 </div>
               </div>
             </div>

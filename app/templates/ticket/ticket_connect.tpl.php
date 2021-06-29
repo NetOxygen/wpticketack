@@ -16,6 +16,7 @@ use Ticketack\WP\TKTApp;
  * JS Input: {
  *   "ticket": Ticket instance, if the ticket is connected,
  *   "ticket_view_url": Link to see the ticket bookings (with PHPSESSID)
+ *   "program_url": String
  * }
  */
 ?>
@@ -33,7 +34,10 @@ use Ticketack\WP\TKTApp;
                 <div class="ticket-infos">
                     <span><%= [ticket.contact.firstname, ticket.contact.lastname].join(' ') %></span>
                 </div>
-                <a class="btn button"href="<%= ticket_view_url %>">
+                <a class="btn button" href="<%= program_url %>">
+                    <?= tkt_t("Retour au programme") ?>
+                </a>
+                <a class="btn button" href="<%= ticket_view_url %>">
                     <?= tkt_t("Voir mes réservations") ?>
                 </a>
                 <button class="btn button disconnect-btn">
