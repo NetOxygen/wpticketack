@@ -182,6 +182,25 @@ function tkt_program_url($query = "")
 }
 
 /**
+ * Get the Ticket View page url
+ *
+ * @param string $query
+ *
+ * @return string
+ */
+function tkt_ticket_view_url($query = "")
+{
+    $slug = TKTApp::get_instance()->get_config('pages.ticket_view');
+    if (!empty($slug)) {
+        return tkt_page_url($slug, $query);
+    }
+    return sprintf(
+        "%s/ticket/view",
+        TKTApp::get_instance()->get_config('ticketack.eshop_uri')
+    );
+}
+
+/**
  * Get the Shop page url
  *
  * @param string $query

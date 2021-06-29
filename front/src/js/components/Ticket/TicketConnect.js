@@ -1,4 +1,4 @@
-import { Component, Template } from '../Core';
+import { Component, Config, Template } from '../Core';
 import { Api as TKTApi } from '../Ticketack';
 import { Ticket } from '../Models';
 import postal from 'postal';
@@ -99,9 +99,9 @@ export default class TicketConnect extends Component {
     }
 
     render(ticket) {
-        const ticket_view_url = TKTApi.getTicketViewUrl();
-        this.$container.html(Template.render('tkt-ticket-connect-tpl', { ticket, ticket_view_url }));
-
+        this.$container.html(Template.render('tkt-ticket-connect-tpl', { ticket,
+                                                                         ticket_view_url : Config.get('ticket_view_url'),
+                                                                         program_url : Config.get('program_url') }));
         // bind pass fields
         $('.pass-number-input,.pass-key-input', this.$container).change((e) => {
           this.data.pass_infos = {

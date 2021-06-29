@@ -85,6 +85,14 @@ class AdminSettingsAction extends TKTAction
         );
 
         add_settings_field(
+            'ticket_view', // ID
+            tkt_t('Vue du ticket'), // Title
+            array( $this, 'ticket_view_callback' ), // Callback
+            'ticketack-pages', // Page
+            'ticketack_pages' // Section
+        );
+
+        add_settings_field(
             'cart', // ID
             tkt_t('Panier'), // Title
             array( $this, 'cart_callback' ), // Callback
@@ -166,6 +174,14 @@ class AdminSettingsAction extends TKTAction
             'privacy', // ID
             tkt_t('URL des conditions de protection des données'), // Title
             array( $this, 'privacy_callback' ), // Callback
+            'ticketack-checkout', // Page
+            'ticketack_checkout' // Section
+        );
+
+        add_settings_field(
+            'sanitary', // ID
+            tkt_t('URL des mesures sanitaires'), // Title
+            array( $this, 'sanitary_callback' ), // Callback
             'ticketack-checkout', // Page
             'ticketack_checkout' // Section
         );
@@ -426,6 +442,7 @@ class AdminSettingsAction extends TKTAction
     public function program_callback() { return $this->page_choice('program', 'tkt_pages', 'program'); }
     public function shop_callback() { return $this->page_choice('shop', 'tkt_pages', 'shop'); }
     public function pass_callback() { return $this->page_choice('pass', 'tkt_pages', 'pass'); }
+    public function ticket_view_callback() { return $this->page_choice('ticket_view', 'tkt_pages', 'ticket_view'); }
     public function cart_callback() { return $this->page_choice('cart', 'tkt_pages', 'cart'); }
     public function checkout_callback() { return $this->page_choice('checkout', 'tkt_pages', 'checkout'); }
     public function registration_callback() { return $this->page_choice('registration', 'tkt_pages', 'registration'); }
@@ -457,6 +474,7 @@ class AdminSettingsAction extends TKTAction
     }
     public function cgv_callback() { return $this->input('cgv', 'tkt_checkout', 'https://my-site.tld/cgv'); }
     public function privacy_callback() { return $this->input('privacy', 'tkt_checkout', 'https://my-site.tld/privacy'); }
+    public function sanitary_callback() { return $this->input('sanitary', 'tkt_checkout', 'https://my-site.tld/health'); }
     public function requested_fields_callback() { return $this->input('requested_fields', 'tkt_checkout', 'firstname,lastname,email,address,zip,city,phone,cellphone', 'firstname,lastname,email,address,zip,city,phone,cellphone'); }
     public function required_fields_callback() { return $this->input('required_fields', 'tkt_checkout', 'email', 'email'); }
     public function allow_later_callback() { return $this->boolean('allow_later', 'tkt_checkout', '1'); }

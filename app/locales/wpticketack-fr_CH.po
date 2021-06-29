@@ -56,9 +56,6 @@ msgstr ""
 msgid "Veuillez saisir vos informations"
 msgstr ""
 
-msgid "Prenom"
-msgstr ""
-
 msgid "Nom"
 msgstr ""
 
