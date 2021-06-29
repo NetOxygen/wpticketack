@@ -50,7 +50,7 @@ export default class BookingWizard extends Component {
         Screening.getInfos(this.ids, (err, screenings) => {
             this.state.screenings = _.sortBy(screenings, (s) => s.start_at);
             this.go_to(1);
-        });
+        }, /*forceRefresh*/true);
 
         this.state = {
             // screenings
