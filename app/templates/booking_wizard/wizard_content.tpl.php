@@ -248,7 +248,7 @@ function areUserInfosFilled() {
                                         <?= tkt_t('Taille') ?> <%= size %>
                                     </span>
                                 </div>
-                                <input type="text" class="booking-wizard-user-info form-control" data-size="<%= size %>" data-field="firstname" data-ticket-index="<%= ticketIndex %>" data-index="<%= i %>" placeholder="<?= tkt_t('Prenom') ?>" value="<%= ticketIndex in state.userInfos ? state.userInfos[ticketIndex].firstname : '' %>" />
+                                <input type="text" class="booking-wizard-user-info form-control" data-size="<%= size %>" data-field="firstname" data-ticket-index="<%= ticketIndex %>" data-index="<%= i %>" placeholder="<?= tkt_t('Prénom') ?>" value="<%= ticketIndex in state.userInfos ? state.userInfos[ticketIndex].firstname : '' %>" />
                             </div>
                         </div>
                         <% ticketIndex += 1; %>

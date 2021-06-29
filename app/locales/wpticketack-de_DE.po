@@ -65,9 +65,6 @@ msgstr "Please choose a pricing"
 msgid "Veuillez saisir vos informations"
 msgstr "Your informations"
 
-msgid "Prenom"
-msgstr ""
-
 msgid "Nom"
 msgstr "Lastname"
 
