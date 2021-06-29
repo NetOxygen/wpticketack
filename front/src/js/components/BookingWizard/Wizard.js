@@ -172,7 +172,17 @@ export default class BookingWizard extends Component {
                     this.state.userInfos[ticketIndex] = {};
                 this.state.userInfos[ticketIndex][field] = $(input).val();
             });
-            this.render();
+            
+            let nbUser = 0
+            this.state.userInfos.map(userInfo => {
+                if (userInfo.firstname.length) {
+                    nbUser += 1;
+                }
+
+                if (nbUser == this.state.userInfos.length) {
+                    this.render();
+                }
+            })
         });
         $('.booking-wizard-next-button', this.$contentWrapper).on('click', (e) => {
             this.next();
