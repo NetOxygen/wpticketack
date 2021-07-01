@@ -391,13 +391,17 @@ export default class BookingForm extends Component {
         });
 
         // bind pass connect button
-        $('.connect-btn', this.$container).click(this.connect_pass.bind(this));
+        $('.connect-btn', this.$container).click((e) => {
+            this.connect_pass();
+        });
 
         // bind book button
-        $('.book-btn').click(this.book.bind(this));
+        $('.book-btn', this.$container).click((e) => {
+            this.book();
+        });
 
         // bind add-to-cart button
-        $('.add-to-cart-btn').click((e) => {
+        $('.add-to-cart-btn', this.$container).click((e) => {
           this.process_add_to_cart();
         });
     }
