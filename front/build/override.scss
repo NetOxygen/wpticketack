@@ -1318,6 +1318,81 @@ $xs_size: 32px;
     }
   }
 }
+$buttong_bg: #ec0046;
+
+.tkt-pantaflix-player {
+    display: inline;
+
+    .tkt-pantaflix-button {
+        text-transform: uppercase;
+        border-radius: 30px;
+        padding-right: 1rem;
+        background-color: $buttong_bg;
+        box-shadow: inset 0 1px 2px rgba(0,0,0,0.2);
+        color: #fff !important;
+        border: none;
+        font-weight: bold;
+        height: 3.125rem;
+
+        svg {
+            vertical-align: middle;
+            width: 2.25rem;
+            height: 2.25rem;
+            line-height: 2.25rem;
+        }
+
+        span {
+            padding-left: 0.5rem;
+        }
+
+        &:hover {
+            background-color: darken($buttong_bg, 2);
+        }
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    .tkt-pantaflix-wrapper {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        z-index: 100;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: rgba(0, 0, 0, 0.75);
+
+        .tkt-pantaflix-modal {
+            width: 80%;
+            max-width: 100%;
+            max-height: 100%;
+            box-shadow: 0 0 7px 1px #000000;
+            background: #060606;
+            border-radius: 4px;
+            moz-border-radius: 4px;
+            webkit-border-radius: 4px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            >.tkt-wrapper {
+                flex: 1;
+            }
+
+            .tkt-ticket-connect {
+                background: #ececec;
+                margin: 1rem;
+                padding: 1rem;
+            }
+        }
+    }
+}
 .plus-minus-input-group {
     display: flex;
     flex-direction: row;
