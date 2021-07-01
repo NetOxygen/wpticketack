@@ -158,7 +158,7 @@ export default class Ticket extends BaseModel {
     }
 
     /**
-     * Load the cart from Ticketack
+     * Load the current connected ticket from Ticketack
      * @param {Function} callback  -Callback function
      */
     static load(callback) {

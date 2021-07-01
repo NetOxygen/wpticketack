@@ -5,7 +5,7 @@
  * Description: Ticketack integration
  * Text Domain: wpticketack
  * Domain Path: /app/locales
- * Version: 2.25.3
+ * Version: 2.26.0
  * Author: Net Oxygen Sàrl
  * Author URI: https://netoxygen.ch
  * License: GPLv3
@@ -16,7 +16,7 @@ use Ticketack\WP\TKTApp;
 date_default_timezone_set(get_option('timezone_string'));
 setlocale(LC_TIME, get_locale().'.UTF-8');
 
-define('TKT_ASSETS_VERSION', '2.25.3.2021062801');
+define('TKT_ASSETS_VERSION', '2.26.0.2021070101');
 
 define("TKT_BASE", (dirname(__FILE__)));
 define("TKT_CONFIG", (TKT_BASE.'/config'));
@@ -80,6 +80,7 @@ $app->register_shortcode('Ticketack\WP\Shortcodes\UserAccountShortcode', 'user_a
 $app->register_shortcode('Ticketack\WP\Shortcodes\UserConnectShortcode', 'user_connect.class.php');
 $app->register_shortcode('Ticketack\WP\Shortcodes\BuyPassShortcode', 'buy_pass.class.php');
 $app->register_shortcode('Ticketack\WP\Shortcodes\PeopleShortcode', 'people.class.php');
+$app->register_shortcode('Ticketack\WP\Shortcodes\PantaflixPlayerShortcode', 'pantaflix_player.class.php');
 $app->register_shortcode('Ticketack\WP\Shortcodes\TicketConnectShortcode', 'ticket_connect.class.php');
 
 // Register shortcodes defined in THEME_ROOT/ticketack/shortcodes

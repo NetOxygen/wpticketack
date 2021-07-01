@@ -1,51 +1,19 @@
 <?php
 
 use Ticketack\WP\TKTApp;
+use Ticketack\WP\Templates\TKTTemplate;
 
 /**
- * Ticket connection template
+ * Pantaflix login template
+ * This template will be parsed by underscore.js
+ *
+ * Input: {}
  */
 ?>
 <div class="tkt-wrapper" data-component="Ticket/TicketConnect"></div>
-
-<?php
-/**
- * Ticket connection widget content
- * This template will be parsed by underscore.js
- *
- * JS Input: {
- *   "ticket": Ticket instance, if the ticket is connected,
- *   "ticket_view_url": Link to see the ticket bookings (with PHPSESSID)
- *   "program_url": String
- * }
- */
-?>
 <script type="text/template" id="tkt-ticket-connect-tpl">
-    <!-- Message for deprecated shortcode [tkt_usr_connect]. -->
-    <?php if ($data->deprecated) : ?>
-        <% console.error('WARNING :The shorcode [tkt_user_connect] is deprecated, and will be deleted.') %>
-        <% console.error('WARNING :Please use new shortcode [tkt_ticket_connect][/tkt_ticket_connect] to connect with your TicketID'); %>
-    <?php endif; ?>
-
+<div class="tkt-wrapper">
     <div class="tkt-ticket-connect">
-        <% if (ticket) { %>
-        <div class="row">
-            <div class="col">
-                <div class="ticket-infos">
-                    <span><%= [ticket.contact.firstname, ticket.contact.lastname].join(' ') %></span>
-                </div>
-                <a class="btn button" href="<%= program_url %>">
-                    <?= tkt_t("Retour au programme") ?>
-                </a>
-                <a class="btn button" href="<%= ticket_view_url %>">
-                    <?= tkt_t("Voir mes réservations") ?>
-                </a>
-                <button class="btn button disconnect-btn">
-                    <?= tkt_t('Me déconnecter') ?>
-                </button>
-            </div>
-        </div>
-        <% } else { %>
         <div class="connect-panel">
             <div class="ticket_connect">
                 <div>
@@ -71,14 +39,8 @@ use Ticketack\WP\TKTApp;
                     <?= str_replace('TicketID', '<span class="tkt-ticketid_ticket">Ticket</span><span class="tkt-ticketid_id">ID</span>', tkt_t("Votre TicketID se trouve sur votre abonnement")) ?>
                 </div>
                 <br />
-                <?php if ($data->show_id_code_message) : ?>
-                <div>
-                    <?= tkt_t("Si vous n'avez pas de TicketID sur votre abonnement, saisissez l'ID dans le premier champ et le Code dans le second.") ?>
-                </div>
-                <?php endif; ?>
             </div>
         </div>
-        <% } %>
     </div>
 
     <%
@@ -90,4 +52,5 @@ use Ticketack\WP\TKTApp;
         });
     });
     %>
+</div>
 </script>
