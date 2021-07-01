@@ -16,6 +16,7 @@ import { UserRegister, UserLogin, UserAccount } from './components/User';
 import { Calendar, ImageDataUrl } from './components/Form';
 import { Shop } from './components/Shop';
 import { TicketConnect } from './components/Ticket';
+import { PantaflixPlayer } from './components/Pantaflix';
 
 import '../styles/main.scss';
 
@@ -48,5 +49,6 @@ loader.registerComponent('User/UserAccount', UserAccount);
 loader.registerComponent('User/UserRegister', UserRegister);
 loader.registerComponent('Shop/Shop', Shop);
 loader.registerComponent('Ticket/TicketConnect', TicketConnect);
+loader.registerComponent('Pantaflix/Player', PantaflixPlayer);
 
 loader.attach();
