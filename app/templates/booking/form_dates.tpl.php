@@ -94,9 +94,9 @@ use Ticketack\WP\TKTApp;
         </div>
     </div>
 </div>
-<% else if (screenings.length == 1) { %>
+<% } else if (screenings.length == 1) { %>
 <span data-screening_id="<%= screenings[0]._id %>" class="date d-none"></span>
-<% } else %>
+<% } else { %>
 <span><?= _("Il n'y a pas de billetterie disponible pour cet événement.") ?></span>
 <% } %>
 
