@@ -89,7 +89,7 @@ export default class Cart extends Component {
         this.$container.html(Template.render('tkt-cart-table-tpl', {
             cart: this.cart,
             ticket: this.ticket,
-            program_url: Config.get('program_url') ? Config.get('program_url') : TKTApi.getProgramUrl(),
+            program_url: Config.get('program_url') ? Config.get('program_url') : TKTApi.getProgramViewUrl(),
             cart_reset_url: Config.get('cart_reset_url'),
             checkout_url: Config.get('checkout_url') ? Config.get('checkout_url') : TKTApi.getCheckoutUrl(),
             hide_links: this.hide_links
