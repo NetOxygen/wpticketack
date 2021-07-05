@@ -14,7 +14,13 @@ use Ticketack\WP\TKTApp;
 ?>
 <div class="tkt-wrapper">
     <% if (_.keys(screening.pricings).length) { %>
-        <% if (!('map_only_bookings' in screening.opaque)) { %>
+        <% if ('map_only_bookings' in screening.opaque && screening.opaque.map_only_bookings) { %>
+            <div class="row">
+                <div class="col">
+                    <iframe width="100%" style="min-height: 500px" frameborder="0" src="<%= TKTApi.getScreeningMapUrl(screening._id) %>"></iframe>
+                </div>
+            </div>
+        <% } else { %>
             <div class="pricings-form">
                 <div class="row">
                     <div class="col">
