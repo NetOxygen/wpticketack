@@ -89,9 +89,9 @@ export default class Cart extends Component {
         this.$container.html(Template.render('tkt-cart-table-tpl', {
             cart: this.cart,
             ticket: this.ticket,
-            program_url: Config.get('program_url'),
+            program_url: Config.get('program_url') ? Config.get('program_url') : TKTApi.getProgramUrl(),
             cart_reset_url: Config.get('cart_reset_url'),
-            checkout_url: TKTApi.getCheckoutUrl(),
+            checkout_url: Config.get('checkout_url') ? Config.get('checkout_url') : TKTApi.getCheckoutUrl(),
             hide_links: this.hide_links
         }));
         $('.promo-code-button', this.$container).on('click', () => {

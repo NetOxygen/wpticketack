@@ -254,7 +254,7 @@ export default class BookingForm extends Component {
                 } else {
                     $('.book-btn', this.$container).addClass('d-none');
                     const msg = this.data.bookability.screening_already_booked ?
-                        i18n.t("Vous ne pouvez pas réserver plus de place pour cette séance avec votre abonnement.") :
+                        i18n.t("Vous ne pouvez pas réserver une place de plus pour cette séance avec votre abonnement.") :
                         i18n.t("Vous ne pouvez pas réserver de place pour cette séance avec votre abonnement.");
                     $('.book-form-error', this.$container)
                         .html(msg)

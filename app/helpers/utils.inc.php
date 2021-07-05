@@ -191,13 +191,7 @@ function tkt_program_url($query = "")
 function tkt_ticket_view_url($query = "")
 {
     $slug = TKTApp::get_instance()->get_config('pages.ticket_view');
-    if (!empty($slug)) {
-        return tkt_page_url($slug, $query);
-    }
-    return sprintf(
-        "%s/ticket/view",
-        TKTApp::get_instance()->get_config('ticketack.eshop_uri')
-    );
+    return $slug ? tkt_page_url($slug, $query) : null;
 }
 
 /**
@@ -236,14 +230,7 @@ function tkt_cart_url($query = "")
 function tkt_checkout_url($query = "")
 {
     $slug = TKTApp::get_instance()->get_config('pages.checkout');
-    if (!empty($slug)) {
-        return tkt_page_url($slug, $query);
-    }
-
-    return sprintf(
-        "%s/cart/validate",
-        TKTApp::get_instance()->get_config('ticketack.eshop_uri')
-    );
+    return $slug ? tkt_page_url($slug, $query) : null;
 }
 
 /**
@@ -256,11 +243,7 @@ function tkt_checkout_url($query = "")
 function tkt_thank_you_url($query = "")
 {
     $slug = TKTApp::get_instance()->get_config('pages.thank_you');
-    if (!empty($slug)) {
-        return tkt_page_url($slug, $query);
-    }
-
-    return null;
+    return $slug ? tkt_page_url($slug, $query) : null;
 }
 
 /**
@@ -271,13 +254,7 @@ function tkt_thank_you_url($query = "")
 function tkt_buy_pass_url()
 {
     $slug = TKTApp::get_instance()->get_config('pages.pass');
-    if (!empty($slug)) {
-        return tkt_page_url($slug, $query);
-    }
-    return sprintf(
-        "%s/pass/new",
-        TKTApp::get_instance()->get_config('ticketack.eshop_uri')
-    );
+    return $slug ? tkt_page_url($slug, $query) : null;
 }
 
 /**
