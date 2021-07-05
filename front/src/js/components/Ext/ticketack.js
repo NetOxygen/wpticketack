@@ -39,6 +39,8 @@ var Ticketack = function(eshopUrl, apiKey, lang) {
     this.ticketQRCodeUrl       = this.eshopUrl + "ticket/qrcode/";
     this.passesViewUrl         = this.eshopUrl + "pass/new/";
     this.screeningViewUrl      = this.eshopUrl + "screening/buy/";
+    this.programViewUrl        = this.eshopUrl + "screening/all/";
+    this.articleViewUrl        = this.eshopUrl + "article/all/";
     this.screeningMapUrl       = this.eshopUrl + "screening/map/";
 
     this.cartJsonUrl           = this.eshopUrl + "cart/view_json";
@@ -162,6 +164,23 @@ Ticketack.prototype.getPassesViewUrl = function(tickettype_id, pricing_id) {
     var url = this.parametrize_url(this.passesViewUrl, params);
     return url;
 }
+
+/**
+ * Program url getter
+ */
+Ticketack.prototype.getProgramViewUrl = function() {
+    var url = this.parametrize_url(this.programViewUrl, {});
+    return url;
+}
+
+/**
+ * Articles url getter
+ */
+Ticketack.prototype.getArticlesViewUrl = function() {
+    var url = this.parametrize_url(this.articlesViewUrl, {});
+    return url;
+}
+
 
 /**
  * Buy screening url getter

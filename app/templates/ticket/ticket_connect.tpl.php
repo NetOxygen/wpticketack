@@ -73,7 +73,7 @@ use Ticketack\WP\TKTApp;
                 <br />
                 <?php if ($data->show_id_code_message) : ?>
                 <div>
-                    <?= tkt_t("Si vous n'avez pas de TicketID sur votre abonnement, saisissez l'ID dans le premier champ et le Code dans le second.") ?>
+                    <?= str_replace('TicketID', '<span class="tkt-ticketid_ticket">Ticket</span><span class="tkt-ticketid_id">ID</span>', tkt_t("Si vous n'avez pas de TicketID sur votre abonnement, saisissez l'ID dans le premier champ et le Code dans le second.")) ?>
                 </div>
                 <?php endif; ?>
             </div>
