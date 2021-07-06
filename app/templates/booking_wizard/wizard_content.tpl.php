@@ -65,7 +65,7 @@ if (state.nbRuns === 1) {
 }
 
 function getNbAvailableSeatsBySize(s) {
-    let availableSizes = [];
+    let availableSizes = { S: 0, M: 0, L: 0, XL: 0};
     s.cinema_hall.map.seats.filter(seat => seat.status === 'free').map(seat => {
         var size = seat.placing.row;
         if (!(size in availableSizes))

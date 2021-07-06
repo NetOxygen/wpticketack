@@ -60,6 +60,14 @@ This section describes how to install the plugin and get it working.
 
 * feat: Introduce Pantaflix player
 
+= 2.25.4 =
+
+* fix: Force the refresh for get screenins on booking wizard (experimental)
+* Fix: TabIndex in booking_wizard on booking wizard (experimental)
+* Fix: Displays the carts for size on booking wizard (experimental)
+* fix: Typo
+* feat: Add sanitary measures
+
 = 2.25.3 =
 
 * fix: Change width of the select time on booking wizard (experimental)
