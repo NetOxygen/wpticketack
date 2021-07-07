@@ -223,6 +223,17 @@ Ticketack.prototype.getScreeningsInfo = function(screening_refs, callback) {
     return this.get(url, {}, callback);
 }
 
+/**
+ * Fetch the informations about a screening bypassing cache
+ *
+ * @param {Array} screening_refs: Array with screening_refs
+ * @param {Function} callback: The callback function
+ */
+Ticketack.prototype.getFreshScreeningsInfo = function(screening_refs, callback) {
+    var url = this.parametrize_url(this.screeningUrl, { "ids": screening_refs.join(","), "nocache": true }, true);
+    return this.get(url, {}, callback);
+}
+
 
 /**
  * Add a screening to cart
@@ -281,7 +292,7 @@ Ticketack.prototype.addScreeningToCart = function(screening_id, bookings, overbo
         "bookings": bookings,
         "overbook": overbook
     };
-    return this.post_json(this.cartAddScreeningUrl, data, callback);
+    return this.post_json(this.parametrize_url(this.cartAddScreeningUrl), data, callback);
 };
 
 /**

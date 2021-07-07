@@ -50,7 +50,7 @@ export default class BookingWizard extends Component {
         Screening.getInfos(this.ids, (err, screenings) => {
             this.state.screenings = _.sortBy(screenings, (s) => s.start_at);
             this.go_to(1);
-        });
+        }, /*forceRefresh*/true);
 
         this.state = {
             // screenings
@@ -160,7 +160,9 @@ export default class BookingWizard extends Component {
         });
 
         // step 5
-        $('.booking-wizard-user-info', this.$contentWrapper).on('change', (e) => {
+
+
+        $('.booking-wizard-user-info', this.$contentWrapper).on('keyup', (e) => {
             this.state.userInfos = [];
             $('.booking-wizard-user-info', this.$contentWrapper).each((i, input) => {
                 const field       = $(input).data('field');
@@ -172,8 +174,20 @@ export default class BookingWizard extends Component {
                     this.state.userInfos[ticketIndex] = {};
                 this.state.userInfos[ticketIndex][field] = $(input).val();
             });
-            this.render();
+
+            let nbFilledUsers = 0;
+            this.state.userInfos.map(userInfo => {
+                $('.booking-wizard-next-button', this.$container).attr('disabled', 'disabled');
+
+                if (userInfo.firstname.length) {
+                    nbFilledUsers += 1;
+                }
+                if (nbFilledUsers == this.state.userInfos.length) {
+                    $('.booking-wizard-next-button', this.$container).removeAttr('disabled');
+                }
+            })
         });
+
         $('.booking-wizard-next-button', this.$contentWrapper).on('click', (e) => {
             this.next();
         });
