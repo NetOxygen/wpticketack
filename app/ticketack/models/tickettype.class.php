@@ -80,9 +80,9 @@ class Tickettype extends TKTModel implements \JsonSerializable
     {
         return $req->add_post_process(function ($status, $tickettypes) use ($roles) {
             if (No2_HTTP::is_success($status)) {
-                $tickettypes = array_filter($tickettypes, function ($tickettype) use ($roles) {
+                $tickettypes = array_values(array_filter($tickettypes, function ($tickettype) use ($roles) {
                     return (count($tickettype->pricings_for_sellers($roles)) > 0);
-                });
+                }));
             }
             return $tickettypes;
         });
