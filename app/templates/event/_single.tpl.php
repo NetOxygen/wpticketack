@@ -122,7 +122,7 @@ $nb_slides = count($trailers) + count($posters);
             <div class="col">
               <span class="tkt-badge tkt-badge-split">
                 <span class="tkt-badge-part tkt-dark-badge"><?= tkt_t('Genre') ?></span>
-                <span class="tkt-badge-part tkt-grey-badge"><?= $opaque->genre ?></span>
+                <span class="tkt-badge-part tkt-grey-badge"><?= ucfirst($opaque->genre) ?></span>
               </span>
             </div>
           </div>
@@ -135,6 +135,101 @@ $nb_slides = count($trailers) + count($posters);
                 <span class="tkt-badge tkt-badge-split">
                   <span class="tkt-badge-part tkt-dark-badge"><?= tkt_t('Durée') ?></span>
                   <span class="tkt-badge-part tkt-grey-badge"><?= $opaque->duration ?> <?= tkt_t('min') ?></span>
+                </span>
+              </div>
+            </div>
+          </div>
+          <?php endif; ?>
+
+          <?php if (!empty($opaque->countries)) : ?>
+          <div class="row">
+            <div class="col">
+              <div class="countries">
+                <span class="tkt-badge tkt-badge-split">
+                  <span class="tkt-badge-part tkt-dark-badge"><?= tkt_t('Pays') ?></span>
+                  <?php foreach($opaque->countries as $countrie) : ?>
+                    <span class="tkt-badge-part tkt-grey-badge"><?= $countrie ?></span>
+                  <?php endforeach; ?>
+                </span>
+              </div>
+            </div>
+          </div>
+          <?php endif; ?>
+
+          <?php if (!empty($opaque->languages->original_language)) : ?>
+          <div class="row">
+            <div class="col">
+              <div class="original_language">
+                <span class="tkt-badge tkt-badge-split">
+                  <span class="tkt-badge-part tkt-dark-badge"><?= tkt_t('Langue originale') ?></span>
+                  <span class="tkt-badge-part tkt-grey-badge"><?= strtoupper($opaque->languages->original_language) ?></span>
+                </span>
+              </div>
+            </div>
+          </div>
+          <?php endif; ?>
+
+          <?php if (!empty($opaque->languages->audio)) : ?>
+          <div class="row">
+            <div class="col">
+              <div class="audio">
+                <span class="tkt-badge tkt-badge-split">
+                  <span class="tkt-badge-part tkt-dark-badge"><?= tkt_t('Audio') ?></span>
+                  <span class="tkt-badge-part tkt-grey-badge"><?= strtoupper($opaque->languages->audio) ?></span>
+                </span>
+              </div>
+            </div>
+          </div>
+          <?php endif; ?>
+
+          <?php if (!empty($opaque->languages->subtitles)) : ?>
+          <div class="row">
+            <div class="col">
+              <div class="subtitles">
+                <span class="tkt-badge tkt-badge-split">
+                  <span class="tkt-badge-part tkt-dark-badge"><?= tkt_t('Sous-titre') ?></span>
+                  <?php foreach($opaque->languages->subtitles as $subtitle) : ?>
+                    <span class="tkt-badge-part tkt-grey-badge"><?= strtoupper($subtitle) ?></span>
+                  <?php endforeach; ?>
+                </span>
+              </div>
+            </div>
+          </div>
+          <?php endif; ?>
+
+          <?php if (!empty($opaque->l_min_age)) : ?>
+          <div class="row">
+            <div class="col">
+              <div class="l_min_age">
+                <span class="tkt-badge tkt-badge-split">
+                  <span class="tkt-badge-part tkt-dark-badge"><?= tkt_t('Âge min. lég.') ?></span>
+                  <span class="tkt-badge-part tkt-grey-badge"><?= $opaque->l_min_age ?></span>
+                </span>
+              </div>
+            </div>
+          </div>
+          <?php endif; ?>
+
+          <?php if (!empty($opaque->s_min_age)) : ?>
+          <div class="row">
+            <div class="col">
+              <div class="s_min_age">
+                <span class="tkt-badge tkt-badge-split">
+                  <span class="tkt-badge-part tkt-dark-badge"><?= tkt_t('Âge min. sug.') ?></span>
+                  <span class="tkt-badge-part tkt-grey-badge"><?= $opaque->s_min_age ?></span>
+                </span>
+              </div>
+            </div>
+          </div>
+          <?php endif; ?>
+
+          <?php if (!empty($opaque->a_min_age)) : ?>
+          <div class="row">
+            <div class="col">
+              <div class="a_min_age">
+                <span class="tkt-badge tkt-badge-split">
+                  <span class="tkt-badge-part tkt-dark-badge"><?= tkt_t('Âge min. acc.') ?></span>
+                  <span class="tkt-badge-part tkt-grey-badge"><?= $opaque->a_min_age ?></span>
                 </span>
               </div>
             </div>
