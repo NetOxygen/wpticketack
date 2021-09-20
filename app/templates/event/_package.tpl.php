@@ -104,14 +104,6 @@ $nb_slides = count($trailers) + count($posters);
         <div class="col-md left-col text-left">
           <h3 class="tkt-section-title"><?= tkt_t('Details') ?></h3>
           <div class="row">
-            <div class="col">
-              <div class="duration">
-                <span class="tkt-badge tkt-badge-split">
-                  <span class="tkt-badge-part tkt-dark-badge"><?= tkt_t('Quand') ?></span>
-                  <span class="tkt-badge-part tkt-grey-badge"><?= tkt_date_and_time_to_min_s($s->start_at()); ?></span>
-                </span>
-              </div>
-            </div>
 
             <?php if (!empty($s->opaque('section'))) : ?>
             <div class="col">
