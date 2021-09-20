@@ -16,6 +16,12 @@ use Ticketack\Core\Models\Screening;
 
 $s = $data->screening;
 $e = $data->tkt_event;
+$screenings = array_map(function ($s) {
+    return new Screening($s);
+}, json_decode(get_post_meta($e->ID, 'screenings')[0], /*assoc*/true));
+$ids = array_map(function ($s) {
+    return $s->_id();
+}, $screenings);
 
 $title    = $s->localized_title_or_original(TKT_LANG);
 $posters  = $s->posters();
@@ -36,8 +42,6 @@ if (!empty($description)) {
 }
 
 $movies = $s->movies();
-
-$ids = [$s->_id()];
 
 $images_width  = TKTApp::get_instance()->get_config('images_dimensions.big_width');
 $images_height = TKTApp::get_instance()->get_config('images_dimensions.big_height');
@@ -166,6 +170,7 @@ $nb_slides = count($trailers) + count($posters);
                   ]));
                   ?>
                   <div class="movie-infos"><?= $infos ?></div>
+                  <div class="movie-description"><?= $m->opaque('description', [])[TKT_LANG] ?></div>
                 </div>
 
               </div>
