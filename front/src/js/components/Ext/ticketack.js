@@ -73,7 +73,7 @@ var Ticketack = function(eshopUrl, apiKey, lang) {
     this.passesUrl             = this.eshopUrl + "pass/tickettypes_json/";
 
     window.addEventListener('message', (e) => {
-        if ('session_id' in e.data) {
+        if (e && e.data && e.data.session_id) {
             this.set_session_id(e.data.session_id);
         }
     });
