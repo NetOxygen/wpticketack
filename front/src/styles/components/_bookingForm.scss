@@ -6,6 +6,13 @@
         margin-top: 0;
         padding-right: 1rem;
 
+        .single-date {
+            font-weight: bold;
+            text-decoration: underline;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+
         .days-wrapper {
             display: flex;
             flex-direction: row;

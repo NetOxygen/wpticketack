@@ -84,6 +84,7 @@ use Ticketack\WP\TKTApp;
                         <% if (s.opaque && s.opaque._3d) { %>
                         <%= s.opaque && s.opaque._3d && (' - 3D') %>
                         <% } %>
+                        <%= ' - ' + s.cinema_hall.name %>
                     </span>
                     <% }) %>
                 <% }) %>
@@ -95,8 +96,10 @@ use Ticketack\WP\TKTApp;
     </div>
 </div>
 <% } else if (screenings.length == 1) { %>
-<span data-screening_id="<%= screenings[0]._id %>" class="date d-none"></span>
+<span data-screening_id="<%= screenings[0]._id %>" class="date single-date">
+    <%= screenings[0].start_at.format("dddd D MMMM") %> à <%= screenings[0].start_at.format("H[h]") + (screenings[0].start_at.minutes() > 0 ? screenings[0].start_at.format("mm") : "") %> <%= ' - ' + screenings[0].cinema_hall.name %>
+
+</span>
 <% } else { %>
 <span><?= _("Il n'y a pas de billetterie disponible pour cet événement.") ?></span>
 <% } %>
-
