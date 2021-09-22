@@ -2,7 +2,7 @@
 Tags: ticketack
 Requires at least: 4.6
 Tested up to: 5.6
-Stable tag: 2.26.9
+Stable tag: 2.27.0
 Requires PHP: 5.6
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -34,6 +34,17 @@ This section describes how to install the plugin and get it working.
 == Screenshots ==
 
 == Changelog ==
+
+= 2.27.0 =
+
+* feat: Adds the description of the films
+* feat: Displays the new detail list in event/_single
+* fix: Disable popover function
+* fix: update css
+* fix: Displays subscriptions associated with the film
+* fix: Deletes the single date film package
+* fix: Displays the single date in the booking form
+* fix: Fix Youtube conflict on windows messages
 
 = 2.26.9 =
 
