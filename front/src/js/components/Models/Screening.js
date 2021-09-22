@@ -85,14 +85,16 @@ export default class Screening extends BaseModel {
      * Load some screenings infos
      * @param {Array} ids - The ids to get infoos for
      * @param {Function} callback - Callback function
+     * @param {Boolean} forceRefresh - Force refresh (optional, default false)
      */
-    static getInfos = (ids, callback) => {
+    static getInfos = (ids, callback, forceRefresh) => {
+
         if (!ids || ids.length == 0)
             return callback(/*err*/null, []);
 
         if (Screening.isAlreadyGettingInfos)
             return setTimeout(
-                () => Screening.getInfos(ids, callback),
+                () => Screening.getInfos(ids, callback, forceRefresh),
                 20
             );
 
@@ -103,7 +105,7 @@ export default class Screening extends BaseModel {
 
         // consider only not already loaded ids
         ids = ids.filter(id => {
-            if (Screening.infos_cache.has(id)) {
+            if (!forceRefresh && Screening.infos_cache.has(id)) {
                 infos.push(Screening.infos_cache.get(id));
                 return false;
             }
@@ -121,12 +123,20 @@ export default class Screening extends BaseModel {
         const chunks = _.chunk(ids, 100);
         const tasks  = _.map(chunks, (ids) => {
             return (done) => {
-                TKTApi.getScreeningsInfo(ids, (err, status, rsp) => {
-                    if (err)
-                        return done(err);
+                if (forceRefresh)
+                    TKTApi.getFreshScreeningsInfo(ids, (err, status, rsp) => {
+                        if (err)
+                            return done(err);
 
-                    return done(/*err*/null, rsp);
-                });
+                        return done(/*err*/null, rsp);
+                    });
+                else
+                    TKTApi.getScreeningsInfo(ids, (err, status, rsp) => {
+                        if (err)
+                            return done(err);
+
+                        return done(/*err*/null, rsp);
+                    });
             };
         });
 

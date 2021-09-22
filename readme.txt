@@ -2,7 +2,7 @@
 Tags: ticketack
 Requires at least: 4.6
 Tested up to: 5.6
-Stable tag: 2.26.3
+Stable tag: 2.26.9
 Requires PHP: 5.6
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -35,6 +35,31 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 2.26.9 =
+
+* fix: Fix css override loading in child theme
+
+= 2.26.8 =
+
+* fix: Fix a bug in the buy_pass shortcode
+
+= 2.26.7 =
+
+* fix: Set the url of addScreeningToCart
+* fix: Change focus on the name step in booking wizard
+
+= 2.26.6 =
+
+* fix: Fix user connect
+
+= 2.26.5 =
+
+* fix: Fix ticket connect
+
+= 2.26.4 =
+
+* fix: Fix booking form
+
 = 2.26.3 =
 
 * fix: better messages
@@ -51,6 +76,14 @@ This section describes how to install the plugin and get it working.
 = 2.26.0 =
 
 * feat: Introduce Pantaflix player
+
+= 2.25.4 =
+
+* fix: Force the refresh for get screenins on booking wizard (experimental)
+* Fix: TabIndex in booking_wizard on booking wizard (experimental)
+* Fix: Displays the carts for size on booking wizard (experimental)
+* fix: Typo
+* feat: Add sanitary measures
 
 = 2.25.3 =
 
