@@ -64,6 +64,3 @@
     <?= tkt_t("Entrée libre") ?>
 </div>
 <% } %>
-<script>
-$('[data-toggle="popover"]').popover();
-</script>

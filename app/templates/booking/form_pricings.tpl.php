@@ -164,9 +164,4 @@ use Ticketack\WP\TKTApp;
     </div>
     <% } %>
 </div>
-<script>
-$(document).ready(function () {
-    $('.popoverdata').popover();
-});
-</script>
 
