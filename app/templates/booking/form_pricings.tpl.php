@@ -111,7 +111,7 @@ use Ticketack\WP\TKTApp;
                 <div class="row">
                     <div class="col mt-3">
                         <div class="buy-pass-link">
-                            <span><?= tkt_t("Acheter un abonnement : ") ?></span>
+                            <span><?= TKT_LANG == 'fr' ? "Acheter un abonnement: " : "Buy a pass: " ?></span>
                             <ul class="eligible-types-list">
                             </ul>
                         </div>
