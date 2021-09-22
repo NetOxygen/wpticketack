@@ -16,6 +16,12 @@ use Ticketack\Core\Models\Screening;
 
 $s = $data->screening;
 $e = $data->tkt_event;
+$screenings = array_map(function ($s) {
+    return new Screening($s);
+}, json_decode(get_post_meta($e->ID, 'screenings')[0], /*assoc*/true));
+$ids = array_map(function ($s) {
+    return $s->_id();
+}, $screenings);
 
 $title    = $s->localized_title_or_original(TKT_LANG);
 $posters  = $s->posters();
@@ -36,8 +42,6 @@ if (!empty($description)) {
 }
 
 $movies = $s->movies();
-
-$ids = [$s->_id()];
 
 $images_width  = TKTApp::get_instance()->get_config('images_dimensions.big_width');
 $images_height = TKTApp::get_instance()->get_config('images_dimensions.big_height');
@@ -100,14 +104,6 @@ $nb_slides = count($trailers) + count($posters);
         <div class="col-md left-col text-left">
           <h3 class="tkt-section-title"><?= tkt_t('Details') ?></h3>
           <div class="row">
-            <div class="col">
-              <div class="duration">
-                <span class="tkt-badge tkt-badge-split">
-                  <span class="tkt-badge-part tkt-dark-badge"><?= tkt_t('Quand') ?></span>
-                  <span class="tkt-badge-part tkt-grey-badge"><?= tkt_date_and_time_to_min_s($s->start_at()); ?></span>
-                </span>
-              </div>
-            </div>
 
             <?php if (!empty($s->opaque('section'))) : ?>
             <div class="col">
@@ -166,6 +162,7 @@ $nb_slides = count($trailers) + count($posters);
                   ]));
                   ?>
                   <div class="movie-infos"><?= $infos ?></div>
+                  <div class="movie-description"><?= $m->opaque('description', [])[TKT_LANG] ?></div>
                 </div>
 
               </div>

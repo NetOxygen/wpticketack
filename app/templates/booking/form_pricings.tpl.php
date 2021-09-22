@@ -108,15 +108,27 @@ use Ticketack\WP\TKTApp;
                         <?php endif; ?>
                     </div>
                 </div>
+                <?php if (TKTApp::get_instance()->get_config('pages.pass')) : ?>
                 <div class="row">
                     <div class="col mt-3">
                         <div class="buy-pass-link">
-                            <span><?= TKT_LANG == 'fr' ? "Acheter un abonnement: " : "Buy a pass: " ?></span>
+                            <span><?= tkt_t("Acheter un abonnement") ?></span>
                             <ul class="eligible-types-list">
+                            <% screening.eligible_types.map(function (t) { %>
+                            <li class="elligible-type">
+                                <span class="type-name">
+                                    <i class="fa fa-ticket"></i>
+                                    <a href="<?= tkt_buy_pass_url() ?>" class="type-link">
+                                        <%= t.name.<?= TKT_LANG ?> %>
+                                    </a>
+                                </span>
+                            </li>
+                            <% }); %>
                             </ul>
                         </div>
                     </div>
                 </div>
+                <?php endif; ?>
             </div>
         </div>
         <div class="book-panel">
@@ -152,9 +164,4 @@ use Ticketack\WP\TKTApp;
     </div>
     <% } %>
 </div>
-<script>
-$(document).ready(function () {
-    $('.popoverdata').popover();
-});
-</script>
 
