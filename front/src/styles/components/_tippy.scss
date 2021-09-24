@@ -1,0 +1,19 @@
+.tippy-content {
+  font-size:  12px;
+  padding: 0px 10px;
+}
+.tippy-box[data-theme~='dark'] {
+  background-color: #545150;
+  color: #FFF;
+  border:  1px solid #000;
+}
+
+.tippy-box[data-theme~='default'] {
+  background-color: #FAFAFA;
+  color: #454545;
+  border:  1px solid #CACACA;
+
+  .tippy-svg-arrow {
+    fill: #CACACA;
+  }
+}
