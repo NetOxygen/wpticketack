@@ -515,7 +515,7 @@ function tkt_pass_required_fields($type)
         return $required_fields[$type];
     }
 
-    return $required_fields['default'];
+    return empty($required_fields['default']) ? [] : $required_fields['default'];
 }
 
 /**
