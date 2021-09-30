@@ -1514,11 +1514,11 @@ $tkt-icon-font-path: "./fonts" !default;
 
 @font-face {
   font-family: '#{$tkt-icon-font-family}';
-  src:  url('#{$tkt-icon-font-path}/#{$tkt-icon-font-family}.eot?r1zrjg');
-  src:  url('#{$tkt-icon-font-path}/#{$tkt-icon-font-family}.eot?r1zrjg#iefix') format('embedded-opentype'),
-    url('#{$tkt-icon-font-path}/#{$tkt-icon-font-family}.ttf?r1zrjg') format('truetype'),
-    url('#{$tkt-icon-font-path}/#{$tkt-icon-font-family}.woff?r1zrjg') format('woff'),
-    url('#{$tkt-icon-font-path}/#{$tkt-icon-font-family}.svg?r1zrjg##{$tkt-icon-font-family}') format('svg');
+  src:  url('#{$tkt-icon-font-path}/#{$tkt-icon-font-family}.eot');
+  src:  url('#{$tkt-icon-font-path}/#{$tkt-icon-font-family}.eot#iefix') format('embedded-opentype'),
+    url('#{$tkt-icon-font-path}/#{$tkt-icon-font-family}.ttf') format('truetype'),
+    url('#{$tkt-icon-font-path}/#{$tkt-icon-font-family}.woff') format('woff'),
+    url('#{$tkt-icon-font-path}/#{$tkt-icon-font-family}.svg##{$tkt-icon-font-family}') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -1545,7 +1545,8 @@ $icon-info: "\ea0c";
   &:before {
     content: $icon-info; 
   }
-}#tkt-user-account {
+}
+#tkt-user-account {
     #tkt-user-account-menu {
         text-align: center;
 
