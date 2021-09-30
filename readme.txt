@@ -2,7 +2,7 @@
 Tags: ticketack
 Requires at least: 4.6
 Tested up to: 5.6
-Stable tag: 2.27.0
+Stable tag: 2.28.0
 Requires PHP: 5.6
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -34,6 +34,14 @@ This section describes how to install the plugin and get it working.
 == Screenshots ==
 
 == Changelog ==
+
+= 2.28.0 =
+
+* feat: Icon and Tippy implementation tpl
+* feat: Setting up the icons
+* feat: Implementation of Tippy
+* fix: notice if default fiels is empty
+* modified templates : booking/form_pricings.tpl.php buy_pass/pass_list.tpl.php
 
 = 2.27.0 =
 
