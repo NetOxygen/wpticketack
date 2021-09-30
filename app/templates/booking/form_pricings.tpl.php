@@ -41,9 +41,9 @@ use Ticketack\WP\TKTApp;
                                 x
                                 <span class="pricing-name">
                                     <%= p.name.<?= TKT_LANG ?> %> :
-                        <% if (p.description.<?= TKT_LANG ?>) { %>
-                             <a class="popoverdata" href="javascript:;" title="<%= p.description.<?= TKT_LANG ?> %>" rel="popover" data-placement="bottom" data-toggle="tooltip"  data-trigger="hover"><span class="glyphicon glyphicon-info-sign" /></a>
-                        <% } %>
+                                    <% if (p.description.<?= TKT_LANG ?>) { %>
+                                        <i class="tkt-icon-info" data-component="Ui/Tippy" data-tippy-content="<%= p.description.<?= TKT_LANG ?> %>"></i>
+                                    <% } %>
                                 </span>
                                 <span class="pricing-price">
                                     <%= p.price.CHF.toFixed(2) %> CHF
