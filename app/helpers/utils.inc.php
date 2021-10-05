@@ -475,7 +475,12 @@ if (!function_exists('tkt_html')) {
 
 function tkt_get_ages()
 {
-    return [_("Pas de réponse"), '-18', '18-24', '25-34', '35-44', '45-54', '55-64', '65+'];
+    $array = [_("Pas de réponse"), "< 5"];
+    for ($i=5 ; $i<=80 ; $i++) {
+           $array[] = $i;
+    }
+    $array[] = "> 80";
+    return $array;
 }
 
 function tkt_get_sexes()
