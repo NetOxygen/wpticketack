@@ -13,7 +13,6 @@
 
 use Ticketack\WP\TKTApp;
 
-date_default_timezone_set(get_option('timezone_string'));
 setlocale(LC_TIME, get_locale().'.UTF-8');
 
 define('TKT_ASSETS_VERSION', '2.28.0.20210930');
