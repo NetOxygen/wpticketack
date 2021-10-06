@@ -292,17 +292,20 @@ export default class BookingForm extends Component {
             if (!$date.data('screening_id'))
                 $date = $date.closest('[data-screening_id]');
             this.select_screening($date.data('screening_id'));
+            this.loader.attach();
         });
 
         if ($('.days-wrapper')) {
             $('.days-wrapper .day').click((e) => {
                 this.select_day($(e.target).data('day'));
+                this.loader.attach();
             });
         }
 
         if ($('.days-wrapper #calendar')) {
             $('#calendar').change((e) => {
                 this.select_day($('#calendar').val());
+                this.loader.attach();
             });
         }
 
