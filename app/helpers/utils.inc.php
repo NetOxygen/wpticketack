@@ -32,8 +32,8 @@ function tkt_get_url_param($key, $default = null)
  */
 function tkt_datetime_to_s($dt)
 {
-    $fmt = "%e %B %Y %H:%M";
-    return strftime($fmt, $dt->getTimestamp());
+    $fmt = "j F Y H:i";
+    return wp_date($fmt, $dt->getTimestamp());
 }
 
 /**
@@ -47,8 +47,8 @@ function tkt_datetime_to_s($dt)
  */
 function tkt_date_to_s($dt)
 {
-    $fmt = "%e %B %Y";
-    return strftime($fmt, $dt->getTimestamp());
+    $fmt = "j F Y";
+    return wp_date($fmt, $dt->getTimestamp());
 }
 
 /**
@@ -62,8 +62,8 @@ function tkt_date_to_s($dt)
  */
 function tkt_date_to_min_s($dt)
 {
-    $fmt = "%e %B";
-    return strftime($fmt, $dt->getTimestamp());
+    $fmt = "j F";
+    return wp_date($fmt, $dt->getTimestamp());
 }
 
 /**
@@ -77,8 +77,8 @@ function tkt_date_to_min_s($dt)
  */
 function tkt_date_and_time_to_min_s($dt)
 {
-    $fmt = "%e %B %H:%M";
-    return strftime($fmt, $dt->getTimestamp());
+    $fmt = "j F H:i";
+    return wp_date($fmt, $dt->getTimestamp());
 }
 
 /**
@@ -92,8 +92,8 @@ function tkt_date_and_time_to_min_s($dt)
  */
 function tkt_date_and_time_to_time_s($dt)
 {
-    $fmt = "%H:%M";
-    return strftime($fmt, $dt->getTimestamp());
+    $fmt = "H:i";
+    return wp_date($fmt, $dt->getTimestamp());
 }
 
 /**
