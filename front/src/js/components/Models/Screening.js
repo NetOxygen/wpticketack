@@ -3,7 +3,7 @@ import { Api as TKTApi } from '../Ticketack';
 import Pricing from './Pricing';
 import _ from 'lodash';
 import async from 'async';
-import moment from 'moment';
+import moment from 'moment-timezone';
 
 /**
  * Screening model
@@ -30,13 +30,13 @@ export default class Screening extends BaseModel {
     constructor(screening) {
         super(screening);
 
-        this.start_at = moment(screening.start_at);
-        this.stop_at  = moment(screening.stop_at);
+        this.start_at = moment.tz(screening.start_at, window.moment_timezone);
+        this.stop_at  = moment.tz(screening.stop_at, window.moment_timezone);
         this.buckets  = this.buckets.map((b) => {
             if ('not_before' in b.rules)
-                b.rules.not_before = moment(b.rules.not_before);
+                b.rules.not_before = moment.tz(b.rules.not_before, window.moment_timezone);
             if ('not_after' in b.rules)
-                b.rules.not_after = moment(b.rules.not_after);
+                b.rules.not_after = moment.tz(b.rules.not_after, window.moment_timezone);
 
             return b;
         });
