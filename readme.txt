@@ -2,7 +2,7 @@
 Tags: ticketack
 Requires at least: 4.6
 Tested up to: 5.6
-Stable tag: 2.28.0
+Stable tag: 2.29.0
 Requires PHP: 5.6
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -34,6 +34,15 @@ This section describes how to install the plugin and get it working.
 == Screenshots ==
 
 == Changelog ==
+
+= 2.29.0 =
+
+* feat: more fine grained ages
+* fix: Updates Tippy when the day or time is changed
+* fix: Remove the function date_default_timezone_set
+* fix: update sccss import
+* fix: Updating Moment with Timezone
+* fix: time management by site origin
 
 = 2.28.0 =
 
