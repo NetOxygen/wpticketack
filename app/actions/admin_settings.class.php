@@ -349,6 +349,14 @@ class AdminSettingsAction extends TKTAction
         );
 
         add_settings_field(
+            'places_filter', // ID
+            tkt_t('Filtrer les events sur les salles suivantes (id)'), // Title
+            array( $this, 'places_filter_callback' ), // Callback
+            'ticketack-import', // Page
+            'ticketack_import' // Section
+        );
+
+        add_settings_field(
             'save_attachments', // ID
             tkt_t('Télécharger les images à la une'), // Title
             array( $this, 'save_attachments_callback' ), // Callback
@@ -558,6 +566,11 @@ class AdminSettingsAction extends TKTAction
         print tkt_t("Configuration de l'import");
     }
     public function tags_filter_callback() { return $this->input('tags_filter', 'tkt_import', ''); }
+    
+    public function places_filter_callback()
+    {
+        return $this->input('places_filter', 'tkt_import', '');
+    }
     public function save_attachments_callback() { return $this->boolean('save_attachments', 'tkt_import', false, /*inversed*/true); }
 
     /** 

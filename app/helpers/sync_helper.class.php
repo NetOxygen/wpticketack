@@ -20,6 +20,8 @@ class SyncHelper
         $default_lang     = TKTApp::get_instance()->get_config('i18n.default_lang', 'fr');
         $tags_filter      = TKTApp::get_instance()->get_config('import.tags_filter', '');
         $tags             = empty($tags_filter) ? [] : explode(',', $tags_filter);
+        $places_filter    = TKTApp::get_instance()->get_config('import.places_filter', '');
+        $places           = empty($places_filter) ? [] : explode(',', $places_filter);
         $save_attachments = (bool)TKTApp::get_instance()->get_config('import.save_attachments', false);
 
         ini_set('memory_limit', '800M');
@@ -29,7 +31,7 @@ class SyncHelper
             switch_to_locale('fr_FR');
         }
 
-        $events = static::load_next_events($tags);
+        $events = static::load_next_events($tags, $places);
 
         if (!empty($events)) {
             wp_defer_term_counting( true );
@@ -60,12 +62,20 @@ class SyncHelper
         }
     }
 
-    protected static function load_next_events($tags = [])
+    protected static function load_next_events($tags = [], $places = [])
     {
         $screenings = Screening::all()
             ->in_the_future()
             ->order_by_start_at()
             ->get('_id,title,start_at,stop_at,description,cinema_hall,films,opaque,refs');
+
+        if (!empty($places)) {
+            $screenings = array_values(array_filter($screenings, function ($screening) use ($places) {
+                if (in_array($screening->place()->_id(), $places)) {
+                    return true;
+                }
+            }));
+        }
 
         $events = Event::from_screenings($screenings);
 
