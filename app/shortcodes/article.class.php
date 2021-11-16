@@ -3,6 +3,7 @@ namespace Ticketack\WP\Shortcodes;
 
 use Ticketack\WP\Templates\TKTTemplate;
 use Ticketack\Core\Models\Article;
+use Ticketack\Core\Models\User;
 use Ticketack\Core\Base\TKTApiException;
 
 /**
@@ -41,10 +42,15 @@ class ArticleShortcode extends TKTShortcode
         try {
             $article = Article::find($id);
 
+            $user = User::get_current();
+            // FIXME: Are we sure that current user has only one salepoint ?
+            $salepoint_id = current($user->salepoints());
+
             return TKTTemplate::render(
-                'article/article',
+                'buy_article/form',
                 (object)[
                     'article' => $article,
+                    'salepoint_id' => $salepoint_id
                 ]
             );
         } catch (TKTApiException $e) {
