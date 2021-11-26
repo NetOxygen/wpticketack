@@ -204,14 +204,18 @@ if (!function_exists('r')) {
             <div id="submit-section" class="row">
               <div class="col-md-12 text-right">
                 <?php if ($allow_later) : ?>
-                <button type="submit" class="submit-button button" data-payment-method="LATER_PAYMENT" data-redirect="<?= $data->redirect ?>">
+                <button type="submit" class="submit-button button later" data-payment-method="LATER_PAYMENT" data-redirect="<?= $data->redirect ?>">
                 <span class="glyphicon glyphicon-ok"></span> <?= tkt_t('Réserver (paiement sur place)') ?>
                 </button>
                 <?php endif; ?>
 
                 <?php if ($allow_postfinance) : ?>
-                <button type="submit" class="submit-button button" data-payment-method="PROXYPAY" data-redirect="<?= $data->redirect ?>">
+                <button type="submit" class="submit-button button proxypay" data-payment-method="PROXYPAY" data-redirect="<?= $data->redirect ?>">
                 <span class="glyphicon glyphicon-credit-card"></span> <?= tkt_t('Procéder au paiement') ?>
+                </button>
+
+                <button type="submit" class="submit-button button null_payment" data-payment-method="NULL_PAYMENT" data-redirect="<?= $data->redirect ?>">
+                <span class="glyphicon glyphicon-credit-card"></span> <?= tkt_t('Valider') ?>
                 </button>
                 <?php endif; ?>
                 <input type="hidden" id="payment-method-field" name="payment_method" class="data-field" />

@@ -88,7 +88,16 @@ export default class Checkout extends Component {
         this.$fieldsets     = $('fieldset', this.$checkoutForm);
         this.$fields        = $('.data-field', this.$container);
         this.$pmField       = $('#payment-method-field', this.$container);
-        this.$submitButtons = $('.submit-button', this.$container);
+
+        if (this.cart.getTotal() == 0 ) {
+            this.$submitButtons = $('.submit-button.button.null_payment', this.$container).show();
+            this.$submitButtons = $('.submit-button.button.proxypay', this.$container).hide();
+            this.$submitButtons = $('.submit-button.button.later', this.$container).hide();
+        } else {
+            this.$submitButtons = $('.submit-button.button.null_payment', this.$container).hide();
+            this.$submitButtons = $('.submit-button.button.proxypay', this.$container).show();
+            this.$submitButtons = $('.submit-button.button.later', this.$container).show();
+        }
 
         // messages panels
         this.$infoMsg       = $('.info-msg', this.$container);
