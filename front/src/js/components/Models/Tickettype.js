@@ -17,7 +17,8 @@ export default class Tickettype extends BaseModel {
         if (this.pricings) {
             Object.keys(this.pricings).map((pricingId) => {
                 this.pricings[pricingId]= new Pricing(this.pricings[pricingId]);
-                this.pricings[pricingId].key = pricingId;
+                if (!this.pricings[pricingId].key)
+                    this.pricings[pricingId].key = pricingId;
             });
         }
     }

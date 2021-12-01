@@ -54,7 +54,7 @@ export default class BuyForm extends Component {
             this.sync_pass_form();
         });
 
-        if (this.$titles.length > 1) {
+        if ($('.choose-pass', this.$container).length > 1) {
             $('.tkt-pass-form-section', this.$container).hide();
         };
 
@@ -66,17 +66,14 @@ export default class BuyForm extends Component {
             }
         });
 
-    
         $('.pass_title').click((e) => {
             var $title = $(e.target);
             var $card  = $title.closest('.card');
             var $pass  = $card.find('.pass');
             var $price = $pass.find('.choose-pass:checked', this.$container);
 
-            if (this.$pass && this.$pass.length > 1) {
-                $price.prop('checked', false);
-                $('.tkt-pass-form-section', this.$container).hide();
-            }
+            $price.prop('checked', false);
+            $('.tkt-pass-form-section', this.$container).hide();
 
             this.activePass = $pass.data('type'); ;
             this.sync_pass_pricings();
