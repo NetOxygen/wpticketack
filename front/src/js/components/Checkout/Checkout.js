@@ -88,15 +88,16 @@ export default class Checkout extends Component {
         this.$fieldsets     = $('fieldset', this.$checkoutForm);
         this.$fields        = $('.data-field', this.$container);
         this.$pmField       = $('#payment-method-field', this.$container);
+        this.$submitButtons = $('.submit-button', this.$container);
 
         if (this.cart.getTotal() == 0 ) {
-            this.$submitButtons = $('.submit-button.button.null_payment', this.$container).show();
-            this.$submitButtons = $('.submit-button.button.proxypay', this.$container).hide();
-            this.$submitButtons = $('.submit-button.button.later', this.$container).hide();
+            $('.submit-button.button.null_payment', this.$container).show();
+            $('.submit-button.button.proxypay', this.$container).hide();
+            $('.submit-button.button.later', this.$container).hide();
         } else {
-            this.$submitButtons = $('.submit-button.button.null_payment', this.$container).hide();
-            this.$submitButtons = $('.submit-button.button.proxypay', this.$container).show();
-            this.$submitButtons = $('.submit-button.button.later', this.$container).show();
+            $('.submit-button.button.null_payment', this.$container).hide();
+            $('.submit-button.button.proxypay', this.$container).show();
+            $('.submit-button.button.later', this.$container).show();
         }
 
         // messages panels
@@ -190,7 +191,8 @@ export default class Checkout extends Component {
     }
 
     hide_form(msg) {
-        this.$fieldsets.hide();
+        if (this.$fieldset)
+            this.$fieldsets.hide();
     }
 
     show_success(msg) {
