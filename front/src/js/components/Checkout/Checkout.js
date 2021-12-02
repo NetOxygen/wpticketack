@@ -108,80 +108,89 @@ export default class Checkout extends Component {
         this.setEventListeners();
     }
 
+    submitUserDataForm(e) {
+        const data     = serialize(this.$userDataForm[0], { hash: true });
+        const userData = {};
+
+        Object.keys(data.user_data).map(key => {
+            userData[key.replace('index-', '')] = data.user_data[key];
+        });
+
+        TKTApi.setCartItemsUserData(this.cart.id, userData, (err, status, rsp) => {
+            if (err)
+                return this.show_error(err, rsp);
+
+            Cart.load((err, cart) => {
+                if (err)
+                    return callback(err);
+
+                this.cart = cart;
+                this.render();
+            });
+        });
+
+        return false;
+    }
+
+    submitCheckoutForm(e) {
+        // get all 'data-field' values (user data + payment method)
+        let data = serialize(this.$checkoutForm[0], { hash: true });
+
+        // inject redirect url in user data
+        if (this.redirect_url)
+            data.user.redirect_after_payment = this.redirect_url;
+
+        // Put the cart in paying status
+        TKTApi.pay(this.cart.id, data.payment_method, data.user, (err, status, rsp) => {
+            if (err)
+                return this.show_error(err, rsp);
+
+            if (!('next_step' in rsp)) {
+                console.err('No next step in server response');
+                return this.show_error(i18n.t('Une erreur est survenue'));
+            }
+
+            switch (rsp.next_step) {
+                case Cart.CHECKOUT_STEP_CONFIRM:
+                    TKTApi.confirm(this.cart.id, (err, status, rsp) => {
+                        if (err)
+                            return this.show_error(err, rsp);
+
+                        this.go_to_thank_you_page();
+                    });
+                    break;
+                case Cart.CHECKOUT_STEP_GO_TO_PAYMENT:
+                    if (!('next_step_url' in rsp)) {
+                        console.err('No next step url in server response');
+                        return this.show_error(i18n.t('Une erreur est survenue'));
+                    }
+                    window.location.href = rsp.next_step_url;
+                    break;
+                default:
+                    console.err('Unknown next step ' + rsp.netx_step);
+                    return this.show_error(i18n.t('Une erreur est survenue'));
+            }
+        });
+
+        return false;
+    }
+
+    setPaymentMethod(e) {
+        this.$pmField.val($(e.target).data('payment-method'));
+    }
+
     setEventListeners() {
         // user data
-        this.$userDataForm.submit(e => {
-            const data     = serialize(this.$userDataForm[0], { hash: true });
-            const userData = {};
-
-            Object.keys(data.user_data).map(key => {
-                userData[key.replace('index-', '')] = data.user_data[key];
-            });
-
-            TKTApi.setCartItemsUserData(this.cart.id, userData, (err, status, rsp) => {
-                if (err)
-                    return this.show_error(err, rsp);
-
-                Cart.load((err, cart) => {
-                    if (err)
-                        return callback(err);
-
-                    this.cart = cart;
-                    this.render();
-                });
-            });
-
-            return false;
-        });
-
-        // set payment method before checkoutForm submit
-        this.$submitButtons.on('click', e => {
-            this.$pmField.val($(e.target).data('payment-method'));
-        });
+        this.$userDataForm.off('submit');
+        this.$userDataForm.submit(this.submitUserDataForm.bind(this));
 
         // on checkoutForm submit
-        this.$checkoutForm.submit(e => {
-            // get all 'data-field' values (user data + payment method)
-            let data = serialize(this.$checkoutForm[0], { hash: true });
+        this.$checkoutForm.off('submit');
+        this.$checkoutForm.submit(this.submitCheckoutForm.bind(this));
 
-            // inject redirect url in user data
-            if (this.redirect_url)
-                data.user.redirect_after_payment = this.redirect_url;
-
-            // Put the cart in paying status
-            TKTApi.pay(this.cart.id, data.payment_method, data.user, (err, status, rsp) => {
-                if (err)
-                    return this.show_error(err, rsp);
-
-                if (!('next_step' in rsp)) {
-                    console.err('No next step in server response');
-                    return this.show_error(i18n.t('Une erreur est survenue'));
-                }
-
-                switch (rsp.next_step) {
-                    case Cart.CHECKOUT_STEP_CONFIRM:
-                        TKTApi.confirm(this.cart.id, (err, status, rsp) => {
-                            if (err)
-                                return this.show_error(err, rsp);
-
-                            this.go_to_thank_you_page();
-                        });
-                        break;
-                    case Cart.CHECKOUT_STEP_GO_TO_PAYMENT:
-                        if (!('next_step_url' in rsp)) {
-                            console.err('No next step url in server response');
-                            return this.show_error(i18n.t('Une erreur est survenue'));
-                        }
-                        window.location.href = rsp.next_step_url;
-                        break;
-                    default:
-                        console.err('Unknown next step ' + rsp.netx_step);
-                        return this.show_error(i18n.t('Une erreur est survenue'));
-                }
-            });
-
-            return false;
-        });
+        // set payment method before checkoutForm submit
+        this.$submitButtons.off('click');
+        this.$submitButtons.on('click', this.setPaymentMethod.bind(this));
     }
 
     go_to_thank_you_page() {
