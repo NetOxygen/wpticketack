@@ -55,8 +55,8 @@ export default class ArticleForm extends Component {
                     this.chosen_variants[variant_index] = {
                         _id: variant._id,
                         price: variant.getFormattedPrice(),
-                        stock: variant.getStockForSalepoint(this.salepoint_id),
-                        quantity: 0
+                        stock: variant.handlesStock() ? variant.getStockForSalepoint(this.salepoint_id) : Infinity,
+                        quantity: this.article.variants.length === 1 ? 1 : 0
                     };
                 });
 
@@ -145,7 +145,7 @@ export default class ArticleForm extends Component {
         });
 
         // bind add-to-cart button
-        $('.add-to-cart-btn').click((e) => {
+        $('.add-to-cart-btn', this.$container).click((e) => {
             e.stopPropagation();
             this.process_add_to_cart();
         });
@@ -160,18 +160,19 @@ export default class ArticleForm extends Component {
     }
 
     process_add_to_cart() {
-        $('.error-panel').html("").addClass('d-none');
-        $('.tkt-variant-error-msg').html("").addClass('d-none');
-        $('.success-panel').addClass('d-none');
+        $('.error-panel', this.$container).html("").addClass('d-none');
+        $('.tkt-variant-error-msg', this.$container).html("").addClass('d-none');
+        $('.success-panel', this.$container).addClass('d-none');
 
 
         // Check chosen variants
-        this.chosen_variants = _.filter(this.chosen_variants, (v) => v.quantity > 0);
-        if (this.chosen_variants.length === 0) {
-            return $('.error-panel')
+        const variants_with_quantity = _.filter(this.chosen_variants, (v) => v.quantity > 0);
+        if (variants_with_quantity.length === 0) {
+            return $('.error-panel', this.$container)
                 .html(i18n.t('Veuillez choisir au moins un article'))
                 .removeClass('d-none');
         }
+        this.chosen_variants = variants_with_quantity;
 
         // Add to cart
         TKTApi.addArticlesToCart(
@@ -181,8 +182,16 @@ export default class ArticleForm extends Component {
             }],
             (err, status, rsp) => {
                 this.chosen_variants = {};
+                this.article.variants.map((variant, variant_index) => {
+                    this.chosen_variants[variant_index] = {
+                        _id: variant._id,
+                        price: variant.getFormattedPrice(),
+                        stock: variant.handlesStock() ? variant.getStockForSalepoint(this.salepoint_id) : Infinity,
+                        quantity: this.article.variants.length === 1 ? 1 : 0
+                    };
+                });
                 if (err && status != 409) {
-                    return $('.error-panel')
+                    return $('.error-panel', this.$container)
                         .html(i18n.t('Une erreur est survenue'))
                         .removeClass('d-none');
                 }
@@ -202,7 +211,7 @@ export default class ArticleForm extends Component {
                                         if (!variant.flash || !variant.flash.error)
                                             return;
 
-                                        const $variant_error_panel = $('.tkt-variant-error-msg[data-variant-id="' + variant._id + '"]');
+                                        const $variant_error_panel = $('.tkt-variant-error-msg[data-variant-id="' + variant._id + '"]', this.$container);
                                         if (!$variant_error_panel)
                                             return;
 
@@ -226,8 +235,8 @@ export default class ArticleForm extends Component {
                     default:
                         // Hide forms and show success message
                         if (!hasAvailabilityError)
-                            $('.variants-form').addClass('d-none');
-                        $('.success-panel').removeClass('d-none');
+                            $('.variants-form', this.$container).addClass('d-none');
+                        $('.success-panel', this.$container).removeClass('d-none');
 
                         // Reload and emit cart update
                         TKTApi.loadCart((err, status, rsp) => {

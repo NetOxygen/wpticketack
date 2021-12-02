@@ -30,7 +30,7 @@ use Ticketack\WP\TKTApp;
                         <span class="tkt-badge-part tkt-grey-badge tkt-minus-btn text-center">-</span>
                         <span class="tkt-badge-part tkt-light-badge text-center">
                             <span class="variant-qty">
-                                0
+                                <%= article.variants.length == 1 ? 1 : 0 %>
                             </span>
                             x
                             <span class="pricing-name">
@@ -42,7 +42,7 @@ use Ticketack\WP\TKTApp;
                         </span>
                         <span class="tkt-badge-part tkt-dark-badge tkt-plus-btn text-center">+</span>
                     </span>
-                    <input type="hidden" data-variant="<%= key %>" class="tkt-input variant-input" value="0"/>
+                    <input type="hidden" data-variant="<%= key %>" class="tkt-input variant-input" value="<%= article.variants.length == 1 ? 1 : 0 %>"/>
                     <% } else { %>
                     <span class="tkt-badge tkt-badge-split flex-rev-on-mobile">
                         <span class="tkt-badge-part tkt-light-badge text-center out-of-stock">
