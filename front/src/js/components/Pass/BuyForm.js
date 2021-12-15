@@ -66,7 +66,7 @@ export default class BuyForm extends Component {
             }
         });
 
-        $('.pass_title').click((e) => {
+        $('.pass_title', this.$container).click((e) => {
             var $title = $(e.target);
             var $card  = $title.closest('.card');
             var $pass  = $card.find('.pass');
@@ -78,7 +78,7 @@ export default class BuyForm extends Component {
             this.activePass = $pass.data('type'); ;
             this.sync_pass_pricings();
             this.sync_pass_form();
-            $('.pass_title').removeClass('open');
+            $('.pass_title', this.$container).removeClass('open');
             $('.pass', this.$container).removeClass('open');
             if (!$pass.is(':visible')) {
                 $title.addClass('open');
