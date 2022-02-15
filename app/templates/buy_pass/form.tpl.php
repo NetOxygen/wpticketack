@@ -139,6 +139,14 @@ use Ticketack\WP\TKTApp;
                   <input name="photo" type="file" class="tkt-input form-control field" id="photo" accept="image/*" data-component="Form/ImageDataUrl" required>
               </div>
             </div>
+
+            <div class="row">
+              <div id="field-wrapper-gift_message" class="col-md-12 field-wrapper form-group" style="display: none;">
+                <input id="gift_toggl" type="checkbox">
+                <label for="gift_message"><?= tkt_t("Ceci est un cadeau"); ?></label>
+                <textarea id="user_gift_message" class="form-control" name="gift_message" data-default="Profitez de votre cadeau !" style="display: none;"></textarea>
+              </div>
+            </div>
           </fieldset>
 
           <fieldset>

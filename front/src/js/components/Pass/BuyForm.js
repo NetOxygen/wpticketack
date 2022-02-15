@@ -97,6 +97,7 @@ export default class BuyForm extends Component {
             this.add_to_cart();
             return false;
         });
+
     }
 
     add_to_cart() {
@@ -200,5 +201,18 @@ export default class BuyForm extends Component {
                 $(w).fadeIn();
             }
         });
+
+        if ($('#gift_toggl').length) {
+            $('#gift_toggl').change(function () {
+                var $input = $('#user_gift_message');
+                var default_content = $input.data('default');
+                if ($(this).is(':checked')) {
+                    $input.attr('required', true).val(default_content).show();
+                }
+                else {
+                    $input.attr('required', false).val("").hide();
+                }
+            });
+        };
     }
 }
