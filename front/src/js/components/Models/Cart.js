@@ -35,8 +35,8 @@ export default class Cart extends BaseModel {
 
         if (this.order_id && this.order_id.length) {
             const parts = this.order_id.split('-');
-            this.id = parts.length > 1 && parts[1].length > 0 ?
-                parseInt(parts[1]) :
+            this.id = parts.length > 1 && parts[parts.length - 1].length > 0 ?
+                parseInt(parts[parts.length - 1]) :
                 null;
         }
 
