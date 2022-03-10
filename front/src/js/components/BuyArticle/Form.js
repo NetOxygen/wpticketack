@@ -56,10 +56,10 @@ export default class ArticleForm extends Component {
                         _id: variant._id,
                         price: variant.getFormattedPrice(),
                         stock: variant.handlesStock() ? variant.getStockForSalepoint(this.salepoint_id) : Infinity,
-                        quantity: this.article.variants.length === 1 ? 1 : 0
+                        quantity: this.article.variants.length === 1 ? 1 : 0,
+                        variable_price: variant.variable_price
                     };
                 });
-
                 this.build_form();
             }
         });
@@ -173,6 +173,12 @@ export default class ArticleForm extends Component {
                 .removeClass('d-none');
         }
         this.chosen_variants = variants_with_quantity;
+
+        // Changes the price, if variable_price
+        this.chosen_variants.forEach(v => {
+            if (v.variable_price && $('.pricing-price[data-variant-id="' + v._id + '"]'))
+                v.price = $('.pricing-price[data-variant-id="' + v._id + '"]').val();
+        })
 
         // Add to cart
         TKTApi.addArticlesToCart(
