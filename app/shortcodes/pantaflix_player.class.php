@@ -11,7 +11,7 @@ use Ticketack\Core\Base\TKTApiException;
  *
  * Usage:
  *
- * [tkt_pantaflix_player [pantaflix_id_prefix="pantaflix_id_int|pantaflix_id_dev|pantaflix_id_prod"]]
+ * [tkt_pantaflix_player provider="provider" id="screening_id" pantaflix_id_prefix="pantaflix_id_int|pantaflix_id_dev|pantaflix_id_prod"]]
  *
  */
 class PantaflixPlayerShortcode extends TKTShortcode
@@ -36,10 +36,11 @@ class PantaflixPlayerShortcode extends TKTShortcode
      */
     public function run($atts, $content)
     {
-        $id     = isset($atts['id']) ? $atts['id'] : null;
-        $prefix = isset($atts['pantaflix_id_prefix']) ? $atts['pantaflix_id_prefix'] : static::PANTAFLIX_ID_PREFIX;
+        $id       = isset($atts['id']) ? $atts['id'] : null;
+        $provider = isset($atts['provider']) ? $atts['provider'] : null;
+        $prefix   = isset($atts['pantaflix_id_prefix']) ? $atts['pantaflix_id_prefix'] : static::PANTAFLIX_ID_PREFIX;
 
-        if (empty($id)) {
+        if (empty($id) || empty($provider)) {
             return null;
         }
 
@@ -65,6 +66,7 @@ class PantaflixPlayerShortcode extends TKTShortcode
             return TKTTemplate::render(
                 'pantaflix/player',
                 (object)[
+                    'provider'   => $provider,
                     'screening'  => $screening,
                     'content_id' => $ref
                 ]

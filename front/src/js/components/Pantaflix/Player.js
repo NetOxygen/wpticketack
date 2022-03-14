@@ -10,6 +10,7 @@ import postal from 'postal';
  * <div
  *    <!-- Required -->
  *    data-component="Pantaflix/Player"
+ *    data-provider="..."
  *    data-screening-id="..."
  *    data-content-id="..."
  * >
@@ -23,6 +24,7 @@ export default class PantaflixPlayer extends Component {
     constructor($container, state, loader) {
         super($container, state, loader);
 
+        this.provider    = this.$container.data('provider');
         this.screeningId = this.$container.data('screening-id');
         this.contentId   = this.$container.data('content-id');
 
@@ -58,6 +60,7 @@ export default class PantaflixPlayer extends Component {
         if (this.ticket)
             this.$modal.html(Template.render('tkt-pantaflix-player-iframe-tpl', {
                 ticket: this.ticket,
+                provider: this.provider,
                 contentId: this.contentId
             }));
         else

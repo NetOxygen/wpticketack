@@ -8,6 +8,7 @@ use Ticketack\WP\Templates\TKTTemplate;
  *
  * Input:
  * $data: {
+ *   "provider": string
  *   "screening": Screening
  *   "content_id": int
  * }
@@ -16,6 +17,7 @@ use Ticketack\WP\Templates\TKTTemplate;
 <div
     class="tkt-wrapper tkt-pantaflix-player"
     data-component="Pantaflix/Player"
+    data-provider="<?= $data->provider ?>"
     data-screening-id="<?= $data->screening->_id() ?>"
     data-content-id="<?= $data->content_id ?>"
 >

@@ -7,6 +7,7 @@ use Ticketack\WP\TKTApp;
  * This template will be parsed by underscore.js
  *
  * Input: {
+ *   "provider": string
  *   "ticket": Ticket
  *   "contentId": int
  * }
@@ -17,7 +18,7 @@ use Ticketack\WP\TKTApp;
 <div style="overflow: hidden; padding-top: 56.25%; height: 0; position: relative; width: 100%;">
     <iframe
         style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%;"
-        src="https://embed.cdn.pantaflix.com/latest/?code=<%= ticket.id %>&provider=ticketack.nifff#/nifff/playlist/<%= contentId %>"
+        src="https://embed.cdn.pantaflix.com/latest/?code=<%= ticket._id %>&provider=ticketack.<%= provider %>#/<%= provider %>/playlist/<%= contentId %>"
         allow="autoplay; encrypted-media; picture-in-picture"
         frameborder="0"
         allowfullscreen="true"
