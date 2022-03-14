@@ -35,7 +35,7 @@ export default class CartIcon extends Component {
         this.$container.append(this.$nb);
 
         TKTApi.loadCart((err, status, rsp) => {
-            this.update_nb(rsp.items.length);
+            this.update_nb(rsp?.items?.length);
         });
 
         postal.subscribe({
