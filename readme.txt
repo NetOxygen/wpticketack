@@ -2,7 +2,7 @@
 Tags: ticketack
 Requires at least: 4.6
 Tested up to: 5.6
-Stable tag: 2.31.0
+Stable tag: 2.32.0
 Requires PHP: 5.6
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -34,6 +34,16 @@ This section describes how to install the plugin and get it working.
 == Screenshots ==
 
 == Changelog ==
+
+= 2.32.0 =
+
+* feat: Creation of variable prices
+* modified templates : buy_article/form_pricings.tpl.php
+* feat: Add data-pricing-wrapper in pricing list
+* modified templates : booking/form_pricings.tpl.php
+* fix: Fix CartIcon error in some cases
+* feat: Handle Pantaflix provider argument
+* modified templates : pantaflix/player.tpl.php & pantaflix/iframe.tpl.php
 
 = 2.31.0 =
 
