@@ -30,7 +30,7 @@ use Ticketack\WP\TKTApp;
                     </div>
                 </div>
                 <% _.mapKeys(screening.pricings, function(p, key) { %>
-                <div class="row pricing-row">
+                <div class="row pricing-row" data-pricing-wrapper="<%= key %>">
                     <div class="col">
                         <span class="tkt-badge tkt-badge-split flex-rev-on-mobile tkt-badge-plus-minus">
                             <span class="tkt-badge-part tkt-grey-badge tkt-minus-btn text-center">-</span>
