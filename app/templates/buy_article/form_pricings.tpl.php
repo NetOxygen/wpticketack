@@ -23,34 +23,53 @@ use Ticketack\WP\TKTApp;
             </div>
         </div>
         <% _.mapKeys(article.variants, function(variant, key) { %>
-            <div class="row pricing-row">
+            <div class="row pricing-row <%= variant._id %> ">
                 <div class="col">
                     <% if (variant.hasStockForSalepoint(salepoint_id)) { %>
-                    <span class="tkt-badge tkt-badge-plus-minus tkt-badge-split flex-rev-on-mobile">
-                        <span class="tkt-badge-part tkt-grey-badge tkt-minus-btn text-center">-</span>
-                        <span class="tkt-badge-part tkt-light-badge text-center">
-                            <span class="variant-qty">
-                                <%= article.variants.length == 1 ? 1 : 0 %>
+                        <% if (variant.variable_price) { %>
+                            <span class="tkt-badge tkt-badge-plus-minus tkt-badge-split flex-rev-on-mobile">
+                                <span class="tkt-badge-part tkt-grey-badge tkt-minus-btn text-center">-</span>
+                                <span class="tkt-badge-part tkt-light-badge d-flex justify-content-center text-center">
+                                    <span class="variant-qty mr-1">
+                                        <%= article.variants.length == 1 ? 1 : 0 %>
+                                    </span>
+                                    x
+                                    <span class="pricing-name ml-1 mr-1">
+                                        <%= variant.name.<?= TKT_LANG ?> %> :
+                                    </span>
+                                    <input type="number" min="0" step="1.0" autocomplete="off" style="width:100px" class="form-control pricing-price" name="variants[<%= variant._id %>][price]" data-variant-id="<%= variant._id %>" value="" />
+                                </span>
+                                <span class="tkt-badge-part tkt-dark-badge tkt-plus-btn text-center">+</span>
                             </span>
-                            x
-                            <span class="pricing-name">
-                                <%= variant.name.<?= TKT_LANG ?> %> :
+                            <input type="hidden" data-variant="<%= key %>" class="tkt-input variant-input" value="<%= article.variants.length == 1 ? 1 : 0 %>"/>
+                        <% } else { %>
+                            <span class="tkt-badge tkt-badge-plus-minus tkt-badge-split flex-rev-on-mobile">
+                            <span class="tkt-badge-part tkt-grey-badge tkt-minus-btn text-center">-</span>
+                            <span class="tkt-badge-part tkt-light-badge text-center">
+                                <span class="variant-qty">
+                                    <%= article.variants.length == 1 ? 1 : 0 %>
+                                    </span>
+                                    x
+                                    <span class="pricing-name">
+                                        <%= variant.name.<?= TKT_LANG ?> %> :
+                                    </span>
+                                    <span class="pricing-price">
+                                        <%= variant.price.CHF %> CHF
+                                    </span>
+                                </span>
+                                <span class="tkt-badge-part tkt-dark-badge tkt-plus-btn text-center">+</span>
                             </span>
-                            <span class="pricing-price">
-                                <%= variant.price.CHF %> CHF
-                            </span>
-                        </span>
-                        <span class="tkt-badge-part tkt-dark-badge tkt-plus-btn text-center">+</span>
-                    </span>
-                    <input type="hidden" data-variant="<%= key %>" class="tkt-input variant-input" value="<%= article.variants.length == 1 ? 1 : 0 %>"/>
+                            <input type="hidden" data-variant="<%= key %>" class="tkt-input variant-input" value="<%= article.variants.length == 1 ? 1 : 0 %>"/>
+                         <% } %>
+
                     <% } else { %>
-                    <span class="tkt-badge tkt-badge-split flex-rev-on-mobile">
-                        <span class="tkt-badge-part tkt-light-badge text-center out-of-stock">
-                        <%= variant.name.<?= TKT_LANG ?> %> : <?= tkt_t("Épuisé") ?>
+                        <span class="tkt-badge tkt-badge-split flex-rev-on-mobile">
+                            <span class="tkt-badge-part tkt-light-badge text-center out-of-stock">
+                            <%= variant.name.<?= TKT_LANG ?> %> : <?= tkt_t("Épuisé") ?>
+                            </span>
                         </span>
-                    </span>
+                        <div class="tkt-variant-error-msg d-none" data-variant-id="<%= variant._id %>"></div>
                     <% } %>
-                    <div class="tkt-variant-error-msg d-none" data-variant-id="<%= variant._id %>"></div>
                 </div>
             </div>
         <% }) %>
