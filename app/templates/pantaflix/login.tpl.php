@@ -7,7 +7,9 @@ use Ticketack\WP\Templates\TKTTemplate;
  * Pantaflix login template
  * This template will be parsed by underscore.js
  *
- * Input: {}
+ * Input: {
+ *  invalid_ticket: boolean
+ * }
  */
 ?>
 <div class="tkt-wrapper" data-component="Ticket/TicketConnect"></div>
@@ -15,6 +17,11 @@ use Ticketack\WP\Templates\TKTTemplate;
 <div class="tkt-wrapper">
     <div class="tkt-ticket-connect">
         <div class="connect-panel">
+            <% if (invalid_ticket) { %>
+                <div class="alert alert-danger">
+                    <?= tkt_t("Votre accréditation/pass ne vous permet pas de visionner ce contenu.") ?>
+                </div>
+            <% } %>
             <div class="ticket_connect">
                 <div>
                     <?= str_replace('TicketID', '<span class="tkt-ticketid_ticket">Ticket</span><span class="tkt-ticketid_id">ID</span>', tkt_t("Vous avez un TicketID ?")) ?>

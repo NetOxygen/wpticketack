@@ -11,7 +11,12 @@ use Ticketack\Core\Base\TKTApiException;
  *
  * Usage:
  *
- * [tkt_pantaflix_player provider="provider" id="screening_id" pantaflix_id_prefix="pantaflix_id_int|pantaflix_id_dev|pantaflix_id_prod"]]
+ * [tkt_pantaflix_player
+ *      provider="provider"
+ *      id="screening_id"
+ *      pantaflix_id_prefix="pantaflix_id_int|pantaflix_id_dev|pantaflix_id_prod"
+ *      allowed_ticket_types="comma separated list of allowed ticket types" (optional)
+ * ]]
  *
  */
 class PantaflixPlayerShortcode extends TKTShortcode
@@ -36,9 +41,10 @@ class PantaflixPlayerShortcode extends TKTShortcode
      */
     public function run($atts, $content)
     {
-        $id       = isset($atts['id']) ? $atts['id'] : null;
-        $provider = isset($atts['provider']) ? $atts['provider'] : null;
-        $prefix   = isset($atts['pantaflix_id_prefix']) ? $atts['pantaflix_id_prefix'] : static::PANTAFLIX_ID_PREFIX;
+        $id                   = isset($atts['id']) ? $atts['id'] : null;
+        $provider             = isset($atts['provider']) ? $atts['provider'] : null;
+        $prefix               = isset($atts['pantaflix_id_prefix']) ? $atts['pantaflix_id_prefix'] : static::PANTAFLIX_ID_PREFIX;
+        $allowed_ticket_types = isset($atts['allowed_ticket_types']) ? $atts['allowed_ticket_types'] : [];
 
         if (empty($id) || empty($provider)) {
             return null;
@@ -66,9 +72,10 @@ class PantaflixPlayerShortcode extends TKTShortcode
             return TKTTemplate::render(
                 'pantaflix/player',
                 (object)[
-                    'provider'   => $provider,
-                    'screening'  => $screening,
-                    'content_id' => $ref
+                    'provider'             => $provider,
+                    'screening'            => $screening,
+                    'allowed_ticket_types' => $allowed_ticket_types,
+                    'content_id'           => $ref
                 ]
             );
         } catch (TKTApiException $e) {

@@ -66,7 +66,7 @@ use Ticketack\WP\TKTApp;
             </div>
         <% } %>
     <% } %>
-    <% if ((!('map_only_bookings' in screening.opaque && screening.opaque.map_only_bookings)) && screening.eligible_types.length) { %>
+    <% if (screening.opaque && (!('map_only_bookings' in screening.opaque && screening.opaque.map_only_bookings)) && screening.eligible_types.length) { %>
     <div class="pass-form mt-3">
         <div class="connect-panel">
             <div class="ticket_connect">
