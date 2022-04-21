@@ -338,7 +338,7 @@ export default class BookingForm extends Component {
         const userTicket      = this.state.get('user.ticket');
         const screening       = {
             ...this.data.screening,
-            pricings: this.data.screening.getMatchingPricings('eshop', (userTicket ? userTicket.type._id : null))
+            pricings: ('getMatchingPricings' in this.data.screening) ? this.data.screening.getMatchingPricings('eshop', (userTicket ? userTicket.type._id : null)) : []
         }
 
         this.$tickets_form.html(Template.render('tkt-booking-form-pricings-tpl', {

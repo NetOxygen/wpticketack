@@ -11,6 +11,7 @@ use Ticketack\WP\Templates\TKTTemplate;
  *   "provider": string
  *   "screening": Screening
  *   "content_id": int
+ *   "allowed_ticket_types": string
  * }
  */
 ?>
@@ -20,6 +21,7 @@ use Ticketack\WP\Templates\TKTTemplate;
     data-provider="<?= $data->provider ?>"
     data-screening-id="<?= $data->screening->_id() ?>"
     data-content-id="<?= $data->content_id ?>"
+    data-allowed-ticket-types="<?= $data->allowed_ticket_types ?>"
 >
     <button class="tkt-pantaflix-button">
         <svg viewBox="0 0 36 37" xmlns="http://www.w3.org/2000/svg">
