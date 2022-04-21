@@ -2,7 +2,7 @@
 Tags: ticketack
 Requires at least: 4.6
 Tested up to: 5.6
-Stable tag: 2.33.0
+Stable tag: 2.33.1
 Requires PHP: 5.6
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -34,6 +34,10 @@ This section describes how to install the plugin and get it working.
 == Screenshots ==
 
 == Changelog ==
+= 2.33.1 =
+
+* Waiting time to load underscore.js
+* Update of the cart_icon without counting the fees
 
 = 2.33.0 =
 
@@ -69,12 +73,12 @@ This section describes how to install the plugin and get it working.
 
 = 2.30.4 =
 
-* fix: Fix a bug on the pass form
+* fix: a bug on the pass form
 
 = 2.30.3 =
 
-* fix: Fix some bugs on the checkout forms
-* fix: Fix some bugs on the articles popup
+* fix: some bugs on the checkout forms
+* fix: some bugs on the articles popup
 
 = 2.30.2 =
 
