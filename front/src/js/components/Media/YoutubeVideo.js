@@ -64,10 +64,13 @@ export default class YoutubeVideo extends Component {
         });
 
         if (typeof(YT) == 'undefined' || typeof(YT.Player) == 'undefined') {
-            // Set Youtube callback
-            window.onYouTubeIframeAPIReady = this.onYouTubeIframeAPIReady.bind(this),
-            // Load API script
-            $.getScript('//www.youtube.com/iframe_api');
+            // don't ask me why we have to wait 1ms here...
+            setTimeout(() => {
+                // Set Youtube callback
+                window.onYouTubeIframeAPIReady = this.onYouTubeIframeAPIReady.bind(this),
+                // Load API script
+                $.getScript('//www.youtube.com/iframe_api');
+            }, 1);
         } else {
             this.loadPlayer();
         }
@@ -78,7 +81,6 @@ export default class YoutubeVideo extends Component {
                 channel: "carousel-" + this.carousel_id,
                 topic: "slide",
                 callback: (data, envelope) => {
-                    console.log(this.player);
                     //this.player && this.player.stopVideo();
                 }
             });
