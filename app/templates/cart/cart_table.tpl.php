@@ -59,7 +59,7 @@ const nbArticles = pass.length + tickets.length + articles.length;
                                     <tr>
                                         <td class="title-cell"><%= item.getFormattedTitle() %></td>
                                         <td class="price-cell text-right"><%= item.getFormattedPrice() %></td>
-                                        <td class="action-cell">
+                                        <td class="action-cell text-right">
                                             <span class="tkt-remove-cart-item" data-item="<%= item.id %>">
                                                 <i class="fa fa-trash"></i>
                                             </span>
@@ -84,7 +84,7 @@ const nbArticles = pass.length + tickets.length + articles.length;
                                     <tr>
                                         <td class="title-cell"><%= item.getFormattedTitle() %></td>
                                         <td class="price-cell text-right"><%= item.getFormattedPrice() %></td>
-                                        <td class="action-cell">
+                                        <td class="action-cell text-right">
                                             <span class="tkt-remove-cart-item" data-item="<%= item.id %>">
                                                 <i class="fa fa-trash"></i>
                                             </span>
@@ -164,7 +164,7 @@ const nbArticles = pass.length + tickets.length + articles.length;
                                         <% if(item.type != "shipping" && (item.article?.type == "code_discount" || item.article?.type == "manual_discount") ) { %>
                                         <td class="title-cell"><%= item.getFormattedTitle() %></td>
                                         <td class="price-cell text-right"><%= item.getFormattedPrice() %></td>
-                                        <td class="action-cell">
+                                        <td class="action-cell text-right">
                                             <span class="tkt-remove-cart-item" data-item="<%= item.id %>">
                                                 <i class="fa fa-trash"></i>
                                             </span>

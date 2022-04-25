@@ -169,7 +169,10 @@ export default class Cart extends Component {
 
     bind_remove_item_icons(callback) {
         $('.tkt-remove-cart-item').on('click', (e) => {
-            const $x      = $(e.target);
+            let $x = $(e.target);
+            
+            if (!$x.hasClass('tkt-remove-cart-item'))
+                $x = $x.parent('.tkt-remove-cart-item');
             const item_id = parseInt($x.data('item'));
 
             this.remove_item(item_id, (err) => {
