@@ -123,7 +123,7 @@ export default class Cart extends BaseModel {
             // loadItemsInfos has not been called
             return this.amount / 100;
 
-        return _.reduce(this.items, (memo, item) => memo + parseFloat(item.amount), 0);
+        return _.reduce(this.items, (memo, item) => { return memo + parseFloat(this.cleanAmount(item.amount)); }, 0);
     };
 
     /**
@@ -131,8 +131,29 @@ export default class Cart extends BaseModel {
      * @return {String}
      */
     getFormattedTotal() {
-        const total = this.getTotal().toFixed(2);
-        return `CHF ${total}`;
+        return this.getFormatedAmount(this.getTotal());
+    };
+
+    /**
+     * Get the total of all the bought items, i.e, all the
+     * items but the fees and discounts.
+     * 
+     * @return {String}
+     */
+    getOrderTotal() {
+        const items = _.map(_.filter(this.items, (i) =>
+            i.article?.type === CartItem.PRODUCT_TYPE 
+            || i.type === CartItem.SCREENING_TYPE 
+            || i.type === CartItem.PASS_TYPE),
+            (i) => i
+        );
+
+        if (!items || this.items.length == 0)
+            // loadItemsInfos has not been called
+            return 0;
+
+        const amount = _.reduce(items, (memo, item) => { return memo + parseFloat(this.cleanAmount(item.amount)); }, 0);
+        return this.getFormatedAmount(amount);
     };
 
     /**
@@ -199,4 +220,44 @@ export default class Cart extends BaseModel {
             return callback(/*err*/null, new Cart(rsp));
         });
     };
+
+    /**
+     * Get item of type pass
+     * @return {Array}
+     */
+    getPass() {
+        return _.map(_.filter(this.items, (i) => i.type === CartItem.PASS_TYPE),(i) => i);
+    }
+
+    /**
+     * Get item of type screening
+     * @return {Array}
+     */
+    getTickets() {
+        return _.map(_.filter(this.items, (i) => i.type === CartItem.SCREENING_TYPE),(i) => i);
+    }
+
+    /**
+     * Get item of type product
+     * @return {Array}
+     */
+    getArticles() {
+        return _.map(_.filter(this.items, (i) => i.article?.type === CartItem.PRODUCT_TYPE),(i) => i);
+    }
+
+    /**
+     * Get item of type manual_discount & code_discount
+     * @return {Array}
+     */
+    getDiscounts() {
+        return _.map(_.filter(this.items, (i) => i.article?.type === CartItem.MANUEL_DISCOUNT_TYPE || i.article?.type === CartItem.CODE_DISCOUNT_TYPE),(i) => i);
+    }
+
+    /**
+     * Get item of type shipping
+     * @return {Array}
+     */
+    getFees() {
+        return _.map(_.filter(this.items, (i) => i.type === CartItem.SHIPPING_TYPE),(i) => i);
+    }
 }

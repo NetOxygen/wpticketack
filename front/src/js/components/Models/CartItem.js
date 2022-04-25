@@ -9,10 +9,14 @@ import moment from 'moment';
 export default class CartItem extends BaseModel {
     static type = 'cart_item';
 
-    static SCREENING_TYPE = 'screening';
-    static ARTICLE_TYPE   = 'article';
-    static WALLET_TYPE    = 'wallet';
-    static SHIPPING_TYPE  = 'shipping';
+    static SCREENING_TYPE       = 'screening';
+    static ARTICLE_TYPE         = 'article';
+    static WALLET_TYPE          = 'wallet';
+    static SHIPPING_TYPE        = 'shipping';
+    static PASS_TYPE            = 'pass';
+    static MANUEL_DISCOUNT_TYPE = 'manual_discount';
+    static CODE_DISCOUNT_TYPE   = 'code_discount';
+    static PRODUCT_TYPE         = 'product';
 
     /**
      * @constructor
@@ -46,7 +50,7 @@ export default class CartItem extends BaseModel {
      * @return {String}
      */
     getFormattedPrice() {
-        return `CHF ${this.amount}`;
+        return this.getFormatedAmount(this.cleanAmount(this.amount));
     };
 
     /**
