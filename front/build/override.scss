@@ -1716,6 +1716,14 @@ article.type-tkt-article {
 
   .use-promo-code-wrapper {
     text-align: left;
+    .input-group{
+      .promo-code-input.form-control {
+        height: calc(2.25rem + 13px);
+        font-size: 1.4rem;
+
+      }
+
+    }
   }
 
   .use-wallet-wrapper {
