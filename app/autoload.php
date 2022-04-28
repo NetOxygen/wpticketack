@@ -39,6 +39,8 @@ require_once(TKT_LIB.'/models/article.class.php');
 require_once(TKT_LIB.'/models/article_stock.class.php');
 require_once(TKT_LIB.'/models/article_variant.class.php');
 require_once(TKT_LIB.'/models/articlecategory.class.php');
+require_once(TKT_LIB.'/models/salepoint.class.php');
+require_once(TKT_LIB.'/models/cashregister.class.php');
 
 if (defined('WP_CLI')) {
     require_once(TKT_CLI.'/tkt_people_commands.class.php');

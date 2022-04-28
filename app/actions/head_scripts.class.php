@@ -55,6 +55,8 @@ class HeadScriptsAction extends TKTAction
                 "engine_uri": "'.$app->get_config('ticketack.engine_uri').'/",
                 "eshop_uri": "'.$app->get_config('ticketack.eshop_uri').'/",
                 "api_key": "'.$app->get_config('ticketack.api_key').'",
+                "salepoint_id": "'.$app->get_config('ticketack.salepoint_id').'",
+                "cashregister_id": "'.$app->get_config('ticketack.cashregister_id').'",
                 "program_url": "'.tkt_program_url().'",
                 "ticket_view_url": "'.tkt_ticket_view_url().'",
                 "shop_url": "'.tkt_shop_url().'",

@@ -740,6 +740,11 @@ Ticketack.prototype.parametrize_url = function(url, params, json = false) {
         query.push(i + '=' + params[i]);
     }
 
+    if (window.tkt_config.salepoint_id)
+        query.push("salepoint_id=" + window.tkt_config.salepoint_id);
+    if (window.tkt_config.cashregister_id)
+        query.push("cashregister_id=" + window.tkt_config.cashregister_id);
+
     return url + '?' + query.join('&');
 }
 

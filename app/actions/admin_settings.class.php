@@ -1,6 +1,9 @@
 <?php
 namespace Ticketack\WP\Actions;
 
+use Ticketack\Core\Models\User;
+use Ticketack\Core\Models\Salepoint;
+
 /**
  * Admin Settings action
  */
@@ -49,6 +52,22 @@ class AdminSettingsAction extends TKTAction
             'api_key', // ID
             tkt_t('Clé d\'API'), // Title
             array( $this, 'api_key_callback' ), // Callback
+            'ticketack-api', // Page
+            'ticketack_api' // Section
+        );
+
+        add_settings_field(
+            'salepoint_id', // ID
+            tkt_t('Point de vente de ce site web'), // Title
+            array( $this, 'salepoint_id_callback' ), // Callback
+            'ticketack-api', // Page
+            'ticketack_api' // Section
+        );
+
+        add_settings_field(
+            'cashregister_id', // ID
+            tkt_t('Caisse de ce site web'), // Title
+            array( $this, 'cashregister_id_callback' ), // Callback
             'ticketack-api', // Page
             'ticketack_api' // Section
         );
@@ -510,6 +529,30 @@ class AdminSettingsAction extends TKTAction
     public function engine_uri_callback() { return $this->input('engine_uri', 'tkt_api', 'https://xxx-engine.ticketack.com'); }
     public function eshop_uri_callback() { return $this->input('eshop_uri', 'tkt_api', 'https://xxx-eshop.ticketack.com'); }
     public function api_key_callback() { return $this->input('api_key', 'tkt_api', '12345678-1234-1234-1234-123456789012'); }
+    public function salepoint_id_callback() {
+        $user = User::get_current();
+        $options = ['---' => null];
+        if (!is_null($user)) {
+            foreach ($user->salepoints() as $_id) {
+                $salepoint = Salepoint::find($_id);
+                $options[$salepoint->name(TKT_LANG)] = $_id;
+            }
+        }
+        return $this->choice('salepoint_id', 'tkt_api', $options);
+    }
+    public function cashregister_id_callback() {
+        $user = User::get_current();
+        $options = ['---' => null];
+        if (!is_null($user)) {
+            foreach ($user->salepoints() as $_id) {
+                $salepoint = Salepoint::find($_id);
+                foreach ($salepoint->cashregisters() as $cashregister) {
+                    $options[$salepoint->name(TKT_LANG).'/'.$cashregister->name(TKT_LANG)] = $_id;
+                }
+            }
+        }
+        return $this->choice('cashregister_id', 'tkt_api', $options);
+    }
 
     /** 
      * Print the Section text
