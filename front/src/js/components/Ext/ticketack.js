@@ -202,7 +202,7 @@ Ticketack.prototype.getScreeningMapUrl = function(screening_id) {
  */
 Ticketack.prototype.loadCart = function(callback) {
     var that = this;
-    var url = this.parametrize_url(this.cartJsonUrl, {}, true);
+    var url = this.parametrize_url(this.cartJsonUrl, {nocache: true}, true);
 
     return this.get(url, {}, function (err, status, rsp) {
         if (err)
