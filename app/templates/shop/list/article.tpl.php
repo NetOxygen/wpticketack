@@ -93,7 +93,7 @@ $salepoint  = current($salepoints);
                     data-salepoint-id="<?= $salepoint ?>"
                 >
                     <i class="glyphicon glyphicon-plus add-to-cart-indicator"></i>&nbsp;
-                    <?= tkt_t("AJouter au panier") ?>
+                    <?= tkt_t("Ajouter au panier") ?>
                 </button>
             <?php endif; ?>
         <?php endif; ?>

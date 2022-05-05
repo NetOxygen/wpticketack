@@ -28,7 +28,7 @@ function needsField(field) {
     <div class="row">
         <div class="col">
             <h3 class="tkt-section-title mb-4">
-                <?= tkt_t('Vos informations') ?>
+                <?= tkt_t('Titulaire') ?>
             </h3>
             <p class="mb-4">
                 <?= tkt_t('Dans le cadre des conditions sanitaires actuelles, nous sommes tenus de demander à chaque détenteur de ticket les informations nécessaires pour le contacter si besoin.<br/>Nous vous remercions donc de bien vouloir remplir les informations ci-dessous.') ?>

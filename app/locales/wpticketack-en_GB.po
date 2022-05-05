@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-08 16:08+0100\n"
+"POT-Creation-Date: 2022-05-05 15:22+0200\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
-"Last-Translator: lcocquyt <ludovic.cocquyt@netoxygen.ch>\n"
+"Last-Translator: Jonathan Ernst <jonathan.ernst@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -115,6 +115,9 @@ msgstr "Add to cart"
 msgid "Acheter"
 msgstr "Buy"
 
+msgid "Votre accréditation/pass ne vous permet pas de visionner ce contenu."
+msgstr ""
+
 #, fuzzy
 msgid "Vous avez un TicketID ?"
 msgstr "You have a pass?"
@@ -146,6 +149,9 @@ msgstr "Out of stock"
 msgid "Ajouter à mon panier"
 msgstr "Add to my cart"
 
+msgid "Titulaire"
+msgstr "Holder"
+
 msgid "Votre prénom"
 msgstr "Your firstname"
 
@@ -155,11 +161,9 @@ msgstr "Lastname"
 msgid "Votre nom"
 msgstr "Your lastname"
 
-#, fuzzy
 msgid "E-mail"
 msgstr "Email"
 
-#, fuzzy
 msgid "Votre e-mail"
 msgstr "Your email"
 
@@ -206,6 +210,9 @@ msgstr ""
 "Without linked photo, your identity will be checked at each entry of "
 "projection."
 
+msgid "Ceci est un cadeau"
+msgstr ""
+
 msgid "Tous ces champs sont requis"
 msgstr "All these fields are required"
 
@@ -242,9 +249,8 @@ msgid ""
 "premier champ et le Code dans le second."
 msgstr ""
 
-#, fuzzy
 msgid "Acheter un abonnement"
-msgstr "a pass"
+msgstr "Buy a pass"
 
 msgid ""
 "Vous ne pouvez pas réserver de place pour cette séance avec votre abonnement."
@@ -253,15 +259,14 @@ msgstr "You  can not book this screening with your pass"
 msgid "Afficher mes réservations"
 msgstr "Show my bookings"
 
-#, fuzzy
 msgid ""
 "La documentation est disponible <a target=\"_blank\" href=\"https://"
 "ticketack.com/knowledge-base/integration-avec-le-module-wordpress/\">à cette "
 "adresse</a>"
 msgstr ""
 "The documentation is available on <a target=\"_blank\" href=\"https://"
-"https://ticketack.com/en/knowledge-base/integration-avec-le-module-wordpress/\"
-"%20and%20website%20integration.pdf\">this page</a>"
+"ticketack.com/en/knowledge-base/integration-avec-le-module-wordpress/\">this "
+"page</a>"
 
 msgid "Retour au programme"
 msgstr ""
@@ -275,18 +280,35 @@ msgstr "Logout"
 msgid "Votre panier est vide"
 msgstr "Your cart is empty"
 
-#, fuzzy
-msgid "Votre panier"
-msgstr "Your cart is empty"
+msgid "Votre commande"
+msgstr "Your order"
 
-msgid "Achats"
-msgstr "Purchases"
+msgid "Tickets"
+msgstr "Tickets"
 
 msgid "Prix"
 msgstr "Price"
 
+msgid "Articles"
+msgstr "Articles"
+
+msgid "Abonnements"
+msgstr "Pass"
+
+msgid "Récapitulatif"
+msgstr "Summary"
+
+msgid "Commande"
+msgstr "Order"
+
+msgid "Rabais"
+msgstr "Rebate"
+
+msgid "Frais"
+msgstr "Fees"
+
 msgid "Total :"
-msgstr "Total :"
+msgstr "Total:"
 
 msgid "Vous disposez de"
 msgstr "You have"
@@ -299,12 +321,6 @@ msgstr "Enter below the amount you wish to use"
 
 msgid "Utiliser mon porte-monnaie"
 msgstr "Use my wallet"
-
-msgid "Vous disposez d'un code promo ?"
-msgstr "Do you have a coupon code?"
-
-msgid "Saisissez ci-dessous votre code promo"
-msgstr "Enter your coupon code below"
 
 msgid "Utiliser un code promo"
 msgstr "Use a coupon code"
@@ -324,9 +340,8 @@ msgstr "my order"
 msgid "mes réservations"
 msgstr "my bookings"
 
-#, fuzzy
 msgid "Résumé du panier"
-msgstr "Add to cart"
+msgstr "Cart summary"
 
 msgid "Panier"
 msgstr "Cart"
@@ -337,13 +352,11 @@ msgstr "product(s)"
 msgid "Livraison"
 msgstr "Delivery"
 
-#, fuzzy
 msgid "Total TTC"
-msgstr "Total"
+msgstr "Total (taxes incl.)"
 
-#, fuzzy
 msgid "Code promo"
-msgstr "Invalid coupon code"
+msgstr "Coupon code"
 
 msgid "OK"
 msgstr "OK"
@@ -374,16 +387,14 @@ msgstr "There are only a few places !"
 msgid "Complet !"
 msgstr "Complete !"
 
-#, fuzzy
 msgid "Mon compte"
-msgstr "Create your account"
+msgstr "My account"
 
 msgid "Identifiant"
 msgstr "Login"
 
-#, fuzzy
 msgid "Mot de passe"
-msgstr "Birthdate"
+msgstr "Password"
 
 msgid "Pas encore de compte. Créez-en un !"
 msgstr "No account yet. Create one!"
@@ -415,16 +426,14 @@ msgstr "F j, Y"
 msgid "Choisissez un mot de passe"
 msgstr "Choose a password"
 
-#, fuzzy
 msgid "Confirmation de votre mot de passe"
-msgstr "Confirm your e-mail address"
+msgstr "Confirm your password"
 
-#, fuzzy
 msgid "Saisissez une deuxième fois votre mot de passe"
-msgstr "Enter your e-mail address a second time"
+msgstr "Enter your password a second time"
 
 msgid "Votre compte a bien été créé"
-msgstr ""
+msgstr "Your account has been created"
 
 msgid ""
 "Veuillez l'activer en cliquant sur le lien que vous avez reçu par e-mail."
@@ -437,18 +446,16 @@ msgstr "Create your account"
 msgid "Déjà un compte. Connectez-vous !"
 msgstr "Login !"
 
-#, fuzzy
 msgid "Mes informations"
-msgstr "Your informations"
+msgstr "My data"
 
 msgid ""
 "Si vous souhaitez changer votre mot de passe, remplissez les champs ci-"
 "dessous."
 msgstr ""
 
-#, fuzzy
 msgid "Nouveau mot de passe"
-msgstr "Choose a password"
+msgstr "New password"
 
 #, fuzzy
 msgid "Saisissez une deuxième fois votre nouveau mot de passe"
@@ -458,9 +465,8 @@ msgstr "Enter your e-mail address a second time"
 msgid "Modifier mes informations"
 msgstr "Your informations"
 
-#, fuzzy
 msgid "Mes commandes"
-msgstr "my order"
+msgstr "My orders"
 
 #, fuzzy
 msgid "Vous n'avez pas encore de commandes."
@@ -583,10 +589,6 @@ msgstr "Previous"
 msgid "Suivante"
 msgstr "Next"
 
-#, fuzzy
-msgid "AJouter au panier"
-msgstr "Add to cart"
-
 msgid "Tout"
 msgstr "All"
 
@@ -636,6 +638,9 @@ msgstr "Cast"
 msgid "Aucune séance à venir."
 msgstr "No sessions to come."
 
+msgid "non défini"
+msgstr ""
+
 msgid "Veuillez choisir au moins un billet"
 msgstr "Please choose a date"
 
@@ -684,9 +689,8 @@ msgstr "Cellular phone"
 msgid "Sexe"
 msgstr "Sex"
 
-#, fuzzy
 msgid "Langue"
-msgstr "Languages"
+msgstr "Language"
 
 msgid "n'est pas supporté"
 msgstr "is not supported"
@@ -967,9 +971,6 @@ msgstr "Cast"
 msgid "Images"
 msgstr "Images"
 
-msgid "Abonnements"
-msgstr "Pass"
-
 msgid "Langues"
 msgstr "Languages"
 
@@ -1000,11 +1001,14 @@ msgstr "Eshop URL"
 msgid "Clé d'API"
 msgstr "API key"
 
+msgid "Point de vente de ce site web"
+msgstr ""
+
+msgid "Caisse de ce site web"
+msgstr ""
+
 msgid "Programme"
 msgstr "Program"
-
-msgid "Articles"
-msgstr ""
 
 #, fuzzy
 msgid "Vue du ticket"
@@ -1132,113 +1136,3 @@ msgstr ""
 msgid ""
 "Ne modifiez les valeurs ci-dessous que si vous savez ce que vous faites."
 msgstr "Change these settings only if you know what you are doing."
-
-#~ msgid "Email"
-#~ msgstr "Email"
-
-#~ msgid ""
-#~ "Sélectionnez le(s) place(s) que vous souhaitez ajouter à votre panier :"
-#~ msgstr "Select tickets you want to add to your cart"
-
-#~ msgid "Quand"
-#~ msgstr "When"
-
-#~ msgid ""
-#~ "Vous ne pouvez pas réserver de place pour cette séance avec votre pass."
-#~ msgstr "You  can not book this screening with your pass"
-
-#~ msgid ""
-#~ "Vous ne pouvez pas réserver plus de place pour cette séance avec votre "
-#~ "pass."
-#~ msgstr "You can not book more seats for this screening with your pass"
-
-#~ msgid "ID"
-#~ msgstr "ID"
-
-#~ msgid "Code"
-#~ msgstr "Code"
-
-#~ msgid "Me connecter"
-#~ msgstr "Login"
-
-#, fuzzy
-#~ msgid "Saisissez vos informations personnelles"
-#~ msgstr "Set the checkout page informations"
-
-#, fuzzy
-#~ msgid "Mes abonnements"
-#~ msgstr "a pass"
-
-#, fuzzy
-#~ msgid "Mes réservations"
-#~ msgstr "my bookings"
-
-#~ msgid "Procéder au paiement par carte bancaire"
-#~ msgstr "Pay with a credit card"
-
-#~ msgid "Shop"
-#~ msgstr "Shop"
-
-#~ msgid "Login"
-#~ msgstr "Login"
-
-#~ msgid "My account"
-#~ msgstr "My account"
-
-#~ msgid "Country"
-#~ msgstr "Country"
-
-#, fuzzy
-#~ msgid "Company"
-#~ msgstr "Company"
-
-#~ msgid "Shortcodes disponibles"
-#~ msgstr "Available shortcodes"
-
-#~ msgid "Affichage en liste"
-#~ msgstr "List display"
-
-#~ msgid "Affichage des prochaines séances en liste"
-#~ msgstr "Display screenings in list"
-
-#~ msgid "Affichage en grille"
-#~ msgstr "Grid display"
-
-#~ msgid "Affichage des prochains films en grille de 4"
-#~ msgstr "Display movies in a 4 columns grid"
-
-#~ msgid "Affichage en galerie"
-#~ msgstr "Gallery display"
-
-#~ msgid "Affichage des prochains films en galerie de 4 colonnes"
-#~ msgstr "Display movies in a 4 columns gallery"
-
-#~ msgid "Vente des différents types d'abonnements"
-#~ msgstr "Sell different pass types"
-
-#~ msgid "Commander"
-#~ msgstr "my order"
-
-#~ msgid "Il ne reste que quelques articles"
-#~ msgstr "There are only a few places"
-
-#~ msgid "Plus de stock"
-#~ msgstr "No more stock"
-
-#~ msgid "Options avancées"
-#~ msgstr "Advanced options"
-
-#~ msgid "Clé du serveur proxy"
-#~ msgstr "Server key"
-
-#~ msgid "un abonnement."
-#~ msgstr "a pass."
-
-#~ msgid "Numéro"
-#~ msgstr "Number"
-
-#~ msgid "Clé"
-#~ msgstr "Key"
-
-#~ msgid "Réservé jusqu'à"
-#~ msgstr "Booked until"

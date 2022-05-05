@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-17 11:12+0200\n"
+"POT-Creation-Date: 2022-05-05 15:22+0200\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Jonathan Ernst <jonathan.ernst@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -47,21 +47,20 @@ msgstr ""
 msgid "Il n'y a plus de places pour cette date."
 msgstr ""
 
+msgid "Veuillez saisir vos informations"
+msgstr ""
+
+msgid "Prénom"
+msgstr "Vorname"
+
 msgid "Veuillez choisir votre tarifs"
 msgstr ""
 
 msgid "Choisissez un tarif"
 msgstr ""
 
-msgid "Veuillez saisir vos informations"
-msgstr ""
-
-msgid "Nom"
-msgstr ""
-
-#, fuzzy
 msgid "Réserver"
-msgstr "Enregistrement"
+msgstr ""
 
 msgid "Nombre de descentes"
 msgstr ""
@@ -75,16 +74,16 @@ msgstr ""
 msgid "Date"
 msgstr ""
 
-msgid "Heure"
+msgid "Départ"
 msgstr ""
 
 msgid "Choix des MountainCarts"
 msgstr ""
 
-msgid "Tarifs"
+msgid "Vos informations"
 msgstr ""
 
-msgid "Vos informations"
+msgid "Tarifs"
 msgstr ""
 
 msgid "Sélectionnez votre contenance et votre quantité :"
@@ -105,6 +104,21 @@ msgstr ""
 msgid "Acheter"
 msgstr ""
 
+msgid "Votre accréditation/pass ne vous permet pas de visionner ce contenu."
+msgstr ""
+
+msgid "Vous avez un TicketID ?"
+msgstr ""
+
+msgid "Connexion"
+msgstr ""
+
+msgid "Votre TicketID se trouve sur votre abonnement"
+msgstr ""
+
+msgid "Regarder"
+msgstr ""
+
 msgid "Merci, votre commande est réservée dans votre panier pour 30 minutes."
 msgstr ""
 
@@ -123,19 +137,22 @@ msgstr ""
 msgid "Ajouter à mon panier"
 msgstr ""
 
-msgid "Prénom"
+msgid "Titulaire"
 msgstr ""
 
 msgid "Votre prénom"
 msgstr ""
 
+msgid "Nom"
+msgstr ""
+
 msgid "Votre nom"
 msgstr ""
 
-msgid "Email"
+msgid "E-mail"
 msgstr ""
 
-msgid "Votre email"
+msgid "Votre e-mail"
 msgstr ""
 
 msgid "Adresse"
@@ -179,6 +196,9 @@ msgid ""
 "des salles et aux caisses."
 msgstr ""
 
+msgid "Ceci est un cadeau"
+msgstr ""
+
 msgid "Tous ces champs sont requis"
 msgstr ""
 
@@ -191,20 +211,17 @@ msgstr ""
 msgid "Veuillez choisir l'heure désirée :"
 msgstr ""
 
+msgid "Il n'y a pas de billetterie disponible pour cet événement."
+msgstr ""
+
 msgid "Réserver une place sur mon abonnement"
 msgstr ""
 
 msgid "Entrée libre"
 msgstr ""
 
-msgid "Sélectionnez le(s) place(s) que vous souhaitez ajouter à votre panier :"
-msgstr ""
-
 msgid ""
 "Entrez le nombre de place(s) que vous souhaitez ajouter à votre panier :"
-msgstr ""
-
-msgid "Vous avez un TicketID ?"
 msgstr ""
 
 msgid "Connectez-vous"
@@ -213,15 +230,12 @@ msgstr ""
 msgid "pour réserver."
 msgstr ""
 
-msgid "Connexion"
-msgstr ""
-
-msgid "Votre TicketID se trouve sur votre abonnement"
-msgstr ""
-
 msgid ""
 "Si vous n'avez pas de TicketID sur votre abonnement, saisissez l'ID dans le "
 "premier champ et le Code dans le second."
+msgstr ""
+
+msgid "Acheter un abonnement"
 msgstr ""
 
 msgid ""
@@ -233,8 +247,11 @@ msgstr ""
 
 msgid ""
 "La documentation est disponible <a target=\"_blank\" href=\"https://"
-"ticketack.com/documentation/Fran%C3%A7ais/Ticketack%20-%20Vente%20en%20ligne"
-"%20et%20Int%C3%A9gration%20billetterie.pdf\">à cette adresse</a>"
+"ticketack.com/knowledge-base/integration-avec-le-module-wordpress/\">à cette "
+"adresse</a>"
+msgstr ""
+
+msgid "Retour au programme"
 msgstr ""
 
 msgid "Voir mes réservations"
@@ -246,13 +263,31 @@ msgstr ""
 msgid "Votre panier est vide"
 msgstr ""
 
-msgid "Votre panier"
+msgid "Votre commande"
 msgstr ""
 
-msgid "Achats"
+msgid "Tickets"
 msgstr ""
 
 msgid "Prix"
+msgstr ""
+
+msgid "Articles"
+msgstr ""
+
+msgid "Abonnements"
+msgstr ""
+
+msgid "Récapitulatif"
+msgstr ""
+
+msgid "Commande"
+msgstr ""
+
+msgid "Rabais"
+msgstr ""
+
+msgid "Frais"
 msgstr ""
 
 msgid "Total :"
@@ -268,12 +303,6 @@ msgid "Saisissez ci-dessous le montant que vous souhaitez utiliser"
 msgstr ""
 
 msgid "Utiliser mon porte-monnaie"
-msgstr ""
-
-msgid "Vous disposez d'un code promo ?"
-msgstr ""
-
-msgid "Saisissez ci-dessous votre code promo"
 msgstr ""
 
 msgid "Utiliser un code promo"
@@ -534,16 +563,10 @@ msgstr ""
 msgid "Suivante"
 msgstr ""
 
-msgid "AJouter au panier"
-msgstr ""
-
 msgid "Tout"
 msgstr ""
 
 msgid "Details"
-msgstr ""
-
-msgid "Quand"
 msgstr ""
 
 msgid "Section"
@@ -564,10 +587,31 @@ msgstr ""
 msgid "min"
 msgstr ""
 
+msgid "Langue originale"
+msgstr ""
+
+msgid "Audio"
+msgstr ""
+
+msgid "Sous-titre"
+msgstr ""
+
+msgid "Âge min. lég."
+msgstr ""
+
+msgid "Âge min. sug."
+msgstr ""
+
+msgid "Âge min. acc."
+msgstr ""
+
 msgid "Distribution"
 msgstr ""
 
 msgid "Aucune séance à venir."
+msgstr ""
+
+msgid "non défini"
 msgstr ""
 
 msgid "Veuillez choisir au moins un billet"
@@ -582,11 +626,9 @@ msgstr ""
 msgid "Une erreur est survenue. Veuillez ré-essayer ultérieurement."
 msgstr ""
 
-msgid "Vous ne pouvez pas réserver de place pour cette séance avec votre pass."
-msgstr ""
-
 msgid ""
-"Vous ne pouvez pas réserver plus de place pour cette séance avec votre pass."
+"Vous ne pouvez pas réserver une place de plus pour cette séance avec votre "
+"abonnement."
 msgstr ""
 
 msgid "Veuillez choisir un tarif"
@@ -608,9 +650,6 @@ msgid "sur votre porte monnaie électronique"
 msgstr ""
 
 msgid "Montant trop élevé"
-msgstr ""
-
-msgid "E-mail"
 msgstr ""
 
 msgid "Rue"
@@ -902,9 +941,6 @@ msgstr "Enregistrement"
 msgid "Images"
 msgstr ""
 
-msgid "Abonnements"
-msgstr ""
-
 msgid "Langues"
 msgstr ""
 
@@ -935,10 +971,16 @@ msgstr ""
 msgid "Clé d'API"
 msgstr ""
 
+msgid "Point de vente de ce site web"
+msgstr ""
+
+msgid "Caisse de ce site web"
+msgstr ""
+
 msgid "Programme"
 msgstr ""
 
-msgid "Articles"
+msgid "Vue du ticket"
 msgstr ""
 
 msgid "Remerciements"
@@ -951,6 +993,9 @@ msgid "URL des CGV"
 msgstr ""
 
 msgid "URL des conditions de protection des données"
+msgstr ""
+
+msgid "URL des mesures sanitaires"
 msgstr ""
 
 msgid "Informations optionnelles à saisir"
@@ -996,6 +1041,9 @@ msgid "Langue par défaut"
 msgstr ""
 
 msgid "Filtrer les events sur les tags suivants"
+msgstr ""
+
+msgid "Filtrer les events sur les salles suivantes (id)"
 msgstr ""
 
 msgid "Télécharger les images à la une"
