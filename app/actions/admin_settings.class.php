@@ -547,7 +547,7 @@ class AdminSettingsAction extends TKTAction
             foreach ($user->salepoints() as $_id) {
                 $salepoint = Salepoint::find($_id);
                 foreach ($salepoint->cashregisters() as $cashregister) {
-                    $options[$salepoint->name(TKT_LANG).'/'.$cashregister->name(TKT_LANG)] = $_id;
+                    $options[$salepoint->name(TKT_LANG).'/'.$cashregister->name(TKT_LANG)] = $cashregister->_id();
                 }
             }
         }
