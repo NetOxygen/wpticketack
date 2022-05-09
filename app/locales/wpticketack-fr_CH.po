@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-08 16:15+0100\n"
+"POT-Creation-Date: 2022-05-05 15:12+0200\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
-"Last-Translator: lcocquyt <ludovic.cocquyt@netoxygen.ch>\n"
+"Last-Translator: Jonathan Ernst <jonathan.ernst@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -105,6 +105,9 @@ msgstr ""
 msgid "Acheter"
 msgstr ""
 
+msgid "Votre accréditation/pass ne vous permet pas de visionner ce contenu."
+msgstr ""
+
 msgid "Vous avez un TicketID ?"
 msgstr ""
 
@@ -133,6 +136,9 @@ msgid "Épuisé"
 msgstr ""
 
 msgid "Ajouter à mon panier"
+msgstr ""
+
+msgid "Titulaire"
 msgstr ""
 
 msgid "Votre prénom"
@@ -189,6 +195,9 @@ msgstr ""
 msgid ""
 "Sans photo, une pièce d'identité sera systématiquement demandée à l'entrée "
 "des salles et aux caisses."
+msgstr ""
+
+msgid "Ceci est un cadeau"
 msgstr ""
 
 msgid "Tous ces champs sont requis"
@@ -255,13 +264,31 @@ msgstr ""
 msgid "Votre panier est vide"
 msgstr ""
 
-msgid "Votre panier"
+msgid "Votre commande"
 msgstr ""
 
-msgid "Achats"
+msgid "Tickets"
 msgstr ""
 
 msgid "Prix"
+msgstr ""
+
+msgid "Articles"
+msgstr ""
+
+msgid "Abonnements"
+msgstr ""
+
+msgid "Récapitulatif"
+msgstr ""
+
+msgid "Commande"
+msgstr ""
+
+msgid "Rabais"
+msgstr ""
+
+msgid "Frais"
 msgstr ""
 
 msgid "Total :"
@@ -277,12 +304,6 @@ msgid "Saisissez ci-dessous le montant que vous souhaitez utiliser"
 msgstr ""
 
 msgid "Utiliser mon porte-monnaie"
-msgstr ""
-
-msgid "Vous disposez d'un code promo ?"
-msgstr ""
-
-msgid "Saisissez ci-dessous votre code promo"
 msgstr ""
 
 msgid "Utiliser un code promo"
@@ -543,9 +564,6 @@ msgstr ""
 msgid "Suivante"
 msgstr ""
 
-msgid "AJouter au panier"
-msgstr ""
-
 msgid "Tout"
 msgstr ""
 
@@ -592,6 +610,9 @@ msgid "Distribution"
 msgstr ""
 
 msgid "Aucune séance à venir."
+msgstr ""
+
+msgid "non défini"
 msgstr ""
 
 msgid "Veuillez choisir au moins un billet"
@@ -921,9 +942,6 @@ msgstr "Enregistrement"
 msgid "Images"
 msgstr ""
 
-msgid "Abonnements"
-msgstr ""
-
 msgid "Langues"
 msgstr ""
 
@@ -954,10 +972,13 @@ msgstr ""
 msgid "Clé d'API"
 msgstr ""
 
-msgid "Programme"
+msgid "Point de vente de ce site web"
 msgstr ""
 
-msgid "Articles"
+msgid "Caisse de ce site web"
+msgstr ""
+
+msgid "Programme"
 msgstr ""
 
 msgid "Vue du ticket"

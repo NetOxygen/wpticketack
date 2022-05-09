@@ -1,25 +1,24 @@
 # Translation of WP Ticketack.
-# Copyright (C) 2018 Net Oxygen Sàrl
+# Copyright (C) 2022 Net Oxygen Sàrl
 # This file is distributed under the same license as the wpticketack package.
-#  <dev@b-alidra.com>, 2018.
+#  <jonathan.ernst@netoxygen.ch>, 2022.
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-08 16:10+0100\n"
-"PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
-"Last-Translator: lcocquyt <ludovic.cocquyt@netoxygen.ch>\n"
+"POT-Creation-Date: 2022-05-05 15:21+0200\n"
+"PO-Revision-Date: 2022-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Jonathan Ernst <jonathan.ernst@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#, fuzzy
 msgid "Veuillez choisir le nombre de descentes"
-msgstr "Please choose a time"
+msgstr ""
 
 msgid "descente"
 msgstr ""
@@ -27,50 +26,41 @@ msgstr ""
 msgid "descentes consécutives"
 msgstr ""
 
-#, fuzzy
 msgid "Veuillez choisir une date"
-msgstr "Please choose a pricing"
+msgstr ""
 
 msgid "l j F"
 msgstr ""
 
-#, fuzzy
 msgid "Veuillez choisir une heure"
-msgstr "Please choose a pricing"
+msgstr ""
 
-#, fuzzy
 msgid "Veuillez choisir vos MountainCarts"
-msgstr "Please choose a pricing"
+msgstr ""
 
-#, fuzzy
 msgid "Taille"
-msgstr "City"
+msgstr ""
 
-#, fuzzy
 msgid "Étape suivante"
-msgstr "Next"
+msgstr ""
 
 msgid "Il n'y a plus de places pour cette date."
 msgstr ""
 
-#, fuzzy
 msgid "Veuillez saisir vos informations"
-msgstr "Your informations"
+msgstr ""
 
 msgid "Prénom"
-msgstr "Firstname"
+msgstr ""
 
-#, fuzzy
 msgid "Veuillez choisir votre tarifs"
-msgstr "Please choose a pricing"
+msgstr ""
 
-#, fuzzy
 msgid "Choisissez un tarif"
-msgstr "Please choose a pricing"
+msgstr ""
 
-#, fuzzy
 msgid "Réserver"
-msgstr "to book."
+msgstr ""
 
 msgid "Nombre de descentes"
 msgstr ""
@@ -91,33 +81,34 @@ msgid "Choix des MountainCarts"
 msgstr ""
 
 msgid "Vos informations"
-msgstr "Your informations"
+msgstr ""
 
-#, fuzzy
 msgid "Tarifs"
-msgstr "Pricings"
+msgstr ""
 
 msgid "Sélectionnez votre contenance et votre quantité :"
-msgstr "Select the quantity"
+msgstr ""
 
 msgid "Total"
-msgstr "Total"
+msgstr ""
 
 msgid "Veuillez choisir au moins un produit"
-msgstr "Please choose a date"
+msgstr ""
 
 msgid "Accéder au panier"
-msgstr "Add to cart"
+msgstr ""
 
 msgid "Ajouter au panier"
-msgstr "Add to cart"
+msgstr ""
 
 msgid "Acheter"
-msgstr "Buy"
+msgstr ""
 
-#, fuzzy
+msgid "Votre accréditation/pass ne vous permet pas de visionner ce contenu."
+msgstr ""
+
 msgid "Vous avez un TicketID ?"
-msgstr "You have a pass?"
+msgstr ""
 
 msgid "Connexion"
 msgstr ""
@@ -129,206 +120,214 @@ msgid "Regarder"
 msgstr ""
 
 msgid "Merci, votre commande est réservée dans votre panier pour 30 minutes."
-msgstr "Thank you, your order is reserved in your cart for 30 minutes."
+msgstr ""
 
 msgid "Continuer"
-msgstr "Continue"
+msgstr ""
 
 msgid "ma visite"
-msgstr "my visit"
+msgstr ""
 
 msgid "Entrez le nombre d'éléments que vous souhaitez ajouter à votre panier :"
-msgstr "Enter the number of items you want to add to your cart"
+msgstr ""
 
 msgid "Épuisé"
-msgstr "Out of stock"
+msgstr ""
 
 msgid "Ajouter à mon panier"
-msgstr "Add to my cart"
+msgstr ""
+
+msgid "Titulaire"
+msgstr "Inhaber"
 
 msgid "Votre prénom"
-msgstr "Your firstname"
+msgstr "Ihr Vorname"
 
 msgid "Nom"
-msgstr "Lastname"
+msgstr "Nachname"
 
 msgid "Votre nom"
-msgstr "Your lastname"
+msgstr "Ihr Nachname"
 
 msgid "E-mail"
-msgstr "Email"
+msgstr "E-mail"
 
-#, fuzzy
 msgid "Votre e-mail"
-msgstr "Your email"
+msgstr "Ihre E-mail"
 
 msgid "Adresse"
-msgstr "Address"
+msgstr ""
 
 msgid "Votre adresse"
-msgstr "Your address"
+msgstr ""
 
 msgid "Numéro postal"
-msgstr "Zip"
+msgstr ""
 
 msgid "NPA"
-msgstr "ZIP"
+msgstr ""
 
 msgid "Ville"
-msgstr "City"
+msgstr ""
 
 msgid "Pays"
-msgstr "Land"
+msgstr ""
 
 msgid "Téléphone"
-msgstr "Phone"
+msgstr ""
 
 msgid "Téléphone portable"
-msgstr "Cellphone"
+msgstr ""
 
 msgid "Âge"
-msgstr "Age"
+msgstr ""
 
 msgid "Date de naissance"
-msgstr "Birthdate"
+msgstr ""
 
 msgid "Genre"
-msgstr "Geschlecht"
+msgstr ""
 
 msgid "Photo"
-msgstr "Photo"
+msgstr ""
 
 msgid ""
 "Sans photo, une pièce d'identité sera systématiquement demandée à l'entrée "
 "des salles et aux caisses."
 msgstr ""
-"Without linked photo, your identity will be checked at each entry of "
-"projection."
+
+msgid "Ceci est un cadeau"
+msgstr ""
 
 msgid "Tous ces champs sont requis"
-msgstr "All these fields are required"
+msgstr ""
 
 msgid "Tarifs :"
-msgstr "Pricings"
+msgstr ""
 
 msgid "Veuillez choisir la date désirée :"
-msgstr "Please choose a date"
+msgstr ""
 
 msgid "Veuillez choisir l'heure désirée :"
-msgstr "Please choose a time"
+msgstr ""
 
 msgid "Il n'y a pas de billetterie disponible pour cet événement."
 msgstr ""
 
 msgid "Réserver une place sur mon abonnement"
-msgstr "Book on my pass"
+msgstr ""
 
 msgid "Entrée libre"
-msgstr "Free entry"
+msgstr ""
 
 msgid ""
 "Entrez le nombre de place(s) que vous souhaitez ajouter à votre panier :"
-msgstr "Enter the number of tickets you want to add to your cart"
+msgstr ""
 
 msgid "Connectez-vous"
-msgstr "Login"
+msgstr ""
 
 msgid "pour réserver."
-msgstr "to book."
+msgstr ""
 
 msgid ""
 "Si vous n'avez pas de TicketID sur votre abonnement, saisissez l'ID dans le "
 "premier champ et le Code dans le second."
 msgstr ""
 
-#, fuzzy
 msgid "Acheter un abonnement"
-msgstr "a pass"
+msgstr ""
 
 msgid ""
 "Vous ne pouvez pas réserver de place pour cette séance avec votre abonnement."
-msgstr "You  can not book this screening with your pass"
+msgstr ""
 
 msgid "Afficher mes réservations"
-msgstr "Show my bookings"
+msgstr ""
 
-#, fuzzy
 msgid ""
 "La documentation est disponible <a target=\"_blank\" href=\"https://"
 "ticketack.com/knowledge-base/integration-avec-le-module-wordpress/\">à cette "
 "adresse</a>"
 msgstr ""
-"The documentation is available on <a target=\"_blank\" href=\"https://"
-"https://ticketack.com/de/knowledge-base/integration-avec-le-module-wordpress/\"
-"%20and%20website%20integration.pdf\">this page</a>"
 
 msgid "Retour au programme"
 msgstr ""
 
 msgid "Voir mes réservations"
-msgstr "my bookings"
+msgstr ""
 
 msgid "Me déconnecter"
-msgstr "Logout"
+msgstr ""
 
 msgid "Votre panier est vide"
-msgstr "Your cart is empty"
+msgstr ""
 
-#, fuzzy
-msgid "Votre panier"
-msgstr "Your cart is empty"
+msgid "Votre commande"
+msgstr ""
 
-msgid "Achats"
-msgstr "Purchases"
+msgid "Tickets"
+msgstr ""
 
 msgid "Prix"
-msgstr "Price"
+msgstr ""
+
+msgid "Articles"
+msgstr ""
+
+msgid "Abonnements"
+msgstr ""
+
+msgid "Récapitulatif"
+msgstr ""
+
+msgid "Commande"
+msgstr ""
+
+msgid "Rabais"
+msgstr ""
+
+msgid "Frais"
+msgstr ""
 
 msgid "Total :"
-msgstr "Total :"
+msgstr ""
 
 msgid "Vous disposez de"
-msgstr "You have"
+msgstr ""
 
 msgid "sur votre porte-monnaie"
-msgstr "at your disposal on your wallet"
+msgstr ""
 
 msgid "Saisissez ci-dessous le montant que vous souhaitez utiliser"
-msgstr "Enter below the amount you wish to use"
+msgstr ""
 
 msgid "Utiliser mon porte-monnaie"
-msgstr "Use my wallet"
-
-msgid "Vous disposez d'un code promo ?"
-msgstr "Do you have a coupon code?"
-
-msgid "Saisissez ci-dessous votre code promo"
-msgstr "Enter your coupon code below"
+msgstr ""
 
 msgid "Utiliser un code promo"
-msgstr "Use a coupon code"
+msgstr ""
 
 msgid "Valider"
-msgstr "Confirm"
+msgstr ""
 
 msgid "Finaliser ma commande"
-msgstr "Finish my order"
+msgstr ""
 
 msgid "Annuler"
-msgstr "Cancel"
+msgstr ""
 
 msgid "ma commande"
-msgstr "my order"
+msgstr ""
 
 msgid "mes réservations"
-msgstr "my bookings"
+msgstr ""
 
-#, fuzzy
 msgid "Résumé du panier"
-msgstr "Add to cart"
+msgstr ""
 
 msgid "Panier"
-msgstr "Cart"
+msgstr ""
 
 msgid "produit(s)"
 msgstr ""
@@ -336,42 +335,40 @@ msgstr ""
 msgid "Livraison"
 msgstr ""
 
-#, fuzzy
 msgid "Total TTC"
-msgstr "Total"
+msgstr ""
 
-#, fuzzy
 msgid "Code promo"
-msgstr "Invalid coupon code"
+msgstr ""
 
 msgid "OK"
 msgstr ""
 
 msgid ""
 "Aucun événement programmé actuellement, revenez nous visiter prochainement."
-msgstr "No event currently scheduled, come back soon."
+msgstr ""
 
 msgid "Plus d'informations"
-msgstr "More informations"
+msgstr ""
 
 msgid ""
 "Aucuné séance programmée actuellement, revenez nous visiter prochainement."
-msgstr "No screening currently scheduled, come back soon."
+msgstr ""
 
 msgid "Il ne reste que quelques places"
-msgstr "There are only a few places"
+msgstr ""
 
 msgid "Complet"
-msgstr "Complete"
+msgstr ""
 
 msgid "Billets"
-msgstr "Tickets"
+msgstr ""
 
 msgid "Il ne reste que quelques places !"
-msgstr "There are only a few places !"
+msgstr ""
 
 msgid "Complet !"
-msgstr "Complete !"
+msgstr ""
 
 msgid "Mon compte"
 msgstr ""
@@ -379,9 +376,8 @@ msgstr ""
 msgid "Identifiant"
 msgstr ""
 
-#, fuzzy
 msgid "Mot de passe"
-msgstr "Birthdate"
+msgstr ""
 
 msgid "Pas encore de compte. Créez-en un !"
 msgstr ""
@@ -393,19 +389,19 @@ msgid "Votre société"
 msgstr ""
 
 msgid "Adresse e-mail"
-msgstr "E-mail address"
+msgstr ""
 
 msgid "Votre adresse e-mail"
-msgstr "Your e-mail address"
+msgstr ""
 
 msgid "Confirmation de votre adresse e-mail"
-msgstr "Confirm your e-mail address"
+msgstr ""
 
 msgid "Saisissez une deuxième fois votre adresse"
-msgstr "Enter your e-mail address a second time"
+msgstr ""
 
 msgid "Votre numéro de téléphone"
-msgstr "Your phone number"
+msgstr ""
 
 msgid "j F Y"
 msgstr ""
@@ -413,13 +409,11 @@ msgstr ""
 msgid "Choisissez un mot de passe"
 msgstr ""
 
-#, fuzzy
 msgid "Confirmation de votre mot de passe"
-msgstr "Confirm your e-mail address"
+msgstr ""
 
-#, fuzzy
 msgid "Saisissez une deuxième fois votre mot de passe"
-msgstr "Enter your e-mail address a second time"
+msgstr ""
 
 msgid "Votre compte a bien été créé"
 msgstr ""
@@ -431,38 +425,31 @@ msgstr ""
 msgid "Créer mon compte"
 msgstr ""
 
-#, fuzzy
 msgid "Déjà un compte. Connectez-vous !"
-msgstr "Login !"
+msgstr ""
 
-#, fuzzy
 msgid "Mes informations"
-msgstr "Your informations"
+msgstr ""
 
 msgid ""
 "Si vous souhaitez changer votre mot de passe, remplissez les champs ci-"
 "dessous."
 msgstr ""
 
-#, fuzzy
 msgid "Nouveau mot de passe"
-msgstr "Birthdate"
+msgstr ""
 
-#, fuzzy
 msgid "Saisissez une deuxième fois votre nouveau mot de passe"
-msgstr "Enter your e-mail address a second time"
+msgstr ""
 
-#, fuzzy
 msgid "Modifier mes informations"
-msgstr "Your informations"
+msgstr ""
 
-#, fuzzy
 msgid "Mes commandes"
-msgstr "my order"
+msgstr ""
 
-#, fuzzy
 msgid "Vous n'avez pas encore de commandes."
-msgstr "Thank you for your order"
+msgstr ""
 
 msgid "#"
 msgstr ""
@@ -476,21 +463,17 @@ msgstr ""
 msgid "Statut"
 msgstr ""
 
-#, fuzzy
 msgid "Mes billets"
-msgstr "Buy  your tickets"
+msgstr ""
 
-#, fuzzy
 msgid "Vous n'avez pas encore de billets."
-msgstr "Thank you for your order"
+msgstr ""
 
-#, fuzzy
 msgid "Télécharger"
-msgstr "Phone"
+msgstr ""
 
-#, fuzzy
 msgid "Réservations"
-msgstr "my bookings"
+msgstr ""
 
 msgid "Aucune réservation sur ce billet."
 msgstr ""
@@ -499,7 +482,7 @@ msgid "Votre compte n'est pas activé."
 msgstr ""
 
 msgid "Nous vous remercions pour votre commande."
-msgstr "Thank you for your order"
+msgstr ""
 
 #, php-format
 msgid ""
@@ -507,21 +490,18 @@ msgid ""
 "vente</a> et la <a target=\"_blank\" href=\"%s\">politique de protection des "
 "données</a>"
 msgstr ""
-"I accept the <a target=\"_blank\" href=\"%s\">general terms and conditions "
-"of sale</a> and the <a target=\"_blank\" href=\"%s\">data protection policy</"
-"a>."
 
 msgid "Aucun moyen de paiement configué."
-msgstr "No payment method configured"
+msgstr ""
 
 msgid "Vos données de facturation"
-msgstr "Your invoicing data"
+msgstr ""
 
 msgid "Réserver (paiement sur place)"
-msgstr "Book (on site payment)"
+msgstr ""
 
 msgid "Procéder au paiement"
-msgstr "Zur Bezahlung"
+msgstr ""
 
 msgid ""
 "Dans le cadre des conditions sanitaires actuelles, nous sommes tenus de "
@@ -534,80 +514,76 @@ msgid "Ticket"
 msgstr ""
 
 msgid "Code postal"
-msgstr "Zip"
+msgstr ""
 
 msgid "Votre numéro, sans espace"
-msgstr "Ihre Nummer, keine Leerzeichen"
+msgstr ""
 
 msgid "* ces champs sont requis"
-msgstr "* diese Felder sind erforderlich"
+msgstr ""
 
 msgid "Enregistrer"
-msgstr "Speichern"
+msgstr ""
 
 msgid "Une erreur est survenue lors de votre commande."
-msgstr "An error has occurred during your order."
+msgstr ""
 
 msgid "Merci de bien vouloir réessayer."
-msgstr "Please try again."
+msgstr ""
 
 msgid "Recherche"
-msgstr "Search"
+msgstr ""
 
 msgid "Rechercher"
-msgstr "Search for"
+msgstr ""
 
 msgid "Tous"
-msgstr "All"
+msgstr ""
 
 msgid "Compagnie"
-msgstr "Company"
+msgstr ""
 
 msgid "Profession"
-msgstr "Job"
+msgstr ""
 
 msgid "Trier par"
-msgstr "Sort by"
+msgstr ""
 
 msgid "Aucun article dans cette catégorie, revenez nous visiter prochainement."
-msgstr "No screening currently scheduled, come back soon."
+msgstr ""
 
 msgid "Vous avez choisi :"
-msgstr "You chose"
+msgstr ""
 
 msgid "Précédente"
-msgstr "Previous"
+msgstr ""
 
 msgid "Suivante"
-msgstr "Next"
-
-#, fuzzy
-msgid "AJouter au panier"
-msgstr "Add to cart"
+msgstr ""
 
 msgid "Tout"
-msgstr "All"
+msgstr ""
 
 msgid "Details"
-msgstr "Details"
+msgstr ""
 
 msgid "Section"
-msgstr "Section"
+msgstr ""
 
 msgid "Synopsis"
-msgstr "Synopsis"
+msgstr ""
 
 msgid "Films"
-msgstr "Movies"
+msgstr ""
 
 msgid "Achetez vos billets"
-msgstr "Buy  your tickets"
+msgstr ""
 
 msgid "Durée"
-msgstr "Duration"
+msgstr ""
 
 msgid "min"
-msgstr "min"
+msgstr ""
 
 msgid "Langue originale"
 msgstr ""
@@ -615,9 +591,8 @@ msgstr ""
 msgid "Audio"
 msgstr ""
 
-#, fuzzy
 msgid "Sous-titre"
-msgstr "subtitles"
+msgstr ""
 
 msgid "Âge min. lég."
 msgstr ""
@@ -629,61 +604,63 @@ msgid "Âge min. acc."
 msgstr ""
 
 msgid "Distribution"
-msgstr "Cast"
+msgstr ""
 
 msgid "Aucune séance à venir."
-msgstr "No sessions to come."
+msgstr ""
+
+msgid "non défini"
+msgstr ""
 
 msgid "Veuillez choisir au moins un billet"
-msgstr "Please choose a date"
+msgstr ""
 
 msgid "Veuillez remplir les deux champs"
-msgstr "Please fill in both fields"
+msgstr ""
 
 msgid "Les informations que vous avez saisies sont invalides"
-msgstr "The information you have entered is invalid"
+msgstr ""
 
 msgid "Une erreur est survenue. Veuillez ré-essayer ultérieurement."
-msgstr "An error has occurred. Please try again later."
+msgstr ""
 
-#, fuzzy
 msgid ""
 "Vous ne pouvez pas réserver une place de plus pour cette séance avec votre "
 "abonnement."
-msgstr "You  can not book this screening with your pass"
+msgstr ""
 
 msgid "Veuillez choisir un tarif"
-msgstr "Please choose a pricing"
+msgstr ""
 
 msgid "Votre panier a été mis à jour"
-msgstr "Your cart has been updated"
+msgstr ""
 
 msgid "Code promo invalide"
-msgstr "Invalid coupon code"
+msgstr ""
 
 msgid "Impossible d'utiliser ce code promo"
-msgstr "Cannot use this coupon code"
+msgstr ""
 
 msgid "Le code promo a bien été pris en compte"
-msgstr "The coupon code has been taken into account"
+msgstr ""
 
 msgid "sur votre porte monnaie électronique"
-msgstr "on your wallet"
+msgstr ""
 
 msgid "Montant trop élevé"
-msgstr "Amount too high"
+msgstr ""
 
 msgid "Rue"
 msgstr ""
 
 msgid "Télépĥone portable"
-msgstr "Cellphone"
+msgstr ""
 
 msgid "Sexe"
-msgstr "Geschlecht"
+msgstr ""
 
 msgid "Langue"
-msgstr "Languages"
+msgstr ""
 
 msgid "n'est pas supporté"
 msgstr ""
@@ -706,9 +683,8 @@ msgstr ""
 msgid "est trop grand"
 msgstr ""
 
-#, fuzzy
 msgid "est invalide"
-msgstr "Invalid coupon code"
+msgstr ""
 
 msgid "n'est pas un objet"
 msgstr ""
@@ -737,13 +713,11 @@ msgstr ""
 msgid "Erreur"
 msgstr ""
 
-#, fuzzy
 msgid "Annulée"
-msgstr "Cancel"
+msgstr ""
 
-#, fuzzy
 msgid "Postfinance"
-msgstr "Allow Postfinance"
+msgstr ""
 
 msgid "Proxypay"
 msgstr ""
@@ -754,9 +728,8 @@ msgstr ""
 msgid "Gratuit"
 msgstr ""
 
-#, fuzzy
 msgid "Réservation"
-msgstr "my bookings"
+msgstr ""
 
 msgid "Espèces"
 msgstr ""
@@ -767,9 +740,8 @@ msgstr ""
 msgid "Carte bancaire"
 msgstr ""
 
-#, fuzzy
 msgid "Porte-monnaie"
-msgstr "at your disposal on your wallet"
+msgstr ""
 
 msgid "Activé"
 msgstr ""
@@ -856,385 +828,274 @@ msgid "production design"
 msgstr ""
 
 msgid "Pas de réponse"
-msgstr "No answer"
-
-msgid "Féminin"
-msgstr "Female"
-
-msgid "Masculin"
-msgstr "Male"
-
-msgid "Autre"
-msgstr "Other"
-
-#, fuzzy
-msgid "Ajouter un event Ticketack"
-msgstr "Add to cart"
-
-msgid "Nouvel event Ticketack"
-msgstr "New Ticketack event"
-
-msgid "Modifier cet event Ticketack"
-msgstr "Edit Ticketack event"
-
-msgid "Afficher cet event Ticketack"
-msgstr "View Ticketack event"
-
-msgid "Tous les events Ticketack"
-msgstr "All Ticketack events"
-
-msgid "Rechercher les events Ticketack"
-msgstr "Search Ticketack events"
-
-msgid "Parent:"
-msgstr "Parent :"
-
-msgid "Aucun event Ticketack trouvé."
-msgstr "No Ticketack event found"
-
-msgid "Aucun event Ticketack trouvé dans la corbeille."
-msgstr "No Ticketack event found in Trash"
-
-msgid "Événements importés depuis Ticketack"
-msgstr "Events imported from Ticketack"
-
-msgid "Ajouter un article Ticketack"
-msgstr "New Ticketack article"
-
-msgid "Nouvel article Ticketack"
-msgstr "New Ticketack article"
-
-msgid "Modifier cet article Ticketack"
-msgstr "Edit Ticketack article"
-
-msgid "Afficher cet article Ticketack"
-msgstr "View Ticketack article"
-
-msgid "Tous les articles Ticketack"
-msgstr "All Ticketack articles"
-
-msgid "Rechercher les articles Ticketack"
-msgstr "Search Ticketack articles"
-
-msgid "Aucun article Ticketack trouvé."
-msgstr "No Ticketack article found"
-
-msgid "Aucun article Ticketack trouvé dans la corbeille."
-msgstr "No Ticketack article found in Trash"
-
-msgid "Articles importés depuis Ticketack"
-msgstr "Events imported from Ticketack"
-
-msgid "Ajouter une personne Ticketack"
-msgstr "Add new ticketack person"
-
-msgid "Nouvelle personne Ticketack"
-msgstr "New Ticketack person"
-
-msgid "Modifier cette personne Ticketack"
-msgstr "Edit Ticketack person"
-
-msgid "Afficher cette personne Ticketack"
-msgstr "View Ticketack person"
-
-msgid "Tous les poeple Ticketack"
-msgstr "All Ticketack people"
-
-msgid "Rechercher les people Ticketack"
-msgstr "Search Ticketack people"
-
-msgid "Aucune personne Ticketack trouvée."
-msgstr "No Ticketack person found"
-
-msgid "Aucune personne Ticketack trouvée dans la corbeille."
-msgstr "No Ticketack person found in Trash"
-
-msgid "Personnes importées depuis Ticketack"
-msgstr "Events imported from Ticketack"
-
-msgid "API"
-msgstr "API"
-
-msgid "Pages"
-msgstr "Pages"
-
-msgid "Checkout"
-msgstr "Checkout"
-
-#, fuzzy
-msgid "Registration"
-msgstr "Cast"
-
-msgid "Images"
-msgstr "Images"
-
-msgid "Abonnements"
-msgstr "Pass"
-
-msgid "Langues"
-msgstr "Languages"
-
-msgid "Import"
-msgstr "Import"
-
-msgid "Paramètres avancés"
-msgstr "Advanced parameters"
-
-msgid "Documentation"
-msgstr "Documentation"
-
-msgid "Ticketack n'est pas configuré."
-msgstr "Ticketack is not configured"
-
-msgid "Accéder aux réglages"
-msgstr "Go to settings"
-
-msgid "Accès à Ticketack"
-msgstr "Go to Ticketack"
-
-msgid "URL de l'engine"
-msgstr "Engine URL"
-
-msgid "URL du eshop"
-msgstr "Eshop URL"
-
-msgid "Clé d'API"
-msgstr "API key"
-
-msgid "Programme"
-msgstr "Program"
-
-msgid "Articles"
 msgstr ""
 
-#, fuzzy
+msgid "Féminin"
+msgstr ""
+
+msgid "Masculin"
+msgstr ""
+
+msgid "Autre"
+msgstr ""
+
+msgid "Ajouter un event Ticketack"
+msgstr ""
+
+msgid "Nouvel event Ticketack"
+msgstr ""
+
+msgid "Modifier cet event Ticketack"
+msgstr ""
+
+msgid "Afficher cet event Ticketack"
+msgstr ""
+
+msgid "Tous les events Ticketack"
+msgstr ""
+
+msgid "Rechercher les events Ticketack"
+msgstr ""
+
+msgid "Parent:"
+msgstr ""
+
+msgid "Aucun event Ticketack trouvé."
+msgstr ""
+
+msgid "Aucun event Ticketack trouvé dans la corbeille."
+msgstr ""
+
+msgid "Événements importés depuis Ticketack"
+msgstr ""
+
+msgid "Ajouter un article Ticketack"
+msgstr ""
+
+msgid "Nouvel article Ticketack"
+msgstr ""
+
+msgid "Modifier cet article Ticketack"
+msgstr ""
+
+msgid "Afficher cet article Ticketack"
+msgstr ""
+
+msgid "Tous les articles Ticketack"
+msgstr ""
+
+msgid "Rechercher les articles Ticketack"
+msgstr ""
+
+msgid "Aucun article Ticketack trouvé."
+msgstr ""
+
+msgid "Aucun article Ticketack trouvé dans la corbeille."
+msgstr ""
+
+msgid "Articles importés depuis Ticketack"
+msgstr ""
+
+msgid "Ajouter une personne Ticketack"
+msgstr ""
+
+msgid "Nouvelle personne Ticketack"
+msgstr ""
+
+msgid "Modifier cette personne Ticketack"
+msgstr ""
+
+msgid "Afficher cette personne Ticketack"
+msgstr ""
+
+msgid "Tous les poeple Ticketack"
+msgstr ""
+
+msgid "Rechercher les people Ticketack"
+msgstr ""
+
+msgid "Aucune personne Ticketack trouvée."
+msgstr ""
+
+msgid "Aucune personne Ticketack trouvée dans la corbeille."
+msgstr ""
+
+msgid "Personnes importées depuis Ticketack"
+msgstr ""
+
+msgid "API"
+msgstr ""
+
+msgid "Pages"
+msgstr ""
+
+msgid "Checkout"
+msgstr ""
+
+msgid "Registration"
+msgstr ""
+
+msgid "Images"
+msgstr ""
+
+msgid "Langues"
+msgstr ""
+
+msgid "Import"
+msgstr ""
+
+msgid "Paramètres avancés"
+msgstr ""
+
+msgid "Documentation"
+msgstr ""
+
+msgid "Ticketack n'est pas configuré."
+msgstr ""
+
+msgid "Accéder aux réglages"
+msgstr ""
+
+msgid "Accès à Ticketack"
+msgstr ""
+
+msgid "URL de l'engine"
+msgstr ""
+
+msgid "URL du eshop"
+msgstr ""
+
+msgid "Clé d'API"
+msgstr ""
+
+msgid "Point de vente de ce site web"
+msgstr ""
+
+msgid "Caisse de ce site web"
+msgstr ""
+
+msgid "Programme"
+msgstr ""
+
 msgid "Vue du ticket"
-msgstr "You have a pass?"
+msgstr ""
 
 msgid "Remerciements"
-msgstr "Thank you page"
+msgstr ""
 
 msgid "Redirection à la mise au panier"
-msgstr "On add to cart redirection"
+msgstr ""
 
 msgid "URL des CGV"
-msgstr "GTC URL"
+msgstr ""
 
 msgid "URL des conditions de protection des données"
-msgstr "URL of the data protection conditions"
+msgstr ""
 
 msgid "URL des mesures sanitaires"
 msgstr ""
 
 msgid "Informations optionnelles à saisir"
-msgstr "Optional informations to be entered"
+msgstr ""
 
 msgid "Informations obligatoires à saisir"
-msgstr "Mandatory informations to be entered"
+msgstr ""
 
 msgid "Autoriser les réservations"
-msgstr "Allow bookings"
+msgstr ""
 
 msgid "Autoriser les achats"
-msgstr "Allow purchases"
+msgstr ""
 
 msgid "Autoriser l'enregistrement des utilisateurs"
 msgstr ""
 
 msgid "Dimensions des images"
-msgstr "Images dimensions"
+msgstr ""
 
 msgid "Largeur des grandes images"
-msgstr "Big images width"
+msgstr ""
 
 msgid "Hauteur des grandes images"
-msgstr "Big images height"
+msgstr ""
 
 msgid "Largeur des images moyennes"
-msgstr "Medium images width"
+msgstr ""
 
 msgid "Hauteur des images moyennes"
-msgstr "Medium images height"
+msgstr ""
 
 msgid "Serveur proxy d'images"
-msgstr "Images proxy server"
+msgstr ""
 
 msgid "Serveur proxy"
-msgstr "Proxy server"
+msgstr ""
 
 msgid "Champs à saisir pour chaque type d'abonnement"
-msgstr "Mandatory fields for each pass type"
+msgstr ""
 
 msgid "Langue par défaut"
-msgstr "Default language"
+msgstr ""
 
 msgid "Filtrer les events sur les tags suivants"
-msgstr "Filter events by the following tags"
+msgstr ""
 
-#, fuzzy
 msgid "Filtrer les events sur les salles suivantes (id)"
-msgstr "Filter events by the following tags"
+msgstr ""
 
 msgid "Télécharger les images à la une"
-msgstr "Download images"
+msgstr ""
 
 msgid "Librairies JS"
-msgstr "JS libs"
+msgstr ""
 
 msgid "Charger underscore.js après le module"
-msgstr "underscore.js nach dem Modul laden"
+msgstr ""
 
 msgid "Customisation CSS"
-msgstr "CSS customization"
+msgstr ""
 
 msgid "Sections padding"
-msgstr "Section padding"
+msgstr ""
 
 msgid "Border radius"
-msgstr "Border radius"
+msgstr ""
 
 msgid "Saisissez les slugs des pages contenant les différents shortcodes"
-msgstr "Set the slugs of the pages which contain the shortcodes"
+msgstr ""
 
 msgid "Configurez le comportement du panier"
-msgstr "Customize the cart behavior"
+msgstr ""
 
 msgid "Saisissez les informations concernant la page de paiement"
-msgstr "Set the checkout page informations"
+msgstr ""
 
-#, fuzzy
 msgid "Configuration de l'enregistrement des utilisateurs"
-msgstr "Languages configuration"
+msgstr ""
 
 msgid "Saisissez les informations d'accès à la billetterie"
-msgstr "Set the ticketing system access informations"
+msgstr ""
 
 msgid "Dimensions des grandes et moyennes images (en px)."
-msgstr "Big and medium images dimensions (in px)."
+msgstr ""
 
 msgid "Configuration du serveur proxy d'images."
-msgstr "Images proxy server configuration"
+msgstr ""
 
 msgid "Configuration de la vente d'abonnements."
-msgstr "Pass sale configuration."
+msgstr ""
 
 msgid "Configuration des langues."
-msgstr "Languages configuration"
+msgstr ""
 
-#, fuzzy
 msgid "Configuration de l'import"
-msgstr "Languages configuration"
+msgstr ""
 
-#, fuzzy
 msgid ""
 "Ne modifiez les valeurs ci-dessous que si vous avez des conflits javascript "
 "avec d'autres plugins."
-msgstr "Change these settings only if you know what you are doing."
+msgstr ""
 
 msgid ""
 "Ne modifiez les valeurs ci-dessous que si vous savez ce que vous faites."
-msgstr "Change these settings only if you know what you are doing."
-
-#~ msgid "Email"
-#~ msgstr "Email"
-
-#~ msgid ""
-#~ "Sélectionnez le(s) place(s) que vous souhaitez ajouter à votre panier :"
-#~ msgstr "Select tickets you want to add to your cart"
-
-#~ msgid "Quand"
-#~ msgstr "When"
-
-#~ msgid ""
-#~ "Vous ne pouvez pas réserver de place pour cette séance avec votre pass."
-#~ msgstr "You  can not book this screening with your pass"
-
-#~ msgid ""
-#~ "Vous ne pouvez pas réserver plus de place pour cette séance avec votre "
-#~ "pass."
-#~ msgstr "You can not book more seats for this screening with your pass"
-
-#~ msgid "ID"
-#~ msgstr "ID"
-
-#~ msgid "Code"
-#~ msgstr "Code"
-
-#~ msgid "Me connecter"
-#~ msgstr "Login"
-
-#, fuzzy
-#~ msgid "Saisissez vos informations personnelles"
-#~ msgstr "Set the checkout page informations"
-
-#, fuzzy
-#~ msgid "Mes abonnements"
-#~ msgstr "a pass"
-
-#, fuzzy
-#~ msgid "Mes réservations"
-#~ msgstr "my bookings"
-
-#~ msgid "Procéder au paiement par carte bancaire"
-#~ msgstr "Pay with a credit card"
-
-#~ msgid "Shop"
-#~ msgstr "Shop"
-
-#~ msgid "Country"
-#~ msgstr "Country"
-
-#, fuzzy
-#~ msgid "Company"
-#~ msgstr "Company"
-
-#~ msgid "Shortcodes disponibles"
-#~ msgstr "Available shortcodes"
-
-#~ msgid "Affichage en liste"
-#~ msgstr "List display"
-
-#~ msgid "Affichage des prochaines séances en liste"
-#~ msgstr "Display screenings in list"
-
-#~ msgid "Affichage en grille"
-#~ msgstr "Grid display"
-
-#~ msgid "Affichage des prochains films en grille de 4"
-#~ msgstr "Display movies in a 4 columns grid"
-
-#~ msgid "Affichage en galerie"
-#~ msgstr "Gallery display"
-
-#~ msgid "Affichage des prochains films en galerie de 4 colonnes"
-#~ msgstr "Display movies in a 4 columns gallery"
-
-#~ msgid "Vente des différents types d'abonnements"
-#~ msgstr "Sell different pass types"
-
-#~ msgid "Commander"
-#~ msgstr "my order"
-
-#~ msgid "Il ne reste que quelques articles"
-#~ msgstr "There are only a few places"
-
-#~ msgid "Plus de stock"
-#~ msgstr "No more stock"
-
-#~ msgid "Options avancées"
-#~ msgstr "Advanced options"
-
-#~ msgid "Clé du serveur proxy"
-#~ msgstr "Server key"
-
-#~ msgid "un abonnement."
-#~ msgstr "a pass."
-
-#~ msgid "Numéro"
-#~ msgstr "Number"
-
-#~ msgid "Clé"
-#~ msgstr "Key"
-
-#~ msgid "Réservé jusqu'à"
-#~ msgstr "Booked until"
+msgstr ""
