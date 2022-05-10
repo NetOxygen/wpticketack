@@ -2,7 +2,7 @@
 Tags: ticketack
 Requires at least: 4.6
 Tested up to: 5.6
-Stable tag: 2.35.0
+Stable tag: 2.36.0
 Requires PHP: 5.6
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -34,6 +34,15 @@ This section describes how to install the plugin and get it working.
 == Screenshots ==
 
 == Changelog ==
+= 2.36.0 =
+
+* feat: Clear comet cache if installed and activated at post import
+* feat: Update data program
+* fix: Send cr_id instead of cashregister_id param
+* fix: Fix cashregister id setting
+* Translation update
+* Revert "fix: Prevent cache when loading cart"
+
 = 2.35.0 =
 
 * feat: Introduce the knowledge base
