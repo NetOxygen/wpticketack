@@ -50,6 +50,15 @@ class SyncArticlesHelper extends SyncHelper
                     }
                 }
             }, $articles);
+
+            $msg = count($articles) > 1 ?
+                tkt_t('%d articles ont été importés') :
+                tkt_t('%d article a été importé');
+            tkt_flash_notice(sprintf($msg, count($articles)), 'success');
+
+            static::clear_comet_cache();
+        } else {
+            tkt_flash_notice(tkt_t("Aucun article n'a été importé"));
         }
     }
 

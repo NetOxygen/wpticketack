@@ -39,7 +39,7 @@ class SyncHelper
             define( 'WP_IMPORTING', true );
 
             $languages = TKT_WPML_INSTALLED ? icl_get_languages('skip_missing=N&orderby=KEY&order=DIR&link_empty_to=str') : [];
-            array_map(function ($e) use ($i, $languages, $default_lang, $save_attachments) {
+            array_map(function ($e) use ($languages, $default_lang, $save_attachments) {
                 $def_post_id = static::create_post($e, $default_lang, $save_attachments);
 
                 if (is_null($def_post_id) || !TKT_WPML_INSTALLED) {
@@ -59,6 +59,22 @@ class SyncHelper
 
             wp_defer_term_counting( false );
             wp_defer_comment_counting( false );
+
+            $msg = count($events) > 1 ?
+                tkt_t('%d événements ont été importés') :
+                tkt_t('%d événement a été importé');
+            tkt_flash_notice(sprintf($msg, count($events)), 'success');
+
+            static::clear_comet_cache();
+        } else {
+            tkt_flash_notice(tkt_t("Aucun événement n'a été importé"));
+        }
+    }
+
+    protected static function clear_comet_cache() {
+        if (is_plugin_active('comet-cache-pro/comet-cache-pro.php') && method_exists('comet_cache', 'clear') ) {
+            \comet_cache::clear();
+            tkt_flash_notice(tkt_t('Le cache a été vidé.'), 'success');
         }
     }
 
