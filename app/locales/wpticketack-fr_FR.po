@@ -51,7 +51,7 @@ msgid "Veuillez saisir vos informations"
 msgstr ""
 
 msgid "Prénom"
-msgstr "Vorname"
+msgstr ""
 
 msgid "Veuillez choisir votre tarifs"
 msgstr ""
@@ -329,9 +329,8 @@ msgstr ""
 msgid "Panier"
 msgstr ""
 
-#, fuzzy
 msgid "produit(s)"
-msgstr "producteurs"
+msgstr ""
 
 msgid "Livraison"
 msgstr ""
@@ -473,9 +472,8 @@ msgstr ""
 msgid "Télécharger"
 msgstr ""
 
-#, fuzzy
 msgid "Réservations"
-msgstr "Enregistrement"
+msgstr ""
 
 msgid "Aucune réservation sur ce billet."
 msgstr ""
@@ -730,9 +728,8 @@ msgstr ""
 msgid "Gratuit"
 msgstr ""
 
-#, fuzzy
 msgid "Réservation"
-msgstr "Enregistrement"
+msgstr ""
 
 msgid "Espèces"
 msgstr ""
