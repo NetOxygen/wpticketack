@@ -258,6 +258,6 @@ export default class Cart extends BaseModel {
      * @return {Array}
      */
     getFees() {
-        return _.map(_.filter(this.items, (i) => i.type === CartItem.SHIPPING_TYPE),(i) => i);
+        return _.map(_.filter(this.items, (i) => i.type === CartItem.SHIPPING_TYPE || i.type === CartItem.PAYMENT_TYPE),(i) => i);
     }
 }

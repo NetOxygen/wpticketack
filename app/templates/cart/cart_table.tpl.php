@@ -24,6 +24,8 @@ const articles = cart.getArticles();
 const discounts  = cart.getDiscounts();
 const fees       = cart.getFees();
 const nbArticles = pass.length + tickets.length + articles.length;
+console.log("nbArticles ", nbArticles + fees.length);
+console.log("fees ", fees);
 %>
 
 <div class="tkt-wrapper">
@@ -188,7 +190,7 @@ const nbArticles = pass.length + tickets.length + articles.length;
                                 <tbody>
                                     <% _.each(fees, function(item) { %>
                                     <tr>
-                                        <% if(item.type == "shipping") { %>
+                                        <% if(item.type == "shipping" || item.type == "paymentfee") { %>
                                         <td class="title-cell"><%= item.getFormattedTitle() %></td>
                                         <td class="price-cell text-right"><%= item.getFormattedPrice() %></td>
                                         <td></td>
