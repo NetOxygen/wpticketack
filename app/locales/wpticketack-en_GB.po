@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-05 15:22+0200\n"
+"POT-Creation-Date: 2022-05-12 10:43+0200\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Jonathan Ernst <jonathan.ernst@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -313,20 +313,22 @@ msgstr "Total:"
 msgid "Vous disposez de"
 msgstr "You have"
 
-msgid "sur votre porte-monnaie"
-msgstr "at your disposal on your wallet"
+#, fuzzy
+msgid "sur votre portefeuille électronique"
+msgstr "on your wallet"
 
 msgid "Saisissez ci-dessous le montant que vous souhaitez utiliser"
 msgstr "Enter below the amount you wish to use"
 
-msgid "Utiliser mon porte-monnaie"
+#, fuzzy
+msgid "Utiliser mon portefeuille"
 msgstr "Use my wallet"
 
-msgid "Utiliser un code promo"
-msgstr "Use a coupon code"
+msgid "Code promo"
+msgstr "Coupon code"
 
-msgid "Valider"
-msgstr "Confirm"
+msgid "Utiliser"
+msgstr ""
 
 msgid "Finaliser ma commande"
 msgstr "Finish my order"
@@ -354,9 +356,6 @@ msgstr "Delivery"
 
 msgid "Total TTC"
 msgstr "Total (taxes incl.)"
-
-msgid "Code promo"
-msgstr "Coupon code"
 
 msgid "OK"
 msgstr "OK"
@@ -531,6 +530,9 @@ msgstr "Book (on site payment)"
 msgid "Procéder au paiement"
 msgstr "To the payment process"
 
+msgid "Valider"
+msgstr "Confirm"
+
 msgid ""
 "Dans le cadre des conditions sanitaires actuelles, nous sommes tenus de "
 "demander à chaque détenteur de ticket les informations nécessaires pour le "
@@ -639,6 +641,20 @@ msgid "Aucune séance à venir."
 msgstr "No sessions to come."
 
 msgid "non défini"
+msgstr ""
+
+#, php-format
+msgid "%d événements ont été importés"
+msgstr ""
+
+#, php-format
+msgid "%d événement a été importé"
+msgstr ""
+
+msgid "Aucun événement n'a été importé"
+msgstr ""
+
+msgid "Le cache a été vidé."
 msgstr ""
 
 msgid "Veuillez choisir au moins un billet"
@@ -869,6 +885,18 @@ msgstr "Male"
 
 msgid "Autre"
 msgstr "Other"
+
+#, php-format
+msgid "%d articles ont été importés"
+msgstr ""
+
+#, php-format
+msgid "%d article a été importé"
+msgstr ""
+
+#, fuzzy
+msgid "Aucun article n'a été importé"
+msgstr "No Ticketack article found"
 
 #, fuzzy
 msgid "Ajouter un event Ticketack"
@@ -1136,3 +1164,9 @@ msgstr ""
 msgid ""
 "Ne modifiez les valeurs ci-dessous que si vous savez ce que vous faites."
 msgstr "Change these settings only if you know what you are doing."
+
+#~ msgid "sur votre porte-monnaie"
+#~ msgstr "at your disposal on your wallet"
+
+#~ msgid "Utiliser un code promo"
+#~ msgstr "Use a coupon code"

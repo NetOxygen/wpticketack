@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-05 15:21+0200\n"
+"POT-Creation-Date: 2022-05-12 10:25+0200\n"
 "PO-Revision-Date: 2022-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Jonathan Ernst <jonathan.ernst@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -51,7 +51,7 @@ msgid "Veuillez saisir vos informations"
 msgstr ""
 
 msgid "Prénom"
-msgstr ""
+msgstr "Vorname"
 
 msgid "Veuillez choisir votre tarifs"
 msgstr ""
@@ -90,7 +90,7 @@ msgid "Sélectionnez votre contenance et votre quantité :"
 msgstr ""
 
 msgid "Total"
-msgstr ""
+msgstr "Total"
 
 msgid "Veuillez choisir au moins un produit"
 msgstr ""
@@ -108,13 +108,13 @@ msgid "Votre accréditation/pass ne vous permet pas de visionner ce contenu."
 msgstr ""
 
 msgid "Vous avez un TicketID ?"
-msgstr ""
+msgstr "Haben Sie eine TicketID?"
 
 msgid "Connexion"
-msgstr ""
+msgstr "Verbindung"
 
 msgid "Votre TicketID se trouve sur votre abonnement"
-msgstr ""
+msgstr "Ihre TicketID befindet sich auf Ihrem Abonnement"
 
 msgid "Regarder"
 msgstr ""
@@ -156,51 +156,52 @@ msgid "Votre e-mail"
 msgstr "Ihre E-mail"
 
 msgid "Adresse"
-msgstr ""
+msgstr "Adresse"
 
 msgid "Votre adresse"
 msgstr ""
 
 msgid "Numéro postal"
-msgstr ""
+msgstr "Postleitzahl"
 
 msgid "NPA"
-msgstr ""
+msgstr "PLZ"
 
 msgid "Ville"
-msgstr ""
+msgstr "Stadt"
 
 msgid "Pays"
-msgstr ""
+msgstr "Land"
 
 msgid "Téléphone"
-msgstr ""
+msgstr "Telefonnummer"
 
 msgid "Téléphone portable"
-msgstr ""
+msgstr "Mobiltelefon"
 
 msgid "Âge"
-msgstr ""
+msgstr "Alter"
 
 msgid "Date de naissance"
-msgstr ""
+msgstr "Geburtsdatum"
 
 msgid "Genre"
-msgstr ""
+msgstr "Geschlecht"
 
 msgid "Photo"
-msgstr ""
+msgstr "Foto"
 
 msgid ""
 "Sans photo, une pièce d'identité sera systématiquement demandée à l'entrée "
 "des salles et aux caisses."
 msgstr ""
+"Ohne Foto wird beim Betreten der Räume und an den Kassen systematisch nach einem Ausweis gefragt."
 
 msgid "Ceci est un cadeau"
-msgstr ""
+msgstr "Dies ist ein Geschenk"
 
 msgid "Tous ces champs sont requis"
-msgstr ""
+msgstr "Alle diese Felder sind erforderlich"
 
 msgid "Tarifs :"
 msgstr ""
@@ -212,23 +213,23 @@ msgid "Veuillez choisir l'heure désirée :"
 msgstr ""
 
 msgid "Il n'y a pas de billetterie disponible pour cet événement."
-msgstr ""
+msgstr "Für diese Veranstaltung sind keine Eintrittskarten erhältlich."
 
 msgid "Réserver une place sur mon abonnement"
-msgstr ""
+msgstr "Einen Platz auf meinem Abonnement reservieren"
 
 msgid "Entrée libre"
-msgstr ""
+msgstr "Freier Eintritt"
 
 msgid ""
 "Entrez le nombre de place(s) que vous souhaitez ajouter à votre panier :"
 msgstr ""
 
 msgid "Connectez-vous"
-msgstr ""
+msgstr "Melden Sie sich an"
 
 msgid "pour réserver."
-msgstr ""
+msgstr "um zu buchen."
 
 msgid ""
 "Si vous n'avez pas de TicketID sur votre abonnement, saisissez l'ID dans le "
@@ -236,14 +237,15 @@ msgid ""
 msgstr ""
 
 msgid "Acheter un abonnement"
-msgstr ""
+msgstr "Ein Abonnement kaufen"
 
 msgid ""
 "Vous ne pouvez pas réserver de place pour cette séance avec votre abonnement."
 msgstr ""
+"Sie können mit Ihrem Abonnement keinen Platz für diese Sitzung reservieren."
 
 msgid "Afficher mes réservations"
-msgstr ""
+msgstr "Meine Buchungen anzeigen"
 
 msgid ""
 "La documentation est disponible <a target=\"_blank\" href=\"https://"
@@ -252,104 +254,102 @@ msgid ""
 msgstr ""
 
 msgid "Retour au programme"
-msgstr ""
+msgstr "Zurück zum Programm"
 
 msgid "Voir mes réservations"
-msgstr ""
+msgstr "Meine Buchungen ansehen"
 
 msgid "Me déconnecter"
-msgstr ""
+msgstr "Abmelden"
 
 msgid "Votre panier est vide"
-msgstr ""
+msgstr "Ihr Warenkorb ist leer"
 
 msgid "Votre commande"
-msgstr ""
+msgstr "Ihre Bestellung"
 
 msgid "Tickets"
-msgstr ""
+msgstr "Tickets"
 
 msgid "Prix"
-msgstr ""
+msgstr "Preis"
 
 msgid "Articles"
-msgstr ""
+msgstr "Artikel"
 
 msgid "Abonnements"
-msgstr ""
+msgstr "Abonnements"
 
 msgid "Récapitulatif"
-msgstr ""
+msgstr "Zusammenfassung"
 
 msgid "Commande"
-msgstr ""
+msgstr "Bestellung"
 
 msgid "Rabais"
-msgstr ""
+msgstr "Rabatt"
 
 msgid "Frais"
-msgstr ""
+msgstr "Kosten"
 
 msgid "Total :"
-msgstr ""
+msgstr "Total:"
 
 msgid "Vous disposez de"
-msgstr ""
+msgstr "Si haben"
 
-msgid "sur votre porte-monnaie"
-msgstr ""
+msgid "sur votre portefeuille électronique"
+msgstr "auf Ihrer elektronischen Geldbeutel zur Verfügung"
 
 msgid "Saisissez ci-dessous le montant que vous souhaitez utiliser"
-msgstr ""
+msgstr "Geben Sie unten den Betrag ein, den Sie verwenden möchten"
 
-msgid "Utiliser mon porte-monnaie"
-msgstr ""
-
-msgid "Utiliser un code promo"
-msgstr ""
-
-msgid "Valider"
-msgstr ""
-
-msgid "Finaliser ma commande"
-msgstr ""
-
-msgid "Annuler"
-msgstr ""
-
-msgid "ma commande"
-msgstr ""
-
-msgid "mes réservations"
-msgstr ""
-
-msgid "Résumé du panier"
-msgstr ""
-
-msgid "Panier"
-msgstr ""
-
-msgid "produit(s)"
-msgstr ""
-
-msgid "Livraison"
-msgstr ""
-
-msgid "Total TTC"
+msgid "Utiliser mon portefeuille"
 msgstr ""
 
 msgid "Code promo"
-msgstr ""
+msgstr "Promo-Code"
+
+msgid "Utiliser"
+msgstr "Verwenden"
+
+msgid "Finaliser ma commande"
+msgstr "Bestellung abschließen"
+
+msgid "Annuler"
+msgstr "Abbrechen"
+
+msgid "ma commande"
+msgstr "meine Bestellung"
+
+msgid "mes réservations"
+msgstr "meine Buchungen"
+
+msgid "Résumé du panier"
+msgstr "Zusammenfassung des Warenkorbs"
+
+msgid "Panier"
+msgstr "Warenkorb"
+
+msgid "produit(s)"
+msgstr "Produkt(e)"
+
+msgid "Livraison"
+msgstr "Lieferung"
+
+msgid "Total TTC"
+msgstr "Gesamt inkl. MwSt."
 
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 msgid ""
 "Aucun événement programmé actuellement, revenez nous visiter prochainement."
 msgstr ""
+"Derzeit sind keine Veranstaltungen geplant. Besuchen Sie uns demnächst wieder."
 
 msgid "Plus d'informations"
-msgstr ""
+msgstr "Weitere Informationen"
 
 msgid ""
 "Aucuné séance programmée actuellement, revenez nous visiter prochainement."
@@ -359,77 +359,78 @@ msgid "Il ne reste que quelques places"
 msgstr ""
 
 msgid "Complet"
-msgstr ""
+msgstr "Vollständig"
 
 msgid "Billets"
-msgstr ""
+msgstr "Tickets"
 
 msgid "Il ne reste que quelques places !"
 msgstr ""
 
 msgid "Complet !"
-msgstr ""
+msgstr "Vollständig!"
 
 msgid "Mon compte"
 msgstr ""
 
 msgid "Identifiant"
-msgstr ""
+msgstr "Benutzername"
 
 msgid "Mot de passe"
-msgstr ""
+msgstr "Kennwort"
 
 msgid "Pas encore de compte. Créez-en un !"
-msgstr ""
+msgstr "Haben Sie noch kein Konto? Erstellen Sie eins!"
 
 msgid "Société"
-msgstr ""
+msgstr "Firma"
 
 msgid "Votre société"
-msgstr ""
+msgstr "Ihre Firma"
 
 msgid "Adresse e-mail"
-msgstr ""
+msgstr "E-Mail Adresse"
 
 msgid "Votre adresse e-mail"
-msgstr ""
+msgstr "Ihre E-Mail Adresse"
 
 msgid "Confirmation de votre adresse e-mail"
-msgstr ""
+msgstr "Bestätigung Ihrer E-Mail-Adresse"
 
 msgid "Saisissez une deuxième fois votre adresse"
-msgstr ""
+msgstr "Geben Sie Ihre Adresse ein zweites Mal ein"
 
 msgid "Votre numéro de téléphone"
-msgstr ""
+msgstr "Ihre Telefonnummer"
 
 msgid "j F Y"
 msgstr ""
 
 msgid "Choisissez un mot de passe"
-msgstr ""
+msgstr "Wählen Sie ein Passwort"
 
 msgid "Confirmation de votre mot de passe"
-msgstr ""
+msgstr "Bestätigung Ihres Passworts"
 
 msgid "Saisissez une deuxième fois votre mot de passe"
-msgstr ""
+msgstr "Geben Sie Ihr Passwort ein zweites Mal ein"
 
 msgid "Votre compte a bien été créé"
-msgstr ""
+msgstr "Ihr Konto wurde erfolgreich erstellt"
 
 msgid ""
 "Veuillez l'activer en cliquant sur le lien que vous avez reçu par e-mail."
 msgstr ""
+"Bitte aktivieren Sie sie, indem Sie auf den Link klicken, den Sie per E-Mail erhalten haben."
 
 msgid "Créer mon compte"
-msgstr ""
+msgstr "Mein Konto erstellen"
 
 msgid "Déjà un compte. Connectez-vous !"
-msgstr ""
+msgstr "Haben Sie bereits ein Konto? Melden Sie sich an!"
 
 msgid "Mes informations"
-msgstr ""
+msgstr "Meine Informationen"
 
 msgid ""
 "Si vous souhaitez changer votre mot de passe, remplissez les champs ci-"
@@ -501,6 +502,9 @@ msgid "Réserver (paiement sur place)"
 msgstr ""
 
 msgid "Procéder au paiement"
+msgstr ""
+
+msgid "Valider"
 msgstr ""
 
 msgid ""
@@ -610,6 +614,20 @@ msgid "Aucune séance à venir."
 msgstr ""
 
 msgid "non défini"
+msgstr ""
+
+#, php-format
+msgid "%d événements ont été importés"
+msgstr ""
+
+#, php-format
+msgid "%d événement a été importé"
+msgstr ""
+
+msgid "Aucun événement n'a été importé"
+msgstr ""
+
+msgid "Le cache a été vidé."
 msgstr ""
 
 msgid "Veuillez choisir au moins un billet"
@@ -837,6 +855,17 @@ msgid "Masculin"
 msgstr ""
 
 msgid "Autre"
+msgstr ""
+
+#, php-format
+msgid "%d articles ont été importés"
+msgstr ""
+
+#, php-format
+msgid "%d article a été importé"
+msgstr ""
+
+msgid "Aucun article n'a été importé"
 msgstr ""
 
 msgid "Ajouter un event Ticketack"

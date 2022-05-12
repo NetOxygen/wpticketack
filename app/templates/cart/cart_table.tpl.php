@@ -221,14 +221,14 @@ const nbArticles = pass.length + tickets.length + articles.length;
                             <h4>
                                 <?= tkt_t('Vous disposez de') ?>
                                 <%= ticket.getFormattedWalletBalance() %>
-                                <?= tkt_t('sur votre porte-monnaie') ?>
+                                <?= tkt_t('sur votre portefeuille électronique') ?>
                             </h4>
                             <span><?= tkt_t('Saisissez ci-dessous le montant que vous souhaitez utiliser') ?></span>
                             <div class="input-group mb-2">
                                 <input type="number" min="0" max="<%= Math.min(ticket.getWalletBalance(), cart.getTotal()) %>" class="wallet-input form-control" placeholder="15.50" value="<%= Math.min(ticket.getWalletBalance(), cart.getTotal()) %>"/>
                                 <div class="input-group-append">
                                     <a href="javascript:;" class="wallet-button button active">
-                                        <?= tkt_t('Utiliser mon porte-monnaie') ?>
+                                        <?= tkt_t('Utiliser mon portefeuille') ?>
                                     </a>
                                 </div>
                             </div>
@@ -243,10 +243,10 @@ const nbArticles = pass.length + tickets.length + articles.length;
                     <div class="row justify-content-md-end">
                         <div class="col col-12 use-promo-code-wrapper">
                             <div class="input-group">
-                                <input type="text" class="promo-code-input form-control" placeholder="<?= tkt_t('Utiliser un code promo') ?>" />
+                                <input type="text" class="promo-code-input form-control" placeholder="<?= tkt_t('Code promo') ?>" />
                                 <div class="input-group-append">
                                     <a href="javascript:;" class="promo-code-button button active">
-                                        <?= tkt_t('Valider') ?>
+                                        <?= tkt_t('Utiliser') ?>
                                     </a>
                                 </div>
                             </div>

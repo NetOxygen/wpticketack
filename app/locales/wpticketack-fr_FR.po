@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-05 15:22+0200\n"
+"POT-Creation-Date: 2022-05-12 10:39+0200\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Jonathan Ernst <jonathan.ernst@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -296,19 +296,19 @@ msgstr ""
 msgid "Vous disposez de"
 msgstr ""
 
-msgid "sur votre porte-monnaie"
+msgid "sur votre portefeuille électronique"
 msgstr ""
 
 msgid "Saisissez ci-dessous le montant que vous souhaitez utiliser"
 msgstr ""
 
-msgid "Utiliser mon porte-monnaie"
+msgid "Utiliser mon portefeuille"
 msgstr ""
 
-msgid "Utiliser un code promo"
+msgid "Code promo"
 msgstr ""
 
-msgid "Valider"
+msgid "Utiliser"
 msgstr ""
 
 msgid "Finaliser ma commande"
@@ -336,9 +336,6 @@ msgid "Livraison"
 msgstr ""
 
 msgid "Total TTC"
-msgstr ""
-
-msgid "Code promo"
 msgstr ""
 
 msgid "OK"
@@ -503,6 +500,9 @@ msgstr ""
 msgid "Procéder au paiement"
 msgstr ""
 
+msgid "Valider"
+msgstr ""
+
 msgid ""
 "Dans le cadre des conditions sanitaires actuelles, nous sommes tenus de "
 "demander à chaque détenteur de ticket les informations nécessaires pour le "
@@ -610,6 +610,20 @@ msgid "Aucune séance à venir."
 msgstr ""
 
 msgid "non défini"
+msgstr ""
+
+#, php-format
+msgid "%d événements ont été importés"
+msgstr ""
+
+#, php-format
+msgid "%d événement a été importé"
+msgstr ""
+
+msgid "Aucun événement n'a été importé"
+msgstr ""
+
+msgid "Le cache a été vidé."
 msgstr ""
 
 msgid "Veuillez choisir au moins un billet"
@@ -837,6 +851,17 @@ msgid "Masculin"
 msgstr ""
 
 msgid "Autre"
+msgstr ""
+
+#, php-format
+msgid "%d articles ont été importés"
+msgstr ""
+
+#, php-format
+msgid "%d article a été importé"
+msgstr ""
+
+msgid "Aucun article n'a été importé"
 msgstr ""
 
 msgid "Ajouter un event Ticketack"
