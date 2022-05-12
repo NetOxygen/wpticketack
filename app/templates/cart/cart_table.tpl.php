@@ -43,7 +43,7 @@ console.log("fees ", fees);
         <div class="row">
             <div class="col-12 col-lg-8">
                 <section class="tkt-section tkt-light-section tkt-cart-section h-100">
-                    <div class="row" style="font-family: 'SimplonBP', sans-serif;">
+                    <div class="row">
                         <div class="col">
                             <h3 class="tkt-section-title mb-3"><?= tkt_t("Votre commande") ?></h3>
                             <!-- Table screening -->
@@ -128,7 +128,7 @@ console.log("fees ", fees);
 
             <div class="col-12 col-lg-4">
                 <section class="tkt-section tkt-light-section tkt-cart-section  h-100">
-                    <div class="row" style="font-family: 'SimplonBP', sans-serif;">
+                    <div class="row">
                         <div class="col">
                             <h3 class="tkt-section-title mb-3"><?= tkt_t("Récapitulatif") ?></h3>
                             <!-- Table article -->
