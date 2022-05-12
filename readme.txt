@@ -2,7 +2,7 @@
 Tags: ticketack
 Requires at least: 4.6
 Tested up to: 5.6
-Stable tag: 2.36.0
+Stable tag: 2.37.0
 Requires PHP: 5.6
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -34,6 +34,25 @@ This section describes how to install the plugin and get it working.
 == Screenshots ==
 
 == Changelog ==
+
+= 2.37.0 =
+
+* feat: Addition of online payment fees in cart
+* fix: Update style in cart
+* fix: Translation fixes and update
+
+* modified templates:
+*  -app/templates/cart/cart_table.tpl.php
+*  -app/templates/cart/cart_items_table.tpl.php
+
+* modified templates translation:
+*  -app/templates/cart/cart_table.tpl.php
+*  -app/templates/booking/form_pricings.tpl.php
+*  -app/templates/pantaflix/login.tpl.php
+*  -app/templates/ticket/ticket_connect.tpl.php
+*  -app/templates/user/user_register.tpl.php
+*  -app/templates/user/user_login.tpl.php
+
 = 2.36.0 =
 
 * feat: Clear comet cache if installed and activated at post import
