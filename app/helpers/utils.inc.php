@@ -858,3 +858,8 @@ function tkt_flash_notice($notice = '', $type = 'warning', $dismissible = true)
     // Then we update the option with our notices array
     update_option('tkt_flash_notices', $notices);
 }
+
+function tkt_ticketidize($str)
+{
+    return str_replace('TicketID', '<span class="tkt-ticketid_ticket">Ticket</span><span class="tkt-ticketid_id">ID</span>', $str);
+}

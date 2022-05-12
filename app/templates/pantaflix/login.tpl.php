@@ -24,7 +24,7 @@ use Ticketack\WP\Templates\TKTTemplate;
             <% } %>
             <div class="ticket_connect">
                 <div>
-                    <?= str_replace('TicketID', '<span class="tkt-ticketid_ticket">Ticket</span><span class="tkt-ticketid_id">ID</span>', tkt_t("Vous avez un TicketID ?")) ?>
+                    <?= tkt_ticketidize(tkt_t("Vous avez un TicketID ?")) ?>
                 </div>
                 <div class="col">
                     <div class="row mt-5 input-pass">
@@ -43,7 +43,7 @@ use Ticketack\WP\Templates\TKTTemplate;
                 </div>
                 <hr />
                 <div>
-                    <?= str_replace('TicketID', '<span class="tkt-ticketid_ticket">Ticket</span><span class="tkt-ticketid_id">ID</span>', tkt_t("Votre TicketID se trouve sur votre abonnement")) ?>
+                    <?= tkt_ticketidize(tkt_t("Votre TicketID se trouve sur votre abonnement")) ?>
                 </div>
                 <br />
             </div>

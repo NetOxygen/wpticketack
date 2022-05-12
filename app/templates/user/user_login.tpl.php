@@ -64,7 +64,7 @@ use Ticketack\WP\TKTApp;
             <div class="row">
                 <div class="col text-center">
                     <a href="<%= registrationUrl %>">
-                        <?= tkt_t('Pas encore de compte. Créez-en un !') ?>
+                        <?= tkt_t('Pas encore de compte ? Créez-en un !') ?>
                     </a>
                 </div>
             </div>

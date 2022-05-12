@@ -49,7 +49,7 @@ use Ticketack\WP\TKTApp;
         <div class="connect-panel">
             <div class="ticket_connect">
                 <div>
-                    <?= str_replace('TicketID', '<span class="tkt-ticketid_ticket">Ticket</span><span class="tkt-ticketid_id">ID</span>', tkt_t("Vous avez un TicketID ?")) ?>
+                    <?= tkt_ticketidize(tkt_t("Vous avez un TicketID ?")) ?>
                 </div>
                 <div class="col">
                     <div class="row mt-5 input-pass">
@@ -68,12 +68,12 @@ use Ticketack\WP\TKTApp;
                 </div>
                 <hr />
                 <div>
-                    <?= str_replace('TicketID', '<span class="tkt-ticketid_ticket">Ticket</span><span class="tkt-ticketid_id">ID</span>', tkt_t("Votre TicketID se trouve sur votre abonnement")) ?>
+                    <?= tkt_ticketidize(tkt_t("Votre TicketID se trouve sur votre abonnement")) ?>
                 </div>
                 <br />
                 <?php if ($data->show_id_code_message) : ?>
                 <div>
-                    <?= str_replace('TicketID', '<span class="tkt-ticketid_ticket">Ticket</span><span class="tkt-ticketid_id">ID</span>', tkt_t("Si vous n'avez pas de TicketID sur votre abonnement, saisissez l'ID dans le premier champ et le Code dans le second.")) ?>
+                    <?= tkt_ticketidize(tkt_t("Si vous n'avez pas de TicketID sur votre abonnement, saisissez l'ID dans le premier champ et le Code dans le second.")) ?>
                 </div>
                 <?php endif; ?>
             </div>

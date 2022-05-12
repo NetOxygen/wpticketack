@@ -190,8 +190,8 @@ if (!function_exists('r')) {
             <hr />
             <div class="row">
                 <div class="col text-center">
-                <a href="<?= tkt_login_url() ?>">
-                        <?= tkt_t('Déjà un compte. Connectez-vous !') ?>
+                    <a href="<?= tkt_login_url() ?>">
+                        <?= tkt_t('Déjà un compte ? Connectez-vous !') ?>
                     </a>
                 </div>
             </div>

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-12 10:43+0200\n"
+"POT-Creation-Date: 2022-05-12 11:42+0200\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Jonathan Ernst <jonathan.ernst@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -93,7 +93,6 @@ msgstr ""
 msgid "Vos informations"
 msgstr "Your informations"
 
-#, fuzzy
 msgid "Tarifs"
 msgstr "Pricings"
 
@@ -118,9 +117,8 @@ msgstr "Buy"
 msgid "Votre accréditation/pass ne vous permet pas de visionner ce contenu."
 msgstr ""
 
-#, fuzzy
-msgid "Vous avez un TicketID ?"
-msgstr "You have a pass?"
+msgid "Vous avez un TicketID ?"
+msgstr "You have a TicketID?"
 
 msgid "Connexion"
 msgstr "Login"
@@ -313,22 +311,20 @@ msgstr "Total:"
 msgid "Vous disposez de"
 msgstr "You have"
 
-#, fuzzy
 msgid "sur votre portefeuille électronique"
-msgstr "on your wallet"
+msgstr "on your e-wallet"
 
 msgid "Saisissez ci-dessous le montant que vous souhaitez utiliser"
 msgstr "Enter below the amount you wish to use"
 
-#, fuzzy
 msgid "Utiliser mon portefeuille"
-msgstr "Use my wallet"
+msgstr "Use my e-wallet"
 
 msgid "Code promo"
 msgstr "Coupon code"
 
 msgid "Utiliser"
-msgstr ""
+msgstr "Use"
 
 msgid "Finaliser ma commande"
 msgstr "Finish my order"
@@ -395,8 +391,8 @@ msgstr "Login"
 msgid "Mot de passe"
 msgstr "Password"
 
-msgid "Pas encore de compte. Créez-en un !"
-msgstr "No account yet. Create one!"
+msgid "Pas encore de compte ? Créez-en un !"
+msgstr "No account yet? Create one!"
 
 msgid "Société"
 msgstr "Company"
@@ -441,9 +437,8 @@ msgstr ""
 msgid "Créer mon compte"
 msgstr "Create your account"
 
-#, fuzzy
-msgid "Déjà un compte. Connectez-vous !"
-msgstr "Login !"
+msgid "Déjà un compte ? Connectez-vous !"
+msgstr "Have an account? Please Login!"
 
 msgid "Mes informations"
 msgstr "My data"
@@ -456,20 +451,17 @@ msgstr ""
 msgid "Nouveau mot de passe"
 msgstr "New password"
 
-#, fuzzy
 msgid "Saisissez une deuxième fois votre nouveau mot de passe"
 msgstr "Enter your e-mail address a second time"
 
-#, fuzzy
 msgid "Modifier mes informations"
-msgstr "Your informations"
+msgstr "Edit your informations"
 
 msgid "Mes commandes"
 msgstr "My orders"
 
-#, fuzzy
 msgid "Vous n'avez pas encore de commandes."
-msgstr "Thank you for your order"
+msgstr "You don't have any order yet."
 
 msgid "#"
 msgstr "#"
@@ -483,30 +475,26 @@ msgstr "Payment"
 msgid "Statut"
 msgstr "Status"
 
-#, fuzzy
 msgid "Mes billets"
-msgstr "Buy  your tickets"
+msgstr "My tickets"
 
-#, fuzzy
 msgid "Vous n'avez pas encore de billets."
-msgstr "Thank you for your order"
+msgstr "You don't have any ticket yet."
 
-#, fuzzy
 msgid "Télécharger"
-msgstr "Fix phone"
+msgstr "Download"
 
-#, fuzzy
 msgid "Réservations"
-msgstr "Reservation"
+msgstr "Bookings"
 
 msgid "Aucune réservation sur ce billet."
-msgstr ""
+msgstr "No booking on this ticket."
 
 msgid "Votre compte n'est pas activé."
-msgstr ""
+msgstr "Your account hasn't been activated yet."
 
 msgid "Nous vous remercions pour votre commande."
-msgstr "Thank you for your order"
+msgstr "Thank you for your order."
 
 #, php-format
 msgid ""
@@ -621,9 +609,8 @@ msgstr ""
 msgid "Audio"
 msgstr ""
 
-#, fuzzy
 msgid "Sous-titre"
-msgstr "subtitles"
+msgstr "Subtitles"
 
 msgid "Âge min. lég."
 msgstr ""
@@ -1165,8 +1152,3 @@ msgid ""
 "Ne modifiez les valeurs ci-dessous que si vous savez ce que vous faites."
 msgstr "Change these settings only if you know what you are doing."
 
-#~ msgid "sur votre porte-monnaie"
-#~ msgstr "at your disposal on your wallet"
-
-#~ msgid "Utiliser un code promo"
-#~ msgstr "Use a coupon code"
