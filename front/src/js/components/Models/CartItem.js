@@ -9,6 +9,7 @@ import moment from 'moment';
 export default class CartItem extends BaseModel {
     static type = 'cart_item';
 
+    static PAYMENT_TYPE         = 'paymentfee';
     static SCREENING_TYPE       = 'screening';
     static ARTICLE_TYPE         = 'article';
     static WALLET_TYPE          = 'wallet';

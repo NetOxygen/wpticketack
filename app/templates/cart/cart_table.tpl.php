@@ -24,6 +24,8 @@ const articles = cart.getArticles();
 const discounts  = cart.getDiscounts();
 const fees       = cart.getFees();
 const nbArticles = pass.length + tickets.length + articles.length;
+console.log("nbArticles ", nbArticles + fees.length);
+console.log("fees ", fees);
 %>
 
 <div class="tkt-wrapper">
@@ -41,7 +43,7 @@ const nbArticles = pass.length + tickets.length + articles.length;
         <div class="row">
             <div class="col-12 col-lg-8">
                 <section class="tkt-section tkt-light-section tkt-cart-section h-100">
-                    <div class="row" style="font-family: 'SimplonBP', sans-serif;">
+                    <div class="row">
                         <div class="col">
                             <h3 class="tkt-section-title mb-3"><?= tkt_t("Votre commande") ?></h3>
                             <!-- Table screening -->
@@ -126,7 +128,7 @@ const nbArticles = pass.length + tickets.length + articles.length;
 
             <div class="col-12 col-lg-4">
                 <section class="tkt-section tkt-light-section tkt-cart-section  h-100">
-                    <div class="row" style="font-family: 'SimplonBP', sans-serif;">
+                    <div class="row">
                         <div class="col">
                             <h3 class="tkt-section-title mb-3"><?= tkt_t("Récapitulatif") ?></h3>
                             <!-- Table article -->
@@ -188,7 +190,7 @@ const nbArticles = pass.length + tickets.length + articles.length;
                                 <tbody>
                                     <% _.each(fees, function(item) { %>
                                     <tr>
-                                        <% if(item.type == "shipping") { %>
+                                        <% if(item.type == "shipping" || item.type == "paymentfee") { %>
                                         <td class="title-cell"><%= item.getFormattedTitle() %></td>
                                         <td class="price-cell text-right"><%= item.getFormattedPrice() %></td>
                                         <td></td>

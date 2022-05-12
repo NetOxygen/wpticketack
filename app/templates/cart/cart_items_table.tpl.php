@@ -23,7 +23,7 @@ use Ticketack\WP\TKTApp;
         </div>
         <% } else { %>
             <% _.each(cart.mergedItems, function(item) { %>
-            <div class="cart-item-row" style="font-family: 'SimplonBP', sans-serif;">
+            <div class="cart-item-row">
                 <div class="row">
                     <div class="col-12 col-sm-4 col-md-3 cart-poster">
                         <img class="img-fluid poster" src="<%= item.getFormattedPoster() %>">
