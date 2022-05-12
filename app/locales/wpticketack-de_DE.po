@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-12 10:25+0200\n"
+"POT-Creation-Date: 2022-05-12 10:53+0200\n"
 "PO-Revision-Date: 2022-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Jonathan Ernst <jonathan.ernst@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -195,7 +195,8 @@ msgid ""
 "Sans photo, une pièce d'identité sera systématiquement demandée à l'entrée "
 "des salles et aux caisses."
 msgstr ""
-"Ohne Foto wird beim Betreten der Räume und an den Kassen systematisch nach einem Ausweis gefragt."
+"Ohne Foto wird beim Betreten der Räume und an den Kassen systematisch nach "
+"einem Ausweis gefragt."
 
 msgid "Ceci est un cadeau"
 msgstr "Dies ist ein Geschenk"
@@ -346,14 +347,15 @@ msgstr "OK"
 msgid ""
 "Aucun événement programmé actuellement, revenez nous visiter prochainement."
 msgstr ""
-"Derzeit sind keine Veranstaltungen geplant. Besuchen Sie uns demnächst wieder."
+"Derzeit sind keine Veranstaltungen geplant. Besuchen Sie uns demnächst "
+"wieder."
 
 msgid "Plus d'informations"
 msgstr "Weitere Informationen"
 
 msgid ""
 "Aucuné séance programmée actuellement, revenez nous visiter prochainement."
-msgstr ""
+msgstr "Derzeit sind keine Sitzungen geplant. Besuchen Sie uns bald wieder."
 
 msgid "Il ne reste que quelques places"
 msgstr ""
@@ -365,13 +367,13 @@ msgid "Billets"
 msgstr "Tickets"
 
 msgid "Il ne reste que quelques places !"
-msgstr ""
+msgstr "Es sind nur noch wenige Plätze frei!"
 
 msgid "Complet !"
 msgstr "Vollständig!"
 
 msgid "Mon compte"
-msgstr ""
+msgstr "Mein Konto"
 
 msgid "Identifiant"
 msgstr "Benutzername"
@@ -421,7 +423,8 @@ msgstr "Ihr Konto wurde erfolgreich erstellt"
 msgid ""
 "Veuillez l'activer en cliquant sur le lien que vous avez reçu par e-mail."
 msgstr ""
-"Bitte aktivieren Sie sie, indem Sie auf den Link klicken, den Sie per E-Mail erhalten haben."
+"Bitte aktivieren Sie sie, indem Sie auf den Link klicken, den Sie per E-Mail "
+"erhalten haben."
 
 msgid "Créer mon compte"
 msgstr "Mein Konto erstellen"
@@ -435,55 +438,55 @@ msgstr "Meine Informationen"
 msgid ""
 "Si vous souhaitez changer votre mot de passe, remplissez les champs ci-"
 "dessous."
-msgstr ""
+msgstr "Wenn Sie Ihr Passwort ändern möchten, füllen Sie bitte die folgenden Felder aus"
 
 msgid "Nouveau mot de passe"
-msgstr ""
+msgstr "Neues Passwort"
 
 msgid "Saisissez une deuxième fois votre nouveau mot de passe"
-msgstr ""
+msgstr "Geben Sie Ihr neues Passwort ein zweites Mal ein"
 
 msgid "Modifier mes informations"
-msgstr ""
+msgstr "Meine Informationen ändern"
 
 msgid "Mes commandes"
-msgstr ""
+msgstr "Meine Bestellungen"
 
 msgid "Vous n'avez pas encore de commandes."
-msgstr ""
+msgstr "Sie haben noch keine Aufträge."
 
 msgid "#"
-msgstr ""
+msgstr "#"
 
 msgid "Prix total"
-msgstr ""
+msgstr "Gesamtpreis"
 
 msgid "Paiement"
-msgstr ""
+msgstr "Zahlung"
 
 msgid "Statut"
-msgstr ""
+msgstr "Status"
 
 msgid "Mes billets"
-msgstr ""
+msgstr "Meine Tickets"
 
 msgid "Vous n'avez pas encore de billets."
-msgstr ""
+msgstr "Sie haben noch keine Tickets."
 
 msgid "Télécharger"
-msgstr ""
+msgstr "Herunterladen"
 
 msgid "Réservations"
-msgstr ""
+msgstr "Reservationen"
 
 msgid "Aucune réservation sur ce billet."
-msgstr ""
+msgstr "Keine Reservierung auf diesem Ticket."
 
 msgid "Votre compte n'est pas activé."
-msgstr ""
+msgstr "Ihr Konto ist nicht aktiviert."
 
 msgid "Nous vous remercions pour votre commande."
-msgstr ""
+msgstr "Wir danken Ihnen für Ihre Bestellung."
 
 #, php-format
 msgid ""
@@ -491,21 +494,22 @@ msgid ""
 "vente</a> et la <a target=\"_blank\" href=\"%s\">politique de protection des "
 "données</a>"
 msgstr ""
+"Ich akzeptiere die <a target=\"_blank\" href=\"%s\" >Allgemeinen Geschäftsbedingungen</a> und die <a target=\"_blank\" href=\"%s\" >Datenschutzrichtlinie</a>."
 
 msgid "Aucun moyen de paiement configué."
-msgstr ""
+msgstr "Keine Zahlungsmethode konfiguriert."
 
 msgid "Vos données de facturation"
-msgstr ""
+msgstr "Ihre Rechnungsdaten"
 
 msgid "Réserver (paiement sur place)"
-msgstr ""
+msgstr "Buchen (Zahlung vor Ort)"
 
 msgid "Procéder au paiement"
-msgstr ""
+msgstr "Zahlung fortfahren"
 
 msgid "Valider"
-msgstr ""
+msgstr "Bestätigen"
 
 msgid ""
 "Dans le cadre des conditions sanitaires actuelles, nous sommes tenus de "
@@ -515,31 +519,31 @@ msgid ""
 msgstr ""
 
 msgid "Ticket"
-msgstr ""
+msgstr "Ticket"
 
 msgid "Code postal"
-msgstr ""
+msgstr "Postleitzahl"
 
 msgid "Votre numéro, sans espace"
-msgstr ""
+msgstr "Ihre Nummer, ohne Leerzeichen"
 
 msgid "* ces champs sont requis"
-msgstr ""
+msgstr "* diese Felder sind erforderlich"
 
 msgid "Enregistrer"
-msgstr ""
+msgstr "Registrieren"
 
 msgid "Une erreur est survenue lors de votre commande."
-msgstr ""
+msgstr "Bei Ihrer Bestellung ist ein Fehler aufgetreten."
 
 msgid "Merci de bien vouloir réessayer."
-msgstr ""
+msgstr "Vielen Dank, dass Sie es noch einmal versuchen."
 
 msgid "Recherche"
-msgstr ""
+msgstr "Suche"
 
 msgid "Rechercher"
-msgstr ""
+msgstr "Suchen"
 
 msgid "Tous"
 msgstr ""
