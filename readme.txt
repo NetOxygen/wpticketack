@@ -2,7 +2,7 @@
 Tags: ticketack
 Requires at least: 4.6
 Tested up to: 5.6
-Stable tag: 2.37.0
+Stable tag: 2.37.1
 Requires PHP: 5.6
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -35,11 +35,14 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 2.37.1 =
+
+* fix: At the creation of the url of an article, verification that page exists
 = 2.37.0 =
 
 * feat: Addition of online payment fees in cart
-* fix: Update style in cart
-* fix: Translation fixes and update
+* fix : Update style in cart
+* fix : Translation fixes and update
 
 * modified templates:
 *  -app/templates/cart/cart_table.tpl.php
@@ -57,8 +60,8 @@ This section describes how to install the plugin and get it working.
 
 * feat: Clear comet cache if installed and activated at post import
 * feat: Update data program
-* fix: Send cr_id instead of cashregister_id param
-* fix: Fix cashregister id setting
+* fix : Send cr_id instead of cashregister_id param
+* fix : Fix cashregister id setting
 * Translation update
 * Revert "fix: Prevent cache when loading cart"
 
