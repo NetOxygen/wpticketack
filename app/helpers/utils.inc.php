@@ -339,7 +339,9 @@ function tkt_article_details_url($article)
     if (TKT_WPML_INSTALLED) {
         $slug = tkt_get_article_slug($article, TKT_LANG);
         $page = get_page_by_path($slug, OBJECT, 'tkt-article');
-        return apply_filters('wpml_permalink', get_permalink($page->ID));
+        if ($page) {
+            return apply_filters('wpml_permalink', get_permalink($page->ID));
+        }
     }
 
     return get_site_url(
