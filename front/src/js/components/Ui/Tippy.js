@@ -45,6 +45,7 @@ export default class Tippy extends Component {
             arrow: roundArrow,
             flip: true,
             maxWidth: 800,
+            allowHTML: true
         });
     }
 }
