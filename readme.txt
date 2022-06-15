@@ -35,9 +35,14 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 2.37.2 = 
+
+* fix: Make Tippy allow html content
+
 = 2.37.1 =
 
 * fix: At the creation of the url of an article, verification that page exists
+
 = 2.37.0 =
 
 * feat: Addition of online payment fees in cart
