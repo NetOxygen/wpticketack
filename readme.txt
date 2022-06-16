@@ -2,7 +2,7 @@
 Tags: ticketack
 Requires at least: 4.6
 Tested up to: 5.6
-Stable tag: 2.37.2
+Stable tag: 2.38.0
 Requires PHP: 5.6
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -34,6 +34,12 @@ This section describes how to install the plugin and get it working.
 == Screenshots ==
 
 == Changelog ==
+
+= 2.38.0 = 
+
+* feat: Redirect to ticket view page depending on the configuration
+* feat: Enhance auto-complete on some fields
+* fix: Fix a bug on the account tickets page
 
 = 2.37.2 = 
 
