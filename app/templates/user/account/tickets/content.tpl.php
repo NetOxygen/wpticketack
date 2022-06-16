@@ -49,6 +49,10 @@ use Ticketack\WP\Templates\TKTTemplate;
                                     </span>
                                     <% if (ticket.getPdfUrl()) { %>
                                     <div class="ticket-number mt-2">
+                                        <a class="btn btn-link btn-sm ticket-view-link" target="_blank" href="<%= ticket.getTicketViewUrl() %>">
+                                            <i class="fa fa-eye"></i>
+                                            <?= tkt_t('Voir mes réservations') ?>
+                                        </a>
                                         <a class="btn btn-link btn-sm ticket-download-link" target="_blank" href="<%= ticket.getPdfUrl() %>">
                                             <i class="fa fa-download"></i>
                                             <?= tkt_t('Télécharger') ?>
@@ -60,6 +64,7 @@ use Ticketack\WP\Templates\TKTTemplate;
                         </h5>
                     </div>
 
+<!--
                     <div id="collapse<%= i %>" class="collapse" aria-labelledby="heading<%= i %>" data-parent="#tickets-accordion">
                         <div class="card-body">
                             <div class="row">
@@ -96,6 +101,7 @@ use Ticketack\WP\Templates\TKTTemplate;
                             </div>
                         </div>
                     </div>
+-->
                 </div>
                 <% }) %>
             </div>

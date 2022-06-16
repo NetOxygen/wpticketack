@@ -81,14 +81,18 @@
                                 text-transform: none;
                             }
 
+                            .ticket-view-link {
+                                font-size: 12px;
+                                text-transform: none;
+                                text-decoration: none;
+                                color: $active_color;
+                            }
+
                             .ticket-download-link {
                                 font-size: 12px;
                                 text-transform: none;
+                                text-decoration: none;
                                 color: $active_color;
-
-                                &:hover {
-                                    text-: none;
-                                }
                             }
                         }
                     }

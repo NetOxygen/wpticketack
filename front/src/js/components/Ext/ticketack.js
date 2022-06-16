@@ -129,8 +129,12 @@ Ticketack.prototype.getCheckoutUrl   = function() {
 /**
  * User ticket url getter
  */
-Ticketack.prototype.getTicketViewUrl = function() {
-    var url = this.parametrize_url(this.ticketViewUrl, {});
+Ticketack.prototype.getTicketViewUrl = function(_id) {
+    const params = {};
+    if (_id)
+        params.uuid = _id;
+
+    var url = this.parametrize_url(this.ticketViewUrl, params);
     return url;
 }
 

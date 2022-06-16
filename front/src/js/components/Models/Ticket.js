@@ -2,7 +2,7 @@ import BaseModel from './Base';
 import Screening from './Screening';
 import Booking from './Booking';
 import { Api as TKTApi } from '../Ticketack';
-import { i18n } from '../Core';
+import { i18n, Config } from '../Core';
 import _ from 'lodash';
 import async from 'async';
 import moment from 'moment';
@@ -71,6 +71,19 @@ export default class Ticket extends BaseModel {
             return null;
 
         return TKTApi.getTicketPdfUrl(this._id);
+    }
+
+    /**
+     * Get this ticket view url
+     * @return {String}
+     */
+    getTicketViewUrl() {
+        if (!this.isActivated() && !this.isPending())
+            return null;
+
+        return Config.get('ticket_view_url') ?
+            Config.get('ticket_view_url') :
+            TKTApi.getTicketViewUrl(this._id);
     }
 
     /**
