@@ -32,7 +32,7 @@ export default class Screening extends BaseModel {
 
         this.start_at = moment.tz(screening.start_at, window.moment_timezone);
         this.stop_at  = moment.tz(screening.stop_at, window.moment_timezone);
-        this.buckets  = this.buckets.map((b) => {
+        this.buckets  = (this.buckets || []).map((b) => {
             if ('not_before' in b.rules)
                 b.rules.not_before = moment.tz(b.rules.not_before, window.moment_timezone);
             if ('not_after' in b.rules)
