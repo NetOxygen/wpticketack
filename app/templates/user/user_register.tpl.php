@@ -135,7 +135,7 @@ if (!function_exists('r')) {
                         <i class="fa fa-lock"></i>
                       </span>
                     </div>
-                    <input name="user[password]" type="password" class="tkt-input form-control data-field" id="password" placeholder="<?= tkt_t("Choisissez un mot de passe") ?>"  />
+                    <input name="user[password]" type="password" class="tkt-input form-control data-field" id="password" placeholder="<?= tkt_t("Choisissez un mot de passe") ?>"  autocomplete="new-password" />
                   </div>
                 </div>
               </div>
@@ -148,7 +148,7 @@ if (!function_exists('r')) {
                         <i class="fa fa-lock"></i>
                       </span>
                     </div>
-                    <input name="user[password2]" type="password" class="tkt-input form-control data-field" id="password" placeholder="<?= tkt_t("Saisissez une deuxième fois votre mot de passe") ?>" required />
+                    <input name="user[password2]" type="password" class="tkt-input form-control data-field" id="password" placeholder="<?= tkt_t("Saisissez une deuxième fois votre mot de passe") ?>" required autocomplete="new-password" />
                   </div>
                 </div>
               </div>
