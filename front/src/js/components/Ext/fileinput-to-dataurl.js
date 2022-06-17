@@ -12,6 +12,7 @@ const FileInputToDataUrl = ($) => {
         settings = $.extend({
             max_width: 100,
             data_url_input: null,
+            reset_on_submit: true,
             callback: null
         }, options);
 
@@ -24,7 +25,8 @@ const FileInputToDataUrl = ($) => {
 
         $form.on('submit', function(e) {
             //e.preventDefault();
-            $file_input.val('');
+            if (settings.reset_on_submit)
+                $file_input.val('');
             //this.submit();
         });
 

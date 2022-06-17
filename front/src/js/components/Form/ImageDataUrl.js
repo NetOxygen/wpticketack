@@ -24,6 +24,7 @@ export default class ImageDataUrl extends Component {
         this.$container.fileinput_to_dataurl({
             max_width: this.max_width,
             data_url_input: 'photo_data_url',
+            reset_on_submit: false
         });
         $('#photo_data_url').addClass('opaque_field');
     }
