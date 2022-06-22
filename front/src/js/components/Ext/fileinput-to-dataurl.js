@@ -13,7 +13,8 @@ const FileInputToDataUrl = ($) => {
             max_width: 100,
             data_url_input: null,
             reset_on_submit: true,
-            callback: null
+            callback: null,
+            preview_img: null
         }, options);
 
         var $file_input = this;
@@ -70,6 +71,8 @@ const FileInputToDataUrl = ($) => {
 
             if (!should_resize) {
                 $('#'+settings.data_url_input).val(data_url);
+                if (settings.preview_img)
+                    settings.preview_img.attr('src', data_url);
 
                 if (typeof settings.callback === 'function') {
                     (settings.callback)();
@@ -112,9 +115,11 @@ const FileInputToDataUrl = ($) => {
                 }
 
                 context.drawImage(image, 0, 0, new_width, new_height);
-                data_url = canvas.toDataURL(photo.type);
+                data_url = canvas.toDataURL("image/jpeg");
 
                 $('#'+settings.data_url_input).val(data_url);
+                if (settings.preview_img)
+                    settings.preview_img.attr('src', data_url);
 
                 if (typeof settings.callback === 'function') {
                     (settings.callback)();

@@ -25,13 +25,14 @@ export default class BuyForm extends Component {
     constructor($container, state) {
         super($container, state);
 
-        this.$pass        = $('.pass', this.$container);
-        this.$titles      = $('.pass_title', this.$container);
-        this.redirect     = this.$container.data('redirect');
-        this.cartUrl      = this.$container.data('cart-url');
-        this.checkoutUrl  = this.$container.data('checkout-url');
-        this.tickettypes  = [];
-        this.activePass   = null;
+        this.$pass          = $('.pass', this.$container);
+        this.$titles        = $('.pass_title', this.$container);
+        this.redirect       = this.$container.data('redirect');
+        this.cartUrl        = this.$container.data('cart-url');
+        this.checkoutUrl    = this.$container.data('checkout-url');
+        this.tickettypes    = [];
+        this.activePass     = null;
+        this.passPhotoWidth = this.$container.data('width') || '150 px';
 
         this.$selected_pass = this.$pass.eq(0)
 

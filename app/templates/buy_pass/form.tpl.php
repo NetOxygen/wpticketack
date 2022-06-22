@@ -10,6 +10,8 @@ use Ticketack\WP\TKTApp;
  *   "tickettypes": [ ... ],
  * }
  */
+// keep in sync with Image::PASS_PHOTO_WIDTH from eshop
+const PHOTO_WIDTH = 300;
 ?>
 <div class="tkt-wrapper">
   <section class="tkt-section tkt-dark-section tkt-pass-form-section">
@@ -131,15 +133,46 @@ use Ticketack\WP\TKTApp;
             </div>
 
             <div class="row">
-              <div id="field-wrapper-photo" class="col-md-12 field-wrapper form-group" style="display: none;">
-                  <label class="required" for="photo"><?= tkt_t('Photo') ?></label>
-                  <div>
-                      <small><?= tkt_t("Sans photo, une pièce d'identité sera systématiquement demandée à l'entrée des salles et aux caisses."); ?></small>
-                  </div>
-                  <input name="photo" type="file" class="tkt-input form-control field" id="photo" accept="image/*" data-component="Form/ImageDataUrl" required>
+              <div id="field-wrapper-photo" class="field-wrapper col-md-12" style="display: none;"> 
+              <div class="col-md-12 form-group" data-component="Media/Webcam" data-width="<?= PHOTO_WIDTH ?>">
+                    <label class="required" for="photo"><?= tkt_t('Photo') ?></label>
+                    <div>
+                        <small><?= tkt_t("Sans photo, une pièce d'identité sera systématiquement demandée à l'entrée des salles et aux caisses."); ?></small>
+                    </div>
+                    <div class="row">
+                      <div class="form-group col-md-6 mt-3">
+                        <input name="photo" type="file" class="tkt-input form-control field" id="photo" accept="image/*" data-component="Form/ImageDataUrl" data-width="<?= PHOTO_WIDTH ?>" required hidden >
+                        <button type="button" class="btn btn-default choose-btn">
+                          <span><i class="fa fa-image"></i> <?= tkt_t('Choisir une image') ?></span>
+                        </button>
+
+                        <div class="form-group col-md-12 p-0 mt-3">
+                            <button type="button" class="btn btn-default">
+                              <i class="fa fa-camera"></i>
+                              <span class="stop_video"> <?= tkt_t('Stopper la vidéo') ?></span>
+                              <span class="start_video"> <?= tkt_t('Prendre une photo depuis la caméra') ?></span>
+                            </button>
+
+                            <div class="contentarea">
+                                <div class="camera form-group">
+                                    <video id="video" class="mt-3 mb-3" style="display: block">
+                                        <?= tkt_t('Vidéo non supportée') ?>
+                                    </video>
+                                    <button type="button" class="btn btn-success takePicture">
+                                        <?= tkt_t('Prendre une photo') ?>
+                                    </button>
+                                </div>
+                                <canvas id="canvas" style="display: none;"></canvas>
+                            </div>
+                        </div>
+                      </div>
+                      <div class="form-group preview col-md-6">
+                        <img class="image-preview" width="300" />
+                      </div>
+                    </div>
+                </div>
               </div>
             </div>
-
             <div class="row">
               <div id="field-wrapper-gift_message" class="col-md-12 field-wrapper form-group" style="display: none;">
                 <input id="gift_toggl" type="checkbox">
