@@ -14,6 +14,15 @@ use Ticketack\WP\Templates\TKTTemplate;
  * }
  */
 ?>
+<%
+const isVisibleOrder = order => {
+  let yesterday = new Date();
+  yesterday.setDate(yesterday.getDate() - 1);
+
+  let orderDate = new Date(order.created_at);
+  return (orderDate.getTime() > yesterday.getTime()) || (order.status === "COMPLETED");
+};
+%>
 
 <div id="tkt-account-content-profile" class="tkt-wrapper">
     <div class="row">
@@ -31,7 +40,7 @@ use Ticketack\WP\Templates\TKTTemplate;
                     <th><?= tkt_t('Paiement') ?></th>
                     <th><?= tkt_t('Statut') ?></th>
                 </tr>
-                <% orders.map(function (order) { %>
+                <% orders.filter(isVisibleOrder).map(function (order) { %>
                 <tr>
                     <td>
                         <b><%= order.id %></b>
