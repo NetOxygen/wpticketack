@@ -2,7 +2,7 @@
 Tags: ticketack
 Requires at least: 4.6
 Tested up to: 5.6
-Stable tag: 2.39.0
+Stable tag: 2.40.0
 Requires PHP: 5.6
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -34,6 +34,17 @@ This section describes how to install the plugin and get it working.
 == Screenshots ==
 
 == Changelog ==
+
+== 2.40.0 ==
+
+* feat: Adds webcam photo taking and preview
+* modified templates:
+*  -app/templates/buy_pass/form.tpl.php
+
+* fix: Orders history update
+* modified templates:
+*  -app/templates/user/account/orders/content.tpl.php
+
 
 = 2.39.0 =
 
