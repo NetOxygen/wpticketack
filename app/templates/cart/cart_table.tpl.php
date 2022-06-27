@@ -24,8 +24,6 @@ const articles = cart.getArticles();
 const discounts  = cart.getDiscounts();
 const fees       = cart.getFees();
 const nbArticles = pass.length + tickets.length + articles.length;
-console.log("nbArticles ", nbArticles + fees.length);
-console.log("fees ", fees);
 %>
 
 <div class="tkt-wrapper">

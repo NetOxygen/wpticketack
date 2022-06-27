@@ -13,7 +13,6 @@ use Ticketack\WP\Templates\TKTTemplate;
  * }
  */
 ?>
-
 <div
     id="tkt-user-account"
     class="tkt-wrapper"

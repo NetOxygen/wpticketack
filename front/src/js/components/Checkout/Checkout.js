@@ -1,11 +1,12 @@
 import { Component, Config, i18n, Template } from '../Core';
 import { Api as TKTApi } from '../Ticketack';
-import { Cart } from '../Models';
+import { Cart, User } from '../Models';
 import _ from 'lodash';
 import async from 'async';
 import postal from 'postal';
 import serialize from 'form-serialize';
 import URI from 'urijs';
+import flatpickr from "flatpickr";
 
 /**
  * Show a debug bar for the Reader
@@ -105,7 +106,42 @@ export default class Checkout extends Component {
         this.$successMsg    = $('.success-msg', this.$container);
         this.$errorMsg      = $('.error-msg', this.$container);
 
+        this.fillCheckoutForm();
+
         this.setEventListeners();
+    }
+
+    fillCheckoutForm() {
+        TKTApi.getProfile((err, status, rsp) => {
+            if (err || !rsp.user)
+                return;
+
+            const user = new User(rsp.user);
+            ['firstname', 'lastname', 'email', 'zip', 'street', 'city', 'country', 'phone', 'cellphone', 'birthdate', 'sex', 'age'].map(key => {
+                const value = user.contact[key] ?? (user.contact.address[key] ?? null);
+                if (!value)
+                    return;
+
+                if (key === "birthdate" && !$('#birthdate.data-field').val()) {
+                    let optional_config ={
+                        dateFormat: "d.m.Y",
+                        defaultDate: value
+                    }
+                    $('#birthdate.data-field').flatpickr(optional_config);
+                    return;
+                }
+
+                if (!$('#' + key + '.data-field').val()) {
+                    if (key === "street")
+                        key = 'address';
+
+                    $('#' + key + '.data-field').val(value);
+
+                    if (key === "email")
+                        $('#email2.data-field').val(value);
+                }
+            });
+        });
     }
 
     submitUserDataForm(e) {

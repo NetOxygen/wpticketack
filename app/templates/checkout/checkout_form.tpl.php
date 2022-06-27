@@ -34,6 +34,7 @@ if (!function_exists('r')) {
         return in_array($field, $required_fields) ? 'required' : '';
     }
 }
+
 ?>
 
 <div class="tkt-wrapper">
@@ -83,7 +84,7 @@ if (!function_exists('r')) {
               <div id="field-wrapper-email" class="field-wrapper col-6" style="display: block;">
                 <div class="form-group">
                   <label class="<?= r($required_fields, 'email') ?>" for="email"><?= tkt_t("Confirmation de votre adresse e-mail"); ?></label>
-                  <input name="user[email2]" type="email" class="tkt-input form-control data-field" id="email" placeholder="<?= tkt_t("Saisissez une deuxième fois votre adresse") ?>" <?= r($required_fields, 'email') ?> />
+                  <input name="user[email2]" type="email" class="tkt-input form-control data-field" id="email2" placeholder="<?= tkt_t("Saisissez une deuxième fois votre adresse") ?>" <?= r($required_fields, 'email') ?> />
                 </div>
               </div>
               <?php endif; ?>
