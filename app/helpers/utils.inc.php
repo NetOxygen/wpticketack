@@ -381,6 +381,32 @@ function tkt_registration_url($query = "")
 }
 
 /**
+ * Get the lost password page url
+ *
+ * @param string $query
+ *
+ * @return string
+ */
+function tkt_lostpassword_url($query = "")
+{
+    $slug = TKTApp::get_instance()->get_config('pages.lostpassword');
+    return $slug ? tkt_page_url($slug, $query) : null;
+}
+
+/**
+ * Get the change password page url
+ *
+ * @param string $query
+ *
+ * @return string
+ */
+function tkt_changepassword_url($query = "")
+{
+    $slug = TKTApp::get_instance()->get_config('pages.changepassword');
+    return $slug ? tkt_page_url($slug, $query) : null;
+}
+
+/**
  * Get the user account page url
  *
  * @param string $query

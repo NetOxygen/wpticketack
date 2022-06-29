@@ -17,6 +17,7 @@ use Ticketack\WP\TKTApp;
  *   "user": User instance, if the user is logged in,
  *   "userAccountUrl": Link to see the user account,
  *   "registrationUrl": Link to the registration page
+ *   "lostpasswordUrl": Link to the lost password page
  * }
  */
 ?>
@@ -65,6 +66,16 @@ use Ticketack\WP\TKTApp;
                 <div class="col text-center">
                     <a href="<%= registrationUrl %>">
                         <?= tkt_t('Pas encore de compte ? Créez-en un !') ?>
+                    </a>
+                </div>
+            </div>
+            <% } %>
+            <% if (lostpasswordUrl) { %>
+            <hr />
+            <div class="row">
+                <div class="col text-center">
+                    <a href="<%= lostpasswordUrl %>">
+                        <?= tkt_t('Mot de passe perdu ? Changez-le !') ?>
                     </a>
                 </div>
             </div>

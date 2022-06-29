@@ -39,6 +39,9 @@ class HeadScriptsAction extends TKTAction
     {
         $app = TKTApp::get_instance();
 
+        //"lostpassword_url": "'.tkt_lostpassword_url().'",
+        //"changepassword_url": "'.tkt_changepassword_url().'",
+
         echo '
         <script>
             if (typeof jQuery === "function") {

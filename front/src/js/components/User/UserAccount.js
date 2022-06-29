@@ -24,6 +24,7 @@ export default class UserAccount extends Component {
         this.loginUrl        = Config.get('login_url');
         this.userAccountUrl  = Config.get('user_account_url');
         this.registrationUrl = Config.get('registration_url');
+        this.lostpasswordUrl = Config.get('lostpassword_url');
 
         this.$menuContainer    = $('#tkt-user-account-menu', this.$container);
         this.$contentContainer = $('#tkt-user-account-content', this.$container);

@@ -21,6 +21,8 @@ export default class UserLogin extends Component {
         super($container, state);
         this.userAccountUrl  = Config.get('user_account_url');
         this.registrationUrl = Config.get('registration_url');
+        this.lostpasswordUrl = Config.get('lostpassword_url', TKTApi.getLostpasswordUrl());
+
         this.data = {
             user_infos: {}
         };
@@ -108,7 +110,8 @@ export default class UserLogin extends Component {
         this.$container.html(Template.render('tkt-user-login-tpl', {
             user,
             userAccountUrl: this.userAccountUrl,
-            registrationUrl: this.registrationUrl
+            registrationUrl: this.registrationUrl,
+            lostpasswordUrl: this.lostpasswordUrl
         }));
 
         // bind pass fields

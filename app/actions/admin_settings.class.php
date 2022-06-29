@@ -135,6 +135,22 @@ class AdminSettingsAction extends TKTAction
             'ticketack_pages' // Section
         );
 
+        /*add_settings_field(
+            'lostpassword', // ID
+            tkt_t('Mot de passe perdu'), // Title
+            array( $this, 'lostpassword_callback' ), // Callback
+            'ticketack-pages', // Page
+            'ticketack_pages' // Section
+        );
+
+        add_settings_field(
+            'changepassword', // ID
+            tkt_t('Changement de mot de passe'), // Title
+            array( $this, 'changepassword_callback' ), // Callback
+            'ticketack-pages', // Page
+            'ticketack_pages' // Section
+        );*/
+
         add_settings_field(
             'login', // ID
             tkt_t('Connexion'), // Title
@@ -473,6 +489,8 @@ class AdminSettingsAction extends TKTAction
     public function cart_callback() { return $this->page_choice('cart', 'tkt_pages', 'cart'); }
     public function checkout_callback() { return $this->page_choice('checkout', 'tkt_pages', 'checkout'); }
     public function registration_callback() { return $this->page_choice('registration', 'tkt_pages', 'registration'); }
+    public function lostpassword_callback() { return $this->page_choice('lostpassword', 'tkt_pages', 'lostpassword'); }
+    public function changepassword_callback() { return $this->page_choice('changepassword', 'tkt_pages', 'changepassword'); }
     public function login_callback() { return $this->page_choice('login', 'tkt_pages', 'login'); }
     public function account_callback() { return $this->page_choice('account', 'tkt_pages', 'account'); }
     public function thank_you_callback() { return $this->page_choice('thank_you', 'tkt_pages', 'thank_you'); }

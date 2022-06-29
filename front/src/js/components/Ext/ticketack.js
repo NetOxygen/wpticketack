@@ -64,6 +64,8 @@ var Ticketack = function(eshopUrl, apiKey, lang) {
     this.unbookUrl             = this.eshopUrl + "ticket/cancel_booking_json/";
     this.checkUrl              = this.eshopUrl + "screening/bookability/";
     this.registrationUrl       = this.eshopUrl + "users/register/";
+    this.lostpasswordUrl       = this.eshopUrl + "user/forgot_password/";
+    this.changepasswordUrl     = this.eshopUrl + "users/change_password/";
     this.profileUrl            = this.eshopUrl + "users/profile/";
     this.loginUrl              = this.eshopUrl + "users/login/";
     this.logoutUrl             = this.eshopUrl + "users/logout/";
@@ -108,6 +110,14 @@ Ticketack.prototype.set_user_api_key = function(apikey) {
 Ticketack.prototype.unset_user_api_key = function(apikey) {
     localStorage.removeItem('tkt_api_key');
     this.userApiKey = null;
+}
+
+/**
+ * User forgot pâssword view url
+ */
+Ticketack.prototype.getLostpasswordUrl   = function() {
+    var url = this.parametrize_url(this.lostpasswordUrl, {});
+    return url;
 }
 
 /**
