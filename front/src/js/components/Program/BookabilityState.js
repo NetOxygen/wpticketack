@@ -65,6 +65,17 @@ export default class BookabilityState extends Component {
                     seats: s.seats,
                     sold_here: (_.keys(s.pricings) || []).length > 0 || (s.eligible_types || []).length > 0
                 }
+                // sometimes we use the Program/BookabilityState component
+                // with refs and not screening _ids.
+                if (s.screening_refs?.length > 0) {
+                    s.screening_refs.map(ref => {
+                        if (ref?.id)
+                            map[ref.id] = {
+                                seats: s.seats,
+                                sold_here: (_.keys(s.pricings) || []).length > 0 || (s.eligible_types || []).length > 0
+                            }
+                    });
+                }
             });
 
             _.each(items, (i) => {
