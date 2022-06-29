@@ -44,6 +44,31 @@ $images_width  = TKTApp::get_instance()->get_config('images_dimensions.big_width
 $images_height = TKTApp::get_instance()->get_config('images_dimensions.big_height');
 
 $nb_slides = count($trailers) + count($posters);
+
+$audio = "";
+if (!empty($opaque->languages->audio)) {
+    $audio = $opaque->languages->audio;
+    if (!is_array($audio)) {
+        $audio = [$audio];
+    }
+    $audio = implode(', ', array_map(function ($a) {
+        return is_object($a) ? ucfirst(strtolower($a->{TKT_LANG})) : strtoupper($a);
+    }, $audio));
+}
+
+$subtitles = "";
+if (!empty($opaque->languages->subtitles)) {
+    $subtitles = implode(', ', array_map(function ($s) {
+        return is_object($s) ? ucfirst(strtolower($s->{TKT_LANG})) : strtoupper($s);
+    }, $opaque->languages->subtitles));
+}
+
+$countries = "";
+if (!empty($opaque->countries)) {
+    $countries = implode(', ', array_map(function ($c) {
+        return ucfirst(strtolower(is_object($c) ? $c->{TKT_LANG} : $c));
+    }, $opaque->countries));
+}
 ?>
 <div class="tkt-wrapper tkt_event">
   <div id="tkt-event">
@@ -147,9 +172,7 @@ $nb_slides = count($trailers) + count($posters);
               <div class="countries">
                 <span class="tkt-badge tkt-badge-split">
                   <span class="tkt-badge-part tkt-dark-badge"><?= tkt_t('Pays') ?></span>
-                  <?php foreach($opaque->countries as $countrie) : ?>
-                    <span class="tkt-badge-part tkt-grey-badge"><?= $countrie ?></span>
-                  <?php endforeach; ?>
+                  <span class="tkt-badge-part tkt-grey-badge"><?= $countries ?></span>
                 </span>
               </div>
             </div>
@@ -175,7 +198,7 @@ $nb_slides = count($trailers) + count($posters);
               <div class="audio">
                 <span class="tkt-badge tkt-badge-split">
                   <span class="tkt-badge-part tkt-dark-badge"><?= tkt_t('Audio') ?></span>
-                  <span class="tkt-badge-part tkt-grey-badge"><?= strtoupper($opaque->languages->audio) ?></span>
+                  <span class="tkt-badge-part tkt-grey-badge"><?= $audio ?></span>
                 </span>
               </div>
             </div>
@@ -188,9 +211,7 @@ $nb_slides = count($trailers) + count($posters);
               <div class="subtitles">
                 <span class="tkt-badge tkt-badge-split">
                   <span class="tkt-badge-part tkt-dark-badge"><?= tkt_t('Sous-titre') ?></span>
-                  <?php foreach($opaque->languages->subtitles as $subtitle) : ?>
-                    <span class="tkt-badge-part tkt-grey-badge"><?= strtoupper($subtitle) ?></span>
-                  <?php endforeach; ?>
+                  <span class="tkt-badge-part tkt-grey-badge"><?= $subtitles ?></span>
                 </span>
               </div>
             </div>
