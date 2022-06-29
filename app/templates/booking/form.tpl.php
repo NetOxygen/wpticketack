@@ -15,14 +15,14 @@ use Ticketack\WP\Templates\TKTTemplate;
 $theme = isset($data->theme) ? $data->theme : 'dark';
 ?>
 <div class="tkt-wrapper">
-    <div data-component="Program/BookabilityState">
-        <div data-bookability-ids="<?= implode(',', $data->ids) ?>">
-            <span class="show-booking-form">
-                <div data-component="Media/Loading" data-size-sm class="show-while-loading"></div>
-                <span class="show-if-not-bookable assertive d-none"><?= tkt_t('Complet !') ?></span>
+    <section class="tkt-section tkt-<?= $theme ?>-section book-section">
+        <div data-component="Program/BookabilityState">
+            <div data-bookability-ids="<?= implode(',', $data->ids) ?>">
+                <span class="show-booking-form">
+                    <div data-component="Media/Loading" data-size-sm class="show-while-loading"></div>
+                    <span class="show-if-not-bookable assertive d-none"><?= tkt_t('Complet !') ?></span>
 
-                <div class="show-if-bookable" style="width: 100%;">
-                    <section class="tkt-section tkt-<?= $theme ?>-section book-section">
+                    <div class="show-if-bookable" style="width: 100%;">
                         <div class="row">
                             <div class="col">
                                 <div
@@ -36,11 +36,11 @@ $theme = isset($data->theme) ? $data->theme : 'dark';
                                 </div>
                             </div>
                         </div>
-                    </section>
-                </div>
-            </span>
+                    </div>
+                </span>
+            </div>
         </div>
-    </div>
+    </section>
 
     <!-- Underscore.js templates used by client side -->
     <script type="text/template" id="tkt-booking-form-dates-tpl">
