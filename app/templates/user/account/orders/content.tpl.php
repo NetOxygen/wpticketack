@@ -40,7 +40,7 @@ const isVisibleOrder = order => {
                     <th><?= tkt_t('Paiement') ?></th>
                     <th><?= tkt_t('Statut') ?></th>
                 </tr>
-                <% orders.filter(isVisibleOrder).map(function (order) { %>
+                <% orders.reverse().filter(isVisibleOrder).map(function (order) { %>
                 <tr>
                     <td>
                         <b><%= order.id %></b>

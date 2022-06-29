@@ -14,7 +14,11 @@ use Ticketack\WP\Templates\TKTTemplate;
  * }
  */
 ?>
-
+<%
+const isVisibleticket = ticket => {
+    return ticket.status == "activated";
+};
+%>
 <div id="tkt-account-content-profile" class="tkt-wrapper">
     <div class="row">
         <div class="col-sm-12">
@@ -24,7 +28,7 @@ use Ticketack\WP\Templates\TKTTemplate;
             </h3>
             <% } else { %>
             <div id="tickets-accordion">
-                <% tickets.sort(function (a, b) { return a.activated_at > b.activated_at ? -1 : 1}).map(function (ticket, i) { %>
+                <% tickets.sort(function (a, b) { return a.activated_at > b.activated_at ? -1 : 1}).filter(isVisibleticket).map(function (ticket, i) { %>
                 <div class="card">
                     <div class="card-header" id="heading-<%= i %>">
                         <h5 class="mb-0">
