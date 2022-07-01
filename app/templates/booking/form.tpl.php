@@ -22,7 +22,7 @@ $theme = isset($data->theme) ? $data->theme : 'dark';
                     <div data-component="Media/Loading" data-size-sm class="show-while-loading"></div>
                     <span class="show-if-not-bookable assertive d-none"><?= tkt_t('Complet !') ?></span>
 
-                    <div class="show-if-bookable" style="width: 100%;">
+                    <div class="show-if-bookable show-if-almost-not-bookable" style="width: 100%;">
                         <div class="row">
                             <div class="col">
                                 <div
