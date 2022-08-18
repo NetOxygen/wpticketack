@@ -141,11 +141,11 @@ export default class BuyForm extends Component {
     }
 
     show_success(msg) {
-        $('.alert-success', this.$container).html(msg).show();
+        $('.alert-success', this.$container).html(msg).show().delay(3000).fadeOut();
     }
 
     show_error(msg) {
-        $('.alert-danger', this.$container).html(msg).show();
+        $('.alert-danger', this.$container).html(msg).show().delay(3000).fadeOut();
     }
 
     sync_pass_pricings() {
