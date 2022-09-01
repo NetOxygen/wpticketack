@@ -43,12 +43,15 @@ export default class Cart extends Component {
                 this.loadCart();
             }
         });
+
         postal.subscribe({
             channel: "cart",
             topic: "update",
             callback: (data, envelope) => {
-                if (!data.internal)
-                    this.loadCart();
+                if (!data.internal) {
+                    this.cart = data.cart;
+                    this.loadItemsInfos();
+                }
             }
         });
     }
@@ -68,20 +71,27 @@ export default class Cart extends Component {
                 return callback(err);
 
             this.cart = cart;
-            this.cart.loadItemsInfos((err) => {
-                if (err)
-                    return callback(err);
 
-                this.build_table();
-                this.emit_update();
+            return this.loadItemsInfos(callback);
+        });
+    }
 
-                this.bind_remove_item_icons((err, cart) => {
-                 if (err)
-                    console.error(err);
-                });
+    loadItemsInfos(callback) {
+        callback = callback || ((err, cart) => {});
 
-                return callback(/*err*/null, cart);
+        this.cart.loadItemsInfos((err) => {
+            if (err)
+                return callback(err);
+
+            this.build_table();
+            this.emit_update();
+
+            this.bind_remove_item_icons((err, cart) => {
+             if (err)
+                console.error(err);
             });
+
+            return callback(/*err*/null, this.cart);
         });
     }
 
@@ -170,7 +180,7 @@ export default class Cart extends Component {
     bind_remove_item_icons(callback) {
         $('.tkt-remove-cart-item').on('click', (e) => {
             let $x = $(e.target);
-            
+
             if (!$x.hasClass('tkt-remove-cart-item'))
                 $x = $x.parent('.tkt-remove-cart-item');
             const item_id = parseInt($x.data('item'));

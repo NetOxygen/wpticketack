@@ -1,5 +1,5 @@
 import { Component, i18n } from '../Core';
-import { Tickettype } from '../Models';
+import { Tickettype, Cart } from '../Models';
 import { Api as TKTApi } from '../Ticketack';
 import _ from 'lodash';
 import postal from 'postal';
@@ -131,12 +131,24 @@ export default class BuyForm extends Component {
                     break;
                 default:
                     this.show_success(i18n.t('Votre panier a été mis à jour'));
-                    postal.publish({
-                        channel: "cart",
-                        topic: "reload"
+                    TKTApi.loadCart((err, status, rsp) => {
+                        if (err)
+                            return;
+
+                        this.emit_cart_update(new Cart(rsp));
                     });
             }
 
+        });
+    }
+
+    emit_cart_update(cart) {
+        postal.publish({
+            channel: "cart",
+            topic: "update",
+            data: {
+                cart: cart
+            }
         });
     }
 
