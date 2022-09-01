@@ -2,7 +2,7 @@
 Tags: ticketack
 Requires at least: 4.6
 Tested up to: 5.6
-Stable tag: 2.42.1
+Stable tag: 2.43
 Requires PHP: 5.6
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -35,32 +35,37 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+== 2.43 ==
+
+* feat: Removes the alert message after 3 seconds
+* fix: Changes the number of the cart, when adding a pass to the cart
+
 == 2.42.1 ==
 
-*fix: Fix the booking form
+* fix: Fix the booking form
 
 == 2.42.0 ==
 
-*feat: Add link to recover password on login form
+* feat: Add link to recover password on login form
 
 == 2.41.1 ==
 
-*fix: Change the DOM structure in booking_form shortcode
+* fix: Change the DOM structure in booking_form shortcode
 
 == 2.41.0 ==
 
-*feat: Change the order of the list
+* feat: Change the order of the list
 * modified templates:
-* -app/templates/user/account/orders/content.tpl.php
-* -app/templates/user/account/tickets/content.tpl.php
+*   -app/templates/user/account/orders/content.tpl.php
+*   -app/templates/user/account/tickets/content.tpl.php
 
-*feat: Pre-fill the buyer's data with the account data
+* feat: Pre-fill the buyer's data with the account data
 * modified templates:
-* -app/templates/cart/cart_table.tpl.php
-* -app/templates/checkout/checkout_form.tpl.php
+*   -app/templates/cart/cart_table.tpl.php
+*   -app/templates/checkout/checkout_form.tpl.php
 
-*fix: Better handle audio, subtitles and countries on event template
-*feat: Handle bookability state in booking_form shortcode
+* fix: Better handle audio, subtitles and countries on event template
+* feat: Handle bookability state in booking_form shortcode
 * modified templates:
 * -event/_single.tpl.php
 * -booking/form.tpl.php
