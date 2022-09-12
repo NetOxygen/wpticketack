@@ -2,7 +2,7 @@
 Tags: ticketack
 Requires at least: 4.6
 Tested up to: 5.6
-Stable tag: 2.43
+Stable tag: 2.43.1
 Requires PHP: 5.6
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -35,6 +35,10 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+== 2.43.1 ==
+
+* fix: Image upload, supported formats png, jpeg & gif
+* feat: Update of uriJs dependency
 == 2.43 ==
 
 * feat: Removes the alert message after 3 seconds
