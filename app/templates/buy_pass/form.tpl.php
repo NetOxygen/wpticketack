@@ -141,10 +141,11 @@ const PHOTO_WIDTH = 300;
                     </div>
                     <div class="row">
                       <div class="form-group col-md-6 mt-3">
-                        <input name="photo" type="file" class="tkt-input form-control field" id="photo" accept="image/*" data-component="Form/ImageDataUrl" data-width="<?= PHOTO_WIDTH ?>" required hidden >
+                        <input name="photo" type="file" class="tkt-input form-control field" id="photo" accept="image/jpeg, image/png, image/gif" data-component="Form/ImageDataUrl" data-width="<?= PHOTO_WIDTH ?>" required hidden >
                         <button type="button" class="btn btn-default choose-btn">
                           <span><i class="fa fa-image"></i> <?= tkt_t('Choisir une image') ?></span>
                         </button>
+                        <i class="tkt-icon-info" data-component="Ui/Tippy" data-tippy-content="<?= tkt_h("Format pris en charge: jpeg, png, gif") ?>"></i>
 
                         <div class="form-group col-md-12 p-0 mt-3">
                             <button type="button" class="btn btn-default">
