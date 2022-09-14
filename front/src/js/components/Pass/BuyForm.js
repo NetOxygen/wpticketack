@@ -119,8 +119,13 @@ export default class BuyForm extends Component {
 
         TKTApi.addPassToCart(type, pricing, userdata, (err, status, rsp) => {
             /* TODO: Handle no_photo field */
-            if (err)
-                return this.show_error(i18n.t('Une erreur est survenue. Veuillez ré-essayer ultérieurement.'));
+            if (err) {
+                let err_msg = i18n.t('Une erreur est survenue. Veuillez ré-essayer ultérieurement.');
+                if (rsp?.flash?.error?.length && rsp.flash.error[0].length)
+                    err_msg = rsp.flash.error[0];
+                
+                return this.show_error(err_msg);
+            }
 
             switch (this.redirect) {
                 case 'cart':
