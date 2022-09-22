@@ -192,12 +192,21 @@ export default class BuyForm extends Component {
         let required_fields  = [];
         let requested_fields = [];
 
-        fields_to_show.map(field => {
+        fields_to_show.filter(field => field?.length > 0).map(field => {
             if (field.endsWith('?'))
                 requested_fields.push(field.slice(0, -1));
             else
                 required_fields.push(field);
         });
+
+        // Hides the title and notice in the form if there are no fields
+        if (required_fields.length === 0 && requested_fields.length === 0) {
+            $('.tkt-section-title', this.$container).hide();
+            $('#notice-required', this.$container).hide();
+        } else {
+            $('.tkt-section-title', this.$container).show();
+            $('#notice-required', this.$container).show();
+        }
 
         // Set not required and hide all fields
         $('.field', this.$container).each(function (i) {
