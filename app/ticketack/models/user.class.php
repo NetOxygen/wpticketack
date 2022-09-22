@@ -32,7 +32,13 @@ class User extends TKTModel implements \JsonSerializable
     {
         if (is_null(static::$current)) {
             $api_key = TKTApp::get_instance()->get_config('ticketack.api_key');
-            $rsp     = TKTRequest::request(TKTRequest::GET, sprintf('/authentication/%s', $api_key));
+
+            if (empty($api_key)) {
+                return null;
+            }
+
+            $rsp = TKTRequest::request(TKTRequest::GET, sprintf('/authentication/%s', $api_key));
+
             if ($rsp->status !== No2_HTTP::OK) {
                 throw new TKTApiException(sprintf("%d: Authentification failed, impossible to load current user", $rsp->status));
             }
