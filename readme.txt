@@ -1,8 +1,8 @@
 === Ticketack ===
 Tags: ticketack
 Requires at least: 4.6
-Tested up to: 5.6
-Stable tag: 2.43.3
+Tested up to: 6.0.2
+Stable tag: 2.43.4
 Requires PHP: 5.6
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -35,14 +35,18 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+== 2.43.4 ==
+
+* Technical release
+
 == 2.43.3 ==
 
-* fix: Verification of api key field is empty
+* fix: Check if the api key is empty
 
 == 2.43.2 ==
 
-* fix: Hides the title and notice in the form if there are no fields
-* feat: display error message in form_pass
+* fix: Hide the title and notice in the form (if there are no fields)
+* feat: Display an error message in form_pass
 
 == 2.43.1 ==
 
