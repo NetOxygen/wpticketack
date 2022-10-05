@@ -1,3 +1,4 @@
+import { Api as TKTApi } from './components/Ticketack';
 import { ComponentsLoader } from './components/Core';
 import { BookingForm, ScreeningsList } from './components/Booking';
 import { BookingWizard } from './components/BookingWizard';
@@ -55,3 +56,5 @@ loader.registerComponent('Ticket/TicketConnect', TicketConnect);
 loader.registerComponent('Pantaflix/Player', PantaflixPlayer);
 
 loader.attach();
+
+globalThis.TKTApi = TKTApi;
