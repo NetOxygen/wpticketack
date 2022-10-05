@@ -585,6 +585,22 @@ Ticketack.prototype.loginTicket = function(number, key, callback) {
 };
 
 /**
+ * Ticket authentication with url
+ *
+ * Authenticates the user ticket with the url
+ * contained in the QR Code
+ *
+ * @param string: The url
+ * @param callback
+ */
+Ticketack.prototype.loginTicketWithUrl = function(url, callback) {
+    var data = { "url": url };
+
+    var url = this.parametrize_url(this.loginTicketUrl, {}, true);
+    return this.post(this.loginTicketUrl, data, callback);
+};
+
+/**
  * Ticket logout
  *
  * Logs out the user ticket
