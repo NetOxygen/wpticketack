@@ -251,7 +251,7 @@ function tkt_thank_you_url($query = "")
  *
  * @return string
  */
-function tkt_buy_pass_url()
+function tkt_buy_pass_url($query = "")
 {
     $slug = TKTApp::get_instance()->get_config('pages.pass');
     return $slug ? tkt_page_url($slug, $query) : null;
