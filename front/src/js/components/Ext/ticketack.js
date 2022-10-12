@@ -218,7 +218,7 @@ Ticketack.prototype.loadCart = function(callback) {
     var that = this;
     var url = this.parametrize_url(this.cartJsonUrl, {}, true);
 
-    return this.get(url, {}, function (err, status, rsp) {
+    return this.get(url, {}, (err, status, rsp) => {
         if (err)
             return callback && callback(err, status, rsp);
 
@@ -814,6 +814,12 @@ Ticketack.prototype.request = function(method, url, data, headers, callback) {
         return callback(null, jqXHR.status, jqXHR.responseJSON);
     }).fail((jqXHR) => {
         var rsp = jqXHR.responseText.length ? JSON.parse(jqXHR.responseText) : null;
+        // when making calls using an api key which has been removed from the engine
+        // after a logout, the eshop returns a 303: let's unset the user api key
+        // in this case.
+        if (jqXHR.status === 303 && this.userApiKey?.length > 0)
+            this.unset_user_api_key();
+
         return callback(new Error(), jqXHR.status, rsp);
     });
 };
