@@ -117,6 +117,8 @@ export default class Checkout extends Component {
                 return;
 
             const user = new User(rsp.user);
+            user.contact = user.contact || {};
+            user.contact.address = user.contact.address || {};
             ['firstname', 'lastname', 'email', 'zip', 'street', 'city', 'country', 'phone', 'cellphone', 'birthdate', 'sex', 'age'].map(key => {
                 const value = user.contact[key] ?? (user.contact.address[key] ?? null);
                 if (!value)
