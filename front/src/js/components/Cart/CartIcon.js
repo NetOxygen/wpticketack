@@ -49,7 +49,7 @@ export default class CartIcon extends Component {
 
     update_nb(items) {
         let nb = 0;
-        items.map((i) => {
+        (items || []).map((i) => {
             if (i.type != 'shipping') {
                 nb ++;
             }
