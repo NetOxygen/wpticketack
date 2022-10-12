@@ -63,8 +63,11 @@ export default class BookabilityState extends Component {
             _.each(screenings, (s) => {
                 map[s._id] = {
                     seats: s.seats,
-                    sold_here: (_.keys(s.pricings) || []).length > 0 || (s.eligible_types || []).length > 0
+                    sold_here: (_.keys(s.pricings) || []).length > 0 || (s.eligible_types || []).length > 0,
+                    booking_mode: s.opaque?.booking_mode,
+                    booking_note: s.opaque?.booking_note
                 }
+
                 // sometimes we use the Program/BookabilityState component
                 // with refs and not screening _ids.
                 if (s.screening_refs?.length > 0) {
@@ -72,17 +75,30 @@ export default class BookabilityState extends Component {
                         if (ref?.id)
                             map[ref.id] = {
                                 seats: s.seats,
-                                sold_here: (_.keys(s.pricings) || []).length > 0 || (s.eligible_types || []).length > 0
+                                sold_here: (_.keys(s.pricings) || []).length > 0 || (s.eligible_types || []).length > 0,
+                                booking_mode: s.opaque?.booking_mode,
+                                booking_note: s.opaque?.booking_note
                             }
                     });
                 }
             });
 
             _.each(items, (i) => {
+                let booking_mode = null;
+                let booking_note = null;
                 let ids = $(i).attr('data-bookability-ids').split(',');
-                let state = _.max(_.map(ids, (i) => {
-                    let seats     = map[i] ? map[i]['seats'] : 0;
-                    let sold_here = map[i] ? map[i]['sold_here'] : false;
+
+                let state = _.max(_.map(ids, (id) => {
+                    // FIXME: we consider only the first booking_mode...
+                    booking_mode = booking_mode || (map[id] ? map[id]['booking_mode'] : null);
+                    if ((booking_mode === 'other' || booking_mode === 'email') && !booking_note) {
+                        booking_note = booking_note || (map[id] ? map[id]['booking_note'] : null);
+                        if (booking_note)
+                            $(i).append(`<div class="booking_note">${booking_note}</div>`);
+                    }
+
+                    let seats     = map[id] ? map[id]['seats'] : 0;
+                    let sold_here = map[id] ? map[id]['sold_here'] : false;
                     if (!sold_here)
                         return BookabilityState.STATE_NOT_SOLD_HERE;
                     if (seats.available == 0)

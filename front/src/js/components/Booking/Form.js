@@ -280,7 +280,7 @@ export default class BookingForm extends Component {
         this.loader.attach();
     }
 
-    build_dates_form() { 
+    build_dates_form() {
         // render template
         this.$dates_form.html(Template.render('tkt-booking-form-dates-tpl', {
             screenings: this.data.screenings,
