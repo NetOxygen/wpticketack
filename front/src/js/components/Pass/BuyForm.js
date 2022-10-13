@@ -220,9 +220,15 @@ export default class BuyForm extends Component {
             let id     = $(w).attr('id').replace('field-wrapper-', '');
             let $field = $('#' + id);
             let $label = $('label[for='+id+']');
+
             if (required_fields.includes(id)) {
                 $field.attr('required', true);
                 $(w).fadeIn();
+
+                if (id == 'photo') {
+                    $('#photo_data_url', this.$container).attr('required', true);
+                    $('#photo', this.$container).removeAttr('required');
+                }
             } else if (requested_fields.includes(id)) {
                 $label.removeClass('required');
                 $(w).fadeIn();

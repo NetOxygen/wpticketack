@@ -21,7 +21,7 @@ const FileInputToDataUrl = ($) => {
         var $form = $file_input.closest('form');
 
         if ($('#'+settings.data_url_input).length === 0) {
-            $file_input.before('<input type="hidden" name="'+settings.data_url_input+'" id="'+settings.data_url_input+'" />');
+            $file_input.before('<input type="text" name="'+settings.data_url_input+'" id="'+settings.data_url_input+'" style="opacity: 0; height: 0;" />');
         }
 
         $form.on('submit', function(e) {
