@@ -253,9 +253,15 @@ export default class BookingForm extends Component {
                     $('.book-form-error', this.$container).addClass('d-none');
                 } else {
                     $('.book-btn', this.$container).addClass('d-none');
-                    const msg = this.data.bookability.screening_already_booked ?
+
+
+                    let msg = this.data.bookability.screening_already_booked ?
                         i18n.t("Vous ne pouvez pas réserver une place de plus pour cette séance avec votre abonnement.") :
                         i18n.t("Vous ne pouvez pas réserver de place pour cette séance avec votre abonnement.");
+                    if (rsp?.ticket_cannot_book_explanation?.length > 0) {
+                        msg = rsp.ticket_cannot_book_explanation;
+                    }
+
                     $('.book-form-error', this.$container)
                         .html(msg)
                         .removeClass('d-none');
