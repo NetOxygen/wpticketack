@@ -248,11 +248,23 @@ export default class BookingForm extends Component {
                 $('.book-panel', this.$container).removeClass('d-none');
                 $('.show-bookings-btn', this.$container).removeClass('d-none');
 
+                let bookings = this.state.state.user.ticket.bookings;
                 if (this.data.bookability.ticket_can_book_screening) {
-                    $('.book-btn', this.$container).removeClass('d-none');
+                    let bookings_ids = [];
+                    bookings.map( function( b ) {
+                      bookings_ids.push(b.screening._id);
+                    });
+
+                    if (jQuery.inArray(this.data.screening._id, bookings_ids) !== -1) {
+                        $('.book-btn-more', this.$container).removeClass('d-none');
+                    } else {
+                        $('.book-btn', this.$container).removeClass('d-none');
+                    }
+
                     $('.book-form-error', this.$container).addClass('d-none');
                 } else {
                     $('.book-btn', this.$container).addClass('d-none');
+                    $('.book-btn-more', this.$container).addClass('d-none');
 
 
                     let msg = this.data.bookability.screening_already_booked ?
@@ -406,6 +418,10 @@ export default class BookingForm extends Component {
 
         // bind book button
         $('.book-btn', this.$container).click((e) => {
+            this.book();
+        });
+
+        $('.book-btn-more', this.$container).click((e) => {
             this.book();
         });
 

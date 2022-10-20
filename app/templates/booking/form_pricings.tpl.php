@@ -155,6 +155,14 @@ use Ticketack\WP\TKTApp;
             </div>
             <div class="row">
                 <div class="col">
+                    <div class="error pass-book-error d-none"></div>
+                    <button class="button book-btn-more active d-none" >
+                        <?= tkt_t('Réserver une place de plus sur mon abonnement') ?>
+                    </button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
                     <a href="<%= ticket_view_url %>" class="button show-bookings-btn active d-none" >
                         <?= tkt_t('Afficher mes réservations') ?>
                     </a>
