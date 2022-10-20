@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-12 11:42+0200\n"
+"POT-Creation-Date: 2022-10-20 16:34+0200\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Jonathan Ernst <jonathan.ernst@netoxygen.ch>\n"
+"Last-Translator: lcocquyt <ludovic.cocquyt@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -208,6 +208,22 @@ msgstr ""
 "Without linked photo, your identity will be checked at each entry of "
 "projection."
 
+#, fuzzy
+msgid "Choisir une image"
+msgstr "Please choose a pricing"
+
+msgid "Stopper la vidéo"
+msgstr ""
+
+msgid "Prendre une photo depuis la caméra"
+msgstr ""
+
+msgid "Vidéo non supportée"
+msgstr ""
+
+msgid "Prendre une photo"
+msgstr ""
+
 msgid "Ceci est un cadeau"
 msgstr ""
 
@@ -232,6 +248,9 @@ msgstr "Book on my pass"
 msgid "Entrée libre"
 msgstr "Free entry"
 
+msgid "Complet !"
+msgstr "Complete !"
+
 msgid ""
 "Entrez le nombre de place(s) que vous souhaitez ajouter à votre panier :"
 msgstr "Enter the number of tickets you want to add to your cart"
@@ -253,6 +272,10 @@ msgstr "Buy a pass"
 msgid ""
 "Vous ne pouvez pas réserver de place pour cette séance avec votre abonnement."
 msgstr "You  can not book this screening with your pass"
+
+#, fuzzy
+msgid "Réserver une place de plus sur mon abonnement"
+msgstr "Book another seat on my pass"
 
 msgid "Afficher mes réservations"
 msgstr "Show my bookings"
@@ -379,9 +402,6 @@ msgstr "Tickets"
 msgid "Il ne reste que quelques places !"
 msgstr "There are only a few places !"
 
-msgid "Complet !"
-msgstr "Complete !"
-
 msgid "Mon compte"
 msgstr "My account"
 
@@ -393,6 +413,9 @@ msgstr "Password"
 
 msgid "Pas encore de compte ? Créez-en un !"
 msgstr "No account yet? Create one!"
+
+msgid "Mot de passe perdu ? Changez-le !"
+msgstr ""
 
 msgid "Société"
 msgstr "Company"
@@ -1151,4 +1174,3 @@ msgstr ""
 msgid ""
 "Ne modifiez les valeurs ci-dessous que si vous savez ce que vous faites."
 msgstr "Change these settings only if you know what you are doing."
-

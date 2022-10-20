@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-12 11:42+0200\n"
+"POT-Creation-Date: 2022-10-20 16:31+0200\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Jonathan Ernst <jonathan.ernst@netoxygen.ch>\n"
+"Last-Translator: lcocquyt <ludovic.cocquyt@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -196,6 +196,21 @@ msgid ""
 "des salles et aux caisses."
 msgstr ""
 
+msgid "Choisir une image"
+msgstr ""
+
+msgid "Stopper la vidéo"
+msgstr ""
+
+msgid "Prendre une photo depuis la caméra"
+msgstr ""
+
+msgid "Vidéo non supportée"
+msgstr ""
+
+msgid "Prendre une photo"
+msgstr ""
+
 msgid "Ceci est un cadeau"
 msgstr ""
 
@@ -220,6 +235,9 @@ msgstr ""
 msgid "Entrée libre"
 msgstr ""
 
+msgid "Complet !"
+msgstr ""
+
 msgid ""
 "Entrez le nombre de place(s) que vous souhaitez ajouter à votre panier :"
 msgstr ""
@@ -240,6 +258,9 @@ msgstr ""
 
 msgid ""
 "Vous ne pouvez pas réserver de place pour cette séance avec votre abonnement."
+msgstr ""
+
+msgid "Réserver une place de plus sur mon abonnement"
 msgstr ""
 
 msgid "Afficher mes réservations"
@@ -364,9 +385,6 @@ msgstr ""
 msgid "Il ne reste que quelques places !"
 msgstr ""
 
-msgid "Complet !"
-msgstr ""
-
 msgid "Mon compte"
 msgstr ""
 
@@ -377,6 +395,9 @@ msgid "Mot de passe"
 msgstr ""
 
 msgid "Pas encore de compte ? Créez-en un !"
+msgstr ""
+
+msgid "Mot de passe perdu ? Changez-le !"
 msgstr ""
 
 msgid "Société"

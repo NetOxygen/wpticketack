@@ -151,11 +151,6 @@ use Ticketack\WP\TKTApp;
                     <button class="button book-btn active d-none" >
                         <?= tkt_t('Réserver une place sur mon abonnement') ?>
                     </button>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <div class="error pass-book-error d-none"></div>
                     <button class="button book-btn-more active d-none" >
                         <?= tkt_t('Réserver une place de plus sur mon abonnement') ?>
                     </button>

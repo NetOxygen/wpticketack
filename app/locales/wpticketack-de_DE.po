@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-12 11:42+0200\n"
+"POT-Creation-Date: 2022-10-20 16:32+0200\n"
 "PO-Revision-Date: 2022-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Jonathan Ernst <jonathan.ernst@netoxygen.ch>\n"
+"Last-Translator: lcocquyt <ludovic.cocquyt@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -198,6 +198,22 @@ msgstr ""
 "Ohne Foto wird beim Betreten der Räume und an den Kassen systematisch nach "
 "einem Ausweis gefragt."
 
+#, fuzzy
+msgid "Choisir une image"
+msgstr "Wählen Sie ein Passwort"
+
+msgid "Stopper la vidéo"
+msgstr ""
+
+msgid "Prendre une photo depuis la caméra"
+msgstr ""
+
+msgid "Vidéo non supportée"
+msgstr ""
+
+msgid "Prendre une photo"
+msgstr ""
+
 msgid "Ceci est un cadeau"
 msgstr "Dies ist ein Geschenk"
 
@@ -222,6 +238,9 @@ msgstr "Einen Platz auf meinem Abonnement reservieren"
 msgid "Entrée libre"
 msgstr "Freier Eintritt"
 
+msgid "Complet !"
+msgstr "Vollständig!"
+
 msgid ""
 "Entrez le nombre de place(s) que vous souhaitez ajouter à votre panier :"
 msgstr ""
@@ -244,6 +263,10 @@ msgid ""
 "Vous ne pouvez pas réserver de place pour cette séance avec votre abonnement."
 msgstr ""
 "Sie können mit Ihrem Abonnement keinen Platz für diese Sitzung reservieren."
+
+#, fuzzy
+msgid "Réserver une place de plus sur mon abonnement"
+msgstr "Einen weiteren Platz auf meinem Abonnement buchen"
 
 msgid "Afficher mes réservations"
 msgstr "Meine Buchungen anzeigen"
@@ -369,9 +392,6 @@ msgstr "Tickets"
 msgid "Il ne reste que quelques places !"
 msgstr "Es sind nur noch wenige Plätze frei!"
 
-msgid "Complet !"
-msgstr "Vollständig!"
-
 msgid "Mon compte"
 msgstr "Mein Konto"
 
@@ -383,6 +403,9 @@ msgstr "Kennwort"
 
 msgid "Pas encore de compte ? Créez-en un !"
 msgstr "Haben Sie noch kein Konto? Erstellen Sie eins!"
+
+msgid "Mot de passe perdu ? Changez-le !"
+msgstr ""
 
 msgid "Société"
 msgstr "Firma"

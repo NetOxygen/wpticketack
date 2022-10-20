@@ -63,7 +63,10 @@ export default class BookingForm extends Component {
         });
 
         this.listen_to_message();
+        this.refreshTicket();
+    }
 
+    refreshTicket(callback) {
         TKTApi.viewTicket((err, status, rsp) => {
             const ticket = !err ? new Ticket(rsp) : null;
 
@@ -71,9 +74,11 @@ export default class BookingForm extends Component {
                 this.state.unset('user.ticket');
             else
                 this.state.set('user.ticket', ticket);
-        });
-    }
 
+            return callback && callback(err, ticket);
+        });
+
+    }
     init_store() {
         this.data = {
             screenings: [], // current screenings
@@ -201,7 +206,7 @@ export default class BookingForm extends Component {
                     .removeClass('d-none');
             }
 
-            this.check_bookability();
+            this.refreshTicket((err, ticket) => this.check_bookability());            
         });
     }
 
@@ -240,24 +245,21 @@ export default class BookingForm extends Component {
         TKTApi.checkBookability(this.data.screening._id, (err, status, rsp) => {
             if (err)
                 return false;
-
             this.data.bookability = rsp;
 
             if (this.data.bookability.ticket_logged_in) {
                 $('.connect-panel', this.$container).addClass('d-none');
                 $('.book-panel', this.$container).removeClass('d-none');
                 $('.show-bookings-btn', this.$container).removeClass('d-none');
-
-                let bookings = this.state.state.user.ticket.bookings;
+                
                 if (this.data.bookability.ticket_can_book_screening) {
-                    let bookings_ids = [];
-                    bookings.map( function( b ) {
-                      bookings_ids.push(b.screening._id);
-                    });
-
-                    if (jQuery.inArray(this.data.screening._id, bookings_ids) !== -1) {
+                    const ticket = this.state.get('user.ticket');
+                    const nbAlreadyBooked = (ticket?.bookings || []).filter(b => b.screening?._id === this.data?.screening?._id).length;
+                    if (nbAlreadyBooked > 0) {
+                        $('.book-btn', this.$container).addClass('d-none');
                         $('.book-btn-more', this.$container).removeClass('d-none');
                     } else {
+                        $('.book-btn-more', this.$container).addClass('d-none');
                         $('.book-btn', this.$container).removeClass('d-none');
                     }
 
