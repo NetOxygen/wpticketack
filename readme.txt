@@ -2,7 +2,7 @@
 Tags: ticketack
 Requires at least: 4.6
 Tested up to: 6.0.2
-Stable tag: 2.43.11
+Stable tag: 2.44.0
 Requires PHP: 5.6
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -34,6 +34,12 @@ This section describes how to install the plugin and get it working.
 == Screenshots ==
 
 == Changelog ==
+
+== 2.44.0 ==
+
+* feat: Displays the message to book differently depending on if you have a reservation or not
+* modified templates:
+* -app/templates/booking/form_pricings.tpl.php
 
 == 2.43.11 ==
 
