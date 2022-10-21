@@ -8,14 +8,16 @@ use Ticketack\WP\Templates\TKTTemplate;
  *
  * Input:
  * $data: {
- *    "result": ok|error|null
+ *    "result"          : ok|error|null
+ *    "requested_fields": ["firstname", "lastname", ... ]
+ *    "required_fields  : ["firstname", "lastname", ... ]
  * }
  */
 $app               = TKTApp::get_instance();
 $cgv_url           = $app->get_config('checkout.cgv');
 $privacy_url       = $app->get_config('checkout.privacy');
-$requested_fields  = explode(',', $app->get_config('checkout.requested_fields'));
-$required_fields   = explode(',', $app->get_config('checkout.required_fields'));
+$requested_fields  = $data->requested_fields;
+$required_fields   = $data->required_fields;
 $allow_later       = intval($app->get_config('checkout.allow_later')) === 1;
 $allow_postfinance = intval($app->get_config('checkout.allow_postfinance')) === 1;
 ?>

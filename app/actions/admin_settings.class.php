@@ -222,22 +222,6 @@ class AdminSettingsAction extends TKTAction
         );
 
         add_settings_field(
-            'requested_fields', // ID
-            tkt_t('Informations optionnelles à saisir'), // Title
-            array( $this, 'requested_fields_callback' ), // Callback
-            'ticketack-checkout', // Page
-            'ticketack_checkout' // Section
-        );
-
-        add_settings_field(
-            'required_fields', // ID
-            tkt_t('Informations obligatoires à saisir'), // Title
-            array( $this, 'required_fields_callback' ), // Callback
-            'ticketack-checkout', // Page
-            'ticketack_checkout' // Section
-        );
-
-        add_settings_field(
             'allow_later', // ID
             tkt_t('Autoriser les réservations'), // Title
             array( $this, 'allow_later_callback' ), // Callback

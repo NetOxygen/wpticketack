@@ -2,6 +2,8 @@
 namespace Ticketack\WP\Shortcodes;
 
 use Ticketack\WP\Templates\TKTTemplate;
+use Ticketack\Core\Models\Settings;
+use Ticketack\Core\Base\TKTApiException;
 
 /**
  * Checkout shortcode
@@ -30,13 +32,23 @@ class CheckoutShortcode extends TKTShortcode
      */
     public function run($atts, $content)
     {
-        $result = tkt_get_url_param('result');
+        try {
+            $fields = Settings::first()->id('default')->get(['eshop.required_buyer_data', 'eshop.requested_buyer_data'])->toArray();
+            $result = tkt_get_url_param('result');
 
-        return TKTTemplate::render(
-            'checkout/checkout',
-            (object)[
-                "result" => $result
-            ]
-        );
+            return TKTTemplate::render(
+                'checkout/checkout',
+                (object)[
+                    "result"           => $result,
+                    'requested_fields' => $fields["eshop"]["requested_buyer_data"],
+                    'required_fields'  => $fields["eshop"]["required_buyer_data"]
+                ]
+            );
+        } catch (TKTApiException $e) {
+            return sprintf(
+                "Impossible de charger la configuration du checkout: %s",
+                $e->getMessage()
+            );
+        }
     }
 }
