@@ -4,6 +4,7 @@ namespace Ticketack\WP\Actions;
 use Ticketack\WP\TKTApp;
 use Ticketack\WP\Helpers\LocalesHelper;
 use Ticketack\Core\Models\Tickettype;
+use Ticketack\Core\Models\Settings;
 
 /**
  * Head Scripts action
@@ -70,10 +71,10 @@ class HeadScriptsAction extends TKTAction
                 "buy_pass_url": "'.tkt_buy_pass_url().'",
                 "registration_url": "'.tkt_registration_url().'",
                 "user_account_url": "'.tkt_user_account_url().'",
-                "buyer_requested_fields": '.json_encode($app->get_config('checkout.requested_fields')).',
-                "buyer_required_fields": '.json_encode($app->get_config('checkout.required_fields')).',
-                "otp_requested_fields": '.json_encode(tkt_pass_required_fields(Tickettype::ONE_TIME_PASS_ID)).',
-                "otp_required_fields": '.json_encode(tkt_pass_required_fields(Tickettype::ONE_TIME_PASS_ID)).',
+                "buyer_requested_fields": '.json_encode(Settings::find('default')->toArray()['eshop']['requested_buyer_data']).',
+                "buyer_required_fields": '.json_encode(Settings::find('default')->toArray()['eshop']['required_buyer_data']).',
+                "otp_requested_fields": '.json_encode(Tickettype::find(Tickettype::ONE_TIME_PASS_ID)->requested_fields($app->get_config('ticketack.salepoint_id'))).',
+                "otp_required_fields": '.json_encode(Tickettype::find(Tickettype::ONE_TIME_PASS_ID)->required_fields($app->get_config('ticketack.salepoint_id'))).',
                 "lang": "'.TKT_LANG.'",
                 "i18n": '.json_encode(LocalesHelper::dump_js_locales(), JSON_PRETTY_PRINT).'
             };

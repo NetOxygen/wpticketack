@@ -1,4 +1,6 @@
 <?php
+use Ticketack\WP\TKTApp;
+
 /**
  * Buy pass list template
  *
@@ -9,6 +11,7 @@
  */
 
 $types = $data->tickettypes;
+$salepoint_id = TKTApp::get_instance()->get_config('ticketack.salepoint_id');
 ?>
 <?php if (!empty($types)) : ?>
 
@@ -17,7 +20,8 @@ $types = $data->tickettypes;
     <?php if (count($types) == 1 && count($types[0]->pricings()) == 1) : ?>
       <div id="item-<?= $types[0]->_id(); ?>" data-type="<?= $types[0]->_id(); ?>" class="pass">
         <input type="hidden" class="choose-pass" name="user[pass]" value="<?= $types[0]->_id().':'.array_keys($types[0]->pricings())[0]; ?>">
-        <input type="hidden" class="required-fields" id="<?= $types[0]->_id().'-fields' ?>" value="<?= implode(',', $types[0]->required_fields()) ?>" />
+        <input type="hidden" class="required-fields" id="<?= $types[0]->_id().'-required-fields' ?>" value="<?= implode(',', $types[0]->required_fields($salepoint_id)) ?>" />
+        <input type="hidden" class="requested-fields" id="<?= $tickettype->_id().'-requested-fields' ?>" value="<?= implode(',', $tickettype->requested_fields($salepoint_id)) ?>" />
       </div>
 
     <?php else : ?>
@@ -35,7 +39,8 @@ $types = $data->tickettypes;
             <div id="item-<?= $tickettype->_id(); ?>" data-type="<?= $tickettype->_id(); ?>" class="card-content pass">
               <div class="card-body">
                 <p><?= nl2br(tkt_html($tickettype->description(TKT_LANG))) ?></p>
-                <input type="hidden" class="required-fields" id="<?= $tickettype->_id().'-fields' ?>" value="<?= implode(',', $tickettype->required_fields()) ?>" />
+                <input type="hidden" class="required-fields" id="<?= $tickettype->_id().'-required-fields' ?>" value="<?= implode(',', $tickettype->required_fields($salepoint_id)) ?>" />
+                <input type="hidden" class="requested-fields" id="<?= $tickettype->_id().'-requested-fields' ?>" value="<?= implode(',', $tickettype->requested_fields($salepoint_id)) ?>" />
                 <b><?= tkt_t('Tarifs :') ?></b>
                 <?php foreach ($tickettype->pricings() as $key => $pricing) :?>
                   <div class="radio">

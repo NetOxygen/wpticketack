@@ -43,7 +43,7 @@ class AdminMenuAction extends TKTAction
     {
         $sections = [
             'tkt_pages', 'tkt_cart', 'tkt_checkout', 'tkt_registration', 'tkt_api', 'tkt_images_dimensions',
-            'tkt_images_proxy', 'tkt_pass', 'tkt_advanced', 'tkt_i18n', 'tkt_import'
+            'tkt_images_proxy', 'tkt_advanced', 'tkt_i18n', 'tkt_import'
         ];
         foreach ($sections as $section) {
             if (isset($_POST[$section])) {
@@ -51,11 +51,7 @@ class AdminMenuAction extends TKTAction
                     !wp_verify_nonce($_POST['nonce'], 'tkt_admin_options')) {
                     die('WordPress nonce error, please reload the form and try again');
                 }
-                if ($section == 'tkt_pass') {
-                    update_option($section, array_map('sanitize_textarea_field', $_POST[$section]));
-                } else {
-                    update_option($section, array_map('sanitize_text_field', $_POST[$section]));
-                }
+                update_option($section, array_map('sanitize_text_field', $_POST[$section]));
             }
         }
 
@@ -67,7 +63,6 @@ class AdminMenuAction extends TKTAction
             'checkout'     => tkt_t('Checkout'),
             'registration' => tkt_t('Registration'),
             'images'       => tkt_t('Images'),
-            'pass'         => tkt_t('Abonnements'),
             'i18n'         => tkt_t('Langues'),
             'import'       => tkt_t('Import'),
             'advanced'     => tkt_t('Paramètres avancés'),

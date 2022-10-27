@@ -3,6 +3,7 @@ namespace Ticketack\Core\Models;
 
 use Ticketack\Core\Base\TKTModel;
 use Ticketack\Core\Base\No2_HTTP;
+use Ticketack\WP\TKTApp;
 
 /**
  * Ticketack Engine Tickettype.
@@ -23,7 +24,6 @@ class Tickettype extends TKTModel implements \JsonSerializable
     protected $windows     = [];
     protected $pricings    = null;
     protected $opaque      = null;
-    protected $required_fields = null;
 
     /**
      * @override
@@ -45,8 +45,6 @@ class Tickettype extends TKTModel implements \JsonSerializable
             unset($properties['pricings']);
         }
         parent::__construct($properties);
-
-        $this->required_fields = tkt_pass_required_fields($this->_id);
     }
 
     // helper for scope_order_by_opaque_eshop_sort_weight()
@@ -208,9 +206,20 @@ class Tickettype extends TKTModel implements \JsonSerializable
         return is_array($this->opaque);
     }
 
-    public function required_fields()
+    public function required_fields($salepoint_id)
     {
-        return $this->required_fields;
+        if (!array_key_exists($salepoint_id, $this->opaque["fields"])) {
+            $salepoint_id = 'default';
+        }
+        return $this->opaque["fields"][$salepoint_id]["required"];
+    }
+
+    public function requested_fields($salepoint_id)
+    {
+        if (!array_key_exists($salepoint_id, $this->opaque["fields"])) {
+            $salepoint_id = 'default';
+        }
+        return $this->opaque["fields"][$salepoint_id]["requested"];
     }
 
     public function jsonSerialize()

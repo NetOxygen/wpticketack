@@ -188,16 +188,10 @@ export default class BuyForm extends Component {
     sync_pass_form() {
         if (!this.activePass)
             return;
-        let fields_to_show   = $('#' + this.activePass + '-fields').val().split(',');
-        let required_fields  = [];
-        let requested_fields = [];
 
-        fields_to_show.filter(field => field?.length > 0).map(field => {
-            if (field.endsWith('?'))
-                requested_fields.push(field.slice(0, -1));
-            else
-                required_fields.push(field);
-        });
+        let required_fields  = $('#' + this.activePass + '-required-fields').val()? $('#' + this.activePass + '-required-fields').val()?.split(',') : [];
+        let requested_fields = $('#' + this.activePass + '-requested-fields').val()? $('#' + this.activePass + '-requested-fields').val()?.split(',') : [];
+        requested_fields     = _.differenceBy(requested_fields, required_fields);
 
         // Hides the title and notice in the form if there are no fields
         if (required_fields.length === 0 && requested_fields.length === 0) {
@@ -223,6 +217,7 @@ export default class BuyForm extends Component {
 
             if (required_fields.includes(id)) {
                 $field.attr('required', true);
+                $label.addClass('required');
                 $(w).fadeIn();
 
                 if (id == 'photo') {

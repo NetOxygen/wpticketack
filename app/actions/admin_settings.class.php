@@ -96,14 +96,6 @@ class AdminSettingsAction extends TKTAction
         );
 
         add_settings_field(
-            'pass', // ID
-            tkt_t('Abonnements'), // Title
-            array( $this, 'pass_callback' ), // Callback
-            'ticketack-pages', // Page
-            'ticketack_pages' // Section
-        );
-
-        add_settings_field(
             'ticket_view', // ID
             tkt_t('Vue du ticket'), // Title
             array( $this, 'ticket_view_callback' ), // Callback
@@ -323,21 +315,6 @@ class AdminSettingsAction extends TKTAction
         );
 
         add_settings_section(
-            'ticketack_pass', // ID
-            tkt_t('Abonnements'), // Title
-            array( $this, 'pass_section_info' ), // Callback
-            'ticketack-pass' // Page
-        );
-
-        add_settings_field(
-            'requested_pass_owner_data', // ID
-            tkt_t('Champs à saisir pour chaque type d\'abonnement'), // Title
-            array( $this, 'requested_pass_owner_data_callback' ), // Callback
-            'ticketack-pass', // Page
-            'ticketack_pass' // Section
-        );
-
-        add_settings_section(
             'ticketack_i18n', // ID
             tkt_t('Langues'), // Title
             array( $this, 'i18n_section_info' ), // Callback
@@ -468,7 +445,6 @@ class AdminSettingsAction extends TKTAction
     }
     public function program_callback() { return $this->page_choice('program', 'tkt_pages', 'program'); }
     public function shop_callback() { return $this->page_choice('shop', 'tkt_pages', 'shop'); }
-    public function pass_callback() { return $this->page_choice('pass', 'tkt_pages', 'pass'); }
     public function ticket_view_callback() { return $this->page_choice('ticket_view', 'tkt_pages', 'ticket_view'); }
     public function cart_callback() { return $this->page_choice('cart', 'tkt_pages', 'cart'); }
     public function checkout_callback() { return $this->page_choice('checkout', 'tkt_pages', 'checkout'); }
@@ -580,10 +556,6 @@ class AdminSettingsAction extends TKTAction
     /**
      * Print the Section text
      */
-    public function pass_section_info()
-    {
-        print tkt_t("Configuration de la vente d'abonnements.");
-    }
     public function requested_pass_owner_data_callback() { return $this->textarea('requested_pass_owner_data', 'tkt_pass'); }
 
     /**

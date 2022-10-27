@@ -52,10 +52,10 @@ class BuyPassShortcode extends TKTShortcode
 
         if (!empty($types)) {
             $tickettypes = array_values(array_filter($tickettypes, function ($t) use ($types) {
-                tkt_pass_required_fields($t->_id());
                 return in_array($t->_id(), $types);
             }));
         }
+
 
         return TKTTemplate::render(
             'buy_pass/buy',
