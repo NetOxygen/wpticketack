@@ -58,6 +58,7 @@ $app->register_action('Ticketack\WP\Actions\SyncArticlesAction', 'sync_articles.
 $app->register_action('Ticketack\WP\Actions\SyncPeopleAction', 'sync_people.class.php');
 $app->register_action('Ticketack\WP\Actions\TranslationAction', 'translation.class.php');
 $app->register_action('Ticketack\WP\Actions\CustomTypesAction', 'custom_types.class.php');
+$app->register_action('Ticketack\WP\Actions\ApiAction', 'api.class.php');
 $app->register_shortcode('Ticketack\WP\Shortcodes\BookingFormShortcode', 'booking_form.class.php');
 $app->register_shortcode('Ticketack\WP\Shortcodes\BookingWizardShortcode', 'booking_wizard.class.php');
 $app->register_shortcode('Ticketack\WP\Shortcodes\ProgramShortcode', 'program.class.php');
