@@ -52,7 +52,7 @@ class Settings extends TKTModel implements \JsonSerializable
 
         $success = file_put_contents($path, $config_string);
         if ($success) {
-            opcache_invalidate($path);
+            opcache_invalidate($path, /*$force*/true);
         }
 
         return $success;

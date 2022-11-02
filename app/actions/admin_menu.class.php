@@ -52,8 +52,10 @@ class AdminMenuAction extends TKTAction
                     die('WordPress nonce error, please reload the form and try again');
                 }
                 update_option($section, array_map('sanitize_text_field', $_POST[$section]));
+                TKTApp::get_instance()->load_config(/*$force_refresh*/true);
             }
         }
+
 
         $active_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'api';
         $tabs = [

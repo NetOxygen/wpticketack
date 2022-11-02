@@ -1,5 +1,5 @@
 composer.phar
-/config/*.yml
+/app/config.inc.php
 /vendor/
 /front/node_modules
 /front/.sass-cache

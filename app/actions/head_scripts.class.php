@@ -39,9 +39,8 @@ class HeadScriptsAction extends TKTAction
     public function run()
     {
         $app = TKTApp::get_instance();
-
-        //"lostpassword_url": "'.tkt_lostpassword_url().'",
-        //"changepassword_url": "'.tkt_changepassword_url().'",
+        $otp = Tickettype::find(Tickettype::ONE_TIME_PASS_ID);
+        $salepoint_id = $app->get_config('ticketack.salepoint_id');
 
         echo '
         <script>
@@ -71,10 +70,10 @@ class HeadScriptsAction extends TKTAction
                 "buy_pass_url": "'.tkt_buy_pass_url().'",
                 "registration_url": "'.tkt_registration_url().'",
                 "user_account_url": "'.tkt_user_account_url().'",
-                "buyer_requested_fields": '.json_encode(Settings::find('default')->toArray()['eshop']['requested_buyer_data']).',
-                "buyer_required_fields": '.json_encode(Settings::find('default')->toArray()['eshop']['required_buyer_data']).',
-                "otp_requested_fields": '.json_encode(Tickettype::find(Tickettype::ONE_TIME_PASS_ID)->requested_fields($app->get_config('ticketack.salepoint_id'))).',
-                "otp_required_fields": '.json_encode(Tickettype::find(Tickettype::ONE_TIME_PASS_ID)->required_fields($app->get_config('ticketack.salepoint_id'))).',
+                "buyer_requested_fields": '.json_encode($app->get_config('eshop.requested_buyer_data')).',
+                "buyer_required_fields": '.json_encode($app->get_config('eshop.required_buyer_data')).',
+                "otp_requested_fields": '.json_encode($otp ? $otp->requested_fields($salepoint_id) : []).',
+                "otp_required_fields": '.json_encode($otp ? $otp->required_fields($salepoint_id) : []).',
                 "lang": "'.TKT_LANG.'",
                 "i18n": '.json_encode(LocalesHelper::dump_js_locales(), JSON_PRETTY_PRINT).'
             };

@@ -2,6 +2,7 @@
 namespace Ticketack\WP;
 
 use Ticketack\Core\Base\TKTApi;
+use Ticketack\Core\Models\Settings;
 
 /**
  * Ticketack App
@@ -67,9 +68,15 @@ class TKTApp
         $this->load_config();
     }
 
-    public function load_config()
+    /**
+     * Load the wp options and the ticketack settings
+     *
+     * @param bool $force_refresh: True to force refresh the cached
+     *                             settings even if the file exists
+     */
+    public function load_config($force_refresh = false)
     {
-        $this->config = (object)[
+        $this->config = [
             'pages'             => (array)get_option('tkt_pages'),
             'cart'              => (array)get_option('tkt_cart'),
             'checkout'          => (array)get_option('tkt_checkout'),
@@ -82,6 +89,41 @@ class TKTApp
             'import'            => (array)get_option('tkt_import'),
             'advanced'          => (array)get_option('tkt_advanced')
         ];
+
+        // Check if Ticketack API is configured
+        $api_config = $this->config['ticketack'];
+        foreach (['engine_uri', 'api_key'] as $property) {
+            if (!array_key_exists($property, $api_config) || empty($api_config[$property])) {
+                return false;
+            }
+        }
+
+        // Setup Ticketack API
+        TKTApi::setup(
+            $this->get_config('ticketack.engine_uri'),
+            $this->get_config('ticketack.api_key')
+        );
+
+        $generated_config_path = TKT_APP.'/config.inc.php';
+        if (file_exists($generated_config_path) && !$force_refresh) {
+            return true;
+        }
+
+        // Refresh cached settings
+        if (!Settings::refresh($generated_config_path, $this->config)) {
+            return false;
+        }
+
+        if (file_exists($generated_config_path)) {
+            @include($generated_config_path);
+
+            if (!is_array($ticketack_config)) {
+                return false;
+            }
+            $this->config = $ticketack_config;
+        }
+
+        return true;
     }
 
     /**
@@ -156,12 +198,6 @@ class TKTApp
      */
     public function start()
     {
-        // Setup Ticketack API
-        TKTApi::setup(
-            $this->get_config('ticketack.engine_uri'),
-            $this->get_config('ticketack.api_key')
-        );
-
         // Instantiate actions
         foreach ($this->actions as $classname => $filename) {
             require_once($filename);
@@ -191,7 +227,7 @@ class TKTApp
             $path = explode('.', $path);
         }
 
-        $value = (array)$this->config;
+        $value = $this->config;
 
         foreach ($path as $p) {
             if (!isset($value[$p])) {
@@ -212,5 +248,3 @@ class TKTApp
             !empty($this->get_config('ticketack.api_key'));
     }
 }
-
-
