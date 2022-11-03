@@ -1,8 +1,8 @@
 === Ticketack ===
 Tags: ticketack
 Requires at least: 4.6
-Tested up to: 6.0.2
-Stable tag: 2.45.0
+Tested up to: 6.1.0
+Stable tag: 2.46.0
 Requires PHP: 5.6
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -34,6 +34,20 @@ This section describes how to install the plugin and get it working.
 == Screenshots ==
 
 == Changelog ==
+
+== 2.46.0 ==
+
+* feat: The tickettypes fields are now retrieved from Ticketack settings
+  (Kronos)
+* feat: For better performance, Ticketack settings are now in cache
+* feat: Expose some API calls to refresh settings and import events
+* fix: Set the default sort on articles list to the one from Kronos
+* fix: Use the configured salepoint instead of the user ones
+* modified templates:
+* - app/templates/article/tkt_article.tpl.php
+* - app/templates/shop/list/article.tpl.php
+* - app/templates/buy_pass/form.tpl.php
+* - app/templates/buy_pass/pass_list.tpl.php
 
 == 2.45.0 ==
 
