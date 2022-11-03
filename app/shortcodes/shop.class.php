@@ -54,7 +54,7 @@ class ShopShortcode extends TKTShortcode
         $only_in_stock    = isset($atts['only_in_stock']) ? $atts['only_in_stock'] : false;
         $nb               = isset($atts['nb']) ? $atts['nb'] : -1;
         $exclude          = isset($atts['exclude']) ? $atts['exclude'] : null;
-        $sort             = isset($atts['sort']) ? $atts['sort'] : tkt_get_url_param('sort');
+        $sort             = isset($atts['sort']) ? $atts['sort'] : tkt_get_url_param('sort', Article::SORT_TYPE_SORT_WEIGHT);
         $show             = isset($atts['show_pagination']) ? $atts['show_pagination'] : true;
         $tkt_page         = isset($atts['tkt_page']) ? $atts['tkt_page'] : tkt_get_url_param('tkt_page', 1);
         $nb_by_page       = isset($atts['nb_by_page']) ? intval($atts['nb_by_page']) : static::DEFAULT_NB_ARTICLES_BY_PAGE;
@@ -80,7 +80,7 @@ class ShopShortcode extends TKTShortcode
                 $query = $query->with_tags($tags);
             }
 
-            $articles = $query->get('_id,name,short_description,description,category,stock_type,stocks,variants,posters');
+            $articles = $query->get('_id,name,short_description,description,category,stock_type,stocks,variants,posters,sort_weight');
 
             if ($only_in_stock) {
                 $salepoint = current($salepoints);

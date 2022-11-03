@@ -18,11 +18,12 @@ class Article extends TKTModel implements \JsonSerializable
     const STOCK_TYPE_VARIANT = 'variant';
     const STOCK_TYPE_NONE    = 'none';
 
-    const SORT_TYPE_ALPHA      = 'alpha';
-    const SORT_TYPE_REV_ALPHA  = 'rev-alpha';
-    const SORT_TYPE_INCR_PRICE = 'incr-price';
-    const SORT_TYPE_DECR_PRICE = 'decr-price';
-    const SORT_TYPE_RANDOM     = 'random';
+    const SORT_TYPE_SORT_WEIGHT = 'sort_weight';
+    const SORT_TYPE_ALPHA       = 'alpha';
+    const SORT_TYPE_REV_ALPHA   = 'rev-alpha';
+    const SORT_TYPE_INCR_PRICE  = 'incr-price';
+    const SORT_TYPE_DECR_PRICE  = 'decr-price';
+    const SORT_TYPE_RANDOM      = 'random';
 
     /**
      * @override
@@ -385,6 +386,15 @@ class Article extends TKTModel implements \JsonSerializable
         $cmp = function ($a, $b) { return 0; };
 
         switch ($sort_type) {
+            case static::SORT_TYPE_SORT_WEIGHT;
+                $cmp = function ($a, $b) {
+                    $weight_a = $a->sort_weight();
+                    $weight_b = $b->sort_weight();
+                    return $weight_a > $weight_b ? 1 : (
+                        $weight_a < $weight_b ? -1 : 0
+                    );
+                };
+                break;
             case static::SORT_TYPE_ALPHA;
                 $cmp = function ($a, $b) {
                     $name_a = strtolower($a->name(TKT_LANG));
