@@ -21,7 +21,7 @@ $salepoint_id = TKTApp::get_instance()->get_config('ticketack.salepoint_id');
       <div id="item-<?= $types[0]->_id(); ?>" data-type="<?= $types[0]->_id(); ?>" class="pass">
         <input type="hidden" class="choose-pass" name="user[pass]" value="<?= $types[0]->_id().':'.array_keys($types[0]->pricings())[0]; ?>">
         <input type="hidden" class="required-fields" id="<?= $types[0]->_id().'-required-fields' ?>" value="<?= implode(',', $types[0]->required_fields($salepoint_id)) ?>" />
-        <input type="hidden" class="requested-fields" id="<?= $tickettype->_id().'-requested-fields' ?>" value="<?= implode(',', $tickettype->requested_fields($salepoint_id)) ?>" />
+        <input type="hidden" class="requested-fields" id="<?= $types[0]->_id().'-requested-fields' ?>" value="<?= implode(',', $types[0]->requested_fields($salepoint_id)) ?>" />
       </div>
 
     <?php else : ?>

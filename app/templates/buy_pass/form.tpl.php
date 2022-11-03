@@ -11,7 +11,7 @@ use Ticketack\WP\TKTApp;
  * }
  */
 // keep in sync with Image::PASS_PHOTO_WIDTH from eshop
-const PHOTO_WIDTH = 300;
+$width = 300;
 ?>
 <div class="tkt-wrapper">
   <section class="tkt-section tkt-dark-section tkt-pass-form-section">
@@ -134,14 +134,14 @@ const PHOTO_WIDTH = 300;
 
             <div class="row">
               <div id="field-wrapper-photo" class="field-wrapper col-md-12" style="display: none;"> 
-              <div class="col-md-12 form-group" data-component="Media/Webcam" data-width="<?= PHOTO_WIDTH ?>">
+              <div class="col-md-12 form-group" data-component="Media/Webcam" data-width="<?= $width ?>">
                     <label class="required" for="photo"><?= tkt_t('Photo') ?></label>
                     <div>
                         <small><?= tkt_t("Sans photo, une pièce d'identité sera systématiquement demandée à l'entrée des salles et aux caisses."); ?></small>
                     </div>
                     <div class="row">
                       <div class="form-group col-md-6 mt-3">
-                        <input name="photo" type="file" class="tkt-input form-control field" id="photo" accept="image/jpeg, image/png, image/gif" data-component="Form/ImageDataUrl" data-width="<?= PHOTO_WIDTH ?>" hidden >
+                        <input name="photo" type="file" class="tkt-input form-control field" id="photo" accept="image/jpeg, image/png, image/gif" data-component="Form/ImageDataUrl" data-width="<?= $width ?>" hidden >
                         <button type="button" class="btn btn-default choose-btn">
                           <span><i class="fa fa-image"></i> <?= tkt_t('Choisir une image') ?></span>
                         </button>
@@ -168,7 +168,7 @@ const PHOTO_WIDTH = 300;
                         </div>
                       </div>
                       <div class="form-group preview col-md-6">
-                        <img class="image-preview" width="300" />
+                      <img class="image-preview" width="<?= $width ?>" />
                       </div>
                     </div>
                 </div>
