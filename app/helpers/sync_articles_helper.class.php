@@ -18,7 +18,13 @@ class SyncArticlesHelper extends SyncHelper
 
     public static function sync_articles()
     {
-        $default_lang = TKTApp::get_instance()->get_config('i18n.default_lang', 'fr');
+        $app          = TKTApp::get_instance();
+        $default_lang = $app->get_config('i18n.default_lang', 'fr');
+        $salepoint_id = $app->get_config('ticketack.salepoint_id');
+        if (!$salepoint_id) {
+            tkt_flash_notice(tkt_t("Veuillez choisir un point de vente dans les réglages du module Ticketack"), 'error');
+            return false;
+        }
 
         ini_set('memory_limit', '512M');
         ini_set('max_execution_time', 0);
@@ -27,9 +33,7 @@ class SyncArticlesHelper extends SyncHelper
             switch_to_locale('fr_FR');
         }
 
-        $user       = User::get_current();
-        $salepoints = $user->salepoints();
-        $articles   = static::load_articles($salepoints);
+        $articles = static::load_articles($salepoint_id);
 
         if (!empty($articles)) {
             array_map(function ($article) use ($default_lang) {
@@ -62,10 +66,10 @@ class SyncArticlesHelper extends SyncHelper
         }
     }
 
-    protected static function load_articles($salepoints = [])
+    protected static function load_articles($salepoint_id)
     {
         $articles = Article::all()
-            ->in_pos(implode(',', $salepoints))
+            ->in_pos($salepoint_id)
             ->get('_id,name,short_description,description,category,stock_type,variants,posters');
 
         return $articles;

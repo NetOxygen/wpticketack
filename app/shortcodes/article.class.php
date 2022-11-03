@@ -1,6 +1,7 @@
 <?php
 namespace Ticketack\WP\Shortcodes;
 
+use Ticketack\WP\TKTApp;
 use Ticketack\WP\Templates\TKTTemplate;
 use Ticketack\Core\Models\Article;
 use Ticketack\Core\Models\User;
@@ -40,11 +41,9 @@ class ArticleShortcode extends TKTShortcode
         }
 
         try {
-            $article = Article::find($id);
-
-            $user = User::get_current();
-            // FIXME: Are we sure that current user has only one salepoint ?
-            $salepoint_id = current($user->salepoints());
+            $article      = Article::find($id);
+            $salepoint_id = TKTApp::get_instance()
+                ->get_config('ticketack.salepoint_id');
 
             return TKTTemplate::render(
                 'buy_article/form',

@@ -23,10 +23,7 @@ $images_width  = TKTApp::get_instance()->get_config('images_dimensions.big_width
 $images_height = TKTApp::get_instance()->get_config('images_dimensions.big_height');
 $image_url     = tkt_img_proxy_url($article->first_poster()->url, $images_width, $images_height);
 
-$user       = User::get_current();
-$salepoints = $user->salepoints();
-// TODO: Are we sure that user has only one salepoint ?
-$salepoint  = current($salepoints);
+$salepoint_id = TKTApp::get_instance()->get_config('ticketack.salepoint_id');
 ?>
 <div class="tkt-wrapper article-inner">
     <div class="row">
@@ -57,7 +54,7 @@ $salepoint  = current($salepoints);
             </a>
         </div>
         <div class="col-sm-12 text-center mt-3 mb-3">
-        <?php if (!$article->has_stock_for_salepoint($salepoint)) : ?>
+        <?php if (!$article->has_stock_for_salepoint($salepoint_id)) : ?>
             <span class="article-out-of-stock"><?= tkt_t("Épuisé") ?></span>
             </br>
         <?php else : ?>
@@ -76,7 +73,7 @@ $salepoint  = current($salepoints);
                     data-cart-url="<?= tkt_cart_url() ?>"
                     data-checkout-url="<?= tkt_checkout_url() ?>"
                     data-article-id="<?= $article->_id() ?>"
-                    data-salepoint-id="<?= $salepoint ?>"
+                    data-salepoint-id="<?= $salepoint_id ?>"
                 >
                     <section class "tkt-section tkt-dark-section buy-section">
                     </section>
@@ -90,7 +87,7 @@ $salepoint  = current($salepoints);
                     data-cart-url="<?= tkt_cart_url() ?>"
                     data-checkout-url="<?= tkt_checkout_url() ?>"
                     data-article-id="<?= $article->_id() ?>"
-                    data-salepoint-id="<?= $salepoint ?>"
+                    data-salepoint-id="<?= $salepoint_id ?>"
                 >
                     <i class="glyphicon glyphicon-plus add-to-cart-indicator"></i>&nbsp;
                     <?= tkt_t("Ajouter au panier") ?>

@@ -66,11 +66,10 @@ class ShopShortcode extends TKTShortcode
             $hide_sorters = true;
         }
 
-        $user       = User::get_current();
-        $salepoints = $user->salepoints();
+        $salepoint_id = TKTApp::get_instance()->get_config('ticketack.salepoint_id');
 
         try {
-            $query = Article::all()->in_pos(implode(',', $salepoints));
+            $query = Article::all()->in_pos($salepoint_id);
 
             if (!empty($category_ids)) {
                 $query = $query->in_category($category_ids);
@@ -83,9 +82,8 @@ class ShopShortcode extends TKTShortcode
             $articles = $query->get('_id,name,short_description,description,category,stock_type,stocks,variants,posters,sort_weight');
 
             if ($only_in_stock) {
-                $salepoint = current($salepoints);
-                $articles  = array_values(array_filter($articles, function ($article) use ($salepoint) {
-                    return $article->has_stock_for_salepoint($salepoint);
+                $articles  = array_values(array_filter($articles, function ($article) use ($salepoint_id) {
+                    return $article->has_stock_for_salepoint($salepoint_id);
                 }));
             }
 

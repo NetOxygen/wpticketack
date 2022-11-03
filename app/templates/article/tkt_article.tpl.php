@@ -26,9 +26,7 @@ try {
 }
 
 
-$user      = User::get_current();
-$salepoint = current($user->salepoints());
-
+$salepoint_id  = TKTApp::get_instance()->get_config('ticketack.salepoint_id');
 $images_width  = TKTApp::get_instance()->get_config('images_dimensions.medium_width');
 $images_height = TKTApp::get_instance()->get_config('images_dimensions.medium_height');
 
@@ -76,7 +74,7 @@ $nb_slides = count($posters);
 
             <?= TKTTemplate::render('buy_article/form', (object)[
                 'article'      => $article,
-                'salepoint_id' => $salepoint
+                'salepoint_id' => $salepoint_id
             ]) ?>
         </section>
 
