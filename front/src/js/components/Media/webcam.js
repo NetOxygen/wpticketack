@@ -62,8 +62,8 @@ export default class Webcam extends Component {
     };
 
     initCamera() {
-        this.video  = $('#video')[0];
-        this.canvas = $('#canvas')[0];
+        this.video  = $('#video', this.$container)[0];
+        this.canvas = $('#canvas', this.$container)[0];
 
         this.startup(this.video, this.canvas, /*streaming*/false);
     };
@@ -134,7 +134,7 @@ export default class Webcam extends Component {
         if (this.width && this.height) {
             canvas.width = this.width;
             canvas.height = this.height;
-            context.drawImage(video, 0, 0, this.width, this.height);
+            context.drawImage(this.video, 0, 0, this.width, this.height);
 
             var data = canvas.toDataURL('image/jpeg');
         } else {

@@ -123,7 +123,7 @@ export default class BuyForm extends Component {
                 let err_msg = i18n.t('Une erreur est survenue. Veuillez ré-essayer ultérieurement.');
                 if (rsp?.flash?.error?.length && rsp.flash.error[0].length)
                     err_msg = rsp.flash.error[0];
-                
+
                 return this.show_error(err_msg);
             }
 
