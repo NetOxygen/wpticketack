@@ -204,7 +204,7 @@ export default class BuyForm extends Component {
 
         // Set not required and hide all fields
         $('.field', this.$container).each(function (i) {
-            $(this).attr('required', false);
+            $(this, this.$container).attr('required', false);
         });
 
         this.$wrappers.hide();
@@ -212,8 +212,8 @@ export default class BuyForm extends Component {
         _.each(this.$wrappers, (w) => {
             // Set required and show requested fields
             let id     = $(w).attr('id').replace('field-wrapper-', '');
-            let $field = $('#' + id);
-            let $label = $('label[for='+id+']');
+            let $field = $('#' + id, this.$container);
+            let $label = $('label[for='+id+']', this.$container);
 
             if (required_fields.includes(id)) {
                 $field.attr('required', true);
