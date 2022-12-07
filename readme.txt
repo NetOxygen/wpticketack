@@ -2,7 +2,7 @@
 Tags: ticketack
 Requires at least: 4.6
 Tested up to: 6.1.0
-Stable tag: 2.46.1
+Stable tag: 2.46.2
 Requires PHP: 5.6
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -34,6 +34,10 @@ This section describes how to install the plugin and get it working.
 == Screenshots ==
 
 == Changelog ==
+
+== 2.46.2 ==
+
+* fix: Display a pass twice and add to cart
 
 == 2.46.1 ==
 
