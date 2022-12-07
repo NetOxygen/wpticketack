@@ -2,6 +2,7 @@ import { EXIF } from 'exif-js';
 
 const FileInputToDataUrl = ($) => {
     var settings = {};
+    var $parent;
 
     $.fn.fileinput_to_dataurl = function(options) {
         if (typeof EXIF !== 'function') {
@@ -20,7 +21,9 @@ const FileInputToDataUrl = ($) => {
         var $file_input = this;
         var $form = $file_input.closest('form');
 
-        if ($('#'+settings.data_url_input).length === 0) {
+        $parent = $(this).parent();
+
+        if ($('#'+settings.data_url_input, $parent).length === 0) {
             $file_input.before('<input type="text" name="'+settings.data_url_input+'" id="'+settings.data_url_input+'" style="opacity: 0; height: 0;" />');
         }
 
@@ -70,7 +73,7 @@ const FileInputToDataUrl = ($) => {
             var should_resize = width > max_width;
 
             if (!should_resize) {
-                $('#'+settings.data_url_input).val(data_url);
+                $('#'+settings.data_url_input, $parent).val(data_url);
                 if (settings.preview_img)
                     settings.preview_img.attr('src', data_url);
 
@@ -117,7 +120,7 @@ const FileInputToDataUrl = ($) => {
                 context.drawImage(image, 0, 0, new_width, new_height);
                 data_url = canvas.toDataURL("image/jpeg");
 
-                $('#'+settings.data_url_input).val(data_url);
+                $('#'+settings.data_url_input, $parent).val(data_url);
                 if (settings.preview_img)
                     settings.preview_img.attr('src', data_url);
 
