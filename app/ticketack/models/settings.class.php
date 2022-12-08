@@ -51,7 +51,7 @@ class Settings extends TKTModel implements \JsonSerializable
         );
 
         $success = file_put_contents($path, $config_string);
-        if ($success) {
+        if ($success && function_exists('opcache_invalidate')) {
             opcache_invalidate($path, /*$force*/true);
         }
 
