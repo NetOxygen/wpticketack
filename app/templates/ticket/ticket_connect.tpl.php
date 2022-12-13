@@ -21,6 +21,15 @@ use Ticketack\WP\TKTApp;
  */
 ?>
 <script type="text/template" id="tkt-ticket-connect-tpl">
+<% if (ticket) { %>
+<?= TKTTEmplate::render('ticket/ticket_header') ?>
+<%= console.log("------------->", ticket.name) %>
+<% } %>
+
+
+
+
+
     <!-- Message for deprecated shortcode [tkt_usr_connect]. -->
     <?php if ($data->deprecated) : ?>
         <% console.error('WARNING :The shorcode [tkt_user_connect] is deprecated, and will be deleted.') %>
