@@ -1,16 +1,13 @@
 import { EXIF } from 'exif-js';
 
 const FileInputToDataUrl = ($) => {
-    var settings = {};
-    var $parent;
-
     $.fn.fileinput_to_dataurl = function(options) {
         if (typeof EXIF !== 'function') {
             //exif-js is required in order to fix orientation on iOS
             throw new Error('EXIF (exif-js) is not defined.');
         }
 
-        settings = $.extend({
+        var settings = $.extend({
             max_width: 100,
             data_url_input: null,
             reset_on_submit: true,
@@ -21,12 +18,6 @@ const FileInputToDataUrl = ($) => {
         var $file_input = this;
         var $form = $file_input.closest('form');
 
-        $parent = $(this).parent();
-
-        if ($('#'+settings.data_url_input, $parent).length === 0) {
-            $file_input.before('<input type="text" name="'+settings.data_url_input+'" id="'+settings.data_url_input+'" style="opacity: 0; height: 0;" />');
-        }
-
         $form.on('submit', function(e) {
             //e.preventDefault();
             if (settings.reset_on_submit)
@@ -34,33 +25,33 @@ const FileInputToDataUrl = ($) => {
             //this.submit();
         });
 
-        process($file_input);
+        process($file_input, settings);
     };
 
-    function process($file_input) {
+    function process($file_input, settings) {
         if (window.File && window.FileReader && window.FormData) {
             $file_input.on('change', function(e) {
                 var file = e.target.files[0];
 
                 if (file && /^image\//i.test(file.type)) {
-                    read_photo(file);
+                    read_photo(file, settings);
                 }
             });
         }
     };
 
-    function read_photo(photo)
+    function read_photo(photo, settings)
     {
         var reader = new FileReader();
 
         reader.onloadend = function () {
-            process_photo(reader.result, photo);
+            process_photo(reader.result, photo, settings);
         }
 
         reader.readAsDataURL(photo);
     };
 
-    function process_photo(data_url, photo)
+    function process_photo(data_url, photo, settings)
     {
         var max_width = settings.max_width;
         var image = new Image();
@@ -73,7 +64,7 @@ const FileInputToDataUrl = ($) => {
             var should_resize = width > max_width;
 
             if (!should_resize) {
-                $('#'+settings.data_url_input, $parent).val(data_url);
+                $(settings.data_url_input).val(data_url);
                 if (settings.preview_img)
                     settings.preview_img.attr('src', data_url);
 
@@ -120,7 +111,7 @@ const FileInputToDataUrl = ($) => {
                 context.drawImage(image, 0, 0, new_width, new_height);
                 data_url = canvas.toDataURL("image/jpeg");
 
-                $('#'+settings.data_url_input, $parent).val(data_url);
+                $(settings.data_url_input).val(data_url);
                 if (settings.preview_img)
                     settings.preview_img.attr('src', data_url);
 
