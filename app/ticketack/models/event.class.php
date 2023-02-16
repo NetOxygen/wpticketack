@@ -72,7 +72,7 @@ class Event extends TKTModel implements \JsonSerializable
         $properties = [
             "_id"        => $movie->_id(),
             "title"      => $movie->title(),
-            "section"    => $movie->sections(),
+            "sections"   => $movie->sections(),
             "created_at" => $movie->created_at(),
             "updated_at" => $movie->updated_at(),
             "opaque"     => $movie->opaque(),
