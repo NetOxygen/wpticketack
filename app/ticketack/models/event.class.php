@@ -13,7 +13,7 @@ class Event extends TKTModel implements \JsonSerializable
     protected $_id        = null;
     protected $title      = null;
     protected $screenings = [];
-    protected $section    = null;
+    protected $sections   = [];
     protected $created_at = null;
     protected $updated_at = null;
     protected $opaque     = null;
@@ -135,9 +135,9 @@ class Event extends TKTModel implements \JsonSerializable
         return $this->screenings;
     }
 
-    public function section()
+    public function sections()
     {
-        return $this->section;
+        return $this->sections;
     }
 
     public function created_at()
@@ -241,9 +241,9 @@ class Event extends TKTModel implements \JsonSerializable
         return !empty($trailers) ? $trailers[0] : null;
     }
 
-    public function has_section()
+    public function has_sections()
     {
-        return is_array($this->section);
+        return is_array($this->sections);
     }
 
     public function has_created_at()
