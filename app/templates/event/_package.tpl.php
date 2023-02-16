@@ -105,11 +105,13 @@ $nb_slides = count($trailers) + count($posters);
           <h3 class="tkt-section-title"><?= tkt_t('Details') ?></h3>
           <div class="row">
 
-            <?php if (!empty($s->opaque('section'))) : ?>
+            <?php if (!empty($s->sections())) : ?>
             <div class="col">
               <span class="tkt-badge tkt-badge-split">
-                <span class="tkt-badge-part tkt-dark-badge"><?= tkt_t('Section') ?></span>
-                <span class="tkt-badge-part tkt-grey-badge"><?= $s->opaque('section')[TKT_LANG] ?></span>
+                <span class="tkt-badge-part tkt-dark-badge"><?= (count($s->sections())>1) ? tkt_t('Sections') : tkt_t('Section') ?></span>
+                <?php foreach ($s->sections() as $section) : ?>
+                    <span class="tkt-badge-part tkt-grey-badge"><?= $section[TKT_LANG] ?></span>
+                <?php endforeach; ?>
               </span>
             </div>
             <?php endif; ?>

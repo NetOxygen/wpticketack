@@ -12,7 +12,7 @@ class Movie extends TKTModel implements \JsonSerializable
 
     protected $_id        = null;
     protected $title      = null;
-    protected $section    = null;
+    protected $sections   = [];
     protected $created_at = null;
     protected $updated_at = null;
     protected $opaque     = null;
@@ -63,9 +63,9 @@ class Movie extends TKTModel implements \JsonSerializable
         return ($original != $localized) ? $original : null;
     }
 
-    public function section()
+    public function sections()
     {
-        return $this->section;
+        return $this->sections;
     }
 
     public function created_at()
@@ -125,9 +125,9 @@ class Movie extends TKTModel implements \JsonSerializable
         return $trailers;
     }
 
-    public function has_section()
+    public function has_sections()
     {
-        return is_array($this->section);
+        return is_array($this->sections);
     }
 
     public function has_created_at()
@@ -152,8 +152,8 @@ class Movie extends TKTModel implements \JsonSerializable
             'title'   => $this->title,
         ];
 
-        if ($this->has_section()) {
-            $ret['section'] = $this->section();
+        if ($this->has_sections()) {
+            $ret['sections'] = $this->sections();
         }
         if ($this->has_created_at()) {
             $ret['created_at'] = tkt_datetime_to_iso8601($this->created_at());

@@ -72,7 +72,7 @@ class Event extends TKTModel implements \JsonSerializable
         $properties = [
             "_id"        => $movie->_id(),
             "title"      => $movie->title(),
-            "section"    => $movie->section(),
+            "section"    => $movie->sections(),
             "created_at" => $movie->created_at(),
             "updated_at" => $movie->updated_at(),
             "opaque"     => $movie->opaque(),
@@ -303,8 +303,8 @@ class Event extends TKTModel implements \JsonSerializable
             'screenings' => $this->screenings
         ];
 
-        if ($this->has_section()) {
-            $ret['section'] = $this->section();
+        if ($this->has_sections()) {
+            $ret['sections'] = $this->sections();
         }
         if ($this->has_created_at()) {
             $ret['created_at'] = tkt_datetime_to_iso8601($this->created_at());
