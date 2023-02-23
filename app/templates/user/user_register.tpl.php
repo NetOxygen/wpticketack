@@ -12,6 +12,7 @@ $app = TKTApp::get_instance();
 $requested_fields  = explode(',', $app->get_config('registration.requested_fields'));
 $required_fields   = explode(',', $app->get_config('registration.required_fields'));
 
+$recaptcha_public_key = TKTApp::get_instance()->get_config("integrations.recaptcha.public_key");
 if (!function_exists('r')) {
     function r($required_fields, $field) {
         return in_array($field, $required_fields) ? 'required' : '';
@@ -23,6 +24,10 @@ if (!function_exists('r')) {
     <div class="row">
       <div class="col">
         <form class="register-form">
+        <?php if (!empty($recaptcha_public_key)) : ?>
+          <!-- Google reCAPTCHA -->
+          <input type="hidden" id="recaptchaResponse" name="recaptcha_client">
+        <?php endif; ?>
           <?php if (!empty($requested_fields)) : ?>
           <fieldset id="registration-fields">
             <div class="row">
@@ -204,3 +209,14 @@ if (!function_exists('r')) {
     </div>
   </section>
 </div>
+<?php if (!empty($recaptcha_public_key)) : ?>
+  <!-- Google reCAPTCHA -->
+  <script src="https://www.google.com/recaptcha/api.js?render=<?= $recaptcha_public_key ?>"></script>
+  <script>
+    grecaptcha.ready(function() {
+        grecaptcha.execute('<?= $recaptcha_public_key ?>', {action: 'register'}).then(function(token) {
+            document.getElementById('recaptchaResponse').value = token
+        });
+    });
+  </script>
+<?php endif; ?>
