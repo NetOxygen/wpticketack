@@ -105,13 +105,11 @@ class TKTApp
         );
 
         $generated_config_path = TKT_APP.'/config.inc.php';
-        if (file_exists($generated_config_path) && !$force_refresh) {
-            return true;
-        }
-
-        // Refresh cached settings
-        if (!Settings::refresh($generated_config_path, $this->config)) {
-            return false;
+        if (!file_exists($generated_config_path) || $force_refresh) {
+            // Refresh cached settings
+            if (!Settings::refresh($generated_config_path, $this->config)) {
+                return false;
+            }
         }
 
         if (file_exists($generated_config_path)) {
