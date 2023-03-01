@@ -373,6 +373,7 @@ export default class BookingForm extends Component {
             const val    = parseInt($input.val());
             if (val > 0) {
                 $input.val(val - 1).trigger('change');
+                this.data.pricings[$input.data('pricing')] = val - 1;
                 const $qty = $t.parent().find('.pricing-qty').eq(0);
                 $qty.text(val - 1);
             }
@@ -387,16 +388,12 @@ export default class BookingForm extends Component {
             const $input = $t.parent().next('.pricing-input').eq(0);
             const val    = parseInt($input.val());
             $input.val(val + 1).trigger('change');
+            this.data.pricings[$input.data('pricing')] = val + 1;
             const $qty = $t.parent().find('.pricing-qty').eq(0);
             $qty.text(val + 1);
             $('.tkt-minus-btn', $t.parent())
                 .removeClass('tkt-grey-badge')
                 .addClass('tkt-dark-badge');
-        });
-        // bind pricing fields
-        $('.pricing-input', this.$container).change((e) => {
-          const $input = $(e.target);
-          this.data.pricings[$input.data('pricing')] = parseInt($input.val());
         });
 
         // bind pass panel toggler
