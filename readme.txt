@@ -2,7 +2,7 @@
 Tags: ticketack
 Requires at least: 4.6
 Tested up to: 6.1.0
-Stable tag: 2.48.0
+Stable tag: 2.49.0
 Requires PHP: 5.6
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -34,6 +34,12 @@ This section describes how to install the plugin and get it working.
 == Screenshots ==
 
 == Changelog ==
+
+== 2.49.0 ==
+
+ * feat: Use cannot_book_explanation in booking form
+ * fix: Translate
+ * fix: Displays the time dynamically according to the language
 
 == 2.48.0 ==
 
