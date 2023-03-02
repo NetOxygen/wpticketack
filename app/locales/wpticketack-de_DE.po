@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-02 14:47+0100\n"
+"POT-Creation-Date: 2023-03-02 16:33+0100\n"
 "PO-Revision-Date: 2022-MO-DA HO:MI+ZONE\n"
 "Last-Translator: lcocquyt <ludovic.cocquyt@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -816,6 +816,12 @@ msgstr ""
 msgid "Bloqué"
 msgstr ""
 
+msgid "directeur"
+msgstr "Regie"
+
+msgid "directeurs"
+msgstr "regies"
+
 msgid "actor"
 msgstr ""
 
@@ -861,11 +867,13 @@ msgstr ""
 msgid "printcontact"
 msgstr ""
 
+#, fuzzy
 msgid "producer"
-msgstr ""
+msgstr "Produkt(e)"
 
+#, fuzzy
 msgid "producers"
-msgstr ""
+msgstr "Produkt(e)"
 
 msgid "photography"
 msgstr ""
@@ -885,8 +893,9 @@ msgstr ""
 msgid "sound"
 msgstr ""
 
+#, fuzzy
 msgid "production design"
-msgstr ""
+msgstr "Produkt(e)"
 
 msgid "Pas de réponse"
 msgstr ""
@@ -1169,3 +1178,11 @@ msgstr ""
 msgid ""
 "Ne modifiez les valeurs ci-dessous que si vous savez ce que vous faites."
 msgstr ""
+
+#, fuzzy
+#~ msgid "réalisation"
+#~ msgstr "Reservationen"
+
+#, fuzzy
+#~ msgid "production"
+#~ msgstr "Produkt(e)"
