@@ -1,5 +1,5 @@
 import { Component } from '../Core';
-import Glide, { Controls, Breakpoints } from '@glidejs/glide/dist/glide.modular.esm'
+import Glide, { Autoplay, Controls, Breakpoints } from '@glidejs/glide/dist/glide.modular.esm'
 import postal from 'postal';
 
 /**
@@ -34,7 +34,7 @@ export default class Carousel extends Component {
     constructor($container, state) {
         super($container, state);
 
-        this.interval   = this.$container.data('interval') || 3000;
+        this.interval   = parseInt(this.$container.data('interval')) || 3000;
         this.format     = parseFloat(this.$container.data('format')) || (16/9);
     }
 
@@ -63,7 +63,9 @@ export default class Carousel extends Component {
     init_carousel() {
         this.convert_bootstrap_markup_to_glide();
 
-        this.glide = new Glide('.glide', { autoplay: true }).mount({ Controls, Breakpoints });
+        this.glide = new Glide('.glide', {
+            autoplay: this.interval > 0 ? this.interval : false
+        }).mount({ Autoplay, Controls, Breakpoints });
 
         this.fix_carousel_height();
         $(window).on('resize', (e) => {
