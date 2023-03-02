@@ -2,7 +2,7 @@
 Tags: ticketack
 Requires at least: 4.6
 Tested up to: 6.1.0
-Stable tag: 2.46.8
+Stable tag: 2.47.0
 Requires PHP: 5.6
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -35,6 +35,11 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+== 2.47.0 ==
+
+ * feat: Consider only current screening on film package page
+ * fix: Setting the language parameter to localize the title
+ * fix: Translate
 == 2.46.8 ==
 
 * fix: Fix osme details on the event page
