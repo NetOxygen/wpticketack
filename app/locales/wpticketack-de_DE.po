@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-02 11:53+0100\n"
+"POT-Creation-Date: 2023-03-02 14:47+0100\n"
 "PO-Revision-Date: 2022-MO-DA HO:MI+ZONE\n"
 "Last-Translator: lcocquyt <ludovic.cocquyt@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -232,6 +232,9 @@ msgstr "Bitte wählen Sie das gewünschte Datum :"
 
 msgid "Veuillez choisir l'heure désirée :"
 msgstr "Bitte wählen Sie die gewünschte Uhrzeit :"
+
+msgid "à"
+msgstr "um"
 
 msgid "Il n'y a pas de billetterie disponible pour cet événement."
 msgstr "Für diese Veranstaltung sind keine Eintrittskarten erhältlich."
