@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-02 11:35+0100\n"
+"POT-Creation-Date: 2023-03-02 11:53+0100\n"
 "PO-Revision-Date: 2022-MO-DA HO:MI+ZONE\n"
 "Last-Translator: lcocquyt <ludovic.cocquyt@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -93,7 +93,7 @@ msgid "Total"
 msgstr "Total"
 
 msgid "Veuillez choisir au moins un produit"
-msgstr ""
+msgstr "Bitte wählen Sie mindestens ein Produkt"
 
 msgid "Accéder au panier"
 msgstr "Zum Warenkorb gehen"
@@ -105,7 +105,8 @@ msgid "Acheter"
 msgstr "Kaufen"
 
 msgid "Votre accréditation/pass ne vous permet pas de visionner ce contenu."
-msgstr "Ihre Akkreditierung/Ihr Pass erlaubt es Ihnen nicht, diesen Inhalt anzusehen."
+msgstr ""
+"Ihre Akkreditierung/Ihr Pass erlaubt es Ihnen nicht, diesen Inhalt anzusehen."
 
 msgid "Vous avez un TicketID ?"
 msgstr "Haben Sie eine TicketID?"
@@ -120,7 +121,8 @@ msgid "Regarder"
 msgstr ""
 
 msgid "Merci, votre commande est réservée dans votre panier pour 30 minutes."
-msgstr "Danke, Ihre Bestellung ist in Ihrem Warenkorb für 30 Minuten reserviert."
+msgstr ""
+"Danke, Ihre Bestellung ist in Ihrem Warenkorb für 30 Minuten reserviert."
 
 msgid "Continuer"
 msgstr "Weiter"
@@ -129,7 +131,9 @@ msgid "ma visite"
 msgstr "mein Besuch"
 
 msgid "Entrez le nombre d'éléments que vous souhaitez ajouter à votre panier :"
-msgstr "Geben Sie die Anzahl der Elemente ein, die Sie Ihrem Warenkorb hinzufügen möchten :"
+msgstr ""
+"Geben Sie die Anzahl der Elemente ein, die Sie Ihrem Warenkorb hinzufügen "
+"möchten :"
 
 msgid "Épuisé"
 msgstr "Ausverkauft"
@@ -243,7 +247,9 @@ msgstr "Vollständig!"
 
 msgid ""
 "Entrez le nombre de place(s) que vous souhaitez ajouter à votre panier :"
-msgstr "Geben Sie die Anzahl der Plätze ein, die Sie in Ihren Warenkorb legen möchten :"
+msgstr ""
+"Geben Sie die Anzahl der Plätze ein, die Sie in Ihren Warenkorb legen "
+"möchten :"
 
 msgid "Connectez-vous"
 msgstr "Melden Sie sich an"
@@ -317,7 +323,7 @@ msgid "Frais"
 msgstr "Kosten"
 
 msgid "Total :"
-msgstr "Total:"
+msgstr "Gesamt:"
 
 msgid "Vous disposez de"
 msgstr "Si haben"
@@ -591,19 +597,19 @@ msgid "Vous avez choisi :"
 msgstr ""
 
 msgid "Précédente"
-msgstr ""
+msgstr "Vorherige"
 
 msgid "Suivante"
-msgstr ""
+msgstr "Weiter"
 
 msgid "Tout"
-msgstr ""
+msgstr "Alle"
 
 msgid "Details"
-msgstr ""
+msgstr "Details"
 
 msgid "Sections"
-msgstr ""
+msgstr "Abschnitt"
 
 msgid "Section"
 msgstr ""
@@ -615,10 +621,10 @@ msgid "Films"
 msgstr ""
 
 msgid "Achetez vos billets"
-msgstr ""
+msgstr "Kaufen Sie Ihre Tickets"
 
 msgid "Durée"
-msgstr ""
+msgstr "Dauer"
 
 msgid "min"
 msgstr ""
@@ -627,10 +633,10 @@ msgid "Langue originale"
 msgstr ""
 
 msgid "Audio"
-msgstr ""
+msgstr "Audio"
 
 msgid "Sous-titre"
-msgstr ""
+msgstr "Untertitel"
 
 msgid "Âge min. lég."
 msgstr ""
@@ -642,13 +648,13 @@ msgid "Âge min. acc."
 msgstr ""
 
 msgid "Distribution"
-msgstr ""
+msgstr "Vertrieb"
 
 msgid "Aucune séance à venir."
-msgstr ""
+msgstr "Keine anstehenden Sitzungen."
 
 msgid "non défini"
-msgstr ""
+msgstr "nicht festgelegt"
 
 #, php-format
 msgid "%d événements ont été importés"
