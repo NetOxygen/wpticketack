@@ -75,7 +75,7 @@ use Ticketack\WP\TKTApp;
                         data-day="<%= day %>"
                         data-screening_id="<%= s._id  %>"
                     >
-                        <%= s.start_at.format("H[h]") + (s.start_at.minutes() > 0 ? s.start_at.format("mm") : "") %>
+                        <%= s.start_at.format("LT") %>
 
                         <% if (s.opaque && s.opaque.version) { %>
                         <%= (' - ' + s.opaque.version) %>
@@ -97,7 +97,7 @@ use Ticketack\WP\TKTApp;
 </div>
 <% } else if (screenings.length == 1) { %>
 <span data-screening_id="<%= screenings[0]._id %>" class="date single-date">
-    <%= screenings[0].start_at.format("dddd D MMMM") %> à <%= screenings[0].start_at.format("H[h]") + (screenings[0].start_at.minutes() > 0 ? screenings[0].start_at.format("mm") : "") %> <%= ' - ' + screenings[0].cinema_hall.name %>
+    <%= screenings[0].start_at.format("dddd D MMMM") %> <?= tkt_t('à') ?> <%= screenings[0].start_at.format("LT") + ' - ' + screenings[0].cinema_hall.name %>
 
 </span>
 <% } else { %>
