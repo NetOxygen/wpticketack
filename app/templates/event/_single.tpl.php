@@ -166,7 +166,7 @@ if (!empty($opaque->countries)) {
           </div>
           <?php endif; ?>
 
-          <?php if (!empty($opaque->countries)) : ?>
+          <?php if (!empty($countries)) : ?>
           <div class="row">
             <div class="col">
               <div class="countries">
@@ -192,7 +192,7 @@ if (!empty($opaque->countries)) {
           </div>
           <?php endif; ?>
 
-          <?php if (!empty($opaque->languages->audio)) : ?>
+          <?php if (!empty($audio)) : ?>
           <div class="row">
             <div class="col">
               <div class="audio">
@@ -205,7 +205,7 @@ if (!empty($opaque->countries)) {
           </div>
           <?php endif; ?>
 
-          <?php if (!empty($opaque->languages->subtitles)) : ?>
+          <?php if (!empty($subtitles)) : ?>
           <div class="row">
             <div class="col">
               <div class="subtitles">
@@ -278,7 +278,7 @@ if (!empty($opaque->countries)) {
             <div class="col">
               <span class="tkt-badge tkt-badge-split">
                 <span class="tkt-badge-part tkt-dark-badge"><?= ucfirst(strtolower(tkt_t($p->activity))) ?></span>
-                <span class="tkt-badge-part tkt-grey-badge"><?= $p->firstname.' '.$p->lastname ?></span>
+                <span class="tkt-badge-part tkt-grey-badge"><?= implode(' ', array_filter([$p->fullname, $p->firstname, $p->lastname])) ?></span>
               </span>
             </div>
           </div>
