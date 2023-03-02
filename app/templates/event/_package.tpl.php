@@ -182,7 +182,7 @@ $nb_slides = count($trailers) + count($posters);
         <?= tkt_t('Achetez vos billets') ?>
       </h3>
       <div class="row" data-component="Program/BookabilityState">
-        <div class="col" data-bookability-ids="<?= implode(',', $ids) ?>">
+        <div class="col" data-bookability-ids="<?= $s->_id() ?>">
           <span class="show-booking-form">
             <div data-component="Media/Loading" data-size-sm class="show-while-loading"></div>
             <span class="show-if-almost-not-bookable assertive d-none"><?= tkt_t('Il ne reste que quelques places !') ?></span>
@@ -191,7 +191,7 @@ $nb_slides = count($trailers) + count($posters);
         </div>
       </div>
 
-      <?= do_shortcode('[tkt_booking_form layout="form" theme="dark" ids="'.implode(',', $ids).'" /]') ?>
+      <?= do_shortcode('[tkt_booking_form layout="form" theme="dark" ids="'.$s->_id().'" /]') ?>
 
     </section>
   </div>
