@@ -2,7 +2,7 @@
 Tags: ticketack
 Requires at least: 4.6
 Tested up to: 6.1.0
-Stable tag: 2.46.7
+Stable tag: 2.46.8
 Requires PHP: 5.6
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -34,6 +34,12 @@ This section describes how to install the plugin and get it working.
 == Screenshots ==
 
 == Changelog ==
+
+== 2.46.8 ==
+
+* fix: Fix osme details on the event page
+* modified templates:
+* - app/templates/event/_single.tpl.php
 
 == 2.46.7 ==
 
