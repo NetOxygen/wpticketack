@@ -65,7 +65,8 @@ export default class BookabilityState extends Component {
                     seats: s.seats,
                     sold_here: (_.keys(s.pricings) || []).length > 0 || (s.eligible_types || []).length > 0,
                     booking_mode: s.opaque?.booking_mode,
-                    booking_note: s.opaque?.booking_note
+                    booking_note: s.opaque?.booking_note,
+                    cannot_book_explanation: s.cannot_book_explanation || ''
                 }
 
                 // sometimes we use the Program/BookabilityState component
@@ -88,6 +89,7 @@ export default class BookabilityState extends Component {
                 let booking_note = null;
                 let ids = $(i).attr('data-bookability-ids').split(',');
 
+                let cannot_book_explanation = '';
                 let state = _.max(_.map(ids, (id) => {
                     // FIXME: we consider only the first booking_mode...
                     booking_mode = booking_mode || (map[id] ? map[id]['booking_mode'] : null);
@@ -97,16 +99,22 @@ export default class BookabilityState extends Component {
                             $(i).append(`<div class="booking_note">${booking_note}</div>`);
                     }
 
+                    cannot_book_explanation = map[id].cannot_book_explanation || '';
+
                     let seats     = map[id] ? map[id]['seats'] : 0;
                     let sold_here = map[id] ? map[id]['sold_here'] : false;
                     if (!sold_here)
                         return BookabilityState.STATE_NOT_SOLD_HERE;
-                    if (seats.available == 0)
+                    if (seats.available == 0) {
                         return BookabilityState.STATE_NOT_BOOKABLE;
+                    }
                     if (seats.occupation_percentage >= BookabilityState.MIN_SEATS_OCCUPATION)
                         return BookabilityState.STATE_ALMOST_NOT_BOOKABLE;
                     return BookabilityState.STATE_BOOKABLE;
                 }));
+
+                if (cannot_book_explanation.length)
+                    $('.show-if-not-bookable', $(i)).html(cannot_book_explanation);
 
                 switch (state) {
                     case BookabilityState.STATE_NOT_SOLD_HERE:
