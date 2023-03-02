@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-20 16:32+0200\n"
+"POT-Creation-Date: 2023-03-02 11:35+0100\n"
 "PO-Revision-Date: 2022-MO-DA HO:MI+ZONE\n"
 "Last-Translator: lcocquyt <ludovic.cocquyt@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -72,7 +72,7 @@ msgid "2 descentes"
 msgstr ""
 
 msgid "Date"
-msgstr ""
+msgstr "Datum"
 
 msgid "Départ"
 msgstr ""
@@ -81,13 +81,13 @@ msgid "Choix des MountainCarts"
 msgstr ""
 
 msgid "Vos informations"
-msgstr ""
+msgstr "Ihre Informationen"
 
 msgid "Tarifs"
 msgstr ""
 
 msgid "Sélectionnez votre contenance et votre quantité :"
-msgstr ""
+msgstr "Wählen Sie Ihr Fassungsvermögen und Ihre Menge :"
 
 msgid "Total"
 msgstr "Total"
@@ -96,16 +96,16 @@ msgid "Veuillez choisir au moins un produit"
 msgstr ""
 
 msgid "Accéder au panier"
-msgstr ""
+msgstr "Zum Warenkorb gehen"
 
 msgid "Ajouter au panier"
-msgstr ""
+msgstr "Zum Warenkorb hinzufügen"
 
 msgid "Acheter"
-msgstr ""
+msgstr "Kaufen"
 
 msgid "Votre accréditation/pass ne vous permet pas de visionner ce contenu."
-msgstr ""
+msgstr "Ihre Akkreditierung/Ihr Pass erlaubt es Ihnen nicht, diesen Inhalt anzusehen."
 
 msgid "Vous avez un TicketID ?"
 msgstr "Haben Sie eine TicketID?"
@@ -120,22 +120,22 @@ msgid "Regarder"
 msgstr ""
 
 msgid "Merci, votre commande est réservée dans votre panier pour 30 minutes."
-msgstr ""
+msgstr "Danke, Ihre Bestellung ist in Ihrem Warenkorb für 30 Minuten reserviert."
 
 msgid "Continuer"
-msgstr ""
+msgstr "Weiter"
 
 msgid "ma visite"
-msgstr ""
+msgstr "mein Besuch"
 
 msgid "Entrez le nombre d'éléments que vous souhaitez ajouter à votre panier :"
-msgstr ""
+msgstr "Geben Sie die Anzahl der Elemente ein, die Sie Ihrem Warenkorb hinzufügen möchten :"
 
 msgid "Épuisé"
-msgstr ""
+msgstr "Ausverkauft"
 
 msgid "Ajouter à mon panier"
-msgstr ""
+msgstr "Zu meinem Warenkorb hinzufügen"
 
 msgid "Titulaire"
 msgstr "Inhaber"
@@ -203,16 +203,16 @@ msgid "Choisir une image"
 msgstr "Wählen Sie ein Passwort"
 
 msgid "Stopper la vidéo"
-msgstr ""
+msgstr "Das Video anhalten"
 
 msgid "Prendre une photo depuis la caméra"
-msgstr ""
+msgstr "Ein Foto von der Kamera aufnehmen"
 
 msgid "Vidéo non supportée"
-msgstr ""
+msgstr "Nicht unterstütztes Video"
 
 msgid "Prendre une photo"
-msgstr ""
+msgstr "Ein Foto aufnehmen"
 
 msgid "Ceci est un cadeau"
 msgstr "Dies ist ein Geschenk"
@@ -221,13 +221,13 @@ msgid "Tous ces champs sont requis"
 msgstr "Alle diese Felder sind erforderlich"
 
 msgid "Tarifs :"
-msgstr ""
+msgstr "Preise"
 
 msgid "Veuillez choisir la date désirée :"
-msgstr ""
+msgstr "Bitte wählen Sie das gewünschte Datum :"
 
 msgid "Veuillez choisir l'heure désirée :"
-msgstr ""
+msgstr "Bitte wählen Sie die gewünschte Uhrzeit :"
 
 msgid "Il n'y a pas de billetterie disponible pour cet événement."
 msgstr "Für diese Veranstaltung sind keine Eintrittskarten erhältlich."
@@ -243,7 +243,7 @@ msgstr "Vollständig!"
 
 msgid ""
 "Entrez le nombre de place(s) que vous souhaitez ajouter à votre panier :"
-msgstr ""
+msgstr "Geben Sie die Anzahl der Plätze ein, die Sie in Ihren Warenkorb legen möchten :"
 
 msgid "Connectez-vous"
 msgstr "Melden Sie sich an"
@@ -602,6 +602,9 @@ msgstr ""
 msgid "Details"
 msgstr ""
 
+msgid "Sections"
+msgstr ""
+
 msgid "Section"
 msgstr ""
 
@@ -888,6 +891,10 @@ msgstr ""
 msgid "Autre"
 msgstr ""
 
+msgid ""
+"Veuillez choisir un point de vente dans les réglages du module Ticketack"
+msgstr ""
+
 #, php-format
 msgid "%d articles ont été importés"
 msgstr ""
@@ -1055,12 +1062,6 @@ msgstr ""
 msgid "URL des mesures sanitaires"
 msgstr ""
 
-msgid "Informations optionnelles à saisir"
-msgstr ""
-
-msgid "Informations obligatoires à saisir"
-msgstr ""
-
 msgid "Autoriser les réservations"
 msgstr ""
 
@@ -1068,6 +1069,12 @@ msgid "Autoriser les achats"
 msgstr ""
 
 msgid "Autoriser l'enregistrement des utilisateurs"
+msgstr ""
+
+msgid "Informations optionnelles à saisir"
+msgstr ""
+
+msgid "Informations obligatoires à saisir"
 msgstr ""
 
 msgid "Dimensions des images"
@@ -1089,9 +1096,6 @@ msgid "Serveur proxy d'images"
 msgstr ""
 
 msgid "Serveur proxy"
-msgstr ""
-
-msgid "Champs à saisir pour chaque type d'abonnement"
 msgstr ""
 
 msgid "Langue par défaut"
@@ -1140,9 +1144,6 @@ msgid "Dimensions des grandes et moyennes images (en px)."
 msgstr ""
 
 msgid "Configuration du serveur proxy d'images."
-msgstr ""
-
-msgid "Configuration de la vente d'abonnements."
 msgstr ""
 
 msgid "Configuration des langues."
