@@ -651,10 +651,12 @@ function tkt_event_data_attributes($event, $attributes)
         $values[] = 'data-tags="'.implode(',', $tags).'"';
     }
 
-    if (in_array('section', $attributes)) {
+    if (in_array('sections', $attributes)) {
         $sections = [];
         foreach ($event->screenings() as $s) {
-            $sections[] = $s->opaque('section', [])[tkt_default_lang()];
+            foreach ($s->sections() as $section) {
+                $sections[] = $section->name[tkt_default_lang()];
+            }
         }
         $values[] = 'data-section="'.implode(',', $sections).'"';
     }
@@ -684,8 +686,14 @@ function tkt_screening_data_attributes($screening, $attributes)
         $values[] = 'data-hall="'.$screening->place()->name().'"';
     }
 
-    if (in_array('section', $attributes)) {
-        $values[] = 'data-section="'.$screening->opaque('section', [])[tkt_default_lang()].'"';
+    if (in_array('sections', $attributes)) {
+        $sections = [];
+        foreach ($event->screenings() as $s) {
+            foreach ($s->sections() as $section) {
+                $sections[] = $section->name[tkt_default_lang()];
+            }
+        }
+        $values[] = 'data-section="'.implode(',', $sections).'"';
     }
 
     if (in_array('tags', $attributes)) {

@@ -105,11 +105,13 @@ $nb_slides = count($trailers) + count($posters);
           <h3 class="tkt-section-title"><?= tkt_t('Details') ?></h3>
           <div class="row">
 
-            <?php if (!empty($s->opaque('section'))) : ?>
+            <?php if (!empty($s->sections())) : ?>
             <div class="col">
               <span class="tkt-badge tkt-badge-split">
-                <span class="tkt-badge-part tkt-dark-badge"><?= tkt_t('Section') ?></span>
-                <span class="tkt-badge-part tkt-grey-badge"><?= $s->opaque('section')[TKT_LANG] ?></span>
+                <span class="tkt-badge-part tkt-dark-badge"><?= (count($s->sections())>1) ? tkt_t('Sections') : tkt_t('Section') ?></span>
+                <?php foreach ($s->sections() as $section) : ?>
+                    <span class="tkt-badge-part tkt-grey-badge"><?= $section->name[TKT_LANG] ?></span>
+                <?php endforeach; ?>
               </span>
             </div>
             <?php endif; ?>
@@ -179,17 +181,8 @@ $nb_slides = count($trailers) + count($posters);
       <h3 class="tkt-section-title">
         <?= tkt_t('Achetez vos billets') ?>
       </h3>
-      <div class="row" data-component="Program/BookabilityState">
-        <div class="col" data-bookability-ids="<?= implode(',', $ids) ?>">
-          <span class="show-booking-form">
-            <div data-component="Media/Loading" data-size-sm class="show-while-loading"></div>
-            <span class="show-if-almost-not-bookable assertive d-none"><?= tkt_t('Il ne reste que quelques places !') ?></span>
-            <span class="show-if-not-bookable assertive d-none"><?= tkt_t('Complet !') ?></span>
-          </span>
-        </div>
-      </div>
 
-      <?= do_shortcode('[tkt_booking_form layout="form" theme="dark" ids="'.implode(',', $ids).'" /]') ?>
+      <?= do_shortcode('[tkt_booking_form layout="form" theme="dark" ids="'.$s->_id().'" /]') ?>
 
     </section>
   </div>

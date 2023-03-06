@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-20 16:34+0200\n"
+"POT-Creation-Date: 2023-03-02 16:18+0100\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
 "Last-Translator: lcocquyt <ludovic.cocquyt@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -239,6 +239,9 @@ msgstr "Please choose a date"
 msgid "Veuillez choisir l'heure désirée :"
 msgstr "Please choose a time"
 
+msgid "à"
+msgstr ""
+
 msgid "Il n'y a pas de billetterie disponible pour cet événement."
 msgstr ""
 
@@ -288,6 +291,50 @@ msgstr ""
 "The documentation is available on <a target=\"_blank\" href=\"https://"
 "ticketack.com/en/knowledge-base/integration-avec-le-module-wordpress/\">this "
 "page</a>"
+
+msgid "acteurs"
+msgstr ""
+
+msgid "caméra"
+msgstr ""
+
+#, fuzzy
+msgid "réalisation"
+msgstr "Reservation"
+
+msgid "montage"
+msgstr ""
+
+msgid "photographie"
+msgstr ""
+
+msgid "musique"
+msgstr ""
+
+msgid "contactcopie"
+msgstr ""
+
+#, fuzzy
+msgid "production"
+msgstr "product(s)"
+
+msgid "scénario"
+msgstr ""
+
+msgid "son"
+msgstr ""
+
+msgid "propriétaired'impression"
+msgstr ""
+
+msgid "contactfestival"
+msgstr ""
+
+msgid "aveclaparticipationde"
+msgstr ""
+
+msgid "modérateur·trice"
+msgstr ""
 
 msgid "Retour au programme"
 msgstr ""
@@ -608,6 +655,10 @@ msgstr "All"
 msgid "Details"
 msgstr "Details"
 
+#, fuzzy
+msgid "Sections"
+msgstr "Section"
+
 msgid "Section"
 msgstr "Section"
 
@@ -896,6 +947,10 @@ msgstr "Male"
 msgid "Autre"
 msgstr "Other"
 
+msgid ""
+"Veuillez choisir un point de vente dans les réglages du module Ticketack"
+msgstr ""
+
 #, php-format
 msgid "%d articles ont été importés"
 msgstr ""
@@ -1067,12 +1122,6 @@ msgstr "URL of the data protection conditions"
 msgid "URL des mesures sanitaires"
 msgstr ""
 
-msgid "Informations optionnelles à saisir"
-msgstr "Optional informations to be entered"
-
-msgid "Informations obligatoires à saisir"
-msgstr "Mandatory informations to be entered"
-
 msgid "Autoriser les réservations"
 msgstr "Allow bookings"
 
@@ -1081,6 +1130,12 @@ msgstr "Allow purchases"
 
 msgid "Autoriser l'enregistrement des utilisateurs"
 msgstr "Allow users registration"
+
+msgid "Informations optionnelles à saisir"
+msgstr "Optional informations to be entered"
+
+msgid "Informations obligatoires à saisir"
+msgstr "Mandatory informations to be entered"
 
 msgid "Dimensions des images"
 msgstr "Images dimensions"
@@ -1102,9 +1157,6 @@ msgstr "Images proxy server"
 
 msgid "Serveur proxy"
 msgstr "Proxy server"
-
-msgid "Champs à saisir pour chaque type d'abonnement"
-msgstr "Mandatory fields for each pass type"
 
 msgid "Langue par défaut"
 msgstr "Default language"
@@ -1155,9 +1207,6 @@ msgstr "Big and medium images dimensions (in px)."
 msgid "Configuration du serveur proxy d'images."
 msgstr "Images proxy server configuration"
 
-msgid "Configuration de la vente d'abonnements."
-msgstr "Pass sale configuration."
-
 msgid "Configuration des langues."
 msgstr "Languages configuration"
 
@@ -1174,3 +1223,9 @@ msgstr ""
 msgid ""
 "Ne modifiez les valeurs ci-dessous que si vous savez ce que vous faites."
 msgstr "Change these settings only if you know what you are doing."
+
+#~ msgid "Champs à saisir pour chaque type d'abonnement"
+#~ msgstr "Mandatory fields for each pass type"
+
+#~ msgid "Configuration de la vente d'abonnements."
+#~ msgstr "Pass sale configuration."

@@ -26,6 +26,7 @@ class Screening extends TKTModel implements \JsonSerializable
 
     protected $_id         = null;
     protected $title       = null;
+    protected $sections    = [];
     protected $description = null;
     protected $movies      = [];
     protected $note        = null;
@@ -349,6 +350,11 @@ class Screening extends TKTModel implements \JsonSerializable
         return ($original != $localized) ? $original : null;
     }
 
+    public function sections()
+    {
+        return $this->sections;
+    }
+
     public function description($lang = null)
     {
         if (is_null($lang)) {
@@ -468,6 +474,11 @@ class Screening extends TKTModel implements \JsonSerializable
         return $this->opaque;
     }
 
+    public function has_sections()
+    {
+        return is_array($this->sections);
+    }
+
     public function has_description()
     {
         return is_array($this->description);
@@ -511,6 +522,9 @@ class Screening extends TKTModel implements \JsonSerializable
             'refs'        => $this->refs(),
         ];
 
+        if ($this->has_sections()) {
+            $ret['sections'] = $this->sections();
+        }
         if ($this->has_description()) {
             $ret['description'] = $this->description;
         }

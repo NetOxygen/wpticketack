@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-20 16:32+0200\n"
+"POT-Creation-Date: 2023-03-02 16:33+0100\n"
 "PO-Revision-Date: 2022-MO-DA HO:MI+ZONE\n"
 "Last-Translator: lcocquyt <ludovic.cocquyt@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -72,7 +72,7 @@ msgid "2 descentes"
 msgstr ""
 
 msgid "Date"
-msgstr ""
+msgstr "Datum"
 
 msgid "Départ"
 msgstr ""
@@ -81,31 +81,32 @@ msgid "Choix des MountainCarts"
 msgstr ""
 
 msgid "Vos informations"
-msgstr ""
+msgstr "Ihre Informationen"
 
 msgid "Tarifs"
 msgstr ""
 
 msgid "Sélectionnez votre contenance et votre quantité :"
-msgstr ""
+msgstr "Wählen Sie Ihr Fassungsvermögen und Ihre Menge :"
 
 msgid "Total"
 msgstr "Total"
 
 msgid "Veuillez choisir au moins un produit"
-msgstr ""
+msgstr "Bitte wählen Sie mindestens ein Produkt"
 
 msgid "Accéder au panier"
-msgstr ""
+msgstr "Zum Warenkorb gehen"
 
 msgid "Ajouter au panier"
-msgstr ""
+msgstr "Zum Warenkorb hinzufügen"
 
 msgid "Acheter"
-msgstr ""
+msgstr "Kaufen"
 
 msgid "Votre accréditation/pass ne vous permet pas de visionner ce contenu."
 msgstr ""
+"Ihre Akkreditierung/Ihr Pass erlaubt es Ihnen nicht, diesen Inhalt anzusehen."
 
 msgid "Vous avez un TicketID ?"
 msgstr "Haben Sie eine TicketID?"
@@ -121,21 +122,24 @@ msgstr ""
 
 msgid "Merci, votre commande est réservée dans votre panier pour 30 minutes."
 msgstr ""
+"Danke, Ihre Bestellung ist in Ihrem Warenkorb für 30 Minuten reserviert."
 
 msgid "Continuer"
-msgstr ""
+msgstr "Weiter"
 
 msgid "ma visite"
-msgstr ""
+msgstr "mein Besuch"
 
 msgid "Entrez le nombre d'éléments que vous souhaitez ajouter à votre panier :"
 msgstr ""
+"Geben Sie die Anzahl der Elemente ein, die Sie Ihrem Warenkorb hinzufügen "
+"möchten :"
 
 msgid "Épuisé"
-msgstr ""
+msgstr "Ausverkauft"
 
 msgid "Ajouter à mon panier"
-msgstr ""
+msgstr "Zu meinem Warenkorb hinzufügen"
 
 msgid "Titulaire"
 msgstr "Inhaber"
@@ -203,16 +207,16 @@ msgid "Choisir une image"
 msgstr "Wählen Sie ein Passwort"
 
 msgid "Stopper la vidéo"
-msgstr ""
+msgstr "Das Video anhalten"
 
 msgid "Prendre une photo depuis la caméra"
-msgstr ""
+msgstr "Ein Foto von der Kamera aufnehmen"
 
 msgid "Vidéo non supportée"
-msgstr ""
+msgstr "Nicht unterstütztes Video"
 
 msgid "Prendre une photo"
-msgstr ""
+msgstr "Ein Foto aufnehmen"
 
 msgid "Ceci est un cadeau"
 msgstr "Dies ist ein Geschenk"
@@ -221,13 +225,16 @@ msgid "Tous ces champs sont requis"
 msgstr "Alle diese Felder sind erforderlich"
 
 msgid "Tarifs :"
-msgstr ""
+msgstr "Preise"
 
 msgid "Veuillez choisir la date désirée :"
-msgstr ""
+msgstr "Bitte wählen Sie das gewünschte Datum :"
 
 msgid "Veuillez choisir l'heure désirée :"
-msgstr ""
+msgstr "Bitte wählen Sie die gewünschte Uhrzeit :"
+
+msgid "à"
+msgstr "um"
 
 msgid "Il n'y a pas de billetterie disponible pour cet événement."
 msgstr "Für diese Veranstaltung sind keine Eintrittskarten erhältlich."
@@ -244,6 +251,8 @@ msgstr "Vollständig!"
 msgid ""
 "Entrez le nombre de place(s) que vous souhaitez ajouter à votre panier :"
 msgstr ""
+"Geben Sie die Anzahl der Plätze ein, die Sie in Ihren Warenkorb legen "
+"möchten :"
 
 msgid "Connectez-vous"
 msgstr "Melden Sie sich an"
@@ -317,7 +326,7 @@ msgid "Frais"
 msgstr "Kosten"
 
 msgid "Total :"
-msgstr "Total:"
+msgstr "Gesamt:"
 
 msgid "Vous disposez de"
 msgstr "Si haben"
@@ -591,16 +600,19 @@ msgid "Vous avez choisi :"
 msgstr ""
 
 msgid "Précédente"
-msgstr ""
+msgstr "Vorherige"
 
 msgid "Suivante"
-msgstr ""
+msgstr "Weiter"
 
 msgid "Tout"
-msgstr ""
+msgstr "Alle"
 
 msgid "Details"
-msgstr ""
+msgstr "Details"
+
+msgid "Sections"
+msgstr "Abschnitt"
 
 msgid "Section"
 msgstr ""
@@ -612,10 +624,10 @@ msgid "Films"
 msgstr ""
 
 msgid "Achetez vos billets"
-msgstr ""
+msgstr "Kaufen Sie Ihre Tickets"
 
 msgid "Durée"
-msgstr ""
+msgstr "Dauer"
 
 msgid "min"
 msgstr ""
@@ -624,10 +636,10 @@ msgid "Langue originale"
 msgstr ""
 
 msgid "Audio"
-msgstr ""
+msgstr "Audio"
 
 msgid "Sous-titre"
-msgstr ""
+msgstr "Untertitel"
 
 msgid "Âge min. lég."
 msgstr ""
@@ -639,13 +651,13 @@ msgid "Âge min. acc."
 msgstr ""
 
 msgid "Distribution"
-msgstr ""
+msgstr "Vertrieb"
 
 msgid "Aucune séance à venir."
-msgstr ""
+msgstr "Keine anstehenden Sitzungen."
 
 msgid "non défini"
-msgstr ""
+msgstr "nicht festgelegt"
 
 #, php-format
 msgid "%d événements ont été importés"
@@ -804,6 +816,12 @@ msgstr ""
 msgid "Bloqué"
 msgstr ""
 
+msgid "directeur"
+msgstr "Regie"
+
+msgid "directeurs"
+msgstr "regies"
+
 msgid "actor"
 msgstr ""
 
@@ -849,11 +867,13 @@ msgstr ""
 msgid "printcontact"
 msgstr ""
 
+#, fuzzy
 msgid "producer"
-msgstr ""
+msgstr "Produkt(e)"
 
+#, fuzzy
 msgid "producers"
-msgstr ""
+msgstr "Produkt(e)"
 
 msgid "photography"
 msgstr ""
@@ -873,8 +893,9 @@ msgstr ""
 msgid "sound"
 msgstr ""
 
+#, fuzzy
 msgid "production design"
-msgstr ""
+msgstr "Produkt(e)"
 
 msgid "Pas de réponse"
 msgstr ""
@@ -886,6 +907,10 @@ msgid "Masculin"
 msgstr ""
 
 msgid "Autre"
+msgstr ""
+
+msgid ""
+"Veuillez choisir un point de vente dans les réglages du module Ticketack"
 msgstr ""
 
 #, php-format
@@ -1055,12 +1080,6 @@ msgstr ""
 msgid "URL des mesures sanitaires"
 msgstr ""
 
-msgid "Informations optionnelles à saisir"
-msgstr ""
-
-msgid "Informations obligatoires à saisir"
-msgstr ""
-
 msgid "Autoriser les réservations"
 msgstr ""
 
@@ -1068,6 +1087,12 @@ msgid "Autoriser les achats"
 msgstr ""
 
 msgid "Autoriser l'enregistrement des utilisateurs"
+msgstr ""
+
+msgid "Informations optionnelles à saisir"
+msgstr ""
+
+msgid "Informations obligatoires à saisir"
 msgstr ""
 
 msgid "Dimensions des images"
@@ -1089,9 +1114,6 @@ msgid "Serveur proxy d'images"
 msgstr ""
 
 msgid "Serveur proxy"
-msgstr ""
-
-msgid "Champs à saisir pour chaque type d'abonnement"
 msgstr ""
 
 msgid "Langue par défaut"
@@ -1142,9 +1164,6 @@ msgstr ""
 msgid "Configuration du serveur proxy d'images."
 msgstr ""
 
-msgid "Configuration de la vente d'abonnements."
-msgstr ""
-
 msgid "Configuration des langues."
 msgstr ""
 
@@ -1159,3 +1178,11 @@ msgstr ""
 msgid ""
 "Ne modifiez les valeurs ci-dessous que si vous savez ce que vous faites."
 msgstr ""
+
+#, fuzzy
+#~ msgid "réalisation"
+#~ msgstr "Reservationen"
+
+#, fuzzy
+#~ msgid "production"
+#~ msgstr "Produkt(e)"

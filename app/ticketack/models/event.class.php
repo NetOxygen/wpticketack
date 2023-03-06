@@ -13,7 +13,7 @@ class Event extends TKTModel implements \JsonSerializable
     protected $_id        = null;
     protected $title      = null;
     protected $screenings = [];
-    protected $section    = null;
+    protected $sections   = [];
     protected $created_at = null;
     protected $updated_at = null;
     protected $opaque     = null;
@@ -72,7 +72,7 @@ class Event extends TKTModel implements \JsonSerializable
         $properties = [
             "_id"        => $movie->_id(),
             "title"      => $movie->title(),
-            "section"    => $movie->section(),
+            "sections"   => $movie->sections(),
             "created_at" => $movie->created_at(),
             "updated_at" => $movie->updated_at(),
             "opaque"     => $movie->opaque(),
@@ -135,9 +135,9 @@ class Event extends TKTModel implements \JsonSerializable
         return $this->screenings;
     }
 
-    public function section()
+    public function sections()
     {
-        return $this->section;
+        return $this->sections;
     }
 
     public function created_at()
@@ -241,9 +241,9 @@ class Event extends TKTModel implements \JsonSerializable
         return !empty($trailers) ? $trailers[0] : null;
     }
 
-    public function has_section()
+    public function has_sections()
     {
-        return is_array($this->section);
+        return is_array($this->sections);
     }
 
     public function has_created_at()
@@ -303,8 +303,8 @@ class Event extends TKTModel implements \JsonSerializable
             'screenings' => $this->screenings
         ];
 
-        if ($this->has_section()) {
-            $ret['section'] = $this->section();
+        if ($this->has_sections()) {
+            $ret['sections'] = $this->sections();
         }
         if ($this->has_created_at()) {
             $ret['created_at'] = tkt_datetime_to_iso8601($this->created_at());

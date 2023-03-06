@@ -97,10 +97,11 @@ class ProgramShortcode extends TKTShortcode
                 'stop_at',
                 'cinema_hall.name',
                 'cinema_hall._id',
+                'sections',
                 'films._id',
                 'films.title',
                 'films.section',
-                'films.opaque.sections',
+                'films.sections',
                 'films.opaque.free_text_1',
                 'films.opaque.free_text_2',
                 'films.opaque.free_text_3',
@@ -142,9 +143,9 @@ class ProgramShortcode extends TKTShortcode
                         $screenings = array_filter($screenings, function ($s) use ($xsection_ids) {
                             $movies = $s->movies();
                             foreach ($movies as $m) {
-                                $sections = $m->opaque('sections');
+                                $sections = $m->sections();
                                 foreach ($sections as $sec) {
-                                    if (in_array($sec['id'], $xsection_ids)) {
+                                    if (in_array($sec['_id'], $xsection_ids)) {
                                         return false;
                                     }
                                 }
@@ -213,9 +214,9 @@ class ProgramShortcode extends TKTShortcode
 
                     if (!empty($section_ids)) {
                         $events = array_filter($events, function ($e) use ($section_ids) {
-                            $sections = $e->opaque('sections');
+                            $sections = $e->sections();
                             foreach ($sections as $sec) {
-                                if (in_array($sec['id'], $section_ids)) {
+                                if (in_array($sec['_id'], $section_ids)) {
                                     return true;
                                 }
                             }
@@ -224,9 +225,9 @@ class ProgramShortcode extends TKTShortcode
                     }
                     if (!empty($xsection_ids)) {
                         $events = array_filter($events, function ($e) use ($xsection_ids) {
-                            $sections = $e->opaque('sections');
+                            $sections = $e->sections();
                             foreach ($sections as $sec) {
-                                if (in_array($sec['id'], $xsection_ids)) {
+                                if (in_array($sec['_id'], $xsection_ids)) {
                                     return false;
                                 }
                             }

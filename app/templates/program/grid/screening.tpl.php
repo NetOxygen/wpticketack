@@ -48,7 +48,7 @@ $image_url     = tkt_img_proxy_url($s->first_poster()->url, $images_width, $imag
         <div class="col">
           <span class="title">
             <a href="<?= tkt_event_book_url($m, $s) ?>">
-              <?= $s->localized_title_or_original('fr') ?>
+              <?= $s->localized_title_or_original(TKT_LANG) ?>
             </a>
           </span>
         </div>

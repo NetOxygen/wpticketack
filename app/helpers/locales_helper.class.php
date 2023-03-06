@@ -76,7 +76,9 @@ class LocalesHelper
             'ACTIVATED'                                                                    => tkt_t('Activé'),
             'NEW'                                                                          => tkt_t('Inactif'),
             'PENDING'                                                                      => tkt_t('En attente de paiement'),
-            'BLOCKED'                                                                      => tkt_t('Bloqué')
+            'BLOCKED'                                                                      => tkt_t('Bloqué'),
+            'Director'                                                                     => tkt_t('directeur'),
+            'Directors'                                                                    => tkt_t('directeurs')
         ];
     }
 

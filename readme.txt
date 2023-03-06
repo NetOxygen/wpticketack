@@ -2,7 +2,7 @@
 Tags: ticketack
 Requires at least: 4.6
 Tested up to: 6.1.0
-Stable tag: 2.46.4
+Stable tag: 2.49.2
 Requires PHP: 5.6
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -34,6 +34,51 @@ This section describes how to install the plugin and get it working.
 == Screenshots ==
 
 == Changelog ==
+
+== 2.49.2 ==
+
+   * fix: Translate
+
+== 2.49.1 ==
+
+   * fix: Translate
+
+== 2.49.0 ==
+
+ * feat: Use cannot_book_explanation in booking form
+ * fix: Translate
+ * fix: Displays the time dynamically according to the language
+
+== 2.48.0 ==
+
+ * feat: Autoplay event posters slider
+ * fix: Translate
+ * feat: Remove duplicated availability message
+ * - app/templates/event/_package.tpl.php
+
+== 2.47.0 ==
+
+ * feat: Consider only current screening on film package page
+ * fix: Setting the language parameter to localize the title
+ * fix: Translate
+
+== 2.46.8 ==
+
+* fix: Fix osme details on the event page
+* modified templates:
+* - app/templates/event/_single.tpl.php
+
+== 2.46.7 ==
+
+* fix: Fix a bug in the bookings form
+
+== 2.46.6 ==
+
+* fix: account for new sections structure
+
+== 2.46.5 ==
+
+* fix: Fix fileinput_to_dataurl component
 
 == 2.46.4 ==
 

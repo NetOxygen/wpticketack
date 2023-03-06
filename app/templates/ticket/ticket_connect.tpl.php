@@ -26,11 +26,16 @@ use Ticketack\WP\TKTApp;
         <% console.error('WARNING :The shorcode [tkt_user_connect] is deprecated, and will be deleted.') %>
         <% console.error('WARNING :Please use new shortcode [tkt_ticket_connect][/tkt_ticket_connect] to connect with your TicketID'); %>
     <?php endif; ?>
+    <% 
+        function is_cancelable(t){
+
+            return t;
+        };
+    %>
 
     <div class="tkt-ticket-connect">
     <% if (ticket) { %>
     <!-- Titre -->
-        <% console.log(ticket) %>
         <div class="tkt-ticket-connect">
             <div class="row">
                 <div class="col-md-8 p-0">
@@ -73,6 +78,8 @@ use Ticketack\WP\TKTApp;
                                             <th><?= _('Date') ?></th>
                                             <th><?= _('Réservation') ?></th>
                                             <th><?= _('Lieu') ?></th>
+                                            <th><?= _('Vu') ?></th>
+                                            <th><?= _('Action') ?></th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -82,6 +89,20 @@ use Ticketack\WP\TKTApp;
                                                 <%= t.screening_stop_at.format("HH[h]mm") %></td>
                                             <td><%= t.screening.title.<?= TKT_LANG ?> %></td>
                                             <td><%= t.screening.cinema_hall.name %></td>
+                                            <td>
+                                                <% if (t.scanned_at.length) { %>
+                                                    <?= _('V') ?>
+                                                <% } %>
+                                            </td>
+                                            <td>
+                                                <% if (t.screening_start_at > new Date()) { %>
+                                                    <a class="btn" href="<%= program_url %>">
+                                                        <?= tkt_t("Annuler") ?> </a>
+                                                <% } %>
+                                            </td>
+                                            <%= console.log(is_cancelable(t)) %>
+
+                                            <?= var_dump(TKTApp::get_instance()->get_config('pos.booking_cancelation_policy')) ?>
                                         </tr>
                                         <% }) %>
                                     <tbody>
@@ -89,7 +110,7 @@ use Ticketack\WP\TKTApp;
                             </div>
                             <% } %>
                             <a class="btn button w-100" href="<%= program_url %>">
-                                <-- <?= tkt_t("Réserver des séances") ?> </a>
+                                <?= tkt_t("Réserver des séances") ?> </a>
                         </div>
                     </div>
                     <br />

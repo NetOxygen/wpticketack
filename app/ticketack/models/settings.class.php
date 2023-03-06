@@ -19,16 +19,17 @@ class Settings extends TKTModel implements \JsonSerializable
     protected $updated_at = null;
     protected $_version   = null;
 
-    protected $pos         = [];
-    protected $eshop       = [];
-    protected $mobile      = [];
-    protected $payment     = [];
-    protected $delivery    = [];
-    protected $customer    = [];
-    protected $images      = [];
-    protected $l10n        = [];
-    protected $maccsbox    = [];
-    protected $pdf         = [];
+    protected $pos          = [];
+    protected $eshop        = [];
+    protected $mobile       = [];
+    protected $payment      = [];
+    protected $delivery     = [];
+    protected $customer     = [];
+    protected $images       = [];
+    protected $l10n         = [];
+    protected $maccsbox     = [];
+    protected $pdf          = [];
+    protected $integrations = [];
 
     /**
      * Get a fresh version of the settings, merge them with
@@ -55,7 +56,7 @@ class Settings extends TKTModel implements \JsonSerializable
             opcache_invalidate($path, /*$force*/true);
         }
 
-        return $success;
+        return !!$success;
     }
 
     /**
@@ -134,20 +135,21 @@ class Settings extends TKTModel implements \JsonSerializable
     public function jsonSerialize()
     {
         $ret = [
-            '_id'         => $this->_id(),
-            'created_at'  => $this->created_at(),
-            'updated_at'  => $this->updated_at(),
-            '_version'    => $this->_version(),
-            'pos'         => (object)$this->pos,
-            'eshop'       => (object)$this->eshop,
-            'mobile'      => (object)$this->mobile,
-            'customer'    => (object)$this->customer,
-            'images'      => (array)$this->images,
-            'payment'     => (object)$this->payment,
-            'delivery'    => (object)$this->delivery,
-            'l10n'        => (object)$this->l10n,
-            'maccsbox'    => (object)$this->maccsbox,
-            'pdf'         => (object)$this->pdf,
+            '_id'          => $this->_id(),
+            'created_at'   => $this->created_at(),
+            'updated_at'   => $this->updated_at(),
+            '_version'     => $this->_version(),
+            'pos'          => (object)$this->pos,
+            'eshop'        => (object)$this->eshop,
+            'mobile'       => (object)$this->mobile,
+            'customer'     => (object)$this->customer,
+            'images'       => (array)$this->images,
+            'payment'      => (object)$this->payment,
+            'delivery'     => (object)$this->delivery,
+            'l10n'         => (object)$this->l10n,
+            'maccsbox'     => (object)$this->maccsbox,
+            'pdf'          => (object)$this->pdf,
+            'integrations' => (object)$this->integrations,
         ];
 
         if (is_object($ret['created_at'])) {

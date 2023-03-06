@@ -86,7 +86,7 @@ class TKTRequest
             // values to be parsed.
             if (!is_array($result)) {
                 //No2_Logger::err('json_decode() failed, JSON was: ' . $body);
-                throw new TKTException("request(method=$method, req=$req) failed: the response body could not be parsed.");
+                throw new TKTException("request(method=$method, query=$query) failed: the response body could not be parsed.");
             }
         }
 
