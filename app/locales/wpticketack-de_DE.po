@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-08 14:47+0100\n"
+"POT-Creation-Date: 2023-03-08 16:34+0100\n"
 "PO-Revision-Date: 2022-MO-DA HO:MI+ZONE\n"
 "Last-Translator: lcocquyt <ludovic.cocquyt@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -640,6 +640,9 @@ msgstr "Audio"
 
 msgid "Sous-titre"
 msgstr "Untertitel"
+
+msgid "Année"
+msgstr "Jahr"
 
 msgid "Âge min. lég."
 msgstr ""
