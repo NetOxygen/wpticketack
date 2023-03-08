@@ -75,7 +75,7 @@ $image_url     = tkt_img_proxy_url($s->first_poster()->url, $images_width, $imag
           <span class="tickets" data-bookability-ids="<?= $s->_id() ?>">
             <div class="show-while-loading" data-component="Media/Loading" data-size-sm data-align-center></div>
             <a
-              class="show-if-bookable show-if almost-not-bookable"
+              class="show-if-bookable show-if-almost-not-bookable"
               href="<?= tkt_event_book_url($m, $s) ?>">
               <span class="screening-complete"></span>
             </a>
