@@ -92,13 +92,6 @@ export default class BookabilityState extends Component {
                 let cannot_book_explanation = '';
                 let state = _.max(_.map(ids, (id) => {
                     // FIXME: we consider only the first booking_mode...
-                    booking_mode = booking_mode || (map[id] ? map[id]['booking_mode'] : null);
-                    if ((booking_mode === 'other' || booking_mode === 'email') && !booking_note) {
-                        booking_note = booking_note || (map[id] ? map[id]['booking_note'] : null);
-                        if (booking_note)
-                            $(i).append(`<div class="booking_note">${booking_note}</div>`);
-                    }
-
                     cannot_book_explanation = map[id].cannot_book_explanation || '';
 
                     let seats     = map[id] ? map[id]['seats'] : 0;
