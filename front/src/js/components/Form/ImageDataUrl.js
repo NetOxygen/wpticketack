@@ -44,7 +44,7 @@ export default class ImageDataUrl extends Component {
             this.$data_url_input = $('#photo_data_url', this.$parent).eq(0);
         }
 
-        this.$data_url_input.addClass('opaque_field');
+        this.$data_url_input.addClass('opaque_field field');
 
         const preview_img = $('img.image-preview', this.$parent.parent());
 

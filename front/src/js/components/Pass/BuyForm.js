@@ -204,7 +204,7 @@ export default class BuyForm extends Component {
 
         // Set not required and hide all fields
         $('.field', this.$container).each(function (i) {
-            $(this, this.$container).attr('required', false);
+            $(this).attr('required', false);
         });
 
         this.$wrappers.hide();
