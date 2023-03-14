@@ -495,7 +495,7 @@ if (!function_exists('tkt_html')) {
      * @return
      *   a string that can be mostly safely presented to echo or print for output.
      */
-    function tkt_html($string, $tags_to_keep = '<p><br><b><i><em><a>')
+    function tkt_html($string, $tags_to_keep = '<p><br><b><strong><i><em><a>')
     {
         return strip_tags($string, $tags_to_keep);
     }
