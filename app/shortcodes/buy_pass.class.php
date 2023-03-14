@@ -37,6 +37,12 @@ class BuyPassShortcode extends TKTShortcode
     public function run($atts, $content)
     {
         $redirect = isset($atts['redirect']) ? $atts['redirect'] : static::REDIRECT_NONE;
+        $selected = isset($atts['selected']) ? $atts['selected'] : (isset($_GET['selected']) ? sanitize_text_field($_GET['selected']) : null);
+
+        if (!empty($_GET['types'])) {
+            $atts['types'] = sanitize_text_field($_GET['types']); // override with URL
+        }
+        $types = isset($atts['types']) ? explode(',', $atts['types']) : [];
 
         $tickettypes = Tickettype::all()
             ->order_by_opaque_eshop_sort_weight()
@@ -44,24 +50,18 @@ class BuyPassShortcode extends TKTShortcode
             ->filter_pricings_for_sellers(['eshop'])
             ->get();
 
-        if (!empty($_GET['types'])) {
-            $atts['types'] = sanitize_text_field($_GET['types']); // override with URL
-        }
-
-        $types = isset($atts['types']) ? explode(',', $atts['types']) : [];
-
         if (!empty($types)) {
             $tickettypes = array_values(array_filter($tickettypes, function ($t) use ($types) {
                 return in_array($t->_id(), $types);
             }));
         }
 
-
         return TKTTemplate::render(
             'buy_pass/buy',
             (object)[
                 'tickettypes' => $tickettypes,
-                'redirect'    => $redirect
+                'redirect'    => $redirect,
+                'selected'    => $selected
             ]
         );
 

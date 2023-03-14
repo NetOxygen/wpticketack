@@ -59,6 +59,9 @@ export default class BuyForm extends Component {
             $('.tkt-pass-form-section', this.$container).hide();
         };
 
+        // open pre-selected pass, if any
+        $('.pass.open', this.$container).fadeIn();
+
         postal.subscribe({
             channel: "connection",
             topic: "update",

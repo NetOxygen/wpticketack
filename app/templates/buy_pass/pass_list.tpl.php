@@ -7,6 +7,8 @@ use Ticketack\WP\TKTApp;
  * Input:
  * $data: {
  *   "tickettypes": [ ... ],
+ *   "redirect": "none",
+ *   "selected": "festival_pass",
  * }
  */
 
@@ -36,7 +38,7 @@ $salepoint_id = TKTApp::get_instance()->get_config('ticketack.salepoint_id');
                 </button>
               </h5>
             </div>
-            <div id="item-<?= $tickettype->_id(); ?>" data-type="<?= $tickettype->_id(); ?>" class="card-content pass">
+            <div id="item-<?= $tickettype->_id(); ?>" data-type="<?= $tickettype->_id(); ?>" class="card-content pass <?= $tickettype->_id() === $data->selected ? 'open' : '' ?>">
               <div class="card-body">
                 <p><?= nl2br(tkt_html($tickettype->description(TKT_LANG))) ?></p>
                 <input type="hidden" class="required-fields" id="<?= $tickettype->_id().'-required-fields' ?>" value="<?= implode(',', $tickettype->required_fields($salepoint_id)) ?>" />
