@@ -88,6 +88,14 @@ class AdminSettingsAction extends TKTAction
         );
 
         add_settings_field(
+            'pass', // ID
+            tkt_t('Abonnements'), // Title
+            array( $this, 'pass_callback' ), // Callback
+            'ticketack-pages', // Page
+            'ticketack_pages' // Section
+        );
+
+        add_settings_field(
             'shop', // ID
             tkt_t('Articles'), // Title
             array( $this, 'shop_callback' ), // Callback
@@ -444,6 +452,7 @@ class AdminSettingsAction extends TKTAction
         print tkt_t("Saisissez les slugs des pages contenant les différents shortcodes");
     }
     public function program_callback() { return $this->page_choice('program', 'tkt_pages', 'program'); }
+    public function pass_callback() { return $this->page_choice('pass', 'tkt_pages', 'pass'); }
     public function shop_callback() { return $this->page_choice('shop', 'tkt_pages', 'shop'); }
     public function ticket_view_callback() { return $this->page_choice('ticket_view', 'tkt_pages', 'ticket_view'); }
     public function cart_callback() { return $this->page_choice('cart', 'tkt_pages', 'cart'); }
