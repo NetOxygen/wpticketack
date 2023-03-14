@@ -27,7 +27,7 @@ class AdminSettingsAction extends TKTAction
     {
         add_settings_section(
             'ticketack_api', // ID
-            tkt_t('Accès à Ticketack'), // Title
+            tkt_t('Connexion à votre instance Ticketack'), // Title
             array( $this, 'api_section_info' ), // Callback
             'ticketack-api' // Page
         );
@@ -449,7 +449,7 @@ class AdminSettingsAction extends TKTAction
      */
     public function pages_section_info()
     {
-        print tkt_t("Saisissez les slugs des pages contenant les différents shortcodes");
+        print tkt_t("Sélectionnez les pages de votre site qui contiennent les shortcodes d'intégration Ticketack (le cas échéant)");
     }
     public function program_callback() { return $this->page_choice('program', 'tkt_pages', 'program'); }
     public function pass_callback() { return $this->page_choice('pass', 'tkt_pages', 'pass'); }
