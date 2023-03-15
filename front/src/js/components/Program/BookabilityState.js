@@ -74,12 +74,7 @@ export default class BookabilityState extends Component {
                 if (s.screening_refs?.length > 0) {
                     s.screening_refs.map(ref => {
                         if (ref?.id)
-                            map[ref.id] = {
-                                seats: s.seats,
-                                sold_here: (_.keys(s.pricings) || []).length > 0 || (s.eligible_types || []).length > 0,
-                                booking_mode: s.opaque?.booking_mode,
-                                booking_note: s.opaque?.booking_note
-                            }
+                            map[ref.id] = map[s._id];
                     });
                 }
             });
