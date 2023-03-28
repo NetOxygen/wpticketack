@@ -9197,6 +9197,9 @@ article.type-tkt-event .entry-content > p {
 .tkt-bookability-state-wrapper [data-bookability-ids].not-sold-here .show-if-not-sold-here {
   display: inline-block !important;
 }
+.tkt-bookability-state-wrapper [data-bookability-ids].not-sold-here .show-if-not-bookable {
+  display: inline-block !important;
+}
 .tkt-bookability-state-wrapper.loading-bookability-state [data-bookability-ids] .show-while-loading {
   display: inline-block;
 }

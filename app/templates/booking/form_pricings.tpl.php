@@ -118,7 +118,7 @@ use Ticketack\WP\TKTApp;
                             <li class="elligible-type">
                                 <span class="type-name">
                                     <i class="fa fa-ticket"></i>
-                                    <a href="<?= tkt_buy_pass_url() ?>" class="type-link">
+                                    <a href="<?= tkt_buy_pass_url() ?>?selected=<%= t._id %>" class="type-link">
                                         <%= t.name.<?= TKT_LANG ?> %>
                                     </a>
                                 </span>
