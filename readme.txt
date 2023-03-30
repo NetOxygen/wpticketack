@@ -2,7 +2,7 @@
 Tags: ticketack
 Requires at least: 4.6
 Tested up to: 6.1.0
-Stable tag: 2.50.0
+Stable tag: 2.50.1
 Requires PHP: 5.6
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -35,18 +35,26 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+== 2.50.1 ==
+
+ * fix: Fix bookability messages
+
+ * modified templates:
+   * - app/templates/booking/form.tpl.php
+
 == 2.50.0 ==
 
- * feat: let eshop compute details about bookability
- * feat: add property strong in tkt_html function
- * feat: Possibility to define the opening of a pass by default via the url or the shortcode
- * Improve wording
- * fix: Add the pass property to the settings
- * fix: add class field in photo_data_url inuput, for adding and removing the required attribute
+ * feat: Enhance bookability messages
+ * feat: Allow  <strong> tags in descriptions
+ * feat: Allow to select one pass in the buy_pass shortcode.
+ * i18n: Improve wording
+ * fix: Restore the pass pages in the settings
+ * fix: Fix a bug regarding the passes photo field
 
- * -app/templates/booking/form_pricings.tpl.php
- * -app/templates/buy_pass/buy.tpl.php
- * -app/templates/buy_pass/pass_list.tpl.php
+ * modified templates:
+   * - app/templates/booking/form_pricings.tpl.php
+   * - app/templates/buy_pass/buy.tpl.php
+   * - app/templates/buy_pass/pass_list.tpl.php
 
 == 2.49.3 ==
 
@@ -81,7 +89,7 @@ This section describes how to install the plugin and get it working.
 
 == 2.46.8 ==
 
-* fix: Fix osme details on the event page
+* fix: Fix some details on the event page
 * modified templates:
 * - app/templates/event/_single.tpl.php
 

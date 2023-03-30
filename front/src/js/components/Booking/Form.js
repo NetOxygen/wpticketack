@@ -251,7 +251,7 @@ export default class BookingForm extends Component {
                 $('.connect-panel', this.$container).addClass('d-none');
                 $('.book-panel', this.$container).removeClass('d-none');
                 $('.show-bookings-btn', this.$container).removeClass('d-none');
-                
+
                 if (this.data.bookability.ticket_can_book_screening) {
                     const ticket = this.state.get('user.ticket');
                     const nbAlreadyBooked = (ticket?.bookings || []).filter(b => b.screening?._id === this.data?.screening?._id).length;
