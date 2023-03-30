@@ -28,10 +28,95 @@ $tkt-icon-font-path: "./fonts" !default;
   -moz-osx-font-smoothing: grayscale;
 }
 
-$icon-info: "\ea0c";
+$icon-mobile       : "\e905";
+$icon-user         : "\e900";
+$icon-profile      : "\e900";
+$icon-account      : "\e900";
+$icon-avatar       : "\e900";
+$icon-info         : "\ea0c";
+$icon-smartphone   : "\e907";
+$icon-phone        : "\e906";
+$icon-ticket1      : "\e904";
+$icon-checkmark    : "\e908";
+$icon-shopping-cart: "\e901";
+$icon-ticket       : "\e902";
+$icon-trash        : "\e903";
+$icon-log-out      : "\e909";
+$icon-log-in       : "\e90a";
 
+
+.tkt-icon-mobile {
+  &:before {
+    content: $icon-mobile;
+  }
+}
+.tkt-icon-user {
+  &:before {
+    content: $icon-user;
+  }
+}
+.tkt-icon-profile {
+  &:before {
+    content: $icon-profile;
+  }
+}
+.tkt-icon-account {
+  &:before {
+    content: $icon-account;
+  }
+}
+.tkt-icon-avatar {
+  &:before {
+    content: $icon-avatar;
+  }
+}
 .tkt-icon-info {
   &:before {
-    content: $icon-info; 
+    content: $icon-info;
+  }
+}
+.tkt-icon-smartphone {
+  &:before {
+    content: $icon-smartphone;
+  }
+}
+.tkt-icon-phone {
+  &:before {
+    content: $icon-phone;
+  }
+}
+.tkt-icon-ticket1 {
+  &:before {
+    content: $icon-ticket1;
+  }
+}
+.tkt-icon-checkmark {
+  &:before {
+    content: $icon-checkmark;
+  }
+}
+.tkt-icon-shopping-cart {
+  &:before {
+    content: $icon-shopping-cart;
+  }
+}
+.tkt-icon-ticket {
+  &:before {
+    content: $icon-ticket;
+  }
+}
+.tkt-icon-trash {
+  &:before {
+    content: $icon-trash;
+  }
+}
+.tkt-icon-log-out {
+  &:before {
+    content: $icon-log-out;
+  }
+}
+.tkt-icon-log-in {
+  &:before {
+    content: $icon-log-in;
   }
 }
