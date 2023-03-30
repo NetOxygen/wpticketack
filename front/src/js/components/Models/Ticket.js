@@ -32,6 +32,15 @@ export default class Ticket extends BaseModel {
 
         if (this.activated_at)
             this.activated_at = moment(this.activated_at);
+
+        this.windows = (this.windows || []).map(w => {
+            if ('start_at' in w)
+                w.start_at = moment.tz(w.start_at, window.moment_timezone);
+            if ('stop_at' in w)
+                w.stop_at = moment.tz(w.stop_at, window.moment_timezone);
+
+            return w;
+        });
     }
 
     /**
@@ -147,6 +156,39 @@ export default class Ticket extends BaseModel {
     getFormattedWalletBalance() {
         return `${this.getWalletBalance().toFixed(2)} ${this.wallet.currency}`;
     };
+
+    getValidityWindows() {
+        var validity = moment().toString();
+
+        this.windows.map(w => {
+            validity = moment(w.stop_at).isAfter(validity) ? w.stop_at : validity;
+        });
+
+        return validity
+    }
+
+    placesAvailable() {
+        var sumNbookings = _.reduce(this.windows, function(sum, w) {
+            return sum + w.nbookings;
+          }, 0);
+
+        if (sumNbookings - this.bookings.length <= 1)
+            return [
+                sumNbookings - this.bookings.length,
+                i18n.t('réservation'),
+                i18n.t('sur'),
+                sumNbookings,
+                i18n.t('disponible')
+            ].join(' ');
+
+        return [
+            sumNbookings - this.bookings.length,
+            i18n.t('réservations'),
+            i18n.t('sur'),
+            sumNbookings,
+            i18n.t('disponibles')
+        ].join(' ');
+    }
 
     static loadTicketsInfos(tickets, callback) {
         const screeningIds = _.flatten(

@@ -26,33 +26,30 @@ use Ticketack\WP\TKTApp;
         <% console.error('WARNING :The shorcode [tkt_user_connect] is deprecated, and will be deleted.') %>
         <% console.error('WARNING :Please use new shortcode [tkt_ticket_connect][/tkt_ticket_connect] to connect with your TicketID'); %>
     <?php endif; ?>
-    <% 
-        function is_cancelable(t){
-
-            return t;
-        };
-    %>
 
     <div class="tkt-ticket-connect">
-    <% if (ticket) { %>
-    <!-- Titre -->
+        <% if (ticket) { %>
+        <!-- Title -->
         <div class="tkt-ticket-connect">
             <div class="row">
-                <div class="col-md-8 p-0">
+                <div class="col-md-8">
+                    <p class="alert alert-info small"><span class="glyphicon glyphicon-info-sign"></span><?= tkt_t("Nous n'émettons pas de billet individuel pour les réservations, votre ticket actuel vous sert de titre d'entrée aux séances réservées.") ?></span></p>
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h3>
-                                Connecté avec :
+                            <?= tkt_t('Connecté avec :') ?>
+                                <br />
                                 <strong><%= ticket.name %></strong>
                             </h3>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 p-0">
+                <div class="col-md-4">
+                    <p class="alert alert-warning small"><span class="glyphicon glyphicon-warning-sign"></span> <?= tkt_t("N'oubliez pas de vous déconnecter pour éviter qu'une autre personne ne puisse modifier vos réservations.") ?></p>
                     <div class="panel panel-default">
-                        <div class="panel-heading text-center">
+                        <div class="panel-heading p-0">
                             <button class="btn button disconnect-btn w-100">
-                                <?= tkt_t('Me déconnecter') ?>
+                                <i class="tkt-icon-log-out"></i> <?= tkt_t('Me déconnecter') ?>
                             </button>
                         </div>
                     </div>
@@ -63,120 +60,55 @@ use Ticketack\WP\TKTApp;
             <!-- Réservations -->
             <div class="row">
                 <div class="col-md-8">
-                    <div class="panel panel-default1">
-                        <div class="panel-heading1">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
                             <h3><?= _('Réservations') ?></h3>
                             <% if (ticket.bookings.length < 1) { %>
-                            <div class="panel-body1">
+                            <div class="panel-body">
                                 <?= _("Il n'y a actuellement aucune réservation sur ce billet.") ?>
                             </div>
                             <% } else { %>
-                            <div class="panel-body1">
+                            <div class="panel-body">
                                 <table class="table-striped table-condensed table-hover no-more-tables">
                                     <thead>
                                         <tr>
                                             <th><?= _('Date') ?></th>
                                             <th><?= _('Réservation') ?></th>
                                             <th><?= _('Lieu') ?></th>
-                                            <th><?= _('Vu') ?></th>
+                                            <th><i class="tkt-icon-smartphone"></i></th>
                                             <th><?= _('Action') ?></th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <% ticket.bookings.map(function(t) { %>
+                                        <% ticket.bookings.map(function(b) { %>
                                         <tr>
-                                            <td><%= t.screening_start_at.format("DD.MM.YYYY HH[h]mm") %> -
-                                                <%= t.screening_stop_at.format("HH[h]mm") %></td>
-                                            <td><%= t.screening.title.<?= TKT_LANG ?> %></td>
-                                            <td><%= t.screening.cinema_hall.name %></td>
-                                            <td>
-                                                <% if (t.scanned_at.length) { %>
-                                                    <?= _('V') ?>
+                                            <td><%= b.screening_start_at.format("DD.MM.YYYY HH[h]mm") %> -
+                                                <%= b.screening_stop_at.format("HH[h]mm") %></td>
+                                            <td><%= b.screening.title.<?= TKT_LANG ?> %></td>
+                                            <td><%= b.screening.cinema_hall.name %></td>
+                                            <td class="text-center">
+                                                <% if (b.scanned_at.length) { %>
+                                                    <i class="tkt-icon-checkmark"></i>
                                                 <% } %>
                                             </td>
                                             <td>
-                                                <% if (t.screening_start_at > new Date()) { %>
-                                                    <a class="btn" href="<%= program_url %>">
-                                                        <?= tkt_t("Annuler") ?> </a>
+                                                <% if (b.is_cancelable) { %>
+                                                    <a href="#" class="btn btn-danger btn-bloc cancelable-btn" data-id="<%= b._id %>">
+                                                        <?= tkt_t("Annuler") ?>
+                                                    </a>
                                                 <% } %>
                                             </td>
-                                            <%= console.log(is_cancelable(t)) %>
-
-                                            <?= var_dump(TKTApp::get_instance()->get_config('pos.booking_cancelation_policy')) ?>
                                         </tr>
                                         <% }) %>
                                     <tbody>
                                 </table>
+                                <div class="cancelable_booking_err text-danger text-center"></div>
                             </div>
                             <% } %>
                             <a class="btn button w-100" href="<%= program_url %>">
                                 <?= tkt_t("Réserver des séances") ?> </a>
                         </div>
                     </div>
-                    <br />
-
-                    <!-- Historique du billet -->
-                    <% if (ticket.bookings.length > 0) { %>
-                    <div class="panel panel-default1">
-                        <div class="panel-heading1">
-                            <h3><?= _('Historique du billet') ?></h3>
-                            <div class="panel-body1">
-                                <table class="table-striped table-condensed table-hover no-more-tables">
-                                    <thead>
-                                        <tr>
-                                            <th width="30%"><?= _('Date') ?></th>
-                                            <th><?= _('Description') ?></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <% ticket.bookings.map(function(t) { %>
-                                        <tr>
-                                            <td><%= t.screening_start_at.format("DD.MM.YYYY HH[h]mm") %> -
-                                                <%= t.screening_stop_at.format("HH[h]mm") %></td>
-                                            <td><%= t.screening.title.<?= TKT_LANG ?> %></td>
-                                        </tr>
-                                        <% }) %>
-                                    <tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    <% } %>
-                    <br />
-
-                    <% if (ticket.bookings.length > 0) { %>
-                    <div class="panel panel-default1">
-                        <div class="panel-heading1">
-                            <h3><?= _('Entrées comptables liées à ce billet') ?></h3>
-                            <div class="panel-body1">
-                                <table class="table-striped table-condensed table-hover no-more-tables">
-                                    <thead>
-                                        <tr>
-                                            <th><?= _('Date') ?></th>
-                                            <th><?= _('Description') ?></th>
-                                            <th><?= _('Paiement') ?></th>
-                                            <th></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>21.04.2021 11:41</td>
-                                            <td>Carte collaborateur Collaborateur de Delia Avot </td>
-                                            <td>Espèces</td>
-                                            <td><span class="btn-group btn-justify pull-right">
-                                                    <a href="#" class="btn btn-sm btn-default btn-block disabled">
-                                                        <span class="glyphicon glyphicon-eye-open"></span>
-                                                        Ce billet
-                                                    </a>
-                                                </span>
-                                            </td>
-                                        </tr>
-                                    <tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    <% } %>
                 </div>
                 <!-- User -->
                 <div class="col-md-4">
@@ -210,14 +142,15 @@ use Ticketack\WP\TKTApp;
                         </div>
                     </div>
                     <br />
-
-                    <% if (ticket.wallet.length > 0) { %>
+                    <% if (ticket.getWalletBalance() > 0) { %>
                     <div id="wallet-panel" class="panel panel-default">
                         <div class="panel-heading wallet_info">
                             <h3 class="panel-title">Portefeuille électronique</h3>
                         </div>
                         <div class="panel-body wallet_info text-center">
-                            <span><%= ticket.wallet.currency + " " + ticket.wallet?.balance?.toFixed(2) %></hspan>
+                            <div class="well text-center">
+                                <span><%= ticket.wallet.currency + " " + ticket.getWalletBalance() %></hspan>
+                            </div>
                         </div>
                     </div>
                     <br />
@@ -229,52 +162,30 @@ use Ticketack\WP\TKTApp;
                             <div class="panel-body">
                                 <div class="well text-center">
                                     <h5>
-                                        <?= _('Activé le') ?> <%= ticket.activated_at.format("DD.MM.YYYY HH[h]mm") %>
+                                        <?= tkt_t('Activé le') ?> <%= ticket.activated_at.format("LL") %>
                                     </h5>
                                     <p>
-                                        <?= _('Tarif') ?>: <%= ticket.activated_pricing.name.<?= TKT_LANG ?> %>
-                                        (<?= _('CHF') ?><%=ticket.activated_pricing.price.CHF.toFixed(2) %>)
+                                        <?= tkt_t('Tarif') ?>: <%= ticket.activated_pricing.name.<?= TKT_LANG ?> %>
+                                        (<?= tkt_t('CHF') ?><%=ticket.activated_pricing.price.CHF.toFixed(2) %>)
                                         <br />
                                     </p>
                                 </div>
-                                <!-- TODO  pass is valid ?(if) %> -->
-                                <div class="text-center alert alert-danger">
-                                    <b>A expiré le 23 December 2022 10:55 </b>
-                                </div>
-                                <div class="text-center alert alert-success pl-0 pr-0">
-                                    <h5>
-                                        <%= ticket.activated_at.format("DD.MM.YYYY HH[h]mm") %>
-                                    </h5>
-                                    <p>
-                                        <?= _('Tarif') ?>: <%= ticket.activated_pricing.name.<?= TKT_LANG ?> %>
-                                        (<?= _('CHF') ?><%=ticket.activated_pricing.price.CHF %>)
-                                        <br />
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <br />
-                    <div id="ticketid-panel" class="panel panel-default">
-                        <div class="panel-heading">
-                            <h3 class="panel-title"><?= _('Réservations en ligne') ?></h3>
-                        </div>
-                        <div class="panel-body">
-                            <div class="panel-body">
-                                <div class="input-group">
-                                    <span class="input-group-addon">
-                                        <span class="tkt-ticketid_ticket">Ticket</span>
-                                        <span class="tkt-ticketid_id">ID</span>
-                                    </span>
-                                    <!-- TODO TicketID & pass -->
-                                    <span class="input-group-addon"><b>892897</b></span>
-                                    <span class="input-group-addon">-</span>
-                                    <span class="input-group-addon"><b>7v98z3</b></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
+                                <% if (new Date() > ticket.getValidityWindows()) { %>
+                                    <div class="text-center alert alert-danger">
+                                        <b>A expiré le <%= ticket.getValidityWindows().format('LL') %> </b>
+                                    </div>
+                                <% } else {%>
+                                    <div class="text-center alert alert-success">
+                                        <b><?= tkt_t("Valable jusqu'au") ?>  <%= ticket.getValidityWindows().format('LL') %></b>
+                                        <p>
+                                            <%= ticket.placesAvailable() %>
+                                        </p>
+                                    </div>
+                                <% } %>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -299,7 +210,7 @@ use Ticketack\WP\TKTApp;
                     <div class="col text-center">
                         <div class="error pass-error d-none text-center text-danger"></div>
                         <button class="btn btn-primary button login-btn connect-btn mt-5 mb-3">
-                            <i class="fa fa-sign-in-alt"></i> <?= tkt_t('Connexion') ?>
+                            <i class="tkt-icon-log-out"></i> <?= tkt_t('Connexion') ?>
                         </button>
                     </div>
                 </div>

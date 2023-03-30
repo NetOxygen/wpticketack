@@ -1,6 +1,6 @@
 import { Component, Config, Template } from '../Core';
 import { Api as TKTApi } from '../Ticketack';
-import { Ticket } from '../Models';
+import { Booking, Ticket } from '../Models';
 import postal from 'postal';
 
 /**
@@ -79,6 +79,7 @@ export default class TicketConnect extends Component {
 
                 this.data.ticket = new Ticket(rsp);
                 this.state.set('user.ticket', this.data.ticket);
+                this.state.set('user.pass_infos', this.data.pass_infos);
 
                 this.emit_connection_update(this.data.ticket);
 
@@ -115,5 +116,17 @@ export default class TicketConnect extends Component {
 
         // bind pass disconnect button
         $('.disconnect-btn', this.$container).click(this.disconnect_pass.bind(this));
+
+        // delete a booking
+        $('.cancelable-btn', this.$container).click((e) => {
+            TKTApi.unbook($(e.target).data('id'), (err, result) => {
+                if (err) {
+                    return $('.cancelable_booking_err')
+                        .html("Une erreur est survenue. Veuillez ré-essayer ultérieurement.")
+                        .removeClass('d-none');
+                }
+                location.reload();
+            });
+        });
     }
 }

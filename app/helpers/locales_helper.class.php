@@ -78,7 +78,13 @@ class LocalesHelper
             'PENDING'                                                                      => tkt_t('En attente de paiement'),
             'BLOCKED'                                                                      => tkt_t('Bloqué'),
             'Director'                                                                     => tkt_t('directeur'),
-            'Directors'                                                                    => tkt_t('directeurs')
+            'Directors'                                                                    => tkt_t('directeurs'),
+            'réservation'                                                                  => tkt_t('réservation'),
+            'réservations'                                                                 => tkt_t('réservations'),
+            'sur'                                                                          => tkt_t('sur'),
+            'disponible'                                                                   => tkt_t('disponible'),
+            'disponibles'                                                                  => tkt_t('disponibles')
+
         ];
     }
 
