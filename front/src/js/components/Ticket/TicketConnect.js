@@ -1,6 +1,6 @@
-import { Component, Config, Template } from '../Core';
+import { Component, Config, Template, i18n } from '../Core';
 import { Api as TKTApi } from '../Ticketack';
-import { Ticket } from '../Models';
+import { Booking, Ticket } from '../Models';
 import postal from 'postal';
 
 /**
@@ -65,7 +65,7 @@ export default class TicketConnect extends Component {
 
         if (!this.data.pass_infos.number || !this.data.pass_infos.key)
             return $('.pass-error')
-                .html('Veuillez remplir les deux champs')
+                .html(i18n.t('Veuillez remplir les deux champs'))
                 .removeClass('d-none');
 
         TKTApi.loginTicket(
@@ -74,11 +74,12 @@ export default class TicketConnect extends Component {
             (err, status, rsp) => {
                 if (err)
                     return $('.pass-error')
-                        .html('Les informations que vous avez saisies sont invalides')
+                        .html(i18n.t('Les informations que vous avez saisies sont invalides'))
                         .removeClass('d-none');
 
                 this.data.ticket = new Ticket(rsp);
                 this.state.set('user.ticket', this.data.ticket);
+                this.state.set('user.pass_infos', this.data.pass_infos);
 
                 this.emit_connection_update(this.data.ticket);
 
@@ -115,5 +116,17 @@ export default class TicketConnect extends Component {
 
         // bind pass disconnect button
         $('.disconnect-btn', this.$container).click(this.disconnect_pass.bind(this));
+
+        // delete a booking
+        $('.cancelable-btn', this.$container).click((e) => {
+            TKTApi.unbook($(e.target).data('id'), (err, result) => {
+                if (err) {
+                    return $('.cancelable_booking_err')
+                        .html(i18n.t("Une erreur est survenue. Veuillez ré-essayer ultérieurement."))
+                        .removeClass('d-none');
+                }
+                location.reload();
+            });
+        });
     }
 }
