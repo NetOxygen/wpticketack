@@ -237,3 +237,52 @@ use Ticketack\WP\TKTApp;
     });
     %>
 </script>
+<style type="text/css">
+.panel-heading {
+    color: #333;
+    background-color: #f5f5f5;
+    border-color: #ddd;
+    padding: 5px 10px;
+}
+
+.panel-title {
+    margin-top: 0;
+    margin-bottom: 0;
+    color: inherit;
+    font-weight: 500;
+    ￼ line-height: 1.1;
+    font-size: 22px !important;
+}
+
+.panel-body {
+    padding: 15px;
+    background-color: #fff;
+
+}
+
+.well {
+    min-height: 20px;
+    padding: 19px;
+    margin-bottom: 20px;
+    background-color: #f5f5f5;
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+}
+
+.input-group-addon {
+    padding: 6px 12px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1;
+    color: #555;
+    width: 25%;
+    text-align: center;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-right-color: rgb(204, 204, 204);
+    border-right-style: solid;
+    border-right-width: 1px;
+}
+
+}
+</style>
