@@ -2,7 +2,7 @@
 Tags: ticketack
 Requires at least: 4.6
 Tested up to: 6.1.0
-Stable tag: 2.50.1
+Stable tag: 2.51.0
 Requires PHP: 5.6
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -34,6 +34,14 @@ This section describes how to install the plugin and get it working.
 == Screenshots ==
 
 == Changelog ==
+
+== 2.51.0 ==
+
+ * feat: Ticket view implementation
+ * feat: Update icon pack tkt
+ * feat: add properties for program shortcode
+ * fix: getValidityWindows return moment object
+ * fix: Fix a typo in the tkt_user_account shortcode
 
 == 2.50.1 ==
 
