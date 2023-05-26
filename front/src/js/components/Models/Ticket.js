@@ -61,6 +61,40 @@ export default class Ticket extends BaseModel {
     isDeleted() { return this.status === Ticket.STATUS_DELETED; };
 
     /**
+     * Check if this ticket has at least one information in its contact property
+     * that must be shown on the ticket view :
+     *  - firstname
+     *  - lastname
+     *  - email
+     *  - rfc2397_portrait
+     *  - birthdate
+     *  - address.street
+     *  - address.zip
+     *  - address.city
+     *  - address.country
+     *
+     * @return {Boolean}
+     */
+    hasContactInfo() {
+        const mainProps = [
+            'firstname', 'lastname',
+            'email', 'birthdate',
+            'rfc2397_portrait'
+        ];
+
+        let hasInfo = false;
+        mainProps.forEach(info => (hasInfo = hasInfo || !!this.contact[info]));
+
+        if (!('address' in this.contact))
+            return hasInfo;
+
+        const addressProps = [ 'street', 'zip', 'city', 'country' ];
+        addressProps.forEach(info => (hasInfo = hasInfo || !!this.contact.address[info]));
+
+        return hasInfo;
+    }
+
+    /**
      * Get this ticket formatted type name
      * @return {String}
      */

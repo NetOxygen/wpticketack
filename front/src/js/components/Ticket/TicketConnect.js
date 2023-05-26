@@ -100,9 +100,12 @@ export default class TicketConnect extends Component {
     }
 
     render(ticket) {
-        this.$container.html(Template.render('tkt-ticket-connect-tpl', { ticket,
-                                                                         ticket_view_url : Config.get('ticket_view_url') ? Config.get('ticket_view_url') : TKTApi.getTicketViewUrl(),
-                                                                         program_url : Config.get('program_url') ? Config.get('program_url') : TKTApi.getProgramViewUrl() }));
+        this.$container.html(Template.render('tkt-ticket-connect-tpl', {
+            ticket,
+            ticket_view_url : Config.get('ticket_view_url') ? Config.get('ticket_view_url') : TKTApi.getTicketViewUrl(),
+            program_url : Config.get('program_url') ? Config.get('program_url') : TKTApi.getProgramViewUrl()
+        }));
+
         // bind pass fields
         $('.pass-number-input,.pass-key-input', this.$container).change((e) => {
           this.data.pass_infos = {
