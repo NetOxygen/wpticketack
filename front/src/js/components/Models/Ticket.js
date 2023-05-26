@@ -181,13 +181,15 @@ export default class Ticket extends BaseModel {
                 i18n.t('disponible')
             ].join(' ');
 
-        return [
-            sumNbookings - this.bookings.length,
-            i18n.t('réservations'),
-            i18n.t('sur'),
-            sumNbookings,
-            i18n.t('disponibles')
-        ].join(' ');
+        // Does not display number of reservations if greater than 100
+        return sumNbookings < 100 ?
+            [
+                sumNbookings - this.bookings.length,
+                i18n.t('réservations'),
+                i18n.t('sur'),
+                sumNbookings,
+                i18n.t('disponibles')
+            ].join(' ') : '';
     }
 
     /**
