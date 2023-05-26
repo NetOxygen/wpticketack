@@ -2,7 +2,7 @@
 Tags: ticketack
 Requires at least: 4.6
 Tested up to: 6.1.0
-Stable tag: 2.51.0
+Stable tag: 2.52.0
 Requires PHP: 5.6
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -34,6 +34,11 @@ This section describes how to install the plugin and get it working.
 == Screenshots ==
 
 == Changelog ==
+
+== 2.52.0 ==
+
+ * feat: Enhance ticket's number of bookings representation
+ * fix: Fix the ticket view template
 
 == 2.51.0 ==
 
