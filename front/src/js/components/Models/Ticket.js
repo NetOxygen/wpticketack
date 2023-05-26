@@ -158,7 +158,7 @@ export default class Ticket extends BaseModel {
     };
 
     getValidityWindows() {
-        var validity = moment().toString();
+        var validity = moment();
 
         this.windows.map(w => {
             validity = moment(w.stop_at).isAfter(validity) ? w.stop_at : validity;
