@@ -112,7 +112,7 @@ use Ticketack\WP\TKTApp;
                 </div>
                 <!-- User -->
                 <div class="col-md-4">
-                    <% if (ticket.hasContactInfo()) { %>
+                    <% if (ticket?.hasContactInfo()) { %>
                     <div id="owner-panel" class="panel panel-default">
                         <div class="panel-heading">
                             <h3 class="panel-title"><?= _('Titulaire') ?></h3>
@@ -124,7 +124,7 @@ use Ticketack\WP\TKTApp;
                                     <br />
                                 <% } %>
 
-                                <% if (ticket.contact.firstname || ticket.contact.lastname) { %>
+                                <% if (ticket.contact?.firstname || ticket.contact?.lastname) { %>
                                 <h5>
                                     <%= [ticket.contact.firstname, ticket.contact.lastname].filter(v => !!v).join(' ') %>
                                 </h5>
