@@ -356,8 +356,8 @@ export default class BookingForm extends Component {
             return;
 
         // render template
-        const ticket_view_url = TKTApi.getTicketViewUrl();
-        const userTicket      = this.state.get('user.ticket');
+        const userTicket      = this.state.get('user.ticket') ? new Ticket(this.state.get('user.ticket')) : null;
+        const ticket_view_url = userTicket ? userTicket.getTicketViewUrl() : TKTApi.getTicketViewUrl();
         const screening       = {
             ...this.data.screening,
             pricings: ('getMatchingPricings' in this.data.screening) ? this.data.screening.getMatchingPricings('eshop', (userTicket ? userTicket.type._id : null)) : []
