@@ -9,6 +9,8 @@ use Ticketack\WP\TKTApp;
  * JS Input: {
  *   "screening": Screening instance,
  *   "ticket_view_url": Link to see the ticket bookings (with PHPSESSID)
+ *   "show_pricings": A boolean indicating if we must show the pricings form
+ *   "show_ticket_id": A boolean indicating if we must show the ticket connection form
  * }
  */
 ?>
@@ -20,7 +22,7 @@ use Ticketack\WP\TKTApp;
                     <iframe width="100%" style="min-height: 500px" frameborder="0" src="<%= TKTApi.getScreeningMapUrl(screening._id) %>"></iframe>
                 </div>
             </div>
-        <% } else { %>
+        <% } else if (show_pricings) { %>
             <div class="pricings-form">
                 <div class="row">
                     <div class="col">
@@ -66,7 +68,7 @@ use Ticketack\WP\TKTApp;
             </div>
         <% } %>
     <% } %>
-    <% if (screening.opaque && (!('map_only_bookings' in screening.opaque && screening.opaque.map_only_bookings)) && screening.eligible_types.length) { %>
+    <% if (show_ticket_id && screening.opaque && (!('map_only_bookings' in screening.opaque && screening.opaque.map_only_bookings)) && screening.eligible_types.length) { %>
     <div class="pass-form mt-3">
         <div class="connect-panel">
             <div class="ticket_connect">
