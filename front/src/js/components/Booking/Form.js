@@ -17,6 +17,7 @@ import moment from 'moment';
  *    data-cart-url="https://..."
  *    data-checkout-url="https://..."
  *    data-ids="12345678-1234-1234-1234-123456789012,..."
+ *    data-show="pricings,ticket_id"
  * >
  */
 export default class BookingForm extends Component {
@@ -36,6 +37,7 @@ export default class BookingForm extends Component {
         this.checkout_url       = this.$container.data('checkout-url');
         this.show_on_load       = parseInt(this.getUrlParam('book')) == 1;
         this.selected_screening = this.getUrlParam('s_id');
+        this.show               = (this.$container.data('show') || '').toString().split(',');
     }
 
     attach() {
@@ -363,7 +365,9 @@ export default class BookingForm extends Component {
 
         this.$tickets_form.html(Template.render('tkt-booking-form-pricings-tpl', {
             screening: screening,
-            ticket_view_url
+            ticket_view_url,
+            show_pricings: this.show.includes('pricings'),
+            show_ticket_id: this.show.includes('ticket_id')
         }));
 
         // bind pricings minus buttons if any

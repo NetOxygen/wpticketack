@@ -61,6 +61,40 @@ export default class Ticket extends BaseModel {
     isDeleted() { return this.status === Ticket.STATUS_DELETED; };
 
     /**
+     * Check if this ticket has at least one information in its contact property
+     * that must be shown on the ticket view :
+     *  - firstname
+     *  - lastname
+     *  - email
+     *  - rfc2397_portrait
+     *  - birthdate
+     *  - address.street
+     *  - address.zip
+     *  - address.city
+     *  - address.country
+     *
+     * @return {Boolean}
+     */
+    hasContactInfo() {
+        const mainProps = [
+            'firstname', 'lastname',
+            'email', 'birthdate',
+            'rfc2397_portrait'
+        ];
+
+        let hasInfo = false;
+        mainProps.forEach(info => (hasInfo = hasInfo || !!this.contact[info]));
+
+        if (!('address' in this.contact))
+            return hasInfo;
+
+        const addressProps = [ 'street', 'zip', 'city', 'country' ];
+        addressProps.forEach(info => (hasInfo = hasInfo || !!this.contact.address[info]));
+
+        return hasInfo;
+    }
+
+    /**
      * Get this ticket formatted type name
      * @return {String}
      */
@@ -158,7 +192,7 @@ export default class Ticket extends BaseModel {
     };
 
     getValidityWindows() {
-        var validity = moment().toString();
+        var validity = moment();
 
         this.windows.map(w => {
             validity = moment(w.stop_at).isAfter(validity) ? w.stop_at : validity;
@@ -181,13 +215,15 @@ export default class Ticket extends BaseModel {
                 i18n.t('disponible')
             ].join(' ');
 
-        return [
-            sumNbookings - this.bookings.length,
-            i18n.t('réservations'),
-            i18n.t('sur'),
-            sumNbookings,
-            i18n.t('disponibles')
-        ].join(' ');
+        // Does not display number of reservations if greater than 100
+        return sumNbookings < 100 ?
+            [
+                sumNbookings - this.bookings.length,
+                i18n.t('réservations'),
+                i18n.t('sur'),
+                sumNbookings,
+                i18n.t('disponibles')
+            ].join(' ') : '';
     }
 
     /**

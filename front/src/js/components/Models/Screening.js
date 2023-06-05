@@ -55,6 +55,9 @@ export default class Screening extends BaseModel {
      * @return {String}
      */
     getTitle(lang) {
+        if (!this.title)
+            return null;
+
         if (!(lang in this.title))
             return this.title.original;
 
@@ -75,7 +78,7 @@ export default class Screening extends BaseModel {
      * @return {String}
      */
     getFirstPosterUrl() {
-        if (!this.opaque.posters || this.opaque.posters.length == 0)
+        if (!this.opaque?.posters || this.opaque?.posters?.length == 0)
             return null;
 
         return this.opaque.posters[0].url;

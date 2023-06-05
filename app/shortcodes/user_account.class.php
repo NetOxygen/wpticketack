@@ -41,7 +41,7 @@ class UserAccountShortcode extends TKTShortcode
             static::MENU_ENTRY_PROFILE,
             static::MENU_ENTRY_LOGOUT,
         ];
-        $tabs = isset($atts['tabs']) ?  implode(',', $atts['template']) : $default_tabs;
+        $tabs = isset($atts['tabs']) ? explode(',', $atts['tabs']) : $default_tabs;
         $active_tab = tkt_get_url_param('tab', current($tabs));
 
         return TKTTemplate::render(

@@ -9,7 +9,8 @@ use Ticketack\WP\Templates\TKTTemplate;
  * Input:
  * $data: {
  *   "ids": [ ... ],
- *   "theme": 'dark|light'
+ *   "theme": 'dark|light',
+ *   "show": ['pricings', 'ticket_id']
  * }
  */
 $theme = isset($data->theme) ? $data->theme : 'dark';
@@ -32,7 +33,8 @@ $theme = isset($data->theme) ? $data->theme : 'dark';
                                     data-cart-url="<?= tkt_cart_url() ?>"
                                     data-checkout-url="<?= tkt_checkout_url() ?>"
                                     data-show-on-load="<?= tkt_get_url_param( 'book', -1 ) == 1 ? 'true' : 'false' ?>"
-                                    data-ids="<?= implode(',', $data->ids) ?>">
+                                    data-ids="<?= implode(',', $data->ids) ?>"
+                                    data-show="<?= implode(',', $data->show) ?>">
                                 </div>
                             </div>
                         </div>

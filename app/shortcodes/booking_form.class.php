@@ -8,7 +8,7 @@ use Ticketack\WP\Templates\TKTTemplate;
  *
  * Usage:
  *
- * [tkt_booking_form ids="...,..." /]
+ * [tkt_booking_form ids="...,..." show="pricings,ticket_id" /]
  *
  */
 class BookingFormShortcode extends TKTShortcode
@@ -36,6 +36,10 @@ class BookingFormShortcode extends TKTShortcode
             return null;
         }
 
+        $show = ['pricings', 'ticket_id'];
+        if (isset($atts['show'])) {
+            $show = explode(',', $atts['show']);
+        }
         $layout = isset($atts['layout']) ? $atts['layout'] : 'form';
         $theme  = isset($atts['theme']) ? $atts['theme'] : 'light';
 
@@ -43,7 +47,8 @@ class BookingFormShortcode extends TKTShortcode
             'booking/'.$layout,
             (object)[
                 'ids'   => $ids,
-                'theme' => $theme
+                'theme' => $theme,
+                'show'  => $show
             ]
         );
     }

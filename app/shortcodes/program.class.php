@@ -102,6 +102,7 @@ class ProgramShortcode extends TKTShortcode
                 'films.title',
                 'films.section',
                 'films.sections',
+                'films.opaque.description',
                 'films.opaque.free_text_1',
                 'films.opaque.free_text_2',
                 'films.opaque.free_text_3',
@@ -113,8 +114,10 @@ class ProgramShortcode extends TKTShortcode
                 'films.opaque.countries',
                 'films.opaque.languages',
                 'films.opaque.film_types',
+                'films.opaque.type',
                 'films.opaque.year',
                 'films.opaque.premiere_type',
+                'films.opaque.booking_mode',
                 'opaque'
             ];
             $screenings = $query->get(implode(',', $fields));

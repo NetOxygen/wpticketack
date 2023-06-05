@@ -112,36 +112,54 @@ use Ticketack\WP\TKTApp;
                 </div>
                 <!-- User -->
                 <div class="col-md-4">
+                    <% if (ticket?.hasContactInfo()) { %>
                     <div id="owner-panel" class="panel panel-default">
                         <div class="panel-heading">
                             <h3 class="panel-title"><?= _('Titulaire') ?></h3>
                         </div>
                         <div class="panel-body">
                             <div class="well text-center">
-                                <% if (ticket.contact.rfc2397_portrait.length) { %>
-                                <img class="img-responsive img-thumbnail"
-                                    src="<%= ticket.contact.rfc2397_portrait %>" />
+                                <% if (ticket.contact?.rfc2397_portrait?.length) { %>
+                                    <img class="img-responsive img-thumbnail" src="<%= ticket.contact?.rfc2397_portrait %>" />
+                                    <br />
                                 <% } %>
-                                <br />
-                                <h5>
-                                    <%= ticket.contact.firstname +" "+ ticket.contact.lastname%>
-                                </h5>
-                                <p>
-                                    <%= new Date(ticket.contact.birthdate).toLocaleDateString() %>
 
-                                    <br />
-                                    <%= ticket.contact.address.street %>
-                                    <br />
-                                    <%= ticket.contact.address.zip +' '+ ticket.contact.address.city %>
-                                    <br />
-                                    <%= ticket.contact.address.country %>
-                                    <br />
-                                    <%= ticket.contact.email %>
-                                </p>
+                                <% if (ticket.contact?.firstname || ticket.contact?.lastname) { %>
+                                <h5>
+                                    <%= [ticket.contact.firstname, ticket.contact.lastname].filter(v => !!v).join(' ') %>
+                                </h5>
+                                <% } %>
+
+                                <div>
+                                    <% if (ticket.contact?.birthdate) { %>
+                                        <%= new Date(ticket.contact.birthdate).toLocaleDateString() %>
+                                        <br />
+                                    <% } %>
+
+                                    <% if (ticket.contact?.address?.street) { %>
+                                        <%= ticket.contact.address.street %>
+                                        <br />
+                                    <% } %>
+
+                                    <% if (ticket.contact?.address?.zip || ticket.contact?.address?.city) { %>
+                                        <%= [ticket.contact.address.zip, ticket.contact.address.city].filter(v => !!v).join(' ') %>
+                                        <br />
+                                    <% } %>
+
+                                    <% if (ticket.contact?.address?.country) { %>
+                                        <%= ticket.contact.address.country %>
+                                        <br />
+                                    <% } %>
+
+                                    <% if (ticket.contact?.email) { %>
+                                        <%= ticket.contact.email %>
+                                    <% } %>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <br />
+                    <% } %>
                     <% if (ticket.getWalletBalance() > 0) { %>
                     <div id="wallet-panel" class="panel panel-default">
                         <div class="panel-heading wallet_info">
