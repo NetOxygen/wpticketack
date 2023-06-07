@@ -27,6 +27,12 @@ class Movie extends TKTModel implements \JsonSerializable
             $this->updated_at = tkt_iso8601_to_datetime($properties['updated_at']);
             unset($properties['updated_at']);
         }
+        if (array_key_exists('sections', $properties)) {
+            $this->sections = array_map(function ($obj) {
+                return new Section($obj);
+            }, $properties['sections']);
+            unset($properties['sections']);
+        }
         parent::__construct($properties);
     }
 
