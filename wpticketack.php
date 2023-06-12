@@ -53,7 +53,7 @@ $app->register_action('Ticketack\WP\Actions\AdminNoticesAction', 'admin_notices.
 $app->register_action('Ticketack\WP\Actions\AdminMenuAction', 'admin_menu.class.php');
 $app->register_action('Ticketack\WP\Actions\AdminSettingsAction', 'admin_settings.class.php');
 $app->register_action('Ticketack\WP\Actions\AssetsAction', 'assets.class.php');
-$app->register_action('Ticketack\WP\Actions\SyncPostsAction', 'sync_posts.class.php');
+$app->register_action('Ticketack\WP\Actions\SyncEventsAction', 'sync_events.class.php');
 $app->register_action('Ticketack\WP\Actions\SyncArticlesAction', 'sync_articles.class.php');
 $app->register_action('Ticketack\WP\Actions\SyncPeopleAction', 'sync_people.class.php');
 $app->register_action('Ticketack\WP\Actions\TranslationAction', 'translation.class.php');

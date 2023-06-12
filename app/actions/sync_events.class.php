@@ -6,7 +6,7 @@ use Ticketack\WP\helpers\SyncHelper;
 /**
  * Sync posts action
  */
-class SyncPostsAction extends TKTAction
+class SyncEventsAction extends TKTAction
 {
     /**
      * Get this action tag(s)
