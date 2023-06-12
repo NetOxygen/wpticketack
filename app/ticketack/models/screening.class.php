@@ -216,6 +216,12 @@ class Screening extends TKTModel implements \JsonSerializable
             $this->place = new Place($properties['cinema_hall']);
             unset($properties['cinema_hall']);
         }
+        if (array_key_exists('sections', $properties)) {
+            $this->sections = array_map(function ($obj) {
+                return new Section($obj);
+            }, $properties['sections']);
+            unset($properties['sections']);
+        }
         if (array_key_exists('buckets', $properties)) {
             $this->buckets = array_map(function ($obj) {
                 return new Bucket($this, $obj);

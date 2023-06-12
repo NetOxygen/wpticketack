@@ -120,8 +120,8 @@ class ProgramShortcode extends TKTShortcode
                 'films.opaque.booking_mode',
                 'opaque'
             ];
-            $screenings = $query->get(implode(',', $fields));
 
+            $screenings = $query->get(implode(',', $fields));
             if (!empty($places)) {
                 $screenings = array_filter($screenings, function ($s) use ($places) {
                     return in_array($s->place()->_id(), $places);

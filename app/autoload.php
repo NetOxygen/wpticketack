@@ -30,6 +30,7 @@ require_once(TKT_LIB.'/models/bucket.class.php');
 require_once(TKT_LIB.'/models/event.class.php');
 require_once(TKT_LIB.'/models/movie.class.php');
 require_once(TKT_LIB.'/models/place.class.php');
+require_once(TKT_LIB.'/models/section.class.php');
 require_once(TKT_LIB.'/models/pricing.class.php');
 require_once(TKT_LIB.'/models/screening.class.php');
 require_once(TKT_LIB.'/models/tickettype.class.php');

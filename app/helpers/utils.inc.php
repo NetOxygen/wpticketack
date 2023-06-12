@@ -651,11 +651,11 @@ function tkt_event_data_attributes($event, $attributes)
         $values[] = 'data-tags="'.implode(',', $tags).'"';
     }
 
-    if (in_array('sections', $attributes)) {
+    if (in_array('section', $attributes)) {
         $sections = [];
         foreach ($event->screenings() as $s) {
             foreach ($s->sections() as $section) {
-                $sections[] = $section->name[tkt_default_lang()];
+                $sections[] = $section->name(TKT_LANG);
             }
         }
         $values[] = 'data-section="'.implode(',', $sections).'"';
