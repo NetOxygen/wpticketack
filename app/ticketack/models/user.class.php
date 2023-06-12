@@ -4,6 +4,7 @@ namespace Ticketack\Core\Models;
 use Ticketack\Core\Base\No2_HTTP;
 use Ticketack\Core\Base\TKTModel;
 use Ticketack\Core\Base\TKTRequest;
+use Ticketack\Core\Base\TKTApiException;
 use Ticketack\WP\TKTApp;
 
 /**

@@ -1,7 +1,7 @@
 import BaseModel from './Base';
 import Screening from './Screening';
 import Booking from './Booking';
-import { Api as TKTApi } from '../Ticketack';
+import { Api as TKTApi, TKTLib } from '../Ticketack';
 import { i18n, Config } from '../Core';
 import _ from 'lodash';
 import async from 'async';
@@ -10,15 +10,8 @@ import moment from 'moment';
 /**
  * Ticket model
  */
-export default class Ticket extends BaseModel {
-    static type             = 'ticket';
-    static ONE_TIME_PASS_ID = 'one-time-pass';
-
-    static STATUS_NEW             = "new";
-    static STATUS_ACTIVATED       = "activated";
-    static STATUS_BLOCKED         = "blocked";
-    static STATUS_PENDING_PAYMENT = "pending";
-    static STATUS_DELETED         = "deleted";
+export default class Ticket extends TKTLib.Ticket {
+    static type = 'ticket';
 
     /**
      * @constructor
@@ -42,23 +35,6 @@ export default class Ticket extends BaseModel {
             return w;
         });
     }
-
-    /**
-     * Check if this is a one-time-pass
-     * @return {Boolean}
-     */
-    isOneTimePass() {
-        return this.type._id === Ticket.ONE_TIME_PASS_ID;
-    };
-
-    /**
-     * Status check shortcuts
-     */
-    isNew() { return this.status === Ticket.STATUS_NEW; };
-    isActivated() { return this.status === Ticket.STATUS_ACTIVATED; };
-    isBlocked() { return this.status === Ticket.STATUS_BLOCKED; };
-    isPending() { return this.status === Ticket.STATUS_PENDING_PAYMENT; };
-    isDeleted() { return this.status === Ticket.STATUS_DELETED; };
 
     /**
      * Check if this ticket has at least one information in its contact property
@@ -103,6 +79,18 @@ export default class Ticket extends BaseModel {
             return i18n.t('Billet pour une séance unique');
 
         return this.type.name[i18n.lang];
+    };
+
+    /**
+     * Get this ticket formatted name built with the contact firstname
+     * and lastname if exists, with the ticketID otherwise
+     * @return {String}
+     */
+    getOwnerNameOrId() {
+        if (this.contact?.firstname || this.contact?.lastname)
+            return [this.contact?.firstname, this.contact?.lastname].filter(v => !!v).join(' ');
+
+        return this.vdr_auth_serial;
     };
 
     /**

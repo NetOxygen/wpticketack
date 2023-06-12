@@ -50,11 +50,48 @@ export default class State {
     }
 
     /**
+     * Push a new value in a state array
+     * @param {String} path - The path
+     * @param {*} value - The value
+     * @param {String} uniqueBy - If set, ensure that the new entry
+     *                            is unique in the array (by this property)
+     *
+     * Example:
+     *     this.state.push('tickets', {...}, '_id')
+     */
+    push(arrayPath, value, uniqueBy) {
+        let array = this.get(arrayPath, []);
+        if (uniqueBy)
+            array = array.filter(entry => entry[uniqueBy] !== value[uniqueBy]);
+
+        array.push(value);
+
+        this.set(arrayPath, array);
+    }
+
+    /**
      * Unset a state value
      * @param {String} path - The path
      */
     unset(path) {
         return this.set(path, undefined);
+    }
+
+    /**
+     * Remove an entry for a state array
+     * @param {String} path - The path
+     * @param {String} uniqueBy - Property used to identify the entries in the array
+     * @param {*} value - The unique value to use to find the entry to remove
+     *
+     * Example:
+     *     this.state.pull('tickets', '_id', '12345678-1234-1234-4321-123456789012')
+     */
+    pull(arrayPath, uniqueBy, uniqueValue) {
+        const array = this
+            .get(arrayPath, [])
+            .filter(entry => entry[uniqueBy] !== uniqueValue);
+
+        this.set(arrayPath, array);
     }
 
     /**
@@ -66,6 +103,20 @@ export default class State {
             path = path.join('.');
 
         return dottie.exists(this.state, path);
+    }
+
+    /**
+     * Check if the state contains a value in the array at a specific path
+     * @param {String} path - The path
+     * @param {String} uniqueBy - Property used to identify the entries in the array
+     * @param {*} value - The unique value to use to find the entry
+     *
+     * Example:
+     *     this.state.hasInArray('tickets', '_id', '12345678-1234-1234-4321-123456789012')
+     */
+    hasInArray(arrayPath, uniqueBy, uniqueValue) {
+        const array = this.get(arrayPath, []);
+        return array.filter(entry => entry[uniqueBy] === uniqueValue).length > 0;
     }
 
     /**

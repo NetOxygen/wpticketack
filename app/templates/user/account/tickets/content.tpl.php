@@ -10,14 +10,38 @@ use Ticketack\WP\Templates\TKTTemplate;
  * Input: {
  *   "user": { ... },
  *   "tickets": [ ... ],
+ *   "other_tickets": [ ... ],
  *   "orders": [ ... ],
  * }
  */
 ?>
 <%
-const isVisibleticket = ticket => {
-    return ticket.status == "activated";
-};
+const ticketsGroups = [
+    {
+        // passes linked to the connected user account
+        title: "<?= tkt_t('Mes abonnements') ?>",
+        tickets: tickets.filter(ticket => !ticket.isOneTimePass() && ticket.isActivated())
+    },
+    {
+        // other passes, added with their TicketID
+        title: <?= json_encode(tkt_ticketidize(tkt_t('Autres abonnements (ajoutés avec leur TicketID)'))) ?>,
+        tickets: other_tickets.filter(ticket => !ticket.isOneTimePass() && ticket.isActivated()).map(ticket => {
+            // those tickets can be forgotten because they were added with their ticketID
+            ticket.isForgettable = true;
+            return ticket;
+        })
+    },
+    {
+        // future one-time-passes
+        title: "<?= tkt_t('Mes billets pour une séance unique') ?>",
+        tickets: tickets.filter(ticket => ticket.isOneTimePass() && !ticket.getScreening()?.isFinished() && ticket.isActivated())
+    },
+    {
+        // past one-time-passes
+        title: "<?= tkt_t('') ?>",
+        tickets: tickets.filter(ticket => ticket.isOneTimePass() && ticket.getScreening()?.isFinished() && ticket.isActivated())
+    }
+];
 %>
 <div id="tkt-account-content-profile" class="tkt-wrapper">
     <div class="row">
@@ -28,85 +52,71 @@ const isVisibleticket = ticket => {
             </h3>
             <% } else { %>
             <div id="tickets-accordion">
-                <% tickets.sort(function (a, b) { return a.activated_at > b.activated_at ? -1 : 1}).filter(isVisibleticket).map(function (ticket, i) { %>
+                <% ticketsGroups.filter(group => group.tickets.length > 0).map(group => { %>
+                <h4 class="tickets-group-title"><%= group.title %></h4>
+                <% group.tickets.sort(function (a, b) { return a.activated_at > b.activated_at ? -1 : 1}).map((ticket, i) => { %>
                 <div class="card">
-                    <div class="card-header" id="heading-<%= i %>">
+                    <div class="card-header <%= ticket.isOneTimePass() && ticket.getScreening()?.isFinished() ? 'past' : ''%>" id="heading-<%= i %>">
                         <h5 class="mb-0">
                             <div class="row">
-                                <div class="col">
-                                    <% if (ticket.bookings && ticket.bookings.length > 0 && ticket.bookings[0].screening && ticket.bookings[0].screening.getFirstPosterUrl()) { %>
-                                    <img src="<%= ticket.bookings[0].screening.getFirstPosterUrl() %>" />
+                                <div class="col col-auto">
+                                    <% if (ticket.getScreening() && ticket.getScreening().getFirstPosterUrl()) { %>
+                                        <img src="<%= ticket.bookings[0].screening.getFirstPosterUrl() %>" />
                                     <% } %>
+
                                     <button class="btn btn-link text-left" data-toggle="collapse" data-target="#collapse<%= i %>" >
                                         <i class="fa fa-tag"></i>
-                                        <b><%= ticket.getTypeName() %></b>
+                                        <b><%=
+                                            ticket.isOneTimePass() ?
+                                                ticket.getScreeningName() :
+                                                (ticket.getTypeName() + ' - ' + ticket.getDisplayName())
+                                        %></b>
                                         <div>
-                                            <small>
-                                                <%= ticket.getFormattedActivatedAt() %>
-                                            </small>
+                                            <small><%=
+                                                ticket.isOneTimePass() ?
+                                                    (ticket.getScreeningStartAt() + ' - ' + ticket.getScreeningPlace()) :
+                                                    ticket.getFormattedActivatedAt()
+                                            %></small>
                                         </div>
                                     </button>
                                 </div>
                                 <div class="col text-right">
-                                    <span class="badge badge-<%= ticket.getStatusColorClassname() %>">
-                                        <%= ticket.getFormattedStatus() %>
+                                    <span class="badge badge-default">
+                                        <% if (!ticket.isOneTimePass()) { %>
+                                            <i class="fa fa-tags"></i>
+                                            <%= ticket.bookings?.length || 0 %>
+                                        <% } else { %>
+                                            <i class="fa fa-tag"></i>
+                                        <% } %>
                                     </span>
                                     <% if (ticket.getPdfUrl()) { %>
                                     <div class="ticket-number mt-2">
+                                        <% if (ticket.isForgettable) { %>
+                                        <button class="btn btn-link btn-sm ticket-forget-link" data-ticket-id="<%= ticket._id %>">
+                                            <i class="fa fa-trash"></i>
+                                            <?= tkt_t('Oublier ce ticket') ?>
+                                        </button>
+                                        <% } %>
+                                        <% if (!ticket.isOneTimePass()) { %>
                                         <a class="btn btn-link btn-sm ticket-view-link" target="_blank" href="<%= ticket.getTicketViewUrl() %>">
                                             <i class="fa fa-eye"></i>
                                             <?= tkt_t('Voir mes réservations') ?>
                                         </a>
+                                        <% } %>
+                                        <% if (!ticket.isOneTimePass() || !ticket.getScreening()?.isFinished()) { %>
                                         <a class="btn btn-link btn-sm ticket-download-link" target="_blank" href="<%= ticket.getPdfUrl() %>">
                                             <i class="fa fa-download"></i>
                                             <?= tkt_t('Télécharger') ?>
                                         </a>
+                                        <% } %>
                                     </div>
                                     <% } %>
                                 </div>
                             </div>
                         </h5>
                     </div>
-
-<!--
-                    <div id="collapse<%= i %>" class="collapse" aria-labelledby="heading<%= i %>" data-parent="#tickets-accordion">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-sm-9">
-                                <% if (ticket.bookings && ticket.bookings.length > 0) { %>
-                                    <h5><?= tkt_t('Réservations') ?></h5>
-                                    <% ticket.bookings.map(function (booking) { %>
-                                    <div class="row">
-                                        <div class="col-sm-4">
-                                            <% if (booking.screening && booking.screening.getFirstPosterUrl()) { %>
-                                            <img src="<%= booking.screening.getFirstPosterUrl() %>" />
-                                            <% } %>
-                                        </div>
-                                        <div class="col-sm-8">
-                                            <% if (booking.screening) { %>
-                                            <h4><%= booking.screening.getTitle('<?= TKT_LANG ?>') %></h4>
-                                            <div><%= booking.screening.getFormattedStartAt() %></div>
-                                            <div><%= booking.screening.cinema_hall.cinema + ' - ' + booking.screening.cinema_hall.name %></div>
-                                            <div><%= booking.seat %></div>
-                                            <% } %>
-                                        </div>
-                                    </div>
-                                    <% }) %>
-                                <% } else { %>
-                                    <div class="alert alert-info">
-                                        <i class="fa fa-info"></i>
-                                        <?= tkt_t('Aucune réservation sur ce billet.') ?>
-                                    </div>
-                                <% } %>
-                                </div>
-                                <div class="col-sm-3 text-right">
-                                    <img class="img" src="<%= ticket.getQRCodeUrl() %>" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
--->
                 </div>
+                <% }) %>
                 <% }) %>
             </div>
             <% } %>

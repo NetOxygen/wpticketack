@@ -33,10 +33,8 @@ export default class TicketConnect extends Component {
         TKTApi.viewTicket((err, status, rsp) => {
             const ticket = !err ? new Ticket(rsp) : null;
 
-            if (err)
-                this.state.unset('user.ticket');
-            else
-                this.state.set('user.ticket', ticket);
+            if (!err)
+                this.state.push('tickets', ticket, /*uniqueBy*/'_id');
 
             this.render(!err ? new Ticket(rsp) : null);
         });
@@ -78,7 +76,7 @@ export default class TicketConnect extends Component {
                         .removeClass('d-none');
 
                 this.data.ticket = new Ticket(rsp);
-                this.state.set('user.ticket', this.data.ticket);
+                this.state.push('tickets', this.data.ticket, /*uniqueBy*/'_id');
                 this.state.set('user.pass_infos', this.data.pass_infos);
 
                 this.emit_connection_update(this.data.ticket);
@@ -90,13 +88,9 @@ export default class TicketConnect extends Component {
         );
     }
 
-    disconnect_pass() {
-        TKTApi.logoutTicket((err, status, rsp) => {
-            if (!err) {
-                this.state.unset('user.ticket');
-                this.emit_connection_update(null);
-            }
-        });
+    disconnect_pass(ticket_id) {
+        this.state.pull('tickets', '_id', ticket_id);
+        this.emit_connection_update(null);
     }
 
     render(ticket) {

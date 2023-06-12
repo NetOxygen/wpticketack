@@ -1,5 +1,5 @@
 import { Component, Config, i18n, Template } from '../Core';
-import { Api as TKTApi } from '../Ticketack';
+import { TKTLib, Api as TKTApi } from '../Ticketack';
 import { Cart, Screening, Ticket } from '../Models';
 import _ from 'lodash';
 import postal from 'postal';
@@ -65,22 +65,33 @@ export default class BookingForm extends Component {
         });
 
         this.listen_to_message();
-        this.refreshTicket();
     }
 
-    refreshTicket(callback) {
-        TKTApi.viewTicket((err, status, rsp) => {
-            const ticket = !err ? new Ticket(rsp) : null;
+    async refreshTicket(ticket_id, callback) {
+        let ticket;
+        let state_key;
 
-            if (err)
-                this.state.unset('user.ticket');
-            else
-                this.state.set('user.ticket', ticket);
+        if (this.state.hasInArray('user.tickets', '_id', ticket_id))
+            state_key = 'user.tickets';
+        else if (this.state.hasInArray('tickets', '_id', ticket_id))
+            state_key = 'tickets';
+        else
+            return callback(new Error('Ticket not found'));
 
-            return callback && callback(err, ticket);
-        });
+        const tickets = this.state.get(state_key, []);
 
+        try {
+            const rsp = await TKTLib.TicketService.get(ticket_id);
+            ticket = new Ticket(rsp);
+            tickets.push(ticket);
+            this.state.push(state_key, ticket, /*uniqueBy*/'_id');
+        } catch (err) {
+            this.state.pull(state_key, '_id', ticket_id);
+        }
+
+        return callback && callback(/*err*/null, ticket);
     }
+
     init_store() {
         this.data = {
             screenings: [], // current screenings
@@ -186,33 +197,37 @@ export default class BookingForm extends Component {
         });
     }
 
-    book() {
-        if (!this.data.screening._id)
+    async book_on(ticket_id) {
+        const screening_id = this.data.screening._id;
+        if (!screening_id)
             return new Error("No screening");
 
-        TKTApi.book(this.data.screening._id, (err, status, rsp) => {
-            if (err) {
-                $('.book-form-success', this.$container).addClass('d-none');
-                $('.book-form-error', this.$container)
-                    .html(i18n.t("Une erreur est survenue. Veuillez ré-essayer ultérieurement."))
-                    .removeClass('d-none');
-            } else if (rsp.flash && rsp.flash.error) {
-                $('.book-form-success', this.$container).addClass('d-none');
-                $('.book-form-error', this.$container)
-                    .html(rsp.flash.error)
-                    .removeClass('d-none');
-            } else {
-                $('.book-form-error', this.$container).addClass('d-none');
-                $('.book-form-success', this.$container)
-                    .html(rsp.flash.success)
-                    .removeClass('d-none');
-            }
+        const { ScreeningService, TicketService } = TKTLib;
+        const $container = $('.ticket-wrapper[data-ticket-id="' + ticket_id + '"]');
+        let bookings = [];
+        try {
+            bookings = await ScreeningService.book(screening_id, {}, [{}]);
+            const result = await TicketService.confirmBooking(ticket_id, bookings[0]._id);
+            $('.book-form-error', $container).addClass('d-none');
+            $('.book-form-success', $container).removeClass('d-none');
+        } catch(err) {
+            console.log('err', err);
+            console.log('bookings', bookings);
+            $('.book-form-error', $container)
+                .html(i18n.t("Impossible de réserver."))
+                .removeClass('d-none');
 
-            this.refreshTicket((err, ticket) => this.check_bookability());            
-        });
+            // release created bookings, if any
+            bookings.map(async booking => await ScreeningService.releaseBooking(booking._id));
+        }
+
+        this.refreshTicket(ticket_id, (err, ticket) => this.check_bookability());
+        setTimeout(() => {
+            this.build_tickets_form();
+        }, 3000);
     }
 
-    connect_pass() {
+    async connect_pass() {
         $('.pass-error', this.$container).html("").addClass('d-none');
 
         if (!this.data.pass_infos.number || !this.data.pass_infos.key)
@@ -220,24 +235,22 @@ export default class BookingForm extends Component {
                 .html(i18n.t('Veuillez remplir les deux champs'))
                 .removeClass('d-none');
 
-        TKTApi.loginTicket(
-            this.data.pass_infos.number,
-            this.data.pass_infos.key,
-            (err, status, rsp) => {
-                if (err)
-                    return $('.pass-error')
-                        .html(i18n.t('Les informations que vous avez saisies sont invalides'))
-                        .removeClass('d-none');
+        const { number, key } = this.data.pass_infos;
+        try {
+            const rsp = await TKTLib.TicketService.getTicketByTicketId({number, key});
 
-                this.data.ticket = new Ticket(rsp);
-                this.state.set('user.ticket', this.data.ticket);
-                this.emit_connection_update(this.data.ticket);
+            this.data.ticket = new Ticket(rsp);
+            this.state.push('tickets', this.data.ticket, /*uniqueBy*/'_id');
+            this.emit_connection_update(this.data.ticket);
 
-                // Redirect to ticket activation if needed
-                if (this.data.ticket.status == "new")
-                    window.location.href =  TKTApi.getTicketViewUrl();
-            }
-        );
+            // Redirect to ticket activation if needed
+            if (this.data.ticket.status == "new")
+                window.location.href =  TKTApi.getTicketViewUrl();
+        } catch (err) {
+            return $('.pass-error')
+                .html(i18n.t('Les informations que vous avez saisies sont invalides'))
+                .removeClass('d-none');
+        }
     }
 
     check_bookability(callback) {
@@ -249,42 +262,11 @@ export default class BookingForm extends Component {
                 return false;
             this.data.bookability = rsp;
 
-            if (this.data.bookability.ticket_logged_in) {
-                $('.connect-panel', this.$container).addClass('d-none');
-                $('.book-panel', this.$container).removeClass('d-none');
+            const tickets = this.state.get('tickets', []);
+            if (tickets.length > 0) {
                 $('.show-bookings-btn', this.$container).removeClass('d-none');
-
-                if (this.data.bookability.ticket_can_book_screening) {
-                    const ticket = this.state.get('user.ticket');
-                    const nbAlreadyBooked = (ticket?.bookings || []).filter(b => b.screening?._id === this.data?.screening?._id).length;
-                    if (nbAlreadyBooked > 0) {
-                        $('.book-btn', this.$container).addClass('d-none');
-                        $('.book-btn-more', this.$container).removeClass('d-none');
-                    } else {
-                        $('.book-btn-more', this.$container).addClass('d-none');
-                        $('.book-btn', this.$container).removeClass('d-none');
-                    }
-
-                    $('.book-form-error', this.$container).addClass('d-none');
-                } else {
-                    $('.book-btn', this.$container).addClass('d-none');
-                    $('.book-btn-more', this.$container).addClass('d-none');
-
-
-                    let msg = this.data.bookability.screening_already_booked ?
-                        i18n.t("Vous ne pouvez pas réserver une place de plus pour cette séance avec votre abonnement.") :
-                        i18n.t("Vous ne pouvez pas réserver de place pour cette séance avec votre abonnement.");
-                    if (rsp?.ticket_cannot_book_explanation?.length > 0) {
-                        msg = rsp.ticket_cannot_book_explanation;
-                    }
-
-                    $('.book-form-error', this.$container)
-                        .html(msg)
-                        .removeClass('d-none');
-                }
             } else {
                 $('.connect-panel', this.$container).removeClass('d-none');
-                $('.book-panel', this.$container).addClass('d-none');
             }
              callback && callback();
         });
@@ -356,18 +338,29 @@ export default class BookingForm extends Component {
             return;
 
         // render template
-        const userTicket      = this.state.get('user.ticket') ? new Ticket(this.state.get('user.ticket')) : null;
-        const ticket_view_url = userTicket ? userTicket.getTicketViewUrl() : TKTApi.getTicketViewUrl();
-        const screening       = {
-            ...this.data.screening,
-            pricings: ('getMatchingPricings' in this.data.screening) ? this.data.screening.getMatchingPricings('eshop', (userTicket ? userTicket.type._id : null)) : []
-        }
+
+        const connected_tickets = this.state
+            .get('tickets', [])
+            .map(ticket => new Ticket(ticket))
+            .filter(t => t.isActivated());
+        const account_tickets = this.state
+            .get('user.tickets', [])
+            .map(ticket => new Ticket(ticket))
+            .filter(t => t.isActivated());
+
+        let pricings = [];
+        if ('getMatchingPricings' in this.data.screening)
+            pricings = this.data.screening.getMatchingPricings('eshop',
+                connected_tickets.concat(account_tickets).map(t => t.type._id)
+            );
+        const screening = new TKTLib.Screening({ ...this.data.screening, pricings });
 
         this.$tickets_form.html(Template.render('tkt-booking-form-pricings-tpl', {
             screening: screening,
-            ticket_view_url,
             show_pricings: this.show.includes('pricings'),
-            show_ticket_id: this.show.includes('ticket_id')
+            show_ticket_id: this.show.includes('ticket_id'),
+            account_tickets,
+            connected_tickets
         }));
 
         // bind pricings minus buttons if any
@@ -421,11 +414,15 @@ export default class BookingForm extends Component {
 
         // bind book button
         $('.book-btn', this.$container).click((e) => {
-            this.book();
+            const ticket_id = $(e.target).data('ticket-id');
+            if (ticket_id)
+                this.book_on(ticket_id);
         });
 
         $('.book-btn-more', this.$container).click((e) => {
-            this.book();
+            const ticket_id = $(e.target).data('ticket-id');
+            if (ticket_id)
+                this.book_on(ticket_id);
         });
 
         // bind add-to-cart button

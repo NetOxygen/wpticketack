@@ -24,21 +24,21 @@ export default class Pricing extends BaseModel {
         }
     }
 
-    rulesMatch(roles, tickettype) {
+    rulesMatch(roles, tickettypes) {
         if (('only_for_roles' in this.rules) && this.rules.only_for_roles.length > 0) {
             if (!roles.filter(r => this.only_for_roles.includes(r)).length === 0)
                 return false;
         }
 
         if (('only_for_tickettypes' in this.rules) && this.rules.only_for_tickettypes.length > 0) {
-            if (!tickettype)
+            if (!tickettypes)
                 return false;
-            if (!this.rules.only_for_tickettypes.includes(tickettype))
+            if (!this.rules.only_for_tickettypes.filter(t => tickettypes.includes(t)))
                 return false;
         }
 
         if (('exclude_tickettypes' in this.rules) && this.rules.exclude_tickettypes.length > 0) {
-            if (tickettype && this.rules.exclude_tickettypes.includes(tickettype))
+            if (this.rules.exclude_tickettypes.filter(t => tickettypes.includes(t)))
                 return false;
         }
 

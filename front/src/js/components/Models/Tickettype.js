@@ -23,11 +23,11 @@ export default class Tickettype extends BaseModel {
         }
     }
 
-    getMatchingPricings(roles, tickettype) {
+    getMatchingPricings(roles, tickettypes) {
         const allowedPricings = {};
         Object.keys(this.pricings).map(pricingId => {
             const pricing = this.pricings[pricingId];
-            if (pricing.rulesMatch(roles, tickettype))
+            if (pricing.rulesMatch(roles, tickettypes))
                 allowedPricings[pricingId] = pricing;
         })
 

@@ -10,6 +10,7 @@ use Ticketack\WP\Templates\TKTTemplate;
  * Input: {
  *   "user": { ... },
  *   "tickets": [ ... ],
+ *   "other_tickets": [ ... ],
  *   "orders": [ ... ],
  * }
  */

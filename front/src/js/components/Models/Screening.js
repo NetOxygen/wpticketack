@@ -1,5 +1,5 @@
 import BaseModel from './Base';
-import { Api as TKTApi } from '../Ticketack';
+import { Api as TKTApi, TKTLib } from '../Ticketack';
 import Pricing from './Pricing';
 import _ from 'lodash';
 import async from 'async';
@@ -8,7 +8,7 @@ import moment from 'moment-timezone';
 /**
  * Screening model
  */
-export default class Screening extends BaseModel {
+export default class Screening extends TKTLib.Screening {
     static type = 'screening';
 
     static infos_cache = new (function() {
@@ -62,26 +62,6 @@ export default class Screening extends BaseModel {
             return this.title.original;
 
         return this.title.fr;
-    }
-
-    /**
-     * Get this screening formatted start_at date
-     * @return {String}
-     */
-    getFormattedStartAt() {
-        return this.start_at.format('LLL');
-    };
-
-    /**
-     * Get this screening first poster
-     *
-     * @return {String}
-     */
-    getFirstPosterUrl() {
-        if (!this.opaque?.posters || this.opaque?.posters?.length == 0)
-            return null;
-
-        return this.opaque.posters[0].url;
     }
 
     /**
@@ -162,16 +142,5 @@ export default class Screening extends BaseModel {
 
             return callback(/*err*/null, infos);
         });
-    }
-
-    getMatchingPricings(roles, tickettype) {
-        const allowedPricings = {};
-        Object.keys(this.pricings).map(pricingId => {
-            const pricing = this.pricings[pricingId];
-            if (pricing.rulesMatch(roles, tickettype))
-                allowedPricings[pricingId] = pricing;
-        })
-
-        return allowedPricings;
     }
 }

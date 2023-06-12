@@ -81,6 +81,13 @@ export default class UserAccount extends Component {
         });
     }
 
+    forgetTicket(e) {
+        const ticketId = $(e.target).data('ticket-id');
+        if (ticketId)
+            this.state.pull('tickets', '_id', ticketId);
+        this.render();
+    }
+
     updateProfile() {
         this.reset_messages();
 
@@ -118,9 +125,10 @@ export default class UserAccount extends Component {
     }
 
     render() {
-        const user    = this.state.get('user.account');
-        const orders  = this.state.get('user.orders', []).map(order => new Cart(order));
-        const tickets = this.state.get('user.tickets', []).map(ticket => new Ticket('ticket_data' in ticket ? ticket.ticket_data : ticket));
+        const user          = this.state.get('user.account');
+        const orders        = this.state.get('user.orders', []).map(order => new Cart(order));
+        const tickets       = this.state.get('user.tickets', []).map(ticket => new Ticket('ticket_data' in ticket ? ticket.ticket_data : ticket));
+        const other_tickets = this.state.get('tickets', []).map(ticket => new Ticket('ticket_data' in ticket ? ticket.ticket_data : ticket));
 
         if (!user)
             return window.location.href = this.loginUrl;
@@ -131,7 +139,7 @@ export default class UserAccount extends Component {
             this.$verifyMessage.show();
         } else {
             this.$menuContainer.html(Template.render('tkt-user-account-menu-tpl', {}));
-            this.$contentContainer.html(Template.render('tkt-user-account-content-tpl', { user, orders, tickets }));
+            this.$contentContainer.html(Template.render('tkt-user-account-content-tpl', { user, orders, tickets, other_tickets }));
             this.loader.attach();
 
         }
@@ -141,6 +149,9 @@ export default class UserAccount extends Component {
 
         // bind update profile submit button
         $('#tkt-user-account-profile-form', this.$container).on('submit', this.updateProfile.bind(this));
+
+        // bind forget ticket button
+        $('.ticket-forget-link', this.$container).click(this.forgetTicket.bind(this));
     }
 
     reset_messages() {

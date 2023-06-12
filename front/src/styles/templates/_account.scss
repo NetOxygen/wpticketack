@@ -46,15 +46,19 @@
     }
 
     #tkt-user-account-content {
-        margin-top: 10px;
 
         #tkt-account-content-profile {
             #tickets-accordion {
+                .tickets-group-title {
+                    font-weight: bold;
+                    margin-top: 15px;
+                }
+
                 .card {
-                    border-radius: 0;
-                    moz-border-radius: 0;
-                    webkit-border-radius: 0;
-                    padding: 5px;
+                    border-radius: $border_radius;
+                    moz-border-radius: $border_radius;
+                    webkit-border-radius: $border_radius;
+                    margin: 5px 0;
 
                     .card-header {
                         padding: 0;
@@ -62,9 +66,9 @@
                         h5 {
                             img {
                                 max-height: 62px !important;
-                                border-radius: 4px 0 0 4px;
-                                moz-border-radius: 4px 0 0 4px;
-                                webkit-border-radius: 4px 0 0 4px;
+                                border-radius: $border_radius 0 0 $border_radius;
+                                moz-border-radius: $border_radius 0 0 $border_radius;
+                                webkit-border-radius: $border_radius 0 0 $border_radius;
                             }
 
                             button {
@@ -93,6 +97,21 @@
                                 text-transform: none;
                                 text-decoration: none;
                                 color: $active_color;
+                            }
+
+                            .ticket-forget-link {
+                                font-size: 12px;
+                                text-transform: none;
+                                text-decoration: none;
+                                color: $error_color;
+                            }
+                        }
+
+                        &.past {
+                            opacity: 0.5;
+
+                            &:hover {
+                                opacity: 1;
                             }
                         }
                     }

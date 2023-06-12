@@ -14,8 +14,8 @@ export default class BaseModel {
 
     /**
      * Helper function to  format an amount depending on the current locale and currency
-     * 
-     * @param  {number} 
+     *
+     * @param  {number}
      * @return {String}
      */
     getFormatedAmount(amount) {

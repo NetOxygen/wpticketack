@@ -171,9 +171,9 @@ export default class BuyForm extends Component {
     sync_pass_pricings() {
         if (!(this.tickettypes || []).length || !this.activePass)
             return;
-        const userTicket       = this.state.get('user.ticket');
+        const userTickets      = this.state.get('tickets', []);
         const tickettype       = this.tickettypes.find(tickettype => tickettype._id === this.activePass);
-        const matchingPricings = tickettype.getMatchingPricings('eshop', userTicket ? userTicket.type._id : null);
+        const matchingPricings = tickettype.getMatchingPricings('eshop', userTickets.map(t => t.type._id));
 
         const $shownPricings = $(`#item-${this.activePass} .radio input`);
         $shownPricings.each((i, p) => {
