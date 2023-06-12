@@ -27,7 +27,7 @@ class SyncPostsAction extends TKTAction
      */
     public function add_link()
     {
-      $action_link = "/wp-admin/admin-post.php?action=sync_events";
+      $action_link = admin_url("admin-post.php?action=sync_events");
       $script = <<<JS
 <script type="text/javascript">
   jQuery(document).ready(function ($) {
@@ -46,7 +46,7 @@ JS;
     {
         SyncHelper::sync_events();
 
-        wp_redirect("/wp-admin/edit.php?post_type=tkt-event");
+        wp_redirect(admin_url("edit.php?post_type=tkt-event"));
         exit;
     }
 }

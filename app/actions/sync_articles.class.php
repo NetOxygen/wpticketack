@@ -27,7 +27,7 @@ class SyncArticlesAction extends TKTAction
      */
     public function add_link()
     {
-      $action_link = "/wp-admin/admin-post.php?action=sync_articles";
+      $action_link = admin_url("admin-post.php?action=sync_articles");
       $script = <<<JS
 <script type="text/javascript">
   jQuery(document).ready(function ($) {
@@ -46,7 +46,7 @@ JS;
     {
         SyncArticlesHelper::sync_articles();
 
-        wp_redirect("/wp-admin/edit.php?post_type=tkt-article");
+        wp_redirect(admin_url("edit.php?post_type=tkt-article"));
         exit;
     }
 }

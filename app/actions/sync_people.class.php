@@ -32,7 +32,7 @@ class SyncPeopleAction extends TKTAction
         // will add a flag in wp_options triggered by a cron to launch a new import
         return false;
         $default_lang = TKTApp::get_instance()->get_config('i18n.default_lang', 'fr');
-        $action_link  = "/wp-admin/admin-post.php?action=sync_people&lang=$default_lang";
+        $action_link = admin_url("admin-post.php?action=sync_people&lang=$default_lang");
         $script       = <<<JS
 <script type="text/javascript">
   jQuery(document).ready(function ($) {
@@ -51,7 +51,7 @@ JS;
     {
         SyncPeopleHelper::sync();
 
-        wp_redirect("/wp-admin/edit.php?post_type=tkt-people");
+        wp_redirect(admin_url("edit.php?post_type=tkt-people"));
         exit;
     }
 }
