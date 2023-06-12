@@ -58,7 +58,7 @@ class AdminSettingsAction extends TKTAction
 
         add_settings_field(
             'salepoint_id', // ID
-            tkt_t('Point de vente de ce site web'), // Title
+            tkt_t('Point de vente de ce site Web'), // Title
             array( $this, 'salepoint_id_callback' ), // Callback
             'ticketack-api', // Page
             'ticketack_api' // Section
@@ -66,16 +66,17 @@ class AdminSettingsAction extends TKTAction
 
         add_settings_field(
             'cashregister_id', // ID
-            tkt_t('Caisse de ce site web'), // Title
+            tkt_t('Caisse de ce site Web'), // Title
             array( $this, 'cashregister_id_callback' ), // Callback
             'ticketack-api', // Page
             'ticketack_api' // Section
         );
 
+
         add_settings_section(
-            'ticketack_pages', // ID
-            tkt_t('Pages'), // Title
-            array( $this, 'pages_section_info' ), // Callback
+            'ticketack_pages_sale', // ID
+            tkt_t('Billetterie et vente d\'articles'), // Title
+            array( $this, 'pages_sale_section_info' ), // Callback
             'ticketack-pages' // Page
         );
 
@@ -84,7 +85,7 @@ class AdminSettingsAction extends TKTAction
             tkt_t('Programme'), // Title
             array( $this, 'program_callback' ), // Callback
             'ticketack-pages', // Page
-            'ticketack_pages' // Section
+            'ticketack_pages_sale' // Section
         );
 
         add_settings_field(
@@ -92,7 +93,7 @@ class AdminSettingsAction extends TKTAction
             tkt_t('Abonnements'), // Title
             array( $this, 'pass_callback' ), // Callback
             'ticketack-pages', // Page
-            'ticketack_pages' // Section
+            'ticketack_pages_sale' // Section
         );
 
         add_settings_field(
@@ -100,15 +101,14 @@ class AdminSettingsAction extends TKTAction
             tkt_t('Articles'), // Title
             array( $this, 'shop_callback' ), // Callback
             'ticketack-pages', // Page
-            'ticketack_pages' // Section
+            'ticketack_pages_sale' // Section
         );
 
-        add_settings_field(
-            'ticket_view', // ID
-            tkt_t('Vue du ticket'), // Title
-            array( $this, 'ticket_view_callback' ), // Callback
-            'ticketack-pages', // Page
-            'ticketack_pages' // Section
+        add_settings_section(
+            'ticketack_pages_cart', // ID
+            tkt_t('Processus de vente'), // Title
+            array( $this, 'pages_cart_section_info' ), // Callback
+            'ticketack-pages' // Page
         );
 
         add_settings_field(
@@ -116,47 +116,46 @@ class AdminSettingsAction extends TKTAction
             tkt_t('Panier'), // Title
             array( $this, 'cart_callback' ), // Callback
             'ticketack-pages', // Page
-            'ticketack_pages' // Section
+            'ticketack_pages_cart' // Section
         );
 
         add_settings_field(
             'checkout', // ID
-            tkt_t('Checkout'), // Title
+            tkt_t('Validation de commande'), // Title
             array( $this, 'checkout_callback' ), // Callback
             'ticketack-pages', // Page
-            'ticketack_pages' // Section
+            'ticketack_pages_cart' // Section
         );
 
         add_settings_field(
-            'registration', // ID
-            tkt_t('Registration'), // Title
-            array( $this, 'registration_callback' ), // Callback
+            'thank_you', // ID
+            tkt_t('Confirmation de commande'), // Title
+            array( $this, 'thank_you_callback' ), // Callback
             'ticketack-pages', // Page
-            'ticketack_pages' // Section
+            'ticketack_pages_cart' // Section
         );
 
-        /*add_settings_field(
-            'lostpassword', // ID
-            tkt_t('Mot de passe perdu'), // Title
-            array( $this, 'lostpassword_callback' ), // Callback
-            'ticketack-pages', // Page
-            'ticketack_pages' // Section
+        add_settings_section(
+            'ticketack_pages_login', // ID
+            tkt_t('Connexion TicketID et utilisateur'), // Title
+            array( $this, 'pages_login_section_info' ), // Callback
+            'ticketack-pages' // Page
         );
-
-        add_settings_field(
-            'changepassword', // ID
-            tkt_t('Changement de mot de passe'), // Title
-            array( $this, 'changepassword_callback' ), // Callback
-            'ticketack-pages', // Page
-            'ticketack_pages' // Section
-        );*/
 
         add_settings_field(
             'login', // ID
             tkt_t('Connexion'), // Title
             array( $this, 'login_callback' ), // Callback
             'ticketack-pages', // Page
-            'ticketack_pages' // Section
+            'ticketack_pages_login' // Section
+        );
+
+        add_settings_field(
+            'ticket_view', // ID
+            tkt_t('Vue du ticket'), // Title
+            array( $this, 'ticket_view_callback' ), // Callback
+            'ticketack-pages', // Page
+            'ticketack_pages_login' // Section
         );
 
         add_settings_field(
@@ -164,15 +163,31 @@ class AdminSettingsAction extends TKTAction
             tkt_t('Mon compte'), // Title
             array( $this, 'account_callback' ), // Callback
             'ticketack-pages', // Page
-            'ticketack_pages' // Section
+            'ticketack_pages_login' // Section
         );
 
         add_settings_field(
-            'thank_you', // ID
-            tkt_t('Remerciements'), // Title
-            array( $this, 'thank_you_callback' ), // Callback
+            'registration', // ID
+            tkt_t('Création de compte'), // Title
+            array( $this, 'registration_callback' ), // Callback
             'ticketack-pages', // Page
-            'ticketack_pages' // Section
+            'ticketack_pages_login' // Section
+        );
+
+        add_settings_field(
+            'lostpassword', // ID
+            tkt_t('Mot de passe perdu'), // Title
+            array( $this, 'lostpassword_callback' ), // Callback
+            'ticketack-pages', // Page
+            'ticketack_pages_login' // Section
+        );
+
+        add_settings_field(
+            'changepassword', // ID
+            tkt_t('Changement de mot de passe'), // Title
+            array( $this, 'changepassword_callback' ), // Callback
+            'ticketack-pages', // Page
+            'ticketack_pages_login' // Section
         );
 
         add_settings_section(
@@ -370,7 +385,7 @@ class AdminSettingsAction extends TKTAction
 
         add_settings_section(
             'ticketack_advanced', // ID
-            tkt_t('Librairies JS'), // Title
+            tkt_t('Bibliothèques JavaScript'), // Title
             array( $this, 'advanced_section_info' ), // Callback
             'ticketack-advanced' // Page
         );
@@ -444,13 +459,22 @@ class AdminSettingsAction extends TKTAction
         return $new_input;
     }
 
-    /** 
+    /**
      * Print the Section text
      */
-    public function pages_section_info()
+    public function pages_sale_section_info()
     {
-        print tkt_t("Sélectionnez les pages de votre site qui contiennent les shortcodes d'intégration Ticketack (le cas échéant)");
+        print tkt_t("Sélectionnez les pages qui contiennent votre programme (avec ou sans shortcode d'intégration) et permettent la vente d'abonnements et d'articles de merchandising (le cas échéant).");
     }
+    public function pages_cart_section_info()
+    {
+        print tkt_t("Sélectionnez les pages qui contiennent les shortcode d'intégration du processus d'achat.");
+    }
+    public function pages_login_section_info()
+    {
+        print tkt_t("Sélectionnez les pages en relation avec les tickets et le compte (le cas échéant) utilisateur.");
+    }
+
     public function program_callback() { return $this->page_choice('program', 'tkt_pages', 'program'); }
     public function pass_callback() { return $this->page_choice('pass', 'tkt_pages', 'pass'); }
     public function shop_callback() { return $this->page_choice('shop', 'tkt_pages', 'shop'); }
@@ -506,7 +530,7 @@ class AdminSettingsAction extends TKTAction
     public function allow_registration_callback() { return $this->boolean('allow_registration', 'tkt_registration', '1'); }
 
 
-    /** 
+    /**
      * Print the Section text
      */
     public function api_section_info()
