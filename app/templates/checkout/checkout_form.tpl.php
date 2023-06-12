@@ -52,7 +52,7 @@ if (!function_exists('r')) {
     <div class="row">
       <div class="col">
         <form class="checkout-form">
-          <?php if (!empty($requested_fields)) : ?>
+          <?php if (!empty($requested_fields) || !empty($required_fields)) : ?>
           <fieldset>
             <h3 class="tkt-section-title"><?= tkt_t("Vos données de facturation") ?></h3>
             <div class="row">
