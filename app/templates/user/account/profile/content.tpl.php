@@ -29,7 +29,7 @@ if (!function_exists('r')) {
     <div class="row">
       <div class="col">
         <form id="tkt-user-account-profile-form">
-          <?php if (!empty($requested_fields)) : ?>
+          <?php if (!empty($requested_fields) || !empty($required_fields)) : ?>
           <fieldset id="registration-fields">
             <div class="row">
               <?php if (in_array('firstname', $requested_fields)) : ?>

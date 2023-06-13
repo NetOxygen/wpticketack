@@ -28,7 +28,7 @@ if (!function_exists('r')) {
           <!-- Google reCAPTCHA -->
           <input type="hidden" id="recaptchaResponse" name="recaptcha_client">
         <?php endif; ?>
-          <?php if (!empty($requested_fields)) : ?>
+          <?php if (!empty($requested_fields) || !empty($required_fields)) : ?>
           <fieldset id="registration-fields">
             <div class="row">
               <?php if (in_array('firstname', $requested_fields)) : ?>
