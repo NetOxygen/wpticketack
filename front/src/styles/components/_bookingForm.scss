@@ -145,11 +145,6 @@
                 background: #FAFAFA;
                 padding: 5px;
 
-                &:hover {
-                    background: #F0F0F0;
-                    border-color: #E8E8E8;
-                }
-
                 .ticket-infos {
                     a {
                         text-decoration: none;
@@ -157,12 +152,6 @@
                     }
                     .already-booked {
                         padding-left: 10px;
-                    }
-                }
-
-                .book-btns {
-                    .book-btn, .book-btn-more {
-                        height: 100%;
                     }
                 }
             }

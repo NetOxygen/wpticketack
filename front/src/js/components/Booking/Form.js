@@ -78,12 +78,9 @@ export default class BookingForm extends Component {
         else
             return callback(new Error('Ticket not found'));
 
-        const tickets = this.state.get(state_key, []);
-
         try {
-            const rsp = await TKTLib.TicketService.get(ticket_id);
+            const rsp = await TKTLib.TicketService.get(ticket_id, /*noCache*/true);
             ticket = new Ticket(rsp);
-            tickets.push(ticket);
             this.state.push(state_key, ticket, /*uniqueBy*/'_id');
         } catch (err) {
             this.state.pull(state_key, '_id', ticket_id);
@@ -211,8 +208,6 @@ export default class BookingForm extends Component {
             $('.book-form-error', $container).addClass('d-none');
             $('.book-form-success', $container).removeClass('d-none');
         } catch(err) {
-            console.log('err', err);
-            console.log('bookings', bookings);
             $('.book-form-error', $container)
                 .html(i18n.t("Impossible de réserver."))
                 .removeClass('d-none');
@@ -224,7 +219,7 @@ export default class BookingForm extends Component {
         this.refreshTicket(ticket_id, (err, ticket) => this.check_bookability());
         setTimeout(() => {
             this.build_tickets_form();
-        }, 3000);
+        }, 1000);
     }
 
     async connect_pass() {
@@ -415,12 +410,14 @@ export default class BookingForm extends Component {
         // bind book button
         $('.book-btn', this.$container).click((e) => {
             const ticket_id = $(e.target).data('ticket-id');
+            $(e.target).html('<i class="fa fa-spinner fa-spin"></i>');
             if (ticket_id)
                 this.book_on(ticket_id);
         });
 
         $('.book-btn-more', this.$container).click((e) => {
             const ticket_id = $(e.target).data('ticket-id');
+            $(e.target).html('<i class="fa fa-spinner fa-spin"></i>');
             if (ticket_id)
                 this.book_on(ticket_id);
         });

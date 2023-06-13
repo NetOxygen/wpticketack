@@ -102,33 +102,35 @@ use Ticketack\WP\TKTApp;
 
                     <% if (ticket.canBook(screening)) { %>
                     <button data-ticket-id="<%= ticket._id %>" class="button book-btn active <%= ticket.canBook(screening) && !ticket.hasBooked(screening) ? '' : 'd-none' %>" >
+                        <i class="fa fa-plus"></i>
                         <?= tkt_t('Réserver une place sur ce billet') ?>
                     </button>
                     <button data-ticket-id="<%= ticket._id %>" class="button book-btn-more active <%= ticket.canBook(screening) && ticket.hasBooked(screening) ? '' : 'd-none' %>" >
+                        <i class="fa fa-plus"></i>
                         <?= tkt_t('Réserver une place de plus sur ce billet') ?>
                     </button>
                     <% } else { %>
                     <small data-ticket-id="<%= ticket._id %>" class="cannot-book-explanation">
                         <% if (ticket.hasBooked(screening)) { %>
-                            <?= tkt_t("Vous ne pouvez pas réserver plus de place pour cette séance avec ce billet.") ?>
+                            <i><?= tkt_t("Vous ne pouvez pas réserver plus de place pour cette séance avec ce billet.") ?></i>
                         <% } else { %>
-                            <?= tkt_t("Vous ne pouvez pas réserver de place pour cette séance avec ce billet.") ?>
+                            <i><?= tkt_t("Vous ne pouvez pas réserver de place pour cette séance avec ce billet.") ?></i>
                         <% } %>
                     </small>
                     <% } %>
                 </div>
             </div>
             <div class="row">
-                <div class="col">
-                    <h4 class="success book-form-success d-none text-success">
+                <div class="col text-right">
+                    <small class="success book-form-success d-none text-success pl-2">
                         <?= tkt_t('Votre place a bien été réservée.') ?>
-                    </h4>
+                    </small>
                 </div>
             </div>
             <div class="row">
-                <div class="col">
-                    <div class="book-form-error d-none text-danger">
-                    </div>
+                <div class="col text-right">
+                    <small class="book-form-error d-none text-danger pl-2">
+                    </small>
                 </div>
             </div>
         </div>
