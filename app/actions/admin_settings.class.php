@@ -137,7 +137,7 @@ class AdminSettingsAction extends TKTAction
 
         add_settings_section(
             'ticketack_pages_login', // ID
-            tkt_t('Connexion TicketID et utilisateur'), // Title
+            tkt_ticketidize(tkt_t('Connexion TicketID et utilisateur')), // Title
             array( $this, 'pages_login_section_info' ), // Callback
             'ticketack-pages' // Page
         );
