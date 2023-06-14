@@ -6,7 +6,6 @@ Ticketack
     .setup({
         'apiKey': Config.get('api_key'),
         'engineUri': Config.get('engine_uri'),
-        'storageType': 'localStorage'
     });
 
 export default Ticketack;
