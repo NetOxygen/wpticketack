@@ -95,7 +95,7 @@ class Event extends TKTModel implements \JsonSerializable
         }
         if (array_key_exists('sections', $properties)) {
             $this->sections = array_map(function ($obj) {
-                return new Section($obj);
+                return is_array($obj) ? new Section($obj) : $obj;
             }, $properties['sections']);
             unset($properties['sections']);
         }
