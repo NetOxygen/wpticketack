@@ -136,6 +136,10 @@ class Salepoint extends TKTModel implements \JsonSerializable
         return $req->query('_ids', implode(',', $ids));
     }
 
+    // XXX; once PHP 7.4 support is not needed anymore, remove the following
+    // line and add : mixed at the end of the signature so that PHP8.1 doesn't
+    // spew a deprecation warning.
+    #[ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $ret = [
