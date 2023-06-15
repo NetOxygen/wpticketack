@@ -98,7 +98,7 @@ class CustomTypesAction extends TKTAction
             'new_item'           => tkt_t('Nouvelle personne Ticketack'),
             'edit_item'          => tkt_t('Modifier cette personne Ticketack'),
             'view_item'          => tkt_t('Afficher cette personne Ticketack'),
-            'all_items'          => tkt_t('Tous les poeple Ticketack'),
+            'all_items'          => tkt_t('Tous les people Ticketack'),
             'search_items'       => tkt_t('Rechercher les people Ticketack'),
             'parent_item_colon'  => tkt_t('Parent:'),
             'not_found'          => tkt_t('Aucune personne Ticketack trouvée.'),

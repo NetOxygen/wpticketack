@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-14 12:50+0100\n"
+"POT-Creation-Date: 2023-06-15 18:04+0200\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Jonathan Ernst <jonathan.ernst@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -241,15 +241,44 @@ msgstr "Book on my pass"
 msgid "Entrée libre"
 msgstr "Free entry"
 
-msgid "Complet !"
-msgstr "Complete !"
+#, fuzzy
+msgid "Acheter des places"
+msgstr "Buy  your tickets"
 
 msgid ""
 "Entrez le nombre de place(s) que vous souhaitez ajouter à votre panier :"
 msgstr "Enter the number of tickets you want to add to your cart"
 
-msgid "Connectez-vous"
-msgstr "Login"
+#, fuzzy
+msgid "Réserver des places sur vos billets"
+msgstr "Book on my pass"
+
+msgid "Réservation pour cette séance avec ce billet : "
+msgstr ""
+
+#, fuzzy
+msgid "Réserver une place sur ce billet"
+msgstr "Book on my pass"
+
+#, fuzzy
+msgid "Réserver une place de plus sur ce billet"
+msgstr "Book another seat on my pass"
+
+#, fuzzy
+msgid ""
+"Vous ne pouvez pas réserver plus de place pour cette séance avec ce billet."
+msgstr "You  can not book this screening with your pass"
+
+#, fuzzy
+msgid "Vous ne pouvez pas réserver de place pour cette séance avec ce billet."
+msgstr "You  can not book this screening with your pass"
+
+#, fuzzy
+msgid "Votre place a bien été réservée."
+msgstr "Your account has been created"
+
+msgid "Ajoutez-le"
+msgstr ""
 
 msgid "pour réserver."
 msgstr "to book."
@@ -263,16 +292,6 @@ msgid "Acheter un abonnement"
 msgstr "Buy a pass"
 
 msgid ""
-"Vous ne pouvez pas réserver de place pour cette séance avec votre abonnement."
-msgstr "You  can not book this screening with your pass"
-
-msgid "Réserver une place de plus sur mon abonnement"
-msgstr "Book another seat on my pass"
-
-msgid "Afficher mes réservations"
-msgstr "Show my bookings"
-
-msgid ""
 "La documentation est disponible <a target=\"_blank\" href=\"https://"
 "ticketack.com/knowledge-base/integration-avec-le-module-wordpress/\">à cette "
 "adresse</a>"
@@ -281,14 +300,58 @@ msgstr ""
 "ticketack.com/en/knowledge-base/integration-avec-le-module-wordpress/\">this "
 "page</a>"
 
-msgid "Retour au programme"
+msgid ""
+"Nous n'émettons pas de billet individuel pour les réservations, votre ticket "
+"actuel vous sert de titre d'entrée aux séances réservées."
 msgstr ""
 
-msgid "Voir mes réservations"
-msgstr "my bookings"
+msgid "Réservations"
+msgstr "Bookings"
 
-msgid "Me déconnecter"
-msgstr "Logout"
+#, fuzzy
+msgid "Il n'y a actuellement aucune réservation sur ce billet."
+msgstr "No booking on this ticket."
+
+msgid "Réservation"
+msgstr "Reservation"
+
+msgid "Lieu"
+msgstr ""
+
+#, fuzzy
+msgid "Action"
+msgstr "Section"
+
+msgid "Annuler"
+msgstr "Cancel"
+
+#, fuzzy
+msgid "Réservations passées"
+msgstr "Bookings"
+
+#, fuzzy
+msgid "Réserver des séances"
+msgstr "Book (on site payment)"
+
+#, fuzzy
+msgid "Validité"
+msgstr "Confirm"
+
+#, fuzzy, php-format
+msgid "Activé le %s"
+msgstr "Activated"
+
+#, fuzzy
+msgid "Tarif :"
+msgstr "Pricings:"
+
+#, php-format
+msgid "Valable jusqu'au %s"
+msgstr ""
+
+#, fuzzy
+msgid "Oublier ce ticket"
+msgstr "Ticket view"
 
 msgid "Votre panier est vide"
 msgstr "Your cart is empty"
@@ -344,9 +407,6 @@ msgstr "Use"
 msgid "Finaliser ma commande"
 msgstr "Finish my order"
 
-msgid "Annuler"
-msgstr "Cancel"
-
 msgid "ma commande"
 msgstr "my order"
 
@@ -394,8 +454,14 @@ msgstr "Tickets"
 msgid "Il ne reste que quelques places !"
 msgstr "There are only a few places !"
 
+msgid "Complet !"
+msgstr "Complete !"
+
 msgid "Mon compte"
 msgstr "My account"
+
+msgid "Me déconnecter"
+msgstr "Logout"
 
 msgid "Identifiant"
 msgstr "Login"
@@ -447,8 +513,7 @@ msgstr "Your account has been created"
 
 msgid ""
 "Veuillez l'activer en cliquant sur le lien que vous avez reçu par e-mail."
-msgstr ""
-"Please activate it by clicking on the link sent to your email address."
+msgstr "Please activate it by clicking on the link sent to your email address."
 
 msgid "Créer mon compte"
 msgstr "Create your account"
@@ -462,8 +527,7 @@ msgstr "My data"
 msgid ""
 "Si vous souhaitez changer votre mot de passe, remplissez les champs ci-"
 "dessous."
-msgstr ""
-"If you'd like to change your password, please fill the form below."
+msgstr "If you'd like to change your password, please fill the form below."
 
 msgid "Nouveau mot de passe"
 msgstr "New password"
@@ -495,17 +559,20 @@ msgstr "Status"
 msgid "Mes billets"
 msgstr "My tickets"
 
+msgid "Autres abonnements (ajoutés avec leur TicketID)"
+msgstr ""
+
+msgid "Mes billets pour une séance unique"
+msgstr ""
+
 msgid "Vous n'avez pas encore de billets."
 msgstr "You don't have any ticket yet."
 
+msgid "Voir mes réservations"
+msgstr "my bookings"
+
 msgid "Télécharger"
 msgstr "Download"
-
-msgid "Réservations"
-msgstr "Bookings"
-
-msgid "Aucune réservation sur ce billet."
-msgstr "No booking on this ticket."
 
 msgid "Votre compte n'est pas activé."
 msgstr "Your account hasn't been activated yet."
@@ -677,6 +744,10 @@ msgid "Une erreur est survenue. Veuillez ré-essayer ultérieurement."
 msgstr "An error has occurred. Please try again later."
 
 msgid ""
+"Vous ne pouvez pas réserver de place pour cette séance avec votre abonnement."
+msgstr "You  can not book this screening with your pass"
+
+msgid ""
 "Vous ne pouvez pas réserver une place de plus pour cette séance avec votre "
 "abonnement."
 msgstr "You cannot book another seat for this screening with your pass."
@@ -780,9 +851,6 @@ msgstr "Bank transfer"
 msgid "Gratuit"
 msgstr "Free"
 
-msgid "Réservation"
-msgstr "Reservation"
-
 msgid "Espèces"
 msgstr "Cash"
 
@@ -811,6 +879,23 @@ msgid "directeur"
 msgstr ""
 
 msgid "directeurs"
+msgstr ""
+
+#, fuzzy
+msgid "réservation"
+msgstr "Reservation"
+
+#, fuzzy
+msgid "réservations"
+msgstr "Bookings"
+
+msgid "sur"
+msgstr ""
+
+msgid "disponible"
+msgstr ""
+
+msgid "disponibles"
 msgstr ""
 
 msgid "actor"
@@ -981,7 +1066,8 @@ msgstr "Edit Ticketack person"
 msgid "Afficher cette personne Ticketack"
 msgstr "View Ticketack person"
 
-msgid "Tous les poeple Ticketack"
+#, fuzzy
+msgid "Tous les people Ticketack"
 msgstr "All Ticketack people"
 
 msgid "Rechercher les people Ticketack"
@@ -1041,20 +1127,46 @@ msgstr "Eshop URL"
 msgid "Clé d'API"
 msgstr "API key"
 
-msgid "Point de vente de ce site web"
+msgid "Point de vente de ce site Web"
 msgstr ""
 
-msgid "Caisse de ce site web"
+msgid "Caisse de ce site Web"
+msgstr ""
+
+msgid "Billetterie et vente d'articles"
 msgstr ""
 
 msgid "Programme"
 msgstr "Program"
 
+msgid "Processus de vente"
+msgstr ""
+
+#, fuzzy
+msgid "Validation de commande"
+msgstr "Your order"
+
+#, fuzzy
+msgid "Confirmation de commande"
+msgstr "Languages configuration"
+
+msgid "Connexion TicketID et utilisateur"
+msgstr ""
+
 msgid "Vue du ticket"
 msgstr "Ticket view"
 
-msgid "Remerciements"
-msgstr "Thank you page"
+#, fuzzy
+msgid "Création de compte"
+msgstr "Create your account"
+
+#, fuzzy
+msgid "Mot de passe perdu"
+msgstr "Password"
+
+#, fuzzy
+msgid "Changement de mot de passe"
+msgstr "Confirm your password"
 
 msgid "Redirection à la mise au panier"
 msgstr "On add to cart redirection"
@@ -1116,8 +1228,8 @@ msgstr "Filter events on the following venues (id)"
 msgid "Télécharger les images à la une"
 msgstr "Download images"
 
-msgid "Librairies JS"
-msgstr "JS libraries"
+msgid "Bibliothèques JavaScript"
+msgstr ""
 
 msgid "Charger underscore.js après le module"
 msgstr "Load underscore.js after the module"
@@ -1132,8 +1244,19 @@ msgid "Border radius"
 msgstr "Border radius"
 
 msgid ""
-"Sélectionnez les pages de votre site qui contiennent les shortcodes "
-"d'intégration Ticketack (le cas échéant)"
+"Sélectionnez les pages qui contiennent votre programme (avec ou sans "
+"shortcode d'intégration) et permettent la vente d'abonnements et d'articles "
+"de merchandising (le cas échéant)."
+msgstr ""
+
+msgid ""
+"Sélectionnez les pages qui contiennent les shortcode d'intégration du "
+"processus d'achat."
+msgstr ""
+
+msgid ""
+"Sélectionnez les pages en relation avec les tickets et le compte (le cas "
+"échéant) utilisateur."
 msgstr ""
 
 msgid "Configurez le comportement du panier"
@@ -1171,3 +1294,14 @@ msgid ""
 "Ne modifiez les valeurs ci-dessous que si vous savez ce que vous faites."
 msgstr "Change these settings only if you know what you are doing."
 
+#~ msgid "Connectez-vous"
+#~ msgstr "Login"
+
+#~ msgid "Afficher mes réservations"
+#~ msgstr "Show my bookings"
+
+#~ msgid "Remerciements"
+#~ msgstr "Thank you page"
+
+#~ msgid "Librairies JS"
+#~ msgstr "JS libraries"
