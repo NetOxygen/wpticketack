@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-15 18:33+0200\n"
+"POT-Creation-Date: 2023-06-15 18:57+0200\n"
 "PO-Revision-Date: 2022-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Jonathan Ernst <jonathan.ernst@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -299,7 +299,7 @@ msgid ""
 "ticketack.com/knowledge-base/integration-avec-le-module-wordpress/\">à cette "
 "adresse</a>"
 msgstr ""
-"Die Dokumentation ist <a target=\"_blank\" href=\"https://ticketack.com/"
+"Die Dokumentation ist <a target=\"_blank\" href=\"https://ticketack.com/de/"
 "knowledge-base/integration-avec-le-module-wordpress/\">unter dieser Adresse</"
 "a> verfügbar"
 
@@ -565,16 +565,16 @@ msgid "Mes billets"
 msgstr "Meine Tickets"
 
 msgid "Autres abonnements (ajoutés avec leur TicketID)"
-msgstr ""
+msgstr "Weitere Abonnements (mit ihrer TicketID hinzugefügt)"
 
 msgid "Mes billets pour une séance unique"
-msgstr ""
+msgstr "Meine Tickets für eine Einzelsitzung"
 
 msgid "Vous n'avez pas encore de billets."
 msgstr "Sie haben noch keine Tickets."
 
 msgid "Voir mes réservations"
-msgstr "Meine Buchungen ansehen"
+msgstr "Meine Buchungen anzeigen"
 
 msgid "Télécharger"
 msgstr "Herunterladen"
@@ -1228,71 +1228,73 @@ msgid "Télécharger les images à la une"
 msgstr "Führende Bilder herunterladen"
 
 msgid "Bibliothèques JavaScript"
-msgstr ""
+msgstr "JavaScript-Bibliotheken"
 
 msgid "Charger underscore.js après le module"
-msgstr ""
+msgstr "Laden von underscore.js nach dem Modul"
 
 msgid "Customisation CSS"
-msgstr ""
+msgstr "CSS-Anpassung"
 
-#, fuzzy
 msgid "Sections padding"
-msgstr "Abschnitte"
+msgstr "Abschnittsabstand"
 
 msgid "Border radius"
-msgstr ""
+msgstr "Rahmenradius"
 
 msgid ""
 "Sélectionnez les pages qui contiennent votre programme (avec ou sans "
 "shortcode d'intégration) et permettent la vente d'abonnements et d'articles "
 "de merchandising (le cas échéant)."
 msgstr ""
+"Wählen Sie die Seiten aus, die Ihr Programm enthalten (mit oder ohne "
+"Integrations-Shortcode) und den Verkauf von Abonnements und Merchandising-"
+"Artikeln ermöglichen (falls zutreffend)."
 
 msgid ""
 "Sélectionnez les pages qui contiennent les shortcode d'intégration du "
 "processus d'achat."
 msgstr ""
+"Wählen Sie die Seiten aus, die den Integrations-Shortcode des Kaufprozesses "
+"enthalten."
 
 msgid ""
 "Sélectionnez les pages en relation avec les tickets et le compte (le cas "
 "échéant) utilisateur."
 msgstr ""
+"Wählen Sie die Seiten in Bezug auf Tickets und Benutzerkonto (falls "
+"zutreffend) aus."
 
 msgid "Configurez le comportement du panier"
-msgstr ""
+msgstr "Konfigurieren Sie das Verhalten des Warenkorbs"
 
 msgid "Saisissez les informations concernant la page de paiement"
-msgstr ""
+msgstr "Geben Sie Informationen zur Zahlungsseite ein"
 
-#, fuzzy
 msgid "Configuration de l'enregistrement des utilisateurs"
-msgstr "Benutzerregistrierung erlauben"
+msgstr "Konfiguration der Benutzerregistrierung"
 
 msgid "Saisissez les informations d'accès à la billetterie"
-msgstr ""
+msgstr "Geben Sie Zugangsinformationen zum Ticketverkauf ein"
 
 msgid "Dimensions des grandes et moyennes images (en px)."
-msgstr ""
+msgstr "Größe der großen und mittleren Bilder (in px)"
 
-#, fuzzy
 msgid "Configuration du serveur proxy d'images."
-msgstr "Bild-Proxy-Server"
+msgstr "Konfiguration des Bild-Proxy-Servers"
 
-#, fuzzy
 msgid "Configuration des langues."
-msgstr "Bestätigung der Bestellung"
+msgstr "Konfiguration der Sprachen"
 
-#, fuzzy
 msgid "Configuration de l'import"
-msgstr "Bestätigung der Bestellung"
+msgstr "Konfiguration des Imports"
 
 msgid ""
 "Ne modifiez les valeurs ci-dessous que si vous avez des conflits javascript "
 "avec d'autres plugins."
 msgstr ""
+"Ändern Sie die Werte unten nur, wenn Sie Konflikte mit anderen Plugins haben."
 
 msgid ""
 "Ne modifiez les valeurs ci-dessous que si vous savez ce que vous faites."
-msgstr ""
-
+msgstr "Ändern Sie die Werte unten nur, wenn Sie wissen, was Sie tun."

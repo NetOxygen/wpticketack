@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-15 18:04+0200\n"
+"POT-Creation-Date: 2023-06-15 18:57+0200\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Jonathan Ernst <jonathan.ernst@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,15 +17,14 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#, fuzzy
 msgid "Veuillez choisir le nombre de descentes"
-msgstr "Please choose a time"
+msgstr "Please choose the number of descents"
 
 msgid "descente"
-msgstr ""
+msgstr "descent"
 
 msgid "descentes consécutives"
-msgstr ""
+msgstr "consecutive descents"
 
 msgid "Veuillez choisir une date"
 msgstr "Please choose a date"
@@ -46,13 +45,13 @@ msgid "Étape suivante"
 msgstr "Next step"
 
 msgid "Il n'y a plus de places pour cette date."
-msgstr "There is no availability for this date."
+msgstr "There are no more available seats for this date."
 
 msgid "Veuillez saisir vos informations"
 msgstr "Please enter your information"
 
 msgid "Prénom"
-msgstr "Firstname"
+msgstr "First name"
 
 msgid "Veuillez choisir votre tarifs"
 msgstr "Please choose your pricing"
@@ -64,22 +63,22 @@ msgid "Réserver"
 msgstr "Book"
 
 msgid "Nombre de descentes"
-msgstr ""
+msgstr "Number of descents"
 
 msgid "1 descente"
-msgstr ""
+msgstr "1 descent"
 
 msgid "2 descentes"
-msgstr ""
+msgstr "2 descents"
 
 msgid "Date"
 msgstr "Date"
 
 msgid "Départ"
-msgstr ""
+msgstr "Departure"
 
 msgid "Choix des MountainCarts"
-msgstr ""
+msgstr "Choose your MountainCarts"
 
 msgid "Vos informations"
 msgstr "Your informations"
@@ -241,117 +240,107 @@ msgstr "Book on my pass"
 msgid "Entrée libre"
 msgstr "Free entry"
 
-#, fuzzy
 msgid "Acheter des places"
-msgstr "Buy  your tickets"
+msgstr "Buy tickets"
 
 msgid ""
 "Entrez le nombre de place(s) que vous souhaitez ajouter à votre panier :"
-msgstr "Enter the number of tickets you want to add to your cart"
+msgstr "Enter the number of ticket(s) you want to add to your cart:"
 
-#, fuzzy
 msgid "Réserver des places sur vos billets"
-msgstr "Book on my pass"
+msgstr "Reserve seats on your tickets"
 
 msgid "Réservation pour cette séance avec ce billet : "
-msgstr ""
+msgstr "Reservation for this screening with this ticket:"
 
-#, fuzzy
 msgid "Réserver une place sur ce billet"
-msgstr "Book on my pass"
+msgstr "Reserve a seat on this ticket"
 
-#, fuzzy
 msgid "Réserver une place de plus sur ce billet"
-msgstr "Book another seat on my pass"
+msgstr "Reserve an additional seat on this ticket"
 
-#, fuzzy
 msgid ""
 "Vous ne pouvez pas réserver plus de place pour cette séance avec ce billet."
-msgstr "You  can not book this screening with your pass"
+msgstr "You cannot reserve more seats for this screening with this ticket."
 
-#, fuzzy
 msgid "Vous ne pouvez pas réserver de place pour cette séance avec ce billet."
-msgstr "You  can not book this screening with your pass"
+msgstr "You cannot reserve a seat for this screening with this ticket."
 
-#, fuzzy
 msgid "Votre place a bien été réservée."
-msgstr "Your account has been created"
+msgstr "Your seat has been successfully reserved."
 
 msgid "Ajoutez-le"
-msgstr ""
+msgstr "Add it"
 
 msgid "pour réserver."
-msgstr "to book."
+msgstr "to reserve."
 
 msgid ""
 "Si vous n'avez pas de TicketID sur votre abonnement, saisissez l'ID dans le "
 "premier champ et le Code dans le second."
 msgstr ""
+"If you do not have a TicketID on your subscription, enter the ID in the "
+"first field and the Code in the second."
 
 msgid "Acheter un abonnement"
-msgstr "Buy a pass"
+msgstr "Buy a subscription"
 
 msgid ""
 "La documentation est disponible <a target=\"_blank\" href=\"https://"
 "ticketack.com/knowledge-base/integration-avec-le-module-wordpress/\">à cette "
 "adresse</a>"
 msgstr ""
-"The documentation is available on <a target=\"_blank\" href=\"https://"
-"ticketack.com/en/knowledge-base/integration-avec-le-module-wordpress/\">this "
-"page</a>"
+"The documentation is available <a target=\"_blank\" href=\"https://ticketack."
+"com/en/knowledge-base/integration-avec-le-module-wordpress/\">at this link</"
+"a>"
 
 msgid ""
 "Nous n'émettons pas de billet individuel pour les réservations, votre ticket "
 "actuel vous sert de titre d'entrée aux séances réservées."
 msgstr ""
+"We do not issue individual tickets for reservations, your current ticket "
+"serves as your entry pass for the reserved screenings."
 
 msgid "Réservations"
-msgstr "Bookings"
+msgstr "Reservations"
 
-#, fuzzy
 msgid "Il n'y a actuellement aucune réservation sur ce billet."
-msgstr "No booking on this ticket."
+msgstr "There are currently no reservations on this ticket."
 
 msgid "Réservation"
 msgstr "Reservation"
 
 msgid "Lieu"
-msgstr ""
+msgstr "Venue"
 
-#, fuzzy
 msgid "Action"
-msgstr "Section"
+msgstr "Action"
 
 msgid "Annuler"
 msgstr "Cancel"
 
-#, fuzzy
 msgid "Réservations passées"
-msgstr "Bookings"
+msgstr "Past reservations"
 
-#, fuzzy
 msgid "Réserver des séances"
-msgstr "Book (on site payment)"
+msgstr "Book screenings"
 
-#, fuzzy
 msgid "Validité"
-msgstr "Confirm"
+msgstr "Validity"
 
-#, fuzzy, php-format
+#, php-format
 msgid "Activé le %s"
-msgstr "Activated"
+msgstr "Activated on %s"
 
-#, fuzzy
 msgid "Tarif :"
-msgstr "Pricings:"
+msgstr "Pricing:"
 
 #, php-format
 msgid "Valable jusqu'au %s"
 msgstr ""
 
-#, fuzzy
 msgid "Oublier ce ticket"
-msgstr "Ticket view"
+msgstr "Forget this ticket"
 
 msgid "Votre panier est vide"
 msgstr "Your cart is empty"
@@ -560,16 +549,16 @@ msgid "Mes billets"
 msgstr "My tickets"
 
 msgid "Autres abonnements (ajoutés avec leur TicketID)"
-msgstr ""
+msgstr "Other passes (added with their TicketID)"
 
 msgid "Mes billets pour une séance unique"
-msgstr ""
+msgstr "My one-time tickets"
 
 msgid "Vous n'avez pas encore de billets."
-msgstr "You don't have any ticket yet."
+msgstr "You don't have any tickets yet."
 
 msgid "Voir mes réservations"
-msgstr "my bookings"
+msgstr "View my bookings"
 
 msgid "Télécharger"
 msgstr "Download"
@@ -641,9 +630,6 @@ msgstr "Search for"
 
 msgid "Tous"
 msgstr "All"
-
-msgid "Compagnie"
-msgstr "Company"
 
 msgid "Profession"
 msgstr "Job"
@@ -881,22 +867,20 @@ msgstr ""
 msgid "directeurs"
 msgstr ""
 
-#, fuzzy
 msgid "réservation"
-msgstr "Reservation"
+msgstr "booking"
 
-#, fuzzy
 msgid "réservations"
-msgstr "Bookings"
+msgstr "bookings"
 
 msgid "sur"
-msgstr ""
+msgstr "on"
 
 msgid "disponible"
-msgstr ""
+msgstr "available"
 
 msgid "disponibles"
-msgstr ""
+msgstr "available"
 
 msgid "actor"
 msgstr ""
@@ -1066,7 +1050,6 @@ msgstr "Edit Ticketack person"
 msgid "Afficher cette personne Ticketack"
 msgstr "View Ticketack person"
 
-#, fuzzy
 msgid "Tous les people Ticketack"
 msgstr "All Ticketack people"
 
@@ -1142,31 +1125,26 @@ msgstr "Program"
 msgid "Processus de vente"
 msgstr ""
 
-#, fuzzy
 msgid "Validation de commande"
-msgstr "Your order"
+msgstr "Order validation"
 
-#, fuzzy
 msgid "Confirmation de commande"
-msgstr "Languages configuration"
+msgstr "Order confirmation"
 
 msgid "Connexion TicketID et utilisateur"
-msgstr ""
+msgstr "TicketID and user login"
 
 msgid "Vue du ticket"
 msgstr "Ticket view"
 
-#, fuzzy
 msgid "Création de compte"
-msgstr "Create your account"
+msgstr "Account creation"
 
-#, fuzzy
 msgid "Mot de passe perdu"
-msgstr "Password"
+msgstr "Lost password"
 
-#, fuzzy
 msgid "Changement de mot de passe"
-msgstr "Confirm your password"
+msgstr "Password change"
 
 msgid "Redirection à la mise au panier"
 msgstr "On add to cart redirection"
@@ -1175,10 +1153,10 @@ msgid "URL des CGV"
 msgstr "GTC URL"
 
 msgid "URL des conditions de protection des données"
-msgstr "URL of the data protection conditions"
+msgstr "Data protectionpolicy URL"
 
 msgid "URL des mesures sanitaires"
-msgstr ""
+msgstr "Sanitary measures URL"
 
 msgid "Autoriser les réservations"
 msgstr "Allow bookings"
@@ -1229,7 +1207,7 @@ msgid "Télécharger les images à la une"
 msgstr "Download images"
 
 msgid "Bibliothèques JavaScript"
-msgstr ""
+msgstr "JavaScript Libraries"
 
 msgid "Charger underscore.js après le module"
 msgstr "Load underscore.js after the module"
@@ -1248,16 +1226,21 @@ msgid ""
 "shortcode d'intégration) et permettent la vente d'abonnements et d'articles "
 "de merchandising (le cas échéant)."
 msgstr ""
+"Select the pages that contain your program (with or without integration "
+"shortcode) and allow the sale of subscriptions and merchandise items (if "
+"applicable)."
 
 msgid ""
 "Sélectionnez les pages qui contiennent les shortcode d'intégration du "
 "processus d'achat."
 msgstr ""
+"Select the pages that contain the integration shortcodes for the purchase "
+"process."
 
 msgid ""
 "Sélectionnez les pages en relation avec les tickets et le compte (le cas "
 "échéant) utilisateur."
-msgstr ""
+msgstr "Select the pages related to tickets and user accounts (if applicable)."
 
 msgid "Configurez le comportement du panier"
 msgstr "Customize the cart behavior"
@@ -1294,14 +1277,5 @@ msgid ""
 "Ne modifiez les valeurs ci-dessous que si vous savez ce que vous faites."
 msgstr "Change these settings only if you know what you are doing."
 
-#~ msgid "Connectez-vous"
-#~ msgstr "Login"
-
-#~ msgid "Afficher mes réservations"
-#~ msgstr "Show my bookings"
-
-#~ msgid "Remerciements"
-#~ msgstr "Thank you page"
-
-#~ msgid "Librairies JS"
-#~ msgstr "JS libraries"
+#~ msgid "Compagnie"
+#~ msgstr "Company"
