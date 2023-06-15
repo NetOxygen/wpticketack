@@ -171,11 +171,6 @@ use Ticketack\WP\TKTApp;
                         <?= tkt_ticketidize(tkt_t("Votre TicketID se trouve sur votre abonnement")) ?>
                     </div>
                     <br>
-                    <?php if ($data->show_id_code_message) : ?>
-                    <div>
-                        <?= tkt_ticketidize(tkt_t("Si vous n'avez pas de TicketID sur votre abonnement, saisissez l'ID dans le premier champ et le Code dans le second.")) ?>
-                    </div>
-                    <?php endif; ?>
                 </div>
             </div>
             <?php if (TKTApp::get_instance()->get_config('pages.pass')) : ?>
