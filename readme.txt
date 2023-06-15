@@ -1,9 +1,9 @@
 === Ticketack ===
 Tags: ticketack
 Requires at least: 4.6
-Tested up to: 6.1.0
-Stable tag: 2.56.4
-Requires PHP: 5.6
+Tested up to: 6.2.2
+Stable tag: 2.56.5
+Requires PHP: 7.2
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -34,6 +34,11 @@ This section describes how to install the plugin and get it working.
 == Screenshots ==
 
 == Changelog ==
+
+== 2.56.5 ==
+
+ * i18n: German translation update
+ * i18n: English translation update
 
 == 2.56.4 ==
 
