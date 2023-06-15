@@ -38,7 +38,7 @@ const ticketsGroups = [
     },
     {
         // past one-time-passes
-        title: "<?= tkt_t('') ?>",
+        title: "",
         tickets: tickets.filter(ticket => ticket.isOneTimePass() && ticket.getScreening()?.isFinished() && ticket.isActivated())
     }
 ];

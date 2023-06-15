@@ -49,7 +49,7 @@ use Ticketack\WP\Templates\TKTTemplate;
                     </ul>
                 </div>
                 <div class="tkt-people-filter-company">
-                    <h4><?= tkt_t('Compagnie') ?></h4>
+                    <h4><?= tkt_t('Société') ?></h4>
                     <ul>
                         <li class="reset-filter"><a class="tkt-filter-company" href="#"><?= tkt_t('Tous') ?></a></li>
                         <?php foreach ($data->companies as $company) : ?>
