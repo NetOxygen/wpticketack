@@ -186,13 +186,13 @@
                                 </p>
                             </div>
 
-                            <% if (ticket.hasExpired()) { %>
+                            <% if (new Date() > ticket.getValidityWindows()) { %>
                                 <div class="text-center alert alert-danger">
-                                    <b>A expiré le <%= ticket.getExpirationDate().format('LL') %> </b>
+                                    <b>A expiré le <%= ticket.getValidityWindows().format('LL') %> </b>
                                 </div>
                             <% } else {%>
                                 <div class="text-center alert alert-success">
-                                    <b><?= sprintf(tkt_t("Valable jusqu'au %s"), "<%= ticket.getExpirationDate().format('LL') %>") ?></b>
+                                    <b><?= sprintf(tkt_t("Valable jusqu'au %s"), "<%= ticket.getValidityWindows().format('LL') %>") ?></b>
                                     <p>
                                         <%= ticket.placesAvailable() %>
                                     </p>
