@@ -32,14 +32,12 @@ export default class TicketConnect extends Component {
         try {
             const ticket = await TKTLib.TicketService.get(this.ticketId, /*noCache*/true);
 
-            // update the state cache
-            ticket.store = null;
-            if (this.state.hasInArray('tickets', '_id', ticket._id))
-                ticket.store = 'tickets';
-            else if (this.state.hasInArray('user.tickets', '_id', ticket._id))
+            // update the state cache if the ticket exists, otherwise add it to the
+            // tickets storage (just like if we entered its TicketID)
+            ticket.store = 'tickets';
+            if (this.state.hasInArray('user.tickets', '_id', ticket._id))
                 ticket.store = 'user.tickets';
-            if (ticket.store)
-                this.state.push(ticket.store, ticket, '_id');
+            this.state.push(ticket.store, ticket, '_id');
 
             await ticket.enhanceBookings();
             ticket.isForgettable = ticket.store === 'tickets';
