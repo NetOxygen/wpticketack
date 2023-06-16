@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-15 18:57+0200\n"
+"POT-Creation-Date: 2023-06-16 12:21+0200\n"
 "PO-Revision-Date: 2022-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Jonathan Ernst <jonathan.ernst@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -284,13 +284,6 @@ msgstr "Fügen Sie es hinzu"
 msgid "pour réserver."
 msgstr "um zu reservieren."
 
-msgid ""
-"Si vous n'avez pas de TicketID sur votre abonnement, saisissez l'ID dans le "
-"premier champ et le Code dans le second."
-msgstr ""
-"Wenn Sie keine TicketID auf Ihrem Abonnement haben, geben Sie die ID in das "
-"erste Feld und den Code in das zweite Feld ein."
-
 msgid "Acheter un abonnement"
 msgstr "Ein Abonnement kaufen"
 
@@ -341,7 +334,6 @@ msgstr "Gültigkeit"
 msgid "Activé le %s"
 msgstr "Aktiviert am %s"
 
-#, fuzzy
 msgid "Tarif :"
 msgstr "Tarif:"
 
@@ -382,7 +374,6 @@ msgstr "Rabatt"
 msgid "Frais"
 msgstr "Gebühren"
 
-#, fuzzy
 msgid "Total :"
 msgstr "Gesamt:"
 
@@ -452,11 +443,8 @@ msgstr "Ausgebucht"
 msgid "Billets"
 msgstr "Tickets"
 
-msgid "Il ne reste que quelques places !"
+msgid "Il ne reste que quelques places !"
 msgstr "Es sind nur noch wenige Plätze verfügbar!"
-
-msgid "Complet !"
-msgstr "Ausgebucht!"
 
 msgid "Mon compte"
 msgstr "Mein Konto"
