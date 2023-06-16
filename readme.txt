@@ -2,7 +2,7 @@
 Tags: ticketack
 Requires at least: 4.6
 Tested up to: 6.2.2
-Stable tag: 2.56.7
+Stable tag: 2.57.0
 Requires PHP: 7.2
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -34,6 +34,18 @@ This section describes how to install the plugin and get it working.
 == Screenshots ==
 
 == Changelog ==
+
+== 2.57.0 ==
+
+ * i18n: English translation update
+ * feat: Viewed tickets are now saved like if they were added with a TicketID
+ * fix: The expiration date on a ticket's view is now correct
+ * modified templates:
+   - app/templates/ticket/ticket.tpl.php
+   - app/templates/event/event.tpl.php
+   - app/templates/event/post.tpl.php
+   - app/templates/program/grid/event.tpl.php
+   - app/templates/program/list/event.tpl.php
 
 == 2.56.7 ==
 
