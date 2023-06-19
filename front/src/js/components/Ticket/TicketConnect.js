@@ -45,6 +45,7 @@ export default class TicketConnect extends Component {
             this.ticketId = new Ticket(tickets[tickets.length - 1])._id;
             ticket = await TKTLib.TicketService.get(this.ticketId, /*noCache*/true);
             ticket.store = 'tickets';
+            ticket.isForgettable = true;
             this.state.push(ticket.store, ticket, '_id');
             await ticket.enhanceBookings();
         }
