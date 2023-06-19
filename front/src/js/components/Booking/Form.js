@@ -199,11 +199,20 @@ export default class BookingForm extends Component {
         if (!screening_id)
             return new Error("No screening");
 
+        let ticket = this.state.hasInArray('tickets', '_id', ticket_id) ?
+            this.state.getInArray('tickets', '_id', ticket_id) :
+            this.state.getInArray('user.tickets', '_id', ticket_id);
+
+        if (!ticket)
+            return new Error("Ticket not found");
+
         const { ScreeningService, TicketService } = TKTLib;
         const $container = $('.ticket-wrapper[data-ticket-id="' + ticket_id + '"]');
         let bookings = [];
         try {
-            bookings = await ScreeningService.book(screening_id, {}, [{}]);
+            bookings = await ScreeningService.book(screening_id, {}, [{
+                pledge: { 'ticket:type:_id': ticket.type._id }
+            }]);
             const result = await TicketService.confirmBooking(ticket_id, bookings[0]._id);
             $('.book-form-error', $container).addClass('d-none');
             $('.book-form-success', $container).removeClass('d-none');

@@ -136,4 +136,18 @@ export default class State {
 
         return dottie.get(this.state, path);
     }
+
+    /**
+     * Get a value from a state array
+     * @param {String} path - The path
+     * @param {String} uniqueBy - Property used to identify the entries in the array
+     * @param {*} value - The unique value to use to find the entry
+     *
+     * Example:
+     *     this.state.getInArray('tickets', '_id', '12345678-1234-1234-4321-123456789012')
+     */
+    getInArray(arrayPath, uniqueBy, uniqueValue) {
+        const array = this.get(arrayPath, []);
+        return array.find(entry => entry[uniqueBy] === uniqueValue);
+    }
 };
