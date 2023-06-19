@@ -117,15 +117,18 @@ export default class TicketConnect extends Component {
         $('.forget-ticket-btn', this.$container).click(e => this.forgetTicket(ticket._id));
 
         // delete a booking
-        $('.cancelable-btn', this.$container).click((e) => {
-            TKTApi.unbook($(e.target).data('id'), (err, result) => {
-                if (err) {
-                    return $('.cancelable_booking_err')
-                        .html(i18n.t("Une erreur est survenue. Veuillez ré-essayer ultérieurement."))
-                        .removeClass('d-none');
-                }
-                location.reload();
-            });
+        $('.cancel-booking-btn', this.$container).click(async (e) => {
+            try {
+                const res = await TKTLib.TicketService.deleteBooking(
+                    ticket._id,
+                    $(e.target).data('booking-id'),
+                );
+            } catch (err) {
+                return $('.cancelable_booking_err')
+                    .html(i18n.t("Une erreur est survenue. Veuillez ré-essayer ultérieurement."))
+                    .removeClass('d-none');
+            }
+            location.reload();
         });
     }
 }
