@@ -99,6 +99,9 @@ Ticketack.prototype.set_session_id = function(session_id) {
  * @param {String} apikey
  */
 Ticketack.prototype.set_user_api_key = function(apikey) {
+    if (!apikey?.length)
+        return this.unset_user_api_key();
+
     localStorage.setItem('tkt_api_key', apikey);
     this.userApiKey = apikey;
 }
@@ -107,7 +110,7 @@ Ticketack.prototype.set_user_api_key = function(apikey) {
  *
  * Remove the current user API key
  */
-Ticketack.prototype.unset_user_api_key = function(apikey) {
+Ticketack.prototype.unset_user_api_key = function() {
     localStorage.removeItem('tkt_api_key');
     this.userApiKey = null;
 }
