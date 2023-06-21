@@ -18,8 +18,8 @@ export default class TicketConnect extends Component {
     /**
      * @constructor
      */
-    constructor($container, state) {
-        super($container, state);
+    constructor($container, state, loader) {
+        super($container, state, loader);
         this.ticketId   = this.$container.data('ticket-id');
     }
 
@@ -83,5 +83,7 @@ export default class TicketConnect extends Component {
             }
             location.reload();
         });
+
+        this.loader.attach();
     }
 }

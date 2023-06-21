@@ -17,8 +17,8 @@ export default class TicketConnect extends Component {
     /**
      * @constructor
      */
-    constructor($container, state) {
-        super($container, state);
+    constructor($container, state, loader) {
+        super($container, state, loader);
         this.data       = {
             pass_infos: {}
         };
@@ -131,5 +131,7 @@ export default class TicketConnect extends Component {
             }
             location.reload();
         });
+
+        this.loader.attach();
     }
 }

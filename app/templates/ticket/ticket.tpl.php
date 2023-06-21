@@ -84,6 +84,7 @@
                                 <th><?= _('Réservation') ?></th>
                                 <th><?= _('Lieu') ?></th>
                                 <th><i class="tkt-icon-smartphone"></i></th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -97,6 +98,13 @@
                                     <% if (b.scanned_at.length) { %>
                                         <i class="tkt-icon-checkmark"></i>
                                     <% } %>
+                                </td>
+                                <td>
+                                    <select data-component="Ui/Rating" data-ticket-id="<%= b.ticket_id %>" data-booking-id="<%= b._id %>">
+                                        <% [1, 2, 3, 4, 5].map(function (score) { %>
+                                           <option value="<%= score %>" <%= b.vote?.score == score ? 'selected' : '' %>></option>
+                                        <% }) %>
+                                    </select>
                                 </td>
                             </tr>
                             <% }) %>
