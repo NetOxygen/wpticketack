@@ -2,7 +2,7 @@
 Tags: ticketack
 Requires at least: 4.6
 Tested up to: 6.2.2
-Stable tag: 2.57.5
+Stable tag: 2.58.0
 Requires PHP: 7.2
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -34,6 +34,12 @@ This section describes how to install the plugin and get it working.
 == Screenshots ==
 
 == Changelog ==
+
+== 2.58.0 ==
+
+ * feat: Introduce the votes
+ * fix: Open the tickets view in the same tab (user account)
+ * fix: Fix the language on the ticket view
 
 == 2.57.5 ==
 
