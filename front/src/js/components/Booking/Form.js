@@ -180,8 +180,8 @@ export default class BookingForm extends Component {
                     break;
                 default:
                     // Hide forms and show success message
-                    $('.dates-form, .tickets-form').addClass('d-none');
-                    $('.success-panel').removeClass('d-none');
+                    $('.dates-form, .tickets-form', this.$container).addClass('d-none');
+                    $('.success-panel', this.$container).removeClass('d-none');
 
                     // Reload and emit cart update
                     TKTApi.loadCart((err, status, rsp) => {
