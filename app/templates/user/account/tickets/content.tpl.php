@@ -98,7 +98,7 @@ const ticketsGroups = [
                                         </button>
                                         <% } %>
                                         <% if (!ticket.isOneTimePass()) { %>
-                                        <a class="btn btn-link btn-sm ticket-view-link" target="_blank" href="<%= ticket.getTicketViewUrl() %>">
+                                        <a class="btn btn-link btn-sm ticket-view-link" href="<%= ticket.getTicketViewUrl() %>">
                                             <i class="fa fa-eye"></i>
                                             <?= tkt_t('Voir mes réservations') ?>
                                         </a>
