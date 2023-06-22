@@ -2,6 +2,7 @@
 namespace Ticketack\WP\Shortcodes;
 
 use Ticketack\WP\Templates\TKTTemplate;
+use Ticketack\WP\TKTApp;
 
 /**
  * Cart summary shortcode
@@ -30,9 +31,13 @@ class CartSummaryShortcode extends TKTShortcode
      */
     public function run($atts, $content)
     {
+        $data = TKTApp::get_instance()->get_config('eshop');
+
         return TKTTemplate::render(
             'cart/cart_summary',
-            (object)[]
+            (object)[
+                'enable_promo_code' => $data["enable_promo_code"]
+            ]
         );
     }
 }

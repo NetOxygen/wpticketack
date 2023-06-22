@@ -7,7 +7,8 @@ use Ticketack\WP\Templates\TKTTemplate;
  * Cart template
  *
  * Input: {
- *   "hidden_links": 'finalize,cancel,continue'
+ *   "hidden_links"      : 'finalize,cancel,continue',
+ *   "enable_promo_code" : bool
  * }
  */
 ?>
@@ -17,5 +18,8 @@ use Ticketack\WP\Templates\TKTTemplate;
 
 <!-- Underscore.js template used by client side -->
 <script type="text/template" id="tkt-cart-table-tpl">
-    <?= TKTTEmplate::render('cart/cart_table', (object)[]) ?>
+    <?= TKTTEmplate::render('cart/cart_table', (object)[
+        'enable_promo_code' => $data->enable_promo_code
+        ])
+    ?>
 </script>
