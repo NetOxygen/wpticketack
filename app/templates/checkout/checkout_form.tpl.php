@@ -16,12 +16,14 @@ use Ticketack\WP\Templates\TKTTemplate;
  *   "allow_postfinance": true|false
  * }
  */
-$cgv_url           = $data->cgv_url;
-$privacy_url       = $data->privacy_url;
-$requested_fields  = $data->requested_fields;
-$required_fields   = $data->required_fields;
-$allow_later       = $data->allow_later;
-$allow_postfinance = $data->allow_postfinance;
+$cgv_url                 = $data->cgv_url;
+$privacy_url             = $data->privacy_url;
+$requested_fields        = $data->requested_fields;
+$required_fields         = $data->required_fields;
+$allow_later             = $data->allow_later;
+$allow_postfinance       = $data->allow_postfinance;
+$newsletter_registration = TKTApp::get_instance()->get_config('eshop.newsletter_registration.modes', []);
+$newsletter_registration = count($newsletter_registration) > 0;
 
 $terms_link = sprintf(
     tkt_t('J\'accepte les <a target="_blank" href="%s">conditions générales de vente</a> et la <a target="_blank" href="%s">politique de protection des données</a>'),
@@ -170,6 +172,17 @@ if (!function_exists('r')) {
                   <?php endforeach; ?>
                 </select>
               </div>
+              <?php endif; ?>
+
+              <?php if ($newsletter_registration) : ?>
+                <div class="col-md-12 form-group">
+                  <div class="checkbox">
+                    <label>
+                      <input name="user[newsletter]" value="checked" type="checkbox" class="data-field">
+                      <?= tkt_t("Je désire m'inscrire à la newsletter.") ?>
+                    </label>
+                  </div>
+                </div>
               <?php endif; ?>
 
               <?php if (empty($cgv_url)) : ?>
