@@ -762,9 +762,9 @@ class AdminSettingsAction extends TKTAction
         printf('<select id="%s" name="%s[%s]">', $name, $group, $name);
         echo '<option value="">---</option>';
         if (!empty($pages)) {
-            foreach ($pages as $label => $v) {
+            foreach ($pages as $label => $page) {
                 echo '
-                    <option value="'.$v.'" '.($value === $v ? "selected" : "").' >'.$label.'</option>';
+                    <option '.($page->status === 'draft' ? 'disabled' : '').' value="'.$page->slug.'" '.($value === $page->slug ? "selected" : "").' >'.$label.'</option>';
             }
         }
         echo '</select>';
@@ -796,7 +796,7 @@ class AdminSettingsAction extends TKTAction
             return $all_pages;
         }
 
-        $pages = get_pages('sort_column=menu_order');
+        $pages = get_pages('sort_column=menu_order&post_status=publish,draft');
         if ($pages != null) {
             foreach ($pages as $page) {
                 $ancestor_ids = get_ancestors($page->ID, 'page');
@@ -808,7 +808,15 @@ class AdminSettingsAction extends TKTAction
 
                 $slug .= '/'.tkt_translated_slug_by_id($page->ID, 'page', tkt_default_lang(), $page->post_name);
                 $label = str_repeat('-', count($ancestor_ids)).$page->post_title;
-                $all_pages[$label] = $slug;
+
+                if ($page->post_status === 'draft') {
+                    $label .= ' ('.tkt_t('Brouillon').')';
+                }
+
+                $all_pages[$label] = (object)[
+                    'slug'   => $slug,
+                    'status' => $page->post_status
+                ];
             }
         }
 

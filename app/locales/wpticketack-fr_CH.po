@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-05 15:12+0200\n"
+"POT-Creation-Date: 2023-06-22 12:32+0200\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Jonathan Ernst <jonathan.ernst@netoxygen.ch>\n"
+"Last-Translator: Belkacem Alidra <belkacem.alidra@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -59,9 +59,8 @@ msgstr ""
 msgid "Choisissez un tarif"
 msgstr ""
 
-#, fuzzy
 msgid "Réserver"
-msgstr "Enregistrement"
+msgstr ""
 
 msgid "Nombre de descentes"
 msgstr ""
@@ -108,7 +107,7 @@ msgstr ""
 msgid "Votre accréditation/pass ne vous permet pas de visionner ce contenu."
 msgstr ""
 
-msgid "Vous avez un TicketID ?"
+msgid "Vous avez un TicketID ?"
 msgstr ""
 
 msgid "Connexion"
@@ -197,6 +196,21 @@ msgid ""
 "des salles et aux caisses."
 msgstr ""
 
+msgid "Choisir une image"
+msgstr ""
+
+msgid "Stopper la vidéo"
+msgstr ""
+
+msgid "Prendre une photo depuis la caméra"
+msgstr ""
+
+msgid "Vidéo non supportée"
+msgstr ""
+
+msgid "Prendre une photo"
+msgstr ""
+
 msgid "Ceci est un cadeau"
 msgstr ""
 
@@ -212,6 +226,9 @@ msgstr ""
 msgid "Veuillez choisir l'heure désirée :"
 msgstr ""
 
+msgid "à"
+msgstr ""
+
 msgid "Il n'y a pas de billetterie disponible pour cet événement."
 msgstr ""
 
@@ -221,29 +238,42 @@ msgstr ""
 msgid "Entrée libre"
 msgstr ""
 
+msgid "Acheter des places"
+msgstr ""
+
 msgid ""
 "Entrez le nombre de place(s) que vous souhaitez ajouter à votre panier :"
 msgstr ""
 
-msgid "Connectez-vous"
+msgid "Réserver des places sur vos billets"
+msgstr ""
+
+msgid "Réservation pour cette séance avec ce billet : "
+msgstr ""
+
+msgid "Réserver une place sur ce billet"
+msgstr ""
+
+msgid "Réserver une place de plus sur ce billet"
+msgstr ""
+
+msgid ""
+"Vous ne pouvez pas réserver plus de place pour cette séance avec ce billet."
+msgstr ""
+
+msgid "Vous ne pouvez pas réserver de place pour cette séance avec ce billet."
+msgstr ""
+
+msgid "Votre place a bien été réservée."
+msgstr ""
+
+msgid "Ajoutez-le"
 msgstr ""
 
 msgid "pour réserver."
 msgstr ""
 
-msgid ""
-"Si vous n'avez pas de TicketID sur votre abonnement, saisissez l'ID dans le "
-"premier champ et le Code dans le second."
-msgstr ""
-
 msgid "Acheter un abonnement"
-msgstr ""
-
-msgid ""
-"Vous ne pouvez pas réserver de place pour cette séance avec votre abonnement."
-msgstr ""
-
-msgid "Afficher mes réservations"
 msgstr ""
 
 msgid ""
@@ -252,13 +282,50 @@ msgid ""
 "adresse</a>"
 msgstr ""
 
-msgid "Retour au programme"
+msgid ""
+"Nous n'émettons pas de billet individuel pour les réservations, votre ticket "
+"actuel vous sert de titre d'entrée aux séances réservées."
 msgstr ""
 
-msgid "Voir mes réservations"
+msgid "Réservations"
 msgstr ""
 
-msgid "Me déconnecter"
+msgid "Il n'y a actuellement aucune réservation sur ce billet."
+msgstr ""
+
+msgid "Réservation"
+msgstr ""
+
+msgid "Lieu"
+msgstr ""
+
+msgid "Action"
+msgstr ""
+
+msgid "Annuler"
+msgstr ""
+
+msgid "Réservations passées"
+msgstr ""
+
+msgid "Réserver des séances"
+msgstr ""
+
+msgid "Validité"
+msgstr ""
+
+#, php-format
+msgid "Activé le %s"
+msgstr ""
+
+msgid "Tarif :"
+msgstr ""
+
+#, php-format
+msgid "Valable jusqu'au %s"
+msgstr ""
+
+msgid "Oublier ce ticket"
 msgstr ""
 
 msgid "Votre panier est vide"
@@ -297,25 +364,22 @@ msgstr ""
 msgid "Vous disposez de"
 msgstr ""
 
-msgid "sur votre porte-monnaie"
+msgid "sur votre portefeuille électronique"
 msgstr ""
 
 msgid "Saisissez ci-dessous le montant que vous souhaitez utiliser"
 msgstr ""
 
-msgid "Utiliser mon porte-monnaie"
+msgid "Utiliser mon portefeuille"
 msgstr ""
 
-msgid "Utiliser un code promo"
+msgid "Code promo"
 msgstr ""
 
-msgid "Valider"
+msgid "Utiliser"
 msgstr ""
 
 msgid "Finaliser ma commande"
-msgstr ""
-
-msgid "Annuler"
 msgstr ""
 
 msgid "ma commande"
@@ -330,17 +394,13 @@ msgstr ""
 msgid "Panier"
 msgstr ""
 
-#, fuzzy
 msgid "produit(s)"
-msgstr "producteurs"
+msgstr ""
 
 msgid "Livraison"
 msgstr ""
 
 msgid "Total TTC"
-msgstr ""
-
-msgid "Code promo"
 msgstr ""
 
 msgid "OK"
@@ -366,13 +426,13 @@ msgstr ""
 msgid "Billets"
 msgstr ""
 
-msgid "Il ne reste que quelques places !"
-msgstr ""
-
-msgid "Complet !"
+msgid "Il ne reste que quelques places !"
 msgstr ""
 
 msgid "Mon compte"
+msgstr ""
+
+msgid "Me déconnecter"
 msgstr ""
 
 msgid "Identifiant"
@@ -381,7 +441,10 @@ msgstr ""
 msgid "Mot de passe"
 msgstr ""
 
-msgid "Pas encore de compte. Créez-en un !"
+msgid "Pas encore de compte ? Créez-en un !"
+msgstr ""
+
+msgid "Mot de passe perdu ? Changez-le !"
 msgstr ""
 
 msgid "Société"
@@ -427,7 +490,7 @@ msgstr ""
 msgid "Créer mon compte"
 msgstr ""
 
-msgid "Déjà un compte. Connectez-vous !"
+msgid "Déjà un compte ? Connectez-vous !"
 msgstr ""
 
 msgid "Mes informations"
@@ -468,17 +531,19 @@ msgstr ""
 msgid "Mes billets"
 msgstr ""
 
+msgid "Autres abonnements (ajoutés avec leur TicketID)"
+msgstr ""
+
+msgid "Mes billets pour une séance unique"
+msgstr ""
+
 msgid "Vous n'avez pas encore de billets."
 msgstr ""
 
-msgid "Télécharger"
+msgid "Voir mes réservations"
 msgstr ""
 
-#, fuzzy
-msgid "Réservations"
-msgstr "Enregistrement"
-
-msgid "Aucune réservation sur ce billet."
+msgid "Télécharger"
 msgstr ""
 
 msgid "Votre compte n'est pas activé."
@@ -504,6 +569,9 @@ msgid "Réserver (paiement sur place)"
 msgstr ""
 
 msgid "Procéder au paiement"
+msgstr ""
+
+msgid "Valider"
 msgstr ""
 
 msgid ""
@@ -543,9 +611,6 @@ msgstr ""
 msgid "Tous"
 msgstr ""
 
-msgid "Compagnie"
-msgstr ""
-
 msgid "Profession"
 msgstr ""
 
@@ -568,6 +633,9 @@ msgid "Tout"
 msgstr ""
 
 msgid "Details"
+msgstr ""
+
+msgid "Sections"
 msgstr ""
 
 msgid "Section"
@@ -615,6 +683,20 @@ msgstr ""
 msgid "non défini"
 msgstr ""
 
+#, php-format
+msgid "%d événements ont été importés"
+msgstr ""
+
+#, php-format
+msgid "%d événement a été importé"
+msgstr ""
+
+msgid "Aucun événement n'a été importé"
+msgstr ""
+
+msgid "Le cache a été vidé."
+msgstr ""
+
 msgid "Veuillez choisir au moins un billet"
 msgstr ""
 
@@ -625,6 +707,10 @@ msgid "Les informations que vous avez saisies sont invalides"
 msgstr ""
 
 msgid "Une erreur est survenue. Veuillez ré-essayer ultérieurement."
+msgstr ""
+
+msgid ""
+"Vous ne pouvez pas réserver de place pour cette séance avec votre abonnement."
 msgstr ""
 
 msgid ""
@@ -731,10 +817,6 @@ msgstr ""
 msgid "Gratuit"
 msgstr ""
 
-#, fuzzy
-msgid "Réservation"
-msgstr "Enregistrement"
-
 msgid "Espèces"
 msgstr ""
 
@@ -757,6 +839,29 @@ msgid "En attente de paiement"
 msgstr ""
 
 msgid "Bloqué"
+msgstr ""
+
+#, fuzzy
+msgid "directeur"
+msgstr "réalisateur"
+
+#, fuzzy
+msgid "directeurs"
+msgstr "réalisateurs"
+
+msgid "réservation"
+msgstr ""
+
+msgid "réservations"
+msgstr ""
+
+msgid "sur"
+msgstr ""
+
+msgid "disponible"
+msgstr ""
+
+msgid "disponibles"
 msgstr ""
 
 msgid "actor"
@@ -843,6 +948,21 @@ msgstr ""
 msgid "Autre"
 msgstr ""
 
+msgid ""
+"Veuillez choisir un point de vente dans les réglages du module Ticketack"
+msgstr ""
+
+#, php-format
+msgid "%d articles ont été importés"
+msgstr ""
+
+#, php-format
+msgid "%d article a été importé"
+msgstr ""
+
+msgid "Aucun article n'a été importé"
+msgstr ""
+
 msgid "Ajouter un event Ticketack"
 msgstr ""
 
@@ -912,7 +1032,7 @@ msgstr ""
 msgid "Afficher cette personne Ticketack"
 msgstr ""
 
-msgid "Tous les poeple Ticketack"
+msgid "Tous les people Ticketack"
 msgstr ""
 
 msgid "Rechercher les people Ticketack"
@@ -960,7 +1080,7 @@ msgstr ""
 msgid "Accéder aux réglages"
 msgstr ""
 
-msgid "Accès à Ticketack"
+msgid "Connexion à votre instance Ticketack"
 msgstr ""
 
 msgid "URL de l'engine"
@@ -972,19 +1092,40 @@ msgstr ""
 msgid "Clé d'API"
 msgstr ""
 
-msgid "Point de vente de ce site web"
+msgid "Point de vente de ce site Web"
 msgstr ""
 
-msgid "Caisse de ce site web"
+msgid "Caisse de ce site Web"
+msgstr ""
+
+msgid "Billetterie et vente d'articles"
 msgstr ""
 
 msgid "Programme"
 msgstr ""
 
+msgid "Processus de vente"
+msgstr ""
+
+msgid "Validation de commande"
+msgstr ""
+
+msgid "Confirmation de commande"
+msgstr ""
+
+msgid "Connexion TicketID et utilisateur"
+msgstr ""
+
 msgid "Vue du ticket"
 msgstr ""
 
-msgid "Remerciements"
+msgid "Création de compte"
+msgstr ""
+
+msgid "Mot de passe perdu"
+msgstr ""
+
+msgid "Changement de mot de passe"
 msgstr ""
 
 msgid "Redirection à la mise au panier"
@@ -999,12 +1140,6 @@ msgstr ""
 msgid "URL des mesures sanitaires"
 msgstr ""
 
-msgid "Informations optionnelles à saisir"
-msgstr ""
-
-msgid "Informations obligatoires à saisir"
-msgstr ""
-
 msgid "Autoriser les réservations"
 msgstr ""
 
@@ -1012,6 +1147,12 @@ msgid "Autoriser les achats"
 msgstr ""
 
 msgid "Autoriser l'enregistrement des utilisateurs"
+msgstr ""
+
+msgid "Informations optionnelles à saisir"
+msgstr ""
+
+msgid "Informations obligatoires à saisir"
 msgstr ""
 
 msgid "Dimensions des images"
@@ -1035,9 +1176,6 @@ msgstr ""
 msgid "Serveur proxy"
 msgstr ""
 
-msgid "Champs à saisir pour chaque type d'abonnement"
-msgstr ""
-
 msgid "Langue par défaut"
 msgstr ""
 
@@ -1050,7 +1188,7 @@ msgstr ""
 msgid "Télécharger les images à la une"
 msgstr ""
 
-msgid "Librairies JS"
+msgid "Bibliothèques JavaScript"
 msgstr ""
 
 msgid "Charger underscore.js après le module"
@@ -1065,7 +1203,20 @@ msgstr ""
 msgid "Border radius"
 msgstr ""
 
-msgid "Saisissez les slugs des pages contenant les différents shortcodes"
+msgid ""
+"Sélectionnez les pages qui contiennent votre programme (avec ou sans "
+"shortcode d'intégration) et permettent la vente d'abonnements et d'articles "
+"de merchandising (le cas échéant)."
+msgstr ""
+
+msgid ""
+"Sélectionnez les pages qui contiennent les shortcode d'intégration du "
+"processus d'achat."
+msgstr ""
+
+msgid ""
+"Sélectionnez les pages en relation avec les tickets et le compte (le cas "
+"échéant) utilisateur."
 msgstr ""
 
 msgid "Configurez le comportement du panier"
@@ -1086,9 +1237,6 @@ msgstr ""
 msgid "Configuration du serveur proxy d'images."
 msgstr ""
 
-msgid "Configuration de la vente d'abonnements."
-msgstr ""
-
 msgid "Configuration des langues."
 msgstr ""
 
@@ -1102,4 +1250,7 @@ msgstr ""
 
 msgid ""
 "Ne modifiez les valeurs ci-dessous que si vous savez ce que vous faites."
+msgstr ""
+
+msgid "Brouillon"
 msgstr ""

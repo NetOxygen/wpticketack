@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-16 12:21+0200\n"
+"POT-Creation-Date: 2023-06-22 12:32+0200\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Jonathan Ernst <jonathan.ernst@netoxygen.ch>\n"
+"Last-Translator: Belkacem Alidra <belkacem.alidra@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -321,16 +321,14 @@ msgstr "Book screenings"
 msgid "Validité"
 msgstr "Validity"
 
-#, php-format
 msgid "Activé le %s"
 msgstr "Activated on %s"
 
 msgid "Tarif :"
 msgstr "Pricing:"
 
-#, php-format
 msgid "Valable jusqu'au %s"
-msgstr ""
+msgstr "Valid until %s"
 
 msgid "Oublier ce ticket"
 msgstr "Forget this ticket"
@@ -676,13 +674,13 @@ msgid "Sous-titre"
 msgstr "Subtitles"
 
 msgid "Âge min. lég."
-msgstr ""
+msgstr "Min. legal age"
 
 msgid "Âge min. sug."
-msgstr ""
+msgstr "Sug. legal age"
 
 msgid "Âge min. acc."
-msgstr ""
+msgstr "Acc. min. age"
 
 msgid "Distribution"
 msgstr "Cast"
@@ -852,10 +850,10 @@ msgid "Bloqué"
 msgstr "Blocked"
 
 msgid "directeur"
-msgstr ""
+msgstr "director"
 
 msgid "directeurs"
-msgstr ""
+msgstr "directors"
 
 msgid "réservation"
 msgstr "booking"
@@ -958,7 +956,7 @@ msgstr "Other"
 
 msgid ""
 "Veuillez choisir un point de vente dans les réglages du module Ticketack"
-msgstr ""
+msgstr "Please choose a salepoint in the Ticketack plugin settings"
 
 #, php-format
 msgid "%d articles ont été importés"
@@ -1089,7 +1087,7 @@ msgid "Accéder aux réglages"
 msgstr "Go to settings"
 
 msgid "Connexion à votre instance Ticketack"
-msgstr ""
+msgstr "Connection to your Ticketack instance"
 
 msgid "URL de l'engine"
 msgstr "Engine URL"
@@ -1101,19 +1099,19 @@ msgid "Clé d'API"
 msgstr "API key"
 
 msgid "Point de vente de ce site Web"
-msgstr ""
+msgstr "Salepoint to use for this site"
 
 msgid "Caisse de ce site Web"
-msgstr ""
+msgstr "Cashregister to use for this site"
 
 msgid "Billetterie et vente d'articles"
-msgstr ""
+msgstr "Ticketing and merchandising sale"
 
 msgid "Programme"
 msgstr "Program"
 
 msgid "Processus de vente"
-msgstr ""
+msgstr "Sale process"
 
 msgid "Validation de commande"
 msgstr "Order validation"
@@ -1266,3 +1264,6 @@ msgstr ""
 msgid ""
 "Ne modifiez les valeurs ci-dessous que si vous savez ce que vous faites."
 msgstr "Change these settings only if you know what you are doing."
+
+msgid "Brouillon"
+msgstr "Draft"
