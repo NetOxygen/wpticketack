@@ -8,19 +8,17 @@ use Ticketack\WP\Templates\TKTTemplate;
  *
  * Input:
  * $data: {
- *    "requested_fields": ["firstname", "lastname", ... ]
- *    "required_fields  : ["firstname", "lastname", ... ]
  *   "cgv_url"               : "https://...",
  *   "privacy_url"           : "https://...",
  *   "sanitary_measures_url" : "https://...",
+ *   "requested_fields"      : ["firstname", "lastname", ... ],
+ *   "required_fields"       : ["firstname", "lastname", ... ],
  *   "allow_later"           : bool,
  *   "allow_proxypay"        : bool,
  *   "allow_null_payment"    : bool,
  *   "proxypay_config_error" : "str"
  * }
  */
-$requested_fields  = $data->requested_fields;
-$required_fields   = $data->required_fields;
 ?>
 
 <div
@@ -30,11 +28,11 @@ $required_fields   = $data->required_fields;
 >
     <div class="tkt-checkout-form">
         <?= TKTTEmplate::render('checkout/checkout_form', (object)[
-            'requested_fields'  => $requested_fields,
-            'required_fields'   => $required_fields,
             'cgv_url'               => $data->cgv_url,
             'privacy_url'           => $data->privacy_policy_url,
             'sanitary_measures_url' => $data->sanitary_measures_url,
+            'requested_fields'      => $data->requested_fields,
+            'required_fields'       => $data->required_fields,
             'allow_later'           => $data->allow_later,
             'allow_proxypay'        => $data->allow_proxypay,
             'allow_null_payment'    => $data->allow_null_payment

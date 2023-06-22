@@ -72,9 +72,9 @@ class CheckoutShortcode extends TKTShortcode
             return TKTTemplate::render(
                 'checkout/checkout',
                 (object)[
-                    'requested_fields' => $fields["eshop"]["requested_buyer_data"],
-                    'required_fields'  => $fields["eshop"]["required_buyer_data"]
                     "result"                => $result,
+                    'requested_fields'      => $data["requested_buyer_data"],
+                    'required_fields'       => $data["required_buyer_data"],
                     'cgv_url'               => $terms_conditions_url,
                     'privacy_policy_url'    => $privacy_policy_url,
                     'sanitary_measures_url' => $sanitary_measures_url,
