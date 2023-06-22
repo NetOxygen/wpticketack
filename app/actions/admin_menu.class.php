@@ -62,7 +62,6 @@ class AdminMenuAction extends TKTAction
             'api'          => tkt_t('API'),
             'pages'        => tkt_t('Pages'),
             'cart'         => tkt_t('Panier'),
-            'checkout'     => tkt_t('Checkout'),
             'registration' => tkt_t('Registration'),
             'images'       => tkt_t('Images'),
             'i18n'         => tkt_t('Langues'),
