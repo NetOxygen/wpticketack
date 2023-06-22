@@ -12,17 +12,19 @@ use Ticketack\WP\Templates\TKTTemplate;
  *   "privacy_url": "https://...",
  *   "requested_fields": ["firstname", "lastname", ... ],
  *   "required_fields": ["firstname", "lastname", ... ],
- *   "allow_later": true|false,
- *   "allow_postfinance": true|false
+ *   "allow_later"           : bool,
+ *   "allow_proxypay"        : bool,
+ *   "allow_null_payment"    : bool,
+ *   "proxypay_config_error" : "str"
  * }
  */
 $cgv_url           = $data->cgv_url;
 $privacy_url       = $data->privacy_url;
 $requested_fields  = $data->requested_fields;
 $required_fields   = $data->required_fields;
-$allow_later       = $data->allow_later;
-$allow_postfinance = $data->allow_postfinance;
-
+$allow_later           = $data->allow_later;
+$allow_proxypay        = $data->allow_proxypay;
+$allow_null_payment    = $data->allow_null_payment;
 $terms_link = sprintf(
     tkt_t('J\'accepte les <a target="_blank" href="%s">conditions générales de vente</a> et la <a target="_blank" href="%s">politique de protection des données</a>'),
     $cgv_url,
@@ -37,8 +39,13 @@ if (!function_exists('r')) {
 
 ?>
 
+<!-- Message for proxypay configuration error -->
+<?php if (!empty($data->proxypay_config_error)) : ?>
+  <?= '<script>console.warn( "' .$data->proxypay_config_error. '" )</script>'; ?>
+<?php endif; ?>
+
 <div class="tkt-wrapper">
-  <?php if (!$allow_later && !$allow_postfinance) : ?>
+  <?php if (!$allow_later && !$allow_proxypay) : ?>
   <div class="text-center alert alert-danger payment-method-error-msg">
     <?= tkt_t("Aucun moyen de paiement configué.") ?>
   </div>
@@ -205,19 +212,21 @@ if (!function_exists('r')) {
             <div id="submit-section" class="row">
               <div class="col-md-12 text-right">
                 <?php if ($allow_later) : ?>
-                <button type="submit" class="submit-button button later" data-payment-method="LATER_PAYMENT" data-redirect="<?= $data->redirect ?>">
-                <span class="glyphicon glyphicon-ok"></span> <?= tkt_t('Réserver (paiement sur place)') ?>
-                </button>
+                  <button type="submit" class="submit-button button later" data-payment-method="LATER_PAYMENT" data-redirect="<?= $data->redirect ?>">
+                    <span class="glyphicon glyphicon-ok"></span> <?= tkt_t('Réserver (paiement sur place)') ?>
+                  </button>
                 <?php endif; ?>
 
-                <?php if ($allow_postfinance) : ?>
-                <button type="submit" class="submit-button button proxypay" data-payment-method="PROXYPAY" data-redirect="<?= $data->redirect ?>">
-                <span class="glyphicon glyphicon-credit-card"></span> <?= tkt_t('Procéder au paiement') ?>
-                </button>
+                <?php if ($allow_proxypay) : ?>
+                  <button type="submit" class="submit-button button proxypay" data-payment-method="PROXYPAY" data-redirect="<?= $data->redirect ?>">
+                    <span class="glyphicon glyphicon-credit-card"></span> <?= tkt_t('Procéder au paiement') ?>
+                  </button>
 
-                <button type="submit" class="submit-button button null_payment" data-payment-method="NULL_PAYMENT" data-redirect="<?= $data->redirect ?>">
-                <span class="glyphicon glyphicon-credit-card"></span> <?= tkt_t('Valider') ?>
-                </button>
+                  <?php if ($allow_null_payment) : ?>
+                    <button type="submit" class="submit-button button null_payment" data-payment-method="NULL_PAYMENT" data-redirect="<?= $data->redirect ?>">
+                      <span class="glyphicon glyphicon-credit-card"></span> <?= tkt_t('Valider') ?>
+                    </button>
+                  <?php endif; ?>
                 <?php endif; ?>
                 <input type="hidden" id="payment-method-field" name="payment_method" class="data-field" />
                 <br>

@@ -11,6 +11,10 @@ use Ticketack\WP\Templates\TKTTemplate;
  *    "result"          : ok|error|null
  *    "requested_fields": ["firstname", "lastname", ... ]
  *    "required_fields  : ["firstname", "lastname", ... ]
+ *   "allow_later"           : bool,
+ *   "allow_proxypay"        : bool,
+ *   "allow_null_payment"    : bool,
+ *   "proxypay_config_error" : "str"
  * }
  */
 $app               = TKTApp::get_instance();
@@ -18,8 +22,6 @@ $cgv_url           = $app->get_config('checkout.cgv');
 $privacy_url       = $app->get_config('checkout.privacy');
 $requested_fields  = $data->requested_fields;
 $required_fields   = $data->required_fields;
-$allow_later       = intval($app->get_config('checkout.allow_later')) === 1;
-$allow_postfinance = intval($app->get_config('checkout.allow_postfinance')) === 1;
 ?>
 
 <div
@@ -33,8 +35,9 @@ $allow_postfinance = intval($app->get_config('checkout.allow_postfinance')) === 
             'privacy_url'       => $privacy_url,
             'requested_fields'  => $requested_fields,
             'required_fields'   => $required_fields,
-            'allow_later'       => $allow_later,
-            'allow_postfinance' => $allow_postfinance
+            'allow_later'           => $data->allow_later,
+            'allow_proxypay'        => $data->allow_proxypay,
+            'allow_null_payment'    => $data->allow_null_payment
         ]) ?>
     </div>
 </div>
