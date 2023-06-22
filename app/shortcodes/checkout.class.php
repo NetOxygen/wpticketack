@@ -38,11 +38,14 @@ class CheckoutShortcode extends TKTShortcode
     public function run($atts, $content)
     {
         try {
-            $fields = Settings::first()->id('default')->get(['eshop.required_buyer_data', 'eshop.requested_buyer_data'])->toArray();
-            $result = tkt_get_url_param('result');
+            $data                  = TKTApp::get_instance()->get_config('eshop');
+            $result                = tkt_get_url_param('result');
             $payment_method        = TKTApp::get_instance()->get_config('payment.methods');
             $pay_online            = [];
             $proxypay_config_error = "";
+            $terms_conditions_url  = $data["url_overrides"]["terms_conditions_url"][TKT_LANG];
+            $privacy_policy_url    = $data["url_overrides"]["privacy_policy_url"][TKT_LANG];
+            $sanitary_measures_url = $data["url_overrides"]["sanitary_measures_url"][TKT_LANG];
 
             foreach ($payment_method as $method) {
                 switch ($method["_id"]) {
@@ -69,9 +72,12 @@ class CheckoutShortcode extends TKTShortcode
             return TKTTemplate::render(
                 'checkout/checkout',
                 (object)[
-                    "result"           => $result,
                     'requested_fields' => $fields["eshop"]["requested_buyer_data"],
                     'required_fields'  => $fields["eshop"]["required_buyer_data"]
+                    "result"                => $result,
+                    'cgv_url'               => $terms_conditions_url,
+                    'privacy_policy_url'    => $privacy_policy_url,
+                    'sanitary_measures_url' => $sanitary_measures_url,
                     'allow_null_payment'    => $pay_online['NULL_PAYMENT'],
                     'allow_later'           => $pay_online['LATER_PAYMENT'],
                     'allow_proxypay'        => $pay_online['PROXYPAY'],
