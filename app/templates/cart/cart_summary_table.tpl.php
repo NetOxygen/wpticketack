@@ -7,7 +7,8 @@ use Ticketack\WP\TKTApp;
  * This template will be parsed by underscore.js
  *
  * Input: {
- *   "cart": Cart instance,
+ *   "cart"              : Cart instance,
+ *   "enable_promo_code" : bool
  * }
  */
 ?>
@@ -51,24 +52,26 @@ use Ticketack\WP\TKTApp;
                             <%= cart.getFormattedTotal(/*inversed*/true) %>
                         </td>
                     </tr>
-                    <tr>
-                        <td colspan="2">
-                            <div class="row justify-content-md-end mt-5">
-                                <div class="col col-12 use-promo-code-wrapper">
-                                    <div class="input-group mb-2">
-                                        <input type="text" class="promo-code-input form-control" placeholder="<?= tkt_t('Code promo') ?>" />
-                                        <div class="input-group-append">
-                                            <a href="javascript:;" class="promo-code-button button active">
-                                                <?= tkt_t('OK') ?>
-                                            </a>
+                    <?php if ($data->enable_promo_code) : ?>
+                        <tr>
+                            <td colspan="2">
+                                <div class="row justify-content-md-end mt-5">
+                                    <div class="col col-12 use-promo-code-wrapper">
+                                        <div class="input-group mb-2">
+                                            <input type="text" class="promo-code-input form-control" placeholder="<?= tkt_t('Code promo') ?>" />
+                                            <div class="input-group-append">
+                                                <a href="javascript:;" class="promo-code-button button active">
+                                                    <?= tkt_t('OK') ?>
+                                                </a>
+                                            </div>
                                         </div>
+                                        <div class="alert alert-danger promo-code-error d-none"></div>
+                                        <div class="alert alert-success promo-code-success d-none"></div>
                                     </div>
-                                    <div class="alert alert-danger promo-code-error d-none"></div>
-                                    <div class="alert alert-success promo-code-success d-none"></div>
                                 </div>
-                            </div>
-                        </td>
-                    </tr>
+                            </td>
+                        </tr>
+                    <?php endif; ?>
                 </table>
             </div>
         </div>

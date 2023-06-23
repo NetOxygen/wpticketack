@@ -206,55 +206,8 @@ class AdminSettingsAction extends TKTAction
         );
 
         add_settings_section(
-            'ticketack_checkout', // ID
-            tkt_t('Checkout'), // Title
-            array( $this, 'checkout_section_info' ), // Callback
-            'ticketack-checkout' // Page
-        );
-
-        add_settings_field(
-            'cgv', // ID
-            tkt_t('URL des CGV'), // Title
-            array( $this, 'cgv_callback' ), // Callback
-            'ticketack-checkout', // Page
-            'ticketack_checkout' // Section
-        );
-
-        add_settings_field(
-            'privacy', // ID
-            tkt_t('URL des conditions de protection des données'), // Title
-            array( $this, 'privacy_callback' ), // Callback
-            'ticketack-checkout', // Page
-            'ticketack_checkout' // Section
-        );
-
-        add_settings_field(
-            'sanitary', // ID
-            tkt_t('URL des mesures sanitaires'), // Title
-            array( $this, 'sanitary_callback' ), // Callback
-            'ticketack-checkout', // Page
-            'ticketack_checkout' // Section
-        );
-
-        add_settings_field(
-            'allow_later', // ID
-            tkt_t('Autoriser les réservations'), // Title
-            array( $this, 'allow_later_callback' ), // Callback
-            'ticketack-checkout', // Page
-            'ticketack_checkout' // Section
-        );
-
-        add_settings_field(
-            'allow_postfinance', // ID
-            tkt_t('Autoriser les achats'), // Title
-            array( $this, 'allow_postfinance_callback' ), // Callback
-            'ticketack-checkout', // Page
-            'ticketack_checkout' // Section
-        );
-
-        add_settings_section(
             'ticketack_registration', // ID
-            tkt_t('Registration'), // Title
+            tkt_t('Enregistrement'), // Title
             array( $this, 'registration_section_info' ), // Callback
             'ticketack-registration' // Page
         );
@@ -503,22 +456,7 @@ class AdminSettingsAction extends TKTAction
         ]);
     }
 
-    /** 
-     * Print the Section text
-     */
-    public function checkout_section_info()
-    {
-        print tkt_t("Saisissez les informations concernant la page de paiement");
-    }
-    public function cgv_callback() { return $this->input('cgv', 'tkt_checkout', 'https://my-site.tld/cgv'); }
-    public function privacy_callback() { return $this->input('privacy', 'tkt_checkout', 'https://my-site.tld/privacy'); }
-    public function sanitary_callback() { return $this->input('sanitary', 'tkt_checkout', 'https://my-site.tld/health'); }
-    public function requested_fields_callback() { return $this->input('requested_fields', 'tkt_checkout', 'firstname,lastname,email,address,zip,city,phone,cellphone', 'firstname,lastname,email,address,zip,city,phone,cellphone'); }
-    public function required_fields_callback() { return $this->input('required_fields', 'tkt_checkout', 'email', 'email'); }
-    public function allow_later_callback() { return $this->boolean('allow_later', 'tkt_checkout', '1'); }
-    public function allow_postfinance_callback() { return $this->boolean('allow_postfinance', 'tkt_checkout', '1'); }
-
-    /** 
+    /**
      * Print the Section text
      */
     public function registration_section_info()
@@ -565,7 +503,7 @@ class AdminSettingsAction extends TKTAction
         return $this->choice('cashregister_id', 'tkt_api', $options);
     }
 
-    /** 
+    /**
      * Print the Section text
      */
     public function images_dimensions_section_info()

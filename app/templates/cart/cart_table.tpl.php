@@ -7,14 +7,17 @@ use Ticketack\WP\TKTApp;
  * This template will be parsed by underscore.js
  *
  * Input: {
- *   "cart": Cart instance,
- *   "ticket": Ticket instance, if the user is connected,
- *   "program_url": String,
- *   "cart_reset_url": String,
- *   "checkout_url": String,
- *   "hide_links": ['finalize', 'cancel', 'continue']
+ *   "cart"              : Cart instance,
+ *   "ticket"            : Ticket instance, if the user is connected,
+ *   "program_url"       : String,
+ *   "cart_reset_url"    : String,
+ *   "checkout_url"      : String,
+ *   "enable_promo_code" : bool
+ *   "hide_links"        : ['finalize', 'cancel', 'continue']
+ *   FIXME: wallet missing here?
  * }
  */
+
 ?>
 <% 
 const pass     = cart.getPass();
@@ -135,7 +138,6 @@ const nbArticles = pass.length + tickets.length + articles.length;
                                     <tr>
                                         <th scope="col"><?= tkt_t("Commande") ?></th>
                                         <th scope="col" width="100px"></th>
-                                        <th scope="col" width="20px"></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -144,7 +146,6 @@ const nbArticles = pass.length + tickets.length + articles.length;
                                             <%= nbArticles %> <%= nbArticles === 1 ? "<?= tkt_t("produit") ?>" : "<?= tkt_t("produits") ?>" %>
                                         </td>
                                         <td class="price-cell text-right"><%= cart.getOrderTotal() %></td>
-                                        <td></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -182,7 +183,6 @@ const nbArticles = pass.length + tickets.length + articles.length;
                                     <tr>
                                         <th scope="col"><?= tkt_t('Frais') ?></th>
                                         <th scope="col" width="100px"></th>
-                                        <th scope="col" width="20px"></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -191,7 +191,6 @@ const nbArticles = pass.length + tickets.length + articles.length;
                                         <% if(item.type == "shipping" || item.type == "paymentfee") { %>
                                         <td class="title-cell"><%= item.getFormattedTitle() %></td>
                                         <td class="price-cell text-right"><%= item.getFormattedPrice() %></td>
-                                        <td></td>
                                         <% } %>
                                     </tr>
                                     <% }); %>
@@ -207,7 +206,6 @@ const nbArticles = pass.length + tickets.length + articles.length;
                                                 <%= cart.getFormattedTotal() %>
                                             </span>
                                         </td>
-                                        <td></td>
                                     </tr>
                                 </tfoot>
                             </table>
@@ -238,23 +236,23 @@ const nbArticles = pass.length + tickets.length + articles.length;
                     </div>
                     <% } %>
 
-                    <% if (!hide_links.includes('promo')) { %>
-                    <hr/>
-                    <div class="row justify-content-md-end">
-                        <div class="col col-12 use-promo-code-wrapper">
-                            <div class="input-group">
-                                <input type="text" class="promo-code-input form-control" placeholder="<?= tkt_t('Code promo') ?>" />
-                                <div class="input-group-append">
-                                    <a href="javascript:;" class="promo-code-button button active">
-                                        <?= tkt_t('Utiliser') ?>
-                                    </a>
+                    <?php if ($data->enable_promo_code) : ?>
+                        <hr/>
+                        <div class="row justify-content-md-end">
+                            <div class="col col-12 use-promo-code-wrapper">
+                                <div class="input-group">
+                                    <input type="text" class="promo-code-input form-control" placeholder="<?= tkt_t('Code promo') ?>" />
+                                    <div class="input-group-append">
+                                        <a href="javascript:;" class="promo-code-button button active">
+                                            <?= tkt_t('Utiliser') ?>
+                                        </a>
+                                    </div>
                                 </div>
+                                <div class="alert alert-danger promo-code-error d-none"></div>
+                                <div class="alert alert-success promo-code-success d-none"></div>
                             </div>
-                            <div class="alert alert-danger promo-code-error d-none"></div>
-                            <div class="alert alert-success promo-code-success d-none"></div>
                         </div>
-                    </div>
-                    <% } %>
+                    <?php endif; ?>
 
                     <hr/>
                     <div class="row justify-content-md-end">

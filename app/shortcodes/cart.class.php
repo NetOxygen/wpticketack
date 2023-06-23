@@ -2,6 +2,7 @@
 namespace Ticketack\WP\Shortcodes;
 
 use Ticketack\WP\Templates\TKTTemplate;
+use Ticketack\WP\TKTApp;
 
 /**
  * Cart shortcode
@@ -32,12 +33,14 @@ class CartShortcode extends TKTShortcode
      */
     public function run($atts, $content)
     {
-        $hidden_links = array_key_exists('hide_links', (array)$atts) ? $atts['hide_links'] : '';
+        $enable_promo_code = TKTApp::get_instance()->get_config('eshop.enable_promo_code');
+        $hidden_links      = array_key_exists('hide_links', (array)$atts) ? $atts['hide_links'] : '';
 
         return TKTTemplate::render(
             'cart/cart',
             (object)[
-                'hidden_links' => $hidden_links
+                'hidden_links'      => $hidden_links,
+                'enable_promo_code' => $enable_promo_code
             ]
         );
     }
