@@ -7,6 +7,7 @@ use Ticketack\WP\Templates\TKTTemplate;
  * Cart summary template
  *
  * Input: {
+ *      'enable_promo_code' : bool
  * }
  */
 ?>
@@ -16,5 +17,8 @@ use Ticketack\WP\Templates\TKTTemplate;
 
 <!-- Underscore.js template used by client side -->
 <script type="text/template" id="tkt-cart-summary-table-tpl">
-    <?= TKTTEmplate::render('cart/cart_summary_table', (object)[]) ?>
+    <?= TKTTEmplate::render('cart/cart_summary_table', (object)[
+        'enable_promo_code' => $data->enable_promo_code
+        ])
+    ?>
 </script>
