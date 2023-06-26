@@ -100,11 +100,14 @@
                                     <% } %>
                                 </td>
                                 <td>
+                                    <% if (!b.screening.opaque?.disable_votes) { %>
                                     <select data-component="Ui/Rating" data-ticket-id="<%= b.ticket_id %>" data-booking-id="<%= b._id %>">
+                                        <option value=""></option>
                                         <% [1, 2, 3, 4, 5].map(function (score) { %>
                                            <option value="<%= score %>" <%= b.vote?.score == score ? 'selected' : '' %>></option>
                                         <% }) %>
                                     </select>
+                                    <% } %>
                                 </td>
                             </tr>
                             <% }) %>
