@@ -18,7 +18,7 @@ use Ticketack\WP\Templates\TKTTemplate;
     <section class="tkt-section tkt-light-section tkt-user-account-menu-section">
         <div class="row">
         <?php foreach ($data->tabs as $tab) : ?>
-            <div class="col-6 col-sm-3">
+            <div class="col-6 col-sm-2">
                 <?= TKTTemplate::render('user/account/'.$tab.'/menu', (object)[ 'active' => $data->active_tab === $tab]) ?>
             </div>
         <?php endforeach; ?>

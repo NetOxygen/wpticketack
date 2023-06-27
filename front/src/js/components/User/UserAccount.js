@@ -152,6 +152,8 @@ export default class UserAccount extends Component {
 
         // bind forget ticket button
         $('.ticket-forget-link', this.$container).click(this.forgetTicket.bind(this));
+
+        this.loader.attach();
     }
 
     reset_messages() {

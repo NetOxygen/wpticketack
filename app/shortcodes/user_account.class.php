@@ -15,6 +15,7 @@ class UserAccountShortcode extends TKTShortcode
     const MENU_ENTRY_PROFILE  = 'profile';
     const MENU_ENTRY_ORDERS   = 'orders';
     const MENU_ENTRY_TICKETS  = 'tickets';
+    const MENU_ENTRY_VOTES    = 'votes';
     const MENU_ENTRY_LOGOUT   = 'logout';
 
     /**
@@ -38,6 +39,7 @@ class UserAccountShortcode extends TKTShortcode
         $default_tabs = [
             static::MENU_ENTRY_ORDERS,
             static::MENU_ENTRY_TICKETS,
+            static::MENU_ENTRY_VOTES,
             static::MENU_ENTRY_PROFILE,
             static::MENU_ENTRY_LOGOUT,
         ];
