@@ -73,8 +73,8 @@ class CheckoutShortcode extends TKTShortcode
                 'checkout/checkout',
                 (object)[
                     "result"                => $result,
-                    'requested_fields'      => $config["requested_buyer_config"],
-                    'required_fields'       => $config["required_buyer_config"],
+                    'requested_fields'      => $config["requested_buyer_data"],
+                    'required_fields'       => $config["required_buyer_data"],
                     'cgv_url'               => $terms_conditions_url,
                     'privacy_policy_url'    => $privacy_policy_url,
                     'sanitary_measures_url' => $sanitary_measures_url,
