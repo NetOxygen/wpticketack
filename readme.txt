@@ -2,7 +2,7 @@
 Tags: ticketack
 Requires at least: 4.6
 Tested up to: 6.2.2
-Stable tag: 2.59.0
+Stable tag: 2.60.0
 Requires PHP: 7.2
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -34,6 +34,12 @@ This section describes how to install the plugin and get it working.
 == Screenshots ==
 
 == Changelog ==
+
+== 2.60.0 ==
+
+ * feat: Introduce votes tab in user account page
+ * feat: Use some Ticketack global settings
+ * fix: Better handle ratings
 
 == 2.59.0 ==
 
