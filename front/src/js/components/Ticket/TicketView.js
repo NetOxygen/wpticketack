@@ -43,7 +43,7 @@ export default class TicketConnect extends Component {
             ticket.isForgettable = ticket.store === 'tickets';
             this.render(ticket);
         } catch (err) {
-
+            console.error('Could not get ticket : ' + err);
         }
 
         postal.subscribe({
