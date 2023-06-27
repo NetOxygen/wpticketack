@@ -112,7 +112,7 @@ export default class Checkout extends Component {
     }
 
     fillCheckoutForm() {
-        TKTApi.getProfile((err, status, rsp) => {
+        TKTApi.getProfile(/*forceRefresh*/false, (err, status, rsp) => {
             if (err || !rsp.user)
                 return;
 

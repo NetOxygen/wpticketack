@@ -517,11 +517,16 @@ Ticketack.prototype.register = function(user_data, callback) {
 /**
  * Get current user profile
  *
- * @param callback
+ * @param {Boolean} forceRefresh
+ * @param {Callable} callback
  */
-Ticketack.prototype.getProfile = function(callback) {
+Ticketack.prototype.getProfile = function(forceRefresh, callback) {
     var url = this.parametrize_url(this.profileUrl, {}, true);
-    return this.get(url, {}, (err, status, rsp) => {
+    const query = {};
+    if (forceRefresh)
+        query.nocache = true;
+
+    return this.get(url, query, (err, status, rsp) => {
         if (err)
             this.unset_user_api_key();
 

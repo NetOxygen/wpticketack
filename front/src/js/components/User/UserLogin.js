@@ -34,7 +34,7 @@ export default class UserLogin extends Component {
     }
 
     init() {
-        TKTApi.getProfile((err, status, rsp) => {
+        TKTApi.getProfile(/*forceRefresh*/false, (err, status, rsp) => {
             const user = !err ? new User(rsp.user) : null;
 
             if (err)

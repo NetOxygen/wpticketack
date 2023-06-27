@@ -26,6 +26,8 @@ export default class UserAccount extends Component {
         this.registrationUrl = Config.get('registration_url');
         this.lostpasswordUrl = Config.get('lostpassword_url');
 
+        this.tab = this.$container.data('tab');
+
         this.$menuContainer    = $('#tkt-user-account-menu', this.$container);
         this.$contentContainer = $('#tkt-user-account-content', this.$container);
         this.$verifyMessage    = $('#tkt-user-account-verify-message', this.$container);
@@ -37,7 +39,7 @@ export default class UserAccount extends Component {
     }
 
     init() {
-        TKTApi.getProfile((err, status, rsp) => {
+        TKTApi.getProfile(/*forceRefresh*/this.tab === 'votes', (err, status, rsp) => {
             const user    = !err ? new User(rsp.user) : null;
             const orders  = !err ? rsp.orders.map(order => new Cart(order)) : [];
             const tickets = !err ? rsp.tickets.map(ticket => new Ticket(ticket.ticket_data)) : [];
