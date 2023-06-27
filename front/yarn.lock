@@ -774,8 +774,8 @@
   resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.10.1.tgz#728ecd95ab207aab8a9a4e421f0422db329232be"
 
 "@ticketack/lib@ssh://git@gitlab.netoxygen.ch/ticketack/js-lib.git":
-  version "0.4.8"
-  resolved "ssh://git@gitlab.netoxygen.ch/ticketack/js-lib.git#34490edc1e76846e289b838a798e57b221d299f6"
+  version "0.5.0"
+  resolved "ssh://git@gitlab.netoxygen.ch/ticketack/js-lib.git#7a8e56cc987f188e8254a3b3932e462b28dab0ee"
   dependencies:
     "@babel/polyfill" "^7.12.1"
     buffer "^6.0.3"
