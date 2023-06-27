@@ -2,7 +2,7 @@
 Tags: ticketack
 Requires at least: 4.6
 Tested up to: 6.2.2
-Stable tag: 2.60.0
+Stable tag: 2.60.1
 Requires PHP: 7.2
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -35,11 +35,21 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
-== 2.60.0 ==
+== 2.60.1 ==
 
  * feat: Introduce votes tab in user account page
  * feat: Use some Ticketack global settings
  * fix: Better handle ratings
+ * modified templates:
+   - app/templates/cart/cart.tpl.php
+   - app/templates/cart/cart_summary.tpl.php
+   - app/templates/cart/cart_summary_table.tpl.php
+   - app/templates/cart/cart_table.tpl.php
+   - app/templates/checkout/checkout.tpl.php
+   - app/templates/checkout/checkout_form.tpl.php
+   - app/templates/ticket/ticket.tpl.php
+   - app/shortcodes/user_account.class.php
+   - app/templates/user/account/menu.tpl.php
 
 == 2.59.0 ==
 
