@@ -81,7 +81,7 @@ const ticketsGroups = [
                                     </button>
                                 </div>
                                 <div class="col text-right">
-                                    <span class="badge badge-default">
+                                    <span class="badge badge-dark">
                                         <% if (!ticket.isOneTimePass()) { %>
                                             <i class="fa fa-tags"></i>
                                             <%= ticket.bookings?.length || 0 %>
@@ -96,6 +96,12 @@ const ticketsGroups = [
                                             <i class="fa fa-trash"></i>
                                             <?= tkt_t('Oublier ce ticket') ?>
                                         </button>
+                                        <% } %>
+                                        <% if (ticket.isOneTimePass()) { %>
+                                        <a class="btn btn-link btn-sm ticket-view-link" href="<%= ticket.getTicketViewUrl() %>">
+                                            <i class="fa fa-eye"></i>
+                                            <?= tkt_t('Voir ce ticket') ?>
+                                        </a>
                                         <% } %>
                                         <% if (!ticket.isOneTimePass()) { %>
                                         <a class="btn btn-link btn-sm ticket-view-link" href="<%= ticket.getTicketViewUrl() %>">
