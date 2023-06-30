@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-22 12:32+0200\n"
+"POT-Creation-Date: 2023-07-01 00:35+0200\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Belkacem Alidra <belkacem.alidra@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -493,6 +493,12 @@ msgstr ""
 msgid "Déjà un compte ? Connectez-vous !"
 msgstr ""
 
+msgid "Mes votes"
+msgstr ""
+
+msgid "Aucun vote disponible pour le moment."
+msgstr ""
+
 msgid "Mes informations"
 msgstr ""
 
@@ -534,16 +540,25 @@ msgstr ""
 msgid "Autres abonnements (ajoutés avec leur TicketID)"
 msgstr ""
 
-msgid "Mes billets pour une séance unique"
+msgid "Mes tickets pour une séance unique"
 msgstr ""
 
 msgid "Vous n'avez pas encore de billets."
+msgstr ""
+
+msgid "Voir ce ticket"
 msgstr ""
 
 msgid "Voir mes réservations"
 msgstr ""
 
 msgid "Télécharger"
+msgstr ""
+
+msgid "Ajouter un billet acheté en billetterie physique"
+msgstr ""
+
+msgid "Saisissez votre TicketID"
 msgstr ""
 
 msgid "Votre compte n'est pas activé."
@@ -563,6 +578,9 @@ msgid "Aucun moyen de paiement configué."
 msgstr ""
 
 msgid "Vos données de facturation"
+msgstr ""
+
+msgid "Je désire m'inscrire à la newsletter."
 msgstr ""
 
 msgid "Réserver (paiement sur place)"
@@ -1053,9 +1071,6 @@ msgstr ""
 msgid "Pages"
 msgstr ""
 
-msgid "Checkout"
-msgstr ""
-
 msgid "Registration"
 msgstr "Enregistrement"
 
@@ -1131,19 +1146,7 @@ msgstr ""
 msgid "Redirection à la mise au panier"
 msgstr ""
 
-msgid "URL des CGV"
-msgstr ""
-
-msgid "URL des conditions de protection des données"
-msgstr ""
-
-msgid "URL des mesures sanitaires"
-msgstr ""
-
-msgid "Autoriser les réservations"
-msgstr ""
-
-msgid "Autoriser les achats"
+msgid "Enregistrement"
 msgstr ""
 
 msgid "Autoriser l'enregistrement des utilisateurs"
@@ -1220,9 +1223,6 @@ msgid ""
 msgstr ""
 
 msgid "Configurez le comportement du panier"
-msgstr ""
-
-msgid "Saisissez les informations concernant la page de paiement"
 msgstr ""
 
 msgid "Configuration de l'enregistrement des utilisateurs"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-22 12:32+0200\n"
+"POT-Creation-Date: 2023-07-01 00:37+0200\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Belkacem Alidra <belkacem.alidra@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -321,12 +321,14 @@ msgstr "Book screenings"
 msgid "Validité"
 msgstr "Validity"
 
+#, php-format
 msgid "Activé le %s"
 msgstr "Activated on %s"
 
 msgid "Tarif :"
 msgstr "Pricing:"
 
+#, php-format
 msgid "Valable jusqu'au %s"
 msgstr "Valid until %s"
 
@@ -498,6 +500,12 @@ msgstr "Create your account"
 msgid "Déjà un compte ? Connectez-vous !"
 msgstr "Have an account? Please Login!"
 
+msgid "Mes votes"
+msgstr "My votes"
+
+msgid "Aucun vote disponible pour le moment."
+msgstr "No votes available at the moment."
+
 msgid "Mes informations"
 msgstr "My data"
 
@@ -539,17 +547,27 @@ msgstr "My tickets"
 msgid "Autres abonnements (ajoutés avec leur TicketID)"
 msgstr "Other passes (added with their TicketID)"
 
-msgid "Mes billets pour une séance unique"
+#, fuzzy
+msgid "Mes tickets pour une séance unique"
 msgstr "My one-time tickets"
 
 msgid "Vous n'avez pas encore de billets."
 msgstr "You don't have any tickets yet."
+
+msgid "Voir ce ticket"
+msgstr "See this ticket"
 
 msgid "Voir mes réservations"
 msgstr "View my bookings"
 
 msgid "Télécharger"
 msgstr "Download"
+
+msgid "Ajouter un billet acheté en billetterie physique"
+msgstr "Add a ticket purchased at a physical ticket office"
+
+msgid "Saisissez votre TicketID"
+msgstr "Enter your TicketID"
 
 msgid "Votre compte n'est pas activé."
 msgstr "Your account hasn't been activated yet."
@@ -572,6 +590,9 @@ msgstr "No payment method configured"
 
 msgid "Vos données de facturation"
 msgstr "Your invoicing data"
+
+msgid "Je désire m'inscrire à la newsletter."
+msgstr "I would like to subscribe to the newsletter."
 
 msgid "Réserver (paiement sur place)"
 msgstr "Book (on site payment)"
@@ -1059,9 +1080,6 @@ msgstr "API"
 msgid "Pages"
 msgstr "Pages"
 
-msgid "Checkout"
-msgstr "Checkout"
-
 msgid "Registration"
 msgstr "Registration"
 
@@ -1137,20 +1155,9 @@ msgstr "Password change"
 msgid "Redirection à la mise au panier"
 msgstr "On add to cart redirection"
 
-msgid "URL des CGV"
-msgstr "GTC URL"
-
-msgid "URL des conditions de protection des données"
-msgstr "Data protectionpolicy URL"
-
-msgid "URL des mesures sanitaires"
-msgstr "Sanitary measures URL"
-
-msgid "Autoriser les réservations"
-msgstr "Allow bookings"
-
-msgid "Autoriser les achats"
-msgstr "Allow purchases"
+#, fuzzy
+msgid "Enregistrement"
+msgstr "Save"
 
 msgid "Autoriser l'enregistrement des utilisateurs"
 msgstr "Allow users registration"
@@ -1233,9 +1240,6 @@ msgstr "Select the pages related to tickets and user accounts (if applicable)."
 msgid "Configurez le comportement du panier"
 msgstr "Customize the cart behavior"
 
-msgid "Saisissez les informations concernant la page de paiement"
-msgstr "Set the checkout page informations"
-
 msgid "Configuration de l'enregistrement des utilisateurs"
 msgstr "Users registration configuration"
 
@@ -1267,3 +1271,24 @@ msgstr "Change these settings only if you know what you are doing."
 
 msgid "Brouillon"
 msgstr "Draft"
+
+#~ msgid "Checkout"
+#~ msgstr "Checkout"
+
+#~ msgid "URL des CGV"
+#~ msgstr "GTC URL"
+
+#~ msgid "URL des conditions de protection des données"
+#~ msgstr "Data protectionpolicy URL"
+
+#~ msgid "URL des mesures sanitaires"
+#~ msgstr "Sanitary measures URL"
+
+#~ msgid "Autoriser les réservations"
+#~ msgstr "Allow bookings"
+
+#~ msgid "Autoriser les achats"
+#~ msgstr "Allow purchases"
+
+#~ msgid "Saisissez les informations concernant la page de paiement"
+#~ msgstr "Set the checkout page informations"

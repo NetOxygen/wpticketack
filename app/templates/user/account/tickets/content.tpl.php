@@ -33,7 +33,7 @@ const ticketsGroups = [
     },
     {
         // future one-time-passes
-        title: "<?= tkt_t('Mes billets pour une séance unique') ?>",
+        title: "<?= tkt_t('Mes tickets pour une séance unique') ?>",
         tickets: tickets.filter(ticket => ticket.isOneTimePass() && !ticket.getScreening()?.isFinished() && ticket.isActivated())
     },
     {
@@ -156,7 +156,7 @@ const ticketsGroups = [
         <div class="connect-panel">
             <div class="ticket_connect">
                 <div class="mt-2">
-                    <?= tkt_ticketidize(tkt_t("Saisissez votre TicketID ?")) ?>
+                    <?= tkt_ticketidize(tkt_t("Saisissez votre TicketID")) ?>
                 </div>
                 <div class="col">
                     <div class="row input-pass">
@@ -172,7 +172,7 @@ const ticketsGroups = [
                     <div class="col text-center">
                         <div class="error pass-error d-none text-center text-danger"></div>
                         <button class="btn btn-primary button login-btn connect-btn mt-2 mb-3">
-                            <i class="tkt-icon-log-out"></i> <?= tkt_t('Connexion') ?>
+                            <i class="tkt-icon-log-out"></i> <?= tkt_t('Valider') ?>
                         </button>
                     </div>
                 </div>
