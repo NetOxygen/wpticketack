@@ -64,6 +64,14 @@ export default class UserAccount extends Component {
                 this.render();
             }
         });
+
+        postal.subscribe({
+            channel: "connection",
+            topic: "update",
+            callback: (data, envelope) => {
+                this.render();
+            }
+        });
     }
 
     emit_login_update() {
