@@ -166,23 +166,24 @@
         </section>
         <% } %>
 
+        <% if (ticket.getWalletBalance() > 0) { %>
         <div class="row">
-            <% if (ticket.getWalletBalance() > 0) { %>
             <div class="col">
                 <section class="tkt-section tkt-light-section mt-3">
                     <div class="panel-heading wallet_info">
                         <h3 class="panel-title">Portefeuille électronique</h3>
                     </div>
                     <div class="panel-body wallet_info text-center">
-                        <div class="well text-center">
-                            <span><%= ticket.getWalletCurrency() + " " + ticket.getWalletBalance() %></hspan>
+                        <div class="text-center">
+                            <h4><%= ticket.getWalletCurrency() + " " + ticket.getWalletBalance() %></h4>
                         </div>
                     </div>
                 </section>
             </div>
-            <% } %>
+        </div>
+        <% } %>
 
-
+        <div class="row">
             <div class="col">
                 <section class="tkt-section tkt-light-section mt-3">
                     <div class="panel-heading">

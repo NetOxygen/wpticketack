@@ -40,6 +40,7 @@ export default class TicketConnect extends Component {
             this.state.push(ticket.store, ticket, '_id');
 
             await ticket.enhanceBookings();
+            await ticket.loadWallet();
             ticket.isForgettable = ticket.store === 'tickets';
             this.render(ticket);
         } catch (err) {
