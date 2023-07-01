@@ -6,6 +6,9 @@ Ticketack
     .setup({
         'apiKey': Config.get('api_key'),
         'engineUri': Config.get('engine_uri'),
+        'eshop': {
+            'uri': Config.get('eshop_uri')
+        }
     });
 
 export default Ticketack;
