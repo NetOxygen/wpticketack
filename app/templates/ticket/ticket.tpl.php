@@ -175,7 +175,7 @@
                     </div>
                     <div class="panel-body wallet_info text-center">
                         <div class="text-center">
-                            <h4><%= ticket.getWalletCurrency() + " " + ticket.getWalletBalance() %></h4>
+                            <h4><%= ticket.getFormattedWalletBalance() %></h4>
                         </div>
                     </div>
                 </section>
