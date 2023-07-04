@@ -19,7 +19,7 @@ use Ticketack\WP\Templates\TKTTemplate;
 const votable = [];
 tickets.concat(other_tickets).map(t => {
     t.bookings.map(b => {
-        if (b.screening?.isFinished() && !b.screening.disable_votes && !b.vote)
+        if (b.screening?.isFinished() && !b.screening.opaque?.disable_votes && !b.vote)
             votable.push(b);
     });
 });
