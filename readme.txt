@@ -2,7 +2,7 @@
 Tags: ticketack
 Requires at least: 4.6
 Tested up to: 6.2.2
-Stable tag: 2.61.2
+Stable tag: 2.62.0
 Requires PHP: 7.2
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -34,6 +34,16 @@ This section describes how to install the plugin and get it working.
 == Screenshots ==
 
 == Changelog ==
+
+== 2.62.0 ==
+
+ * feat: Disable votes if booking hasn't been scanned
+ * fix: Screenings that are not votable were votable in the Votes tab
+ * fix: Don't show activation date of ticket in ticket list
+ * modified templates:
+   - app/templates/ticket/ticket.tpl.php
+   - app/templates/user/account/votes/content.tpl.php
+   - app/templates/user/account/tickets/content.tpl.php
 
 == 2.61.2 ==
 
