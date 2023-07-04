@@ -100,7 +100,12 @@
                                     <% } %>
                                 </td>
                                 <td>
-                                    <% if (!b.screening.opaque?.disable_votes) { %>
+                                <!--
+                                Allow vote on screenings that are finished, don't have disabled
+                                vote, don't have already a vote and have been scanned.  You can
+                                relax the "have been scanned" part by removing b.scanned_at.length
+                                -->
+                                    <% if (b.vote || (!b.screening.opaque?.disable_votes && b.scanned_at.length)) { %>
                                     <select data-component="Ui/Rating" data-ticket-id="<%= b.ticket_id %>" data-booking-id="<%= b._id %>">
                                         <option value=""></option>
                                         <% [1, 2, 3, 4, 5].map(function (score) { %>

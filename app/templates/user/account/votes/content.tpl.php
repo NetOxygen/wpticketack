@@ -19,11 +19,17 @@ use Ticketack\WP\Templates\TKTTemplate;
 const votable = [];
 tickets.concat(other_tickets).map(t => {
     t.bookings.map(b => {
-        if (b.screening?.isFinished() && !b.screening.disable_votes && !b.vote)
+        // Allow vote on screenings that are finished, don't have disabled
+        // vote, don't have already a vote and have been scanned.  You can
+        // relax the "have been scanned" part by removing b.scanned_at.length
+        // condition
+        if (b.screening?.isFinished() && !b.screening.opaque?.disable_votes && !b.vote && b.scanned_at.length)
             votable.push(b);
     });
 });
 tickets.concat(other_tickets).map(t => {
+    // Add already-made votes at the end. You can disable this behavious by
+    // commenting out this block.
     t.bookings.map(b => {
         if (b.vote)
             votable.push(b);
