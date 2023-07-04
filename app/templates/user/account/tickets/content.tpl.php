@@ -74,8 +74,7 @@ const ticketsGroups = [
                                         <div>
                                             <small><%=
                                                 ticket.isOneTimePass() ?
-                                                    (ticket.getScreeningStartAt() + ' - ' + ticket.getScreeningPlace()) :
-                                                    ticket.getFormattedActivatedAt()
+                                                    (ticket.getScreeningStartAt() + ' - ' + ticket.getScreeningPlace()) : ''
                                             %></small>
                                         </div>
                                     </button>
@@ -94,7 +93,7 @@ const ticketsGroups = [
                                         <% if (ticket.isForgettable) { %>
                                         <button class="btn btn-link btn-sm ticket-forget-link" data-ticket-id="<%= ticket._id %>">
                                             <i class="fa fa-trash"></i>
-                                            <?= tkt_t('Oublier ce ticket') ?>
+                                            <?= tkt_t('Oublier ce billet') ?>
                                         </button>
                                         <% } %>
                                         <% if (ticket.isOneTimePass()) { %>
