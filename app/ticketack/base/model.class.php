@@ -91,11 +91,25 @@ abstract class TKTModel
      * @param $id
      *   the id value to find.
      *
+     * @param mixed $fields
+     *   The list of fields to get, as an array or a comma
+     *   separated list.
+     *
+     * @param boolean $allow_cached_results
+     *   True to allow cached results
+     *
      * @return
      *   An instance of static a matching row is found, null otherwise.
      */
-    public static function find($id)
+    public static function find($id, $fields = null, $allow_cached_results = false)
     {
-        return (strlen($id) === 0 ? null : static::first()->id($id)->get());
+        if (strlen($id) === 0) {
+            return null;
+        }
+
+        return static::first()->id($id)->get(
+            $fields,
+            $allow_cached_results
+        );
     }
 }

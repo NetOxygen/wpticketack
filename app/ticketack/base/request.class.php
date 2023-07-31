@@ -71,8 +71,13 @@ class TKTRequest
         // add a leading slash to $path if needed
         $path = '/api' . (preg_match('#^/#', $path) ? $path : '/' . $path);
 
+       // nocache query parameter should always appear in first position, otherwise the nginx cache could compute one URL with trailing & and one without it
+       $add_no_cache = array_key_exists('nocache', $options) && $options['nocache'] === 'true';
+
         // merge $path quand $query to build a request
-        $data  = !empty($query) ? ['query' => http_build_query($query)] : $data;
+        $path .= count($query) > 0 ?
+            '?' . ($add_no_cache ? 'nocache=true&' : '') . http_build_query($query) :
+            ($add_no_cache ? '?nocache=true' : '');
 
         // call the API
         $response = TKTApi::get_instance()->request($method, $path, $data);
@@ -328,8 +333,10 @@ class TKTRequest
      * @param mixed
      *   The list of fields to get, as an array or a comma
      *   separated list.
+     * @param boolean
+     *   True to allow cached results, false otherwise
      */
-    public function get($fields = null)
+    public function get($fields = null, $allow_cached_results = false)
     {
         if (!is_null($fields)) {
             $fields = is_array($fields) ? implode(',', $fields) : $fields;
@@ -341,6 +348,11 @@ class TKTRequest
             'factory' => $this->klass,
             'return_as_collection' => ($this->hint == self::EXPECT_MANY),
         ];
+
+        if (!$allow_cached_results) {
+            $options['nocache'] = 'true'; // FIXME: be more fine grained here to use cache
+        }
+
         $rsp = static::request(
             static::GET,
             $this->request_path,

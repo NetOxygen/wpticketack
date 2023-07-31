@@ -42,8 +42,9 @@ class Settings extends TKTModel implements \JsonSerializable
      */
     public static function refresh(String $path, array $app_config = [])
     {
-        $settings      = static::find('default')->toArray();
-        $config        = array_merge_recursive($settings, $app_config);
+        $settings = static::find('default', /*fields*/null, /*$allow_cached_results*/false);
+        $settings = $settings ? $settings->toArray() : [];
+        $config   = array_merge_recursive($settings, $app_config);
         // Remove some unneeded settings
         unset($config['mobile']);
         unset($config['pdf']);
