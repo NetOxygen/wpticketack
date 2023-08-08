@@ -81,6 +81,22 @@ class Screening extends TKTModel implements \JsonSerializable
     }
 
     /**
+     * scope filtering screenings on stop_at values.
+     */
+    public static function scope_stop_at_gte($req, $when)
+    {
+        return $req->query('stop_at_gte', tkt_datetime_to_iso8601($when));
+    }
+
+    /**
+     * scope filtering screenings on stop_at values.
+     */
+    public static function scope_stop_at_lte($req, $when)
+    {
+        return $req->query('stop_at_lte', tkt_datetime_to_iso8601($when));
+    }
+
+    /**
      * scope filtering screenings movies sections
      */
     public static function scope_in_movie_sections($req, $sections)

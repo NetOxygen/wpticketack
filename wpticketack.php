@@ -84,6 +84,7 @@ $app->register_shortcode('Ticketack\WP\Shortcodes\PantaflixPlayerShortcode', 'pa
 $app->register_shortcode('Ticketack\WP\Shortcodes\TicketViewShortcode', 'ticket_view.class.php');
 $app->register_shortcode('Ticketack\WP\Shortcodes\TicketConnectShortcode', 'ticket_connect.class.php');
 $app->register_shortcode('Ticketack\WP\Shortcodes\VotesShortcode', 'votes.class.php');
+$app->register_shortcode('Ticketack\WP\Shortcodes\SignageShortcode', 'signage.class.php');
 
 // Register shortcodes defined in THEME_ROOT/ticketack/shortcodes
 $app->register_theme_shortcodes();

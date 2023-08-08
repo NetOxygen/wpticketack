@@ -35,7 +35,7 @@
   "dependencies": {
     "@babel/polyfill": "^7.10.1",
     "@glidejs/glide": "^3.4.1",
-    "@ticketack/lib": "ssh://git@gitlab.netoxygen.ch/ticketack/js-lib.git",
+    "@ticketack/lib": "ssh://git@gitlab.netoxygen.ch:2222/ticketack/js-lib.git",
     "async": "^3.2.0",
     "bootstrap": "4.1.3",
     "dottie": "^2.0.2",
