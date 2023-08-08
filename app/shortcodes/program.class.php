@@ -20,6 +20,7 @@ class ProgramShortcode extends TKTShortcode
     const LIST_TEMPLATE      = 'list';
     const GRID_TEMPLATE      = 'grid';
     const GALLERY_TEMPLATE   = 'gallery';
+    const SLIDER_TEMPLATE    = 'slider';
     const SCREENINGS_LAYOUT  = 'screenings';
     const EVENTS_LAYOUT      = 'events';
     const DEFAULT_ITEM_WIDTH = 12;
@@ -28,6 +29,7 @@ class ProgramShortcode extends TKTShortcode
     const SCREENINGS_FILTER  = 'screenings';
     const EVENTS_FILTER      = 'events';
     const DATE_TODAY         = 'today';
+    const SLIDER_TIMEOUT     = 3000;
 
     /**
      * Get this Shortcode tag
@@ -59,6 +61,7 @@ class ProgramShortcode extends TKTShortcode
         $day           = tkt_get_url_param('d', (isset($atts['day']) ? $atts['day'] : null));
         $places        = isset($atts['places']) ? explode(',', $atts['places']) : [];
         $filter_fields = isset($atts['filter_fields']) ? explode(',', $atts['filter_fields']) : [];
+        $slider_timeout = isset($atts['timeout']) ? $atts['timeout'] : static::SLIDER_TIMEOUT;
 
         try {
             $query = Screening::all()
@@ -262,7 +265,8 @@ class ProgramShortcode extends TKTShortcode
                             'item_width'        => $item_width,
                             'filter_fields'     => $filter_fields,
                             'top_filter'        => $top_filter,
-                            'top_filter_values' => ($top_filter == static::SCREENINGS_FILTER ? $screenings : [])
+                            'top_filter_values' => ($top_filter == static::SCREENINGS_FILTER ? $screenings : []),
+                            'slider_timeout'    => $slider_timeout
                         ]
                     );
             }
