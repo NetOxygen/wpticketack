@@ -3,7 +3,6 @@ namespace Ticketack\WP\Shortcodes;
 use Ticketack\WP\Templates\TKTTemplate;
 use Ticketack\Core\Models\Screening;
 use Ticketack\Core\Base\TKTRequest;
-use Ticketack\Core\Base\TKTApiException;
 use \Datetime;
 use \DateInterval;
 
@@ -83,7 +82,7 @@ class SignageShortcode extends TKTShortcode
                 'time_to_reload'   => $timeout,
                 'main_movie_index' => $main_movie_index,
                 'language'         => $language
-            ];
+            ]:
 
             switch ($layout) {
                 case static::STRETCH_LTR_LAYOUT:
