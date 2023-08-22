@@ -103,7 +103,7 @@ $width = 300;
                   <?php
                     $ages     = tkt_get_ages();
                     foreach ($ages as $age) {
-                        echo '<option value="'.$age.'">'.$age.'</option>';
+                        echo '<option value="' . $age . '">' . tkt_h($age) . '</option>';
                     }
                   ?>
                 </select>
