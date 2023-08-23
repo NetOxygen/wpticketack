@@ -21,6 +21,7 @@ export default class ImageDataUrl extends Component {
     }
 
     attach() {
+        super.attach();
         this.init();
     }
 
