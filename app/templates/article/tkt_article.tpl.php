@@ -68,14 +68,15 @@ $nb_slides = count($posters);
             </div>
         </section>
 
-        <section class="tkt-section tkt-<?= $theme ?>-section buy-section">
+        <section class="tkt-section tkt-<?= $data->theme ?>-section buy-section">
             <h3 class="tkt-section-title">
                 <?= tkt_t('Acheter') ?>
             </h3>
 
             <?= TKTTemplate::render('buy_article/form', (object)[
                 'article'      => $article,
-                'salepoint_id' => $salepoint_id
+                'salepoint_id' => $salepoint_id,
+                'theme'        => $data->theme
             ]) ?>
         </section>
 

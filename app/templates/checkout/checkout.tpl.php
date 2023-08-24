@@ -8,6 +8,7 @@ use Ticketack\WP\Templates\TKTTemplate;
  *
  * Input:
  * $data: {
+ *   "theme"                 : 'dark|light',
  *   "cgv_url"               : "https://...",
  *   "privacy_url"           : "https://...",
  *   "sanitary_measures_url" : "https://...",
@@ -28,6 +29,7 @@ use Ticketack\WP\Templates\TKTTemplate;
 >
     <div class="tkt-checkout-form">
         <?= TKTTEmplate::render('checkout/checkout_form', (object)[
+            'theme'               => $data->theme,
             'cgv_url'               => $data->cgv_url,
             'privacy_url'           => $data->privacy_policy_url,
             'sanitary_measures_url' => $data->sanitary_measures_url,

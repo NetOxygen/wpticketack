@@ -11,6 +11,7 @@ use Ticketack\WP\Templates\TKTTemplate;
  *   "tickettypes": [ ... ],
  *   "redirect": "none",
  *   "selected": "festival_pass",
+ *   "theme"   : "dark|light",
  * }
  */
 ?>

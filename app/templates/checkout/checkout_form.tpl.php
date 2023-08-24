@@ -20,6 +20,7 @@ use Ticketack\WP\Templates\TKTTemplate;
  *   "proxypay_config_error" : "str"
  * }
  */
+$theme                   = $data->theme;
 $cgv_url                 = $data->cgv_url;
 $privacy_url             = $data->privacy_url;
 $sanitary_measures_url   = $data->sanitary_measures_url;
@@ -57,7 +58,7 @@ if (!function_exists('r')) {
   </div>
   <?php else : ?>
 
-  <?= do_shortcode('[tkt_cart hide_links="finalize,continue"][/tkt_cart]') ?>
+  <?= do_shortcode('[tkt_cart hide_links="finalize,continue" theme="'.$theme.'"][/tkt_cart]') ?>
 
   <section class="tkt-section tkt-<?= $theme ?>-section tkt-checkout-section tkt-checkout-user-data-section"></section>
 

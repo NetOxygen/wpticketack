@@ -12,7 +12,6 @@ use Ticketack\WP\Templates\TKTTemplate;
  *   "salepoint_id": "12345678-1234-1234-1234-123456789012"
  * }
  */
-
 ?>
 <div class="tkt-wrapper">
     <div class="row">

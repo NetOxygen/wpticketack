@@ -15,7 +15,7 @@ use Ticketack\WP\TKTApp;
 $width = 300;
 ?>
 <div class="tkt-wrapper">
-  <section class="tkt-section tkt-<?= $theme ?>-section tkt-pass-form-section">
+  <section class="tkt-section tkt-<?= $data->theme ?>-section tkt-pass-form-section">
     <h3 class="tkt-section-title mb-3">
       <?= tkt_t("Titulaire") ?>
     </h3>
