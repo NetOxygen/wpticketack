@@ -35,12 +35,14 @@ class CartShortcode extends TKTShortcode
     {
         $enable_promo_code = TKTApp::get_instance()->get_config('eshop.enable_promo_code');
         $hidden_links      = array_key_exists('hide_links', (array)$atts) ? $atts['hide_links'] : '';
+        $theme             = array_key_exists('theme', (array)$atts) ? $atts['theme'] : 'light';
 
         return TKTTemplate::render(
             'cart/cart',
             (object)[
                 'hidden_links'      => $hidden_links,
-                'enable_promo_code' => $enable_promo_code
+                'enable_promo_code' => $enable_promo_code,
+                'theme'             => $theme
             ]
         );
     }

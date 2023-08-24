@@ -17,9 +17,9 @@ use Ticketack\WP\TKTApp;
  *   FIXME: wallet missing here?
  * }
  */
-
+$theme = $data->theme;
 ?>
-<% 
+<%
 const pass     = cart.getPass();
 const tickets  = cart.getTickets();
 const articles = cart.getArticles();
@@ -31,7 +31,7 @@ const nbArticles = pass.length + tickets.length + articles.length;
 
 <div class="tkt-wrapper">
         <% if (cart.items.length == 0) { %>
-        <section class="tkt-section tkt-light-section tkt-cart-section">
+        <section class="tkt-section tkt-<?= $theme ?>-section tkt-cart-section">
             <div class="row">
                 <div class="col">
                     <h3 class="empty-cart-title">
@@ -43,7 +43,7 @@ const nbArticles = pass.length + tickets.length + articles.length;
         <% } else { %>
         <div class="row">
             <div class="col-12 col-lg-8">
-                <section class="tkt-section tkt-light-section tkt-cart-section h-100">
+                <section class="tkt-section tkt-<?= $theme ?>-section tkt-cart-section h-100">
                     <div class="row">
                         <div class="col">
                             <h3 class="tkt-section-title mb-3"><?= tkt_t("Votre commande") ?></h3>
@@ -128,7 +128,7 @@ const nbArticles = pass.length + tickets.length + articles.length;
             </div>
 
             <div class="col-12 col-lg-4">
-                <section class="tkt-section tkt-light-section tkt-cart-section  h-100">
+                <section class="tkt-section tkt-<?= $theme ?>-section tkt-cart-section  h-100">
                     <div class="row">
                         <div class="col">
                             <h3 class="tkt-section-title mb-3"><?= tkt_t("Récapitulatif") ?></h3>

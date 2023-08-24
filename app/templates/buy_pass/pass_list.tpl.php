@@ -11,14 +11,13 @@ use Ticketack\WP\TKTApp;
  *   "selected": "festival_pass",
  * }
  */
-
 $types = $data->tickettypes;
 $salepoint_id = TKTApp::get_instance()->get_config('ticketack.salepoint_id');
 ?>
 <?php if (!empty($types)) : ?>
 
 <div class="tkt-wrapper">
-  <section class="tkt-section tkt-light-section tkt-pass-section">
+  <section class="tkt-section tkt-<?= $data->theme ?>-section tkt-pass-section">
     <?php if (count($types) == 1 && count($types[0]->pricings()) == 1) : ?>
       <div id="item-<?= $types[0]->_id(); ?>" data-type="<?= $types[0]->_id(); ?>" class="pass">
         <input type="hidden" class="choose-pass" name="user[pass]" value="<?= $types[0]->_id().':'.array_keys($types[0]->pricings())[0]; ?>">
@@ -31,7 +30,7 @@ $salepoint_id = TKTApp::get_instance()->get_config('ticketack.salepoint_id');
       <div id="pass-accordion" class="tkt-accordion">
         <?php foreach ($types as $tickettype) :?>
           <div class="card" id="pass-<?= $tickettype->_id() ?>">
-            <div class="card-header">
+            <div class="card-header tkt-<?= $data->theme ?>-section">
               <h5 class="card-title mb-0">
                 <button class="btn btn-link pass_title" aria-expanded="true" aria-controls="#item-<?= $tickettype->_id(); ?>">
                   <?= tkt_h($tickettype->name(TKT_LANG)) ?>
@@ -39,7 +38,7 @@ $salepoint_id = TKTApp::get_instance()->get_config('ticketack.salepoint_id');
               </h5>
             </div>
             <div id="item-<?= $tickettype->_id(); ?>" data-type="<?= $tickettype->_id(); ?>" class="card-content pass <?= $tickettype->_id() === $data->selected ? 'open' : '' ?>">
-              <div class="card-body">
+              <div class="card-body tkt-<?= $data->theme ?>-section">
                 <p><?= nl2br(tkt_html($tickettype->description(TKT_LANG))) ?></p>
                 <input type="hidden" class="required-fields" id="<?= $tickettype->_id().'-required-fields' ?>" value="<?= implode(',', $tickettype->required_fields($salepoint_id)) ?>" />
                 <input type="hidden" class="requested-fields" id="<?= $tickettype->_id().'-requested-fields' ?>" value="<?= implode(',', $tickettype->requested_fields($salepoint_id)) ?>" />

@@ -8,6 +8,7 @@ use Ticketack\WP\Templates\TKTTemplate;
  *
  * Input:
  * $data: {
+ *   "theme": 'dark|light',
  *   "articles"             : [ ... ],
  *   "hide_sorters"         : true|false,
  *   "add_to_cart_mode"     : popup|direct,
@@ -19,6 +20,7 @@ use Ticketack\WP\Templates\TKTTemplate;
  *   ]
  * }
  */
+
 ?>
 
 <div id="tkt-shop" class="tkt-wrapper">
