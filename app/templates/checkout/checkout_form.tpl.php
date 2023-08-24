@@ -8,6 +8,7 @@ use Ticketack\WP\Templates\TKTTemplate;
  *
  * Input:
  * $data: {
+ *   "theme"                 : 'dark|light',
  *   "cgv_url"               : "https://...",
  *   "privacy_url"           : "https://...",
  *   "sanitary_measures_url" : "https://...",
@@ -58,9 +59,9 @@ if (!function_exists('r')) {
 
   <?= do_shortcode('[tkt_cart hide_links="finalize,continue"][/tkt_cart]') ?>
 
-  <section class="tkt-section tkt-dark-section tkt-checkout-section tkt-checkout-user-data-section"></section>
+  <section class="tkt-section tkt-<?= $theme ?>-section tkt-checkout-section tkt-checkout-user-data-section"></section>
 
-  <section class="tkt-section tkt-dark-section tkt-checkout-section tkt-checkout-form-section">
+  <section class="tkt-section tkt-<?= $theme ?>-section tkt-checkout-section tkt-checkout-form-section">
     <div class="row">
       <div class="col">
         <form class="checkout-form">

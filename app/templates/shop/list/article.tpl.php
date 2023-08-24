@@ -12,6 +12,7 @@ use Ticketack\WP\Shortcodes\ShopShortcode;
  *
  * Input:
  * $data: {
+ *   "theme": 'dark|light',
  *   "article": { ... }
  *   "add_to_cart_mode" : popup|direct,
  * }
@@ -75,7 +76,7 @@ $salepoint_id = TKTApp::get_instance()->get_config('ticketack.salepoint_id');
                     data-article-id="<?= $article->_id() ?>"
                     data-salepoint-id="<?= $salepoint_id ?>"
                 >
-                    <section class "tkt-section tkt-dark-section buy-section">
+                    <section class "tkt-section tkt-<?= $theme ?>-section buy-section">
                     </section>
                 </div>
             </div>

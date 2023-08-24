@@ -11,6 +11,7 @@ use Ticketack\WP\Templates\TKTTemplate;
  *
  * Input:
  * $data: {
+ *   "theme": 'dark|light',
  *   "tkt_article": { ... }
  * }
  */
@@ -67,7 +68,7 @@ $nb_slides = count($posters);
             </div>
         </section>
 
-        <section class="tkt-section tkt-dark-section buy-section">
+        <section class="tkt-section tkt-<?= $theme ?>-section buy-section">
             <h3 class="tkt-section-title">
                 <?= tkt_t('Acheter') ?>
             </h3>

@@ -128,7 +128,7 @@
 
         <!-- Owner -->
         <% if (ticket?.hasContactInfo()) { %>
-        <section class="tkt-section tkt-dark-section mt-3">
+        <section class="tkt-section tkt-<?= $theme ?>-section mt-3">
             <h3 class="panel-title"><?= _('Titulaire') ?></h3>
             <div class="text-center">
                 <% if (ticket.contact?.rfc2397_portrait?.length) { %>

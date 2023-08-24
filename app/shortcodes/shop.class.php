@@ -46,6 +46,7 @@ class ShopShortcode extends TKTShortcode
      */
     public function run($atts, $content)
     {
+        $theme            = isset($atts['theme']) ? $atts['theme'] : 'light';
         $template         = isset($atts['template']) ? $atts['template'] : static::LIST_TEMPLATE;
         $category_ids     = isset($atts['category_ids']) ? explode(',', $atts['category_ids']) : null;
         $tags             = isset($atts['tags']) ? explode(',', $atts['tags']) : null;
@@ -112,7 +113,8 @@ class ShopShortcode extends TKTShortcode
             return TKTTemplate::render(
                 'shop/'.$template.'/articles',
                 (object)[
-                    'articles' => array_chunk(
+                    'theme'        => $theme,
+                    'articles'     => array_chunk(
                         $articles,
                         (int)(12 / $item_width)
                     ),

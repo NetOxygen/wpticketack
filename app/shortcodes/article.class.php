@@ -35,7 +35,9 @@ class ArticleShortcode extends TKTShortcode
      */
     public function run($atts, $content)
     {
-        $id = isset($atts['id']) ? $atts['id'] : null;
+        $id       = isset($atts['id']) ? $atts['id'] : null;
+        $theme    = isset($atts['theme']) ? $atts['theme'] : 'light';
+
         if (is_null($id)) {
             return null;
         }
@@ -48,7 +50,8 @@ class ArticleShortcode extends TKTShortcode
             return TKTTemplate::render(
                 'buy_article/form',
                 (object)[
-                    'article' => $article,
+                    'theme'        => $theme,
+                    'article'      => $article,
                     'salepoint_id' => $salepoint_id
                 ]
             );

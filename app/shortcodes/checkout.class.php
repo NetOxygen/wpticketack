@@ -37,6 +37,8 @@ class CheckoutShortcode extends TKTShortcode
      */
     public function run($atts, $content)
     {
+        $theme    = isset($atts['theme']) ? $atts['theme'] : 'light';
+
         try {
             $config                = TKTApp::get_instance()->get_config('eshop');
             $result                = tkt_get_url_param('result');
@@ -72,7 +74,8 @@ class CheckoutShortcode extends TKTShortcode
             return TKTTemplate::render(
                 'checkout/checkout',
                 (object)[
-                    "result"                => $result,
+                    'theme'                 => $theme,
+                    'result'                => $result,
                     'requested_fields'      => $config["requested_buyer_data"],
                     'required_fields'       => $config["required_buyer_data"],
                     'cgv_url'               => $terms_conditions_url,

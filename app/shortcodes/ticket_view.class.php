@@ -30,12 +30,14 @@ class TicketViewShortcode extends TKTShortcode
      */
     public function run($atts, $content)
     {
-        $_id = tkt_get_url_param('uuid', (isset($atts['_id']) ? $atts['_id'] : null));
+        $_id      = tkt_get_url_param('uuid', (isset($atts['_id']) ? $atts['_id'] : null));
+        $theme    = isset($atts['theme']) ? $atts['theme'] : 'light';
 
         return TKTTemplate::render(
             'ticket/ticket_view',
             (object)[
-                "ticket_id" => $_id,
+                'theme'       => $theme,
+                'ticket_id'   => $_id,
             ]
         );
     }
