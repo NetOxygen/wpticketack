@@ -38,6 +38,20 @@ This section describes how to install the plugin and get it working.
 == 2.64.0 ==
 
 * feat: Add theme attribute to more shortcodes
+* fix: Image download opens twice in buy_pass form
+* fix: Escape "<" in age field
+* modified templates:
+   - app/templates/buy_article/form.tpl.php
+   - app/templates/buy_pass/form.tpl.php
+   - app/templates/buy_pass/pass_list.tpl.php
+   - app/templates/cart/cart.tpl.php
+   - app/templates/cart/cart_table.tpl.php
+   - app/templates/checkout/checkout.tpl.php
+   - app/templates/checkout/checkout_form.tpl.php
+   - app/templates/shop/list/article.tpl.php
+   - app/templates/shop/list/articles.tpl.php
+
+
 
 == 2.63.1 ==
 
