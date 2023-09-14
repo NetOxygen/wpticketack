@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-01 00:35+0200\n"
+"POT-Creation-Date: 2023-09-14 19:15+0200\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Belkacem Alidra <belkacem.alidra@netoxygen.ch>\n"
+"Last-Translator: Jonathan Ernst <jonathan.ernst@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -546,6 +546,9 @@ msgstr ""
 msgid "Vous n'avez pas encore de billets."
 msgstr ""
 
+msgid "Oublier ce billet"
+msgstr ""
+
 msgid "Voir ce ticket"
 msgstr ""
 
@@ -559,6 +562,9 @@ msgid "Ajouter un billet acheté en billetterie physique"
 msgstr ""
 
 msgid "Saisissez votre TicketID"
+msgstr ""
+
+msgid "Valider"
 msgstr ""
 
 msgid "Votre compte n'est pas activé."
@@ -587,9 +593,6 @@ msgid "Réserver (paiement sur place)"
 msgstr ""
 
 msgid "Procéder au paiement"
-msgstr ""
-
-msgid "Valider"
 msgstr ""
 
 msgid ""
@@ -674,13 +677,22 @@ msgstr ""
 msgid "min"
 msgstr ""
 
+msgid "Payss"
+msgstr "Pays"
+
+msgid "Langues originales"
+msgstr ""
+
 msgid "Langue originale"
 msgstr ""
+
+msgid "Audios"
+msgstr "Audio"
 
 msgid "Audio"
 msgstr ""
 
-msgid "Sous-titre"
+msgid "Sous-titres"
 msgstr ""
 
 msgid "Âge min. lég."

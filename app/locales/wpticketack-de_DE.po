@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-01 00:31+0200\n"
+"POT-Creation-Date: 2023-09-14 19:18+0200\n"
 "PO-Revision-Date: 2022-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Belkacem Alidra <belkacem.alidra@netoxygen.ch>\n"
+"Last-Translator: Jonathan Ernst <jonathan.ernst@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -561,12 +561,14 @@ msgstr "Meine Tickets"
 msgid "Autres abonnements (ajoutés avec leur TicketID)"
 msgstr "Weitere Abonnements (mit ihrer TicketID hinzugefügt)"
 
-#, fuzzy
 msgid "Mes tickets pour une séance unique"
 msgstr "Meine Tickets für eine Einzelsitzung"
 
 msgid "Vous n'avez pas encore de billets."
 msgstr "Sie haben noch keine Tickets."
+
+msgid "Oublier ce billet"
+msgstr "Dieses Ticket vergessen"
 
 msgid "Voir ce ticket"
 msgstr "Dieses Ticket ansehen"
@@ -582,6 +584,9 @@ msgstr "Eine im physischen Kartenverkauf erworbene Karte hinzufügen"
 
 msgid "Saisissez votre TicketID"
 msgstr "Geben Sie Ihre TicketID ein"
+
+msgid "Valider"
+msgstr "Bestätigen"
 
 msgid "Votre compte n'est pas activé."
 msgstr "Ihr Konto ist nicht aktiviert."
@@ -613,9 +618,6 @@ msgstr "Buchen (Zahlung vor Ort)"
 
 msgid "Procéder au paiement"
 msgstr "Zahlung fortfahren"
-
-msgid "Valider"
-msgstr "Bestätigen"
 
 msgid ""
 "Dans le cadre des conditions sanitaires actuelles, nous sommes tenus de "
@@ -700,13 +702,22 @@ msgstr "Dauer"
 msgid "min"
 msgstr "Min."
 
+msgid "Payss"
+msgstr "Länder"
+
+msgid "Langues originales"
+msgstr "Originalsprachen"
+
 msgid "Langue originale"
 msgstr "Originalsprache"
+
+msgid "Audios"
+msgstr "Audio"
 
 msgid "Audio"
 msgstr "Audio"
 
-msgid "Sous-titre"
+msgid "Sous-titres"
 msgstr "Untertitel"
 
 msgid "Âge min. lég."
@@ -1174,7 +1185,6 @@ msgstr "Passwortänderung"
 msgid "Redirection à la mise au panier"
 msgstr "Weiterleitung zum Warenkorb"
 
-#, fuzzy
 msgid "Enregistrement"
 msgstr "Registrieren"
 

@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-01 00:37+0200\n"
+"POT-Creation-Date: 2023-09-14 19:18+0200\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Belkacem Alidra <belkacem.alidra@netoxygen.ch>\n"
+"Last-Translator: Jonathan Ernst <jonathan.ernst@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -547,12 +547,14 @@ msgstr "My tickets"
 msgid "Autres abonnements (ajoutés avec leur TicketID)"
 msgstr "Other passes (added with their TicketID)"
 
-#, fuzzy
 msgid "Mes tickets pour une séance unique"
 msgstr "My one-time tickets"
 
 msgid "Vous n'avez pas encore de billets."
 msgstr "You don't have any tickets yet."
+
+msgid "Oublier ce billet"
+msgstr "Forget this ticket"
 
 msgid "Voir ce ticket"
 msgstr "See this ticket"
@@ -568,6 +570,9 @@ msgstr "Add a ticket purchased at a physical ticket office"
 
 msgid "Saisissez votre TicketID"
 msgstr "Enter your TicketID"
+
+msgid "Valider"
+msgstr "Confirm"
 
 msgid "Votre compte n'est pas activé."
 msgstr "Your account hasn't been activated yet."
@@ -600,9 +605,6 @@ msgstr "Book (on site payment)"
 msgid "Procéder au paiement"
 msgstr "To the payment process"
 
-msgid "Valider"
-msgstr "Confirm"
-
 msgid ""
 "Dans le cadre des conditions sanitaires actuelles, nous sommes tenus de "
 "demander à chaque détenteur de ticket les informations nécessaires pour le "
@@ -623,7 +625,7 @@ msgid "* ces champs sont requis"
 msgstr "* these fields are required"
 
 msgid "Enregistrer"
-msgstr "Save"
+msgstr "Register"
 
 msgid "Une erreur est survenue lors de votre commande."
 msgstr "An error has occurred during your order."
@@ -685,13 +687,22 @@ msgstr "Duration"
 msgid "min"
 msgstr "min"
 
+msgid "Payss"
+msgstr "Countries"
+
+msgid "Langues originales"
+msgstr "Original languages"
+
 msgid "Langue originale"
 msgstr "Original language"
+
+msgid "Audios"
+msgstr "Audio"
 
 msgid "Audio"
 msgstr "Audio"
 
-msgid "Sous-titre"
+msgid "Sous-titres"
 msgstr "Subtitles"
 
 msgid "Âge min. lég."
@@ -1155,7 +1166,6 @@ msgstr "Password change"
 msgid "Redirection à la mise au panier"
 msgstr "On add to cart redirection"
 
-#, fuzzy
 msgid "Enregistrement"
 msgstr "Save"
 

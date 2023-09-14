@@ -45,6 +45,17 @@ $images_height = TKTApp::get_instance()->get_config('images_dimensions.big_heigh
 
 $nb_slides = count($trailers) + count($posters);
 
+$original_languages = "";
+if (!empty($opaque->languages->original)) {
+    $original_languages = $opaque->languages->original;
+    if (!is_array($original_languages)) {
+        $original_languages = [$original_languages];
+    }
+    $original_languages = implode(', ', array_map(function ($l) {
+        return (is_object($l) && isset($l->{TKT_LANG})) ? $l->{TKT_LANG} : (is_string($l) ? $l : '');
+    }, $original_languages));
+}
+
 $audio = "";
 if (!empty($opaque->languages->audio)) {
     $audio = $opaque->languages->audio;
@@ -52,21 +63,21 @@ if (!empty($opaque->languages->audio)) {
         $audio = [$audio];
     }
     $audio = implode(', ', array_map(function ($a) {
-        return is_object($a) ? ucfirst(strtolower($a->{TKT_LANG})) : strtoupper($a);
+        return (is_object($a) && isset($a->{TKT_LANG})) ? $a->{TKT_LANG} : (is_string($a) ? $a : '');
     }, $audio));
 }
 
 $subtitles = "";
 if (!empty($opaque->languages->subtitles)) {
     $subtitles = implode(', ', array_map(function ($s) {
-        return is_object($s) ? ucfirst(strtolower($s->{TKT_LANG})) : strtoupper($s);
+        return (is_object($s) && isset($s->{TKT_LANG})) ? $s->{TKT_LANG} : (is_string($s) ? $s : '');
     }, $opaque->languages->subtitles));
 }
 
 $countries = "";
 if (!empty($opaque->countries)) {
     $countries = implode(', ', array_map(function ($c) {
-        return ucfirst(strtolower(is_object($c) ? $c->{TKT_LANG} : $c));
+        return (is_object($c) && isset($c->{TKT_LANG})) ? $c->{TKT_LANG} : (is_string($c) ? $c : '');
     }, $opaque->countries));
 }
 ?>
@@ -171,7 +182,8 @@ if (!empty($opaque->countries)) {
             <div class="col">
               <div class="countries">
                 <span class="tkt-badge tkt-badge-split">
-                  <span class="tkt-badge-part tkt-dark-badge"><?= tkt_t('Pays') ?></span>
+                  <?php // FIXME: plural ?>
+                  <span class="tkt-badge-part tkt-dark-badge"><?= (substr_count($countries, ',') > 0) ? tkt_t('Payss') : tkt_t('Pays') ?></span>
                   <span class="tkt-badge-part tkt-grey-badge"><?= $countries ?></span>
                 </span>
               </div>
@@ -179,13 +191,13 @@ if (!empty($opaque->countries)) {
           </div>
           <?php endif; ?>
 
-          <?php if (!empty($opaque->languages->original_language)) : ?>
+          <?php if (!empty($original_languages)) : ?>
           <div class="row">
             <div class="col">
-              <div class="original_language">
+              <div class="original_languages">
                 <span class="tkt-badge tkt-badge-split">
-                  <span class="tkt-badge-part tkt-dark-badge"><?= tkt_t('Langue originale') ?></span>
-                  <span class="tkt-badge-part tkt-grey-badge"><?= strtoupper($opaque->languages->original_language) ?></span>
+                  <span class="tkt-badge-part tkt-dark-badge"><?= (substr_count($original_languages, ',') > 0) ? tkt_t('Langues originales') : tkt_t('Langue originale') ?></span>
+                  <span class="tkt-badge-part tkt-grey-badge"><?= $original_languages ?></span>
                 </span>
               </div>
             </div>
@@ -197,7 +209,8 @@ if (!empty($opaque->countries)) {
             <div class="col">
               <div class="audio">
                 <span class="tkt-badge tkt-badge-split">
-                  <span class="tkt-badge-part tkt-dark-badge"><?= tkt_t('Audio') ?></span>
+                  <?php // FIXME: plural ?>
+                  <span class="tkt-badge-part tkt-dark-badge"><?= (substr_count($audio, ',') > 0) ? tkt_t('Audios') : tkt_t('Audio') ?></span>
                   <span class="tkt-badge-part tkt-grey-badge"><?= $audio ?></span>
                 </span>
               </div>
@@ -210,7 +223,7 @@ if (!empty($opaque->countries)) {
             <div class="col">
               <div class="subtitles">
                 <span class="tkt-badge tkt-badge-split">
-                  <span class="tkt-badge-part tkt-dark-badge"><?= tkt_t('Sous-titre') ?></span>
+                  <span class="tkt-badge-part tkt-dark-badge"><?= tkt_t('Sous-titres') ?></span>
                   <span class="tkt-badge-part tkt-grey-badge"><?= $subtitles ?></span>
                 </span>
               </div>
