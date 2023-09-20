@@ -2,7 +2,7 @@
 Tags: ticketack
 Requires at least: 4.6
 Tested up to: 6.2.2
-Stable tag: 2.64.2
+Stable tag: 2.64.3
 Requires PHP: 7.2
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -37,6 +37,12 @@ This section describes how to install the plugin and get it working.
 
 = Changelog =
 * [Changelog link](https://yoda.netoxygen.ch/public/projects/401b5210-986f-46b3-99cb-38546b73e16c/changelog)
+
+
+= 2.64.3 =
+
+* fix: Improve the changelog
+* fix: Add the release link to the changelog and documentation, update translations
 
 = 2.64.2 =
 
