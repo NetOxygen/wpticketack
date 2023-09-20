@@ -7,7 +7,7 @@ use Ticketack\WP\TKTApp;
  */
 ?>
 <h2>
-    <?= tkt_t('La documentation est disponible <a target="_blank" href="https://ticketack.com/knowledge-base/integration-avec-le-module-wordpress/">à cette adresse</a>'); ?>
+    <?= tkt_t('La documentation est disponible <a target="_blank" href="https://ticketack.com/knowledge-base/integration-avec-le-module-wordpress/">à cette adresse</a> et le journal des modifications <a target="_blank" href="https://yoda.netoxygen.ch/public/projects/401b5210-986f-46b3-99cb-38546b73e16c/changelog">ici</a>'); ?>.
 </h2>
 <div id="ht-kb-fe-embed-container" class="Help ht-kb-fe-embed-container">
     <div id="ht-kb-fe-embed-contents" style="display: block;">

@@ -35,15 +35,18 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
-== 2.64.2 ==
+= Changelog =
+* [Changelog link](https://yoda.netoxygen.ch/public/projects/401b5210-986f-46b3-99cb-38546b73e16c/changelog)
 
- * fix: On a movie, the slider pauses when the video is launched
+= 2.64.2 =
 
-== 2.64.1 ==
+* fix: On a movie, the slider pauses when the video is launched
 
- * doc: Add comment in release
+= 2.64.1 =
 
-== 2.64.0 ==
+* doc: Add comment in release
+
+= 2.64.0 =
 
 * feat: Add theme attribute to more shortcodes
 * fix: Image download opens twice in buy_pass form
@@ -61,40 +64,40 @@ This section describes how to install the plugin and get it working.
 
 
 
-== 2.63.1 ==
+= 2.63.1 =
 
- * fix: Syntax
+* fix: Syntax
 
-== 2.63.0 ==
+= 2.63.0 =
 
- * feat: Add signage templates and shortcodes
- * fix: By-pass cache when loading the settings
+* feat: Add signage templates and shortcodes
+* fix: By-pass cache when loading the settings
 
-== 2.62.0 ==
+= 2.62.0 =
 
- * feat: Disable votes if booking hasn't been scanned
- * fix: Screenings that are not votable were votable in the Votes tab
- * fix: Don't show activation date of ticket in ticket list
- * modified templates:
+* feat: Disable votes if booking hasn't been scanned
+* fix: Screenings that are not votable were votable in the Votes tab
+* fix: Don't show activation date of ticket in ticket list
+* modified templates:
    - app/templates/ticket/ticket.tpl.php
    - app/templates/user/account/votes/content.tpl.php
    - app/templates/user/account/tickets/content.tpl.php
 
-== 2.61.2 ==
+= 2.61.2 =
 
- * feat: Add TicketID form on user account tickets tab
- * feat: Show ticket wallet balance
- * feat: Add ticket link on one-time-pass
- * modified templates:
+* feat: Add TicketID form on user account tickets tab
+* feat: Show ticket wallet balance
+* feat: Add ticket link on one-time-pass
+* modified templates:
    - app/templates/user/account/tickets/content.tpl.php
    - app/templates/ticket/ticket.tpl.php
 
-== 2.60.1 ==
+= 2.60.1 =
 
- * feat: Introduce votes tab in user account page
- * feat: Use some Ticketack global settings
- * fix: Better handle ratings
- * modified templates:
+* feat: Introduce votes tab in user account page
+* feat: Use some Ticketack global settings
+* fix: Better handle ratings
+* modified templates:
    - app/templates/cart/cart.tpl.php
    - app/templates/cart/cart_summary.tpl.php
    - app/templates/cart/cart_summary_table.tpl.php
@@ -105,74 +108,74 @@ This section describes how to install the plugin and get it working.
    - app/shortcodes/user_account.class.php
    - app/templates/user/account/menu.tpl.php
 
-== 2.59.0 ==
+= 2.59.0 =
 
- * feat: Add newsletter subscription checkbox on checkout form
- * feat: Show (and disable) draft pages in the pages settings
+* feat: Add newsletter subscription checkbox on checkout form
+* feat: Show (and disable) draft pages in the pages settings
 
-== 2.58.0 ==
+= 2.58.0 =
 
- * feat: Introduce the votes
- * fix: Open the tickets view in the same tab (user account)
- * fix: Fix the language on the ticket view
+* feat: Introduce the votes
+* fix: Open the tickets view in the same tab (user account)
+* fix: Fix the language on the ticket view
 
-== 2.57.5 ==
+= 2.57.5 =
 
- * fix: Fix bookings pledge mechanism
+* fix: Fix bookings pledge mechanism
 
-== 2.57.4 ==
+= 2.57.4 =
 
- * fix: Add the missing button to forget a ticket
+* fix: Add the missing button to forget a ticket
 
-== 2.57.3 ==
+= 2.57.3 =
 
- * fix: Fix booking deletion on ticket connect view
+* fix: Fix booking deletion on ticket connect view
 
-== 2.57.2 ==
+= 2.57.2 =
 
- * fix: Restore ticket view templates comtaibility
+* fix: Restore ticket view templates comtaibility
 
-== 2.57.0 ==
+= 2.57.0 =
 
- * i18n: English translation update
- * feat: Viewed tickets are now saved like if they were added with a TicketID
- * fix: The expiration date on a ticket's view is now correct
- * modified templates:
+* i18n: English translation update
+* feat: Viewed tickets are now saved like if they were added with a TicketID
+* fix: The expiration date on a ticket's view is now correct
+* modified templates:
    - app/templates/ticket/ticket.tpl.php
    - app/templates/event/event.tpl.php
    - app/templates/event/post.tpl.php
    - app/templates/program/grid/event.tpl.php
    - app/templates/program/list/event.tpl.php
 
-== 2.56.7 ==
+= 2.56.7 =
 
- * i18n: German translation update
- * i18n: English translation update
+* i18n: German translation update
+* i18n: English translation update
 
-== 2.56.6 ==
+= 2.56.6 =
 
- * fix: Remove an unused message in the booking form
+* fix: Remove an unused message in the booking form
 
-== 2.56.5 ==
+= 2.56.5 =
 
- * fix: Enhance cache mechanism
+* fix: Enhance cache mechanism
 
-== 2.56.4 ==
+= 2.56.4 =
 
- * fix: Fix a bug in the user account tickets tab
+* fix: Fix a bug in the user account tickets tab
 
-== 2.56.3 ==
+= 2.56.3 =
 
  * fix: Fix PHP 8.1 compatibility
 
-== 2.56.2 ==
+= 2.56.2 =
 
- * feat: Rework booking form and user account
- * feat: Rework ticket view
- * feat: Introduce the new Ticketack library
- * feat: Improve settings
- * fix: Fix admin urls
- * modified templates:
+* feat: Rework booking form and user account
+* feat: Rework ticket view
+* feat: Introduce the new Ticketack library
+* feat: Improve settings
+* fix: Fix admin urls
+* modified templates:
    - app/templates/booking/form_pricings.tpl.php
    - app/templates/checkout/checkout_form.tpl.php
    - app/templates/user/account/profile/content.tpl.php
@@ -182,123 +185,123 @@ This section describes how to install the plugin and get it working.
    - app/templates/ticket/ticket_connect.tpl.php
    - app/templates/ticket/ticket_view.tpl.php
 
-== 2.54.1 ==
+= 2.54.1 =
 
- * fix: Update of section filters in the programme shortcode
+* fix: Update of section filters in the programme shortcode
 
-== 2.54.0 ==
+= 2.54.0 =
 
- * feat: Link to configured ticket page from the booking form
+* feat: Link to configured ticket page from the booking form
 
-== 2.53.0 ==
+= 2.53.0 =
 
- * feat: Introduce show attribute on the tkt_booking_form shortcode
- * fix: Add some error checks
- * modified templates:
+* feat: Introduce show attribute on the tkt_booking_form shortcode
+* fix: Add some error checks
+* modified templates:
    - app/templates/booking/form.tpl.php
    - app/templates/booking/form_pricings.tpl.php
 
 
-== 2.52.0 ==
+= 2.52.0 =
 
- * feat: Enhance ticket's number of bookings representation
- * fix: Fix the ticket view template
+* feat: Enhance ticket's number of bookings representation
+* fix: Fix the ticket view template
 
-== 2.51.0 ==
+= 2.51.0 =
 
- * feat: Ticket view implementation
- * feat: Update icon pack tkt
- * feat: add properties for program shortcode
- * fix: getValidityWindows return moment object
- * fix: Fix a typo in the tkt_user_account shortcode
+* feat: Ticket view implementation
+* feat: Update icon pack tkt
+* feat: add properties for program shortcode
+* fix: getValidityWindows return moment object
+* fix: Fix a typo in the tkt_user_account shortcode
 
-== 2.50.1 ==
+= 2.50.1 =
 
- * fix: Fix bookability messages
+* fix: Fix bookability messages
 
- * modified templates:
-   * - app/templates/booking/form.tpl.php
+* modified templates:
+   - app/templates/booking/form.tpl.php
 
-== 2.50.0 ==
+= 2.50.0 =
 
- * feat: Enhance bookability messages
- * feat: Allow  <strong> tags in descriptions
- * feat: Allow to select one pass in the buy_pass shortcode.
- * i18n: Improve wording
- * fix: Restore the pass pages in the settings
- * fix: Fix a bug regarding the passes photo field
+* feat: Enhance bookability messages
+* feat: Allow  <strong> tags in descriptions
+* feat: Allow to select one pass in the buy_pass shortcode.
+* i18n: Improve wording
+* fix: Restore the pass pages in the settings
+* fix: Fix a bug regarding the passes photo field
 
- * modified templates:
-   * - app/templates/booking/form_pricings.tpl.php
-   * - app/templates/buy_pass/buy.tpl.php
-   * - app/templates/buy_pass/pass_list.tpl.php
+* modified templates:
+   - app/templates/booking/form_pricings.tpl.php
+   - app/templates/buy_pass/buy.tpl.php
+   - app/templates/buy_pass/pass_list.tpl.php
 
-== 2.49.3 ==
+= 2.49.3 =
 
- * fix: Translate
+* fix: Translate
 
-== 2.49.2 ==
+= 2.49.2 =
 
- * fix: Translate
+* fix: Translate
 
-== 2.49.1 ==
+= 2.49.1 =
 
- * fix: Translate
+* fix: Translate
 
-== 2.49.0 ==
+= 2.49.0 =
 
- * feat: Use cannot_book_explanation in booking form
- * fix: Translate
- * fix: Displays the time dynamically according to the language
+* feat: Use cannot_book_explanation in booking form
+* fix: Translate
+* fix: Displays the time dynamically according to the language
 
-== 2.48.0 ==
+= 2.48.0 =
 
- * feat: Autoplay event posters slider
- * fix: Translate
- * feat: Remove duplicated availability message
- * - app/templates/event/_package.tpl.php
+* feat: Autoplay event posters slider
+* fix: Translate
+* feat: Remove duplicated availability message
+   - app/templates/event/_package.tpl.php
 
-== 2.47.0 ==
+= 2.47.0 =
 
- * feat: Consider only current screening on film package page
- * fix: Setting the language parameter to localize the title
- * fix: Translate
+* feat: Consider only current screening on film package page
+* fix: Setting the language parameter to localize the title
+* fix: Translate
 
-== 2.46.8 ==
+= 2.46.8 =
 
 * fix: Fix some details on the event page
 * modified templates:
-* - app/templates/event/_single.tpl.php
+   - app/templates/event/_single.tpl.php
 
-== 2.46.7 ==
+= 2.46.7 =
 
 * fix: Fix a bug in the bookings form
 
-== 2.46.6 ==
+= 2.46.6 =
 
 * fix: account for new sections structure
 
-== 2.46.5 ==
+= 2.46.5 =
 
 * fix: Fix fileinput_to_dataurl component
 
-== 2.46.4 ==
+= 2.46.4 =
 
 * fix: Check that opcache_invalidate exists
 
-== 2.46.3 ==
+= 2.46.3 =
 
 * fix: Fix a bug in the pass form
 
-== 2.46.2 ==
+= 2.46.2 =
 
 * fix: Display a pass twice and add to cart
 
-== 2.46.1 ==
+= 2.46.1 =
 
 * fix: Fix a bug when taking a photo from the webcam
 
-== 2.46.0 ==
+= 2.46.0 =
 
 * feat: The tickettypes fields are now retrieved from Ticketack settings
   (Kronos)
@@ -307,118 +310,118 @@ This section describes how to install the plugin and get it working.
 * fix: Set the default sort on articles list to the one from Kronos
 * fix: Use the configured salepoint instead of the user ones
 * modified templates:
-* - app/templates/article/tkt_article.tpl.php
-* - app/templates/shop/list/article.tpl.php
-* - app/templates/buy_pass/form.tpl.php
-* - app/templates/buy_pass/pass_list.tpl.php
+   - app/templates/article/tkt_article.tpl.php
+   - app/templates/shop/list/article.tpl.php
+   - app/templates/buy_pass/form.tpl.php
+   - app/templates/buy_pass/pass_list.tpl.php
 
-== 2.45.0 ==
+= 2.45.0 =
 
 * feat: Get the checkout fields in Kronos and more in the plugin configuration
 * modified templates:
 * - app/templates/checkout/checkout.tpl.php
 
-== 2.44.0 ==
+= 2.44.0 =
 
 * feat: Displays the message to book differently depending on if you have a reservation or not
 * modified templates:
-* -app/templates/booking/form_pricings.tpl.php
+   -app/templates/booking/form_pricings.tpl.php
 
-== 2.43.11 ==
+= 2.43.11 =
 
 * fix: Fix en error message
 
-== 2.43.10 ==
+= 2.43.10 =
 
 * fix: Display the message: required field for the photo
 * modified templates:
-* -app/templates/buy_pass/form.tpl.php
+   -app/templates/buy_pass/form.tpl.php
 
-== 2.43.9 ==
+= 2.43.9 =
 
 * feat: Show the screneings booking modes if any
 
-== 2.43.8 ==
+= 2.43.8 =
 
 * fix: Fix a bug in the integration client
 
-== 2.43.7 ==
+= 2.43.7 =
 
 * fix: Fix a bug in the checkout form
 
-== 2.43.6 ==
+= 2.43.6 =
 
 * fix: Fix a bug in the cart icon
 
-== 2.43.5 ==
+= 2.43.5 =
 
 * fix: Add a default parameter to the tkt_buy_pass_url function
 
-== 2.43.4 ==
+= 2.43.4 =
 
 * Technical release
 
-== 2.43.3 ==
+= 2.43.3 =
 
 * fix: Check if the api key is empty
 
-== 2.43.2 ==
+= 2.43.2 =
 
 * fix: Hide the title and notice in the form (if there are no fields)
 * feat: Display an error message in form_pass
 
-== 2.43.1 ==
+= 2.43.1 =
 
 * fix: Image upload, supported formats png, jpeg & gif
 * modified templates:
-* -app/templates/buy_pass/form.tpl.php
+  -app/templates/buy_pass/form.tpl.php
 
 * feat: Update of uriJs dependency
 
-== 2.43 ==
+= 2.43.0 =
 
 * feat: Removes the alert message after 3 seconds
 * fix: Changes the number of the cart, when adding a pass to the cart
 
-== 2.42.1 ==
+= 2.42.1 =
 
 * fix: Fix the booking form
 
-== 2.42.0 ==
+= 2.42.0 =
 
 * feat: Add link to recover password on login form
 
-== 2.41.1 ==
+= 2.41.1 =
 
 * fix: Change the DOM structure in booking_form shortcode
 
-== 2.41.0 ==
+= 2.41.0 =
 
 * feat: Change the order of the list
 * modified templates:
-*   -app/templates/user/account/orders/content.tpl.php
-*   -app/templates/user/account/tickets/content.tpl.php
+   -app/templates/user/account/orders/content.tpl.php
+   -app/templates/user/account/tickets/content.tpl.php
 
 * feat: Pre-fill the buyer's data with the account data
 * modified templates:
-*   -app/templates/cart/cart_table.tpl.php
-*   -app/templates/checkout/checkout_form.tpl.php
+   -app/templates/cart/cart_table.tpl.php
+   -app/templates/checkout/checkout_form.tpl.php
 
 * fix: Better handle audio, subtitles and countries on event template
 * feat: Handle bookability state in booking_form shortcode
 * modified templates:
-* -event/_single.tpl.php
-* -booking/form.tpl.php
+   -event/_single.tpl.php
+   -booking/form.tpl.php
 
-== 2.40.0 ==
+= 2.40.0 =
 
 * feat: Adds webcam photo taking and preview
 * modified templates:
-*  -app/templates/buy_pass/form.tpl.php
+   -app/templates/buy_pass/form.tpl.php
 
 * fix: Orders history update
 * modified templates:
-*  -app/templates/user/account/orders/content.tpl.php
+   -app/templates/user/account/orders/content.tpl.php
 
 
 = 2.39.0 =
@@ -432,7 +435,7 @@ This section describes how to install the plugin and get it working.
 * feat: Enhance auto-complete on some fields
 * fix: Fix a bug on the account tickets page
 
-= 2.37.2 = 
+= 2.37.2 =
 
 * fix: Make Tippy allow html content
 
@@ -447,16 +450,16 @@ This section describes how to install the plugin and get it working.
 * fix : Translation fixes and update
 
 * modified templates:
-*  -app/templates/cart/cart_table.tpl.php
-*  -app/templates/cart/cart_items_table.tpl.php
+  -app/templates/cart/cart_table.tpl.php
+  -app/templates/cart/cart_items_table.tpl.php
 
 * modified templates translation:
-*  -app/templates/cart/cart_table.tpl.php
-*  -app/templates/booking/form_pricings.tpl.php
-*  -app/templates/pantaflix/login.tpl.php
-*  -app/templates/ticket/ticket_connect.tpl.php
-*  -app/templates/user/user_register.tpl.php
-*  -app/templates/user/user_login.tpl.php
+  -app/templates/cart/cart_table.tpl.php
+  -app/templates/booking/form_pricings.tpl.php
+  -app/templates/pantaflix/login.tpl.php
+  -app/templates/ticket/ticket_connect.tpl.php
+  -app/templates/user/user_register.tpl.php
+  -app/templates/user/user_login.tpl.php
 
 = 2.36.0 =
 
@@ -477,13 +480,13 @@ This section describes how to install the plugin and get it working.
 
 * fix: Update of the jquery trash selector
 * modified templates:
-*   - app/templates/cart/cart_table.tpl.php
+   - app/templates/cart/cart_table.tpl.php
 
 = 2.34 =
 
 * feat: New cart design
 * modified templates:
-*   - app/templates/cart/cart_table.tpl.php
+   - app/templates/cart/cart_table.tpl.php
 
 = 2.33.1 =
 
@@ -495,9 +498,9 @@ This section describes how to install the plugin and get it working.
 * feat: Introduce allowed_ticket_types attribute on Pantaflix shortcode
 * fix: Fix a bug on the movie page when no future screening is found
 * modified templates:
-*   - app/templates/booking/form_pricings.tpl.php
-*   - app/templates/pantaflix/login.tpl.php
-*   - app/templates/pantaflix/player.tpl.php
+   - app/templates/booking/form_pricings.tpl.php
+   - app/templates/pantaflix/login.tpl.php
+   - app/templates/pantaflix/player.tpl.php
 
 = 2.32.0 =
 
@@ -506,17 +509,17 @@ This section describes how to install the plugin and get it working.
 * feat: Handle Pantaflix provider argument
 * fix: Fix CartIcon error in some cases
 * modified templates :
-*   - buy_article/form_pricings.tpl.php
-*   - booking/form_pricings.tpl.php
-*   - pantaflix/player.tpl.php
-*   - pantaflix/iframe.tpl.php
+   - buy_article/form_pricings.tpl.php
+   - booking/form_pricings.tpl.php
+   - pantaflix/player.tpl.php
+   - pantaflix/iframe.tpl.php
 
 = 2.31.0 =
 
 * feat: Add gift_message field in form buy_pas
 * feat: Update the documentation link
 * modified templates
-*   - buy_pass/form.tpl.php
+   - buy_pass/form.tpl.php
 
 = 2.30.5 =
 
@@ -558,7 +561,7 @@ This section describes how to install the plugin and get it working.
 * feat: Setting up the icons
 * feat: Implementation of Tippy
 * fix: notice if default fiels is empty
-* modified templates : booking/form_pricings.tpl.php buy_pass/pass_list.tpl.php
+   - modified templates : booking/form_pricings.tpl.php buy_pass/pass_list.tpl.php
 
 = 2.27.0 =
 
