@@ -55,7 +55,14 @@ export default class Carousel extends Component {
             channel: "carousel-" + this.$container.attr('id'),
             topic: "action",
             callback: (data, envelope) => {
-                this.$container.carousel(data.action);
+                switch (data.action) {
+                    case 'pause':
+                        this.glide.update({autoplay: false});
+                        break;
+                    case 'cycle':
+                        this.glide.update({autoplay: this.interval > 0 ? this.interval : false});
+                        break;
+                }
             }
         });
     }

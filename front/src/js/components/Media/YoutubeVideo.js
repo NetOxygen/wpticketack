@@ -81,7 +81,8 @@ export default class YoutubeVideo extends Component {
                 channel: "carousel-" + this.carousel_id,
                 topic: "slide",
                 callback: (data, envelope) => {
-                    //this.player && this.player.stopVideo();
+                    if (data.e.movement !== 0)
+                        this.player && this.player.stopVideo();
                 }
             });
         }
