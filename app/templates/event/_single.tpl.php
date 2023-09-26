@@ -101,19 +101,34 @@ if (!empty($opaque->countries)) {
             <div class="glide__track" data-glide-el="track">
               <ul class="glide__slides">
               <?php foreach ($trailers as $i => $t) : ?>
-              <li class="glide__slide <?= $i == 0 ? 'active' : '' ?>">
-                <div class="tkt-event-carousel-trailer-wrapper d-block w-100">
-                  <div
-                    id="tkt-event-carousel-trailer-<?= $i ?>"
-                    class="tkt-event-carousel-trailer"
-                    data-component="Media/YoutubeVideo"
-                    data-video-id="<?= tkt_yt_video_id($t->url) ?>"
-                    data-video-image="<?= tkt_img_proxy_url($t->image, $images_width, $images_height) ?>"
-                    data-controls="1"
-                    data-bs4-carousel-id="event-carousel">
-                  </div>
-                </div>
-              </li>
+                <?php if (preg_match("/youtu[.]?be/", $t->url) === 1): ?>
+                  <li class="glide__slide <?= $i == 0 ? 'active' : '' ?>">
+                    <div class="tkt-event-carousel-trailer-wrapper d-block w-100">
+                      <div
+                        id="tkt-event-carousel-trailer-<?= $i ?>"
+                        class="tkt-event-carousel-trailer"
+                        data-component="Media/YoutubeVideo"
+                        data-video-id="<?= tkt_yt_video_id($t->url) ?>"
+                        data-video-image="<?= tkt_img_proxy_url($t->image, $images_width, $images_height) ?>"
+                        data-controls="1"
+                        data-bs4-carousel-id="event-carousel">
+                      </div>
+                    </div>
+                  </li>
+                <?php else: ?>
+                  <li class="glide__slide <?= $i == 0 ? 'active' : '' ?>">
+                    <div class="tkt-event-carousel-trailer-wrapper d-block w-100">
+                      <div
+                        id="tkt-event-carousel-trailer-<?= $i ?>"
+                        class="tkt-event-carousel-trailer"
+                        data-video-image="<?= tkt_img_proxy_url($t->image, $images_width, $images_height) ?>"
+                        data-bs4-carousel-id="event-carousel"
+                      />
+                        <iframe width="100%" class="h-100" src=<?= $t->url ?> frameBorder="0" allow="encrypted-media" allowFullScreen></iframe>
+                      </div>
+                    </div>
+                  </li>
+                <?php endif; ?>
               <?php endforeach; ?>
               <?php foreach ($posters as $i => $p) : ?>
               <li class="glide__slide <?= count($trailers) == 0 && $i == 0 ? 'active' : '' ?>">
