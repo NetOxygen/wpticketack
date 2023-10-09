@@ -21,6 +21,7 @@ class ProgramShortcode extends TKTShortcode
     const GRID_TEMPLATE      = 'grid';
     const GALLERY_TEMPLATE   = 'gallery';
     const SLIDER_TEMPLATE    = 'slider';
+    const SLIDER_PORTRAIT_TEMPLATE    = 'slider_portrait';
     const SCREENINGS_LAYOUT  = 'screenings';
     const EVENTS_LAYOUT      = 'events';
     const DEFAULT_ITEM_WIDTH = 12;
