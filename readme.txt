@@ -2,7 +2,7 @@
 Tags: ticketack
 Requires at least: 4.6
 Tested up to: 6.2.2
-Stable tag: 2.65.0
+Stable tag: 2.66.0
 Requires PHP: 7.2
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -39,10 +39,17 @@ This section describes how to install the plugin and get it working.
 * [Changelog link](https://yoda.netoxygen.ch/public/projects/401b5210-986f-46b3-99cb-38546b73e16c/changelog)
 
 
+= 2.66.0 =
+
+* feat: Show all the user tickets on the ticket view/connect page
+* feat: Enhance communication tools with integrators
+* modified templates:
+  - app/templates/ticket/ticket.tpl.php
+
 = 2.65.0 =
 
- * feat: Add portrait template in the program shortcode
- * feat: Manage vimeo videos and .mp4 links
+* feat: Add portrait template in the program shortcode
+* feat: Manage vimeo videos and .mp4 links
 
 = 2.64.3 =
 
