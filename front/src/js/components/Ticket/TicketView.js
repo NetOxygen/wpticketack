@@ -14,7 +14,7 @@ import postal from 'postal';
  *    data-ticket-id="13245678-1234-1234-4321-123456789012"
  * >
  */
-export default class TicketConnect extends Component {
+export default class TicketView extends Component {
     /**
      * @constructor
      */
@@ -28,7 +28,10 @@ export default class TicketConnect extends Component {
         this.init();
     }
 
-    async init() {
+    async init(ticketId) {
+        if (ticketId)
+            this.ticketId = ticketId;
+
         try {
             const ticket = await TKTLib.TicketService.get(this.ticketId, /*noCache*/true);
 
@@ -62,8 +65,10 @@ export default class TicketConnect extends Component {
     }
 
     render(ticket) {
+        const tickets = this.state.get('tickets', []);
         this.$container.html(Template.render('tkt-ticket-tpl', {
             ticket,
+            tickets: tickets?.map(t => new Ticket(t)),
             program_url : Config.get('program_url') ? Config.get('program_url') : TKTApi.getProgramViewUrl()
         }));
 
@@ -83,6 +88,12 @@ export default class TicketConnect extends Component {
                     .removeClass('d-none');
             }
             location.reload();
+        });
+
+        $('.ticket-link', this.$container).click((e) => {
+            const _id = $(e.target).data('ticket-id');
+            if (_id)
+                this.init(_id);
         });
 
         this.loader.attach();

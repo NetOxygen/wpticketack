@@ -5,11 +5,27 @@
  *
  * JS Input: {
  *   "ticket": Ticket instance, if the ticket is connected,
+ *   "tickets": Array of tickets instances
  *   "program_url": String
  * }
  */
 ?>
 <script type="text/template" id="tkt-ticket-tpl">
+    <% if (tickets?.length > 1) { %>
+        <div class="mb-3">
+            <ul class="nav nav-tabs nav-fill">
+                <% _.sortBy(tickets, t => t.getDisplayName()).map(function (t) {  %>
+                    <li class="nav-item">
+                        <a data-ticket-id="<%= t._id %>"class="nav-link ticket-link <%= t._id === ticket?._id ? 'active' : '' %>">
+                            <%= t.getTypeName() %> -
+                            <%= t.getDisplayName() %>
+                        </a>
+                    </li>
+                <% }) %>
+            </ul>
+        </div>
+    <% } %>
+
     <% if (ticket) { %>
 
     <%

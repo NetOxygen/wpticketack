@@ -38,18 +38,20 @@ export default class TicketConnect extends Component {
         this.init();
     }
 
-    async init() {
+    async init(ticketId) {
         let ticket;
         const tickets = this.state.get('tickets', []);
         if (tickets.length) {
-            this.ticketId = new Ticket(tickets[tickets.length - 1])._id;
-            ticket = await TKTLib.TicketService.get(this.ticketId, /*noCache*/true);
-            ticket.store = 'tickets';
+            this.ticketId = ticketId || new Ticket(tickets[tickets.length - 1])._id;
+            ticket        = await TKTLib.TicketService.get(this.ticketId, /*noCache*/true);
+
+            ticket.store         = 'tickets';
             ticket.isForgettable = true;
+
             this.state.push(ticket.store, ticket, '_id');
             await ticket.enhanceBookings();
         }
-        this.render(ticket);
+        this.render(ticket, tickets?.map(t => new Ticket(t)));
     }
 
     emit_connection_update(ticket) {
@@ -93,9 +95,10 @@ export default class TicketConnect extends Component {
         this.emit_connection_update(null);
     }
 
-    render(ticket) {
+    render(ticket, tickets) {
         this.$container.html(Template.render('tkt-ticket-tpl', {
             ticket,
+            tickets,
             program_url : Config.get('program_url') ? Config.get('program_url') : TKTApi.getProgramViewUrl()
         }));
         this.$container.append(Template.render('tkt-ticket-connect-tpl', {
@@ -130,6 +133,12 @@ export default class TicketConnect extends Component {
                     .removeClass('d-none');
             }
             location.reload();
+        });
+
+        $('.ticket-link', this.$container).click((e) => {
+            const _id = $(e.target).data('ticket-id');
+            if (_id)
+                this.init(_id);
         });
 
         this.loader.attach();
