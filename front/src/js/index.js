@@ -1,4 +1,4 @@
-import { Api as TKTApi } from './components/Ticketack';
+import { TKTLib, Api as TKTApi } from './components/Ticketack';
 import { ComponentsLoader } from './components/Core';
 import { BookingForm, ScreeningsList } from './components/Booking';
 import { BookingWizard } from './components/BookingWizard';
@@ -19,6 +19,7 @@ import { Calendar, ImageDataUrl } from './components/Form';
 import { Shop } from './components/Shop';
 import { TicketConnect, TicketView } from './components/Ticket';
 import { PantaflixPlayer } from './components/Pantaflix';
+import postal from 'postal';
 
 import '../styles/main.scss';
 
@@ -60,3 +61,12 @@ loader.registerComponent('Pantaflix/Player', PantaflixPlayer);
 loader.attach();
 
 globalThis.TKTApi = TKTApi;
+
+globalThis.TKT = {
+    // all the Ticketack Lib content
+    ...TKTLib,
+    // global components state
+    state: loader.app_state,
+    // postal communication bus
+    bus: postal,
+}
