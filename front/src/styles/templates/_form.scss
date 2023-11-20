@@ -23,9 +23,12 @@
     }
 }
 
+.tkt-wrapper-photo {
+    background-color: lighten($dark_section_bg_color, 5%)
+}
+
 .image-preview {
     margin-top: 15px;
     height: auto;
     display: block;
 }
-

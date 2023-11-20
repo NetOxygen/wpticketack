@@ -28,21 +28,32 @@ export default class Webcam extends Component {
 
         $('.start_video', this.$container).click((e) => {
             this.showWebcam =  true;
+            // Hide the preview
+            if ($('.image-preview', this.$container)?.attr('src')?.length > 0) {
+                $('.image-preview', this.$container).hide();
+            }
             $('.start_video', this.$container).hide();
             $('.stop_video',  this.$container).show();
             $('.contentarea', this.$container).show();
+            $('.takePicture', this.$container).show();
             this.toggleWebcam();
         });
 
         $('.stop_video', this.$container).click((e) => {
             $('.start_video',   this.$container).show();
+            // Display the preview if it was loaded before
+            if ($('.image-preview', this.$container)?.attr('src')?.length > 0) {
+                $('.image-preview', this.$container).show();
+            }
             $('.stop_video',    this.$container).hide();
             $('.contentarea',   this.$container).hide();
+            $('.takePicture',   this.$container).hide();
         });
 
         $('.takePicture', this.$container).click((e) => {
             this.takePicture();
             this.defaultView();
+            $('.image-preview', this.$container).show();
         });
 
         $('#photo', this.$container).click((e) => {
@@ -53,6 +64,7 @@ export default class Webcam extends Component {
     defaultView() {
         $('.stop_video',  this.$container).hide();
         $('.contentarea', this.$container).hide();
+        $('.takePicture', this.$container).hide();
         $('.start_video', this.$container).show();
     }
 

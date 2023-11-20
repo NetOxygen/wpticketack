@@ -135,41 +135,40 @@ $width = 300;
 
             <div class="row">
               <div id="field-wrapper-photo" class="field-wrapper col-md-12" style="display: none;"> 
-              <div class="col-md-12 form-group" data-component="Media/Webcam" data-width="<?= $width ?>">
-                    <label class="required" for="photo"><?= tkt_t('Photo') ?></label>
-                    <div>
-                        <small><?= tkt_t("Sans photo, une pièce d'identité sera systématiquement demandée à l'entrée des salles et aux caisses."); ?></small>
-                    </div>
+                <label class="photo"><?= tkt_t('Photo') ?></label>
+                <div class="col-md-12 form-group tkt-wrapper-photo" data-component="Media/Webcam" data-width="<?= $width ?>">
                     <div class="row">
-                      <div class="form-group col-md-6 mt-3">
+                      <div class="form-group col-md-6 mt-3 text-center">
                         <input name="photo" type="file" class="tkt-input form-control field" id="photo" accept="image/jpeg, image/png, image/gif" data-component="Form/ImageDataUrl" data-width="<?= $width ?>" hidden >
                         <button type="button" class="btn btn-default choose-btn">
                           <span><i class="fa fa-image"></i> <?= tkt_t('Choisir une image') ?></span>
                         </button>
-                        <i class="tkt-icon-info" data-component="Ui/Tippy" data-tippy-content="<?= tkt_h("Format pris en charge: jpeg, png, gif") ?>"></i>
-
+                        <i class="tkt-icon-info" data-component="Ui/Tippy" data-tippy-content="<?= tkt_t("Formats pris en charge : jpeg, png ou gif") ?>"></i><br>
+                        <span class="small">ou</span>
                         <div class="form-group col-md-12 p-0 mt-3">
                             <button type="button" class="btn btn-default">
                               <i class="fa fa-camera"></i>
-                              <span class="stop_video"> <?= tkt_t('Stopper la vidéo') ?></span>
+                              <span class="stop_video"> <?= tkt_t('Arrêter la vidéo') ?></span>
                               <span class="start_video"> <?= tkt_t('Prendre une photo depuis la caméra') ?></span>
                             </button>
-
-                            <div class="contentarea">
-                                <div class="camera form-group">
-                                    <video id="video" class="mt-3 mb-3" style="display: block">
-                                        <?= tkt_t('Vidéo non supportée') ?>
-                                    </video>
-                                    <button type="button" class="btn btn-success takePicture">
-                                        <?= tkt_t('Prendre une photo') ?>
-                                    </button>
-                                </div>
-                                <canvas id="canvas" style="display: none;"></canvas>
-                            </div>
+                            <button type="button" class="btn btn-success takePicture">
+                                <?= tkt_t('Prendre une photo') ?>
+                            </button>
                         </div>
                       </div>
                       <div class="form-group preview col-md-6">
-                      <img class="image-preview" width="<?= $width ?>" />
+                        <div class="contentarea">
+                            <div class="camera form-group">
+                                <video id="video" class="mt-3 mb-3" style="display: block">
+                                    <?= tkt_t('Vidéo non supportée') ?>
+                                </video>
+                            </div>
+                            <canvas id="canvas" style="display: none;"></canvas>
+                        </div>
+                        <img class="image-preview" width="<?= $width ?>" />
+                      </div>
+                      <div class="col-md-12">
+                      <em class="small"><?= tkt_t("Sans photo clairement reconnaissable, nous nous réservons le droit de vous refuser l'entrée. En cas d'abus, votre billet pourra être bloqué."); ?></em>
                       </div>
                     </div>
                 </div>
@@ -179,7 +178,7 @@ $width = 300;
               <div id="field-wrapper-gift_message" class="col-md-12 field-wrapper form-group" style="display: none;">
                 <input id="gift_toggl" type="checkbox">
                 <label for="gift_message"><?= tkt_t("Ceci est un cadeau"); ?></label>
-                <textarea id="user_gift_message" class="form-control" name="gift_message" data-default="Profitez de votre cadeau !" style="display: none;"></textarea>
+                <textarea id="user_gift_message" class="form-control" name="gift_message" data-default="Profitez de votre cadeau !" style="display: none;"></textarea>
               </div>
             </div>
           </fieldset>
@@ -187,7 +186,7 @@ $width = 300;
           <fieldset>
             <div id="submit-section" class="row">
               <div class="col-md-12 text-right">
-                <p id="notice-required" class="small"><?= tkt_t('Tous ces champs sont requis') ?></p>
+                <p id="notice-required" class="small"><?= tkt_t('Ces champs sont requis') ?></p>
                 <button type="submit" class="button active btn-block" data-redirect="<?= tkt_checkout_url() ?>">
                   <i class="glyphicon glyphicon-shopping-cart"></i><?= tkt_t("Ajouter au panier") ?>
                 </button>
