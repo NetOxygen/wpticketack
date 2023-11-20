@@ -224,6 +224,7 @@ export default class BuyForm extends Component {
                 $(w).fadeIn();
 
                 if (id == 'photo') {
+                    $('label.photo', this.$container).addClass('required', true);
                     $('#photo_data_url', this.$container).attr('required', true);
                     $('#photo', this.$container).removeAttr('required');
                 }

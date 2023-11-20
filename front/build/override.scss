@@ -2230,12 +2230,15 @@ article.type-tkt-event {
     }
 }
 
+.tkt-wrapper-photo {
+    background-color: lighten($dark_section_bg_color, 5%)
+}
+
 .image-preview {
     margin-top: 15px;
     height: auto;
     display: block;
 }
-
 #tkt_program {
     margin: 0 auto;
     ul.tkt-filters {

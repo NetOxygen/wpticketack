@@ -39,7 +39,7 @@ export default class ImageDataUrl extends Component {
         });
 
         if ($('#photo_data_url', this.$parent).length === 0) {
-            this.$data_url_input = $('<input type="text" name="photo_data_url" id="photo_data_url" style="opacity: 0; height: 0;" />');
+            this.$data_url_input = $('<input type="hidden" name="photo_data_url" id="photo_data_url" style="opacity: 0; height: 0;" />');
             this.$container.before(this.$data_url_input);
         } else {
             this.$data_url_input = $('#photo_data_url', this.$parent).eq(0);

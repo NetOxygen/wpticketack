@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-14 19:16+0200\n"
+"POT-Creation-Date: 2023-11-20 18:54+0100\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Jonathan Ernst <jonathan.ernst@netoxygen.ch>\n"
+"Last-Translator: lcocquyt <ludovic.cocquyt@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -191,30 +191,33 @@ msgstr ""
 msgid "Photo"
 msgstr ""
 
-msgid ""
-"Sans photo, une pièce d'identité sera systématiquement demandée à l'entrée "
-"des salles et aux caisses."
-msgstr ""
-
 msgid "Choisir une image"
 msgstr ""
 
-msgid "Stopper la vidéo"
+msgid "Formats pris en charge : jpeg, png ou gif"
+msgstr ""
+
+msgid "Arrêter la vidéo"
 msgstr ""
 
 msgid "Prendre une photo depuis la caméra"
 msgstr ""
 
+msgid "Prendre une photo"
+msgstr ""
+
 msgid "Vidéo non supportée"
 msgstr ""
 
-msgid "Prendre une photo"
+msgid ""
+"Sans photo clairement reconnaissable, nous nous réservons le droit de vous "
+"refuser l'entrée. En cas d'abus, votre billet pourra être bloqué."
 msgstr ""
 
 msgid "Ceci est un cadeau"
 msgstr ""
 
-msgid "Tous ces champs sont requis"
+msgid "Ces champs sont requis"
 msgstr ""
 
 msgid "Tarifs :"
@@ -279,7 +282,9 @@ msgstr ""
 msgid ""
 "La documentation est disponible <a target=\"_blank\" href=\"https://"
 "ticketack.com/knowledge-base/integration-avec-le-module-wordpress/\">à cette "
-"adresse</a>"
+"adresse</a> et le journal des modifications <a target=\"_blank\" "
+"href=\"https://yoda.netoxygen.ch/public/"
+"projects/401b5210-986f-46b3-99cb-38546b73e16c/changelog\">ici</a>"
 msgstr ""
 
 msgid ""
@@ -478,6 +483,9 @@ msgid "Confirmation de votre mot de passe"
 msgstr ""
 
 msgid "Saisissez une deuxième fois votre mot de passe"
+msgstr ""
+
+msgid "Tous ces champs sont requis"
 msgstr ""
 
 msgid "Votre compte a bien été créé"
