@@ -83,7 +83,7 @@ class SyncHelper
         $screenings = Screening::all()
             ->in_the_future()
             ->order_by_start_at()
-            ->get('_id,title,start_at,stop_at,description,cinema_hall,films,opaque,refs');
+            ->get('_id,title,start_at,stop_at,description,cinema_hall,films,sections,opaque,refs');
 
         if (!empty($places)) {
             $screenings = array_values(array_filter($screenings, function ($screening) use ($places) {
