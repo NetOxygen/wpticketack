@@ -502,7 +502,7 @@ if (!function_exists('tkt_html')) {
 
 function tkt_get_ages()
 {
-    $array = [_("Pas de réponse"), "< 5"];
+    $array = [tkt_t("Pas de réponse"), "< 5"];
     for ($i=5 ; $i<=80 ; $i++) {
            $array[] = $i;
     }
@@ -512,7 +512,7 @@ function tkt_get_ages()
 
 function tkt_get_sexes()
 {
-    return ['n/c' => _("Pas de réponse"), 'f' => _("Féminin"), 'm' => _("Masculin"), 'o' => _("Autre")];
+    return ['n/c' => tkt_t("Pas de réponse"), 'f' => tkt_t("Féminin"), 'm' => tkt_t("Masculin"), 'o' => tkt_t("Autre")];
 }
 
 function tkt_get_countries()

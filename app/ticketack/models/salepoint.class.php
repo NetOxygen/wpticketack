@@ -52,7 +52,7 @@ class Salepoint extends TKTModel implements \JsonSerializable
 
     public function name($lang = null)
     {
-        return is_null($lang) ? $this->name : (isset($this->name[$lang]) ? $this->name[$lang] : _("non défini"));
+        return is_null($lang) ? $this->name : (isset($this->name[$lang]) ? $this->name[$lang] : tkt_t("non défini"));
     }
 
     public function delivery()
