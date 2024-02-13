@@ -101,5 +101,5 @@ use Ticketack\WP\TKTApp;
 
 </span>
 <% } else { %>
-<span><?= _("Il n'y a pas de billetterie disponible pour cet événement.") ?></span>
+<span><?= tkt_t("Il n'y a pas de billetterie disponible pour cet événement.") ?></span>
 <% } %>

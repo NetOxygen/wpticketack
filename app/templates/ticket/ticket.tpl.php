@@ -48,21 +48,21 @@
         <!-- Réservations -->
         <section class="tkt-section tkt-light-section">
             <% if (!pastBookings.length && !futureBookings.length) { %>
-                <h3><?= _('Réservations') ?></h3>
+                <h3><?= tkt_t('Réservations') ?></h3>
                 <div class="mb-2">
-                    <?= _("Il n'y a actuellement aucune réservation sur ce billet.") ?>
+                    <?= tkt_t("Il n'y a actuellement aucune réservation sur ce billet.") ?>
                 </div>
             <% } else { %>
                 <% if (futureBookings) { %>
-                    <h3><?= _('Réservations') ?></h3>
+                    <h3><?= tkt_t('Réservations') ?></h3>
                     <table class="table table-striped table-hover no-more-tables">
                         <thead>
                             <tr>
-                                <th><?= _('Date') ?></th>
-                                <th><?= _('Réservation') ?></th>
-                                <th><?= _('Lieu') ?></th>
+                                <th><?= tkt_t('Date') ?></th>
+                                <th><?= tkt_t('Réservation') ?></th>
+                                <th><?= tkt_t('Lieu') ?></th>
                                 <th><i class="tkt-icon-smartphone"></i></th>
-                                <th><?= _('Action') ?></th>
+                                <th><?= tkt_t('Action') ?></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -92,13 +92,13 @@
                 <% } %>
 
                 <% if (pastBookings.length) { %>
-                    <h3><?= _('Réservations passées') ?></h3>
+                    <h3><?= tkt_t('Réservations passées') ?></h3>
                     <table class="table table-striped table-hover no-more-tables">
                         <thead>
                             <tr>
-                                <th><?= _('Date') ?></th>
-                                <th><?= _('Réservation') ?></th>
-                                <th><?= _('Lieu') ?></th>
+                                <th><?= tkt_t('Date') ?></th>
+                                <th><?= tkt_t('Réservation') ?></th>
+                                <th><?= tkt_t('Lieu') ?></th>
                                 <th><i class="tkt-icon-smartphone"></i></th>
                                 <th></th>
                             </tr>
@@ -145,7 +145,7 @@
         <!-- Owner -->
         <% if (ticket?.hasContactInfo()) { %>
         <section class="tkt-section tkt-<?= $theme ?>-section mt-3">
-            <h3 class="panel-title"><?= _('Titulaire') ?></h3>
+            <h3 class="panel-title"><?= tkt_t('Titulaire') ?></h3>
             <div class="text-center">
                 <% if (ticket.contact?.rfc2397_portrait?.length) { %>
                     <img class="img-responsive img-thumbnail" src="<%= ticket.contact?.rfc2397_portrait %>" />
@@ -208,7 +208,7 @@
             <div class="col">
                 <section class="tkt-section tkt-light-section mt-3">
                     <div class="panel-heading">
-                        <h3 class="panel-title"><?= _('Validité') ?></h3>
+                        <h3 class="panel-title"><?= tkt_t('Validité') ?></h3>
                         <div class="panel-body">
                             <div class="well text-center">
                                 <h5>

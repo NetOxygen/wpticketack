@@ -46,8 +46,8 @@ function needsField(field) {
                     <% if (acceptsField('firstname'))  { %>
                         <div class="col-md-5">
                             <div class="form-group">
-                                <label <%= needsField('firstname') ? 'class="required"' : '' %>><?= _('Prénom'); ?></label>
-                                <input name="user_data[index-<%= item.index %>][firstname]" type="text" class="form-control" placeholder="<?= _('Votre prénom'); ?>" value="<%= item.getUserData('firstname') %>" <%= needsField('firstname') ? 'required' : '' %>>
+                                <label <%= needsField('firstname') ? 'class="required"' : '' %>><?= tkt_t('Prénom'); ?></label>
+                                <input name="user_data[index-<%= item.index %>][firstname]" type="text" class="form-control" placeholder="<?= tkt_t('Votre prénom'); ?>" value="<%= item.getUserData('firstname') %>" <%= needsField('firstname') ? 'required' : '' %>>
                             </div>
                         </div>
                     <% } %>
@@ -55,8 +55,8 @@ function needsField(field) {
                     <% if (acceptsField('lastname'))  { %>
                         <div class="col-md-6 col-md-offset-1">
                             <div class="form-group">
-                                <label <%= needsField('lastname') ? 'class="required"' : '' %>><?= _('Nom'); ?></label>
-                                <input name="user_data[index-<%= item.index %>][lastname]" type="text" class="form-control" placeholder="<?= _('Votre nom'); ?>" value="<%= item.getUserData('lastname') %>" <%= needsField('lastname') ? 'required' : '' %>>
+                                <label <%= needsField('lastname') ? 'class="required"' : '' %>><?= tkt_t('Nom'); ?></label>
+                                <input name="user_data[index-<%= item.index %>][lastname]" type="text" class="form-control" placeholder="<?= tkt_t('Votre nom'); ?>" value="<%= item.getUserData('lastname') %>" <%= needsField('lastname') ? 'required' : '' %>>
                             </div>
                         </div>
                     <% } %>
@@ -64,8 +64,8 @@ function needsField(field) {
                     <% if (acceptsField('email'))  { %>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label <%= needsField('email') ? 'class="required"' : '' %>><?= _('Adresse e-mail'); ?></label>
-                                <input name="user_data[index-<%= item.index %>][email]" type="email" class="form-control" placeholder="<?= tkt_h(_('Votre adresse e-mail')) ?>" value="<%= item.getUserData('email') %>" <%= needsField('email') ? 'required' : '' %>>
+                                <label <%= needsField('email') ? 'class="required"' : '' %>><?= tkt_t('Adresse e-mail'); ?></label>
+                                <input name="user_data[index-<%= item.index %>][email]" type="email" class="form-control" placeholder="<?= tkt_h(tkt_t('Votre adresse e-mail')) ?>" value="<%= item.getUserData('email') %>" <%= needsField('email') ? 'required' : '' %>>
                             </div>
                     </div>
                     <% } %>
@@ -73,8 +73,8 @@ function needsField(field) {
                     <% if (acceptsField('address'))  { %>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label <%= needsField('address') ? 'class="required"' : '' %>><?= _('Adresse'); ?></label>
-                                <textarea name="user_data[index-<%= item.index %>][address]" class="form-control" placeholder="<?= _('Votre adresse'); ?>" <%= needsField('address') ? 'required' : '' %>><%= item.getUserData('address') %></textarea>
+                                <label <%= needsField('address') ? 'class="required"' : '' %>><?= tkt_t('Adresse'); ?></label>
+                                <textarea name="user_data[index-<%= item.index %>][address]" class="form-control" placeholder="<?= tkt_t('Votre adresse'); ?>" <%= needsField('address') ? 'required' : '' %>><%= item.getUserData('address') %></textarea>
                             </div>
                         </div>
                     <% } %>
@@ -82,8 +82,8 @@ function needsField(field) {
                     <% if (acceptsField('zip'))  { %>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label <%= needsField('zip') ? 'class="required"' : '' %>><?= _('Code postal') ?></label>
-                                <input name="user_data[index-<%= item.index %>][zip]" type="text" class="form-control" placeholder="<?= _('NPA'); ?>" value="<%= item.getUserData('zip') %>" <%= needsField('zip') ? 'required' : '' %>>
+                                <label <%= needsField('zip') ? 'class="required"' : '' %>><?= tkt_t('Code postal') ?></label>
+                                <input name="user_data[index-<%= item.index %>][zip]" type="text" class="form-control" placeholder="<?= tkt_t('NPA'); ?>" value="<%= item.getUserData('zip') %>" <%= needsField('zip') ? 'required' : '' %>>
                             </div>
                         </div>
                     <% } %>
@@ -91,8 +91,8 @@ function needsField(field) {
                     <% if (acceptsField('city'))  { %>
                         <div class="<%= acceptsField('zip') ? 'col-md-7 col-md-offset-1' : 'col-md-12' %>">
                             <div class="form-group">
-                                <label <%= needsField('city') ? 'class="required"' : '' %>><?= _('Ville'); ?></label>
-                                <input name="user_data[index-<%= item.index %>][city]" type="text" class="form-control" placeholder="<?= _('Ville'); ?>" value="<%= item.getUserData('city') %>" <%= needsField('city') ? 'required' : '' %>>
+                                <label <%= needsField('city') ? 'class="required"' : '' %>><?= tkt_t('Ville'); ?></label>
+                                <input name="user_data[index-<%= item.index %>][city]" type="text" class="form-control" placeholder="<?= tkt_t('Ville'); ?>" value="<%= item.getUserData('city') %>" <%= needsField('city') ? 'required' : '' %>>
                             </div>
                         </div>
                     <% } %>
@@ -100,7 +100,7 @@ function needsField(field) {
                     <% if (acceptsField('country'))  { %>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label <%= needsField('country') ? 'class="required"' : '' %>><?= _('Pays'); ?></label>
+                                <label <%= needsField('country') ? 'class="required"' : '' %>><?= tkt_t('Pays'); ?></label>
                                 <select name="user_data[index-<%= item.index %>][country]" class="form-control" <%= needsField('country') ? 'required' :
          '' %>>
                                     <option value=""></option>
@@ -115,8 +115,8 @@ function needsField(field) {
                     <% if (acceptsField('phone'))  { %>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label <%= needsField('phone') ? 'class="required"' : '' %>><?= _('Téléphone') ?></label>
-                                <input class="form-control" type="tel" pattern="^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,5})|(\(?\d{2,6}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$" placeholder="<?= tkt_h(_("Votre numéro, sans espace")) ?>" value="<%= item.getUserData('phone') %>" name="user_data[index-<%= item.index %>][phone]" <%= needsField('phone') ? 'required' : '' %>>
+                                <label <%= needsField('phone') ? 'class="required"' : '' %>><?= tkt_t('Téléphone') ?></label>
+                                <input class="form-control" type="tel" pattern="^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,5})|(\(?\d{2,6}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$" placeholder="<?= tkt_h(tkt_t("Votre numéro, sans espace")) ?>" value="<%= item.getUserData('phone') %>" name="user_data[index-<%= item.index %>][phone]" <%= needsField('phone') ? 'required' : '' %>>
                             </div>
                         </div>
                     <% } %>
@@ -124,8 +124,8 @@ function needsField(field) {
                     <% if (acceptsField('cellphone'))  { %>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label <%= needsField('cellphone') ? 'class="required"' : '' %>><?= _('Téléphone portable') ?></label>
-                                <input class="form-control" type="tel" pattern="^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,5})|(\(?\d{2,6}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$" placeholder="<?= tkt_h(_("Votre numéro, sans espace")) ?>" value="<%= item.getUserData('cellphone') %>" name="user_data[index-<%= item.index %>][cellphone]" <%= needsField('cellphone') ? 'required' : '' %>>
+                                <label <%= needsField('cellphone') ? 'class="required"' : '' %>><?= tkt_t('Téléphone portable') ?></label>
+                                <input class="form-control" type="tel" pattern="^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,5})|(\(?\d{2,6}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$" placeholder="<?= tkt_h(tkt_t("Votre numéro, sans espace")) ?>" value="<%= item.getUserData('cellphone') %>" name="user_data[index-<%= item.index %>][cellphone]" <%= needsField('cellphone') ? 'required' : '' %>>
                             </div>
                         </div>
                     <% } %>
@@ -133,7 +133,7 @@ function needsField(field) {
                     <% if (acceptsField('age'))  { %>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label <%= needsField('age') ? 'class="required"' : '' %>><?= _('Âge') ?></label>
+                                <label <%= needsField('age') ? 'class="required"' : '' %>><?= tkt_t('Âge') ?></label>
                                 <select name="user_data[index-<%= item.index %>][age]" class="form-control" <%= needsField('age') ? 'required' : '' %>>
                                     <option value=""></option>
                                     <?php
@@ -150,7 +150,7 @@ function needsField(field) {
                     <% if (acceptsField('birthdate'))  { %>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label <%= needsField('birthdate') ? 'class="required"' : '' %>><?= _('Date de naissance') ?></label>
+                                <label <%= needsField('birthdate') ? 'class="required"' : '' %>><?= tkt_t('Date de naissance') ?></label>
                                 <input class="form-control datepickerize" type="text" name="user_data[index-<%= item.index %>][birthdate]" data-date-format="DD.MM.YYYY" <%= needsField('birthdate') ? 'required' : '' %>>
                             </div>
                         </div>
@@ -159,7 +159,7 @@ function needsField(field) {
                     <% if (acceptsField('sex'))  { %>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label <%= needsField('sex') ? 'class="required"' : '' %>><?= _('Genre') ?></label>
+                                <label <%= needsField('sex') ? 'class="required"' : '' %>><?= tkt_t('Genre') ?></label>
                                 <select name="user_data[index-<%= item.index %>][sex]" class="form-control" <%= needsField('sex') ? 'required' : '' %>>
                                     <option value=""></option>
                                     <?php
@@ -174,7 +174,7 @@ function needsField(field) {
                     <% } %>
 
                     <div class="col-md-12">
-                        <p class="small"><?= _('* ces champs sont requis') ?></p>
+                        <p class="small"><?= tkt_t('* ces champs sont requis') ?></p>
                     </div>
 
                 </div>
