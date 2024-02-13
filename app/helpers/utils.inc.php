@@ -895,7 +895,7 @@ function tkt_ticketidize($str)
 
 function tkt_original($title)
 {
-    return (object) $title->original;
+    return ((object) $title)->original;
 }
 
 function tkt_localized_or_original($title, $lang)
