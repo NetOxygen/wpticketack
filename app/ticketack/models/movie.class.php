@@ -67,7 +67,7 @@ class Movie extends TKTModel implements \JsonSerializable
 
     public function original_title_if_different_from_localized($lang)
     {
-        return original_if_different_from_localized($this->title, $lang);
+        return tkt_original_if_different_from_localized($this->title, $lang);
     }
 
     public function sections()
