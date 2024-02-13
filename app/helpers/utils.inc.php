@@ -906,23 +906,23 @@ function tkt_original($title)
 
 function tkt_localized_or_original($title, $lang)
 {
-    $localized = (object) $title->{$lang};
+    $localized = ((object) $title)->{$lang};
     $original  = tkt_original($title);
-    return ($localized ?: $original);
+    return ($localized ?? $original);
 }
 
 function tkt_localized_or_default_or_original($title, $lang)
 {
-    $localized = (object) $title->{$lang};
-    $default   = (object) $title->{$tkt_default_lang()};
+    $localized = ((object) $title)->{$lang};
+    $default   = ((object) $title)->{$tkt_default_lang()};
     $original  = tkt_original($title);
-    return ($localized ?: $default ?: $original);
+    return ($localized ?? $default ?? $original);
 }
 
 
 function tkt_original_if_different_from_localized($title, $lang)
 {
-    $localized = (object) $title->{$lang};
+    $localized = ((object) $title)->{$lang};
     $original  = tkt_original($title);
     return ($original != $localized) ? $original : null;
 }
