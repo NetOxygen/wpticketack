@@ -154,15 +154,14 @@ function tkt_page_url($slug, $query = "")
 
     if (TKT_WPML_INSTALLED) {
         // get the page in default language
-        $page = get_page_by_path($slug, OBJECT, 'page');
+        $page   = get_page_by_path($slug, OBJECT, 'page');
+        $pageId = $page->ID;
         if (tkt_current_lang() != tkt_default_lang()) {
             // get the slug in current language
-            $translated_slug = tkt_translated_slug_by_id($page->ID, 'page', tkt_current_lang(), $slug);
-            // get the page in current language
-            $page = get_page_by_path($slug, OBJECT, 'page');
+            $pageId = tkt_translated_id_by_id($page->ID, 'page', tkt_current_lang(), $slug);
         }
 
-        $url = apply_filters('wpml_permalink', get_permalink($page->ID));
+        $url = apply_filters('wpml_permalink', get_permalink($pageId));
     }
 
     return sprintf('%s%s', $url, (!empty($query) ? '?'.$query : ''));
@@ -608,6 +607,9 @@ function tkt_get_event_slug($event, $lang)
     $title = $event->title($lang);
     if (empty($title)) {
         $title = $event->title(tkt_default_lang());
+        if (empty($title)) {
+            $title = $event->title('original');
+        }
     }
     $slug  = sanitize_title($title).($lang === tkt_default_lang() ? '' : '-'.$lang);
 
@@ -792,6 +794,31 @@ function tkt_translated_slug_by_id($id, $type, $lang, $default)
     $post_obj = get_post($post_id);
 
     return $post_obj->post_name;
+}
+
+/**
+ * Get the id of a translated post
+ *
+ * @param int $id: The post id
+ * @param string $type: The post type (post, page, tkt-event, ...)
+ * @param string $lang: The desired language
+ * @param string $default: default value
+ *
+ * @return int: The id of the post in the desired language
+ */
+function tkt_translated_id_by_id($id, $type, $lang, $default)
+{
+    if (!TKT_WPML_INSTALLED) {
+        return $default;
+    }
+
+    // get the post ID in $lang
+    $post_id = icl_object_id($id, $type, FALSE, $lang);
+
+    // get the post object
+    $post_obj = get_post($post_id);
+
+    return $post_obj->ID;
 }
 
 /**

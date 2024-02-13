@@ -123,7 +123,11 @@ class SyncHelper
         $title = $event->title($lang);
         if (empty($title)) {
             $title = $event->title(tkt_default_lang());
+            if (empty($title)) {
+                $title = $event->title('original');
+            }
         }
+
         $slug  = tkt_get_event_slug($event, $lang);
         // WP automatically prepends 'http://' to the guid !
         $guid  = 'http://'.$slug;
