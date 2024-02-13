@@ -88,7 +88,7 @@ if (!empty($opaque->countries)) {
       <div class="row">
         <div class="col">
           <h3 class="tkt-section-title">
-            <?= $title->{TKT_LANG} ?>
+            <?= tkt_localized_or_default_or_original($title, TKT_LANG) ?>
           </h3>
         </div>
       </div>

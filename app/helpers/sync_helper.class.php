@@ -120,13 +120,8 @@ class SyncHelper
 
     protected static function create_post($event, $lang, $save_attachments)
     {
-        $title = $event->title($lang);
-        if (empty($title)) {
-            $title = $event->title(tkt_default_lang());
-            if (empty($title)) {
-                $title = $event->title('original');
-            }
-        }
+        // Let's try to find a title in the current language
+        $title = $event->localized_title_or_default_or_original($lang);
 
         $slug  = tkt_get_event_slug($event, $lang);
         // WP automatically prepends 'http://' to the guid !

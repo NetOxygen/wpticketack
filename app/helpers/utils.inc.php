@@ -604,13 +604,7 @@ function tkt_t($str) {
 
 function tkt_get_event_slug($event, $lang)
 {
-    $title = $event->title($lang);
-    if (empty($title)) {
-        $title = $event->title(tkt_default_lang());
-        if (empty($title)) {
-            $title = $event->title('original');
-        }
-    }
+    $title = $event->localized_title_or_default_or_original($lang);
     $slug  = sanitize_title($title).($lang === tkt_default_lang() ? '' : '-'.$lang);
 
     return $slug;
@@ -898,3 +892,32 @@ function tkt_ticketidize($str)
 {
     return str_replace('TicketID', '<span class="tkt-ticketid_ticket">Ticket</span><span class="tkt-ticketid_id">ID</span>', $str);
 }
+
+function tkt_original($title)
+{
+    return ((object) $title)->original;
+}
+
+function tkt_localized_or_original($title, $lang)
+{
+    $localized = ((object) $title)->{$lang};
+    $original  = tkt_original($title);
+    return ($localized ?? $original);
+}
+
+function tkt_localized_or_default_or_original($title, $lang)
+{
+    $localized = ((object) $title)->{$lang};
+    $default   = ((object) $title)->{$tkt_default_lang()};
+    $original  = tkt_original($title);
+    return ($localized ?? $default ?? $original);
+}
+
+
+function tkt_original_if_different_from_localized($title, $lang)
+{
+    $localized = ((object) $title)->{$lang};
+    $original  = tkt_original($title);
+    return ($original != $localized) ? $original : null;
+}
+

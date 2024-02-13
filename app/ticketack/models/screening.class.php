@@ -355,21 +355,22 @@ class Screening extends TKTModel implements \JsonSerializable
 
     public function original_title()
     {
-        return $this->title('original');
+        return tkt_original($this->title);
     }
 
     public function localized_title_or_original($lang)
     {
-        $localized = $this->title($lang);
-        $original  = $this->original_title();
-        return ($localized ?: $original);
+        return tkt_localized_or_original($this->title, $lang);
+    }
+
+    public function localized_title_or_default_or_original($lang)
+    {
+        return tkt_localized_or_default_or_original($this->title, $lang);
     }
 
     public function original_title_if_different_from_localized($lang)
     {
-        $localized = $this->title($lang);
-        $original  = $this->original_title();
-        return ($original != $localized) ? $original : null;
+        return tkt_original_if_different_from_localized($this->title, $lang);
     }
 
     public function sections()
