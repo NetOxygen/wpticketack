@@ -91,7 +91,7 @@ class LocalesHelper
      * This function is used to let gettext know about some dynamic strings
      * that should be translated (Kronos data, ...)
      */
-    private static function dummy_function_for_dyunamic_contents()
+    private static function dummy_function_for_dynamic_contents()
     {
         $dummy = [
             tkt_t('actor'),

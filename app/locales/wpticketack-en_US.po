@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-13 09:48+0100\n"
+"POT-Creation-Date: 2024-02-13 17:26+0100\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Jonathan Ernst <jonathan.ernst@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -915,10 +915,10 @@ msgid "disponibles"
 msgstr "available"
 
 msgid "actor"
-msgstr ""
+msgstr "actor"
 
 msgid "actors"
-msgstr ""
+msgstr "cast"
 
 msgid "cast"
 msgstr ""
@@ -927,28 +927,28 @@ msgid "camera"
 msgstr ""
 
 msgid "cinematographer"
-msgstr ""
+msgstr "camera"
 
 msgid "co-producer"
-msgstr ""
+msgstr "co-production"
 
 msgid "co-producers"
-msgstr ""
+msgstr "co-production"
 
 msgid "creator"
-msgstr ""
+msgstr "creator"
 
 msgid "creators"
-msgstr ""
+msgstr "creators"
 
 msgid "director"
-msgstr ""
+msgstr "director"
 
 msgid "directors"
-msgstr ""
+msgstr "directors"
 
 msgid "editor"
-msgstr ""
+msgstr "editor"
 
 msgid "editing"
 msgstr ""
