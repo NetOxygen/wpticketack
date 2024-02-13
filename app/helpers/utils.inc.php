@@ -908,7 +908,8 @@ function tkt_localized_or_original($title, $lang)
 function tkt_localized_or_default_or_original($title, $lang)
 {
     $localized = ((object) $title)->{$lang};
-    $default   = ((object) $title)->{$tkt_default_lang()};
+    $default   = ((object) $title)->{tkt_default_lang()};
+
     $original  = tkt_original($title);
     return ($localized ?? $default ?? $original);
 }
