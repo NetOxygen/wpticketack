@@ -604,13 +604,7 @@ function tkt_t($str) {
 
 function tkt_get_event_slug($event, $lang)
 {
-    $title = $event->title($lang);
-    if (empty($title)) {
-        $title = $event->title(tkt_default_lang());
-        if (empty($title)) {
-            $title = $event->title('original');
-        }
-    }
+    $title = $event->localized_title_or_default_or_original($lang);
     $slug  = sanitize_title($title).($lang === tkt_default_lang() ? '' : '-'.$lang);
 
     return $slug;
