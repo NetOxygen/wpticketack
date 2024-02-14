@@ -27,10 +27,6 @@ class SyncHelper
         ini_set('memory_limit', '800M');
         ini_set('max_execution_time', 0);
 
-        if ($default_lang === 'fr') {
-            switch_to_locale('fr_FR');
-        }
-
         $events = static::load_next_events($tags, $places);
 
         if (!empty($events)) {
