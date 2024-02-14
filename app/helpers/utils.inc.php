@@ -605,6 +605,12 @@ function tkt_t($str) {
 function tkt_get_event_slug($event, $lang)
 {
     $title = $event->localized_title_or_default_or_original($lang);
+    // sanitize_title, uses remove_accents that removes accents differently depending on locale
+    // e.g. ö is replaced by o usually but by oe if locale is German
+    // This makes the slug computed different depending on the wordpress admin locale than the current user's locale
+    // Let's fix that by forcing accent removal in a defined way.
+    // https://developer.wordpress.org/reference/functions/remove_accents/
+    $title = remove_accents($title, /* locale */ 'en_US');
     $slug  = sanitize_title($title).($lang === tkt_default_lang() ? '' : '-'.$lang);
 
     return $slug;
