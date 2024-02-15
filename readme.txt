@@ -2,7 +2,7 @@
 Tags: ticketack
 Requires at least: 4.6
 Tested up to: 6.2.2
-Stable tag: 2.67.0
+Stable tag: 2.67.1
 Requires PHP: 7.2
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -38,17 +38,19 @@ This section describes how to install the plugin and get it working.
 = Changelog =
 * [Changelog link](https://yoda.netoxygen.ch/public/projects/401b5210-986f-46b3-99cb-38546b73e16c/changelog)
 
+= 2.67.1 =
 
+* fix: force locale when removing accents for slugs so that slugs don't depend on the locale
 
 = 2.67.0 =
 
-feat: Better handle title fallbacks
-feat: Better handle title fallbacks
-compute title using helper
-fix: syntax
-fix: fix tkt_localized_or_default_or_original function
-fix film package template
-i18n: Add missing translations
+* feat: Better handle title fallbacks
+* feat: Better handle title fallbacks
+* compute title using helper
+* fix: syntax
+* fix: fix tkt_localized_or_default_or_original function
+* fix film package template
+* i18n: Add missing translations
 
 = 2.66.3 =
 
