@@ -151,8 +151,8 @@ class ProgramShortcode extends TKTShortcode
                             $movies = $s->movies();
                             foreach ($movies as $m) {
                                 $sections = $m->sections();
-                                foreach ($sections as $sec) {
-                                    if (in_array($sec['_id'], $xsection_ids)) {
+                                foreach ($sections as $section) {
+                                    if (in_array($section->_id(), $xsection_ids)) {
                                         return false;
                                     }
                                 }
@@ -233,8 +233,8 @@ class ProgramShortcode extends TKTShortcode
                     if (!empty($xsection_ids)) {
                         $events = array_filter($events, function ($e) use ($xsection_ids) {
                             $sections = $e->sections();
-                            foreach ($sections as $sec) {
-                                if (in_array($sec['_id'], $xsection_ids)) {
+                            foreach ($sections as $section) {
+                                if (in_array($section->_id(), $xsection_ids)) {
                                     return false;
                                 }
                             }
