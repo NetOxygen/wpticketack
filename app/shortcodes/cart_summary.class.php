@@ -32,11 +32,14 @@ class CartSummaryShortcode extends TKTShortcode
     public function run($atts, $content)
     {
         $enable_promo_code = TKTApp::get_instance()->get_config('eshop.enable_promo_code');
+        $theme             = array_key_exists('theme', (array)$atts) ? $atts['theme'] : 'light';
+
 
         return TKTTemplate::render(
             'cart/cart_summary',
             (object)[
-                'enable_promo_code' => $enable_promo_code
+                'enable_promo_code' => $enable_promo_code,
+                'theme'             => $theme
             ]
         );
     }
