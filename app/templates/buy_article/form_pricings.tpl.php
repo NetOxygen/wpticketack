@@ -11,6 +11,7 @@ use Ticketack\WP\TKTApp;
  *   "salepoint_id": "12345678-1234-1234-1234-123456789012"
  * }
  */
+$currency = TKTApp::get_instance()->get_config('currency', 'CHF');
 ?>
 <div class="tkt-wrapper">
     <% if (article.variants.length) { %>
@@ -18,7 +19,7 @@ use Ticketack\WP\TKTApp;
         <div class="row">
             <div class="col">
                 <span class="assertive">
-                    <?= tkt_t('Entrez le nombre d\'éléments que vous souhaitez ajouter à votre panier :') ?>
+                    <?= tkt_t('Saisissez le nombre d\'éléments que vous souhaitez ajouter à votre panier :') ?>
                 </span>
             </div>
         </div>
@@ -54,7 +55,7 @@ use Ticketack\WP\TKTApp;
                                         <%= variant.name.<?= TKT_LANG ?> %> :
                                     </span>
                                     <span class="pricing-price">
-                                        <%= variant.price.CHF %> CHF
+                                        <%= variant.price.<?= $currency ?> %> <?= $currency ?>
                                     </span>
                                 </span>
                                 <span class="tkt-badge-part tkt-dark-badge tkt-plus-btn text-center">+</span>

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-14 19:15+0200\n"
+"POT-Creation-Date: 2024-02-27 09:32+0100\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Jonathan Ernst <jonathan.ernst@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -53,7 +53,7 @@ msgstr ""
 msgid "Prénom"
 msgstr ""
 
-msgid "Veuillez choisir votre tarifs"
+msgid "Veuillez choisir votre tarif"
 msgstr ""
 
 msgid "Choisissez un tarif"
@@ -86,7 +86,7 @@ msgstr ""
 msgid "Tarifs"
 msgstr ""
 
-msgid "Sélectionnez votre contenance et votre quantité :"
+msgid "Sélectionnez votre contenance et votre quantité :"
 msgstr ""
 
 msgid "Total"
@@ -128,7 +128,8 @@ msgstr ""
 msgid "ma visite"
 msgstr ""
 
-msgid "Entrez le nombre d'éléments que vous souhaitez ajouter à votre panier :"
+msgid ""
+"Saisissez le nombre d'éléments que vous souhaitez ajouter à votre panier :"
 msgstr ""
 
 msgid "Épuisé"
@@ -191,39 +192,42 @@ msgstr ""
 msgid "Photo"
 msgstr ""
 
-msgid ""
-"Sans photo, une pièce d'identité sera systématiquement demandée à l'entrée "
-"des salles et aux caisses."
-msgstr ""
-
 msgid "Choisir une image"
 msgstr ""
 
-msgid "Stopper la vidéo"
+msgid "Formats pris en charge : jpeg, png ou gif"
+msgstr ""
+
+msgid "Arrêter la vidéo"
 msgstr ""
 
 msgid "Prendre une photo depuis la caméra"
 msgstr ""
 
+msgid "Prendre une photo"
+msgstr ""
+
 msgid "Vidéo non supportée"
 msgstr ""
 
-msgid "Prendre une photo"
+msgid ""
+"Sans photo clairement reconnaissable, nous nous réservons le droit de vous "
+"refuser l'entrée. En cas d'abus, votre billet pourra être bloqué."
 msgstr ""
 
 msgid "Ceci est un cadeau"
 msgstr ""
 
-msgid "Tous ces champs sont requis"
+msgid "Ces champs sont requis"
 msgstr ""
 
-msgid "Tarifs :"
+msgid "Tarifs :"
 msgstr ""
 
-msgid "Veuillez choisir la date désirée :"
+msgid "Veuillez choisir la date désirée :"
 msgstr ""
 
-msgid "Veuillez choisir l'heure désirée :"
+msgid "Veuillez choisir l'heure désirée :"
 msgstr ""
 
 msgid "à"
@@ -242,13 +246,13 @@ msgid "Acheter des places"
 msgstr ""
 
 msgid ""
-"Entrez le nombre de place(s) que vous souhaitez ajouter à votre panier :"
+"Saisissez le nombre de place(s) que vous souhaitez ajouter à votre panier :"
 msgstr ""
 
 msgid "Réserver des places sur vos billets"
 msgstr ""
 
-msgid "Réservation pour cette séance avec ce billet : "
+msgid "Réservation pour cette séance avec ce billet :"
 msgstr ""
 
 msgid "Réserver une place sur ce billet"
@@ -279,7 +283,9 @@ msgstr ""
 msgid ""
 "La documentation est disponible <a target=\"_blank\" href=\"https://"
 "ticketack.com/knowledge-base/integration-avec-le-module-wordpress/\">à cette "
-"adresse</a>"
+"adresse</a> et le journal des modifications <a target=\"_blank\" "
+"href=\"https://yoda.netoxygen.ch/public/"
+"projects/401b5210-986f-46b3-99cb-38546b73e16c/changelog\">ici</a>"
 msgstr ""
 
 msgid ""
@@ -397,9 +403,6 @@ msgstr ""
 msgid "produit(s)"
 msgstr ""
 
-msgid "Livraison"
-msgstr ""
-
 msgid "Total TTC"
 msgstr ""
 
@@ -478,6 +481,9 @@ msgid "Confirmation de votre mot de passe"
 msgstr ""
 
 msgid "Saisissez une deuxième fois votre mot de passe"
+msgstr ""
+
+msgid "Tous ces champs sont requis"
 msgstr ""
 
 msgid "Votre compte a bien été créé"
@@ -641,7 +647,7 @@ msgstr ""
 msgid "Aucun article dans cette catégorie, revenez nous visiter prochainement."
 msgstr ""
 
-msgid "Vous avez choisi :"
+msgid "Vous avez choisi :"
 msgstr ""
 
 msgid "Précédente"
@@ -871,13 +877,11 @@ msgstr ""
 msgid "Bloqué"
 msgstr ""
 
-#, fuzzy
 msgid "directeur"
-msgstr "réalisateur"
+msgstr "réalisation"
 
-#, fuzzy
 msgid "directeurs"
-msgstr "réalisateurs"
+msgstr "réalisation"
 
 msgid "réservation"
 msgstr ""

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-13 17:26+0100\n"
+"POT-Creation-Date: 2024-02-27 09:32+0100\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Jonathan Ernst <jonathan.ernst@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -53,7 +53,7 @@ msgstr "Please enter your information"
 msgid "Prénom"
 msgstr "First name"
 
-msgid "Veuillez choisir votre tarifs"
+msgid "Veuillez choisir votre tarif"
 msgstr "Please choose your pricing"
 
 msgid "Choisissez un tarif"
@@ -86,8 +86,8 @@ msgstr "Your informations"
 msgid "Tarifs"
 msgstr "Pricings"
 
-msgid "Sélectionnez votre contenance et votre quantité :"
-msgstr "Select the quantity"
+msgid "Sélectionnez votre contenance et votre quantité :"
+msgstr "Select the quantity:"
 
 msgid "Total"
 msgstr "Total"
@@ -128,8 +128,10 @@ msgstr "Continue"
 msgid "ma visite"
 msgstr "my visit"
 
-msgid "Entrez le nombre d'éléments que vous souhaitez ajouter à votre panier :"
-msgstr "Enter the number of items you want to add to your cart"
+#, fuzzy
+msgid ""
+"Saisissez le nombre d'éléments que vous souhaitez ajouter à votre panier :"
+msgstr "Enter the number of items you want to add to your cart:"
 
 msgid "Épuisé"
 msgstr "Out of stock"
@@ -222,14 +224,14 @@ msgstr "This is a gift"
 msgid "Ces champs sont requis"
 msgstr "These fields are required"
 
-msgid "Tarifs :"
-msgstr "Pricings:"
+msgid "Tarifs :"
+msgstr "Pricing:"
 
-msgid "Veuillez choisir la date désirée :"
-msgstr "Please choose a date"
+msgid "Veuillez choisir la date désirée :"
+msgstr "Please choose a date:"
 
-msgid "Veuillez choisir l'heure désirée :"
-msgstr "Please choose a time"
+msgid "Veuillez choisir l'heure désirée :"
+msgstr "Please choose a time:"
 
 msgid "à"
 msgstr "to"
@@ -246,14 +248,16 @@ msgstr "Free entry"
 msgid "Acheter des places"
 msgstr "Buy tickets"
 
+#, fuzzy
 msgid ""
-"Entrez le nombre de place(s) que vous souhaitez ajouter à votre panier :"
+"Saisissez le nombre de place(s) que vous souhaitez ajouter à votre panier :"
 msgstr "Enter the number of ticket(s) you want to add to your cart:"
 
 msgid "Réserver des places sur vos billets"
 msgstr "Reserve seats on your tickets"
 
-msgid "Réservation pour cette séance avec ce billet : "
+#, fuzzy
+msgid "Réservation pour cette séance avec ce billet :"
 msgstr "Reservation for this screening with this ticket:"
 
 msgid "Réserver une place sur ce billet"
@@ -409,9 +413,6 @@ msgstr "Cart"
 
 msgid "produit(s)"
 msgstr "product(s)"
-
-msgid "Livraison"
-msgstr "Delivery"
 
 msgid "Total TTC"
 msgstr "Total (taxes incl.)"
@@ -663,8 +664,8 @@ msgstr "Sort by"
 msgid "Aucun article dans cette catégorie, revenez nous visiter prochainement."
 msgstr "No screening currently scheduled, come back soon."
 
-msgid "Vous avez choisi :"
-msgstr "You chose"
+msgid "Vous avez choisi :"
+msgstr "You chose:"
 
 msgid "Précédente"
 msgstr "Previous"
@@ -1293,3 +1294,12 @@ msgstr "Change these settings only if you know what you are doing."
 
 msgid "Brouillon"
 msgstr "Draft"
+
+#~ msgid "Sélectionnez votre contenance et votre quantité :"
+#~ msgstr "Select the quantity"
+
+#~ msgid "Tarifs :"
+#~ msgstr "Pricings:"
+
+#~ msgid "Livraison"
+#~ msgstr "Delivery"

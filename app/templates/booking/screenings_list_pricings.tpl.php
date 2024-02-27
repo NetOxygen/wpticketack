@@ -7,6 +7,7 @@
  *   "screening": Screening instance
  * }
  */
+$currency = TKTApp::get_instance()->get_config('currency', 'CHF');
 ?>
 <% if (screening && _.keys(screening.pricings).length) { %>
 <div class="pricings-form">
@@ -14,21 +15,6 @@
     <button class="button book-btn active d-none my-3">
         <?= tkt_t("Réserver une place sur mon abonnement") ?>
     </button>
-<!--
-    <% if (screening.eligible_types.length) { %>
-    <ul class="elligible-types-list mt-3">
-        <% screening.eligible_types.map(function (t) { %>
-        <li class="elligible-type">
-            <span class="type-name">
-                <i class="fa fa-ticket"></i>
-                <%= t.name.<?= TKT_LANG ?> %>
-            </span>
-            <a href="<?= TKT_LANG == 'fr' ? '/acheter-un-pass' : '/en/buy-a-pass' ?>" class="type-link"><?= tkt_t('Acheter') ?></a>
-        </li>
-        <% }); %>
-    </ul>
-    <% } %>
--->
     <table width="100%">
     <% _.mapKeys(screening.pricings, function(p, key) { %>
     <tr class="pricing-row">
@@ -37,7 +23,7 @@
         </td>
         <td width="60px">
             <span class="pricing-price">
-                <%= p.price.CHF.toFixed(0) %>.-
+                <%= p.price.<?= $currency ?>.toFixed(0) %> <?= $currency ?>
             </span>
         </td>
         <td width="60px">

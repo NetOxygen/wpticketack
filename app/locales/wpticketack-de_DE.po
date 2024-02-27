@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-13 17:27+0100\n"
+"POT-Creation-Date: 2024-02-27 09:33+0100\n"
 "PO-Revision-Date: 2022-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Jonathan Ernst <jonathan.ernst@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -53,7 +53,7 @@ msgstr "Bitte geben Sie Ihre Informationen ein"
 msgid "Prénom"
 msgstr "Vorname"
 
-msgid "Veuillez choisir votre tarifs"
+msgid "Veuillez choisir votre tarif"
 msgstr "Bitte wählen Sie Ihre Tarife"
 
 msgid "Choisissez un tarif"
@@ -86,7 +86,7 @@ msgstr "Ihre Informationen"
 msgid "Tarifs"
 msgstr "Tarife"
 
-msgid "Sélectionnez votre contenance et votre quantité :"
+msgid "Sélectionnez votre contenance et votre quantité :"
 msgstr "Wählen Sie Ihre Kapazität und Menge:"
 
 msgid "Total"
@@ -130,7 +130,8 @@ msgstr "Weiter"
 msgid "ma visite"
 msgstr "mein Besuch"
 
-msgid "Entrez le nombre d'éléments que vous souhaitez ajouter à votre panier :"
+msgid ""
+"Saisissez le nombre d'éléments que vous souhaitez ajouter à votre panier :"
 msgstr ""
 "Geben Sie die Anzahl der Elemente ein, die Sie Ihrem Warenkorb hinzufügen "
 "möchten:"
@@ -226,14 +227,14 @@ msgstr "Dies ist ein Geschenk"
 msgid "Ces champs sont requis"
 msgstr "Diese Felder sind erforderlich"
 
-msgid "Tarifs :"
-msgstr "Preise:"
+msgid "Tarifs :"
+msgstr "Tarif:"
 
-msgid "Veuillez choisir la date désirée :"
-msgstr "Bitte wählen Sie das gewünschte Datum :"
+msgid "Veuillez choisir la date désirée :"
+msgstr "Bitte wählen Sie das gewünschte Datum:"
 
-msgid "Veuillez choisir l'heure désirée :"
-msgstr "Bitte wählen Sie die gewünschte Uhrzeit :"
+msgid "Veuillez choisir l'heure désirée :"
+msgstr "Bitte wählen Sie die gewünschte Uhrzeit:"
 
 msgid "à"
 msgstr "um"
@@ -251,7 +252,7 @@ msgid "Acheter des places"
 msgstr "Plätze kaufen"
 
 msgid ""
-"Entrez le nombre de place(s) que vous souhaitez ajouter à votre panier :"
+"Saisissez le nombre de place(s) que vous souhaitez ajouter à votre panier :"
 msgstr ""
 "Geben Sie die Anzahl der Plätze ein, die Sie Ihrem Warenkorb hinzufügen "
 "möchten:"
@@ -259,7 +260,7 @@ msgstr ""
 msgid "Réserver des places sur vos billets"
 msgstr "Plätze auf Ihren Tickets reservieren"
 
-msgid "Réservation pour cette séance avec ce billet : "
+msgid "Réservation pour cette séance avec ce billet :"
 msgstr "Reservierung für diese Sitzung mit diesem Ticket:"
 
 msgid "Réserver une place sur ce billet"
@@ -419,9 +420,6 @@ msgstr "Warenkorb"
 
 msgid "produit(s)"
 msgstr "Produkt(e)"
-
-msgid "Livraison"
-msgstr "Lieferung"
 
 msgid "Total TTC"
 msgstr "Gesamt inkl. MwSt."
@@ -680,7 +678,7 @@ msgid "Aucun article dans cette catégorie, revenez nous visiter prochainement."
 msgstr ""
 "Kein Artikel in dieser Kategorie. Bitte besuchen Sie uns später erneut."
 
-msgid "Vous avez choisi :"
+msgid "Vous avez choisi :"
 msgstr "Sie haben ausgewählt:"
 
 msgid "Précédente"
@@ -702,7 +700,7 @@ msgid "Section"
 msgstr "Abschnitt"
 
 msgid "Synopsis"
-msgstr "Handlung"
+msgstr "Synopse"
 
 msgid "Films"
 msgstr "Filme"
@@ -1315,3 +1313,12 @@ msgstr "Ändern Sie die Werte unten nur, wenn Sie wissen, was Sie tun."
 
 msgid "Brouillon"
 msgstr "Draft"
+
+#~ msgid "Sélectionnez votre contenance et votre quantité :"
+#~ msgstr "Wählen Sie Ihre Kapazität und Menge:"
+
+#~ msgid "Tarifs :"
+#~ msgstr "Preise:"
+
+#~ msgid "Livraison"
+#~ msgstr "Lieferung"

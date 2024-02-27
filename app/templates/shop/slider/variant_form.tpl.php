@@ -12,6 +12,8 @@ use Ticketack\WP\TKTApp;
  */
 $a = $data->article;
 
+$currency = TKTApp::get_instance()->get_config('currency', 'CHF');
+
 $images_width  = TKTApp::get_instance()->get_config('images_dimensions.medium_width');
 $images_height = TKTApp::get_instance()->get_config('images_dimensions.medium_height');
 $image_url     = tkt_img_proxy_url($a->first_poster()->url, $images_width, $images_height);
@@ -20,7 +22,7 @@ $image_url     = tkt_img_proxy_url($a->first_poster()->url, $images_width, $imag
     <div class="close-variants"></div>
     <div class="row">
         <div class="col">
-            <span class="variants-title"> <?= tkt_t('Vous avez choisi :') ?> </span>
+            <span class="variants-title"> <?= tkt_t('Vous avez choisi :') ?> </span>
         </div>
     </div>
     <div class="row">
@@ -36,7 +38,7 @@ $image_url     = tkt_img_proxy_url($a->first_poster()->url, $images_width, $imag
     <div class="row">
         <div class="col">
             <span class="variants-subtitle">
-                <?= tkt_t('Sélectionnez votre contenance et votre quantité :') ?>
+                <?= tkt_t('Sélectionnez votre contenance et votre quantité :') ?>
             </span>
         </div>
     </div>
@@ -55,7 +57,7 @@ $image_url     = tkt_img_proxy_url($a->first_poster()->url, $images_width, $imag
                 <tr class="variant-total-row">
                     <td class="variant-total-label" colspan="5">
                         <?= tkt_t('Total') ?>
-                        CHF <span class="variant-total">0.00</span>
+                        <span class="variant-total">0.00</span> <?= $currency ?>
                     </td>
                 </tr>
             </table>

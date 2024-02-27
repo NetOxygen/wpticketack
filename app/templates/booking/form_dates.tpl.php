@@ -35,7 +35,7 @@ use Ticketack\WP\TKTApp;
     <div class="row">
         <div class="col">
             <span>
-                <?= tkt_t('Veuillez choisir la date désirée :') ?>
+                <?= tkt_t('Veuillez choisir la date désirée :') ?>
             </span>
             <div class="days-wrapper">
                 <% if (Object.keys(m).length > 6) { %>
@@ -65,7 +65,7 @@ use Ticketack\WP\TKTApp;
             <br/>
 
             <span>
-                <?= tkt_t('Veuillez choisir l\'heure désirée :') ?>
+                <?= tkt_t('Veuillez choisir l\'heure désirée :') ?>
             </span>
             <div class="dates-wrapper">
                 <% _.forEach(m, function(screenings, day) { %>
