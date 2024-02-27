@@ -383,6 +383,14 @@
         display: inline-block !important;
       }
     }
+    &.not-bookable-with-tkt {
+      .show-if-not-bookable {
+        display: inline-block !important;
+      }
+      .assertive {
+        display: none !important;
+      }
+    }
   }
 
   &.loading-bookability-state {
@@ -2298,6 +2306,10 @@ article.type-tkt-event {
                         background-color: rgba(0, 0, 0, 0.5);
                     }
                 }
+
+                .poster-wrapper .img-fluid.poster {
+                    max-height: 400px;
+                }
                 .left-col {
                     .poster-wrapper {
                         img.poster {
@@ -2338,6 +2350,17 @@ article.type-tkt-event {
 
         .event-inner {
             @extend .screening-inner;
+
+            .infos-wrapper.h-75 {
+                overflow: scroll;
+                text-overflow: ellipsis;
+            }
+
+            .description {
+                font-size: 15px;
+            }
+
+            .img-fluid.poster.poster-event-list { height: 400px; }
 
             .event-complete {
                 @extend .screening-complete;
@@ -2395,7 +2418,7 @@ article.type-tkt-event {
 
     .tkt_program_event {
         @extend .tkt_program_screening;
-
+        padding: 0 5px;
         .tkt-wrapper.event-inner {
             position: relative;
 
@@ -2403,6 +2426,8 @@ article.type-tkt-event {
                 img {
                     display: block;
                     margin: 0 auto;
+                    height: 100%;
+                    object-fit: cover;
                 }
             }
 
