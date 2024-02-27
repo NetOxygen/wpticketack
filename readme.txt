@@ -2,7 +2,7 @@
 Tags: ticketack
 Requires at least: 4.6
 Tested up to: 6.2.2
-Stable tag: 2.67.1
+Stable tag: 2.68.0
 Requires PHP: 7.2
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -37,6 +37,45 @@ This section describes how to install the plugin and get it working.
 
 = Changelog =
 * [Changelog link](https://yoda.netoxygen.ch/public/projects/401b5210-986f-46b3-99cb-38546b73e16c/changelog)
+
+= 2.68.0 =
+
+* feat: Template improvements from JFT
+* modified templates:
+- app/templates/event/_package.tpl.php
+- app/templates/event/_single.tpl.php
+
+* feat: Remove unused redirect parameter
+* modified templates:
+- app/templates/buy_pass/buy.tpl.php
+- app/templates/buy_pass/form.tpl.php
+- app/templates/buy_pass/pass_list.tpl.php
+- app/templates/user/user_register.tpl.php
+
+* fix: Only variables sould be passed by reference
+* modified templates:
+- app/templates/program/gallery/screening.tpl.php
+- app/templates/program/grid/screening.tpl.php
+- app/templates/program/list/screening.tpl.php
+
+* feat: Update template tkt_programm
+* modified templates:
+- app/templates/program/gallery/event.tpl.php
+- app/templates/program/gallery/screenings.tpl.php
+- app/templates/program/grid/event.tpl.php
+- app/templates/program/grid/screening.tpl.php
+- app/templates/program/grid/screenings.tpl.php
+- app/templates/program/list/event.tpl.php
+- app/templates/program/list/event_legacy.tpl.php
+- app/templates/program/list/screening.tpl.php
+
+* feat: Update template tkt_cart_summary
+* modified templates:
+- app/templates/cart/cart_summary.tpl.php
+- app/templates/cart/cart_summary_table.tpl.php
+
+* fix: Fix section bug in program shortcode
+* build: Remove PHP 7.4 support and remove notice on PHP 8.1
 
 = 2.67.1 =
 
