@@ -9,7 +9,6 @@ use Ticketack\WP\Templates\TKTTemplate;
  * Input:
  * $data: {
  *   "tickettypes": [ ... ],
- *   "redirect": "none",
  *   "selected": "festival_pass",
  *   "theme"   : "dark|light",
  * }

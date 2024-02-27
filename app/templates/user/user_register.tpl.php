@@ -185,7 +185,7 @@ if (!function_exists('r')) {
           <fieldset id="registration-submit" >
             <div id="submit-section" class="row">
               <div class="col-md-12 text-center">
-                <button type="submit" class="submit-button button" data-redirect="<?= $data->redirect ?>">
+                <button type="submit" class="submit-button button">
                   <span class="glyphicon glyphicon-ok"></span> <?= tkt_t('Créer mon compte') ?>
                 </button>
               </div>

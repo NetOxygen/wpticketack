@@ -7,8 +7,8 @@ use Ticketack\WP\TKTApp;
  * Input:
  * $data: {
  *   "tickettypes": [ ... ],
- *   "redirect": "none",
  *   "selected": "festival_pass",
+ *   "theme"   : "dark|light",
  * }
  */
 $types = $data->tickettypes;
