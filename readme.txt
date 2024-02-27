@@ -38,6 +38,12 @@ This section describes how to install the plugin and get it working.
 = Changelog =
 * [Changelog link](https://yoda.netoxygen.ch/public/projects/401b5210-986f-46b3-99cb-38546b73e16c/changelog)
 
+= 2.68.2 =
+
+* fix: Remove PHP 7.4 compatibility
+* modified templates:
+  - app/templates/booking/screenings_list_pricings.tpl.php
+
 = 2.68.1 =
 
 * fix: Fix PHP compatibility
