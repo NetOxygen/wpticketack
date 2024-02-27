@@ -55,6 +55,11 @@ $nb_slides = count($trailers) + count($posters);
       <div class="col">
         <h1 class="title">
           <?= $title ?>
+          <div>
+            <small class="single-date">
+              <?= tkt_date_and_time_to_min_s($s->start_at()) ?> | <?= $s->place()->name() ?>
+            </small>
+          </div>
         </h1>
       </div>
     </div>
@@ -158,13 +163,69 @@ $nb_slides = count($trailers) + count($posters);
                       <?= $m->localized_title_or_original(TKT_LANG) ?>
                     </a>
                   </div>
+                  <?php
+                  $opaque = $m->opaque();
+                  $original_languages = "";
+                  if (!empty($opaque->languages->original)) {
+                      $original_languages = $opaque->languages->original;
+                      if (!is_array($original_languages)) {
+                          $original_languages = [$original_languages];
+                      }
+                      $original_languages = implode(', ', array_map(function ($l) {
+                          return (is_object($l) && isset($l->{TKT_LANG})) ? $l->{TKT_LANG} : (is_string($l) ? $l : '');
+                      }, $original_languages));
+                  }
+
+                  $audio = "";
+                  if (!empty($opaque->languages->audio)) {
+                      $audio = $opaque->languages->audio;
+                      if (!is_array($audio)) {
+                          $audio = [$audio];
+                      }
+                      $audio = implode(', ', array_map(function ($a) {
+                          return (is_object($a) && isset($a->{TKT_LANG})) ? $a->{TKT_LANG} : (is_string($a) ? $a : '');
+                      }, $audio));
+                  }
+
+                  $subtitles = "";
+                  if (!empty($opaque->languages->subtitles)) {
+                      $subtitles = implode(', ', array_map(function ($s) {
+                          return (is_object($s) && isset($s->{TKT_LANG})) ? $s->{TKT_LANG} : (is_string($s) ? $s : '');
+                      }, $opaque->languages->subtitles));
+                  }
+
+                  $countries = "";
+                  if (!empty($opaque->countries)) {
+                      $countries = implode(', ', array_map(function ($c) {
+                          return (is_object($c) && isset($c->{TKT_LANG})) ? $c->{TKT_LANG} : (is_string($c) ? $c : '');
+                      }, $opaque->countries));
+                  }
+                  ?>
                   <?php $infos = implode(', ', array_filter([
                     ucfirst(strtolower($m->opaque('genre'))),
                     $m->opaque('duration', 0).' min',
+                    $m->opaque('production_year'),
+                    $original_languages,
+                    $audio,
+                    $subtitles,
+                    $countries
                   ]));
                   ?>
                   <div class="movie-infos"><?= $infos ?></div>
                   <div class="movie-description"><?= $m->opaque('description', [])[TKT_LANG] ?></div>
+                  <?php if (!empty($m->opaque('people'))) : ?>
+                      <div class="row">
+                        <div class="col">
+                          <dl>
+                              <?php foreach ($m->opaque('people') as $p) : ?>
+                              <dt><?= ucfirst(strtolower(tkt_t($p['activity']))) ?></dt>
+                              <dd style="margin-bottom: 0!important"><?= implode(' ', array_filter([$p['fullname'], $p['firstname'], $p['lastname']])) ?></dd>
+                              <?php endforeach; ?>
+                          </dl>
+                        </div>
+                      </div>
+                    <?php endif; ?>
+                      <div class="movie-description"><?= $m->opaque('description', [])[TKT_LANG] ?></div>
                 </div>
 
               </div>

@@ -80,6 +80,11 @@ if (!empty($opaque->countries)) {
         return (is_object($c) && isset($c->{TKT_LANG})) ? $c->{TKT_LANG} : (is_string($c) ? $c : '');
     }, $opaque->countries));
 }
+
+$dates = [];
+foreach ($screenings as $s) {
+    $dates[] = tkt_date_and_time_to_min_s($s->start_at()).' | '.$s->place()->name();
+}
 ?>
 <div class="tkt-wrapper tkt_event">
   <div id="tkt-event">
@@ -90,6 +95,9 @@ if (!empty($opaque->countries)) {
           <h3 class="tkt-section-title">
             <?= tkt_localized_or_default_or_original($title, TKT_LANG) ?>
           </h3>
+          <small class="single-date">
+            <?= implode(', ', $dates) ?>
+          </small>
         </div>
       </div>
     </section>
@@ -240,6 +248,19 @@ if (!empty($opaque->countries)) {
                 <span class="tkt-badge tkt-badge-split">
                   <span class="tkt-badge-part tkt-dark-badge"><?= tkt_t('Sous-titres') ?></span>
                   <span class="tkt-badge-part tkt-grey-badge"><?= $subtitles ?></span>
+                </span>
+              </div>
+            </div>
+          </div>
+          <?php endif; ?>
+
+          <?php if (!empty($opaque->year)) : ?>
+          <div class="row">
+            <div class="col">
+              <div class="subtitles">
+                <span class="tkt-badge tkt-badge-split">
+                  <span class="tkt-badge-part tkt-dark-badge"><?= tkt_t('Année') ?></span>
+                  <span class="tkt-badge-part tkt-grey-badge"><?= $opaque->year ?></span>
                 </span>
               </div>
             </div>
