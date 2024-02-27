@@ -180,7 +180,7 @@ class CHF implements Money, \JsonSerializable
         return sprintf("%s %d.%02d", $this->currency(), $this->units(), $this->cents());
     }
 
-    public function jsonSerialize() : mixed
+    public function jsonSerialize()
     {
         return (float)sprintf("%d.%02d", $this->units(), $this->cents());
     }
