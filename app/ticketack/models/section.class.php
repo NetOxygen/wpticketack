@@ -33,11 +33,7 @@ class Section implements \JsonSerializable
         return isset($this->name[$lang]) ? $this->name[$lang] : null;
     }
 
-    // XXX; once PHP 7.4 support is not needed anymore, remove the following
-    // line and add : mixed at the end of the signature so that PHP8.1 doesn't
-    // spew a deprecation warning.
-    #[ReturnTypeWillChange]
-    public function jsonSerialize()
+    public function jsonSerialize() : mixed
     {
         return [
             '_id'  => $this->_id(),
