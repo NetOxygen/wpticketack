@@ -68,7 +68,6 @@ export default class BookabilityState extends Component {
                     booking_note: s.opaque?.booking_note,
                     cannot_book_explanation: s.cannot_book_explanation || ''
                 }
-
                 // sometimes we use the Program/BookabilityState component
                 // with refs and not screening _ids.
                 if (s.screening_refs?.length > 0) {
@@ -81,13 +80,17 @@ export default class BookabilityState extends Component {
 
             _.each(items, (i) => {
                 let booking_mode = null;
-                let booking_note = null;
+                let booking_note = "";
                 let ids = $(i).attr('data-bookability-ids').split(',');
 
                 let cannot_book_explanation = '';
                 let state = _.max(_.map(ids, (id) => {
                     // FIXME: we consider only the first booking_mode...
                     cannot_book_explanation = map[id].cannot_book_explanation || '';
+                    booking_mode  = booking_mode || map[id].booking_mode;
+                    if (booking_mode) {
+                        booking_note  = map[id].booking_note || booking_note;
+                    }
 
                     let seats     = map[id] ? map[id]['seats'] : 0;
                     let sold_here = map[id] ? map[id]['sold_here'] : false;
@@ -101,11 +104,19 @@ export default class BookabilityState extends Component {
                     return BookabilityState.STATE_BOOKABLE;
                 }));
 
+
                 if (cannot_book_explanation.length)
                     $('.show-if-not-bookable', $(i)).html(cannot_book_explanation);
 
                 switch (state) {
                     case BookabilityState.STATE_NOT_SOLD_HERE:
+                        if (booking_mode) {
+                            // Replace the bookingform if TKT is not used
+                            // and display a message booking_note
+                            const lang = window.tkt_config?.lang || 'fr';
+                            $('.book-section').html('<div class="booking_note">'+ booking_note[lang] +'</div>');
+                            return $(i).addClass('not-bookable-with-tkt');
+                        }
                         return $(i).addClass('not-sold-here');
                     case BookabilityState.STATE_NOT_BOOKABLE:
                         return $(i).addClass('not-bookable');

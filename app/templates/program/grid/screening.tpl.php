@@ -18,9 +18,9 @@ $images_width  = TKTApp::get_instance()->get_config('images_dimensions.big_width
 $images_height = TKTApp::get_instance()->get_config('images_dimensions.big_height');
 $image_url     = tkt_img_proxy_url($s->first_poster()->url, $images_width, $images_height);
 ?>
-<div class="tkt-wrapper screening-inner">
+<div class="tkt-wrapper screening-inner h-100">
 
-  <div class="row">
+  <div class="row  h-75">
 
     <div
       class="poster-background d-block d-md-none"
@@ -29,13 +29,13 @@ $image_url     = tkt_img_proxy_url($s->first_poster()->url, $images_width, $imag
     </div>
 
     <div class="col-sm-12 left-col">
-      <div class="poster-wrapper d-none d-md-block">
-        <img class="img-fluid poster" src="<?= $image_url ?>" />
+      <div class="poster-wrapper d-none d-md-block h-100">
+        <img class="img-fluid poster h-100" src="<?= $image_url ?>" />
       </div>
     </div>
   </div>
 
-  <div class="row">
+  <div class="row h-25">
     <div class="col-sm-12 right-col text-right align-self-end">
 
       <div class="row">

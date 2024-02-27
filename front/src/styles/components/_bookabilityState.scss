@@ -39,6 +39,14 @@
         display: inline-block !important;
       }
     }
+    &.not-bookable-with-tkt {
+      .show-if-not-bookable {
+        display: inline-block !important;
+      }
+      .assertive {
+        display: none !important;
+      }
+    }
   }
 
   &.loading-bookability-state {

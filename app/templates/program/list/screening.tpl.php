@@ -13,6 +13,7 @@ use Ticketack\WP\TKTApp;
 
 $s = $data->screening;
 $m = array_shift($s->movies());
+$description = $m->opaque("description")[TKT_LANG];
 
 $images_width  = TKTApp::get_instance()->get_config('images_dimensions.big_width');
 $images_height = TKTApp::get_instance()->get_config('images_dimensions.big_height');
@@ -28,13 +29,19 @@ $image_url     = tkt_img_proxy_url($s->first_poster()->url, $images_width, $imag
       <div class="overlay"></div>
     </div>
 
-    <div class="col-md-9 col-sm-12 left-col">
+    <div class="col-md-5 col-sm-12 left-col">
       <div class="poster-wrapper d-none d-md-block">
         <img class="img-fluid poster" src="<?= $image_url ?>" />
       </div>
     </div>
 
-    <div class="col-md-3 right-col text-right align-self-end">
+    <div class="col-md-7 right-col text-right align-self-end">
+
+      <div class="row">
+        <div class="col">
+          <span class="description"><?= $description ?></span>
+        </div>
+      </div>
 
       <div class="row">
         <div class="col">
