@@ -36,7 +36,6 @@ class BuyPassShortcode extends TKTShortcode
      */
     public function run($atts, $content)
     {
-        $redirect = isset($atts['redirect']) ? $atts['redirect'] : static::REDIRECT_NONE;
         $selected = isset($atts['selected']) ? $atts['selected'] : (isset($_GET['selected']) ? sanitize_text_field($_GET['selected']) : null);
         $theme    = isset($atts['theme']) ? $atts['theme'] : 'light';
 
@@ -62,7 +61,6 @@ class BuyPassShortcode extends TKTShortcode
             (object)[
                 'theme'       => $theme,
                 'tickettypes' => $tickettypes,
-                'redirect'    => $redirect,
                 'selected'    => $selected,
             ]
         );

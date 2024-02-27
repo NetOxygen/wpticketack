@@ -7,8 +7,9 @@ use Ticketack\WP\TKTApp;
  *
  * Input:
  * $data: {
- *   "theme": 'dark|light',
  *   "tickettypes": [ ... ],
+ *   "selected": "festival_pass",
+ *   "theme"   : "dark|light",
  * }
  */
 // keep in sync with Image::PASS_PHOTO_WIDTH from eshop
@@ -187,7 +188,7 @@ $width = 300;
             <div id="submit-section" class="row">
               <div class="col-md-12 text-right">
                 <p id="notice-required" class="small"><?= tkt_t('Ces champs sont requis') ?></p>
-                <button type="submit" class="button active btn-block" data-redirect="<?= tkt_checkout_url() ?>">
+                <button type="submit" class="button active btn-block">
                   <i class="glyphicon glyphicon-shopping-cart"></i><?= tkt_t("Ajouter au panier") ?>
                 </button>
               </div>
