@@ -42,16 +42,16 @@ $salepoint_id = TKTApp::get_instance()->get_config('ticketack.salepoint_id');
                 <p><?= nl2br(tkt_html($tickettype->description(TKT_LANG))) ?></p>
                 <input type="hidden" class="required-fields" id="<?= $tickettype->_id().'-required-fields' ?>" value="<?= implode(',', $tickettype->required_fields($salepoint_id)) ?>" />
                 <input type="hidden" class="requested-fields" id="<?= $tickettype->_id().'-requested-fields' ?>" value="<?= implode(',', $tickettype->requested_fields($salepoint_id)) ?>" />
-                <b><?= tkt_t('Tarifs :') ?></b>
+                <b><?= tkt_t('Tarifs :') ?></b>
                 <?php foreach ($tickettype->pricings() as $key => $pricing) :?>
                   <div class="radio">
                     <label>
                       <input class="choose-pass" type="radio" name="user[pass]" value="<?= $key; ?>">
                       <?php if (!empty($pricing->description(TKT_LANG))) :?>
-                        <?= tkt_h($pricing->name(TKT_LANG)) ?> (<?= $pricing->price('CHF') ?>)
+                        <?= tkt_h($pricing->name(TKT_LANG)) ?> (<?= $pricing->price() ?>)
                           <i class="tkt-icon-info" data-component="Ui/Tippy" data-tippy-content="<?= tkt_h($pricing->description(TKT_LANG)) ?>"></i>
                       <?php else: ?>
-                        <?= tkt_h($pricing->name(TKT_LANG)) ?> (<?= $pricing->price('CHF') ?>)
+                        <?= tkt_h($pricing->name(TKT_LANG)) ?> (<?= $pricing->price() ?>)
                       <?php endif;?>
                     </label>
                   </div>

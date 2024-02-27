@@ -14,6 +14,8 @@ use Ticketack\WP\TKTApp;
  *   "connected_tickets": An array of tickets added with their ticketID
  * }
  */
+
+$currency = TKTApp::get_instance()->get_config('currency', 'CHF');
 ?>
 <div class="tkt-wrapper">
     <% if (_.keys(screening.pricings).length) { %>
@@ -29,7 +31,7 @@ use Ticketack\WP\TKTApp;
                 <div class="row">
                     <div class="col">
                         <span>
-                            <?= tkt_t('Entrez le nombre de place(s) que vous souhaitez ajouter à votre panier :') ?>
+                            <?= tkt_t('Saisissez le nombre de place(s) que vous souhaitez ajouter à votre panier :') ?>
                         </span>
                     </div>
                 </div>
@@ -44,13 +46,13 @@ use Ticketack\WP\TKTApp;
                                 </span>
                                 x
                                 <span class="pricing-name">
-                                    <%= p.name.<?= TKT_LANG ?> %> :
+                                    <%= p.name.<?= TKT_LANG ?> %> :
                                     <% if (p.description.<?= TKT_LANG ?>) { %>
                                         <i class="tkt-icon-info" data-component="Ui/Tippy" data-tippy-content="<%= p.description.<?= TKT_LANG ?> %>"></i>
                                     <% } %>
                                 </span>
                                 <span class="pricing-price">
-                                    <%= p.price.CHF.toFixed(2) %> CHF
+                                    <%= p.price.<?= $currency ?>.toFixed(2) %> <?= $currency ?>
                                 </span>
                             </span>
                             <span class="tkt-badge-part tkt-dark-badge tkt-plus-btn text-center">+</span>
@@ -93,7 +95,7 @@ use Ticketack\WP\TKTApp;
                     <% if (ticket.hasBooked(screening)) { %>
                     <div class="already-booked">
                         <small data-ticket-id="<%= ticket._id %>">
-                            <b><?= tkt_t("Réservation pour cette séance avec ce billet : ") ?><%= ticket.getBookingsFor(screening)?.length || 0 %></b>
+                            <b><?= tkt_t("Réservation pour cette séance avec ce billet :") ?> <%= ticket.getBookingsFor(screening)?.length || 0 %></b>
                         </small>
                     </div>
                     <% } %>

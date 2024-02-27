@@ -21,6 +21,7 @@ use Ticketack\WP\TKTApp;
  *   }
  * }
  */
+$currency = TKTApp::get_instance()->get_config('currency', 'CHF');
 ?>
 <%
 var notFinishedScreenings = _.filter(state.screenings, function (s) {
@@ -266,12 +267,12 @@ function areUserInfosFilled() {
                 <% } %>
             </div>
         </div>
-    </div>    
+    </div>
     <% } %>
 
     <% if (state.step == 6) { %>
     <div class="booking-wizard-content-step" data-step="5">
-        <h5 class="booking-wizard-content-step-title"><?= tkt_t('Veuillez choisir votre tarifs') ?> :</h5>
+        <h5 class="booking-wizard-content-step-title"><?= tkt_t('Veuillez choisir votre tarif') ?> :</h5>
         <div class="booking-wizard-content-step-content">
             <div class="booking-wizard-pricings-choices">
                 <% var ticketIndex = 0; %>
@@ -290,7 +291,7 @@ function areUserInfosFilled() {
                                     <% getAvailablePricings().map(pricing => { %>
                                         <% var key = pricing.key; %>
                                     <option value="<%= key %>" <%= isSelectedPricing(size, i, key) ? 'selected' : '' %>>
-                                        CHF <%= state.selectedScreenings[0].pricings[key].price.CHF * state.nbRuns %> -
+                                        <?= $currency ?> <%= state.selectedScreenings[0].pricings[key].price.<?= $currency ?> * state.nbRuns %> -
                                         <%= state.selectedScreenings[0].pricings[key].name['fr'] %>
                                     </option>
                                     <% }) %>

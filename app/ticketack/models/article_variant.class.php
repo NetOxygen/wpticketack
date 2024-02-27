@@ -143,28 +143,22 @@ class ArticleVariant implements \JsonSerializable
         return !empty($this->sku) ? (string)$this->sku : "";
     }
 
-    public function price($currency = 'CHF')
+    public function price($currency = null)
     {
-        if (!$currency) {
-            $currency = TKTApp::get_instance()->get_config('currency', 'CHF');
-        }
-        return isset($this->price->$currency) ? $this->price->$currency : null;
+        $currency = $currency ?? TKTApp::get_instance()->get_config('currency', 'CHF');
+        return $this->price->$currency ?? null;
     }
 
     public function value($currency = null)
     {
-        if (!$currency) {
-            $currency = TKTApp::get_instance()->get_config('currency', 'CHF');
-        }
-        return isset($this->value->$currency) ? $this->value->$currency : null;
+        $currency = $currency ?? TKTApp::get_instance()->get_config('currency', 'CHF');
+        return $this->value->$currency ?? null;
     }
 
     public function purchasing_price($currency = null)
     {
-        if (!$currency) {
-            $currency = TKTApp::get_instance()->get_config('currency', 'CHF');
-        }
-        return isset($this->purchasing_price->$currency) ? $this->purchasing_price->$currency : null;
+        $currency = $currency ?? TKTApp::get_instance()->get_config('currency', 'CHF');
+        return $this->purchasing_price->$currency ?? null;
     }
 
     public function is_variable_price()

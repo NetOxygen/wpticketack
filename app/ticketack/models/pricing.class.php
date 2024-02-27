@@ -89,14 +89,16 @@ class Pricing implements \JsonSerializable
         return isset($this->description[$lang]) ? $this->description[$lang] : null;
     }
 
-    public function price($currency)
+    public function price($currency = null)
     {
-        return isset($this->price[$currency]) ? $this->price[$currency] : null;
+        $currency = $currency ?? TKTApp::get_instance()->get_config('currency', 'CHF');
+        return $this->price[$currency] ?? null;
     }
 
-    public function value($currency)
+    public function value($currency = null)
     {
-        return isset($this->value[$currency]) ? $this->value[$currency] : null;
+        $currency = $currency ?? TKTApp::get_instance()->get_config('currency', 'CHF');
+        return $this->value[$currency] ?? null;
     }
 
     public function VAT()

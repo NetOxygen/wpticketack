@@ -304,17 +304,11 @@ class Article extends TKTModel implements \JsonSerializable
 
     public function price($currency = null)
     {
-        if (!$currency) {
-            $currency = TKTApp::get_instance()->get_config('currency', 'CHF');
-        }
         return $this->variants()[0]->price($currency);
     }
 
     public function value($currency = null)
     {
-        if (!$currency) {
-            $currency = TKTApp::get_instance()->get_config('currency', 'CHF');
-        }
         return $this->variants()[0]->value($currency);
     }
 
