@@ -12,7 +12,7 @@ use Ticketack\WP\TKTApp;
  */
 
 $s = $data->screening;
-$m = array_shift($s->movies());
+$m = $s->movies()[0];
 $description = $m->opaque("description")[TKT_LANG];
 
 $images_width  = TKTApp::get_instance()->get_config('images_dimensions.big_width');
