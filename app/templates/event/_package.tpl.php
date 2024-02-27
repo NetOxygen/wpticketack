@@ -225,7 +225,6 @@ $nb_slides = count($trailers) + count($posters);
                         </div>
                       </div>
                     <?php endif; ?>
-                      <div class="movie-description"><?= $m->opaque('description', [])[TKT_LANG] ?></div>
                 </div>
 
               </div>
