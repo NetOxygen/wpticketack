@@ -102,11 +102,7 @@ class Cashregister extends TKTModel implements \JsonSerializable
         return is_string($this->_id) && (strlen($this->_id) > 0);
     }
 
-    // XXX; once PHP 7.4 support is not needed anymore, remove the following
-    // line and add : mixed at the end of the signature so that PHP8.1 doesn't
-    // spew a deprecation warning.
-    #[ReturnTypeWillChange]
-    public function jsonSerialize()
+    public function jsonSerialize() : mixed
     {
         $ret = [
            'name'         => $this->name(),
