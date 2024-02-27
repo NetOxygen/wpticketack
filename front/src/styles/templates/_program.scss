@@ -57,6 +57,10 @@
                         background-color: rgba(0, 0, 0, 0.5);
                     }
                 }
+
+                .poster-wrapper .img-fluid.poster {
+                    max-height: 400px;
+                }
                 .left-col {
                     .poster-wrapper {
                         img.poster {
@@ -97,6 +101,17 @@
 
         .event-inner {
             @extend .screening-inner;
+
+            .infos-wrapper.h-75 {
+                overflow: scroll;
+                text-overflow: ellipsis;
+            }
+
+            .description {
+                font-size: 15px;
+            }
+
+            .img-fluid.poster.poster-event-list { height: 400px; }
 
             .event-complete {
                 @extend .screening-complete;
@@ -154,7 +169,7 @@
 
     .tkt_program_event {
         @extend .tkt_program_screening;
-
+        padding: 0 5px;
         .tkt-wrapper.event-inner {
             position: relative;
 
@@ -162,6 +177,8 @@
                 img {
                     display: block;
                     margin: 0 auto;
+                    height: 100%;
+                    object-fit: cover;
                 }
             }
 
