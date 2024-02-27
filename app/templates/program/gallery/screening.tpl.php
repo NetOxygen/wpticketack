@@ -13,7 +13,7 @@ use Ticketack\Core\Models\Event;
  */
 
 $s = $data->screening;
-$m = array_shift(Event::from_screenings([$s]));
+$m = Event::from_screenings([$s])[0];
 
 $images_width  = TKTApp::get_instance()->get_config('images_dimensions.big_width');
 $images_height = TKTApp::get_instance()->get_config('images_dimensions.big_height');

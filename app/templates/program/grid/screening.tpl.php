@@ -12,7 +12,7 @@ use Ticketack\WP\TKTApp;
  */
 
 $s = $data->screening;
-$m = array_shift($s->movies());
+$m = $s->movies()[0];
 
 $images_width  = TKTApp::get_instance()->get_config('images_dimensions.big_width');
 $images_height = TKTApp::get_instance()->get_config('images_dimensions.big_height');
@@ -53,7 +53,7 @@ $image_url     = tkt_img_proxy_url($s->first_poster()->url, $images_width, $imag
           </span>
         </div>
       </div>
-
+      <?php if (isset($m->opaque()['genre'])) : ?>
       <div class="row">
         <div class="col">
           <span class="genre">
@@ -61,7 +61,7 @@ $image_url     = tkt_img_proxy_url($s->first_poster()->url, $images_width, $imag
           </span>
         </div>
       </div>
-
+      <?php endif; ?>
       <div class="row">
         <div class="col">
           <span class="more-infos">

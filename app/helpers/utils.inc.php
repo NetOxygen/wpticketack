@@ -901,20 +901,21 @@ function tkt_ticketidize($str)
 
 function tkt_original($title)
 {
+    // original is mandatory, no need to ?? null here
     return ((object) $title)->original;
 }
 
 function tkt_localized_or_original($title, $lang)
 {
-    $localized = ((object) $title)->{$lang};
+    $localized = ((object) $title)->{$lang} ?? null;
     $original  = tkt_original($title);
     return ($localized ?? $original);
 }
 
 function tkt_localized_or_default_or_original($title, $lang)
 {
-    $localized = ((object) $title)->{$lang};
-    $default   = ((object) $title)->{tkt_default_lang()};
+    $localized = ((object) $title)->{$lang} ?? null;
+    $default   = ((object) $title)->{tkt_default_lang()} ?? null;
 
     $original  = tkt_original($title);
     return ($localized ?? $default ?? $original);
@@ -923,7 +924,7 @@ function tkt_localized_or_default_or_original($title, $lang)
 
 function tkt_original_if_different_from_localized($title, $lang)
 {
-    $localized = ((object) $title)->{$lang};
+    $localized = ((object) $title)->{$lang} ?? null;
     $original  = tkt_original($title);
     return ($original != $localized) ? $original : null;
 }
