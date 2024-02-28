@@ -269,7 +269,7 @@ const nbArticles = pass.length + tickets.length + articles.length;
                     <div class="row">
                         <div class="col cancel-order-wrapper">
                             <div class="cancel-order" >
-                                <a href="" class="tkt-reset-cart-btn"><?= tkt_t('Annuler') ?></a> <?= tkt_t('ma commande') ?>
+                                <a href="" class="tkt-reset-cart-btn"><?= tkt_t('Annuler ma commande') ?></a>
                             </div>
                         </div>
                     </div>
@@ -279,7 +279,7 @@ const nbArticles = pass.length + tickets.length + articles.length;
                     <div class="row">
                         <div class="col continue-shopping-wrapper">
                             <div class="continue-shopping" >
-                                <a href="<%= program_url %>"><?= tkt_t('Continuer') ?></a> <?= tkt_t('mes réservations') ?>
+                                <a href="<%= program_url %>"><?= tkt_t('Continuer mes réservations') ?></a>
                             </div>
                         </div>
                     </div>

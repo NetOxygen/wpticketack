@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-27 09:33+0100\n"
+"POT-Creation-Date: 2024-02-28 11:59+0100\n"
 "PO-Revision-Date: 2022-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Jonathan Ernst <jonathan.ernst@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -261,7 +261,7 @@ msgid "Réserver des places sur vos billets"
 msgstr "Plätze auf Ihren Tickets reservieren"
 
 msgid "Réservation pour cette séance avec ce billet :"
-msgstr "Reservierung für diese Sitzung mit diesem Ticket:"
+msgstr "Reservation für diese Sitzung mit diesem Ticket:"
 
 msgid "Réserver une place sur ce billet"
 msgstr "Einen Platz auf diesem Ticket reservieren"
@@ -308,17 +308,17 @@ msgid ""
 "Nous n'émettons pas de billet individuel pour les réservations, votre ticket "
 "actuel vous sert de titre d'entrée aux séances réservées."
 msgstr ""
-"Wir stellen keine individuellen Tickets für Reservierungen aus, Ihr "
-"aktuelles Ticket dient als Eintrittskarte für die reservierten Sitzungen."
+"Wir stellen keine individuellen Tickets für Reservationen aus, Ihr aktuelles "
+"Ticket dient als Eintrittskarte für die reservierten Sitzungen."
 
 msgid "Réservations"
-msgstr "Reservierungen"
+msgstr "Reservationen"
 
 msgid "Il n'y a actuellement aucune réservation sur ce billet."
-msgstr "Derzeit gibt es keine Reservierungen für dieses Ticket."
+msgstr "Derzeit gibt es keine Reservationen für dieses Ticket."
 
 msgid "Réservation"
-msgstr "Reservierung"
+msgstr "Reservation"
 
 msgid "Lieu"
 msgstr "Ort"
@@ -326,11 +326,11 @@ msgstr "Ort"
 msgid "Action"
 msgstr "Aktion"
 
-msgid "Annuler"
-msgstr "Abbrechen"
+msgid "Annuler la réservation"
+msgstr "Reservation stornieren"
 
 msgid "Réservations passées"
-msgstr "Vergangene Reservierungen"
+msgstr "Vergangene Reservationen"
 
 msgid "Réserver des séances"
 msgstr "Sitzungen reservieren"
@@ -406,11 +406,11 @@ msgstr "Verwenden"
 msgid "Finaliser ma commande"
 msgstr "Bestellung abschließen"
 
-msgid "ma commande"
-msgstr "meine Bestellung"
+msgid "Annuler ma commande"
+msgstr "Bestellung abschließen"
 
-msgid "mes réservations"
-msgstr "meine Reservierungen"
+msgid "Continuer mes réservations"
+msgstr "Meine Reservationen fortsetzen"
 
 msgid "Résumé du panier"
 msgstr "Zusammenfassung des Warenkorbs"
@@ -432,6 +432,9 @@ msgid ""
 msgstr ""
 "Derzeit sind keine Veranstaltungen geplant. Besuchen Sie uns bald wieder."
 
+msgid "Aucune séance à afficher"
+msgstr "Keine Vorstellungen zum Ansehen"
+
 msgid "Plus d'informations"
 msgstr "Mehr Informationen"
 
@@ -439,17 +442,14 @@ msgid ""
 "Aucuné séance programmée actuellement, revenez nous visiter prochainement."
 msgstr "Derzeit sind keine Sitzungen geplant. Besuchen Sie uns bald wieder."
 
-msgid "Il ne reste que quelques places"
-msgstr "Es sind nur noch wenige Plätze verfügbar"
+msgid "Il ne reste que quelques places !"
+msgstr "Es sind nur noch wenige Plätze verfügbar!"
 
 msgid "Complet"
 msgstr "Ausgebucht"
 
 msgid "Billets"
 msgstr "Tickets"
-
-msgid "Il ne reste que quelques places !"
-msgstr "Es sind nur noch wenige Plätze verfügbar!"
 
 msgid "Mon compte"
 msgstr "Mein Konto"
@@ -582,7 +582,7 @@ msgid "Voir ce ticket"
 msgstr "Dieses Ticket ansehen"
 
 msgid "Voir mes réservations"
-msgstr "Meine Buchungen anzeigen"
+msgstr "Meine Reservationen anzeigen"
 
 msgid "Télécharger"
 msgstr "Herunterladen"
@@ -731,6 +731,9 @@ msgstr "Audio"
 
 msgid "Sous-titres"
 msgstr "Untertitel"
+
+msgid "Année"
+msgstr "Jahr"
 
 msgid "Âge min. lég."
 msgstr "Mindestalter (gesetzl.)"
@@ -919,10 +922,10 @@ msgid "directeurs"
 msgstr "Regie"
 
 msgid "réservation"
-msgstr "Reservierung"
+msgstr "Reservation"
 
 msgid "réservations"
-msgstr "Reservierungen"
+msgstr "Reservationen"
 
 msgid "sur"
 msgstr "auf"
@@ -1313,12 +1316,3 @@ msgstr "Ändern Sie die Werte unten nur, wenn Sie wissen, was Sie tun."
 
 msgid "Brouillon"
 msgstr "Draft"
-
-#~ msgid "Sélectionnez votre contenance et votre quantité :"
-#~ msgstr "Wählen Sie Ihre Kapazität und Menge:"
-
-#~ msgid "Tarifs :"
-#~ msgstr "Preise:"
-
-#~ msgid "Livraison"
-#~ msgstr "Lieferung"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-27 09:32+0100\n"
+"POT-Creation-Date: 2024-02-28 12:01+0100\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Jonathan Ernst <jonathan.ernst@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -128,7 +128,6 @@ msgstr "Continue"
 msgid "ma visite"
 msgstr "my visit"
 
-#, fuzzy
 msgid ""
 "Saisissez le nombre d'éléments que vous souhaitez ajouter à votre panier :"
 msgstr "Enter the number of items you want to add to your cart:"
@@ -248,15 +247,13 @@ msgstr "Free entry"
 msgid "Acheter des places"
 msgstr "Buy tickets"
 
-#, fuzzy
 msgid ""
 "Saisissez le nombre de place(s) que vous souhaitez ajouter à votre panier :"
-msgstr "Enter the number of ticket(s) you want to add to your cart:"
+msgstr "Enter the number of seat(s) you want to add to your cart:"
 
 msgid "Réserver des places sur vos billets"
 msgstr "Reserve seats on your tickets"
 
-#, fuzzy
 msgid "Réservation pour cette séance avec ce billet :"
 msgstr "Reservation for this screening with this ticket:"
 
@@ -319,8 +316,8 @@ msgstr "Venue"
 msgid "Action"
 msgstr "Action"
 
-msgid "Annuler"
-msgstr "Cancel"
+msgid "Annuler la réservation"
+msgstr "Cancel booking"
 
 msgid "Réservations passées"
 msgstr "Past reservations"
@@ -399,11 +396,11 @@ msgstr "Use"
 msgid "Finaliser ma commande"
 msgstr "Finish my order"
 
-msgid "ma commande"
-msgstr "my order"
+msgid "Annuler ma commande"
+msgstr "Cancel my order"
 
-msgid "mes réservations"
-msgstr "my bookings"
+msgid "Continuer mes réservations"
+msgstr "Continue my bookings"
 
 msgid "Résumé du panier"
 msgstr "Cart summary"
@@ -424,6 +421,9 @@ msgid ""
 "Aucun événement programmé actuellement, revenez nous visiter prochainement."
 msgstr "No event currently scheduled, come back soon."
 
+msgid "Aucune séance à afficher"
+msgstr "No screenings"
+
 msgid "Plus d'informations"
 msgstr "More informations"
 
@@ -431,17 +431,14 @@ msgid ""
 "Aucuné séance programmée actuellement, revenez nous visiter prochainement."
 msgstr "No screening currently scheduled, come back soon."
 
-msgid "Il ne reste que quelques places"
-msgstr "There are only a few places"
+msgid "Il ne reste que quelques places !"
+msgstr "There are only a few places left!"
 
 msgid "Complet"
 msgstr "Complete"
 
 msgid "Billets"
 msgstr "Tickets"
-
-msgid "Il ne reste que quelques places !"
-msgstr "There are only a few places left!"
 
 msgid "Mon compte"
 msgstr "My account"
@@ -717,6 +714,9 @@ msgstr "Audio"
 
 msgid "Sous-titres"
 msgstr "Subtitles"
+
+msgid "Année"
+msgstr "Year"
 
 msgid "Âge min. lég."
 msgstr "Min. legal age"
@@ -1294,12 +1294,3 @@ msgstr "Change these settings only if you know what you are doing."
 
 msgid "Brouillon"
 msgstr "Draft"
-
-#~ msgid "Sélectionnez votre contenance et votre quantité :"
-#~ msgstr "Select the quantity"
-
-#~ msgid "Tarifs :"
-#~ msgstr "Pricings:"
-
-#~ msgid "Livraison"
-#~ msgstr "Delivery"

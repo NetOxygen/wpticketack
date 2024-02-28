@@ -73,7 +73,7 @@ $image_url     = tkt_img_proxy_url($e->first_poster()->url, $images_width, $imag
                   href="<?= tkt_event_details_url($e) ?>">
                   <?= tkt_t('Billets') ?> <span class="event-complete"></span>
                 </a>
-                <div class="show-if-almost-not-bookable assertive d-none"><?= tkt_t('Il ne reste que quelques places !') ?></div>
+                <div class="show-if-almost-not-bookable assertive d-none"><?= tkt_t('Il ne reste que quelques places !') ?></div>
                 <div class="show-if-not-bookable assertive d-none"><?= tkt_t('Complet') ?></div>
               </span>
             </div>
