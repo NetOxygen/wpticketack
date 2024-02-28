@@ -1,4 +1,6 @@
 <?php
+use Ticketack\WP\TKTApp;
+
 /**
  * Booking form: pricings partial
  * This template will be parsed by underscore.js

@@ -1,6 +1,7 @@
 <?php
 namespace Ticketack\Core\Models;
 
+use Ticketack\WP\TKTApp;
 use Ticketack\Core\Base\Currency\CHF;
 
 /**
