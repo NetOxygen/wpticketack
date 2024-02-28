@@ -80,7 +80,7 @@
                                 <td>
                                     <% if (b.isCancelable) { %>
                                         <a href="#" class="btn btn-danger btn-bloc cancel-booking-btn" data-booking-id="<%= b._id %>">
-                                            <?= tkt_t("Annuler la réservation") ?>
+                                            <?= tkt_t("Annuler") ?>
                                         </a>
                                     <% } %>
                                 </td>
