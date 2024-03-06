@@ -12,10 +12,6 @@ use Ticketack\WP\TKTApp;
  */
 
 $e = $data->event;
-$s = current($e->screenings());
-$movie = $s ? current($s->movies()) : null;
-
-$description = $movie ? $movie->opaque("description")[TKT_LANG] : "";
 
 $ids = implode(',', array_map(function ($s) {
     return $s->_id();
@@ -53,7 +49,7 @@ $image_url     = tkt_img_proxy_url($e->first_poster()->url, $images_width, $imag
           <div class="row">
             <div class="col">
               <span class="description">
-                  <?= $description ?>
+                  <?= $e->localized_description(TKT_LANG) ?>
               </span>
             </div>
           </div>
