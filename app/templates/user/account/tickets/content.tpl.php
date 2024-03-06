@@ -65,7 +65,7 @@ const ticketsGroups = [
                                     <% } %>
 
                                     <button class="btn btn-link text-left" data-toggle="collapse" data-target="#collapse<%= i %>" >
-                                        <i class="fa fa-tag"></i>
+                                        <i class="tkt-icon-tag"></i>
                                         <b><%=
                                             ticket.isOneTimePass() ?
                                                 ticket.getScreeningName() :
@@ -82,35 +82,35 @@ const ticketsGroups = [
                                 <div class="col text-right">
                                     <span class="badge badge-dark">
                                         <% if (!ticket.isOneTimePass()) { %>
-                                            <i class="fa fa-tags"></i>
+                                            <i class="tkt-icon-tags"></i>
                                             <%= ticket.bookings?.length || 0 %>
                                         <% } else { %>
-                                            <i class="fa fa-tag"></i>
+                                            <i class="tkt-icon-tag"></i>
                                         <% } %>
                                     </span>
                                     <% if (ticket.getPdfUrl()) { %>
                                     <div class="ticket-number mt-2">
                                         <% if (ticket.isForgettable) { %>
                                         <button class="btn btn-link btn-sm ticket-forget-link" data-ticket-id="<%= ticket._id %>">
-                                            <i class="fa fa-trash"></i>
+                                            <i class="tkt-icon-trash"></i>
                                             <?= tkt_t('Oublier ce billet') ?>
                                         </button>
                                         <% } %>
                                         <% if (ticket.isOneTimePass()) { %>
                                         <a class="btn btn-link btn-sm ticket-view-link" href="<%= ticket.getTicketViewUrl() %>">
-                                            <i class="fa fa-eye"></i>
+                                            <i class="tkt-icon-eye"></i>
                                             <?= tkt_t('Voir ce ticket') ?>
                                         </a>
                                         <% } %>
                                         <% if (!ticket.isOneTimePass()) { %>
                                         <a class="btn btn-link btn-sm ticket-view-link" href="<%= ticket.getTicketViewUrl() %>">
-                                            <i class="fa fa-eye"></i>
+                                            <i class="tkt-icon-eye"></i>
                                             <?= tkt_t('Voir mes réservations') ?>
                                         </a>
                                         <% } %>
                                         <% if (!ticket.isOneTimePass() || !ticket.getScreening()?.isFinished()) { %>
                                         <a class="btn btn-link btn-sm ticket-download-link" target="_blank" href="<%= ticket.getPdfUrl() %>">
-                                            <i class="fa fa-download"></i>
+                                            <i class="tkt-icon-download"></i>
                                             <?= tkt_t('Télécharger') ?>
                                         </a>
                                         <% } %>

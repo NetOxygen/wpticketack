@@ -37,7 +37,7 @@ function itemClass(step) {
 %>
 <div class="tkt-wrapper booking-wizard-menu-items">
     <div class="<%= itemClass(1) %>" data-target="1">
-        <div class="booking-wizard-menu-icon"><i class="fa fa-level-down-alt"></i></div>
+        <div class="booking-wizard-menu-icon"><i class="tkt-icon-level-down-alt"></i></div>
         <div class="booking-wizard-menu-content">
             <div class="booking-wizard-menu-title"><?= tkt_t('Nombre de descentes') ?></div>
             <div class="booking-wizard-menu-infos">
@@ -50,7 +50,7 @@ function itemClass(step) {
         </div>
     </div>
     <div class="<%= itemClass(2) %>" data-target="2">
-        <div class="booking-wizard-menu-icon"><i class="fa fa-calendar"></i></div>
+        <div class="booking-wizard-menu-icon"><i class="tkt-icon-calendar"></i></div>
         <div class="booking-wizard-menu-content">
             <div class="booking-wizard-menu-title"><?= tkt_t('Date') ?></div>
             <div class="booking-wizard-menu-infos">
@@ -63,7 +63,7 @@ function itemClass(step) {
         </div>
     </div>
     <div class="<%= itemClass(3) %>" data-target="3">
-        <div class="booking-wizard-menu-icon"><i class="fa fa-clock"></i></div>
+        <div class="booking-wizard-menu-icon"><i class="tkt-icon-clock"></i></div>
         <div class="booking-wizard-menu-content">
             <div class="booking-wizard-menu-title"><?= tkt_t('Départ') ?></div>
             <div class="booking-wizard-menu-infos">
@@ -76,7 +76,7 @@ function itemClass(step) {
         </div>
     </div>
     <div class="<%= itemClass(4) %>" data-target="4">
-        <div class="booking-wizard-menu-icon"><i class="fa fa-th-list"></i></div>
+        <div class="booking-wizard-menu-icon"><i class="tkt-icon-th-list"></i></div>
         <div class="booking-wizard-menu-content">
             <div class="booking-wizard-menu-title"><?= tkt_t('Choix des MountainCarts') ?></div>
             <div class="booking-wizard-menu-infos">
@@ -87,7 +87,7 @@ function itemClass(step) {
         </div>
     </div>
     <div class="<%= itemClass(5) %>" data-target="5">
-        <div class="booking-wizard-menu-icon"><i class="fa fa-user"></i></div>
+        <div class="booking-wizard-menu-icon"><i class="tkt-icon-user"></i></div>
         <div class="booking-wizard-menu-content">
             <div class="booking-wizard-menu-title"><?= tkt_t('Vos informations') ?></div>
             <div class="booking-wizard-menu-infos">
@@ -95,7 +95,7 @@ function itemClass(step) {
         </div>
     </div>
     <div class="<%= itemClass(6) %>" data-target="6">
-        <div class="booking-wizard-menu-icon"><i class="fa fa-list"></i></div>
+        <div class="booking-wizard-menu-icon"><i class="tkt-icon-list"></i></div>
         <div class="booking-wizard-menu-content">
             <div class="booking-wizard-menu-title"><?= tkt_t('Tarifs') ?></div>
             <div class="booking-wizard-menu-infos">

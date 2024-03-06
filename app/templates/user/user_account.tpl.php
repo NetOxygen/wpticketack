@@ -20,7 +20,7 @@ use Ticketack\WP\Templates\TKTTemplate;
     data-tab="<?= $data->active_tab ?>"
 >
     <div id="tkt-user-account-menu">
-        <i class="fa fa-spinner fa-2x fa-spin"></i>
+        <i class="tkt-icon-spinner tkt-2x tkt-spin"></i>
     </div>
 
     <div id="tkt-user-account-content"></div>

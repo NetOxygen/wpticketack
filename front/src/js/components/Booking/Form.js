@@ -419,14 +419,14 @@ export default class BookingForm extends Component {
         // bind book button
         $('.book-btn', this.$container).click((e) => {
             const ticket_id = $(e.target).data('ticket-id');
-            $(e.target).html('<i class="fa fa-spinner fa-spin"></i>');
+            $(e.target).html('<i class="tkt-icon-spinner tkt-spin"></i>');
             if (ticket_id)
                 this.book_on(ticket_id);
         });
 
         $('.book-btn-more', this.$container).click((e) => {
             const ticket_id = $(e.target).data('ticket-id');
-            $(e.target).html('<i class="fa fa-spinner fa-spin"></i>');
+            $(e.target).html('<i class="tkt-icon-spinner tkt-spin"></i>');
             if (ticket_id)
                 this.book_on(ticket_id);
         });

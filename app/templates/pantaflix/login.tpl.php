@@ -37,7 +37,7 @@ use Ticketack\WP\Templates\TKTTemplate;
                     <div class="col text-center">
                         <div class="error pass-error d-none text-center text-danger"></div>
                         <button class="btn btn-primary button login-btn connect-btn mt-5 mb-3">
-                          <i class="fa fa-sign-in-alt"></i> <?= tkt_t('Connexion') ?>
+                          <i class="tkt-icon-sign-in-alt"></i> <?= tkt_t('Connexion') ?>
                         </button>
                     </div>
                 </div>

@@ -89,7 +89,7 @@ const nbArticles = pass.length + tickets.length + articles.length;
                                         <td class="price-cell text-right"><%= item.getFormattedPrice() %></td>
                                         <td class="action-cell text-right">
                                             <span class="tkt-remove-cart-item" data-item="<%= item.id %>">
-                                                <i class="fa fa-trash"></i>
+                                                <i class="tkt-icon-trash"></i>
                                             </span>
                                         </td>
                                     </tr>
@@ -114,7 +114,7 @@ const nbArticles = pass.length + tickets.length + articles.length;
                                         <td class="price-cell text-right"><%= item.getFormattedPrice() %></td>
                                         <td class="action-cell text-right">
                                             <span class="tkt-remove-cart-item" data-item="<%= item.id %>">
-                                                <i class="fa fa-trash"></i>
+                                                <i class="tkt-icon-trash"></i>
                                             </span>
                                         </td>
                                     </tr>
@@ -167,7 +167,7 @@ const nbArticles = pass.length + tickets.length + articles.length;
                                         <td class="price-cell text-right"><%= item.getFormattedPrice() %></td>
                                         <td class="action-cell text-right">
                                             <span class="tkt-remove-cart-item" data-item="<%= item.id %>">
-                                                <i class="fa fa-trash"></i>
+                                                <i class="tkt-icon-trash"></i>
                                             </span>
                                         </td>
                                         <% } %>

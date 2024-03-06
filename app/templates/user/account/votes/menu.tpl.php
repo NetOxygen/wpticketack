@@ -14,7 +14,7 @@ use Ticketack\WP\Templates\TKTTemplate;
 ?>
 <div class="tkt-account-menu-entry <?= $data->active ? 'active' : '' ?>">
     <a href="?tab=votes">
-        <i class="fa fa-star fa-3x"></i>
+        <i class="tkt-icon-star tkt-3x"></i>
         <span>
             <?= tkt_t("Mes votes") ?>
         </span>

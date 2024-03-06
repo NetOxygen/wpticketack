@@ -142,13 +142,13 @@ $width = 300;
                       <div class="form-group col-md-6 mt-3 text-center">
                         <input name="photo" type="file" class="tkt-input form-control field" id="photo" accept="image/jpeg, image/png, image/gif" data-component="Form/ImageDataUrl" data-width="<?= $width ?>" hidden >
                         <button type="button" class="btn btn-default choose-btn">
-                          <span><i class="fa fa-image"></i> <?= tkt_t('Choisir une image') ?></span>
+                          <span><i class="tkt-icon-image"></i> <?= tkt_t('Choisir une image') ?></span>
                         </button>
                         <i class="tkt-icon-info" data-component="Ui/Tippy" data-tippy-content="<?= tkt_t("Formats pris en charge : jpeg, png ou gif") ?>"></i><br>
                         <span class="small">ou</span>
                         <div class="form-group col-md-12 p-0 mt-3">
                             <button type="button" class="btn btn-default">
-                              <i class="fa fa-camera"></i>
+                              <i class="tkt-icon-camera"></i>
                               <span class="stop_video"> <?= tkt_t('Arrêter la vidéo') ?></span>
                               <span class="start_video"> <?= tkt_t('Prendre une photo depuis la caméra') ?></span>
                             </button>

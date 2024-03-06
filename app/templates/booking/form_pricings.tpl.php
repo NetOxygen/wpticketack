@@ -88,7 +88,7 @@ $currency = TKTApp::get_instance()->get_config('currency', 'CHF');
             <div class="row">
                 <div class="col col-auto ticket-infos">
                     <a class="btn btn-outline btn-sm text-left" target="_blank" href="<%= ticket.getTicketViewUrl() %>">
-                        <i class="fa fa-tag"></i>
+                        <i class="tkt-icon-tag"></i>
                         <b><%= ticket.getTypeName() %></b>
                         - <%= ticket.getDisplayName() %>
                     </a>
@@ -104,11 +104,11 @@ $currency = TKTApp::get_instance()->get_config('currency', 'CHF');
 
                     <% if (ticket.canBook(screening)) { %>
                     <button data-ticket-id="<%= ticket._id %>" class="button book-btn active <%= ticket.canBook(screening) && !ticket.hasBooked(screening) ? '' : 'd-none' %>" >
-                        <i class="fa fa-plus"></i>
+                        <i class="tkt-icon-plus"></i>
                         <?= tkt_t('Réserver une place sur ce billet') ?>
                     </button>
                     <button data-ticket-id="<%= ticket._id %>" class="button book-btn-more active <%= ticket.canBook(screening) && ticket.hasBooked(screening) ? '' : 'd-none' %>" >
-                        <i class="fa fa-plus"></i>
+                        <i class="tkt-icon-plus"></i>
                         <?= tkt_t('Réserver une place de plus sur ce billet') ?>
                     </button>
                     <% } else { %>
@@ -164,7 +164,7 @@ $currency = TKTApp::get_instance()->get_config('currency', 'CHF');
                         <div class="col text-center">
                             <div class="error pass-error d-none text-center text-danger"></div>
                             <button class="btn btn-primary button login-btn connect-btn mt-5 mb-3">
-                                <i class="fa fa-sign-in-alt"></i> <?= tkt_t('Connexion') ?>
+                                <i class="tkt-icon-sign-in-alt"></i> <?= tkt_t('Connexion') ?>
                             </button>
                         </div>
                     </div>
@@ -184,7 +184,7 @@ $currency = TKTApp::get_instance()->get_config('currency', 'CHF');
                         <% screening.eligible_types.map(function (t) { %>
                         <li class="elligible-type">
                             <span class="type-name">
-                                <i class="fa fa-ticket"></i>
+                                <i class="tkt-icon-ticket"></i>
                                 <a href="<?= tkt_buy_pass_url() ?>?selected=<%= t._id %>" class="type-link">
                                     <%= t.name.<?= TKT_LANG ?> %>
                                 </a>

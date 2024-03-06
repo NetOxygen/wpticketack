@@ -137,7 +137,7 @@ if (!function_exists('r')) {
                   <div class="input-group">
                     <div class="input-group-prepend">
                       <span class="input-group-text">
-                        <i class="fa fa-lock"></i>
+                        <i class="tkt-icon-lock"></i>
                       </span>
                     </div>
                     <input name="user[password]" type="password" class="tkt-input form-control data-field" id="password" placeholder="<?= tkt_t("Choisissez un mot de passe") ?>"  autocomplete="new-password" />
@@ -150,7 +150,7 @@ if (!function_exists('r')) {
                   <div class="input-group">
                     <div class="input-group-prepend">
                       <span class="input-group-text">
-                        <i class="fa fa-lock"></i>
+                        <i class="tkt-icon-lock"></i>
                       </span>
                     </div>
                     <input name="user[password2]" type="password" class="tkt-input form-control data-field" id="password" placeholder="<?= tkt_t("Saisissez une deuxième fois votre mot de passe") ?>" required autocomplete="new-password" />
@@ -174,7 +174,7 @@ if (!function_exists('r')) {
                 <b><?= tkt_t('Veuillez l\'activer en cliquant sur le lien que vous avez reçu par e-mail.') ?></b><br /><br />
                 <?php if (tkt_login_url()) : ?>
                 <a class="btn button" href="<?= tkt_login_url() ?>">
-                  <i class="fa fa-sign-in-alt"></i>
+                  <i class="tkt-icon-sign-in-alt"></i>
                   <?= tkt_t('Connexion') ?>
                 </a>
                 <?php endif; ?>
