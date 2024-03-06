@@ -56,7 +56,7 @@ tickets.concat(other_tickets).map(t => {
                                     <% } %>
 
                                     <button class="btn btn-link text-left" data-toggle="collapse" data-target="#collapse<%= i %>" >
-                                        <i class="fa fa-tag"></i>
+                                        <i class="tkt-icon-tag"></i>
                                         <b><%= b.screening?.getTitle() %></b>
                                         <div>
                                             <small><%= b.screening?.getStartAt() %></small>

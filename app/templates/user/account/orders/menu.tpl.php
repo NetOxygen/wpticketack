@@ -14,7 +14,7 @@ use Ticketack\WP\Templates\TKTTemplate;
 ?>
 <div class="tkt-account-menu-entry <?= $data->active ? 'active' : '' ?>">
     <a href="?tab=orders">
-        <i class="fa fa-cart-arrow-down fa-3x"></i>
+        <i class="tkt-icon-cart-arrow-down tkt-3x"></i>
         <span>
             <?= tkt_t("Mes commandes") ?>
         </span>

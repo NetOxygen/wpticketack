@@ -14,7 +14,7 @@ use Ticketack\WP\Templates\TKTTemplate;
 ?>
 <div class="tkt-account-menu-entry <?= $data->active ? 'active' : '' ?>">
     <a href="javascript:;" class="logout-btn">
-        <i class="fa fa-sign-out-alt fa-3x"></i>
+        <i class="tkt-icon-sign-out-alt tkt-3x"></i>
         <span>
             <?= tkt_t('Me déconnecter') ?>
         </span>

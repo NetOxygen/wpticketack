@@ -158,7 +158,7 @@ if (!function_exists('r')) {
                   <div class="input-group">
                     <div class="input-group-prepend">
                       <span class="input-group-text">
-                        <i class="fa fa-lock"></i>
+                        <i class="tkt-icon-lock"></i>
                       </span>
                     </div>
                     <input name="user[password]" type="password" class="tkt-input form-control data-field" id="password" placeholder="<?= tkt_t("Nouveau mot de passe") ?>"  />
@@ -171,7 +171,7 @@ if (!function_exists('r')) {
                   <div class="input-group">
                     <div class="input-group-prepend">
                       <span class="input-group-text">
-                        <i class="fa fa-lock"></i>
+                        <i class="tkt-icon-lock"></i>
                       </span>
                     </div>
                     <input name="user[password2]" type="password" class="tkt-input form-control data-field" id="password2" placeholder="<?= tkt_t("Saisissez une deuxième fois votre nouveau mot de passe") ?>" />
@@ -187,7 +187,7 @@ if (!function_exists('r')) {
             <div id="submit-section" class="row">
               <div class="col-md-12 text-center mt-3">
                 <button type="submit" class="submit-button button">
-                  <span class="fa fa-check"></span> <?= tkt_t('Modifier mes informations') ?>
+                  <span class="tkt-icon-check"></span> <?= tkt_t('Modifier mes informations') ?>
                 </button>
               </div>
             </div>

@@ -14,7 +14,7 @@ use Ticketack\WP\Templates\TKTTemplate;
 ?>
 <div class="tkt-account-menu-entry <?= $data->active ? 'active' : '' ?>">
     <a href="?tab=tickets">
-        <i class="fa fa-tags fa-3x"></i>
+        <i class="tkt-icon-tags tkt-3x"></i>
         <span>
             <?= tkt_t("Mes billets") ?>
         </span>

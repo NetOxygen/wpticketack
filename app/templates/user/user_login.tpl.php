@@ -33,7 +33,7 @@ use Ticketack\WP\TKTApp;
                     <?= tkt_t("Mon compte") ?>
                 </a>
                 <button class="btn button logout-btn">
-                    <i class="fa fa-sign-out-alt"></i>
+                    <i class="tkt-icon-sign-out-alt"></i>
                     <?= tkt_t('Me déconnecter') ?>
                 </button>
             </div>
@@ -55,7 +55,7 @@ use Ticketack\WP\TKTApp;
                 <div class="col text-center">
                     <div class="error user-error d-none text-center text-danger"></div>
                     <button class="btn btn-primary button login-btn">
-                        <i class="fa fa-sign-in-alt"></i>
+                        <i class="tkt-icon-sign-in-alt"></i>
                         <?= tkt_t('Connexion') ?>
                     </button>
                 </div>
