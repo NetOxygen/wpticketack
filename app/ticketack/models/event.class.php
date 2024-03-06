@@ -137,6 +137,16 @@ class Event extends TKTModel implements \JsonSerializable
         return tkt_original_if_different_from_localized($this->title, $lang);
     }
 
+    public function localized_description($lang)
+    {
+        $description = $this->opaque('description');
+        if (empty($description) || !isset($description[$lang])) {
+            return null;
+        }
+
+        return $description[$lang];
+    }
+
     public function screenings()
     {
         return $this->screenings;
