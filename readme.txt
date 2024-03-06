@@ -2,7 +2,7 @@
 Tags: ticketack
 Requires at least: 5.9
 Tested up to: 6.4.3
-Stable tag: 2.68.2
+Stable tag: 2.69.0
 Requires PHP: 8.1
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -37,6 +37,39 @@ This section describes how to install the plugin and get it working.
 
 = Changelog =
 * [Changelog link](https://yoda.netoxygen.ch/public/projects/401b5210-986f-46b3-99cb-38546b73e16c/changelog)
+
+= 2.69.0 =
+
+* i18n: Improve translations
+
+* feat: Hide pricings if no seats are available
+* modified templates:
+  - app/templates/booking/form_pricings.tpl.php
+
+* feat: tkt icons pack
+* modified templates:
+  - app/templates/user/user_register.tpl.php
+  - app/templates/user/user_login.tpl.php
+  - app/templates/user/user_account.tpl.php
+  - app/templates/user/account/votes/menu.tpl.php
+  - app/templates/user/account/votes/content.tpl.php
+  - app/templates/user/account/tickets/menu.tpl.php
+  - app/templates/user/account/tickets/content.tpl.php
+  - app/templates/user/account/profile/menu.tpl.php
+  - app/templates/user/account/profile/content.tpl.php
+  - app/templates/user/account/orders/menu.tpl.php
+  - app/templates/program/gallery/event.tpl.php
+  - app/templates/user/account/logout/menu.tpl.php
+  - app/templates/pantaflix/login.tpl.php
+  - app/templates/cart/cart_table.tpl.php
+  - app/templates/buy_pass/form.tpl.php
+  - app/templates/booking_wizard/wizard_menu.tpl.php
+  - app/templates/booking/form_pricings.tpl.php
+
+* fix: Fix movies description in grid and list templates
+* modified templates:
+  - app/templates/program/grid/event.tpl.php
+  - app/templates/program/list/event.tpl.php
 
 = 2.68.2 =
 
