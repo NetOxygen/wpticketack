@@ -49,8 +49,9 @@ export default class BookingForm extends Component {
             channel: "connection",
             topic: "update",
             callback: (data, envelope) => {
-                this.build_tickets_form();
-                this.check_bookability();
+                this.check_bookability(() => {
+                    this.build_tickets_form();
+                });
             }
         });
 
@@ -225,10 +226,11 @@ export default class BookingForm extends Component {
             bookings.map(async booking => await ScreeningService.releaseBooking(booking._id));
         }
 
-        this.refreshTicket(ticket_id, (err, ticket) => this.check_bookability());
-        setTimeout(() => {
-            this.build_tickets_form();
-        }, 1000);
+        this.refreshTicket(ticket_id, (err, ticket) => {
+            this.check_bookability(() => {
+                this.build_tickets_form();
+            });
+        });
     }
 
     async connect_pass() {
@@ -360,6 +362,7 @@ export default class BookingForm extends Component {
         const screening = new TKTLib.Screening({ ...this.data.screening, pricings });
 
         this.$tickets_form.html(Template.render('tkt-booking-form-pricings-tpl', {
+            bookability: this.data.bookability || {},
             screening: screening,
             show_pricings: this.show.includes('pricings'),
             show_ticket_id: this.show.includes('ticket_id'),
@@ -486,9 +489,9 @@ export default class BookingForm extends Component {
         this.reset_store_on_screening_change();
 
         this.data.screening = _.find(this.data.screenings, (s) => s._id === screening_id );
-        this.build_tickets_form();
-
-        this.check_bookability();
+        this.check_bookability(() => {
+            this.build_tickets_form();
+        });
     }
 
     getUrlParam(name) {

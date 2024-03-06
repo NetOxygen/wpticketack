@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-27 09:32+0100\n"
+"POT-Creation-Date: 2024-03-06 10:59+0100\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Jonathan Ernst <jonathan.ernst@netoxygen.ch>\n"
+"Last-Translator: Belkacem Alidra <belkacem.alidra@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -249,6 +249,21 @@ msgid ""
 "Saisissez le nombre de place(s) que vous souhaitez ajouter à votre panier :"
 msgstr ""
 
+msgid "Il n'est pas encore possible d'acheter des places pour cette séance."
+msgstr ""
+
+msgid "Il n'est plus possible d'acheter des places pour cette séance."
+msgstr ""
+
+msgid "Il n'est pas possible d'acheter des places pour cette séance."
+msgstr ""
+
+msgid "Des places sont néanmoins disponibles aux caisses."
+msgstr ""
+
+msgid "Des places seront néanmoins disponibles aux caisses."
+msgstr ""
+
 msgid "Réserver des places sur vos billets"
 msgstr ""
 
@@ -413,6 +428,9 @@ msgid ""
 "Aucun événement programmé actuellement, revenez nous visiter prochainement."
 msgstr ""
 
+msgid "Aucune séance à afficher"
+msgstr ""
+
 msgid "Plus d'informations"
 msgstr ""
 
@@ -430,6 +448,12 @@ msgid "Billets"
 msgstr ""
 
 msgid "Il ne reste que quelques places !"
+msgstr ""
+
+msgid "Aucune séance à afficher."
+msgstr ""
+
+msgid "Il ne reste que quelques places !"
 msgstr ""
 
 msgid "Mon compte"
@@ -699,6 +723,9 @@ msgid "Audio"
 msgstr ""
 
 msgid "Sous-titres"
+msgstr ""
+
+msgid "Année"
 msgstr ""
 
 msgid "Âge min. lég."

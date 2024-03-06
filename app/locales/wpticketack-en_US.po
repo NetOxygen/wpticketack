@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-28 12:13+0100\n"
+"POT-Creation-Date: 2024-03-06 11:15+0100\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Jonathan Ernst <jonathan.ernst@netoxygen.ch>\n"
+"Last-Translator: Belkacem Alidra <belkacem.alidra@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -250,6 +250,21 @@ msgstr "Buy tickets"
 msgid ""
 "Saisissez le nombre de place(s) que vous souhaitez ajouter à votre panier :"
 msgstr "Enter the number of seat(s) you want to add to your cart:"
+
+msgid "Il n'est pas encore possible d'acheter des places pour cette séance."
+msgstr "Seats are not yet available this screening."
+
+msgid "Il n'est plus possible d'acheter des places pour cette séance."
+msgstr "There are no more available seats for this screening."
+
+msgid "Il n'est pas possible d'acheter des places pour cette séance."
+msgstr "There are no available seats for this screening."
+
+msgid "Des places sont néanmoins disponibles aux caisses."
+msgstr "Tickets are still available at the box office."
+
+msgid "Des places seront néanmoins disponibles aux caisses."
+msgstr "Tickets will still be available at the box office."
 
 msgid "Réserver des places sur vos billets"
 msgstr "Reserve seats on your tickets"
@@ -1294,3 +1309,6 @@ msgstr "Change these settings only if you know what you are doing."
 
 msgid "Brouillon"
 msgstr "Draft"
+
+#~ msgid "Il ne reste que quelques places !"
+#~ msgstr "There are only a few places"

@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-28 12:12+0100\n"
+"POT-Creation-Date: 2024-03-06 11:18+0100\n"
 "PO-Revision-Date: 2022-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Jonathan Ernst <jonathan.ernst@netoxygen.ch>\n"
+"Last-Translator: Belkacem Alidra <belkacem.alidra@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -256,6 +256,21 @@ msgid ""
 msgstr ""
 "Geben Sie die Anzahl der Plätze ein, die Sie Ihrem Warenkorb hinzufügen "
 "möchten:"
+
+msgid "Il n'est pas encore possible d'acheter des places pour cette séance."
+msgstr "Es ist noch nicht möglich, Plätze für diese Sitzung zu kaufen."
+
+msgid "Il n'est plus possible d'acheter des places pour cette séance."
+msgstr "Es ist nicht mehr möglich, Karten für diese Sitzung zu kaufen."
+
+msgid "Il n'est pas possible d'acheter des places pour cette séance."
+msgstr "Es ist nicht mehr möglich, Karten für diese Sitzung zu kaufen."
+
+msgid "Des places sont néanmoins disponibles aux caisses."
+msgstr "An den Kassen sind jedoch noch Plätze verfügbar."
+
+msgid "Des places seront néanmoins disponibles aux caisses."
+msgstr "An den Kassen werden jedoch noch Plätze verfügbar sein."
 
 msgid "Réserver des places sur vos billets"
 msgstr "Plätze auf Ihren Tickets reservieren"
