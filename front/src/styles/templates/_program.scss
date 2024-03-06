@@ -34,7 +34,6 @@
 
     .tkt_program_screening {
         padding-bottom: 1.1rem;
-
         .screening-inner {
             > .row {
                 position: relative;
@@ -58,9 +57,6 @@
                     }
                 }
 
-                .poster-wrapper .img-fluid.poster {
-                    max-height: 400px;
-                }
                 .left-col {
                     .poster-wrapper {
                         img.poster {
@@ -109,9 +105,10 @@
 
             .description {
                 font-size: 15px;
+                overflow: hidden;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
             }
-
-            .img-fluid.poster.poster-event-list { height: 400px; }
 
             .event-complete {
                 @extend .screening-complete;
@@ -257,6 +254,21 @@
     }
 }
 
+#tkt_program.tkt-blocks {
+    .tkt_program_screening {
+        .screening-inner {
+            .img-fluid.poster {
+                object-fit: cover;
+            }
+            .description {
+                font-size: 15px;
+                overflow: hidden;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+            }
+        }
+    }
+}
 @media (min-width: 992px) {
     #tkt_program {
         .tkt_program_screening {
@@ -264,6 +276,9 @@
 
             .screening-inner {
                 > .row {
+                    .image-wrapper {
+                        height: fit-content;
+                    }
                     .right-col {
                         .tickets {
                             margin-bottom: -0.2rem;
@@ -280,6 +295,16 @@
         .tkt_program_screening {
             margin-bottom: 0.7rem;
         }
+        .tkt_program_screening > .screening-inner .image-wrapper,
+        .tkt_program_screening > .screening-inner .details,
+        .tkt_program_event > .event-inner .image-wrapper,
+            .tkt_program_event > .event-inner .details {
+                width: 100% !important;
+                aspect-ratio: auto;
+        }
+        .tkt_program_event >.event-inner .title {
+            text-align: center;
+    }
     }
 }
 

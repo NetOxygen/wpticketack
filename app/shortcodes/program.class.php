@@ -20,17 +20,22 @@ class ProgramShortcode extends TKTShortcode
     const LIST_TEMPLATE      = 'list';
     const GRID_TEMPLATE      = 'grid';
     const GALLERY_TEMPLATE   = 'gallery';
+    const BLOCKS_TEMPLATE    = 'blocks';
     const SLIDER_TEMPLATE    = 'slider';
-    const SLIDER_PORTRAIT_TEMPLATE    = 'slider_portrait';
-    const SCREENINGS_LAYOUT  = 'screenings';
-    const EVENTS_LAYOUT      = 'events';
-    const DEFAULT_ITEM_WIDTH = 12;
-    const CHRONO_ORDER       = 'chrono';
-    const ALPHA_ORDER        = 'alpha';
-    const SCREENINGS_FILTER  = 'screenings';
-    const EVENTS_FILTER      = 'events';
-    const DATE_TODAY         = 'today';
-    const SLIDER_TIMEOUT     = 3000;
+    const SLIDER_PORTRAIT_TEMPLATE  = 'slider_portrait';
+    const SCREENINGS_LAYOUT         = 'screenings';
+    const EVENTS_LAYOUT             = 'events';
+    const DEFAULT_ITEM_WIDTH        = 12;
+    const DEFAULT_ITEM_PER_ROW      = 1;
+    const CHRONO_ORDER              = 'chrono';
+    const ALPHA_ORDER               = 'alpha';
+    const SCREENINGS_FILTER         = 'screenings';
+    const EVENTS_FILTER             = 'events';
+    const DATE_TODAY                = 'today';
+    const SLIDER_TIMEOUT            = 3000;
+    const DEFAULT_IMAGE_WIDTH_PCT   = 35;
+    const DEFAULT_IMAGE_RATIO       = 'auto';
+    const DEFAULT_DESCRIPTION_LIMIT = 4;
 
     /**
      * Get this Shortcode tag
@@ -50,19 +55,23 @@ class ProgramShortcode extends TKTShortcode
      */
     public function run($atts, $content)
     {
-        $template      = isset($atts['template']) ? $atts['template'] : static::LIST_TEMPLATE;
-        $layout        = isset($atts['layout']) ? $atts['layout'] : static::SCREENINGS_LAYOUT;
-        $tags          = isset($atts['tags']) ? explode(',', $atts['tags']) : null;
-        $section_ids   = isset($atts['section_ids']) ? explode(',', $atts['section_ids']) : null;
-        $xsection_ids  = isset($atts['xsection_ids']) ? explode(',', $atts['xsection_ids']) : null;
+        $template              = isset($atts['template']) ? $atts['template'] : static::LIST_TEMPLATE;
+        $layout                = isset($atts['layout']) ? $atts['layout'] : static::SCREENINGS_LAYOUT;
+        $tags                  = isset($atts['tags']) ? explode(',', $atts['tags']) : null;
+        $section_ids           = isset($atts['section_ids']) ? explode(',', $atts['section_ids']) : null;
+        $xsection_ids          = isset($atts['xsection_ids']) ? explode(',', $atts['xsection_ids']) : null;
         $screening_section_ids = isset($atts['screening_section_ids']) ? explode(',', $atts['screening_section_ids']) : null;
-        $item_width    = isset($atts['item_width']) ? intval($atts['item_width']) : static::DEFAULT_ITEM_WIDTH;
-        $order         = isset($atts['order']) ? $atts['order'] : ($layout == static::SCREENINGS_LAYOUT ? static::CHRONO_ORDER : static::ALPHA_ORDER);
-        $top_filter    = isset($atts['top_filter']) ? $atts['top_filter'] : null;
-        $day           = tkt_get_url_param('d', (isset($atts['day']) ? $atts['day'] : null));
-        $places        = isset($atts['places']) ? explode(',', $atts['places']) : [];
-        $filter_fields = isset($atts['filter_fields']) ? explode(',', $atts['filter_fields']) : [];
-        $slider_timeout = isset($atts['timeout']) ? $atts['timeout'] : static::SLIDER_TIMEOUT;
+        $item_width            = isset($atts['item_width']) ? intval($atts['item_width']) : static::DEFAULT_ITEM_WIDTH;
+        $items_per_row         = isset($atts['items_per_row']) ? intval($atts['items_per_row']) : static::DEFAULT_ITEM_PER_ROW;
+        $image_width_pct       = isset($atts['image_width_pct']) ? floatval($atts['image_width_pct']) : static::DEFAULT_IMAGE_WIDTH_PCT;
+        $image_ratio           = isset($atts['image_ratio']) ? floatval($atts['image_ratio']) : static::DEFAULT_IMAGE_RATIO;
+        $description_max_line  = isset($atts['description_max_line']) ? intval($atts['description_max_line']) : static::DEFAULT_DESCRIPTION_LIMIT;
+        $order                 = isset($atts['order']) ? $atts['order'] : ($layout == static::SCREENINGS_LAYOUT ? static::CHRONO_ORDER : static::ALPHA_ORDER);
+        $top_filter            = isset($atts['top_filter']) ? $atts['top_filter'] : null;
+        $day                   = tkt_get_url_param('d', (isset($atts['day']) ? $atts['day'] : null));
+        $places                = isset($atts['places']) ? explode(',', $atts['places']) : [];
+        $filter_fields         = isset($atts['filter_fields']) ? explode(',', $atts['filter_fields']) : [];
+        $slider_timeout        = isset($atts['timeout']) ? $atts['timeout'] : static::SLIDER_TIMEOUT;
 
         try {
             $query = Screening::all()
@@ -195,13 +204,17 @@ class ProgramShortcode extends TKTShortcode
                     return TKTTemplate::render(
                         'program/'.$template.'/screenings',
                         (object)[
-                            'screenings'        => array_values($screenings),
-                            'item_width'        => $item_width,
-                            'filter'            => $filter,
-                            'filter_fields'     => $filter_fields,
-                            'service_filters'   => $service_filters,
-                            'top_filter'        => $top_filter,
-                            'top_filter_values' => ($top_filter == static::EVENTS_FILTER ? Event::from_screenings($screenings) : [])
+                            'screenings'           => array_values($screenings),
+                            'item_width'           => $item_width,
+                            'items_per_row'        => $items_per_row,
+                            'filter'               => $filter,
+                            'filter_fields'        => $filter_fields,
+                            'service_filters'      => $service_filters,
+                            'top_filter'           => $top_filter,
+                            'top_filter_values'    => ($top_filter == static::EVENTS_FILTER ? Event::from_screenings($screenings) : []),
+                            'image_width_pct'      => $image_width_pct,
+                            'image_ratio'          => $image_ratio,
+                            'description_max_line' => $description_max_line,
                         ]
                     );
 
@@ -262,12 +275,16 @@ class ProgramShortcode extends TKTShortcode
                     return TKTTemplate::render(
                         'program/'.$template.'/events',
                         (object)[
-                            'events'            => array_values($events),
-                            'item_width'        => $item_width,
-                            'filter_fields'     => $filter_fields,
-                            'top_filter'        => $top_filter,
-                            'top_filter_values' => ($top_filter == static::SCREENINGS_FILTER ? $screenings : []),
-                            'slider_timeout'    => $slider_timeout
+                            'events'               => array_values($events),
+                            'item_width'           => $item_width,
+                            'items_per_row'        => $items_per_row,
+                            'filter_fields'        => $filter_fields,
+                            'top_filter'           => $top_filter,
+                            'top_filter_values'    => ($top_filter == static::SCREENINGS_FILTER ? $screenings : []),
+                            'slider_timeout'       => $slider_timeout,
+                            'image_width_pct'      => $image_width_pct,
+                            'image_ratio'          => $image_ratio,
+                            'description_max_line' => $description_max_line,
                         ]
                     );
             }
