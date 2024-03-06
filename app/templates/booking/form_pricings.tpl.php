@@ -7,6 +7,16 @@ use Ticketack\WP\TKTApp;
  * This template will be parsed by underscore.js
  *
  * JS Input: {
+ *   "bookability": An object with the following keys :
+ *       - availabilities: object
+ *       - cannot_book_explanation: string
+ *       - eligible_types: array
+ *       - screening_already_booked: boolean
+ *       - screening_exists: boolean
+ *       - screening_seats: boolean
+ *       - ticket_can_book_screening: boolean
+ *       - ticket_cannot_book_explanation: string
+ *       - ticket_logged_in: boolean
  *   "screening": Screening instance,
  *   "show_pricings": A boolean indicating if we must show the pricings form
  *   "show_ticket_id": A boolean indicating if we must show the ticket connection form
@@ -17,6 +27,9 @@ use Ticketack\WP\TKTApp;
 
 $currency = TKTApp::get_instance()->get_config('currency', 'CHF');
 ?>
+
+<% const availabilities = bookability.availabilities; %>
+
 <div class="tkt-wrapper">
     <% if (_.keys(screening.pricings).length) { %>
         <% if ('map_only_bookings' in screening.opaque && screening.opaque.map_only_bookings) { %>
@@ -26,50 +39,71 @@ $currency = TKTApp::get_instance()->get_config('currency', 'CHF');
                 </div>
             </div>
         <% } else if (show_pricings) { %>
-            <h4><?= tkt_t("Acheter des places") ?></h3>
-            <div class="pricings-form">
-                <div class="row">
-                    <div class="col">
-                        <span>
-                            <?= tkt_t('Saisissez le nombre de place(s) que vous souhaitez ajouter à votre panier :') ?>
-                        </span>
-                    </div>
-                </div>
-                <% _.mapKeys(screening.pricings, function(p, key) { %>
-                <div class="row pricing-row" data-pricing-wrapper="<%= key %>">
-                    <div class="col">
-                        <span class="tkt-badge tkt-badge-split flex-rev-on-mobile tkt-badge-plus-minus">
-                            <span class="tkt-badge-part tkt-grey-badge tkt-minus-btn text-center">-</span>
-                            <span class="tkt-badge-part tkt-light-badge text-center">
-                                <span class="pricing-qty">
-                                    0
-                                </span>
-                                x
-                                <span class="pricing-name">
-                                    <%= p.name.<?= TKT_LANG ?> %> :
-                                    <% if (p.description.<?= TKT_LANG ?>) { %>
-                                        <i class="tkt-icon-info" data-component="Ui/Tippy" data-tippy-content="<%= p.description.<?= TKT_LANG ?> %>"></i>
-                                    <% } %>
-                                </span>
-                                <span class="pricing-price">
-                                    <%= p.price.<?= $currency ?>.toFixed(2) %> <?= $currency ?>
-                                </span>
+            <% if (!availabilities || availabilities.me['right-now']['one-time-pass'] > 0) { %>
+                <h4><?= tkt_t("Acheter des places") ?></h3>
+                <div class="pricings-form">
+                    <div class="row">
+                        <div class="col">
+                            <span>
+                                <?= tkt_t('Saisissez le nombre de place(s) que vous souhaitez ajouter à votre panier :') ?>
                             </span>
-                            <span class="tkt-badge-part tkt-dark-badge tkt-plus-btn text-center">+</span>
-                        </span>
-                        <input type="hidden" data-pricing="<%= key %>" class="input pricing-input" value="0"/>
+                        </div>
+                    </div>
+                    <% _.mapKeys(screening.pricings, function(p, key) { %>
+                    <div class="row pricing-row" data-pricing-wrapper="<%= key %>">
+                        <div class="col">
+                            <span class="tkt-badge tkt-badge-split flex-rev-on-mobile tkt-badge-plus-minus">
+                                <span class="tkt-badge-part tkt-grey-badge tkt-minus-btn text-center">-</span>
+                                <span class="tkt-badge-part tkt-light-badge text-center">
+                                    <span class="pricing-qty">
+                                        0
+                                    </span>
+                                    x
+                                    <span class="pricing-name">
+                                        <%= p.name.<?= TKT_LANG ?> %> :
+                                        <% if (p.description.<?= TKT_LANG ?>) { %>
+                                            <i class="tkt-icon-info" data-component="Ui/Tippy" data-tippy-content="<%= p.description.<?= TKT_LANG ?> %>"></i>
+                                        <% } %>
+                                    </span>
+                                    <span class="pricing-price">
+                                        <%= p.price.<?= $currency ?>.toFixed(2) %> <?= $currency ?>
+                                    </span>
+                                </span>
+                                <span class="tkt-badge-part tkt-dark-badge tkt-plus-btn text-center">+</span>
+                            </span>
+                            <input type="hidden" data-pricing="<%= key %>" class="input pricing-input" value="0"/>
+                        </div>
+                    </div>
+                    <% }) %>
+                    <div class="row">
+                        <div class="col">
+                            <div class="error pricings-error d-none"></div>
+                            <button class="button add-to-cart-btn active" >
+                                <?= tkt_t('Ajouter à mon panier') ?>
+                            </button>
+                        </div>
                     </div>
                 </div>
-                <% }) %>
-                <div class="row">
-                    <div class="col">
-                        <div class="error pricings-error d-none"></div>
-                        <button class="button add-to-cart-btn active" >
-                            <?= tkt_t('Ajouter à mon panier') ?>
-                        </button>
-                    </div>
-                </div>
-            </div>
+            <% } else { %>
+                <h5 class="no-one-time-pass-message">
+                    <% if (availabilities && availabilities['me']['from-now']['one-time-pass'] > 0) { %>
+                        <?= tkt_t("Il n'est pas encore possible d'acheter des places pour cette séance.") ?>
+                    <% } else if (availabilities && availabilities['me']['absolute']['one-time-pass'] > 0) { %>
+                        <?= tkt_t("Il n'est plus possible d'acheter des places pour cette séance.") ?>
+                    <% } else { %>
+                        <?= tkt_t("Il n'est pas possible d'acheter des places pour cette séance.") ?>
+                    <% } %>
+                </h5>
+                <% if (availabilities && availabilities['on-site']['right-now']['one-time-pass'] > 0) { %>
+                    <h5 class="no-one-time-pass-message">
+                        <?= tkt_t("Des places sont néanmoins disponibles aux caisses.") ?>
+                    </h5>
+                <% } else if (availabilities && availabilities['on-site']['from-now']['one-time-pass'] > 0) { %>
+                    <h5 class="no-one-time-pass-message">
+                        <?= tkt_t("Des places seront néanmoins disponibles aux caisses.") ?>
+                    </h5>
+                <% } %>
+            <% } %>
         <% } %>
         <br/>
     <% } %>
