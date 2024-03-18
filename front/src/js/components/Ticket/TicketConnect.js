@@ -1,6 +1,6 @@
 import { Component, Config, Template, i18n } from '../Core';
 import { TKTLib, Api as TKTApi } from '../Ticketack';
-import { Booking, Ticket } from '../Models';
+import { Ticket } from '../Models';
 import postal from 'postal';
 
 /**
@@ -17,8 +17,8 @@ export default class TicketConnect extends Component {
     /**
      * @constructor
      */
-    constructor($container, state, loader) {
-        super($container, state, loader);
+    constructor($container, state) {
+        super($container, state);
         this.data       = {
             pass_infos: {}
         };
@@ -140,7 +140,5 @@ export default class TicketConnect extends Component {
             if (_id)
                 this.init(_id);
         });
-
-        this.loader.attach();
     }
 }
