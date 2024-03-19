@@ -35,6 +35,14 @@ export default class TicketConnect extends Component {
             }
         });
 
+        postal.subscribe({
+            channel: "ticket",
+            topic: "update",
+            callback: (data, envelope) => {
+                this.init();
+            }
+        });
+
         this.init();
     }
 

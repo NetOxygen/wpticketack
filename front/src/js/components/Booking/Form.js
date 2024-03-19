@@ -149,14 +149,24 @@ export default class BookingForm extends Component {
         });
     }
 
+    emit_ticket_update(ticket) {
+        postal.publish({
+            channel: "ticket",
+            topic: "update",
+            data: {
+                ticket: ticket
+            }
+        });
+    }
+
     process_add_to_cart() {
-        $('.pricings-error').html("").addClass('d-none');
-        $('.success-panel').addClass('d-none');
+        $('.pricings-error', this.$container).html("").addClass('d-none');
+        $('.success-panel', this.$container).addClass('d-none');
 
         // Check chosen pricings
         const chosen_pricings = _.find(this.data.pricings, (nb) => nb > 0);
         if (!chosen_pricings) {
-            return $('.pricings-error')
+            return $('.pricings-error', this.$container)
                 .html(i18n.t('Veuillez choisir au moins un billet'))
                 .removeClass('d-none');
         }
@@ -167,7 +177,7 @@ export default class BookingForm extends Component {
             this.data.pricings,
             (err, status, rsp) => {
                 if (err) {
-                    return $('.pricings-error')
+                    return $('.pricings-error', this.$container)
                         .html((rsp || {}).errorMsg)
                         .removeClass('d-none');
                 }
@@ -208,8 +218,12 @@ export default class BookingForm extends Component {
             return new Error("Ticket not found");
 
         const { ScreeningService, TicketService } = TKTLib;
-        const $container = $('.ticket-wrapper[data-ticket-id="' + ticket_id + '"]');
+        const $container = $('.ticket-wrapper[data-ticket-id="' + ticket_id + '"]', this.$container);
+        $('.book-form-error', $container).addClass('d-none');
+        $('.book-form-success', $container).addClass('d-none');
+
         let bookings = [];
+        let success = false;
         try {
             bookings = await ScreeningService.book(screening_id, {}, [{
                 pledge: { 'ticket:type:_id': ticket.type._id }
@@ -217,7 +231,10 @@ export default class BookingForm extends Component {
             const result = await TicketService.confirmBooking(ticket_id, bookings[0]._id);
             $('.book-form-error', $container).addClass('d-none');
             $('.book-form-success', $container).removeClass('d-none');
+            success = true;
+            this.emit_ticket_update(this.data.ticket);
         } catch(err) {
+            $('.book-form-success', $container).addClass('d-none');
             $('.book-form-error', $container)
                 .html(i18n.t("Impossible de réserver."))
                 .removeClass('d-none');
@@ -229,6 +246,13 @@ export default class BookingForm extends Component {
         this.refreshTicket(ticket_id, (err, ticket) => {
             this.check_bookability(() => {
                 this.build_tickets_form();
+                if (success) {
+                    // the success message has been hidden due to the re-render,
+                    // let's show it again
+                    const $container = $('.ticket-wrapper[data-ticket-id="' + ticket_id + '"]', this.$container);
+                    $('.book-form-error', $container).addClass('d-none');
+                    $('.book-form-success', $container).removeClass('d-none');
+                }
             });
         });
     }
@@ -237,7 +261,7 @@ export default class BookingForm extends Component {
         $('.pass-error', this.$container).html("").addClass('d-none');
 
         if (!this.data.pass_infos.number || !this.data.pass_infos.key)
-            return $('.pass-error')
+            return $('.pass-error', this.$container)
                 .html(i18n.t('Veuillez remplir les deux champs'))
                 .removeClass('d-none');
 
@@ -297,7 +321,7 @@ export default class BookingForm extends Component {
         }));
 
         // bind dates choices
-        $('.dates-wrapper .date').click((e) => {
+        $('.dates-wrapper .date', this.$container).click((e) => {
             let $date = $(e.target);
             if (!$date.data('screening_id'))
                 $date = $date.closest('[data-screening_id]');
@@ -305,16 +329,16 @@ export default class BookingForm extends Component {
             this.loader.attach();
         });
 
-        if ($('.days-wrapper')) {
-            $('.days-wrapper .day').click((e) => {
+        if ($('.days-wrapper', this.$container)) {
+            $('.days-wrapper .day', this.$container).click((e) => {
                 this.select_day($(e.target).data('day'));
                 this.loader.attach();
             });
         }
 
-        if ($('.days-wrapper #calendar')) {
-            $('#calendar').change((e) => {
-                this.select_day($('#calendar').val());
+        if ($('.days-wrapper #calendar', this.$container)) {
+            $('.days-wrapper #calendar', this.$container).change((e) => {
+                this.select_day($('.days-wrapper #calendar', this.$container).val());
                 this.loader.attach();
             });
         }
@@ -332,7 +356,8 @@ export default class BookingForm extends Component {
 
         if (s_to_select) {
             let d_to_select = $(
-                '.days-wrapper .day[data-screening_id*="' + s_to_select + '"]'
+                '.days-wrapper .day[data-screening_id*="' + s_to_select + '"]',
+                this.$container
             ).data('day');
             this.select_day(d_to_select);
             this.select_screening(s_to_select);
@@ -403,7 +428,7 @@ export default class BookingForm extends Component {
         // bind pass panel toggler
         $('a.show-connect-panel-form', this.$container).click((e) => {
             e.preventDefault();
-            $('.connect-panel-form').removeClass('d-none');
+            $('.connect-panel-form', this.$container).removeClass('d-none');
         });
 
         // bind pass fields
@@ -449,17 +474,17 @@ export default class BookingForm extends Component {
     }
 
     activate_day (day) {
-        $('.days-wrapper .day').removeClass('active');
-        $('.days-wrapper .day[data-day*="' + day + '"]').addClass('active');
+        $('.days-wrapper .day', this.$container).removeClass('active');
+        $('.days-wrapper .day[data-day*="' + day + '"]', this.$container).addClass('active');
 
-        $('.dates-wrapper .date').hide();
-        $('.dates-wrapper .date[data-day="' + day + '"]').show();
+        $('.dates-wrapper .date', this.$container).hide();
+        $('.dates-wrapper .date[data-day="' + day + '"]', this.$container).show();
    }
 
     select_day (day) {
         this.activate_day(day);
 
-        const $day_input = $('.days-wrapper .day[data-day*="' + day + '"]');
+        const $day_input = $('.days-wrapper .day[data-day*="' + day + '"]', this.$container);
         const data_screening_id = $day_input.data('screening_id');
         if (data_screening_id) {
             const first_screening = data_screening_id.split(',')[0];
@@ -470,7 +495,7 @@ export default class BookingForm extends Component {
                 const date = moment(day).format("dddd D MMMM");
                 this.activate_day(date);
 
-                const screening_id = $('.dates-wrapper span[data-day="' + date + '"]').attr('data-screening_id');
+                const screening_id = $('.dates-wrapper span[data-day="' + date + '"]', this.$container).attr('data-screening_id');
                 this.select_screening(screening_id);
                 this.activate_screening(screening_id);
             }
@@ -478,8 +503,8 @@ export default class BookingForm extends Component {
     }
 
     activate_screening (screening_id) {
-        $('.dates-wrapper .date').removeClass('active');
-        $('.dates-wrapper .date[data-screening_id="' + screening_id + '"]').addClass('active');
+        $('.dates-wrapper .date', this.$container).removeClass('active');
+        $('.dates-wrapper .date[data-screening_id="' + screening_id + '"]', this.$container).addClass('active');
     }
 
     select_screening (screening_id) {
