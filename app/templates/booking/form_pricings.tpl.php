@@ -28,7 +28,9 @@ use Ticketack\WP\TKTApp;
 $currency = TKTApp::get_instance()->get_config('currency', 'CHF');
 ?>
 
-<% const availabilities = bookability.availabilities; %>
+<% const availabilities = bookability?.availabilities; %>
+<% const eligible_types = bookability?.eligible_types || screening?.eligible_types || []; %>
+<% const sellable_types = eligible_types.filter(t => !!t.sellable); %>
 
 <div class="tkt-wrapper">
     <% if (_.keys(screening.pricings).length) { %>
@@ -108,7 +110,7 @@ $currency = TKTApp::get_instance()->get_config('currency', 'CHF');
         <br/>
     <% } %>
 
-    <% if (show_ticket_id && screening.opaque && (!('map_only_bookings' in screening.opaque && screening.opaque.map_only_bookings)) && screening.eligible_types.length) { %>
+    <% if (show_ticket_id && screening.opaque && (!('map_only_bookings' in screening.opaque && screening.opaque.map_only_bookings)) && eligible_types.length) { %>
     <h4><?= tkt_t("Réserver des places sur vos billets") ?></h3>
 
     <div class="book-panel">
@@ -210,12 +212,13 @@ $currency = TKTApp::get_instance()->get_config('currency', 'CHF');
                 </div>
             </div>
             <?php if (TKTApp::get_instance()->get_config('pages.pass')) : ?>
+            <% if (sellable_types.length > 0) { %>
             <div class="row">
                 <div class="col mt-3">
                     <div class="buy-pass-link">
                         <span><?= tkt_t("Acheter un abonnement") ?></span>
                         <ul class="eligible-types-list">
-                        <% screening.eligible_types.map(function (t) { %>
+                        <% sellable_types.map(function (t) { %>
                         <li class="elligible-type">
                             <span class="type-name">
                                 <i class="tkt-icon-ticket"></i>
@@ -229,6 +232,7 @@ $currency = TKTApp::get_instance()->get_config('currency', 'CHF');
                     </div>
                 </div>
             </div>
+            <% } %>
             <?php endif; ?>
         </div>
     </div>
