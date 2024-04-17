@@ -187,6 +187,21 @@
         </section>
         <% } %>
 
+        <!-- Guests -->
+        <% if (ticket?.hasGuestsInfo()) { %>
+        <section class="tkt-section tkt-<?= $theme ?>-section mt-3">
+            <h3 class="panel-title"><?= tkt_t('Invités') ?></h3>
+            <div class="text-center">
+                <% ticket.getGuestsInfo().forEach(guest => { %>
+                    <h5>
+                        <%= [guest.firstname, guest.lastname].filter(v => !!v).join(' ') %><br />
+                        <small><%= guest.email %></small>
+                    </h5>
+                <% }); %>
+            </div>
+        </section>
+        <% } %>
+
         <% if (ticket.getWalletBalance() > 0) { %>
         <div class="row">
             <div class="col">
