@@ -44,6 +44,12 @@ if (!function_exists('r')) {
     }
 }
 
+$payment_methods      = TKTApp::get_instance()->get_config('payment.methods', []);
+$payment_method_names = array_column($payment_methods, 'name', '_id');
+foreach ($payment_method_names as $id => $translations) {
+    $translation = $translations[TKT_LANG] ?? current(array_values($translations));
+    $payment_method_names[$id] = $translation;
+}
 ?>
 
 <!-- Message for proxypay configuration error -->
@@ -231,13 +237,13 @@ if (!function_exists('r')) {
               <div class="col-md-12 text-right">
                 <?php if ($allow_later) : ?>
                   <button type="submit" class="submit-button button later" data-payment-method="LATER_PAYMENT" data-redirect="<?= $data->redirect ?>">
-                    <span class="glyphicon glyphicon-ok"></span> <?= tkt_t('Réserver (paiement sur place)') ?>
+                    <span class="glyphicon glyphicon-ok"></span> <?= $payment_method_names['LATER_PAYMENT'] ?>
                   </button>
                 <?php endif; ?>
 
                 <?php if ($allow_proxypay) : ?>
                   <button type="submit" class="submit-button button proxypay" data-payment-method="PROXYPAY" data-redirect="<?= $data->redirect ?>">
-                    <span class="glyphicon glyphicon-credit-card"></span> <?= tkt_t('Procéder au paiement') ?>
+                    <span class="glyphicon glyphicon-credit-card"></span> <?= $payment_method_names['PROXYPAY'] ?>
                   </button>
 
                   <?php if ($allow_null_payment) : ?>
