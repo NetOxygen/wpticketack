@@ -2,7 +2,7 @@
 Tags: ticketack
 Requires at least: 5.9
 Tested up to: 6.4.3
-Stable tag: 2.71.0
+Stable tag: 2.72.1
 Requires PHP: 8.1
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -37,6 +37,12 @@ This section describes how to install the plugin and get it working.
 
 = Changelog =
 * [Changelog link](https://yoda.netoxygen.ch/public/projects/401b5210-986f-46b3-99cb-38546b73e16c/changelog)
+
+= 2.72.1 =
+
+* feat: Tickets guests are now visible
+* modified templates:
+  - app/templates/ticket/ticket.tpl.php
 
 = 2.71.0 =
 
