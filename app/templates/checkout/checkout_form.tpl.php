@@ -76,6 +76,15 @@ foreach ($payment_method_names as $id => $translations) {
           <fieldset>
             <h3 class="tkt-section-title"><?= tkt_t("Vos données de facturation") ?></h3>
             <div class="row">
+              <?php if (in_array('company', $requested_fields) || in_array('company', $required_fields)) : ?>
+              <div id="field-wrapper-company" class="field-wrapper col-md-12" style="display: block;">
+                <div class="form-group">
+                  <label class="<?= r($required_fields, 'company') ?>" for="company"><?= tkt_t("Entreprise"); ?></label>
+                  <textarea name="user[company]" class="tkt-input form-control data-field" id="company" placeholder="<?= tkt_t("Votre entreprise") ?>" <?= r($required_fields, 'company') ?>></textarea>
+                </div>
+              </div>
+              <?php endif; ?>
+
               <?php if (in_array('firstname', $requested_fields) || in_array('firstname', $required_fields)) : ?>
               <div id="field-wrapper-firstname" class="field-wrapper col-md-6" style="display: block;">
                 <div class="form-group">
@@ -189,6 +198,15 @@ foreach ($payment_method_names as $id => $translations) {
                   <option value="<?= $value ?>"><?= $label ?></option>
                   <?php endforeach; ?>
                 </select>
+              </div>
+              <?php endif; ?>
+
+              <?php if (in_array('comment', $requested_fields) || in_array('comment', $required_fields)) : ?>
+              <div id="field-wrapper-comment" class="field-wrapper col-md-12" style="display: block;">
+                <div class="form-group">
+                  <label class="<?= r($required_fields, 'comment') ?>" for="comment"><?= tkt_t("Commentaires"); ?></label>
+                  <textarea name="user[comment]" class="tkt-input form-control data-field" id="comment" <?= r($required_fields, 'comment') ?>></textarea>
+                </div>
               </div>
               <?php endif; ?>
 

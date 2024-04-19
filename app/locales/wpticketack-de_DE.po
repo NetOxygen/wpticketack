@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-06 11:18+0100\n"
+"POT-Creation-Date: 2024-04-19 10:35+0200\n"
 "PO-Revision-Date: 2022-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Belkacem Alidra <belkacem.alidra@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -350,6 +350,9 @@ msgstr "Vergangene Reservationen"
 msgid "Réserver des séances"
 msgstr "Sitzungen reservieren"
 
+msgid "Invités"
+msgstr "Gäste"
+
 msgid "Validité"
 msgstr "Gültigkeit"
 
@@ -453,11 +456,8 @@ msgstr "Keine Vorstellungen zum Ansehen"
 msgid "Plus d'informations"
 msgstr "Mehr Informationen"
 
-msgid ""
-"Aucuné séance programmée actuellement, revenez nous visiter prochainement."
-msgstr "Derzeit sind keine Sitzungen geplant. Besuchen Sie uns bald wieder."
-
-msgid "Il ne reste que quelques places !"
+#, fuzzy
+msgid "Il ne reste que quelques places"
 msgstr "Es sind nur noch wenige Plätze verfügbar!"
 
 msgid "Complet"
@@ -465,6 +465,13 @@ msgstr "Ausgebucht"
 
 msgid "Billets"
 msgstr "Tickets"
+
+msgid "Il ne reste que quelques places !"
+msgstr "Es sind nur noch wenige Plätze verfügbar!"
+
+msgid ""
+"Aucuné séance programmée actuellement, revenez nous visiter prochainement."
+msgstr "Derzeit sind keine Sitzungen geplant. Besuchen Sie uns bald wieder."
 
 msgid "Mon compte"
 msgstr "Mein Konto"
@@ -633,14 +640,17 @@ msgstr "Keine Zahlungsmethode konfiguriert."
 msgid "Vos données de facturation"
 msgstr "Ihre Rechnungsdaten"
 
+msgid "Entreprise"
+msgstr "Unternehmen"
+
+msgid "Votre entreprise"
+msgstr "Ihr Unternehmen"
+
+msgid "Commentaires"
+msgstr "Kommentare"
+
 msgid "Je désire m'inscrire à la newsletter."
 msgstr "Ich möchte mich für den Newsletter anmelden."
-
-msgid "Réserver (paiement sur place)"
-msgstr "Buchen (Zahlung vor Ort)"
-
-msgid "Procéder au paiement"
-msgstr "Zahlung fortfahren"
 
 msgid ""
 "Dans le cadre des conditions sanitaires actuelles, nous sommes tenus de "
@@ -1331,3 +1341,9 @@ msgstr "Ändern Sie die Werte unten nur, wenn Sie wissen, was Sie tun."
 
 msgid "Brouillon"
 msgstr "Draft"
+
+#~ msgid "Réserver (paiement sur place)"
+#~ msgstr "Buchen (Zahlung vor Ort)"
+
+#~ msgid "Procéder au paiement"
+#~ msgstr "Zahlung fortfahren"

@@ -43,6 +43,15 @@ function needsField(field) {
             </div>
             <div class="user-data-fields">
                 <div class="row">
+                    <% if (acceptsField('company'))  { %>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label <%= needsField('company') ? 'class="required"' : '' %>><?= tkt_t('Entreprise'); ?></label>
+                                <input name="user_data[index-<%= item.index %>][company]" type="text" class="form-control" placeholder="<?= tkt_t('Votre nom'); ?>" value="<%= item.getUserData('company') %>" <%= needsField('company') ? 'required' : '' %>>
+                            </div>
+                        </div>
+                    <% } %>
+
                     <% if (acceptsField('firstname'))  { %>
                         <div class="col-md-5">
                             <div class="form-group">
