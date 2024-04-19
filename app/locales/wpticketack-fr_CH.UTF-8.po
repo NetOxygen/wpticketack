@@ -1,7 +1,7 @@
 # Translation of WP Ticketack.
-# Copyright (C) 2018 Net Oxygen Sàrl
+# Copyright (C) 2024 Net Oxygen Sàrl
 # This file is distributed under the same license as the wpticketack package.
-#  <dev@b-alidra.com>, 2018.
+#  <belkacem.alidra@netoxygen.ch>, 2024.
 #
 #, fuzzy
 msgid ""
@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-04-19 10:34+0200\n"
-"PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2024-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Belkacem Alidra <belkacem.alidra@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -18,284 +18,282 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "Veuillez choisir le nombre de descentes"
-msgstr "Please choose the number of descents"
+msgstr ""
 
 msgid "descente"
-msgstr "descent"
+msgstr ""
 
 msgid "descentes consécutives"
-msgstr "consecutive descents"
+msgstr ""
 
 msgid "Veuillez choisir une date"
-msgstr "Please choose a date"
+msgstr ""
 
 msgid "l j F"
-msgstr "l j F"
+msgstr ""
 
 msgid "Veuillez choisir une heure"
-msgstr "Please choose a time"
+msgstr ""
 
 msgid "Veuillez choisir vos MountainCarts"
-msgstr "Please choose your MountainCarts"
+msgstr ""
 
 msgid "Taille"
-msgstr "Size"
+msgstr ""
 
 msgid "Étape suivante"
-msgstr "Next step"
+msgstr ""
 
 msgid "Il n'y a plus de places pour cette date."
-msgstr "There are no more available seats for this date."
+msgstr ""
 
 msgid "Veuillez saisir vos informations"
-msgstr "Please enter your information"
+msgstr ""
 
 msgid "Prénom"
-msgstr "First name"
+msgstr ""
 
 msgid "Veuillez choisir votre tarif"
-msgstr "Please choose your pricing"
+msgstr ""
 
 msgid "Choisissez un tarif"
-msgstr "Choose a pricing"
+msgstr ""
 
 msgid "Réserver"
-msgstr "Book"
+msgstr ""
 
 msgid "Nombre de descentes"
-msgstr "Number of descents"
+msgstr ""
 
 msgid "1 descente"
-msgstr "1 descent"
+msgstr ""
 
 msgid "2 descentes"
-msgstr "2 descents"
+msgstr ""
 
 msgid "Date"
-msgstr "Date"
+msgstr ""
 
 msgid "Départ"
-msgstr "Departure"
+msgstr ""
 
 msgid "Choix des MountainCarts"
-msgstr "Choose your MountainCarts"
+msgstr ""
 
 msgid "Vos informations"
-msgstr "Your informations"
+msgstr ""
 
 msgid "Tarifs"
-msgstr "Pricings"
+msgstr ""
 
 msgid "Sélectionnez votre contenance et votre quantité :"
-msgstr "Select the quantity:"
+msgstr ""
 
 msgid "Total"
-msgstr "Total"
+msgstr ""
 
 msgid "Veuillez choisir au moins un produit"
-msgstr "Please choose a date"
+msgstr ""
 
 msgid "Accéder au panier"
-msgstr "Add to cart"
+msgstr ""
 
 msgid "Ajouter au panier"
-msgstr "Add to cart"
+msgstr ""
 
 msgid "Acheter"
-msgstr "Buy"
+msgstr ""
 
 msgid "Votre accréditation/pass ne vous permet pas de visionner ce contenu."
-msgstr "Your accreditation/pass doesn't allow access to this content."
+msgstr ""
 
 msgid "Vous avez un TicketID ?"
-msgstr "You have a TicketID?"
+msgstr ""
 
 msgid "Connexion"
-msgstr "Login"
+msgstr ""
 
 msgid "Votre TicketID se trouve sur votre abonnement"
-msgstr "Your TicketID is on your pass"
+msgstr ""
 
 msgid "Regarder"
-msgstr "Watch"
+msgstr ""
 
 msgid "Merci, votre commande est réservée dans votre panier pour 30 minutes."
-msgstr "Thank you, your order is reserved in your cart for 30 minutes."
+msgstr ""
 
 msgid "Continuer"
-msgstr "Continue"
+msgstr ""
 
 msgid "ma visite"
-msgstr "my visit"
+msgstr ""
 
 msgid ""
 "Saisissez le nombre d'éléments que vous souhaitez ajouter à votre panier :"
-msgstr "Enter the number of items you want to add to your cart:"
+msgstr ""
 
 msgid "Épuisé"
-msgstr "Out of stock"
+msgstr ""
 
 msgid "Ajouter à mon panier"
-msgstr "Add to my cart"
+msgstr ""
 
 msgid "Titulaire"
-msgstr "Holder"
+msgstr ""
 
 msgid "Votre prénom"
-msgstr "Your firstname"
+msgstr ""
 
 msgid "Nom"
-msgstr "Lastname"
+msgstr ""
 
 msgid "Votre nom"
-msgstr "Your lastname"
+msgstr ""
 
 msgid "E-mail"
-msgstr "Email"
+msgstr ""
 
 msgid "Votre e-mail"
-msgstr "Your email"
+msgstr ""
 
 msgid "Adresse"
-msgstr "Address"
+msgstr ""
 
 msgid "Votre adresse"
-msgstr "Your address"
+msgstr ""
 
 msgid "Numéro postal"
-msgstr "Zip"
+msgstr ""
 
 msgid "NPA"
-msgstr "ZIP"
+msgstr ""
 
 msgid "Ville"
-msgstr "City"
+msgstr ""
 
 msgid "Pays"
-msgstr "Country"
+msgstr ""
 
 msgid "Téléphone"
-msgstr "Fix phone"
+msgstr ""
 
 msgid "Téléphone portable"
-msgstr "Cellphone"
+msgstr ""
 
 msgid "Âge"
-msgstr "Age"
+msgstr ""
 
 msgid "Date de naissance"
-msgstr "Birthdate"
+msgstr ""
 
 msgid "Genre"
-msgstr "Gender"
+msgstr ""
 
 msgid "Photo"
-msgstr "Photo"
+msgstr ""
 
 msgid "Choisir une image"
-msgstr "Choose a picture"
+msgstr ""
 
 msgid "Formats pris en charge : jpeg, png ou gif"
-msgstr "Supported formats: jpeg, png or gif"
+msgstr ""
 
 msgid "Arrêter la vidéo"
-msgstr "Stop video"
+msgstr ""
 
 msgid "Prendre une photo depuis la caméra"
-msgstr "Take a picture from your camera"
+msgstr ""
 
 msgid "Prendre une photo"
-msgstr "Take a picture"
+msgstr ""
 
 msgid "Vidéo non supportée"
-msgstr "Unsupported video"
+msgstr ""
 
 msgid ""
 "Sans photo clairement reconnaissable, nous nous réservons le droit de vous "
 "refuser l'entrée. En cas d'abus, votre billet pourra être bloqué."
 msgstr ""
-"Without a clearly recognizable photo, we reserve the right to refuse entry. "
-"In case of abuse, your ticket may be blocked."
 
 msgid "Ceci est un cadeau"
-msgstr "This is a gift"
+msgstr ""
 
 msgid "Ces champs sont requis"
-msgstr "These fields are required"
+msgstr ""
 
 msgid "Tarifs :"
-msgstr "Pricing:"
+msgstr ""
 
 msgid "Veuillez choisir la date désirée :"
-msgstr "Please choose a date:"
+msgstr ""
 
 msgid "Veuillez choisir l'heure désirée :"
-msgstr "Please choose a time:"
+msgstr ""
 
 msgid "à"
-msgstr "to"
+msgstr ""
 
 msgid "Il n'y a pas de billetterie disponible pour cet événement."
-msgstr "There are no tickets available for this event."
+msgstr ""
 
 msgid "Réserver une place sur mon abonnement"
-msgstr "Book on my pass"
+msgstr ""
 
 msgid "Entrée libre"
-msgstr "Free entry"
+msgstr ""
 
 msgid "Acheter des places"
-msgstr "Buy tickets"
+msgstr ""
 
 msgid ""
 "Saisissez le nombre de place(s) que vous souhaitez ajouter à votre panier :"
-msgstr "Enter the number of seat(s) you want to add to your cart:"
+msgstr ""
 
 msgid "Il n'est pas encore possible d'acheter des places pour cette séance."
-msgstr "Seats are not yet available this screening."
+msgstr ""
 
 msgid "Il n'est plus possible d'acheter des places pour cette séance."
-msgstr "There are no more available seats for this screening."
+msgstr ""
 
 msgid "Il n'est pas possible d'acheter des places pour cette séance."
-msgstr "There are no available seats for this screening."
+msgstr ""
 
 msgid "Des places sont néanmoins disponibles aux caisses."
-msgstr "Tickets are still available at the box office."
+msgstr ""
 
 msgid "Des places seront néanmoins disponibles aux caisses."
-msgstr "Tickets will still be available at the box office."
+msgstr ""
 
 msgid "Réserver des places sur vos billets"
-msgstr "Reserve seats on your tickets"
+msgstr ""
 
 msgid "Réservation pour cette séance avec ce billet :"
-msgstr "Reservation for this screening with this ticket:"
+msgstr ""
 
 msgid "Réserver une place sur ce billet"
-msgstr "Reserve a seat on this ticket"
+msgstr ""
 
 msgid "Réserver une place de plus sur ce billet"
-msgstr "Reserve an additional seat on this ticket"
+msgstr ""
 
 msgid ""
 "Vous ne pouvez pas réserver plus de place pour cette séance avec ce billet."
-msgstr "You cannot reserve more seats for this screening with this ticket."
+msgstr ""
 
 msgid "Vous ne pouvez pas réserver de place pour cette séance avec ce billet."
-msgstr "You cannot reserve a seat for this screening with this ticket."
+msgstr ""
 
 msgid "Votre place a bien été réservée."
-msgstr "Your seat has been successfully reserved."
+msgstr ""
 
 msgid "Ajoutez-le"
-msgstr "Add it"
+msgstr ""
 
 msgid "pour réserver."
-msgstr "to reserve."
+msgstr ""
 
 msgid "Acheter un abonnement"
-msgstr "Buy a subscription"
+msgstr ""
 
 msgid ""
 "La documentation est disponible <a target=\"_blank\" href=\"https://"
@@ -304,310 +302,303 @@ msgid ""
 "href=\"https://yoda.netoxygen.ch/public/"
 "projects/401b5210-986f-46b3-99cb-38546b73e16c/changelog\">ici</a>"
 msgstr ""
-"The documentation is available <a target=\"_blank\" href=\"https://ticketack."
-"com/en/knowledge-base/integration-avec-le-module-wordpress/\">at this link</"
-"a> and the changelog <a href=\"https://yoda.netoxygen.ch/public/"
-"projects/401b5210-986f-46b3-99cb-38546b73e16c/changelog\">here</a>"
 
 msgid ""
 "Nous n'émettons pas de billet individuel pour les réservations, votre ticket "
 "actuel vous sert de titre d'entrée aux séances réservées."
 msgstr ""
-"We do not issue individual tickets for reservations, your current ticket "
-"serves as your entry pass for the reserved screenings."
 
 msgid "Réservations"
-msgstr "Reservations"
+msgstr ""
 
 msgid "Il n'y a actuellement aucune réservation sur ce billet."
-msgstr "There are currently no reservations on this ticket."
+msgstr ""
 
 msgid "Réservation"
-msgstr "Reservation"
+msgstr ""
 
 msgid "Lieu"
-msgstr "Venue"
+msgstr ""
 
 msgid "Action"
-msgstr "Action"
+msgstr ""
 
 msgid "Annuler"
-msgstr "Cancel"
+msgstr ""
 
 msgid "Réservations passées"
-msgstr "Past reservations"
+msgstr ""
 
 msgid "Réserver des séances"
-msgstr "Book screenings"
+msgstr ""
 
 msgid "Invités"
-msgstr "Guests"
+msgstr ""
 
 msgid "Validité"
-msgstr "Validity"
+msgstr ""
 
 #, php-format
 msgid "Activé le %s"
-msgstr "Activated on %s"
+msgstr ""
 
 msgid "Tarif :"
-msgstr "Pricing:"
+msgstr ""
 
 #, php-format
 msgid "Valable jusqu'au %s"
-msgstr "Valid until %s"
+msgstr ""
 
 msgid "Oublier ce ticket"
-msgstr "Forget this ticket"
+msgstr ""
 
 msgid "Votre panier est vide"
-msgstr "Your cart is empty"
+msgstr ""
 
 msgid "Votre commande"
-msgstr "Your order"
+msgstr ""
 
 msgid "Tickets"
-msgstr "Tickets"
+msgstr ""
 
 msgid "Prix"
-msgstr "Price"
+msgstr ""
 
 msgid "Articles"
-msgstr "Articles"
+msgstr ""
 
 msgid "Abonnements"
-msgstr "Pass"
+msgstr ""
 
 msgid "Récapitulatif"
-msgstr "Summary"
+msgstr ""
 
 msgid "Commande"
-msgstr "Order"
+msgstr ""
 
 msgid "Rabais"
-msgstr "Rebate"
+msgstr ""
 
 msgid "Frais"
-msgstr "Fees"
+msgstr ""
 
 msgid "Total :"
-msgstr "Total:"
+msgstr ""
 
 msgid "Vous disposez de"
-msgstr "You have"
+msgstr ""
 
 msgid "sur votre portefeuille électronique"
-msgstr "on your e-wallet"
+msgstr ""
 
 msgid "Saisissez ci-dessous le montant que vous souhaitez utiliser"
-msgstr "Enter below the amount you wish to use"
+msgstr ""
 
 msgid "Utiliser mon portefeuille"
-msgstr "Use my e-wallet"
+msgstr ""
 
 msgid "Code promo"
-msgstr "Coupon code"
+msgstr ""
 
 msgid "Utiliser"
-msgstr "Use"
+msgstr ""
 
 msgid "Finaliser ma commande"
-msgstr "Finish my order"
+msgstr ""
 
 msgid "Annuler ma commande"
-msgstr "Cancel my order"
+msgstr ""
 
 msgid "Continuer mes réservations"
-msgstr "Continue my bookings"
+msgstr ""
 
 msgid "Résumé du panier"
-msgstr "Cart summary"
+msgstr ""
 
 msgid "Panier"
-msgstr "Cart"
+msgstr ""
 
 msgid "produit(s)"
-msgstr "product(s)"
+msgstr ""
 
 msgid "Total TTC"
-msgstr "Total (taxes incl.)"
+msgstr ""
 
 msgid "OK"
-msgstr "OK"
+msgstr ""
 
 msgid ""
 "Aucun événement programmé actuellement, revenez nous visiter prochainement."
-msgstr "No event currently scheduled, come back soon."
+msgstr ""
 
 msgid "Aucune séance à afficher"
-msgstr "No screenings"
+msgstr ""
 
 msgid "Plus d'informations"
-msgstr "More informations"
+msgstr ""
 
-#, fuzzy
 msgid "Il ne reste que quelques places"
-msgstr "There are only a few places"
+msgstr ""
 
 msgid "Complet"
-msgstr "Complete"
+msgstr ""
 
 msgid "Billets"
-msgstr "Tickets"
+msgstr ""
 
 msgid "Il ne reste que quelques places !"
-msgstr "There are only a few places left!"
+msgstr ""
 
 msgid ""
 "Aucuné séance programmée actuellement, revenez nous visiter prochainement."
-msgstr "No screening currently scheduled, come back soon."
+msgstr ""
 
 msgid "Mon compte"
-msgstr "My account"
+msgstr ""
 
 msgid "Me déconnecter"
-msgstr "Logout"
+msgstr ""
 
 msgid "Identifiant"
-msgstr "Login"
+msgstr ""
 
 msgid "Mot de passe"
-msgstr "Password"
+msgstr ""
 
 msgid "Pas encore de compte ? Créez-en un !"
-msgstr "No account yet? Create one!"
+msgstr ""
 
 msgid "Mot de passe perdu ? Changez-le !"
-msgstr "Lost password? Change it here!"
+msgstr ""
 
 msgid "Société"
-msgstr "Company"
+msgstr ""
 
 msgid "Votre société"
-msgstr "Your company"
+msgstr ""
 
 msgid "Adresse e-mail"
-msgstr "E-mail address"
+msgstr ""
 
 msgid "Votre adresse e-mail"
-msgstr "Your e-mail address"
+msgstr ""
 
 msgid "Confirmation de votre adresse e-mail"
-msgstr "Confirm your e-mail address"
+msgstr ""
 
 msgid "Saisissez une deuxième fois votre adresse"
-msgstr "Enter your e-mail address a second time"
+msgstr ""
 
 msgid "Votre numéro de téléphone"
-msgstr "Your phone number"
+msgstr ""
 
 msgid "j F Y"
-msgstr "F j, Y"
+msgstr ""
 
 msgid "Choisissez un mot de passe"
-msgstr "Choose a password"
+msgstr ""
 
 msgid "Confirmation de votre mot de passe"
-msgstr "Confirm your password"
+msgstr ""
 
 msgid "Saisissez une deuxième fois votre mot de passe"
-msgstr "Enter your password a second time"
+msgstr ""
 
 msgid "Tous ces champs sont requis"
-msgstr "All these fields are required"
+msgstr ""
 
 msgid "Votre compte a bien été créé"
-msgstr "Your account has been created"
+msgstr ""
 
 msgid ""
 "Veuillez l'activer en cliquant sur le lien que vous avez reçu par e-mail."
-msgstr "Please activate it by clicking on the link sent to your email address."
+msgstr ""
 
 msgid "Créer mon compte"
-msgstr "Create your account"
+msgstr ""
 
 msgid "Déjà un compte ? Connectez-vous !"
-msgstr "Have an account? Please Login!"
+msgstr ""
 
 msgid "Mes votes"
-msgstr "My votes"
+msgstr ""
 
 msgid "Aucun vote disponible pour le moment."
-msgstr "No votes available at the moment."
+msgstr ""
 
 msgid "Mes informations"
-msgstr "My data"
+msgstr ""
 
 msgid ""
 "Si vous souhaitez changer votre mot de passe, remplissez les champs ci-"
 "dessous."
-msgstr "If you'd like to change your password, please fill the form below."
+msgstr ""
 
 msgid "Nouveau mot de passe"
-msgstr "New password"
+msgstr ""
 
 msgid "Saisissez une deuxième fois votre nouveau mot de passe"
-msgstr "Enter your e-mail address a second time"
+msgstr ""
 
 msgid "Modifier mes informations"
-msgstr "Edit your informations"
+msgstr ""
 
 msgid "Mes commandes"
-msgstr "My orders"
+msgstr ""
 
 msgid "Vous n'avez pas encore de commandes."
-msgstr "You don't have any order yet."
+msgstr ""
 
 msgid "#"
-msgstr "#"
+msgstr ""
 
 msgid "Prix total"
-msgstr "Total"
+msgstr ""
 
 msgid "Paiement"
-msgstr "Payment"
+msgstr ""
 
 msgid "Statut"
-msgstr "Status"
+msgstr ""
 
 msgid "Mes billets"
-msgstr "My tickets"
+msgstr ""
 
 msgid "Autres abonnements (ajoutés avec leur TicketID)"
-msgstr "Other passes (added with their TicketID)"
+msgstr ""
 
 msgid "Mes tickets pour une séance unique"
-msgstr "My one-time tickets"
+msgstr ""
 
 msgid "Vous n'avez pas encore de billets."
-msgstr "You don't have any tickets yet."
+msgstr ""
 
 msgid "Oublier ce billet"
-msgstr "Forget this ticket"
+msgstr ""
 
 msgid "Voir ce ticket"
-msgstr "See this ticket"
+msgstr ""
 
 msgid "Voir mes réservations"
-msgstr "View my bookings"
+msgstr ""
 
 msgid "Télécharger"
-msgstr "Download"
+msgstr ""
 
 msgid "Ajouter un billet acheté en billetterie physique"
-msgstr "Add a ticket purchased at a physical ticket office"
+msgstr ""
 
 msgid "Saisissez votre TicketID"
-msgstr "Enter your TicketID"
+msgstr ""
 
 msgid "Valider"
-msgstr "Confirm"
+msgstr ""
 
 msgid "Votre compte n'est pas activé."
-msgstr "Your account hasn't been activated yet."
+msgstr ""
 
 msgid "Nous vous remercions pour votre commande."
-msgstr "Thank you for your order."
+msgstr ""
 
 #, php-format
 msgid ""
@@ -615,27 +606,24 @@ msgid ""
 "vente</a> et la <a target=\"_blank\" href=\"%s\">politique de protection des "
 "données</a>"
 msgstr ""
-"I accept the <a target=\"_blank\" href=\"%s\">general terms and conditions "
-"of sale</a> and the <a target=\"_blank\" href=\"%s\">data protection policy</"
-"a>."
 
 msgid "Aucun moyen de paiement configué."
-msgstr "No payment method configured"
+msgstr ""
 
 msgid "Vos données de facturation"
-msgstr "Your invoicing data"
+msgstr ""
 
 msgid "Entreprise"
-msgstr "Company"
+msgstr ""
 
 msgid "Votre entreprise"
-msgstr "Your company"
+msgstr ""
 
 msgid "Commentaires"
-msgstr "Comments"
+msgstr ""
 
 msgid "Je désire m'inscrire à la newsletter."
-msgstr "I would like to subscribe to the newsletter."
+msgstr ""
 
 msgid ""
 "Dans le cadre des conditions sanitaires actuelles, nous sommes tenus de "
@@ -643,308 +631,305 @@ msgid ""
 "contacter si besoin.<br/>Nous vous remercions donc de bien vouloir remplir "
 "les informations ci-dessous."
 msgstr ""
-"In view of the current sanitary conditions, we are obliged to ask each "
-"ticket holder for the information necessary to contact them if necessary.<br/"
-">Therefore, we would be grateful if you could fill in the information below."
 
 msgid "Ticket"
-msgstr "Ticket"
+msgstr ""
 
 msgid "Code postal"
-msgstr "Zip"
+msgstr ""
 
 msgid "Votre numéro, sans espace"
-msgstr "Your number, without space"
+msgstr ""
 
 msgid "* ces champs sont requis"
-msgstr "* these fields are required"
+msgstr ""
 
 msgid "Enregistrer"
-msgstr "Register"
+msgstr ""
 
 msgid "Une erreur est survenue lors de votre commande."
-msgstr "An error has occurred during your order."
+msgstr ""
 
 msgid "Merci de bien vouloir réessayer."
-msgstr "Please try again."
+msgstr ""
 
 msgid "Recherche"
-msgstr "Search"
+msgstr ""
 
 msgid "Rechercher"
-msgstr "Search for"
+msgstr ""
 
 msgid "Tous"
-msgstr "All"
+msgstr ""
 
 msgid "Profession"
-msgstr "Job"
+msgstr ""
 
 msgid "Trier par"
-msgstr "Sort by"
+msgstr ""
 
 msgid "Aucun article dans cette catégorie, revenez nous visiter prochainement."
-msgstr "No screening currently scheduled, come back soon."
+msgstr ""
 
 msgid "Vous avez choisi :"
-msgstr "You chose:"
+msgstr ""
 
 msgid "Précédente"
-msgstr "Previous"
+msgstr ""
 
 msgid "Suivante"
-msgstr "Next"
+msgstr ""
 
 msgid "Tout"
-msgstr "All"
+msgstr ""
 
 msgid "Details"
-msgstr "Details"
+msgstr ""
 
 msgid "Sections"
-msgstr "Sections"
+msgstr ""
 
 msgid "Section"
-msgstr "Section"
+msgstr ""
 
 msgid "Synopsis"
-msgstr "Synopsis"
+msgstr ""
 
 msgid "Films"
-msgstr "Movies"
+msgstr ""
 
 msgid "Achetez vos billets"
-msgstr "Buy  your tickets"
+msgstr ""
 
 msgid "Durée"
-msgstr "Duration"
+msgstr ""
 
 msgid "min"
-msgstr "min"
+msgstr ""
 
 msgid "Payss"
-msgstr "Countries"
+msgstr ""
 
 msgid "Langues originales"
-msgstr "Original languages"
+msgstr ""
 
 msgid "Langue originale"
-msgstr "Original language"
+msgstr ""
 
 msgid "Audios"
-msgstr "Audio"
+msgstr ""
 
 msgid "Audio"
-msgstr "Audio"
+msgstr ""
 
 msgid "Sous-titres"
-msgstr "Subtitles"
+msgstr ""
 
 msgid "Année"
-msgstr "Year"
+msgstr ""
 
 msgid "Âge min. lég."
-msgstr "Min. legal age"
+msgstr ""
 
 msgid "Âge min. sug."
-msgstr "Sug. legal age"
+msgstr ""
 
 msgid "Âge min. acc."
-msgstr "Acc. min. age"
+msgstr ""
 
 msgid "Distribution"
-msgstr "Cast"
+msgstr ""
 
 msgid "Aucune séance à venir."
-msgstr "No sessions to come."
+msgstr ""
 
 msgid "non défini"
-msgstr "undefined"
+msgstr ""
 
 #, php-format
 msgid "%d événements ont été importés"
-msgstr "%d events where imported"
+msgstr ""
 
 #, php-format
 msgid "%d événement a été importé"
-msgstr "%d event has been imported"
+msgstr ""
 
 msgid "Aucun événement n'a été importé"
-msgstr "No event was imported"
+msgstr ""
 
 msgid "Le cache a été vidé."
-msgstr "Cache has been emptied."
+msgstr ""
 
 msgid "Veuillez choisir au moins un billet"
-msgstr "Please choose a date"
+msgstr ""
 
 msgid "Veuillez remplir les deux champs"
-msgstr "Please fill in both fields"
+msgstr ""
 
 msgid "Les informations que vous avez saisies sont invalides"
-msgstr "The information you have entered is invalid"
+msgstr ""
 
 msgid "Une erreur est survenue. Veuillez ré-essayer ultérieurement."
-msgstr "An error has occurred. Please try again later."
+msgstr ""
 
 msgid ""
 "Vous ne pouvez pas réserver de place pour cette séance avec votre abonnement."
-msgstr "You  can not book this screening with your pass"
+msgstr ""
 
 msgid ""
 "Vous ne pouvez pas réserver une place de plus pour cette séance avec votre "
 "abonnement."
-msgstr "You cannot book another seat for this screening with your pass."
+msgstr ""
 
 msgid "Veuillez choisir un tarif"
-msgstr "Please choose a pricing"
+msgstr ""
 
 msgid "Votre panier a été mis à jour"
-msgstr "Your cart has been updated"
+msgstr ""
 
 msgid "Code promo invalide"
-msgstr "Invalid coupon code"
+msgstr ""
 
 msgid "Impossible d'utiliser ce code promo"
-msgstr "Cannot use this coupon code"
+msgstr ""
 
 msgid "Le code promo a bien été pris en compte"
-msgstr "The coupon code has been taken into account"
+msgstr ""
 
 msgid "sur votre porte monnaie électronique"
-msgstr "on your wallet"
+msgstr ""
 
 msgid "Montant trop élevé"
-msgstr "Amount too high"
+msgstr ""
 
 msgid "Rue"
-msgstr "Street"
+msgstr ""
 
 msgid "Télépĥone portable"
-msgstr "Cellular phone"
+msgstr ""
 
 msgid "Sexe"
-msgstr "Sex"
+msgstr ""
 
 msgid "Langue"
-msgstr "Language"
+msgstr ""
 
 msgid "n'est pas supporté"
-msgstr "is not supported"
+msgstr ""
 
 msgid "est manquant"
-msgstr "is missing"
+msgstr ""
 
 msgid "existe déjà"
-msgstr "already used"
+msgstr ""
 
 msgid "n'est pas une chaine de caractère"
-msgstr "is not a character string"
+msgstr ""
 
 msgid "est vide"
-msgstr "is empty"
+msgstr ""
 
 msgid "est trop court"
-msgstr "is too short"
+msgstr ""
 
 msgid "est trop grand"
-msgstr "is too big"
+msgstr ""
 
 msgid "est invalide"
-msgstr "is invalid"
+msgstr ""
 
 msgid "n'est pas un objet"
-msgstr "is not an object"
+msgstr ""
 
 msgid "n'est pas un tableau"
-msgstr "is not an array"
+msgstr ""
 
 msgid "n'est pas un booléen"
-msgstr "is not a boolean"
+msgstr ""
 
 msgid "En attente"
-msgstr "Pending"
+msgstr ""
 
 msgid "En cours"
-msgstr "In progress"
+msgstr ""
 
 msgid "Paiement en cours"
-msgstr "Payment in progress"
+msgstr ""
 
 msgid "Payée"
-msgstr "Paid"
+msgstr ""
 
 msgid "Terminée"
-msgstr "Completed"
+msgstr ""
 
 msgid "Erreur"
-msgstr "Error"
+msgstr ""
 
 msgid "Annulée"
-msgstr "Cancelled"
+msgstr ""
 
 msgid "Postfinance"
-msgstr "Postfinance"
+msgstr ""
 
 msgid "Proxypay"
-msgstr "Proxypay"
+msgstr ""
 
 msgid "Virement"
-msgstr "Bank transfer"
+msgstr ""
 
 msgid "Gratuit"
-msgstr "Free"
+msgstr ""
 
 msgid "Espèces"
-msgstr "Cash"
+msgstr ""
 
 msgid "Monnayeur"
-msgstr "Cash collector"
+msgstr ""
 
 msgid "Carte bancaire"
-msgstr "Credit card"
+msgstr ""
 
 msgid "Porte-monnaie"
-msgstr "Wallet"
+msgstr ""
 
 msgid "Activé"
-msgstr "Activated"
+msgstr ""
 
 msgid "Inactif"
-msgstr "New"
+msgstr ""
 
 msgid "En attente de paiement"
-msgstr "Pending payment"
+msgstr ""
 
 msgid "Bloqué"
-msgstr "Blocked"
+msgstr ""
 
 msgid "directeur"
-msgstr "director"
+msgstr ""
 
 msgid "directeurs"
-msgstr "directors"
+msgstr ""
 
 msgid "réservation"
-msgstr "booking"
+msgstr ""
 
 msgid "réservations"
-msgstr "bookings"
+msgstr ""
 
 msgid "sur"
-msgstr "on"
+msgstr ""
 
 msgid "disponible"
-msgstr "available"
+msgstr ""
 
 msgid "disponibles"
-msgstr "available"
+msgstr ""
 
 msgid "actor"
-msgstr "actor"
+msgstr ""
 
 msgid "actors"
-msgstr "cast"
+msgstr ""
 
 msgid "cast"
 msgstr ""
@@ -953,28 +938,28 @@ msgid "camera"
 msgstr ""
 
 msgid "cinematographer"
-msgstr "camera"
+msgstr ""
 
 msgid "co-producer"
-msgstr "co-production"
+msgstr ""
 
 msgid "co-producers"
-msgstr "co-production"
+msgstr ""
 
 msgid "creator"
-msgstr "creator"
+msgstr ""
 
 msgid "creators"
-msgstr "creators"
+msgstr ""
 
 msgid "director"
-msgstr "director"
+msgstr ""
 
 msgid "directors"
-msgstr "directors"
+msgstr ""
 
 msgid "editor"
-msgstr "editor"
+msgstr ""
 
 msgid "editing"
 msgstr ""
@@ -1013,315 +998,302 @@ msgid "production design"
 msgstr ""
 
 msgid "Pas de réponse"
-msgstr "No answer"
+msgstr ""
 
 msgid "Féminin"
-msgstr "Female"
+msgstr ""
 
 msgid "Masculin"
-msgstr "Male"
+msgstr ""
 
 msgid "Autre"
-msgstr "Other"
+msgstr ""
 
 msgid ""
 "Veuillez choisir un point de vente dans les réglages du module Ticketack"
-msgstr "Please choose a salepoint in the Ticketack plugin settings"
+msgstr ""
 
 #, php-format
 msgid "%d articles ont été importés"
-msgstr "%d articles have been imported"
+msgstr ""
 
 #, php-format
 msgid "%d article a été importé"
-msgstr "%d article has been imported"
+msgstr ""
 
 msgid "Aucun article n'a été importé"
-msgstr "No article were imported"
+msgstr ""
 
 msgid "Ajouter un event Ticketack"
-msgstr "Add a Ticketack event"
+msgstr ""
 
 msgid "Nouvel event Ticketack"
-msgstr "New Ticketack event"
+msgstr ""
 
 msgid "Modifier cet event Ticketack"
-msgstr "Edit Ticketack event"
+msgstr ""
 
 msgid "Afficher cet event Ticketack"
-msgstr "View Ticketack event"
+msgstr ""
 
 msgid "Tous les events Ticketack"
-msgstr "All Ticketack events"
+msgstr ""
 
 msgid "Rechercher les events Ticketack"
-msgstr "Search Ticketack events"
+msgstr ""
 
 msgid "Parent:"
-msgstr "Parent :"
+msgstr ""
 
 msgid "Aucun event Ticketack trouvé."
-msgstr "No Ticketack event found"
+msgstr ""
 
 msgid "Aucun event Ticketack trouvé dans la corbeille."
-msgstr "No Ticketack event found in Trash"
+msgstr ""
 
 msgid "Événements importés depuis Ticketack"
-msgstr "Events imported from Ticketack"
+msgstr ""
 
 msgid "Ajouter un article Ticketack"
-msgstr "New Ticketack article"
+msgstr ""
 
 msgid "Nouvel article Ticketack"
-msgstr "New Ticketack article"
+msgstr ""
 
 msgid "Modifier cet article Ticketack"
-msgstr "Edit Ticketack article"
+msgstr ""
 
 msgid "Afficher cet article Ticketack"
-msgstr "View Ticketack article"
+msgstr ""
 
 msgid "Tous les articles Ticketack"
-msgstr "All Ticketack articles"
+msgstr ""
 
 msgid "Rechercher les articles Ticketack"
-msgstr "Search Ticketack articles"
+msgstr ""
 
 msgid "Aucun article Ticketack trouvé."
-msgstr "No Ticketack article found"
+msgstr ""
 
 msgid "Aucun article Ticketack trouvé dans la corbeille."
-msgstr "No Ticketack article found in Trash"
+msgstr ""
 
 msgid "Articles importés depuis Ticketack"
-msgstr "Events imported from Ticketack"
+msgstr ""
 
 msgid "Ajouter une personne Ticketack"
-msgstr "Add new ticketack person"
+msgstr ""
 
 msgid "Nouvelle personne Ticketack"
-msgstr "New Ticketack person"
+msgstr ""
 
 msgid "Modifier cette personne Ticketack"
-msgstr "Edit Ticketack person"
+msgstr ""
 
 msgid "Afficher cette personne Ticketack"
-msgstr "View Ticketack person"
+msgstr ""
 
 msgid "Tous les people Ticketack"
-msgstr "All Ticketack people"
+msgstr ""
 
 msgid "Rechercher les people Ticketack"
-msgstr "Search Ticketack people"
+msgstr ""
 
 msgid "Aucune personne Ticketack trouvée."
-msgstr "No Ticketack person found"
+msgstr ""
 
 msgid "Aucune personne Ticketack trouvée dans la corbeille."
-msgstr "No Ticketack person found in Trash"
+msgstr ""
 
 msgid "Personnes importées depuis Ticketack"
-msgstr "Events imported from Ticketack"
+msgstr ""
 
 msgid "API"
-msgstr "API"
+msgstr ""
 
 msgid "Pages"
-msgstr "Pages"
+msgstr ""
 
 msgid "Registration"
-msgstr "Registration"
+msgstr ""
 
 msgid "Images"
-msgstr "Images"
+msgstr ""
 
 msgid "Langues"
-msgstr "Languages"
+msgstr ""
 
 msgid "Import"
-msgstr "Import"
+msgstr ""
 
 msgid "Paramètres avancés"
-msgstr "Advanced parameters"
+msgstr ""
 
 msgid "Documentation"
-msgstr "Documentation"
+msgstr ""
 
 msgid "Ticketack n'est pas configuré."
-msgstr "Ticketack is not configured"
+msgstr ""
 
 msgid "Accéder aux réglages"
-msgstr "Go to settings"
+msgstr ""
 
 msgid "Connexion à votre instance Ticketack"
-msgstr "Connection to your Ticketack instance"
+msgstr ""
 
 msgid "URL de l'engine"
-msgstr "Engine URL"
+msgstr ""
 
 msgid "URL du eshop"
-msgstr "Eshop URL"
+msgstr ""
 
 msgid "Clé d'API"
-msgstr "API key"
+msgstr ""
 
 msgid "Point de vente de ce site Web"
-msgstr "Salepoint to use for this site"
+msgstr ""
 
 msgid "Caisse de ce site Web"
-msgstr "Cashregister to use for this site"
+msgstr ""
 
 msgid "Billetterie et vente d'articles"
-msgstr "Ticketing and merchandising sale"
+msgstr ""
 
 msgid "Programme"
-msgstr "Program"
+msgstr ""
 
 msgid "Processus de vente"
-msgstr "Sale process"
+msgstr ""
 
 msgid "Validation de commande"
-msgstr "Order validation"
+msgstr ""
 
 msgid "Confirmation de commande"
-msgstr "Order confirmation"
+msgstr ""
 
 msgid "Connexion TicketID et utilisateur"
-msgstr "TicketID and user login"
+msgstr ""
 
 msgid "Vue du ticket"
-msgstr "Ticket view"
+msgstr ""
 
 msgid "Création de compte"
-msgstr "Account creation"
+msgstr ""
 
 msgid "Mot de passe perdu"
-msgstr "Lost password"
+msgstr ""
 
 msgid "Changement de mot de passe"
-msgstr "Password change"
+msgstr ""
 
 msgid "Redirection à la mise au panier"
-msgstr "On add to cart redirection"
+msgstr ""
 
 msgid "Enregistrement"
-msgstr "Save"
+msgstr ""
 
 msgid "Autoriser l'enregistrement des utilisateurs"
-msgstr "Allow users registration"
+msgstr ""
 
 msgid "Informations optionnelles à saisir"
-msgstr "Optional informations to be entered"
+msgstr ""
 
 msgid "Informations obligatoires à saisir"
-msgstr "Mandatory informations to be entered"
+msgstr ""
 
 msgid "Dimensions des images"
-msgstr "Images dimensions"
+msgstr ""
 
 msgid "Largeur des grandes images"
-msgstr "Big images width"
+msgstr ""
 
 msgid "Hauteur des grandes images"
-msgstr "Big images height"
+msgstr ""
 
 msgid "Largeur des images moyennes"
-msgstr "Medium images width"
+msgstr ""
 
 msgid "Hauteur des images moyennes"
-msgstr "Medium images height"
+msgstr ""
 
 msgid "Serveur proxy d'images"
-msgstr "Images proxy server"
+msgstr ""
 
 msgid "Serveur proxy"
-msgstr "Proxy server"
+msgstr ""
 
 msgid "Langue par défaut"
-msgstr "Default language"
+msgstr ""
 
 msgid "Filtrer les events sur les tags suivants"
-msgstr "Filter events by the following tags"
+msgstr ""
 
 msgid "Filtrer les events sur les salles suivantes (id)"
-msgstr "Filter events on the following venues (id)"
+msgstr ""
 
 msgid "Télécharger les images à la une"
-msgstr "Download images"
+msgstr ""
 
 msgid "Bibliothèques JavaScript"
-msgstr "JavaScript Libraries"
+msgstr ""
 
 msgid "Charger underscore.js après le module"
-msgstr "Load underscore.js after the module"
+msgstr ""
 
 msgid "Customisation CSS"
-msgstr "CSS customization"
+msgstr ""
 
 msgid "Sections padding"
-msgstr "Sections padding"
+msgstr ""
 
 msgid "Border radius"
-msgstr "Border radius"
+msgstr ""
 
 msgid ""
 "Sélectionnez les pages qui contiennent votre programme (avec ou sans "
 "shortcode d'intégration) et permettent la vente d'abonnements et d'articles "
 "de merchandising (le cas échéant)."
 msgstr ""
-"Select the pages that contain your program (with or without integration "
-"shortcode) and allow the sale of subscriptions and merchandise items (if "
-"applicable)."
 
 msgid ""
 "Sélectionnez les pages qui contiennent les shortcode d'intégration du "
 "processus d'achat."
 msgstr ""
-"Select the pages that contain the integration shortcodes for the purchase "
-"process."
 
 msgid ""
 "Sélectionnez les pages en relation avec les tickets et le compte (le cas "
 "échéant) utilisateur."
-msgstr "Select the pages related to tickets and user accounts (if applicable)."
+msgstr ""
 
 msgid "Configurez le comportement du panier"
-msgstr "Customize the cart behavior"
+msgstr ""
 
 msgid "Configuration de l'enregistrement des utilisateurs"
-msgstr "Users registration configuration"
+msgstr ""
 
 msgid "Saisissez les informations d'accès à la billetterie"
-msgstr "Set the ticketing system access informations"
+msgstr ""
 
 msgid "Dimensions des grandes et moyennes images (en px)."
-msgstr "Big and medium images dimensions (in px)."
+msgstr ""
 
 msgid "Configuration du serveur proxy d'images."
-msgstr "Images proxy server configuration"
+msgstr ""
 
 msgid "Configuration des langues."
-msgstr "Languages configuration"
+msgstr ""
 
 msgid "Configuration de l'import"
-msgstr "Import configuration"
+msgstr ""
 
 msgid ""
 "Ne modifiez les valeurs ci-dessous que si vous avez des conflits javascript "
 "avec d'autres plugins."
 msgstr ""
-"Change these settings only if you have javascript conflicts with other "
-"plugins."
 
 msgid ""
 "Ne modifiez les valeurs ci-dessous que si vous savez ce que vous faites."
-msgstr "Change these settings only if you know what you are doing."
+msgstr ""
 
 msgid "Brouillon"
-msgstr "Draft"
-
-#~ msgid "Réserver (paiement sur place)"
-#~ msgstr "Book (on site payment)"
-
-#~ msgid "Procéder au paiement"
-#~ msgstr "To the payment process"
+msgstr ""
