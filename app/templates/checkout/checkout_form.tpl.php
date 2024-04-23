@@ -80,7 +80,7 @@ foreach ($payment_method_names as $id => $translations) {
               <div id="field-wrapper-company" class="field-wrapper col-md-12" style="display: block;">
                 <div class="form-group">
                   <label class="<?= r($required_fields, 'company') ?>" for="company"><?= tkt_t("Entreprise"); ?></label>
-                  <textarea name="user[company]" class="tkt-input form-control data-field" id="company" placeholder="<?= tkt_t("Votre entreprise") ?>" <?= r($required_fields, 'company') ?>></textarea>
+                  <input name="user[company]" type="text" class="tkt-input form-control data-field" id="company" placeholder="<?= tkt_t("Votre entreprise") ?>" <?= r($required_fields, 'company') ?> />
                 </div>
               </div>
               <?php endif; ?>
