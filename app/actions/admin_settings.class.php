@@ -484,7 +484,9 @@ class AdminSettingsAction extends TKTAction
         if (!is_null($user)) {
             foreach ($user->salepoints() as $_id) {
                 $salepoint = Salepoint::find($_id);
-                $options[$salepoint->name(TKT_LANG)] = $_id;
+                if ($salepoint) {
+                    $options[$salepoint->name(TKT_LANG)] = $_id;
+                }
             }
         }
         return $this->choice('salepoint_id', 'tkt_api', $options);
@@ -495,8 +497,10 @@ class AdminSettingsAction extends TKTAction
         if (!is_null($user)) {
             foreach ($user->salepoints() as $_id) {
                 $salepoint = Salepoint::find($_id);
-                foreach ($salepoint->cashregisters() as $cashregister) {
-                    $options[$salepoint->name(TKT_LANG).'/'.$cashregister->name(TKT_LANG)] = $cashregister->_id();
+                if ($salepoint) {
+                    foreach ($salepoint->cashregisters() as $cashregister) {
+                        $options[$salepoint->name(TKT_LANG).'/'.$cashregister->name(TKT_LANG)] = $cashregister->_id();
+                    }
                 }
             }
         }
