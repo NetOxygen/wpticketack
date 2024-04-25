@@ -90,8 +90,8 @@ class TKTRequest
             // XXX: workaround the buggy php json_decode() which allow scalar
             // values to be parsed.
             if (!is_array($result)) {
-                //No2_Logger::err('json_decode() failed, JSON was: ' . $body);
-                throw new TKTException("request(method=$method, query=$query) failed: the response body could not be parsed.");
+                tkt_flash_notice(tkt_t("Impossible de communiquer avec la billetterie…"), 'error');
+                return null;
             }
         }
 

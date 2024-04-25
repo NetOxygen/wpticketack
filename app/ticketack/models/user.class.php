@@ -41,7 +41,8 @@ class User extends TKTModel implements \JsonSerializable
             $rsp = TKTRequest::request(TKTRequest::GET, sprintf('/authentication/%s', $api_key));
 
             if ($rsp->status !== No2_HTTP::OK) {
-                throw new TKTApiException(sprintf("%d: Authentification failed, impossible to load current user", $rsp->status));
+                tkt_flash_notice(sprintf("%d: Authentification failed, impossible to load current user", $rsp->status), 'error');
+                return null;
             }
 
             static::$current = new static($rsp->data);

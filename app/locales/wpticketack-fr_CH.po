@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-06 10:59+0100\n"
+"POT-Creation-Date: 2024-04-25 12:34+0200\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Belkacem Alidra <belkacem.alidra@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -332,6 +332,9 @@ msgstr ""
 msgid "Réserver des séances"
 msgstr ""
 
+msgid "Invités"
+msgstr ""
+
 msgid "Validité"
 msgstr ""
 
@@ -403,10 +406,10 @@ msgstr ""
 msgid "Finaliser ma commande"
 msgstr ""
 
-msgid "ma commande"
+msgid "Annuler ma commande"
 msgstr ""
 
-msgid "mes réservations"
+msgid "Continuer mes réservations"
 msgstr ""
 
 msgid "Résumé du panier"
@@ -434,10 +437,6 @@ msgstr ""
 msgid "Plus d'informations"
 msgstr ""
 
-msgid ""
-"Aucuné séance programmée actuellement, revenez nous visiter prochainement."
-msgstr ""
-
 msgid "Il ne reste que quelques places"
 msgstr ""
 
@@ -450,10 +449,8 @@ msgstr ""
 msgid "Il ne reste que quelques places !"
 msgstr ""
 
-msgid "Aucune séance à afficher."
-msgstr ""
-
-msgid "Il ne reste que quelques places !"
+msgid ""
+"Aucuné séance programmée actuellement, revenez nous visiter prochainement."
 msgstr ""
 
 msgid "Mon compte"
@@ -616,13 +613,16 @@ msgstr ""
 msgid "Vos données de facturation"
 msgstr ""
 
+msgid "Entreprise"
+msgstr ""
+
+msgid "Votre entreprise"
+msgstr ""
+
+msgid "Commentaires"
+msgstr ""
+
 msgid "Je désire m'inscrire à la newsletter."
-msgstr ""
-
-msgid "Réserver (paiement sur place)"
-msgstr ""
-
-msgid "Procéder au paiement"
 msgstr ""
 
 msgid ""
@@ -741,6 +741,9 @@ msgid "Distribution"
 msgstr ""
 
 msgid "Aucune séance à venir."
+msgstr ""
+
+msgid "Impossible de communiquer avec la billetterie…"
 msgstr ""
 
 msgid "non défini"

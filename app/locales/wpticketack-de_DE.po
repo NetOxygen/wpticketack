@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-19 10:35+0200\n"
+"POT-Creation-Date: 2024-04-25 12:35+0200\n"
 "PO-Revision-Date: 2022-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Belkacem Alidra <belkacem.alidra@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -774,6 +774,9 @@ msgstr "Besetzung"
 
 msgid "Aucune séance à venir."
 msgstr "Keine bevorstehenden Vorstellungen."
+
+msgid "Impossible de communiquer avec la billetterie..."
+msgstr "Kommunikation mit Ticketack nicht möglich..."
 
 msgid "non défini"
 msgstr "nicht definiert"
