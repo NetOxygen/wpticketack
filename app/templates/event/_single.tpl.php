@@ -48,9 +48,6 @@ $nb_slides = count($trailers) + count($posters);
 $original_languages = "";
 if (!empty($opaque->languages->original)) {
     $original_languages = $opaque->languages->original;
-    if (!is_array($original_languages)) {
-        $original_languages = [$original_languages];
-    }
     $original_languages = implode(', ', array_map(function ($l) {
         return (is_object($l) && isset($l->{TKT_LANG})) ? $l->{TKT_LANG} : (is_string($l) ? $l : '');
     }, $original_languages));
