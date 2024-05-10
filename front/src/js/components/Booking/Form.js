@@ -463,6 +463,8 @@ export default class BookingForm extends Component {
         $('.add-to-cart-btn', this.$container).click((e) => {
           this.process_add_to_cart();
         });
+
+        this.loader.attach();
     }
 
     build_success_panel() {
