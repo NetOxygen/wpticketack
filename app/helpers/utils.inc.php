@@ -549,10 +549,9 @@ if (!function_exists('tkt_invalid_url_path_encode_url')) {
 }
 
 if (!function_exists('tkt_img_proxy_url')) {
-    function tkt_img_proxy_url($remote_url, $max_width = null, $max_height = null)
+    function tkt_img_proxy_url($remote_url, $max_width = null, $max_height = null, $animation = false)
     {
-        $proxy_img_host = TKTApp::get_instance()->get_config('images_proxy.host');
-
+        $proxy_img_host = TKTApp::get_instance()->get_config("integrations.weserv.proxy_img_host");
         if (empty($proxy_img_host)) {
             return $remote_url;
         }
@@ -565,13 +564,15 @@ if (!function_exists('tkt_img_proxy_url')) {
             }
         }
 
-        // if user agent supports webp, always prefer webp
-        $webp = strpos($_SERVER['HTTP_ACCEPT'], 'image/webp') !== false ? 'webp' : null;
+        // Default output, webp is supported by 98% of users as of 2024
+        $output = 'webp';
+
+        $n = $animation ? '-1' : null;
 
         return sprintf(
             "https://%s/?%s",
             $proxy_img_host,
-            http_build_query(['url' => $remote_url, 'w' => $max_width, 'h' => $max_height, 'output' => $webp, 'q' => 70, 'fit' => 'outside'])
+            http_build_query(['url' => $remote_url, 'w' => $max_width, 'h' => $max_height, 'output' => $output, 'q' => 70, 'fit' => 'outside', 'n' => $n])
         );
     }
 }
