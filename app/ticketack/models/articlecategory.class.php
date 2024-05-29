@@ -8,10 +8,8 @@ use Ticketack\Core\Base\TKTModel;
  */
 class Articlecategory extends TKTModel implements \JsonSerializable
 {
-    // - tiff is not supported by major browsers except Safari
-    // - webp is only supported by Chrome and Opera
     // - some eventival URLs ends with '?'
-    const POSTER_REGEXP = '/\.(jpe?g|png|gif)(\?)?$/i';
+    const POSTER_REGEXP = '/\.(jpe?g|png|gif|webp|avif)(\?)?$/i';
 
     public static $resource = 'articlecategories';
 

@@ -10,10 +10,8 @@ use Ticketack\Core\Base\No2_HTTP;
 
 class Screening extends TKTModel implements \JsonSerializable
 {
-    // - tiff is not supported by major browsers except Safari
-    // - webp is only supported by Chrome and Opera
     // - some eventival URLs ends with '?'
-    const POSTER_REGEXP = '/\.(jpe?g|png|gif)(\?)?$/i';
+    const POSTER_REGEXP = '/\.(jpe?g|png|gif|webp|avif)(\?)?$/i';
 
     // - Support Youtube and Vimeo videos
     //   see https://regexr.com/5sm04
