@@ -140,11 +140,11 @@ $width = 300;
                 <div class="col-md-12 form-group tkt-wrapper-photo" data-component="Media/Webcam" data-width="<?= $width ?>">
                     <div class="row">
                       <div class="form-group col-md-6 mt-3 text-center">
-                        <input name="photo" type="file" class="tkt-input form-control field" id="photo" accept="image/jpeg, image/png, image/gif" data-component="Form/ImageDataUrl" data-width="<?= $width ?>" hidden >
+                        <input name="photo" type="file" class="tkt-input form-control field" id="photo" accept="image/jpeg, image/png, image/gif, image/webp, image/avif" data-component="Form/ImageDataUrl" data-width="<?= $width ?>" hidden >
                         <button type="button" class="btn btn-default choose-btn">
                           <span><i class="tkt-icon-image"></i> <?= tkt_t('Choisir une image') ?></span>
                         </button>
-                        <i class="tkt-icon-info" data-component="Ui/Tippy" data-tippy-content="<?= tkt_t("Formats pris en charge : jpeg, png ou gif") ?>"></i><br>
+                        <i class="tkt-icon-info" data-component="Ui/Tippy" data-tippy-content="<?= tkt_t("Formats pris en charge : jpeg, png, webp, avif ou gif") ?>"></i><br>
                         <span class="small">ou</span>
                         <div class="form-group col-md-12 p-0 mt-3">
                             <button type="button" class="btn btn-default">
