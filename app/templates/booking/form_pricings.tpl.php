@@ -29,7 +29,7 @@ $currency = TKTApp::get_instance()->get_config('currency', 'CHF');
 ?>
 
 <% const availabilities = bookability?.availabilities; %>
-<% const eligible_types = bookability?.eligible_types || screening?.eligible_types || []; %>
+<% const eligible_types = (bookability?.eligible_types || screening?.eligible_types || []).filter(t => t._id != 'one-time-pass'); %>
 <% const sellable_types = eligible_types.filter(t => !!t.sellable); %>
 
 <div class="tkt-wrapper">
@@ -219,7 +219,7 @@ $currency = TKTApp::get_instance()->get_config('currency', 'CHF');
                         <span><?= tkt_t("Acheter un abonnement") ?></span>
                         <ul class="eligible-types-list">
                         <% sellable_types.map(function (t) { %>
-                        <li class="elligible-type">
+                        <li class="eligible-type">
                             <span class="type-name">
                                 <i class="tkt-icon-ticket"></i>
                                 <a href="<?= tkt_buy_pass_url() ?>?selected=<%= t._id %>" class="type-link">
