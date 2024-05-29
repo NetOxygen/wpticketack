@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-25 12:35+0200\n"
+"POT-Creation-Date: 2024-05-29 11:53+0200\n"
 "PO-Revision-Date: 2022-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Belkacem Alidra <belkacem.alidra@netoxygen.ch>\n"
+"Last-Translator: Jonathan Ernst <jonathan.ernst@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -199,8 +199,8 @@ msgstr "Foto"
 msgid "Choisir une image"
 msgstr "Wählen Sie ein Bild"
 
-msgid "Formats pris en charge : jpeg, png ou gif"
-msgstr "Unterstützte Formate: jpeg, png oder gif"
+msgid "Formats pris en charge : jpeg, png, webp, avif ou gif"
+msgstr "Unterstützte Formate: jpeg, png, webp, avif oder gif"
 
 msgid "Arrêter la vidéo"
 msgstr "Das Video anhalten"
@@ -456,9 +456,8 @@ msgstr "Keine Vorstellungen zum Ansehen"
 msgid "Plus d'informations"
 msgstr "Mehr Informationen"
 
-#, fuzzy
 msgid "Il ne reste que quelques places"
-msgstr "Es sind nur noch wenige Plätze verfügbar!"
+msgstr "Es sind nur noch wenige Plätze verfügbar"
 
 msgid "Complet"
 msgstr "Ausgebucht"
@@ -775,7 +774,8 @@ msgstr "Besetzung"
 msgid "Aucune séance à venir."
 msgstr "Keine bevorstehenden Vorstellungen."
 
-msgid "Impossible de communiquer avec la billetterie..."
+#, fuzzy
+msgid "Impossible de communiquer avec la billetterie…"
 msgstr "Kommunikation mit Ticketack nicht möglich..."
 
 msgid "non défini"
