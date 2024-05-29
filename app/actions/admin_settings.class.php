@@ -276,21 +276,6 @@ class AdminSettingsAction extends TKTAction
         );
 
         add_settings_section(
-            'ticketack_images_proxy', // ID
-            tkt_t('Serveur proxy d\'images'), // Title
-            array( $this, 'images_proxy_section_info' ), // Callback
-            'ticketack-images' // Page
-        );
-
-        add_settings_field(
-            'host', // ID
-            tkt_t('Serveur proxy'), // Title
-            array( $this, 'proxy_img_host_callback' ), // Callback
-            'ticketack-images', // Page
-            'ticketack_images_proxy' // Section
-        );
-
-        add_settings_section(
             'ticketack_i18n', // ID
             tkt_t('Langues'), // Title
             array( $this, 'i18n_section_info' ), // Callback
@@ -518,20 +503,6 @@ class AdminSettingsAction extends TKTAction
     public function big_height_callback() { return $this->input('big_height', 'tkt_images_dimensions', 520); }
     public function medium_width_callback() { return $this->input('medium_width', 'tkt_images_dimensions', 600); }
     public function medium_height_callback() { return $this->input('medium_height', 'tkt_images_dimensions', 80); }
-
-    /** 
-     * Print the Section text
-     */
-    public function images_proxy_section_info()
-    {
-        print tkt_t("Configuration du serveur proxy d'images.");
-    }
-    public function proxy_img_host_callback() { return $this->input('host', 'tkt_images_proxy', 'images.weserv.nl', 'images.weserv.nl'); }
-
-    /**
-     * Print the Section text
-     */
-    public function requested_pass_owner_data_callback() { return $this->textarea('requested_pass_owner_data', 'tkt_pass'); }
 
     /**
      * Print the Section text
