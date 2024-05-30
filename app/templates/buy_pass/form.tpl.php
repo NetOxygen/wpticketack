@@ -50,20 +50,20 @@ $width = 300;
             <div class="row">
 
               <div id="field-wrapper-address" class="field-wrapper form-group col-md-4">
-                <label class="required" for="address"><?= tkt_t("Adresse"); ?></label>
+                <label class="required" for="address"><?= tkt_t("Adresse") ?></label>
                 <textarea name="address" class="tkt-input form-control field" id="address" placeholder="<?= tkt_t("Votre adresse") ?>" required></textarea>
               </div>
 
               <div id="field-wrapper-zip" class="field-wrapper col-md-4">
                 <div class="form-group">
-                  <label class="required" for="zip"><?= tkt_t("Numéro postal"); ?></label>
+                  <label class="required" for="zip"><?= tkt_t("Numéro postal") ?></label>
                   <input name="zip" type="text" class="tkt-input form-control field" id="zip" placeholder="<?= tkt_t("NPA") ?>" required />
                 </div>
               </div>
 
               <div id="field-wrapper-city" class="field-wrapper col-md-4">
                 <div class="form-group">
-                  <label class="required" for="city"><?= tkt_t("Ville"); ?></label>
+                  <label class="required" for="city"><?= tkt_t("Ville") ?></label>
                   <input name="city" type="text" class="tkt-input form-control field" id="city" placeholder="<?= tkt_t("Ville") ?>" required />
                 </div>
               </div>
@@ -71,7 +71,7 @@ $width = 300;
 
             <div class="row">
               <div id="field-wrapper-country" class="form-group field-wrapper col-md-12" style="display: none;">
-                <label class="required" for="country"><?= tkt_t("Pays"); ?></label>
+                <label class="required" for="country"><?= tkt_t("Pays") ?></label>
                 <select name="country" id="country" class="tkt-input form-control field" required>
                   <option value=""></option>
                   <?php $countries = tkt_get_countries();
@@ -85,13 +85,13 @@ $width = 300;
             <div class="row">
               <div id="field-wrapper-phone" class="field-wrapper col-md-6">
                 <div class="form-group">
-                  <label class="required" for="phone"><?= tkt_t("Téléphone"); ?></label>
+                  <label class="required" for="phone"><?= tkt_t("Téléphone") ?></label>
                   <input name="phone" type="text" class="tkt-input form-control field" id="phone" placeholder="<?= tkt_t("Téléphone") ?>" required />
                 </div>
               </div>
               <div id="field-wrapper-cellphone" class="field-wrapper col-md-6">
                 <div class="form-group">
-                  <label class="required" for="cellphone"><?= tkt_t("Téléphone portable"); ?></label>
+                  <label class="required" for="cellphone"><?= tkt_t("Téléphone portable") ?></label>
                   <input name="cellphone" type="text" class="tkt-input form-control field" id="cellphone" placeholder="<?= tkt_t("Téléphone portable") ?>" required />
                 </div>
               </div>
@@ -134,6 +134,7 @@ $width = 300;
               </div>
             </div>
 
+
             <div class="row">
               <div id="field-wrapper-photo" class="field-wrapper col-md-12" style="display: none;"> 
                 <label class="photo"><?= tkt_t('Photo') ?></label>
@@ -173,6 +174,12 @@ $width = 300;
                       </div>
                     </div>
                 </div>
+              </div>
+            </div>
+            <div class="row">
+              <div id="field-wrapper-comment" class="field-wrapper form-group col-md-4">
+                <label class="required" for="comment"><?= tkt_t("Commentaires") ?></label>
+                <textarea name="comment" class="tkt-input form-control field" id="comment" placeholder="<?= tkt_t("Votre commentaire") ?>" required></textarea>
               </div>
             </div>
             <div class="row">
