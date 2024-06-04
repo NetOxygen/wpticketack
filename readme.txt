@@ -2,7 +2,7 @@
 Tags: ticketack
 Requires at least: 5.9
 Tested up to: 6.4.3
-Stable tag: 2.74.1
+Stable tag: 2.75.0
 Requires PHP: 8.1
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -38,7 +38,18 @@ This section describes how to install the plugin and get it working.
 = Changelog =
 * [Changelog link](https://yoda.netoxygen.ch/public/projects/401b5210-986f-46b3-99cb-38546b73e16c/changelog)
 
+= 2.75.0 =
+
+* feat: Implement comment field in holder fields
+* feat: Add more baseline supported image formats
+* feat: User proxy image configuration from ticketack settings
+* fix: Don't consider one-time-passes as eligible type for the purpose of showing book with a pass Implements B2325
+* modified templates:
+  - app/templates/buy_pass/form.tpl.php
+  - app/templates/booking/form_pricings.tpl.php
+
 = 2.74.1 =
+
 * fix: Correction of information messages in booking form
 * fix: Fix the double backslash in icomoon (You need to save Advanced plugin
   settings)
