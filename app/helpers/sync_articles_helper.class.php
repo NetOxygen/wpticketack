@@ -29,10 +29,6 @@ class SyncArticlesHelper extends SyncHelper
         ini_set('memory_limit', '512M');
         ini_set('max_execution_time', 0);
 
-        if ($default_lang === 'fr') {
-            switch_to_locale('fr_FR');
-        }
-
         $articles = static::load_articles($salepoint_id);
 
         if (!empty($articles)) {
