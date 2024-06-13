@@ -2,6 +2,7 @@
 namespace Ticketack\Core\Models;
 
 use Ticketack\Core\Base\TKTModel;
+use Ticketack\Core\Models\Salepoint;
 
 /**
  * Ticketack Engine TKTSettings.
@@ -48,6 +49,16 @@ class Settings extends TKTModel implements \JsonSerializable
         // Remove some unneeded settings
         unset($config['mobile']);
         unset($config['pdf']);
+
+        if (isset($app_config['ticketack']) && !empty($app_config['ticketack']['salepoint_id'])) {
+            $salepoint = Salepoint::find($app_config['ticketack']['salepoint_id']);
+            if ($salepoint) {
+                $salepoint_settings = $salepoint->settings();
+                if (!empty($settings)) {
+                    $config = array_merge($config, $salepoint_settings);
+                }
+            }
+        }
 
         $config_array  = var_export($config, true);
         $config_string = sprintf(
