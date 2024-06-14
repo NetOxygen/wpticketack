@@ -3373,6 +3373,122 @@ article.type-tkt-event {
         }
     }
 }
+#tkt_program.tkt-agenda {
+    .tkt_agenda_day {
+        &.hidden {
+            display: none;
+        }
+
+        .day_title_wrapper {
+            background: $dark_section_bg_color;
+            color: $dark_section_text_color;
+            border-radius: $border_radius;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            margin-bottom: 10px;
+
+            .day_title {
+                margin: 0;
+            }
+
+            .arrow {
+                width: 0;
+                height: 0;
+                border-top: 10px solid transparent;
+                border-bottom: 10px solid transparent;
+                cursor: pointer;
+
+                &.arrow-left {
+                    border-right:10px solid $dark_section_text_color;
+
+                    &.inactive {
+                        border-right-color: #656565;
+                    }
+                }
+
+                &.arrow-right {
+                    border-left: 10px solid $dark_section_text_color;
+
+                    &.inactive {
+                        border-left-color: #656565;
+                    }
+                }
+            }
+        }
+        .tkt_program_screenings {
+            .tkt_program_screening {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 10px 0;
+                border-bottom: 1px solid $dark_section_bg_color;
+
+                .tkt_screening_date {
+                    background-color: $badge_active_bg_color;
+                    color: $badge_active_text_color;
+                    border-radius: 15px;
+                    padding: 3px;
+
+                    .tkt_screening_link {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+
+
+                        .date {
+                            padding: 0 10px;
+                            color: $badge_active_text_color;
+                            font-weight: bold;
+                            font-size: 16px;
+                        }
+                    }
+                }
+
+                .tkt_screening_title {
+                    flex: 1;
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    padding-left: 10px;
+
+                    .dot {
+                        background-color: $dark_section_bg_color;
+                    }
+
+                    .tkt_screening_link {
+                        color: $dark_section_bg_color;
+                        padding-left: 10px;
+                        font-weight: normal;
+                        font-size: 16px;
+                    }
+                }
+
+                .tkt_screening_audio {
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    font-size: 16px;
+                }
+            }
+        }
+
+        .dot {
+            display: inline-block;
+            background-color: $badge_active_text_color;
+            border-radius: 15px;
+            width: 7px;
+            height: 7px;
+
+            &.color {
+                background-color: $badge_active_bg_color;
+            }
+        }
+    }
+}
+
 @media (min-width: 992px) {
     #tkt_program {
         .tkt_program_screening {

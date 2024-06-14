@@ -269,6 +269,193 @@
         }
     }
 }
+#tkt_program.tkt-agenda {
+    .tkt_agenda_day {
+        &.hidden {
+            display: none;
+        }
+
+        .day_title_wrapper {
+            background: $dark_section_bg_color;
+            color: $dark_section_text_color;
+            border-radius: $border_radius;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            margin-bottom: 10px;
+
+            .day_title {
+                margin: 0;
+            }
+
+            .arrow {
+                width: 0;
+                height: 0;
+                border-top: 10px solid transparent;
+                border-bottom: 10px solid transparent;
+                cursor: pointer;
+
+                &.arrow-left {
+                    border-right:10px solid $dark_section_text_color;
+
+                    &.inactive {
+                        border-right-color: #656565;
+                    }
+                }
+
+                &.arrow-right {
+                    border-left: 10px solid $dark_section_text_color;
+
+                    &.inactive {
+                        border-left-color: #656565;
+                    }
+                }
+            }
+        }
+        .tkt_program_screenings {
+            .tkt_program_screening {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 10px 0;
+                border-bottom: 1px solid $dark_section_bg_color;
+
+                .tkt_screening_date {
+                    background-color: $badge_active_bg_color;
+                    color: $badge_active_text_color;
+                    border-radius: 15px;
+                    padding: 3px;
+
+                    .tkt_screening_link {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        text-decoration: none !important;
+
+
+                        .date {
+                            padding: 0 10px;
+                            color: $badge_active_text_color;
+                            font-weight: bold;
+                            font-size: 16px;
+                        }
+                    }
+                }
+
+                .tkt_screening_title {
+                    flex: 1;
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    padding-left: 10px;
+
+                    .dot {
+                        background-color: $dark_section_bg_color;
+                    }
+
+                    .tkt_screening_link {
+                        color: $dark_section_bg_color;
+                        padding-left: 10px;
+                        font-weight: normal;
+                        font-size: 16px;
+                    }
+                }
+
+                .tkt_screening_audio {
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    font-size: 16px;
+                }
+            }
+        }
+
+        .dot {
+            display: inline-block;
+            background-color: $badge_active_text_color;
+            border-radius: 15px;
+            width: 7px;
+            height: 7px;
+
+            &.color {
+                background-color: $badge_active_bg_color;
+            }
+        }
+    }
+
+    .tkt-agenda-modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        z-index: 1;
+
+        .tkt-agenda-modal-blur {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            backdrop-filter: blur(4px);
+            background-color: rgba($badge_active_bg_color, 0.5);
+            z-index: 2;
+        }
+
+        .tkt-agenda-modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            z-index: 3;
+            transform: translate(-50%, -50%);
+            width: 800px;
+            max-width: 100%;
+            background: #FFFFFF;
+            box-shadow: 5px 5px 17px 1px #666;
+            border-radius: 12px;
+            padding: 40px;
+
+            .close-modal {
+                cursor: pointer;
+                position: absolute;
+                top: 5px;
+                right: 0px;
+                width: 20px;
+                height: 20px;
+                font-size: 15px;
+                color: $badge_active_bg_color;
+            }
+
+            .tkt-agenda-modal-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+
+                .left {
+                    color: $dark_section_bg_color;
+
+                    .title {
+                        line-height: 1.5rem;
+
+                        small {
+                            font-size: 16px;
+                        }
+                    }
+                }
+                .right {
+                    .poster {
+                        border-radius: $border_radius;
+                        max-width: 300px;
+                        max-height: 130px;
+                    }
+                }
+            }
+        }
+    }
+}
+
 @media (min-width: 992px) {
     #tkt_program {
         .tkt_program_screening {
@@ -304,8 +491,74 @@
         }
         .tkt_program_event >.event-inner .title {
             text-align: center;
+      }
     }
-    }
+  #tkt_program.tkt-agenda {
+      .tkt_agenda_day {
+          .day_title_wrapper {
+              .day_title {}
+
+              .arrow {
+                  &.arrow-left {}
+                  &.arrow-right {}
+              }
+          }
+          .tkt_program_screenings {
+              .tkt_program_screening {
+                  .tkt_screening_date {
+                      .tkt_screening_link {
+                          .date {}
+                      }
+                  }
+                  .tkt_screening_title {
+                      .dot {}
+                      .tkt_screening_link {}
+                  }
+                  .tkt_screening_audio {}
+              }
+          }
+      }
+
+      .tkt-agenda-modal {
+          overflow: auto;
+          display: flex;
+          align-items: center;
+
+          .tkt-agenda-modal-blur {}
+
+          .tkt-agenda-modal-content {
+              position: static;
+              max-width: calc(100% - 40px);
+              margin: 0 20px;
+              top: unset;
+              left: unset;
+              transform: none;
+              padding: 20px;
+              overflow: auto;
+
+
+              .tkt-agenda-modal-header {
+                  display: flex;
+                  flex-direction: column;
+                  .left {
+                      .title {
+                          line-height: 1.5rem;
+                          small {}
+                      }
+                  }
+                  .right {
+                      width: 100%;
+                      text-align: center;
+
+                      .poster {
+                        max-width: 100%;
+                        max-height: fit-content;
+                      }
+                  }
+              }
+          }
+      }
+  }
 }
 
 .header_soon {

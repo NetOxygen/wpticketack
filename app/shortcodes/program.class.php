@@ -17,14 +17,17 @@ use Ticketack\Core\Base\TKTApiException;
  */
 class ProgramShortcode extends TKTShortcode
 {
-    const LIST_TEMPLATE      = 'list';
-    const GRID_TEMPLATE      = 'grid';
-    const GALLERY_TEMPLATE   = 'gallery';
-    const BLOCKS_TEMPLATE    = 'blocks';
-    const SLIDER_TEMPLATE    = 'slider';
-    const SLIDER_PORTRAIT_TEMPLATE  = 'slider_portrait';
-    const SCREENINGS_LAYOUT         = 'screenings';
-    const EVENTS_LAYOUT             = 'events';
+    const LIST_TEMPLATE            = 'list';
+    const GRID_TEMPLATE            = 'grid';
+    const GALLERY_TEMPLATE         = 'gallery';
+    const BLOCKS_TEMPLATE          = 'blocks';
+    const SLIDER_TEMPLATE          = 'slider';
+    const AGENDA_TEMPLATE          = 'agenda';
+    const SLIDER_PORTRAIT_TEMPLATE = 'slider_portrait';
+
+    const SCREENINGS_LAYOUT = 'screenings';
+    const EVENTS_LAYOUT     = 'events';
+
     const DEFAULT_ITEM_WIDTH        = 12;
     const DEFAULT_ITEM_PER_ROW      = 1;
     const CHRONO_ORDER              = 'chrono';
@@ -57,6 +60,10 @@ class ProgramShortcode extends TKTShortcode
     {
         $template              = isset($atts['template']) ? $atts['template'] : static::LIST_TEMPLATE;
         $layout                = isset($atts['layout']) ? $atts['layout'] : static::SCREENINGS_LAYOUT;
+        if ($template === static::AGENDA_TEMPLATE) {
+            $layout = static::SCREENINGS_LAYOUT;
+        }
+
         $tags                  = isset($atts['tags']) ? explode(',', $atts['tags']) : null;
         $section_ids           = isset($atts['section_ids']) ? explode(',', $atts['section_ids']) : null;
         $xsection_ids          = isset($atts['xsection_ids']) ? explode(',', $atts['xsection_ids']) : null;

@@ -208,6 +208,10 @@ class Tickettype extends TKTModel implements \JsonSerializable
 
     public function required_fields($salepoint_id)
     {
+        if (empty($this->opaque["fields"])) {
+            return [];
+        }
+
         if (!array_key_exists($salepoint_id, $this->opaque["fields"])) {
             $salepoint_id = 'default';
         }
@@ -216,6 +220,10 @@ class Tickettype extends TKTModel implements \JsonSerializable
 
     public function requested_fields($salepoint_id)
     {
+        if (empty($this->opaque["fields"])) {
+            return [];
+        }
+
         if (!array_key_exists($salepoint_id, $this->opaque["fields"])) {
             $salepoint_id = 'default';
         }
