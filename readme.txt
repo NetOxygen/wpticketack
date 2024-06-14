@@ -2,7 +2,7 @@
 Tags: ticketack
 Requires at least: 5.9
 Tested up to: 6.5.4
-Stable tag: 2.75.1
+Stable tag: 2.76.0
 Requires PHP: 8.1
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -37,6 +37,10 @@ This section describes how to install the plugin and get it working.
 
 = Changelog =
 * [Changelog link](https://yoda.netoxygen.ch/public/projects/401b5210-986f-46b3-99cb-38546b73e16c/changelog)
+
+= 2.76.0 =
+
+* feat: Introduce new agenda layout for program shortcode
 
 = 2.75.1 =
 
