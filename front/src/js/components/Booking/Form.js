@@ -370,14 +370,18 @@ export default class BookingForm extends Component {
 
         // render template
 
+        // filter tickets on current edition, if any
+        const edition = Config.get('edition', '');
         const connected_tickets = this.state
             .get('tickets', [])
             .map(ticket => new Ticket(ticket))
-            .filter(t => t.isActivated());
+            .filter(t => t.isActivated())
+            .filter(t => !edition?.length || t.edition === edition);
         const account_tickets = this.state
             .get('user.tickets', [])
             .map(ticket => new Ticket(ticket))
-            .filter(t => t.isActivated());
+            .filter(t => t.isActivated())
+            .filter(t => !edition?.length || t.edition === edition);
 
         let pricings = [];
         if ('getMatchingPricings' in this.data.screening)

@@ -15,7 +15,7 @@ use Ticketack\WP\TKTApp;
     <div class="tkt-wrapper tkt-agenda-modal">
         <div class="tkt-agenda-modal-blur"></div>
         <div class="tkt-agenda-modal-content">
-            <i class="close-modal fa fa-times"></i>
+            <i class="close-modal tkt-icon-times"></i>
             <div class="tkt-agenda-modal-header">
                 <div class="left">
                     <h3 class="title">

@@ -19,6 +19,7 @@ class Settings extends TKTModel implements \JsonSerializable
     protected $created_at = null;
     protected $updated_at = null;
     protected $_version   = null;
+    protected $edition    = null;
 
     protected $pos          = [];
     protected $eshop        = [];
@@ -112,6 +113,11 @@ class Settings extends TKTModel implements \JsonSerializable
         return $this->_version;
     }
 
+    public function edition()
+    {
+        return $this->edition;
+    }
+
     public function images()
     {
         return (array)$this->images;
@@ -155,6 +161,7 @@ class Settings extends TKTModel implements \JsonSerializable
             'created_at'   => $this->created_at(),
             'updated_at'   => $this->updated_at(),
             '_version'     => $this->_version(),
+            'edition'      => $this->edition(),
             'pos'          => (object)$this->pos,
             'eshop'        => (object)$this->eshop,
             'mobile'       => (object)$this->mobile,

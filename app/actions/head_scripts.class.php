@@ -60,6 +60,7 @@ class HeadScriptsAction extends TKTAction
                 "api_key": "'.$app->get_config('ticketack.api_key').'",
                 "salepoint_id": "'.$app->get_config('ticketack.salepoint_id').'",
                 "cashregister_id": "'.$app->get_config('ticketack.cashregister_id').'",
+                "edition": "'.$app->get_config('edition').'",
                 "program_url": "'.tkt_program_url().'",
                 "ticket_view_url": "'.tkt_ticket_view_url().'",
                 "shop_url": "'.tkt_shop_url().'",

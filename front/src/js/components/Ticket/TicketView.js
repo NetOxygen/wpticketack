@@ -65,7 +65,12 @@ export default class TicketView extends Component {
     }
 
     render(ticket) {
-        const tickets = this.state.get('tickets', []);
+        let tickets = this.state.get('tickets', []);
+        // filter tickets on current edition, if any
+        const edition = Config.get('edition', '');
+        if (edition?.length)
+            tickets = tickets.filter(t => t.edition === edition);
+
         this.$container.html(Template.render('tkt-ticket-tpl', {
             ticket,
             tickets: tickets?.map(t => new Ticket(t)),

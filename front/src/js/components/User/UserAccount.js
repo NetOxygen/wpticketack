@@ -135,10 +135,17 @@ export default class UserAccount extends Component {
     }
 
     render() {
-        const user          = this.state.get('user.account');
-        const orders        = this.state.get('user.orders', []).map(order => new Cart(order));
-        const tickets       = this.state.get('user.tickets', []).map(ticket => new Ticket('ticket_data' in ticket ? ticket.ticket_data : ticket));
-        const other_tickets = this.state.get('tickets', []).map(ticket => new Ticket('ticket_data' in ticket ? ticket.ticket_data : ticket));
+        const user        = this.state.get('user.account');
+        const orders      = this.state.get('user.orders', []).map(order => new Cart(order));
+        let tickets       = this.state.get('user.tickets', []).map(ticket => new Ticket('ticket_data' in ticket ? ticket.ticket_data : ticket));
+        let other_tickets = this.state.get('tickets', []).map(ticket => new Ticket('ticket_data' in ticket ? ticket.ticket_data : ticket));
+
+        // filter tickets on current edition, if any
+        const edition = Config.get('edition', '');
+        if (edition?.length) {
+            tickets       = tickets.filter(t => t.edition === edition);
+            other_tickets = other_tickets.filter(t => t.edition === edition);
+        }
 
         if (!user)
             return window.location.href = this.loginUrl;

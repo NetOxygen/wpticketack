@@ -48,7 +48,7 @@ export default class TicketConnect extends Component {
 
     async init(ticketId) {
         let ticket;
-        const tickets = this.state.get('tickets', []);
+        let tickets = this.state.get('tickets', []);
         if (tickets.length) {
             this.ticketId = ticketId || new Ticket(tickets[tickets.length - 1])._id;
             try {
@@ -65,6 +65,12 @@ export default class TicketConnect extends Component {
                 console.error(err.message);
             }
         }
+
+        // filter tickets on current edition, if any
+        const edition = Config.get('edition', '');
+        if (edition?.length)
+            tickets = tickets.filter(t => t.edition === edition);
+
         this.render(ticket, tickets?.map(t => new Ticket(t)));
     }
 
