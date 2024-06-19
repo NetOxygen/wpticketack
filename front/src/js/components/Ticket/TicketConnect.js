@@ -51,13 +51,19 @@ export default class TicketConnect extends Component {
         const tickets = this.state.get('tickets', []);
         if (tickets.length) {
             this.ticketId = ticketId || new Ticket(tickets[tickets.length - 1])._id;
-            ticket        = await TKTLib.TicketService.get(this.ticketId, /*noCache*/true);
+            try {
+                ticket = await TKTLib.TicketService.get(this.ticketId, /*noCache*/true);
 
-            ticket.store         = 'tickets';
-            ticket.isForgettable = true;
+                ticket.store         = 'tickets';
+                ticket.isForgettable = true;
 
-            this.state.push(ticket.store, ticket, '_id');
-            await ticket.enhanceBookings();
+                this.state.push(ticket.store, ticket, '_id');
+                await ticket.enhanceBookings();
+            } catch (err) {
+                if (err.message === 'Ticket not found (by _id)')
+                    this.state.pull(ticket.store, '_id', this.ticketId);
+                console.error(err.message);
+            }
         }
         this.render(ticket, tickets?.map(t => new Ticket(t)));
     }
