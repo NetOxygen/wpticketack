@@ -102,7 +102,7 @@ export default class TicketConnect extends Component {
 
             // Redirect to ticket activation if needed
             if (this.data.ticket.status == "new")
-                window.location.href =  TKTApi.getTicketViewUrl();
+                window.location.href = TKTApi.getTicketViewUrl(this.data.ticket._id);
         } catch (err) {
             return $('.pass-error')
                 .html(i18n.t('Les informations que vous avez saisies sont invalides'))
