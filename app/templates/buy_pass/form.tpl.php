@@ -35,14 +35,14 @@ $width = 300;
               <div id="field-wrapper-lastname" class="field-wrapper col-md-4" style="display: block;">
                 <div class="form-group">
                   <label class="required" for="lastname"><?= tkt_t("Nom"); ?></label>
-                  <input name="lastname" type="text" class="tkt-input form-control field" id="lastname" placeholder="<?= tkt_t("Votre nom") ?>" required />
+                  <input name="lastname" type="text" class="tkt-input form-control field" id="lastname" placeholder="<?= tkt_t("Votre nom de famille") ?>" required />
                 </div>
               </div>
 
               <div id="field-wrapper-email" class="field-wrapper col-md-4" style="display: block;">
                 <div class="form-group">
                   <label class="required" for="email"><?= tkt_t("E-mail"); ?></label>
-                  <input name="email" type="text" class="tkt-input form-control field" id="email" placeholder="<?= tkt_t("Votre e-mail") ?>" required />
+                  <input name="email" type="email" class="tkt-input form-control field" id="email" placeholder="<?= tkt_t("Votre adresse e-mail") ?>" required />
                 </div>
               </div>
             </div>

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-29 11:52+0200\n"
+"POT-Creation-Date: 2024-06-20 12:23+0200\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Jonathan Ernst <jonathan.ernst@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -147,14 +147,14 @@ msgstr "Your firstname"
 msgid "Nom"
 msgstr "Lastname"
 
-msgid "Votre nom"
+msgid "Votre nom de famille"
 msgstr "Your lastname"
 
 msgid "E-mail"
 msgstr "Email"
 
-msgid "Votre e-mail"
-msgstr "Your email"
+msgid "Votre adresse e-mail"
+msgstr "Your e-mail address"
 
 msgid "Adresse"
 msgstr "Address"
@@ -216,6 +216,12 @@ msgid ""
 msgstr ""
 "Without a clearly recognizable photo, we reserve the right to refuse entry. "
 "In case of abuse, your ticket may be blocked."
+
+msgid "Commentaires"
+msgstr "Comments"
+
+msgid "Votre commentaire"
+msgstr "Your comment"
 
 msgid "Ceci est un cadeau"
 msgstr "This is a gift"
@@ -457,6 +463,9 @@ msgstr "Tickets"
 msgid "Il ne reste que quelques places !"
 msgstr "There are only a few places left!"
 
+msgid "Aujourd'hui"
+msgstr ""
+
 msgid ""
 "Aucuné séance programmée actuellement, revenez nous visiter prochainement."
 msgstr "No screening currently scheduled, come back soon."
@@ -479,6 +488,9 @@ msgstr "No account yet? Create one!"
 msgid "Mot de passe perdu ? Changez-le !"
 msgstr "Lost password? Change it here!"
 
+msgid "Votre nom"
+msgstr "Your lastname"
+
 msgid "Société"
 msgstr "Company"
 
@@ -487,9 +499,6 @@ msgstr "Your company"
 
 msgid "Adresse e-mail"
 msgstr "E-mail address"
-
-msgid "Votre adresse e-mail"
-msgstr "Your e-mail address"
 
 msgid "Confirmation de votre adresse e-mail"
 msgstr "Confirm your e-mail address"
@@ -630,8 +639,8 @@ msgstr "Company"
 msgid "Votre entreprise"
 msgstr "Your company"
 
-msgid "Commentaires"
-msgstr "Comments"
+msgid "Saisissez une seconde fois votre adresse e-mail"
+msgstr "Enter your email address a second time"
 
 msgid "Je désire m'inscrire à la newsletter."
 msgstr "I would like to subscribe to the newsletter."
@@ -1233,12 +1242,6 @@ msgstr "Medium images width"
 msgid "Hauteur des images moyennes"
 msgstr "Medium images height"
 
-msgid "Serveur proxy d'images"
-msgstr "Images proxy server"
-
-msgid "Serveur proxy"
-msgstr "Proxy server"
-
 msgid "Langue par défaut"
 msgstr "Default language"
 
@@ -1299,9 +1302,6 @@ msgstr "Set the ticketing system access informations"
 msgid "Dimensions des grandes et moyennes images (en px)."
 msgstr "Big and medium images dimensions (in px)."
 
-msgid "Configuration du serveur proxy d'images."
-msgstr "Images proxy server configuration"
-
 msgid "Configuration des langues."
 msgstr "Languages configuration"
 
@@ -1321,6 +1321,15 @@ msgstr "Change these settings only if you know what you are doing."
 
 msgid "Brouillon"
 msgstr "Draft"
+
+#~ msgid "Serveur proxy d'images"
+#~ msgstr "Images proxy server"
+
+#~ msgid "Serveur proxy"
+#~ msgstr "Proxy server"
+
+#~ msgid "Configuration du serveur proxy d'images."
+#~ msgstr "Images proxy server configuration"
 
 #~ msgid "Réserver (paiement sur place)"
 #~ msgstr "Book (on site payment)"

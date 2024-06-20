@@ -113,7 +113,7 @@ foreach ($payment_method_names as $id => $translations) {
               <div id="field-wrapper-email" class="field-wrapper col-6" style="display: block;">
                 <div class="form-group">
                   <label class="<?= r($required_fields, 'email') ?>" for="email"><?= tkt_t("Confirmation de votre adresse e-mail"); ?></label>
-                  <input name="user[email2]" type="email" class="tkt-input form-control data-field" id="email2" placeholder="<?= tkt_t("Saisissez une deuxième fois votre adresse") ?>" <?= r($required_fields, 'email') ?> />
+                  <input name="user[email2]" type="email" class="tkt-input form-control data-field" id="email2" placeholder="<?= tkt_t("Saisissez une seconde fois votre adresse e-mail") ?>" <?= r($required_fields, 'email') ?> />
                 </div>
               </div>
               <?php endif; ?>

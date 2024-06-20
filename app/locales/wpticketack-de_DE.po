@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-29 11:53+0200\n"
+"POT-Creation-Date: 2024-06-20 12:22+0200\n"
 "PO-Revision-Date: 2022-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Jonathan Ernst <jonathan.ernst@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -151,14 +151,14 @@ msgstr "Ihr Vorname"
 msgid "Nom"
 msgstr "Nachname"
 
-msgid "Votre nom"
-msgstr "Ihr Nachname"
+msgid "Votre nom de famille"
+msgstr "Ihre Nachname"
 
 msgid "E-mail"
 msgstr "E-mail"
 
-msgid "Votre e-mail"
-msgstr "Ihre E-mail"
+msgid "Votre adresse e-mail"
+msgstr "Ihre E-Mail Adresse"
 
 msgid "Adresse"
 msgstr "Adresse"
@@ -220,6 +220,12 @@ msgid ""
 msgstr ""
 "Ohne ein deutlich erkennbares Foto behalten wir uns das Recht vor, Ihnen den "
 "Eintritt zu verweigern. Bei Missbrauch kann Ihr Ticket gesperrt werden."
+
+msgid "Commentaires"
+msgstr "Kommentare"
+
+msgid "Votre commentaire"
+msgstr "Ihr Kommentar"
 
 msgid "Ceci est un cadeau"
 msgstr "Dies ist ein Geschenk"
@@ -468,6 +474,9 @@ msgstr "Tickets"
 msgid "Il ne reste que quelques places !"
 msgstr "Es sind nur noch wenige Plätze verfügbar!"
 
+msgid "Aujourd'hui"
+msgstr "Heute"
+
 msgid ""
 "Aucuné séance programmée actuellement, revenez nous visiter prochainement."
 msgstr "Derzeit sind keine Sitzungen geplant. Besuchen Sie uns bald wieder."
@@ -490,6 +499,9 @@ msgstr "Haben Sie noch kein Konto? Erstellen Sie eins!"
 msgid "Mot de passe perdu ? Changez-le !"
 msgstr "Passwort vergessen? Ändern Sie es!"
 
+msgid "Votre nom"
+msgstr "Ihr Nachname"
+
 msgid "Société"
 msgstr "Firma"
 
@@ -498,9 +510,6 @@ msgstr "Ihre Firma"
 
 msgid "Adresse e-mail"
 msgstr "E-Mail Adresse"
-
-msgid "Votre adresse e-mail"
-msgstr "Ihre E-Mail Adresse"
 
 msgid "Confirmation de votre adresse e-mail"
 msgstr "Bestätigung Ihrer E-Mail-Adresse"
@@ -645,8 +654,8 @@ msgstr "Unternehmen"
 msgid "Votre entreprise"
 msgstr "Ihr Unternehmen"
 
-msgid "Commentaires"
-msgstr "Kommentare"
+msgid "Saisissez une seconde fois votre adresse e-mail"
+msgstr "Geben Sie Ihre Adresse ein zweites Mal ein"
 
 msgid "Je désire m'inscrire à la newsletter."
 msgstr "Ich möchte mich für den Newsletter anmelden."
@@ -774,9 +783,8 @@ msgstr "Besetzung"
 msgid "Aucune séance à venir."
 msgstr "Keine bevorstehenden Vorstellungen."
 
-#, fuzzy
 msgid "Impossible de communiquer avec la billetterie…"
-msgstr "Kommunikation mit Ticketack nicht möglich..."
+msgstr "Kommunikation mit Ticketack nicht möglich…"
 
 msgid "non défini"
 msgstr "nicht definiert"
@@ -1255,12 +1263,6 @@ msgstr "Breite der mittleren Bilder"
 msgid "Hauteur des images moyennes"
 msgstr "Höhe der mittleren Bilder"
 
-msgid "Serveur proxy d'images"
-msgstr "Bild-Proxy-Server"
-
-msgid "Serveur proxy"
-msgstr "Proxy-Server"
-
 msgid "Langue par défaut"
 msgstr "Standardsprache"
 
@@ -1323,9 +1325,6 @@ msgstr "Geben Sie Zugangsinformationen zum Ticketverkauf ein"
 msgid "Dimensions des grandes et moyennes images (en px)."
 msgstr "Größe der großen und mittleren Bilder (in px)"
 
-msgid "Configuration du serveur proxy d'images."
-msgstr "Konfiguration des Bild-Proxy-Servers"
-
 msgid "Configuration des langues."
 msgstr "Konfiguration der Sprachen"
 
@@ -1344,6 +1343,15 @@ msgstr "Ändern Sie die Werte unten nur, wenn Sie wissen, was Sie tun."
 
 msgid "Brouillon"
 msgstr "Draft"
+
+#~ msgid "Serveur proxy d'images"
+#~ msgstr "Bild-Proxy-Server"
+
+#~ msgid "Serveur proxy"
+#~ msgstr "Proxy-Server"
+
+#~ msgid "Configuration du serveur proxy d'images."
+#~ msgstr "Konfiguration des Bild-Proxy-Servers"
 
 #~ msgid "Réserver (paiement sur place)"
 #~ msgstr "Buchen (Zahlung vor Ort)"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-29 11:52+0200\n"
+"POT-Creation-Date: 2024-06-20 12:22+0200\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Jonathan Ernst <jonathan.ernst@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -147,13 +147,13 @@ msgstr ""
 msgid "Nom"
 msgstr ""
 
-msgid "Votre nom"
+msgid "Votre nom de famille"
 msgstr ""
 
 msgid "E-mail"
 msgstr ""
 
-msgid "Votre e-mail"
+msgid "Votre adresse e-mail"
 msgstr ""
 
 msgid "Adresse"
@@ -213,6 +213,12 @@ msgstr ""
 msgid ""
 "Sans photo clairement reconnaissable, nous nous réservons le droit de vous "
 "refuser l'entrée. En cas d'abus, votre billet pourra être bloqué."
+msgstr ""
+
+msgid "Commentaires"
+msgstr ""
+
+msgid "Votre commentaire"
 msgstr ""
 
 msgid "Ceci est un cadeau"
@@ -449,6 +455,9 @@ msgstr ""
 msgid "Il ne reste que quelques places !"
 msgstr ""
 
+msgid "Aujourd'hui"
+msgstr ""
+
 msgid ""
 "Aucuné séance programmée actuellement, revenez nous visiter prochainement."
 msgstr ""
@@ -471,6 +480,9 @@ msgstr ""
 msgid "Mot de passe perdu ? Changez-le !"
 msgstr ""
 
+msgid "Votre nom"
+msgstr ""
+
 msgid "Société"
 msgstr ""
 
@@ -478,9 +490,6 @@ msgid "Votre société"
 msgstr ""
 
 msgid "Adresse e-mail"
-msgstr ""
-
-msgid "Votre adresse e-mail"
 msgstr ""
 
 msgid "Confirmation de votre adresse e-mail"
@@ -619,7 +628,7 @@ msgstr ""
 msgid "Votre entreprise"
 msgstr ""
 
-msgid "Commentaires"
+msgid "Saisissez une seconde fois votre adresse e-mail"
 msgstr ""
 
 msgid "Je désire m'inscrire à la newsletter."
@@ -1219,12 +1228,6 @@ msgstr ""
 msgid "Hauteur des images moyennes"
 msgstr ""
 
-msgid "Serveur proxy d'images"
-msgstr ""
-
-msgid "Serveur proxy"
-msgstr ""
-
 msgid "Langue par défaut"
 msgstr ""
 
@@ -1278,9 +1281,6 @@ msgid "Saisissez les informations d'accès à la billetterie"
 msgstr ""
 
 msgid "Dimensions des grandes et moyennes images (en px)."
-msgstr ""
-
-msgid "Configuration du serveur proxy d'images."
 msgstr ""
 
 msgid "Configuration des langues."
