@@ -107,7 +107,9 @@ foreach ($payment_method_names as $id => $translations) {
               <div id="field-wrapper-email" class="field-wrapper col-6" style="display: block;">
                 <div class="form-group">
                   <label class="<?= r($required_fields, 'email') ?>" for="email"><?= tkt_t("Adresse e-mail"); ?></label>
-                  <input name="user[email]" type="email" class="tkt-input form-control data-field" id="email" placeholder="<?= tkt_t("Votre adresse e-mail") ?>" <?= r($required_fields, 'email') ?> />
+                  <i class=" tkt-icon-info-circle" data-component="Ui/Tippy" data-tippy-content="exemple@exemple.com"></i>
+                  <input name="user[email]" type="email" class="tkt-input form-control data-field" id="email" placeholder="<?= tkt_t("Votre adresse e-mail") ?>" <?= r($required_fields, 'email') ?> pattern="[^@]+@[^@]+\.[a-zA-Z]{2,}" />
+
                 </div>
               </div>
               <div id="field-wrapper-email" class="field-wrapper col-6" style="display: block;">

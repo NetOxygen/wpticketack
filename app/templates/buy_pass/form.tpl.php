@@ -42,7 +42,8 @@ $width = 300;
               <div id="field-wrapper-email" class="field-wrapper col-md-4" style="display: block;">
                 <div class="form-group">
                   <label class="required" for="email"><?= tkt_t("E-mail"); ?></label>
-                  <input name="email" type="email" class="tkt-input form-control field" id="email" placeholder="<?= tkt_t("Votre adresse e-mail") ?>" required />
+                  <i class=" tkt-icon-info-circle" data-component="Ui/Tippy" data-tippy-content="exemple@exemple.com"></i>
+                  <input name="email" type="email" class="tkt-input form-control field" id="email" placeholder="<?= tkt_t("Votre adresse e-mail") ?>" pattern="[^@]+@[^@]+\.[a-zA-Z]{2,}" required />
                 </div>
               </div>
             </div>
