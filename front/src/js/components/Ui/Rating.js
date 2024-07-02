@@ -1,72 +1,66 @@
-import { Component, Template } from '../Core';
+import { Component } from '../Core';
 import { TKTLib } from '../Ticketack';
-import StarRating from 'star-rating.js';
+import rater from 'rater-js';
 
 /**
  * Convert a select into a star rating input
  *
  * Usage:
  *
- * <select
+ * <div
  *    <!-- Required -->
  *    data-component="Ui/Rating"
  *    data-ticket-id="12345678-1234-1234-4321-123456789012"
  *    data-booking-id="12345678-1234-1234-4321-123456789012"
- * >
- *    <option value="">Select a rating</option>
- *    <option value="5">Excellent</option>
- *    <option value="4">Very Good</option>
- *    <option value="3">Average</option>
- *    <option value="2">Poor</option>
- *    <option value="1">Terrible</option>
- * </select>
- * >
+ *    data-score="2.5"
+ *    data-size="32"
+ *    data-disabled-reason="You can not vote for now..."
+ *    data-step="0.5"
+ *    data-max="10"
+ * />
  */
 export default class Rating extends Component {
     attach() {
         super.attach();
 
-        this.ticketId  = this.$container.data('ticket-id');
-        this.bookingId = this.$container.data('booking-id');
+        this.ticketId       = this.$container.data('ticket-id');
+        this.bookingId      = this.$container.data('booking-id');
+        this.max            = this.$container.data('max');
+        this.step           = this.$container.data('step');
+        this.score          = this.$container.data('score');
+        this.disabledReason = this.$container.data('disabled-reason');
+        this.disabled       = this.disabledReason?.length > 0;
+        this.size           = this.$container.data('size') || 24;
 
+        this.$container.attr('id', `rating-${this.uniqid}`);
         this.init();
     }
 
     init() {
-        this.$container.change(async () => {
-            if (!this.ticketId || !this.bookingId)
-                return false;
-
-            if (!this.stars || !this.stars.widgets?.length)
-                return;
-
-            const values = this.stars?.widgets[0].values || [];
-            if (!values.length)
-                return;
-
-            const index = this.stars.widgets[0].indexSelected;
-            if (!values[index])
-                return;
-
-            const score = values[index].value;
-
-            try {
-                const { TicketService } = TKTLib;
-                const ticket = await TicketService.voteForBooking(
-                    this.ticketId,
-                    this.bookingId,
-                    score
-                );
-            } catch (e) {
-                console.error(e);
+        const rating = rater({
+            element: document.querySelector(`#rating-${this.uniqid}`),
+            max: this.max,
+            step: this.step,
+            showToolTip: true,
+            readOnly: !!this.disabled,
+            disableText: this.disabledReason,
+            starSize: this.size,
+            rateCallback: async (score, done) => {
+                try {
+                    const { TicketService } = TKTLib;
+                    const ticket = await TicketService.voteForBooking(
+                        this.ticketId,
+                        this.bookingId,
+                        score
+                    );
+                    rating.setRating(score);
+                    done();
+                } catch (e) {
+                    done();
+                    console.error(e);
+                }
             }
         });
-
-        const uniqClass = `rating-${this.uniqid}`;
-        this.$container.addClass(uniqClass);
-        this.stars = new StarRating('.' + uniqClass, {
-            tooltip: '',
-            clearable: false // not supported for now by the engine
-        });
+        rating.setRating(this.score);
     }
 }

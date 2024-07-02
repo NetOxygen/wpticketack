@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { Api as TKTApi } from '../Ticketack';
+import { Api as TKTApi, TKTLib } from '../Ticketack';
 
 /**
  * Template manager
@@ -17,6 +17,7 @@ class Template {
             return null;
 
         data.TKTApi = TKTApi;
+        data.TKTLib = TKTLib;
 
         return _.template($tpl.html())(data);
     };

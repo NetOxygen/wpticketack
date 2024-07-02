@@ -57,8 +57,8 @@ export default class TicketConnect extends Component {
                 ticket.store         = 'tickets';
                 ticket.isForgettable = true;
 
-                this.state.push(ticket.store, ticket, '_id');
                 await ticket.enhanceBookings();
+                this.state.push(ticket.store, ticket, '_id');
             } catch (err) {
                 if (err.message === 'Ticket not found (by _id)')
                     this.state.pull(ticket.store, '_id', this.ticketId);

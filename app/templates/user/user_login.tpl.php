@@ -33,7 +33,7 @@ use Ticketack\WP\TKTApp;
                     <?= tkt_t("Mon compte") ?>
                 </a>
                 <button class="btn button logout-btn">
-                    <i class="tkt-icon-sign-out-alt"></i>
+                    <i class="tkt-icon-sign-out"></i>
                     <?= tkt_t('Me déconnecter') ?>
                 </button>
             </div>

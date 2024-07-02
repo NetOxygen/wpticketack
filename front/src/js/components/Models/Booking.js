@@ -1,12 +1,12 @@
 import BaseModel from './Base';
-import { Api as TKTApi } from '../Ticketack';
+import { Api as TKTApi, TKTLib } from '../Ticketack';
 import Screening from './Screening';
 import moment from 'moment';
 
 /**
  * Booking model
  */
-export default class Booking extends BaseModel {
+export default class Booking extends TKTLib.Booking {
     static type = 'booking';
 
     /**

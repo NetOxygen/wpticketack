@@ -1,5 +1,5 @@
 import { Component, Template, Config, i18n } from '../Core';
-import { Api as TKTApi } from '../Ticketack';
+import { Api as TKTApi, TKTLib } from '../Ticketack';
 import { User, Cart, Ticket } from '../Models';
 import postal from 'postal';
 import serialize from 'form-serialize';
@@ -35,10 +35,32 @@ export default class UserAccount extends Component {
 
     attach() {
         super.attach();
-        this.init();
+
+        TKTLib.ready(() => {
+            this.votesConfig = TKTLib.setting('votes');
+            this.init();
+        });
     }
 
-    init() {
+    async init() {
+        if (this.tab === 'votes') {
+            // refresh storage tickets to consider any recent vote
+            await Promise.all(this.state.get('tickets', []).map(async ticketData => {
+                const ticketId = new Ticket(ticketData)._id;
+                try {
+                    const ticket = await TKTLib.TicketService.get(ticketId, /*noCache*/true);
+
+                    ticket.store         = 'tickets';
+                    ticket.isForgettable = true;
+
+                    await ticket.enhanceBookings();
+                    this.state.push('tickets', ticket, '_id');
+                } catch (err) {
+                    console.error(err.message);
+                }
+            }));
+        }
+
         TKTApi.getProfile(/*forceRefresh*/this.tab === 'votes', (err, status, rsp) => {
             const user    = !err ? new User(rsp.user) : null;
             const orders  = !err ? rsp.orders.map(order => new Cart(order)) : [];
@@ -54,7 +76,6 @@ export default class UserAccount extends Component {
                 }
                 this.render();
             });
-
         });
 
         postal.subscribe({
@@ -156,7 +177,7 @@ export default class UserAccount extends Component {
             this.$verifyMessage.show();
         } else {
             this.$menuContainer.html(Template.render('tkt-user-account-menu-tpl', {}));
-            this.$contentContainer.html(Template.render('tkt-user-account-content-tpl', { user, orders, tickets, other_tickets }));
+            this.$contentContainer.html(Template.render('tkt-user-account-content-tpl', { user, orders, tickets, other_tickets, votesConfig: this.votesConfig }));
             this.loader.attach();
 
         }

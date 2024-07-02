@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-20 12:23+0200\n"
+"POT-Creation-Date: 2024-07-02 20:38+0200\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Jonathan Ernst <jonathan.ernst@netoxygen.ch>\n"
+"Last-Translator: Belkacem Alidra <belkacem.alidra@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -464,7 +464,7 @@ msgid "Il ne reste que quelques places !"
 msgstr "There are only a few places left!"
 
 msgid "Aujourd'hui"
-msgstr ""
+msgstr "Today"
 
 msgid ""
 "Aucuné séance programmée actuellement, revenez nous visiter prochainement."
@@ -539,6 +539,21 @@ msgstr "Have an account? Please Login!"
 
 msgid "Mes votes"
 msgstr "My votes"
+
+msgid "Les votes seront possibles dès le début de la séance"
+msgstr "Voting will be possible from the start of the screening"
+
+msgid "Les votes seront possibles dès la fin de la séance"
+msgstr "Voting will be possible from the end of the screening"
+
+msgid "Vous ne pouvez pas voter car votre billet n'a pas été contrôlé"
+msgstr "You cannot vote because your ticket has not been scanned"
+
+msgid "Les votes ne sont pas encore possibles pour cette séance"
+msgstr "Voting is not yet possible for this screening"
+
+msgid "Les votes ne sont pas plus possibles pour cette séance"
+msgstr "Voting is no longer possible for this screening"
 
 msgid "Aucun vote disponible pour le moment."
 msgstr "No votes available at the moment."
