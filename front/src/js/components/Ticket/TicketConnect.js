@@ -43,7 +43,10 @@ export default class TicketConnect extends Component {
             }
         });
 
-        this.init();
+        TKTLib.ready(() => {
+            this.votesConfig = TKTLib.setting('votes');
+            this.init();
+        });
     }
 
     async init(ticketId) {
@@ -58,10 +61,10 @@ export default class TicketConnect extends Component {
                 ticket.isForgettable = true;
 
                 await ticket.enhanceBookings();
-                this.state.push(ticket.store, ticket, '_id');
+                this.state.push('tickets', ticket, '_id');
             } catch (err) {
                 if (err.message === 'Ticket not found (by _id)')
-                    this.state.pull(ticket.store, '_id', this.ticketId);
+                    this.state.pull('tickets', '_id', this.ticketId);
                 console.error(err.message);
             }
         }
@@ -119,7 +122,8 @@ export default class TicketConnect extends Component {
         this.$container.html(Template.render('tkt-ticket-tpl', {
             ticket,
             tickets,
-            program_url : Config.get('program_url') ? Config.get('program_url') : TKTApi.getProgramViewUrl()
+            program_url : Config.get('program_url') ? Config.get('program_url') : TKTApi.getProgramViewUrl(),
+            votesConfig: this.votesConfig
         }));
         this.$container.append(Template.render('tkt-ticket-connect-tpl', {
             ticket,
