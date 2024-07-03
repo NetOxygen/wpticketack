@@ -61,7 +61,8 @@ export default class UserAccount extends Component {
             }));
         }
 
-        TKTApi.getProfile(/*forceRefresh*/this.tab === 'votes', (err, status, rsp) => {
+        const user = this.state.get('user', {});
+        TKTApi.getProfile(/*forceRefresh*/this.tab === 'votes' || (user?.account?.verified === false), (err, status, rsp) => {
             const user    = !err ? new User(rsp.user) : null;
             const orders  = !err ? rsp.orders.map(order => new Cart(order)) : [];
             const tickets = !err ? rsp.tickets.map(ticket => new Ticket(ticket.ticket_data)) : [];
