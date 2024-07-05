@@ -61,6 +61,6 @@ export default class Rating extends Component {
                 }
             }
         });
-        rating.setRating(this.score);
+        rating.setRating(parseFloat(this.score) || 0);
     }
 }
