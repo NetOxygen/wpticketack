@@ -282,7 +282,7 @@ class SyncHelper
         return $image_id;
     }
 
-    protected function link_attachment_to_post($post_id, $image_id)
+    protected static function link_attachment_to_post($post_id, $image_id)
     {
         // We delete first to ensure only one occurence of same meta
         // This should be replaced by only one call to update_post_meta()
