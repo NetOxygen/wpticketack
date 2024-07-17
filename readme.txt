@@ -13,14 +13,33 @@ Ticketack integration plugin.
 
 Official Ticketack integration plugin.
 
+More infos about [Ticketack](https://ticketack.com).
+
 Main features:
 
 *   Display upcoming movies and screenings
 *   Many display layouts (list, grid, gallery...)
 *   Full add to cart and checkout process
 
+Integrations:
+
+*   Get access to [Kronos](https://kronos.ticketack.com) directly from
+    the admin menu
+*   Synchronize your [Eventival](https://eventival.com) guests.
+*   Embed your [Pantaflix](https://www.pantaflixgroup.com/) VOD players.
+*   All your images are cached and resized using [Weserv](https://wsrv.nl/)
+    service.
+
 Please note that you must have been provided some configuration informations
 from the Ticketack team to be able to use this plugin.
+
+Privacy policies:
+
+*   [Ticketack](https://netoxygen.ch/conditions-generales/protection-des-donnees/)
+*   [Kronos](https://netoxygen.ch/conditions-generales/protection-des-donnees/)
+*   [Eventival](https://www.eventival.com/en/privacy-policy)
+*   [Pantaflix](https://www.pantaflixgroup.com/site/assets/files/2435/180620_datenschutz_hauptversammlung_en.pdf)
+*   [Weserv](https://github.com/weserv/images/blob/5.x/Privacy-Policy.md)
 
 == Installation ==
 
