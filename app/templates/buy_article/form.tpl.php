@@ -19,11 +19,11 @@ use Ticketack\WP\Templates\TKTTemplate;
             <div
                 class="buy-article-form"
                 data-component="BuyArticle/Form"
-                data-redirect="<?= TKTApp::get_instance()->get_config('cart.cart_redirect', 'none') ?>"
-                data-cart-url="<?= tkt_cart_url() ?>"
-                data-checkout-url="<?= tkt_checkout_url() ?>"
-                data-article-id="<?= $data->article->_id() ?>"
-                data-salepoint-id="<?= $data->salepoint_id ?>"
+                data-redirect="<?php echo TKTApp::get_instance()->get_config('cart.cart_redirect', 'none') ?>"
+                data-cart-url="<?php echo tkt_cart_url() ?>"
+                data-checkout-url="<?php echo tkt_checkout_url() ?>"
+                data-article-id="<?php echo $data->article->_id() ?>"
+                data-salepoint-id="<?php echo $data->salepoint_id ?>"
             >
             </div>
         </div>
@@ -31,9 +31,9 @@ use Ticketack\WP\Templates\TKTTemplate;
 
     <!-- Underscore.js templates used by client side -->
     <script type="text/template" id="tkt-buy-article-form-pricings-tpl">
-        <?= TKTTEmplate::render('buy_article/form_pricings', $data) ?>
+        <?php echo TKTTEmplate::render('buy_article/form_pricings', $data) ?>
     </script>
     <script type="text/template" id="tkt-buy-article-form-success-tpl">
-          <?= TKTTEmplate::render('buy_article/form_success', $data) ?>
+          <?php echo TKTTEmplate::render('buy_article/form_success', $data) ?>
     </script>
 </div>

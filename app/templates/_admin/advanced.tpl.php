@@ -8,11 +8,11 @@ use Ticketack\WP\TKTApp;
 $tab = 'advanced';
 ?>
 <form method="post">
-    <input type="hidden" name="nonce" value="<?= wp_create_nonce('tkt_admin_options') ?>" />
+    <input type="hidden" name="nonce" value="<?php echo wp_create_nonce('tkt_admin_options') ?>" />
 <?php
     settings_fields('ticketack-'.$tab);
     do_settings_sections('ticketack-'.$tab);
     submit_button();
 ?>
-<script type="text/javascript" src="<?= plugin_dir_url(TKT_APP).'app/templates/_admin/js/jscolor.min.js' ?>" ></script>
+<script type="text/javascript" src="<?php echo plugin_dir_url(TKT_APP).'app/templates/_admin/js/jscolor.min.js' ?>" ></script>
 </form>

@@ -31,12 +31,12 @@ $timeout = $data->slider_timeout;
     <section class="tkt-section tkt-dark-section" style="height:5%" ><div class="header_soon text-center"><h1>Prochainement</h1></div></section>
     <section class="tkt-section tkt-light-section" style="height:95%" > <div class="container-fluid slider_soon_portrait" style="height:100%">
         <?php if (empty($data->events)) : ?>
-        <h3 class="no-event-title"><?= tkt_t('Aucun événement programmé actuellement, revenez nous visiter prochainement.') ?></h3>
+        <h3 class="no-event-title"><?php echo tkt_t('Aucun événement programmé actuellement, revenez nous visiter prochainement.') ?></h3>
         <?php else: ?>
 
             <?php foreach($data->events as $event) : ?>
-            <div class="tkt_slider_event h-100 col-12" data-type="<?= $event->opaque('type') ?>" <?= tkt_event_data_attributes($event, $data->filter_fields) ?>>
-                <?= TKTTemplate::render('program/slider_portrait/event', (object)[ 'event' => $event ]) ?>
+            <div class="tkt_slider_event h-100 col-12" data-type="<?php echo $event->opaque('type') ?>" <?php echo tkt_event_data_attributes($event, $data->filter_fields) ?>>
+                <?php echo TKTTemplate::render('program/slider_portrait/event', (object)[ 'event' => $event ]) ?>
             </div>
             <?php endforeach; ?>
 
@@ -62,7 +62,7 @@ function showSlides() {
         slideIndex = 1;
 
     slides[slideIndex-1].style.display = "block";
-    setTimeout(showSlides, <?= $timeout; ?>); // Change image every 3 seconds
+    setTimeout(showSlides, <?php echo $timeout; ?>); // Change image every 3 seconds
 }
 </script>
 

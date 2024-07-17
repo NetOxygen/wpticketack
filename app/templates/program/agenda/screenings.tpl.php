@@ -45,7 +45,7 @@ if (!$data->expanded) {
 <div id="tkt_program" class="tkt-wrapper tkt-agenda" data-component="Program/Agenda">
     <div class="container">
         <?php if (empty($data->screenings)) : ?>
-            <h3 class="no-screening-title"><?= tkt_t("Aucune séance à afficher") ?></h3>
+            <h3 class="no-screening-title"><?php echo tkt_t("Aucune séance à afficher") ?></h3>
         <?php else: ?>
             <div class="tkt_agenda_days <?= !!$data->expanded ? 'expanded' : '' ?>">
                 <?php if (!$data->expanded) : ?>
@@ -72,9 +72,9 @@ if (!$data->expanded) {
                     }
                 ?>
 
-                <? $index = 0; ?>
+                <?php $index = 0; ?>
                 <?php foreach($days as $date => $screenings) : ?>
-                    <?= TKTTemplate::render('program/agenda/day',
+                    <?php echo TKTTemplate::render('program/agenda/day',
                         (object)[
                             'date'         => new Datetime($date),
                             'screenings'   => $screenings,
@@ -92,14 +92,14 @@ if (!$data->expanded) {
 
 <!-- Underscore.js templates used by client side -->
 <script type="text/template" id="tkt-agenda-modal-tpl">
-    <?= tkttemplate::render('program/agenda/modal', (object)[]) ?>
+    <?php echo TKTTemplate::render('program/agenda/modal', (object)[]) ?>
 </script>
 <script type="text/template" id="tkt-booking-form-dates-tpl">
-    <?= tkttemplate::render('booking/form_dates', (object)[]) ?>
+    <?php echo TKTTemplate::render('booking/form_dates', (object)[]) ?>
 </script>
 <script type="text/template" id="tkt-booking-form-pricings-tpl">
-    <?= tkttemplate::render('booking/form_pricings', (object)[]) ?>
+    <?php echo TKTTemplate::render('booking/form_pricings', (object)[]) ?>
 </script>
 <script type="text/template" id="tkt-booking-form-success-tpl">
-    <?= tkttemplate::render('booking/form_success', (object)[]) ?>
+    <?php echo TKTTemplate::render('booking/form_success', (object)[]) ?>
 </script>

@@ -14,11 +14,11 @@
 <script type="text/template" id="tkt-ticket-tpl">
     <%
     const errors = {
-        'screening.start_at': <?= json_encode(tkt_t('Les votes seront possibles dès le début de la séance')) ?>,
-        'screening.stop_at': <?= json_encode(tkt_t('Les votes seront possibles dès la fin de la séance')) ?>,
-        'needs_scan': <?= json_encode(tkt_t('Vous ne pouvez pas voter car votre billet n\'a pas été contrôlé')) ?>,
-        'not_before': <?= json_encode(tkt_t('Les votes ne sont pas encore possibles pour cette séance')) ?>,
-        'not_after': <?= json_encode(tkt_t('Les votes ne sont pas plus possibles pour cette séance')) ?>,
+        'screening.start_at': <?php echo json_encode(tkt_t('Les votes seront possibles dès le début de la séance')) ?>,
+        'screening.stop_at': <?php echo json_encode(tkt_t('Les votes seront possibles dès la fin de la séance')) ?>,
+        'needs_scan': <?php echo json_encode(tkt_t('Vous ne pouvez pas voter car votre billet n\'a pas été contrôlé')) ?>,
+        'not_before': <?php echo json_encode(tkt_t('Les votes ne sont pas encore possibles pour cette séance')) ?>,
+        'not_after': <?php echo json_encode(tkt_t('Les votes ne sont pas plus possibles pour cette séance')) ?>,
     };
     %>
     <% if (tickets?.length > 1) { %>
@@ -43,7 +43,7 @@
         const futureBookings = ticket.bookings?.filter(b => !b.screening?.isFinished());
     %>
     <div class="tkt-ticket-view">
-        <p class="alert alert-info small"><span class="glyphicon glyphicon-info-sign"></span><?= tkt_t("Nous n'émettons pas de billet individuel pour les réservations, votre ticket actuel vous sert de titre d'entrée aux séances réservées.") ?></span></p>
+        <p class="alert alert-info small"><span class="glyphicon glyphicon-info-sign"></span><?php echo tkt_t("Nous n'émettons pas de billet individuel pour les réservations, votre ticket actuel vous sert de titre d'entrée aux séances réservées.") ?></span></p>
 
         <!-- Title -->
         <div class="mb-3">
@@ -58,21 +58,21 @@
         <!-- Réservations -->
         <section class="tkt-section tkt-light-section">
             <% if (!pastBookings.length && !futureBookings.length) { %>
-                <h3><?= tkt_t('Réservations') ?></h3>
+                <h3><?php echo tkt_t('Réservations') ?></h3>
                 <div class="mb-2">
-                    <?= tkt_t("Il n'y a actuellement aucune réservation sur ce billet.") ?>
+                    <?php echo tkt_t("Il n'y a actuellement aucune réservation sur ce billet.") ?>
                 </div>
             <% } else { %>
                 <% if (futureBookings) { %>
-                    <h3><?= tkt_t('Réservations') ?></h3>
+                    <h3><?php echo tkt_t('Réservations') ?></h3>
                     <table class="table table-striped table-hover no-more-tables">
                         <thead>
                             <tr>
-                                <th><?= tkt_t('Date') ?></th>
-                                <th><?= tkt_t('Réservation') ?></th>
-                                <th><?= tkt_t('Lieu') ?></th>
+                                <th><?php echo tkt_t('Date') ?></th>
+                                <th><?php echo tkt_t('Réservation') ?></th>
+                                <th><?php echo tkt_t('Lieu') ?></th>
                                 <th><i class="tkt-icon-smartphone"></i></th>
-                                <th class="text-right"><?= tkt_t('Action') ?></th>
+                                <th class="text-right"><?php echo tkt_t('Action') ?></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -91,7 +91,7 @@
                                     <div class="flex-col items-end">
                                         <% if (b.isCancelable) { %>
                                             <a href="#" class="btn btn-danger btn-bloc cancel-booking-btn" data-booking-id="<%= b._id %>">
-                                                <?= tkt_t("Annuler") ?>
+                                                <?php echo tkt_t("Annuler") ?>
                                             </a>
                                         <% } %>
                                         <% if (b.vote || !b.screening.opaque?.disable_votes) { %>
@@ -123,13 +123,13 @@
                 <% } %>
 
                 <% if (pastBookings.length) { %>
-                    <h3><?= tkt_t('Réservations passées') ?></h3>
+                    <h3><?php echo tkt_t('Réservations passées') ?></h3>
                     <table class="table table-striped table-hover no-more-tables">
                         <thead>
                             <tr>
-                                <th><?= tkt_t('Date') ?></th>
-                                <th><?= tkt_t('Réservation') ?></th>
-                                <th><?= tkt_t('Lieu') ?></th>
+                                <th><?php echo tkt_t('Date') ?></th>
+                                <th><?php echo tkt_t('Réservation') ?></th>
+                                <th><?php echo tkt_t('Lieu') ?></th>
                                 <th><i class="tkt-icon-smartphone"></i></th>
                                 <th></th>
                             </tr>
@@ -175,14 +175,14 @@
                 <% } %>
             <% } %>
             <a class="btn button w-100" href="<%= program_url %>">
-                <?= tkt_t("Réserver des séances") ?>
+                <?php echo tkt_t("Réserver des séances") ?>
             </a>
         </section>
 
         <!-- Owner -->
         <% if (ticket?.hasContactInfo()) { %>
-        <section class="tkt-section tkt-<?= $theme ?>-section mt-3">
-            <h3 class="panel-title"><?= tkt_t('Titulaire') ?></h3>
+        <section class="tkt-section tkt-<?php echo $theme ?>-section mt-3">
+            <h3 class="panel-title"><?php echo tkt_t('Titulaire') ?></h3>
             <div class="text-center">
                 <% if (ticket.contact?.rfc2397_portrait?.length) { %>
                     <img class="img-responsive img-thumbnail" src="<%= ticket.contact?.rfc2397_portrait %>" />
@@ -226,8 +226,8 @@
 
         <!-- Guests -->
         <% if (ticket?.hasGuestsInfo()) { %>
-        <section class="tkt-section tkt-<?= $theme ?>-section mt-3">
-            <h3 class="panel-title"><?= tkt_t('Invités') ?></h3>
+        <section class="tkt-section tkt-<?php echo $theme ?>-section mt-3">
+            <h3 class="panel-title"><?php echo tkt_t('Invités') ?></h3>
             <div class="text-center">
                 <% ticket.getGuestsInfo().forEach(guest => { %>
                     <h5>
@@ -260,13 +260,13 @@
             <div class="col">
                 <section class="tkt-section tkt-light-section mt-3">
                     <div class="panel-heading">
-                        <h3 class="panel-title"><?= tkt_t('Validité') ?></h3>
+                        <h3 class="panel-title"><?php echo tkt_t('Validité') ?></h3>
                         <div class="panel-body">
                             <div class="well text-center">
                                 <h5>
-                                <?= sprintf(tkt_t('Activé le %s'), '<%= ticket.activated_at.format("LL") %>') ?>
+                                <?php echo sprintf(tkt_t('Activé le %s'), '<%= ticket.activated_at.format("LL") %>') ?>
                                 </h5>
-                                <p><?= tkt_t('Tarif :') ?> <%= ticket.activated_pricing.name.<?= TKT_LANG ?> %>
+                                <p><?php echo tkt_t('Tarif :') ?> <%= ticket.activated_pricing.name.<?php echo TKT_LANG ?> %>
                                     (<%= ticket.getFormattedPriceAndCurrency() %>)
                                 </p>
                             </div>
@@ -277,7 +277,7 @@
                                 </div>
                             <% } else {%>
                                 <div class="text-center alert alert-success">
-                                    <b><?= sprintf(tkt_t("Valable jusqu'au %s"), "<%= ticket.getExpirationDate().format('LL') %>") ?></b>
+                                    <b><?php echo sprintf(tkt_t("Valable jusqu'au %s"), "<%= ticket.getExpirationDate().format('LL') %>") ?></b>
                                     <p>
                                         <%= ticket.placesAvailable() %>
                                     </p>
@@ -292,7 +292,7 @@
         <div class="row mt-3">
             <div class="col">
                 <button class="btn button forget-ticket-btn w-100">
-                    <i class="tkt-icon-log-out"></i> <?= tkt_t('Oublier ce ticket') ?>
+                    <i class="tkt-icon-log-out"></i> <?php echo tkt_t('Oublier ce ticket') ?>
                 </button>
             </div>
         </div>

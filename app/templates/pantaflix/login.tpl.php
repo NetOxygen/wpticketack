@@ -19,12 +19,12 @@ use Ticketack\WP\Templates\TKTTemplate;
         <div class="connect-panel">
             <% if (invalid_ticket) { %>
                 <div class="alert alert-danger">
-                    <?= tkt_t("Votre accréditation/pass ne vous permet pas de visionner ce contenu.") ?>
+                    <?php echo tkt_t("Votre accréditation/pass ne vous permet pas de visionner ce contenu.") ?>
                 </div>
             <% } %>
             <div class="ticket_connect">
                 <div>
-                    <?= tkt_ticketidize(tkt_t("Vous avez un TicketID ?")) ?>
+                    <?php echo tkt_ticketidize(tkt_t("Vous avez un TicketID ?")) ?>
                 </div>
                 <div class="col">
                     <div class="row mt-5 input-pass">
@@ -37,13 +37,13 @@ use Ticketack\WP\Templates\TKTTemplate;
                     <div class="col text-center">
                         <div class="error pass-error d-none text-center text-danger"></div>
                         <button class="btn btn-primary button login-btn connect-btn mt-5 mb-3">
-                          <i class="tkt-icon-sign-in-alt"></i> <?= tkt_t('Connexion') ?>
+                          <i class="tkt-icon-sign-in-alt"></i> <?php echo tkt_t('Connexion') ?>
                         </button>
                     </div>
                 </div>
                 <hr />
                 <div>
-                    <?= tkt_ticketidize(tkt_t("Votre TicketID se trouve sur votre abonnement")) ?>
+                    <?php echo tkt_ticketidize(tkt_t("Votre TicketID se trouve sur votre abonnement")) ?>
                 </div>
                 <br />
             </div>

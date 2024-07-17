@@ -26,19 +26,19 @@ $image_url     = tkt_img_proxy_url($e->first_poster()->url, $images_width, $imag
 ?>
 <div class="event-inner">
     <div class="row">
-        <div class="image-wrapper" style="width: <?= $data->image_width_pct ?>%; aspect-ratio: <?= $data->image_ratio ?>;">
+        <div class="image-wrapper" style="width: <?php echo $data->image_width_pct ?>%; aspect-ratio: <?php echo $data->image_ratio ?>;">
             <div class="poster-wrapper w-100 h-100">
                 <img class="img-fluid poster poster-event-list m-0 w-100 h-100"
-                    src="<?= $image_url ?>" />
+                    src="<?php echo $image_url ?>" />
             </div>
         </div>
         <div class="details pr-3 pl-3"
-            style="width: <?= $data->image_width_pct != 100 ? (100 - $data->image_width_pct) : 100 ?>%;">
+            style="width: <?php echo $data->image_width_pct != 100 ? (100 - $data->image_width_pct) : 100 ?>%;">
             <div class="row">
                 <div class="col">
-                    <a href="<?= tkt_event_details_url($e) ?>">
+                    <a href="<?php echo tkt_event_details_url($e) ?>">
                         <h2 class="title">
-                            <?= $e->localized_title_or_original(TKT_LANG) ?>
+                            <?php echo $e->localized_title_or_original(TKT_LANG) ?>
                         </h2>
                     </a>
                 </div>
@@ -46,21 +46,21 @@ $image_url     = tkt_img_proxy_url($e->first_poster()->url, $images_width, $imag
             <div class="row">
                 <div class="col">
                     <p class="description text-justify mt-3"
-                        style="-webkit-line-clamp: <?= $data->description_max_line ?>;">
-                        <?= ($e->localized_description(TKT_LANG)) ?>
+                        style="-webkit-line-clamp: <?php echo $data->description_max_line ?>;">
+                        <?php echo ($e->localized_description(TKT_LANG)) ?>
                     </p>
                 </div>
             </div>
             <div class="row">
                 <div class="col">
-                    <span class="tickets" data-bookability-ids="<?= $ids ?>">
+                    <span class="tickets" data-bookability-ids="<?php echo $ids ?>">
                         <a class="show-while-loading">...</a>
-                        <a class="show-if-bookable show-if-almost-not-bookable" href="<?= tkt_event_details_url($e) ?>">
-                            <?= tkt_t('Billets') ?> <span class="event-complete"></span>
+                        <a class="show-if-bookable show-if-almost-not-bookable" href="<?php echo tkt_event_details_url($e) ?>">
+                            <?php echo tkt_t('Billets') ?> <span class="event-complete"></span>
                         </a>
                         <div class="show-if-almost-not-bookable assertive d-none">
-                            <?= tkt_t('Il ne reste que quelques places !') ?></div>
-                        <div class="show-if-not-bookable assertive d-none"><?= tkt_t('Complet') ?></div>
+                            <?php echo tkt_t('Il ne reste que quelques places !') ?></div>
+                        <div class="show-if-not-bookable assertive d-none"><?php echo tkt_t('Complet') ?></div>
                     </span>
                 </div>
             </div>

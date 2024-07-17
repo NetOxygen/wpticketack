@@ -21,13 +21,13 @@ $nb_per_row = 12 / $item_width;
 <div id="tkt_program" class="tkt-wrapper tkt-gallery" data-component="Program/BookabilityState">
     <div class="container">
         <?php if (empty($data->screenings)) : ?>
-            <h3 class="no-screening-title"><?= tkt_t("Aucune séance à afficher") ?></h3>
+            <h3 class="no-screening-title"><?php echo tkt_t("Aucune séance à afficher") ?></h3>
         <?php else: ?>
 
         <div class="row no-gutters">
             <?php foreach($data->screenings as $screening) : ?>
-            <div class="tkt_program_screening col-12 col-sm-6 col-md-<?= $item_width ?>" <?= tkt_screening_data_attributes($screening, $data->filter_fields) ?>>
-                <?= TKTTemplate::render('program/gallery/screening', (object)[ 'screening' => $screening ]) ?>
+            <div class="tkt_program_screening col-12 col-sm-6 col-md-<?php echo $item_width ?>" <?php echo tkt_screening_data_attributes($screening, $data->filter_fields) ?>>
+                <?php echo TKTTemplate::render('program/gallery/screening', (object)[ 'screening' => $screening ]) ?>
             </div>
             <?php endforeach; ?>
         </div>

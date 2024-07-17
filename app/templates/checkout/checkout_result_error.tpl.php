@@ -11,8 +11,8 @@ use Ticketack\WP\TKTApp;
 ?>
 <div class="tkt-wrapper">
   <div class="tkt-checkout-result checkout-result-error text-center alert alert-danger">
-    <?= tkt_t("Une erreur est survenue lors de votre commande.") ?><br/>
-    <?= tkt_t("Merci de bien vouloir réessayer.") ?>
+    <?php echo tkt_t("Une erreur est survenue lors de votre commande.") ?><br/>
+    <?php echo tkt_t("Merci de bien vouloir réessayer.") ?>
   </div>
 </div>
 

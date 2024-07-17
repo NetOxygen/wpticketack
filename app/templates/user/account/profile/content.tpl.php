@@ -35,8 +35,8 @@ if (!function_exists('r')) {
               <?php if (in_array('firstname', $requested_fields)) : ?>
               <div id="field-wrapper-firstname" class="field-wrapper col-md-6" style="display: block;">
                 <div class="form-group">
-                   <label class="<?= r($required_fields, 'firstname') ?>" for="firstname"><?= tkt_t("Prénom"); ?></label>
-                   <input name="user[contact][firstname]" type="text" class="tkt-input form-control data-field" id="firstname" placeholder="<?= tkt_t("Votre prénom") ?>" <?= r($required_fields, 'firstname') ?> value="<%= user.contact.firstname %>"/>
+                   <label class="<?php echo r($required_fields, 'firstname') ?>" for="firstname"><?php echo tkt_t("Prénom"); ?></label>
+                   <input name="user[contact][firstname]" type="text" class="tkt-input form-control data-field" id="firstname" placeholder="<?php echo tkt_t("Votre prénom") ?>" <?php echo r($required_fields, 'firstname') ?> value="<%= user.contact.firstname %>"/>
                 </div>
               </div>
               <?php endif; ?>
@@ -44,8 +44,8 @@ if (!function_exists('r')) {
               <?php if (in_array('lastname', $requested_fields)) : ?>
               <div id="field-wrapper-lastname" class="field-wrapper col-md-6" style="display: block;">
                 <div class="form-group">
-                  <label class="<?= r($required_fields, 'lastname') ?>" for="lastname"><?= tkt_t("Nom"); ?></label>
-                  <input name="user[contact][lastname]" type="text" class="tkt-input form-control data-field" id="lastname" placeholder="<?= tkt_t("Votre nom") ?>" <?= r($required_fields, 'lastname') ?> value="<%= user.contact.lastname %>" />
+                  <label class="<?php echo r($required_fields, 'lastname') ?>" for="lastname"><?php echo tkt_t("Nom"); ?></label>
+                  <input name="user[contact][lastname]" type="text" class="tkt-input form-control data-field" id="lastname" placeholder="<?php echo tkt_t("Votre nom") ?>" <?php echo r($required_fields, 'lastname') ?> value="<%= user.contact.lastname %>" />
                 </div>
               </div>
               <?php endif; ?>
@@ -53,30 +53,30 @@ if (!function_exists('r')) {
               <?php if (in_array('company', $requested_fields)) : ?>
               <div id="field-wrapper-company" class="field-wrapper col-md-6" style="display: block;">
                 <div class="form-group">
-                  <label class="<?= r($required_fields, 'company') ?>" for="company"><?= tkt_t("Société"); ?></label>
-                  <input name="user[contact][company]" type="text" class="tkt-input form-control data-field" id="company" placeholder="<?= tkt_t("Votre société") ?>" <?= r($required_fields, 'company') ?> value="<%= user.contact.company %>" />
+                  <label class="<?php echo r($required_fields, 'company') ?>" for="company"><?php echo tkt_t("Société"); ?></label>
+                  <input name="user[contact][company]" type="text" class="tkt-input form-control data-field" id="company" placeholder="<?php echo tkt_t("Votre société") ?>" <?php echo r($required_fields, 'company') ?> value="<%= user.contact.company %>" />
                 </div>
               </div>
               <?php endif; ?>
 
               <div id="field-wrapper-email" class="field-wrapper col-6" style="display: block;">
                 <div class="form-group">
-                  <label class="<?= r($required_fields, 'email') ?>" for="email"><?= tkt_t("Adresse e-mail"); ?></label>
-                  <input name="user[contact][email]" type="email" class="tkt-input form-control data-field" id="email" placeholder="<?= tkt_t("Votre adresse e-mail") ?>" <?= r($required_fields, 'email') ?> readonly value="<%= user.contact.email %>" />
+                  <label class="<?php echo r($required_fields, 'email') ?>" for="email"><?php echo tkt_t("Adresse e-mail"); ?></label>
+                  <input name="user[contact][email]" type="email" class="tkt-input form-control data-field" id="email" placeholder="<?php echo tkt_t("Votre adresse e-mail") ?>" <?php echo r($required_fields, 'email') ?> readonly value="<%= user.contact.email %>" />
                 </div>
               </div>
 
               <?php if (in_array('address', $requested_fields)) : ?>
               <div id="field-wrapper-address" class="field-wrapper form-group col-12">
-                <label class="<?= r($required_fields, 'address') ?>" for="address"><?= tkt_t("Adresse"); ?></label>
-                <textarea name="user[contact][address][street]" class="tkt-input form-control data-field" id="street" placeholder="<?= tkt_t("Votre adresse") ?>" <?= r($required_fields, 'address') ?>><%= (user.contact.address || {}).street %></textarea>
+                <label class="<?php echo r($required_fields, 'address') ?>" for="address"><?php echo tkt_t("Adresse"); ?></label>
+                <textarea name="user[contact][address][street]" class="tkt-input form-control data-field" id="street" placeholder="<?php echo tkt_t("Votre adresse") ?>" <?php echo r($required_fields, 'address') ?>><%= (user.contact.address || {}).street %></textarea>
               </div>
               <?php endif; ?>
 
               <?php if (in_array('zip', $requested_fields)) : ?> <div id="field-wrapper-zip" class="field-wrapper col-md-6">
                 <div class="form-group">
-                  <label class="<?= r($required_fields, 'zip') ?>" for="zip"><?= tkt_t("Numéro postal"); ?></label>
-                  <input name="user[contact][address][zip]" type="text" class="tkt-input form-control data-field" id="zip" placeholder="<?= tkt_t("NPA") ?>" <?= r($required_fields, 'zip') ?> value="<%= (user.contact.address || {}).zip %>" />
+                  <label class="<?php echo r($required_fields, 'zip') ?>" for="zip"><?php echo tkt_t("Numéro postal"); ?></label>
+                  <input name="user[contact][address][zip]" type="text" class="tkt-input form-control data-field" id="zip" placeholder="<?php echo tkt_t("NPA") ?>" <?php echo r($required_fields, 'zip') ?> value="<%= (user.contact.address || {}).zip %>" />
                 </div>
               </div>
               <?php endif; ?>
@@ -84,19 +84,19 @@ if (!function_exists('r')) {
               <?php if (in_array('city', $requested_fields)) : ?>
               <div id="field-wrapper-city" class="field-wrapper col-md-6">
                 <div class="form-group">
-                  <label class="<?= r($required_fields, 'city') ?>" for="city"><?= tkt_t("Ville"); ?></label>
-                  <input name="user[contact][address][city]" type="text" class="tkt-input form-control data-field" id="city" placeholder="<?= tkt_t("Ville") ?>" <?= r($required_fields, 'city') ?> value="<%= (user.contact.address || {}).city %>" />
+                  <label class="<?php echo r($required_fields, 'city') ?>" for="city"><?php echo tkt_t("Ville"); ?></label>
+                  <input name="user[contact][address][city]" type="text" class="tkt-input form-control data-field" id="city" placeholder="<?php echo tkt_t("Ville") ?>" <?php echo r($required_fields, 'city') ?> value="<%= (user.contact.address || {}).city %>" />
                 </div>
               </div>
               <?php endif; ?>
 
               <?php if (in_array('country', $requested_fields)) : ?>
               <div id="field-wrapper-country" class="field-wrapper form-group col-12">
-                <label class="<?= r($required_fields, 'country') ?>" for="country"><?= tkt_t("Pays"); ?></label>
-                <select name="user[contact][address][country]" id="country" class="tkt-input form-control data-field" <?= r($required_fields, 'country') ?>>
+                <label class="<?php echo r($required_fields, 'country') ?>" for="country"><?php echo tkt_t("Pays"); ?></label>
+                <select name="user[contact][address][country]" id="country" class="tkt-input form-control data-field" <?php echo r($required_fields, 'country') ?>>
                   <option value=""></option>
                   <?php foreach (tkt_get_countries() as $country) : ?>
-                  <option value="<?= $country[TKT_LANG] ?>" <%= "<?= $country[TKT_LANG] ?>" == (user.contact.address || {}).country ? 'selected' : '' %>><?= $country[TKT_LANG] ?></option>
+                  <option value="<?php echo $country[TKT_LANG] ?>" <%= "<?php echo $country[TKT_LANG] ?>" == (user.contact.address || {}).country ? 'selected' : '' %>><?php echo $country[TKT_LANG] ?></option>
                   <?php endforeach; ?>
                 </select>
               </div>
@@ -104,32 +104,32 @@ if (!function_exists('r')) {
 
               <?php if (in_array('phone', $requested_fields)) : ?>
               <div id="field-wrapper-phone" class="field-wrapper form-group col-6">
-                <label class="<?= r($required_fields, 'phone') ?>" for="phone"><?= tkt_t("Téléphone"); ?></label>
-                <input name="user[contact][phone]" type="tel" class="tkt-input form-control data-field" id="phone" placeholder="<?= tkt_t("Votre numéro de téléphone") ?>" <?= r($required_fields, 'phone') ?> value="<%= user.contact.phone %>" />
+                <label class="<?php echo r($required_fields, 'phone') ?>" for="phone"><?php echo tkt_t("Téléphone"); ?></label>
+                <input name="user[contact][phone]" type="tel" class="tkt-input form-control data-field" id="phone" placeholder="<?php echo tkt_t("Votre numéro de téléphone") ?>" <?php echo r($required_fields, 'phone') ?> value="<%= user.contact.phone %>" />
               </div>
               <?php endif; ?>
 
               <?php if (in_array('cellphone', $requested_fields)) : ?>
               <div id="field-wrapper-cellphone" class="field-wrapper form-group col-6">
-                <label class="<?= r($required_fields, 'cellphone') ?>" for="cellphone"><?= tkt_t("Téléphone portable"); ?></label>
-                <input name="user[contact][cellphone]" type="tel" class="tkt-input form-control data-field" id="cellphone" placeholder="<?= tkt_t("Votre numéro de téléphone") ?>" <?= r($required_fields, 'cellphone') ?> value="<%= user.contact.cellphone %>" />
+                <label class="<?php echo r($required_fields, 'cellphone') ?>" for="cellphone"><?php echo tkt_t("Téléphone portable"); ?></label>
+                <input name="user[contact][cellphone]" type="tel" class="tkt-input form-control data-field" id="cellphone" placeholder="<?php echo tkt_t("Votre numéro de téléphone") ?>" <?php echo r($required_fields, 'cellphone') ?> value="<%= user.contact.cellphone %>" />
               </div>
               <?php endif; ?>
 
               <?php if (in_array('birthdate', $requested_fields)) : ?>
               <div id="field-wrapper-birthdate" class="col-md-6 field-wrapper form-group">
-                <label class="required" for="birthdate"><?= tkt_t('Date de naissance') ?></label>
-                <input name="user[contact][birthdate]" type="text" class="tkt-input form-control data-field" id="birthdate" data-component="Form/Calendar" placeholder="<?= tkt_t("Date de naissance") ?>" required data-alt-format="<?= tkt_t('j F Y') ?>" data-default-date="<%= user.contact.birthdate %>" />
+                <label class="required" for="birthdate"><?php echo tkt_t('Date de naissance') ?></label>
+                <input name="user[contact][birthdate]" type="text" class="tkt-input form-control data-field" id="birthdate" data-component="Form/Calendar" placeholder="<?php echo tkt_t("Date de naissance") ?>" required data-alt-format="<?php echo tkt_t('j F Y') ?>" data-default-date="<%= user.contact.birthdate %>" />
               </div>
               <?php endif; ?>
 
               <?php if (in_array('age', $requested_fields)) : ?>
               <div id="field-wrapper-age" class="field-wrapper form-group col-6">
-                <label class="<?= r($required_fields, 'age') ?>" for="age"><?= tkt_t("Âge"); ?></label>
-                <select name="user[contact][age]" id="age" class="tkt-input form-control data-field" <?= r($required_fields, 'age') ?>>
+                <label class="<?php echo r($required_fields, 'age') ?>" for="age"><?php echo tkt_t("Âge"); ?></label>
+                <select name="user[contact][age]" id="age" class="tkt-input form-control data-field" <?php echo r($required_fields, 'age') ?>>
                   <option value=""></option>
                   <?php foreach (tkt_get_ages() as $age) : ?>
-                  <option value="<?= $age ?>" <%= '<?= $age ?>' == user.contact.age ? 'selected' : ''%>><?= $age ?></option>
+                  <option value="<?php echo $age ?>" <%= '<?php echo $age ?>' == user.contact.age ? 'selected' : ''%>><?php echo $age ?></option>
                   <?php endforeach; ?>
                 </select>
               </div>
@@ -137,44 +137,44 @@ if (!function_exists('r')) {
 
               <?php if (in_array('sex', $requested_fields)) : ?>
               <div id="field-wrapper-sex" class="field-wrapper form-group col-6">
-                <label class="<?= r($required_fields, 'sex') ?>" for="sex"><?= tkt_t("Genre"); ?></label>
-                <select name="user[contact][sex]" id="sex" class="tkt-input form-control data-field" <?= r($required_fields, 'sex') ?>>
+                <label class="<?php echo r($required_fields, 'sex') ?>" for="sex"><?php echo tkt_t("Genre"); ?></label>
+                <select name="user[contact][sex]" id="sex" class="tkt-input form-control data-field" <?php echo r($required_fields, 'sex') ?>>
                   <option value=""></option>
                   <?php foreach (tkt_get_sexes() as $value => $label) : ?>
-                  <option value="<?= $value ?>" <%= '<?= $value ?>' == user.contact.sex ? 'selected' : ''%>><?= $label ?></option>
+                  <option value="<?php echo $value ?>" <%= '<?php echo $value ?>' == user.contact.sex ? 'selected' : ''%>><?php echo $label ?></option>
                   <?php endforeach; ?>
                 </select>
               </div>
               <?php endif; ?>
 
               <div class="col-md-12">
-                  <p id="notice-required" class="small"><?= tkt_t('Tous ces champs sont requis') ?></p>
+                  <p id="notice-required" class="small"><?php echo tkt_t('Tous ces champs sont requis') ?></p>
               </div>
 
-              <div class="col-md-12 small text-center mt-3"><?= tkt_t('Si vous souhaitez changer votre mot de passe, remplissez les champs ci-dessous.') ?></div>
+              <div class="col-md-12 small text-center mt-3"><?php echo tkt_t('Si vous souhaitez changer votre mot de passe, remplissez les champs ci-dessous.') ?></div>
               <div id="field-wrapper-password" class="field-wrapper col-6" style="display: block;">
                 <div class="form-group">
-                  <label class="<?= r($required_fields, 'password') ?>" for="password"><?= tkt_t("Nouveau mot de passe"); ?></label>
+                  <label class="<?php echo r($required_fields, 'password') ?>" for="password"><?php echo tkt_t("Nouveau mot de passe"); ?></label>
                   <div class="input-group">
                     <div class="input-group-prepend">
                       <span class="input-group-text">
                         <i class="tkt-icon-lock"></i>
                       </span>
                     </div>
-                    <input name="user[password]" type="password" class="tkt-input form-control data-field" id="password" placeholder="<?= tkt_t("Nouveau mot de passe") ?>"  />
+                    <input name="user[password]" type="password" class="tkt-input form-control data-field" id="password" placeholder="<?php echo tkt_t("Nouveau mot de passe") ?>"  />
                   </div>
                 </div>
               </div>
               <div id="field-wrapper-password" class="field-wrapper col-6" style="display: block;">
                 <div class="form-group">
-                  <label class="<?= r($required_fields, 'password') ?>" for="password2"><?= tkt_t("Confirmation de votre mot de passe"); ?></label>
+                  <label class="<?php echo r($required_fields, 'password') ?>" for="password2"><?php echo tkt_t("Confirmation de votre mot de passe"); ?></label>
                   <div class="input-group">
                     <div class="input-group-prepend">
                       <span class="input-group-text">
                         <i class="tkt-icon-lock"></i>
                       </span>
                     </div>
-                    <input name="user[password2]" type="password" class="tkt-input form-control data-field" id="password2" placeholder="<?= tkt_t("Saisissez une deuxième fois votre nouveau mot de passe") ?>" />
+                    <input name="user[password2]" type="password" class="tkt-input form-control data-field" id="password2" placeholder="<?php echo tkt_t("Saisissez une deuxième fois votre nouveau mot de passe") ?>" />
                   </div>
                 </div>
               </div>
@@ -187,7 +187,7 @@ if (!function_exists('r')) {
             <div id="submit-section" class="row">
               <div class="col-md-12 text-center mt-3">
                 <button type="submit" class="submit-button button">
-                  <span class="tkt-icon-check"></span> <?= tkt_t('Modifier mes informations') ?>
+                  <span class="tkt-icon-check"></span> <?php echo tkt_t('Modifier mes informations') ?>
                 </button>
               </div>
             </div>

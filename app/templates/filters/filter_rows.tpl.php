@@ -27,19 +27,19 @@ $rows = $data->rows;
 <div
   class="tkt-wrapper tkt-filters"
   data-component="Program/FilterRows"
-  data-criterium="<?= implode(',', array_keys($rows)) ?>"
-  <?= (!empty($data->target) ? 'data-target="'.$data->target.'"' : '') ?>
+  data-criterium="<?php echo implode(',', array_keys($rows)) ?>"
+  <?php echo (!empty($data->target) ? 'data-target="'.$data->target.'"' : '') ?>
 >
   <div class="row">
     <div class="col">
         <?php foreach ($rows as $type => $filters) : ?>
         <ul>
-            <li class="tkt-filter active" data-criteria="<?= $type ?>" data-<?= $type ?>="">
-                <?= tkt_t('Tout') ?>
+            <li class="tkt-filter active" data-criteria="<?php echo $type ?>" data-<?php echo $type ?>="">
+                <?php echo tkt_t('Tout') ?>
             </li>
             <?php foreach ($filters as $filter) : ?>
-            <li class="tkt-filter" data-criteria="<?= $type ?>" data-<?= $type ?>="<?= $filter['value'] ?>">
-                <?= $filter['label'] ?>
+            <li class="tkt-filter" data-criteria="<?php echo $type ?>" data-<?php echo $type ?>="<?php echo $filter['value'] ?>">
+                <?php echo $filter['label'] ?>
             </li>
             <?php endforeach; ?>
         </ul>

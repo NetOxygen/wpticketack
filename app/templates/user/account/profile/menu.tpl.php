@@ -12,11 +12,11 @@ use Ticketack\WP\Templates\TKTTemplate;
  * }
  */
 ?>
-<div class="tkt-account-menu-entry <?= $data->active ? 'active' : '' ?>">
+<div class="tkt-account-menu-entry <?php echo $data->active ? 'active' : '' ?>">
     <a href="?tab=profile">
         <i class="tkt-icon-address-book tkt-3x"></i>
         <span>
-            <?= tkt_t("Mes informations") ?>
+            <?php echo tkt_t("Mes informations") ?>
         </span>
     </a>
 </div>

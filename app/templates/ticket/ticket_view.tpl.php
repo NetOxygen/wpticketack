@@ -14,7 +14,7 @@ use Ticketack\WP\Templates\TKTTemplate;
 <div
     class="tkt-wrapper"
     data-component="Ticket/TicketView"
-    data-ticket-id="<?= $data->ticket_id ?>"
+    data-ticket-id="<?php echo $data->ticket_id ?>"
 ></div>
 
-<?= TKTTemplate::render('ticket/ticket', (object)[]) ?>
+<?php echo TKTTemplate::render('ticket/ticket', (object)[]) ?>

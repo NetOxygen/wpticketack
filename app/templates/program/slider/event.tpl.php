@@ -22,7 +22,7 @@ $image_url     = tkt_img_proxy_url($e->first_poster()->url, $images_width, $imag
 
 <div class="row h-100">
     <div class="col col-6 left-col text-center">
-        <span class="tkt-section-title fs-1"> <?= $e->localized_title_or_original(TKT_LANG) ?> </span>
+        <span class="tkt-section-title fs-1"> <?php echo $e->localized_title_or_original(TKT_LANG) ?> </span>
         <?php if (!empty($screenings)) : ?>
         <div class="screenings-wrapper mt-2">
             <?php
@@ -33,7 +33,7 @@ $image_url     = tkt_img_proxy_url($e->first_poster()->url, $images_width, $imag
                     }
             ?>
                     <span>
-                        <?= tkt_date_and_time_to_min_s($s->start_at()) ?>
+                        <?php echo tkt_date_and_time_to_min_s($s->start_at()) ?>
                     </span>
                     <span class="screening-btn-tags">
                         <?php if ($s->opaque()['_3d']) : ?>
@@ -41,7 +41,7 @@ $image_url     = tkt_img_proxy_url($e->first_poster()->url, $images_width, $imag
                         <?php endif; ?>
 
                         <?php if (!empty($s->opaque()['version'])) : ?>
-                            <span class="tag version"><?= $s->opaque()['version'] ?></span>
+                            <span class="tag version"><?php echo $s->opaque()['version'] ?></span>
                         <?php endif; ?>
                     </span>
                     <br />
@@ -54,7 +54,7 @@ $image_url     = tkt_img_proxy_url($e->first_poster()->url, $images_width, $imag
 
     <div class="col col-6 right-col h-100" >
         <div class="poster-wrapper h-100 mx-auto text-center">
-            <img class="img-fluid poster h-100" style="max-height: 940px" src="<?= $image_url ?>" />
+            <img class="img-fluid poster h-100" style="max-height: 940px" src="<?php echo $image_url ?>" />
         </div>
     </div>
 </div>

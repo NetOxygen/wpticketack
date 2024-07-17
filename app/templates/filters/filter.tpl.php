@@ -23,8 +23,8 @@ $filters = $data->filters;
                 Tout
             </li>
             <?php foreach ($filters as $type => $label) : ?>
-            <li class="tkt-filter" data-type="<?= $type ?>">
-                <?= $label ?>
+            <li class="tkt-filter" data-type="<?php echo $type ?>">
+                <?php echo $label ?>
             </li>
             <?php endforeach; ?>
         </ul>

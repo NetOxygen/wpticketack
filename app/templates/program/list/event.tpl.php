@@ -29,7 +29,7 @@ $image_url     = tkt_img_proxy_url($e->first_poster()->url, $images_width, $imag
 
         <div class="col-12 col-md-6 text-center left-col">
             <div class="poster-wrapper">
-                <img class="img-fluid poster poster-event-list m-0" src="<?= $image_url ?>" />
+                <img class="img-fluid poster poster-event-list m-0" src="<?php echo $image_url ?>" />
             </div>
         </div>
 
@@ -37,9 +37,9 @@ $image_url     = tkt_img_proxy_url($e->first_poster()->url, $images_width, $imag
 
             <div class="row">
                 <div class="col">
-                    <a href="<?= tkt_event_details_url($e) ?>">
+                    <a href="<?php echo tkt_event_details_url($e) ?>">
                         <h2 class="title">
-                            <?= $e->localized_title_or_original(TKT_LANG) ?>
+                            <?php echo $e->localized_title_or_original(TKT_LANG) ?>
                         </h2>
                     </a>
                 </div>
@@ -48,27 +48,27 @@ $image_url     = tkt_img_proxy_url($e->first_poster()->url, $images_width, $imag
             <div class="row">
                 <div class="col">
                     <p class="description text-justify mt-3">
-                        <?= $e->localized_description(TKT_LANG) ?>
+                        <?php echo $e->localized_description(TKT_LANG) ?>
                     </p>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col">
-                    <span class="tickets" data-bookability-ids="<?= $ids ?>">
+                    <span class="tickets" data-bookability-ids="<?php echo $ids ?>">
                         <a class="show-while-loading">...</a>
                         <span class="more-infos show-if-not-bookable d-none">
-                            <a href="<?= tkt_event_details_url($e) ?>">
-                            <?= tkt_t('Plus d\'informations') ?>
+                            <a href="<?php echo tkt_event_details_url($e) ?>">
+                            <?php echo tkt_t('Plus d\'informations') ?>
                             </a>
                         </span>
                         <a
                             class="show-if-bookable show-if-almost-not-bookable"
-                            href="<?= tkt_event_details_url($e) ?>">
-                            <?= tkt_t('Billets') ?> <span class="event-complete"></span>
+                            href="<?php echo tkt_event_details_url($e) ?>">
+                            <?php echo tkt_t('Billets') ?> <span class="event-complete"></span>
                         </a>
-                        <div class="show-if-almost-not-bookable assertive d-none"><?= tkt_t('Il ne reste que quelques places !') ?></div>
-                        <div class="show-if-not-bookable assertive d-none"><?= tkt_t('Complet') ?></div>
+                        <div class="show-if-almost-not-bookable assertive d-none"><?php echo tkt_t('Il ne reste que quelques places !') ?></div>
+                        <div class="show-if-not-bookable assertive d-none"><?php echo tkt_t('Complet') ?></div>
                     </span>
                 </div>
             </div>

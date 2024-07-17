@@ -18,11 +18,11 @@ use Ticketack\WP\Templates\TKTTemplate;
 ?>
 <%
 const errors = {
-    'screening.start_at': <?= json_encode(tkt_t('Les votes seront possibles dès le début de la séance')) ?>,
-    'screening.stop_at': <?= json_encode(tkt_t('Les votes seront possibles dès la fin de la séance')) ?>,
-    'needs_scan': <?= json_encode(tkt_t('Vous ne pouvez pas voter car votre billet n\'a pas été contrôlé')) ?>,
-    'not_before': <?= json_encode(tkt_t('Les votes ne sont pas encore possibles pour cette séance')) ?>,
-    'not_after': <?= json_encode(tkt_t('Les votes ne sont pas plus possibles pour cette séance')) ?>,
+    'screening.start_at': <?php echo json_encode(tkt_t('Les votes seront possibles dès le début de la séance')) ?>,
+    'screening.stop_at': <?php echo json_encode(tkt_t('Les votes seront possibles dès la fin de la séance')) ?>,
+    'needs_scan': <?php echo json_encode(tkt_t('Vous ne pouvez pas voter car votre billet n\'a pas été contrôlé')) ?>,
+    'not_before': <?php echo json_encode(tkt_t('Les votes ne sont pas encore possibles pour cette séance')) ?>,
+    'not_after': <?php echo json_encode(tkt_t('Les votes ne sont pas plus possibles pour cette séance')) ?>,
 };
 const bookings = [];
 tickets.concat(other_tickets).map(t => {
@@ -37,7 +37,7 @@ tickets.concat(other_tickets).map(t => {
         <div class="col-sm-12">
             <% if (!bookings.length) { %>
             <h3 class="text-info text-center mt-3">
-                <?= tkt_t('Aucun vote disponible pour le moment.') ?>
+                <?php echo tkt_t('Aucun vote disponible pour le moment.') ?>
             </h3>
             <% } else { %>
             <div id="tickets-accordion">

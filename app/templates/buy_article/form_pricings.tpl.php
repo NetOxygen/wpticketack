@@ -19,7 +19,7 @@ $currency = TKTApp::get_instance()->get_config('currency', 'CHF');
         <div class="row">
             <div class="col">
                 <span class="assertive">
-                    <?= tkt_t('Saisissez le nombre d\'éléments que vous souhaitez ajouter à votre panier :') ?>
+                    <?php echo tkt_t('Saisissez le nombre d\'éléments que vous souhaitez ajouter à votre panier :') ?>
                 </span>
             </div>
         </div>
@@ -36,7 +36,7 @@ $currency = TKTApp::get_instance()->get_config('currency', 'CHF');
                                     </span>
                                     x
                                     <span class="pricing-name ml-1 mr-1">
-                                        <%= variant.name.<?= TKT_LANG ?> %> :
+                                        <%= variant.name.<?php echo TKT_LANG ?> %> :
                                     </span>
                                     <input type="number" min="0" step="1.0" autocomplete="off" style="width:100px" class="form-control pricing-price" name="variants[<%= variant._id %>][price]" data-variant-id="<%= variant._id %>" value="" />
                                 </span>
@@ -52,10 +52,10 @@ $currency = TKTApp::get_instance()->get_config('currency', 'CHF');
                                     </span>
                                     x
                                     <span class="pricing-name">
-                                        <%= variant.name.<?= TKT_LANG ?> %> :
+                                        <%= variant.name.<?php echo TKT_LANG ?> %> :
                                     </span>
                                     <span class="pricing-price">
-                                        <%= variant.price.<?= $currency ?> %> <?= $currency ?>
+                                        <%= variant.price.<?php echo $currency ?> %> <?php echo $currency ?>
                                     </span>
                                 </span>
                                 <span class="tkt-badge-part tkt-dark-badge tkt-plus-btn text-center">+</span>
@@ -66,7 +66,7 @@ $currency = TKTApp::get_instance()->get_config('currency', 'CHF');
                     <% } else { %>
                         <span class="tkt-badge tkt-badge-split flex-rev-on-mobile">
                             <span class="tkt-badge-part tkt-light-badge text-center out-of-stock">
-                            <%= variant.name.<?= TKT_LANG ?> %> : <?= tkt_t("Épuisé") ?>
+                            <%= variant.name.<?php echo TKT_LANG ?> %> : <?php echo tkt_t("Épuisé") ?>
                             </span>
                         </span>
                         <div class="tkt-variant-error-msg d-none" data-variant-id="<%= variant._id %>"></div>
@@ -78,7 +78,7 @@ $currency = TKTApp::get_instance()->get_config('currency', 'CHF');
             <div class="col">
                 <div class="error-panel d-none"></div>
                 <button class="button add-to-cart-btn active" >
-                    <?= tkt_t('Ajouter à mon panier') ?>
+                    <?php echo tkt_t('Ajouter à mon panier') ?>
                 </button>
             </div>
         </div>

@@ -25,10 +25,10 @@ use Ticketack\WP\Templates\TKTTemplate;
 <div
     class="tkt-wrapper tkt-checkout"
     data-component="Checkout/Checkout"
-    data-redirect="<?= tkt_thank_you_url() ?>"
+    data-redirect="<?php echo tkt_thank_you_url() ?>"
 >
     <div class="tkt-checkout-form">
-        <?= TKTTEmplate::render('checkout/checkout_form', (object)[
+        <?php echo TKTTEmplate::render('checkout/checkout_form', (object)[
             'theme'               => $data->theme,
             'cgv_url'               => $data->cgv_url,
             'privacy_url'           => $data->privacy_policy_url,
@@ -45,8 +45,8 @@ use Ticketack\WP\Templates\TKTTemplate;
 
 <!-- Underscore.js templates used by client side -->
 <script type="text/template" id="tkt-checkout-result-ok-tpl">
-    <?= TKTTEmplate::render('checkout/checkout_result_ok', (object)[]) ?>
+    <?php echo TKTTEmplate::render('checkout/checkout_result_ok', (object)[]) ?>
 </script>
 <script type="text/template" id="tkt-checkout-result-error-tpl">
-    <?= TKTTEmplate::render('checkout/checkout_result_error', (object)[]) ?>
+    <?php echo TKTTEmplate::render('checkout/checkout_result_error', (object)[]) ?>
 </script>

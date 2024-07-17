@@ -142,14 +142,14 @@ function areUserInfosFilled() {
 
     <% if (state.step == 1) { %>
     <div class="booking-wizard-content-step" data-step="1">
-        <h5 class="booking-wizard-content-step-title"><?= tkt_t('Veuillez choisir le nombre de descentes') ?></h5>
+        <h5 class="booking-wizard-content-step-title"><?php echo tkt_t('Veuillez choisir le nombre de descentes') ?></h5>
         <div class="booking-wizard-content-step-content">
             <div class="nb-runs-choices">
                 <span class="tkt-badge tkt-light-badge nb-runs-choice" data-nb-runs="1">
-                    1 <?= tkt_t('descente') ?>
+                    1 <?php echo tkt_t('descente') ?>
                 </span>
                 <span class="tkt-badge tkt-light-badge nb-runs-choice" data-nb-runs="2">
-                    2 <?= tkt_t('descentes consécutives') ?>
+                    2 <?php echo tkt_t('descentes consécutives') ?>
                 </span>
             </div>
         </div>
@@ -158,7 +158,7 @@ function areUserInfosFilled() {
 
     <% if (state.step == 2) { %>
     <div class="booking-wizard-content-step" data-step="2">
-        <h5 class="booking-wizard-content-step-title"><?= tkt_t('Veuillez choisir une date') ?> :</h5>
+        <h5 class="booking-wizard-content-step-title"><?php echo tkt_t('Veuillez choisir une date') ?> :</h5>
         <div class="booking-wizard-content-step-content">
             <div class="booking-wizard-day-choice">
                 <input
@@ -167,7 +167,7 @@ function areUserInfosFilled() {
                     class="tkt-input form-control data-field"
                     data-component="Form/Calendar"
                     required
-                    data-alt-format="<?= tkt_t('l j F') ?>" 
+                    data-alt-format="<?php echo tkt_t('l j F') ?>" 
                     data-enable="<%= calendarEnabledDates.join(',') %>"
                     data-inline="true"
                 />
@@ -178,7 +178,7 @@ function areUserInfosFilled() {
 
     <% if (state.step == 3) { %>
     <div class="booking-wizard-content-step" data-step="3">
-        <h5 class="booking-wizard-content-step-title"><?= tkt_t('Veuillez choisir une heure') ?> :</h5>
+        <h5 class="booking-wizard-content-step-title"><?php echo tkt_t('Veuillez choisir une heure') ?> :</h5>
         <div class="booking-wizard-content-step-content">
             <div class="booking-wizard-time-choices">
                 <% _.forEach(timeChoices, function(c) { %>
@@ -197,7 +197,7 @@ function areUserInfosFilled() {
 
     <% if (state.step == 4) { %>
     <div class="booking-wizard-content-step" data-step="4">
-        <h5 class="booking-wizard-content-step-title"><?= tkt_t('Veuillez choisir vos MountainCarts') ?> :</h5>
+        <h5 class="booking-wizard-content-step-title"><?php echo tkt_t('Veuillez choisir vos MountainCarts') ?> :</h5>
         <div class="booking-wizard-content-step-content">
             <div class="booking-wizard-sizes-choices">
                 <% if (Object.keys(availableSizes).length > 0) { %>
@@ -206,7 +206,7 @@ function areUserInfosFilled() {
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">
-                                    <?= tkt_t('Taille') ?> <%= size %>
+                                    <?php echo tkt_t('Taille') ?> <%= size %>
                                 </span>
                             </div>
                             <select class="booking-wizard-sizes-choice form-control" data-size="<%= size %>">
@@ -220,12 +220,12 @@ function areUserInfosFilled() {
                     <% }) %>
                     <div class="booking-wizard-sizes-next-button-wrapper">
                         <button class="button btn btn-block booking-wizard-sizes-next-button" <%= Object.keys(state.selectedSizes).length == 0 ? 'disabled' : '' %>>
-                            <?= tkt_t("Étape suivante") ?>
+                            <?php echo tkt_t("Étape suivante") ?>
                         </button>
                     </div>
                 <% } else { %>
                     <div class="booking-wizard-warning-message">
-                        <?= tkt_t("Il n'y a plus de places pour cette date.") ?>
+                        <?php echo tkt_t("Il n'y a plus de places pour cette date.") ?>
                     </div>
                 <% } %>
             </div>
@@ -235,7 +235,7 @@ function areUserInfosFilled() {
 
     <% if (state.step == 5) { %>
     <div class="booking-wizard-content-step" data-step="5">
-        <h5 class="booking-wizard-content-step-title"><?= tkt_t('Veuillez saisir vos informations') ?> :</h5>
+        <h5 class="booking-wizard-content-step-title"><?php echo tkt_t('Veuillez saisir vos informations') ?> :</h5>
         <div class="booking-wizard-content-step-content">
             <div class="booking-wizard-user-infos">
                 <% var ticketIndex = 0; %>
@@ -246,10 +246,10 @@ function areUserInfosFilled() {
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">
-                                        <?= tkt_t('Taille') ?> <%= size %>
+                                        <?php echo tkt_t('Taille') ?> <%= size %>
                                     </span>
                                 </div>
-                                <input type="text" class="booking-wizard-user-info form-control" data-size="<%= size %>" data-field="firstname" data-ticket-index="<%= ticketIndex %>" data-index="<%= i %>" placeholder="<?= tkt_t('Prénom') ?>" value="<%= ticketIndex in state.userInfos ? state.userInfos[ticketIndex].firstname : '' %>" />
+                                <input type="text" class="booking-wizard-user-info form-control" data-size="<%= size %>" data-field="firstname" data-ticket-index="<%= ticketIndex %>" data-index="<%= i %>" placeholder="<?php echo tkt_t('Prénom') ?>" value="<%= ticketIndex in state.userInfos ? state.userInfos[ticketIndex].firstname : '' %>" />
                             </div>
                         </div>
                         <% ticketIndex += 1; %>
@@ -257,12 +257,12 @@ function areUserInfosFilled() {
                     <% }) %>
                     <div class="booking-wizard-user-info-next-button-wrapper">
                         <button class="button btn btn-block booking-wizard-next-button" <%= !areUserInfosFilled() ? 'disabled' : '' %>>
-                            <?= tkt_t("Étape suivante") ?>
+                            <?php echo tkt_t("Étape suivante") ?>
                         </button>
                     </div>
                 <% } else { %>
                     <div class="booking-wizard-warning-message">
-                        <?= tkt_t("Il n'y a plus de places pour cette date.") ?>
+                        <?php echo tkt_t("Il n'y a plus de places pour cette date.") ?>
                     </div>
                 <% } %>
             </div>
@@ -272,7 +272,7 @@ function areUserInfosFilled() {
 
     <% if (state.step == 6) { %>
     <div class="booking-wizard-content-step" data-step="5">
-        <h5 class="booking-wizard-content-step-title"><?= tkt_t('Veuillez choisir votre tarif') ?> :</h5>
+        <h5 class="booking-wizard-content-step-title"><?php echo tkt_t('Veuillez choisir votre tarif') ?> :</h5>
         <div class="booking-wizard-content-step-content">
             <div class="booking-wizard-pricings-choices">
                 <% var ticketIndex = 0; %>
@@ -283,15 +283,15 @@ function areUserInfosFilled() {
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">
-                                        <?= tkt_t('Taille') ?> <%= size %> - <%= state.userInfos[ticketIndex].firstname %>
+                                        <?php echo tkt_t('Taille') ?> <%= size %> - <%= state.userInfos[ticketIndex].firstname %>
                                     </span>
                                 </div>
                                 <select class="booking-wizard-pricings-choice form-control" data-size="<%= size %>" data-index="<%= i %>">
-                                    <option value=""><?= tkt_t('Choisissez un tarif') ?></option>
+                                    <option value=""><?php echo tkt_t('Choisissez un tarif') ?></option>
                                     <% getAvailablePricings().map(pricing => { %>
                                         <% var key = pricing.key; %>
                                     <option value="<%= key %>" <%= isSelectedPricing(size, i, key) ? 'selected' : '' %>>
-                                        <?= $currency ?> <%= state.selectedScreenings[0].pricings[key].price.<?= $currency ?> * state.nbRuns %> -
+                                        <?php echo $currency ?> <%= state.selectedScreenings[0].pricings[key].price.<?php echo $currency ?> * state.nbRuns %> -
                                         <%= state.selectedScreenings[0].pricings[key].name['fr'] %>
                                     </option>
                                     <% }) %>
@@ -303,7 +303,7 @@ function areUserInfosFilled() {
                     <% }) %>
                     <div class="booking-wizard-pricings-book-button-wrapper">
                         <button class="button btn btn-block booking-wizard-book-button" <%= (state.selectedPricings || []).length < state.nbTickets ? 'disabled' : '' %>>
-                            <?= tkt_t("Réserver") ?>
+                            <?php echo tkt_t("Réserver") ?>
                         </button>
                     </div>
                     <div class="booking-wizard-error-wrapper">
@@ -312,7 +312,7 @@ function areUserInfosFilled() {
                     </div>
                 <% } else { %>
                     <div class="booking-wizard-warning-message">
-                        <?= tkt_t("Il n'y a plus de places pour cette date.") ?>
+                        <?php echo tkt_t("Il n'y a plus de places pour cette date.") ?>
                     </div>
                 <% } %>
             </div>

@@ -12,11 +12,11 @@ use Ticketack\WP\Templates\TKTTemplate;
  * }
  */
 ?>
-<div class="tkt-account-menu-entry <?= $data->active ? 'active' : '' ?>">
+<div class="tkt-account-menu-entry <?php echo $data->active ? 'active' : '' ?>">
     <a href="javascript:;" class="logout-btn">
         <i class="tkt-icon-sign-out tkt-3x"></i>
         <span>
-            <?= tkt_t('Me déconnecter') ?>
+            <?php echo tkt_t('Me déconnecter') ?>
         </span>
     </a>
 </div>

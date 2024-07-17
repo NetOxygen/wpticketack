@@ -85,7 +85,7 @@ h2 {
 }
 
 .affiche {
-    background-image: url("<?= tkt_img_proxy_url($s->movies()[$main_movie_index]->opaque()["posters"][0]["url"], 755, 885) ?>");
+    background-image: url("<?php echo tkt_img_proxy_url($s->movies()[$main_movie_index]->opaque()["posters"][0]["url"], 755, 885) ?>");
     background-repeat:no-repeat;
     background-position: center;
     position:relative;
@@ -135,7 +135,7 @@ h2 {
     <tr class="noborder" height="80%">
         <td class="heure_seance" width="499" rowspan="2">
             <h3>
-                Heure<br/><?= wp_date('H:i',$s->start_at()->getTimestamp()); ?>
+                Heure<br/><?php echo wp_date('H:i',$s->start_at()->getTimestamp()); ?>
             </h3>
         </td>
         <td id="cadre_countdown" class="start_in" width="666" >
@@ -143,14 +143,14 @@ h2 {
                 Dans : 00h00
             </h2>
             <h3 id="age">
-                Age : +<?php if(!empty($s->movies()[0]->opaque()["l_min_age"])) echo $s->movies()[0]->opaque()["l_min_age"]; else echo 0; ?></h3><h3 id="version"><?=$s->opaque()["version"]; ?>
+                Age : +<?php if(!empty($s->movies()[0]->opaque()["l_min_age"])) echo $s->movies()[0]->opaque()["l_min_age"]; else echo 0; ?></h3><h3 id="version"><?php echo$s->opaque()["version"]; ?>
             </h3>
         </td>
         <td class="affiche" width="755" ></td>
     </tr>
     <tr class="noborder">
         <th class="cadre_film" colspan="2">
-            <?= $s->localized_title_or_original($language) ?>
+            <?php echo $s->localized_title_or_original($language) ?>
         </th>
     </tr>
 <?php endif; ?>
@@ -158,10 +158,10 @@ h2 {
 
 <script>
     <?php if (!(is_null($s))) : ?>
-        var countDownDate    = <?= $s->start_at()->getTimestamp(); ?> * 1000;
-        var now              = <?= time(); ?> * 1000;
-        var reloadDate       = <?= $time_to_reload->getTimestamp(); ?> * 1000;
-        var main_movie_index = <?= $data->main_movie_index; ?>;
+        var countDownDate    = <?php echo $s->start_at()->getTimestamp(); ?> * 1000;
+        var now              = <?php echo time(); ?> * 1000;
+        var reloadDate       = <?php echo $time_to_reload->getTimestamp(); ?> * 1000;
+        var main_movie_index = <?php echo $data->main_movie_index; ?>;
 
         // Update the count down every 1 second
         var x = setInterval(function() {
@@ -199,8 +199,8 @@ h2 {
             }
         }, 1000);
     <?php else : ?>
-        var now        = <?= time(); ?> * 1000;
-        var reloadDate = <?= $time_to_reload->getTimestamp(); ?> * 1000;
+        var now        = <?php echo time(); ?> * 1000;
+        var reloadDate = <?php echo $time_to_reload->getTimestamp(); ?> * 1000;
 
         var interval = setInterval(function() {
             now = now + 1000;
