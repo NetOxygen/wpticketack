@@ -24,7 +24,7 @@ const ticketsGroups = [
     },
     {
         // other passes, added with their TicketID
-        title: <?php echo json_encode(tkt_ticketidize(tkt_t('Autres abonnements (ajoutés avec leur TicketID)'))) ?>,
+        title: <?php echo esc_html(wp_json_encode(tkt_ticketidize(tkt_t('Autres abonnements (ajoutés avec leur TicketID)')))) ?>,
         tickets: other_tickets.filter(ticket => !ticket.isOneTimePass() && ticket.isActivated()).map(ticket => {
             // those tickets can be forgotten because they were added with their ticketID
             ticket.isForgettable = true;

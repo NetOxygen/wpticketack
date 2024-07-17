@@ -18,11 +18,11 @@ use Ticketack\WP\Templates\TKTTemplate;
 ?>
 <%
 const errors = {
-    'screening.start_at': <?php echo json_encode(tkt_t('Les votes seront possibles dès le début de la séance')) ?>,
-    'screening.stop_at': <?php echo json_encode(tkt_t('Les votes seront possibles dès la fin de la séance')) ?>,
-    'needs_scan': <?php echo json_encode(tkt_t('Vous ne pouvez pas voter car votre billet n\'a pas été contrôlé')) ?>,
-    'not_before': <?php echo json_encode(tkt_t('Les votes ne sont pas encore possibles pour cette séance')) ?>,
-    'not_after': <?php echo json_encode(tkt_t('Les votes ne sont pas plus possibles pour cette séance')) ?>,
+    'screening.start_at': <?php echo esc_html(wp_json_encode(tkt_t('Les votes seront possibles dès le début de la séance'))) ?>,
+    'screening.stop_at': <?php echo esc_html(wp_json_encode(tkt_t('Les votes seront possibles dès la fin de la séance'))) ?>,
+    'needs_scan': <?php echo esc_html(wp_json_encode(tkt_t('Vous ne pouvez pas voter car votre billet n\'a pas été contrôlé'))) ?>,
+    'not_before': <?php echo esc_html(wp_json_encode(tkt_t('Les votes ne sont pas encore possibles pour cette séance'))) ?>,
+    'not_after': <?php echo esc_html(wp_json_encode(tkt_t('Les votes ne sont pas plus possibles pour cette séance'))) ?>,
 };
 const bookings = [];
 tickets.concat(other_tickets).map(t => {
