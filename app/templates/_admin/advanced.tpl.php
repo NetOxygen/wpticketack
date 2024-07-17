@@ -14,5 +14,5 @@ $tab = 'advanced';
     do_settings_sections('ticketack-'.$tab);
     submit_button();
 ?>
-<script type="text/javascript" src="<?= plugin_dir_url(TKT_APP).'app/templates/_admin/js/jscolor.js' ?>" ></script>
+<script type="text/javascript" src="<?= plugin_dir_url(TKT_APP).'app/templates/_admin/js/jscolor.min.js' ?>" ></script>
 </form>
