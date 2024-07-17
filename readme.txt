@@ -33,6 +33,11 @@ This section describes how to install the plugin and get it working.
 
 == Screenshots ==
 
+== Development ==
+
+Interested in development? [Browse the
+code](https://github.com/NetOxygen/wpticketack) and submit a Pull Request.
+
 == Changelog ==
 
 = Changelog =
