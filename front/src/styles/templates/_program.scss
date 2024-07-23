@@ -406,6 +406,21 @@
                 }
             }
         }
+
+        &.expanded {
+            input.agenda-date-input { display: none; }
+
+            .tkt_agenda_day {
+                &.hidden { display: inherit; }
+
+                .day_title_wrapper {
+                    border-radius: 0;
+                    justify-content: center;
+
+                    .arrow { display: none; }
+                }
+            }
+        }
     }
 
     .tkt-agenda-modal {
@@ -477,6 +492,7 @@
             }
         }
     }
+
 }
 
 @media (min-width: 992px) {

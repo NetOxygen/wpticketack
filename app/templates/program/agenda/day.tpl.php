@@ -28,13 +28,10 @@ if (!function_exists('audio')) {
         }
 
         $audio = $movie->opaque('languages')['audio'];
-        if (is_array($audio)) {
-            $audio = strtoupper(implode(',', $audio));
-        }
+        $audio = is_array($audio) ? strtoupper(implode(',', $audio)) : null;
+
         $subtitles = $movie->opaque('languages')['subtitles'];
-        if (is_array($subtitles)) {
-            $subtitles = implode(',', $subtitles);
-        }
+        $subtitles = is_array($subtitles) ? implode(',', $subtitles) : null;
 
         return implode('/', array_filter([$audio, $subtitles]));
     }

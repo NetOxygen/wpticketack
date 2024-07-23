@@ -10,40 +10,56 @@ use Ticketack\WP\Templates\TKTTemplate;
  *   "screenings": [
  *
  *   ],
+ *   "item_width"           => 12,
+ *   "items_per_row"        => 2,
+ *   "filter"               => 'type',
+ *   "filter_fields"        => [],
+ *   "service_filters"      => [],
+ *   "top_filter"           => 'screenings',
+ *   "top_filter_values"    => [],
+ *   "image_width_pct"      => 35,
+ *   "image_ratio"          => 'auto',
+ *   "description_max_line" => 4,
+ *   "expanded"             => true
  * }
  */
 
-$dots  = [];
-$dates = [];
-foreach ($data->screenings as $screening) {
-    $date = $screening->start_at()->format('Y-m-d');
-    $dates[$date] = $date;
-    if (!array_key_exists($date, $dots)) {
-        $dots[$date] = [];
+// we do not show the calendar in expanded mode
+if (!$data->expanded) {
+    $dots  = [];
+    $dates = [];
+    foreach ($data->screenings as $screening) {
+        $date = $screening->start_at()->format('Y-m-d');
+        $dates[$date] = $date;
+        if (!array_key_exists($date, $dots)) {
+            $dots[$date] = [];
+        }
+        // add dots logic, depending on screening section ?
+        $dots[$date] = array_unique(array_merge($dots[$date], array_map(function ($s) {
+            return sanitize_title($s->name(TKT_LANG));
+        }, $screening->sections())));
     }
-    // add dots logic, depending on screening section ?
-    $dots[$date] = array_unique(array_merge($dots[$date], array_map(function ($s) {
-        return sanitize_title($s->name(TKT_LANG));
-    }, $screening->sections())));
+    $dates = array_values($dates);
 }
-$dates = array_values($dates);
 ?>
 <div id="tkt_program" class="tkt-wrapper tkt-agenda" data-component="Program/Agenda">
     <div class="container">
         <?php if (empty($data->screenings)) : ?>
             <h3 class="no-screening-title"><?= tkt_t("Aucune séance à afficher") ?></h3>
         <?php else: ?>
-            <div class="tkt_agenda_days">
-                <input
-                    type="hidden"
-                    class="tkt-input agenda-date-input"
-                    data-component="Form/Calendar"
-                    data-theme="dark"
-                    data-enable="<?php echo implode(',', $dates) ?>"
-                    data-dots='<?php echo wp_json_encode($dots) ?>'
-                    required
-                    data-alt-format="<?= tkt_t('l j F') ?>"
-                />
+            <div class="tkt_agenda_days <?= !!$data->expanded ? 'expanded' : '' ?>">
+                <?php if (!$data->expanded) : ?>
+                    <input
+                        type="hidden"
+                        class="tkt-input agenda-date-input"
+                        data-component="Form/Calendar"
+                        data-theme="dark"
+                        data-enable="<?php echo implode(',', $dates) ?>"
+                        data-dots='<?php echo wp_json_encode($dots) ?>'
+                        required
+                        data-alt-format="<?= tkt_t('l j F') ?>"
+                    />
+                <?php endif; ?>
 
                 <?php
                     $days = [];

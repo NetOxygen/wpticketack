@@ -65,7 +65,7 @@ if (!empty($opaque->languages->audio)) {
 }
 
 $subtitles = "";
-if (!empty($opaque->languages->subtitles)) {
+if (is_array($opaque->languages->subtitles) && !empty($opaque->languages->subtitles)) {
     $subtitles = implode(', ', array_map(function ($s) {
         return (is_object($s) && isset($s->{TKT_LANG})) ? $s->{TKT_LANG} : (is_string($s) ? $s : '');
     }, $opaque->languages->subtitles));
