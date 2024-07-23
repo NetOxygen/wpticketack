@@ -73,7 +73,6 @@ export default class Agenda extends Component {
                 $target = $target.closest('.show-booking-modal');
             const screeningId = $target.data('screening-id');
 
-
             Screening.getInfos([screeningId], (err, screenings) => {
                 this.$modal.html(Template.render('tkt-agenda-modal-tpl', {
                     screening: screenings[0],
@@ -98,7 +97,7 @@ export default class Agenda extends Component {
         this.$days.addClass('hidden');
         this.$days.eq(this.current).removeClass('hidden');
 
-        const calendar = this.$dateInput.get(0)._flatpickr;
+        const calendar = this.$dateInput?.get(0)?._flatpickr;
         if (calendar) {
             const date = $(this.$days.eq(this.current)).data('date');
             calendar.setDate(new Date(date));
