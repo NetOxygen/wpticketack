@@ -13,49 +13,76 @@ use Ticketack\WP\Templates\TKTTemplate;
  * }
  */
 
+$dots  = [];
+$dates = [];
+foreach ($data->screenings as $screening) {
+    $date = $screening->start_at()->format('Y-m-d');
+    $dates[$date] = $date;
+    if (!array_key_exists($date, $dots)) {
+        $dots[$date] = [];
+    }
+    // add dots logic, depending on screening section ?
+    $dots[$date] = array_unique(array_merge($dots[$date], array_map(function ($s) {
+        return sanitize_title($s->name(TKT_LANG));
+    }, $screening->sections())));
+}
+$dates = array_values($dates);
 ?>
 <div id="tkt_program" class="tkt-wrapper tkt-agenda" data-component="Program/Agenda">
     <div class="container">
         <?php if (empty($data->screenings)) : ?>
             <h3 class="no-screening-title"><?= tkt_t("Aucune séance à afficher") ?></h3>
         <?php else: ?>
+            <div class="tkt_agenda_days">
+                <input
+                    type="hidden"
+                    class="tkt-input agenda-date-input"
+                    data-component="Form/Calendar"
+                    data-theme="dark"
+                    data-enable="<?php echo implode(',', $dates) ?>"
+                    data-dots='<?php echo wp_json_encode($dots) ?>'
+                    required
+                    data-alt-format="<?= tkt_t('l j F') ?>"
+                />
 
-            <?php
-                $days = [];
-                foreach($data->screenings as $screening) {
-                    $key = $screening->start_at()->format('Y-m-d');
-                    if (!array_key_exists($key, $days)) {
-                        $days[$key] = [];
+                <?php
+                    $days = [];
+                    foreach($data->screenings as $screening) {
+                        $key = $screening->start_at()->format('Y-m-d');
+                        if (!array_key_exists($key, $days)) {
+                            $days[$key] = [];
+                        }
+                        $days[$key][] = $screening;
                     }
-                    $days[$key][] = $screening;
-                }
-            ?>
+                ?>
 
-            <? $index = 0; ?>
-            <?php foreach($days as $date => $screenings) : ?>
-                <?= TKTTemplate::render('program/agenda/day',
-                    (object)[
-                        'date'         => new Datetime($date),
-                        'screenings'   => $screenings,
-                        'can_go_left'  => $index > 0,
-                        'can_go_right' => $index++ < count($days) - 1
-                     ]
-                ) ?>
-            <?php endforeach; ?>
+                <? $index = 0; ?>
+                <?php foreach($days as $date => $screenings) : ?>
+                    <?= TKTTemplate::render('program/agenda/day',
+                        (object)[
+                            'date'         => new Datetime($date),
+                            'screenings'   => $screenings,
+                            'index'        => $index,
+                            'can_go_left'  => $index > 0,
+                            'can_go_right' => $index++ < count($days) - 1
+                         ]
+                    ) ?>
+                <?php endforeach; ?>
+            </div>
       <?php endif; ?>
     </div>
 </div>
 
 <!-- Underscore.js templates used by client side -->
 <script type="text/template" id="tkt-agenda-modal-tpl">
-    <?= TKTTEmplate::render('program/agenda/modal', (object)[]) ?>
+    <?= tkttemplate::render('program/agenda/modal', (object)[]) ?>
 </script>
 <script type="text/template" id="tkt-booking-form-dates-tpl">
-    <?= TKTTEmplate::render('booking/form_dates', (object)[]) ?>
+    <?= tkttemplate::render('booking/form_dates', (object)[]) ?>
 </script>
 <script type="text/template" id="tkt-booking-form-pricings-tpl">
-    <?= TKTTEmplate::render('booking/form_pricings', (object)[]) ?>
+    <?= tkttemplate::render('booking/form_pricings', (object)[]) ?>
 </script>
 <script type="text/template" id="tkt-booking-form-success-tpl">
-    <?= TKTTEmplate::render('booking/form_success', (object)[]) ?>
+    <?= tkttemplate::render('booking/form_success', (object)[]) ?>
 </script>

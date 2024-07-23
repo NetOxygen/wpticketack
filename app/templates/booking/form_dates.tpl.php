@@ -39,13 +39,13 @@ use Ticketack\WP\TKTApp;
             </span>
             <div class="days-wrapper">
                 <% if (Object.keys(m).length > 6) { %>
-                    <input 
+                    <input
                         id="calendar"
                         type="text"
                         class="tkt-input form-control data-field"
                         data-component="Form/Calendar"
-                        required 
-                        data-alt-format="<?= tkt_t('l j F') ?>" 
+                        required
+                        data-alt-format="<?= tkt_t('l j F') ?>"
                         data-enable="<%= dates.join(',') %>"
                         data-inline="true"
                     />

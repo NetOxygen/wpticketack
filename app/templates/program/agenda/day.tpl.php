@@ -17,8 +17,9 @@ use Ticketack\WP\Templates\TKTTemplate;
 
 $screenings = $data->screenings;
 
-$date  = $data->date;
-$title = $date->format('Ymd') === (new Datetime())->format('Ymd') ? tkt_t('Aujourd\'hui') : tkt_date_to_min_s($date);
+$date    = $data->date;
+$isToday = $date->format('Ymd') === (new Datetime())->format('Ymd');
+$title   = $isToday ? tkt_t('Aujourd\'hui') : tkt_date_to_min_s($date);
 
 if (!function_exists('audio')) {
     function audio($movie) {
@@ -40,7 +41,7 @@ if (!function_exists('audio')) {
 }
 ?>
 
-<div class="tkt-wrapper tkt_agenda_day hidden">
+    <div class="tkt-wrapper tkt_agenda_day hidden" data-index="<?= $data->index ?>" data-date="<?= $date->format('Y-m-d') ?>">
     <div class="day_title_wrapper">
         <div class="arrow arrow-left <?= !$data->can_go_left ? 'inactive' : 'active' ?>"></div>
         <h3 class="day_title">
@@ -80,7 +81,3 @@ if (!function_exists('audio')) {
         <?php endforeach; ?>
     </div>
 </div>
-
-<script type="text/template" id="tkt-agenda-screening-modal-tpl">
-    <?= TKTTEmplate::render('program/agenda/modal', (object)[]) ?>
-</script>
