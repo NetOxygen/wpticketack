@@ -80,7 +80,8 @@ if (!$data->expanded) {
                             'screenings'   => $screenings,
                             'index'        => $index,
                             'can_go_left'  => $index > 0,
-                            'can_go_right' => $index++ < count($days) - 1
+                            'can_go_right' => $index++ < count($days) - 1,
+                            'expanded'     => !!$data->expanded
                          ]
                     ) ?>
                 <?php endforeach; ?>

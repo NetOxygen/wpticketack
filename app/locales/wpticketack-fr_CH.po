@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-02 20:38+0200\n"
+"POT-Creation-Date: 2024-07-23 17:06+0200\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Belkacem Alidra <belkacem.alidra@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -309,6 +309,21 @@ msgid ""
 "projects/401b5210-986f-46b3-99cb-38546b73e16c/changelog\">ici</a>"
 msgstr ""
 
+msgid "Les votes seront possibles dès le début de la séance"
+msgstr ""
+
+msgid "Les votes seront possibles dès la fin de la séance"
+msgstr ""
+
+msgid "Vous ne pouvez pas voter car votre billet n'a pas été contrôlé"
+msgstr ""
+
+msgid "Les votes ne sont pas encore possibles pour cette séance"
+msgstr ""
+
+msgid "Les votes ne sont pas plus possibles pour cette séance"
+msgstr ""
+
 msgid ""
 "Nous n'émettons pas de billet individuel pour les réservations, votre ticket "
 "actuel vous sert de titre d'entrée aux séances réservées."
@@ -458,6 +473,10 @@ msgstr ""
 msgid "Aujourd'hui"
 msgstr ""
 
+#, php-format
+msgid "%d ans"
+msgstr ""
+
 msgid ""
 "Aucuné séance programmée actuellement, revenez nous visiter prochainement."
 msgstr ""
@@ -530,21 +549,6 @@ msgid "Déjà un compte ? Connectez-vous !"
 msgstr ""
 
 msgid "Mes votes"
-msgstr ""
-
-msgid "Les votes seront possibles dès le début de la séance"
-msgstr ""
-
-msgid "Les votes seront possibles dès la fin de la séance"
-msgstr ""
-
-msgid "Vous ne pouvez pas voter car votre billet n'a pas été contrôlé"
-msgstr ""
-
-msgid "Les votes ne sont pas encore possibles pour cette séance"
-msgstr ""
-
-msgid "Les votes ne sont pas plus possibles pour cette séance"
 msgstr ""
 
 msgid "Aucun vote disponible pour le moment."

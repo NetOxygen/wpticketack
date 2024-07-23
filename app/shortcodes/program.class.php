@@ -140,6 +140,9 @@ class ProgramShortcode extends TKTShortcode
                 'films.opaque.year',
                 'films.opaque.premiere_type',
                 'films.opaque.booking_mode',
+                'films.opaque.l_min_age',
+                'films.opaque.s_min_age',
+                'films.opaque.a_min_age',
                 'opaque'
             ];
 

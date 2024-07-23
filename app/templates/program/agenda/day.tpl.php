@@ -36,9 +36,25 @@ if (!function_exists('audio')) {
         return implode('/', array_filter([$audio, $subtitles]));
     }
 }
+
+if (!function_exists('ages')) {
+    function ages($movie) {
+        $ages = array_filter([
+            $movie->opaque('l_min_age'),
+            $movie->opaque('s_min_age'),
+            $movie->opaque('a_min_age')
+        ]);
+
+        if (empty($ages)) {
+            return null;
+        }
+
+        return sprintf(tkt_t('%d ans'), current($ages));
+    }
+}
 ?>
 
-    <div class="tkt-wrapper tkt_agenda_day hidden" data-index="<?= $data->index ?>" data-date="<?= $date->format('Y-m-d') ?>">
+<div class="tkt-wrapper tkt_agenda_day hidden" data-index="<?= $data->index ?>" data-date="<?= $date->format('Y-m-d') ?>">
     <div class="day_title_wrapper">
         <div class="arrow arrow-left <?= !$data->can_go_left ? 'inactive' : 'active' ?>"></div>
         <h3 class="day_title">
@@ -62,16 +78,25 @@ if (!function_exists('audio')) {
                             </a>
                         </span>
 
-                        <h3 class="tkt_screening_title">
-                            <span class="dot color"></span>
-                            <a class="tkt_screening_link" href="<?= tkt_event_book_url($m, $s) ?>">
-                                <?= $s->localized_title_or_original(TKT_LANG) ?>
-                            </a>
-                        </h3>
+                        <?php if ($data->expanded) : ?>
+                            <span class="tkt_screening_audio">
+                                <?= audio($m) ?>
+                            </span>
+                            <span class="tkt_screening_ages">
+                                <?= ages($m) ?>
+                            </span>
+                        <?php else : ?>
+                            <h3 class="tkt_screening_title">
+                                <span class="dot color"></span>
+                                <a class="tkt_screening_link" href="<?= tkt_event_book_url($m, $s) ?>">
+                                    <?= $s->localized_title_or_original(TKT_LANG) ?>
+                                </a>
+                            </h3>
 
-                        <span class="tkt_screening_audio">
-                            <?= audio($m) ?>
-                        </span>
+                            <span class="tkt_screening_audio">
+                                <?= audio($m) ?>
+                            </span>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
