@@ -38,11 +38,11 @@ $nb_slides = count($posters);
 
 ?>
 <div class="tkt-wrapper">
-    <div class="tkt-article" data-component="Articles/Article" data-id="<?php echo $article->_id() ?>">
+    <div class="tkt-article" data-component="Articles/Article" data-id="<?php echo esc_attr($article->_id()) ?>">
         <section class="tkt-section tkt-light-section article-infos-section">
             <div class="row">
                 <div class="col">
-                    <h2 class="name"><?php echo $article->name(TKT_LANG) ?></h2>
+                    <h2 class="name"><?php echo esc_html($article->name(TKT_LANG)) ?></h2>
                 </div>
             </div>
             <div class="row">
@@ -52,7 +52,7 @@ $nb_slides = count($posters);
                       <ul class="glide__slides">
                       <?php foreach ($posters as $i => $p) : ?>
                       <li class="glide__slide <?php echo $i == 0 ? 'active' : '' ?>">
-                        <img class="d-block w-100" src="<?php echo tkt_img_proxy_url($p->url, $images_width, $images_height) ?>" alt="<?php echo $article->name(TKT_LANG) ?>">
+                        <img class="d-block w-100" src="<?php echo esc_attr(tkt_img_proxy_url($p->url, $images_width, $images_height)) ?>" alt="<?php echo esc_attr($article->name(TKT_LANG)) ?>">
                       </li>
                       <?php endforeach; ?>
                     </div>
@@ -70,9 +70,9 @@ $nb_slides = count($posters);
             </div>
         </section>
 
-        <section class="tkt-section tkt-<?php echo $data->theme ?>-section buy-section">
+        <section class="tkt-section tkt-<?php echo esc_attr($data->theme) ?>-section buy-section">
             <h3 class="tkt-section-title">
-                <?php echo tkt_t('Acheter') ?>
+                <?php echo esc_html(tkt_t('Acheter')) ?>
             </h3>
 
             <?php echo TKTTemplate::render('buy_article/form', (object)[

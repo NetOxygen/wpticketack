@@ -71,12 +71,12 @@ class HeadScriptsAction extends TKTAction
                 "buy_pass_url": "'.tkt_buy_pass_url().'",
                 "registration_url": "'.tkt_registration_url().'",
                 "user_account_url": "'.tkt_user_account_url().'",
-                "buyer_requested_fields": '.json_encode($app->get_config('eshop.requested_buyer_data')).',
-                "buyer_required_fields": '.json_encode($app->get_config('eshop.required_buyer_data')).',
-                "otp_requested_fields": '.json_encode($otp ? $otp->requested_fields($salepoint_id) : []).',
-                "otp_required_fields": '.json_encode($otp ? $otp->required_fields($salepoint_id) : []).',
+                "buyer_requested_fields": '.wp_json_encode($app->get_config('eshop.requested_buyer_data')).',
+                "buyer_required_fields": '.wp_json_encode($app->get_config('eshop.required_buyer_data')).',
+                "otp_requested_fields": '.wp_json_encode($otp ? $otp->requested_fields($salepoint_id) : []).',
+                "otp_required_fields": '.wp_json_encode($otp ? $otp->required_fields($salepoint_id) : []).',
                 "lang": "'.TKT_LANG.'",
-                "i18n": '.json_encode(LocalesHelper::dump_js_locales(), JSON_PRETTY_PRINT).'
+                "i18n": '.wp_json_encode(LocalesHelper::dump_js_locales(), JSON_PRETTY_PRINT).'
             };
         </script>
         <script src="'.tkt_assets_url('build/app.js').'"></script>

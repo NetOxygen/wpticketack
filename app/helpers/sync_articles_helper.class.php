@@ -105,11 +105,11 @@ class SyncArticlesHelper extends SyncHelper
 
     protected static function save_post_metas($article, $post_id, $lang)
     {
-        update_post_meta($post_id, 'id', wp_slash(json_encode($article->_id())));
-        update_post_meta($post_id, 'short_description', wp_slash(json_encode($article->short_description($lang))));
-        update_post_meta($post_id, 'category', wp_slash(json_encode($article->category())));
-        update_post_meta($post_id, 'variants', wp_slash(json_encode($article->variants())));
-        update_post_meta($post_id, 'posters', wp_slash(json_encode($article->posters())));
-        update_post_meta($post_id, 'stock_type', wp_slash(json_encode($article->stock_type())));
+        update_post_meta($post_id, 'id', wp_slash(wp_json_encode($article->_id())));
+        update_post_meta($post_id, 'short_description', wp_slash(wp_json_encode($article->short_description($lang))));
+        update_post_meta($post_id, 'category', wp_slash(wp_json_encode($article->category())));
+        update_post_meta($post_id, 'variants', wp_slash(wp_json_encode($article->variants())));
+        update_post_meta($post_id, 'posters', wp_slash(wp_json_encode($article->posters())));
+        update_post_meta($post_id, 'stock_type', wp_slash(wp_json_encode($article->stock_type())));
     }
 }
