@@ -343,7 +343,7 @@ class AdminSettingsAction extends TKTAction
             'ticketack-advanced' // Page
         );
 
-        $variables = get_overridable_scss_variables();
+        $variables = tkt_get_overridable_scss_variables();
         foreach ($variables as $key => $value) {
             if ($key == 'border_radius' || $key == 'section_padding') {
                 continue;

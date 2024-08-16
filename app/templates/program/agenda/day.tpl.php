@@ -21,8 +21,8 @@ $date    = $data->date;
 $isToday = $date->format('Ymd') === (new Datetime())->format('Ymd');
 $title   = $isToday ? tkt_t('Aujourd\'hui') : tkt_date_to_min_s($date);
 
-if (!function_exists('audio')) {
-    function audio($movie) {
+if (!function_exists('tkt_audio')) {
+    function tkt_audio($movie) {
         if (empty($movie->opaque('languages'))) {
             return null;
         }
@@ -37,8 +37,8 @@ if (!function_exists('audio')) {
     }
 }
 
-if (!function_exists('ages')) {
-    function ages($movie) {
+if (!function_exists('tkt_ages')) {
+    function tkt_ages($movie) {
         $ages = array_filter([
             $movie->opaque('l_min_age'),
             $movie->opaque('s_min_age'),
@@ -80,10 +80,10 @@ if (!function_exists('ages')) {
 
                         <?php if ($data->expanded) : ?>
                             <span class="tkt_screening_audio">
-                                <?php echo audio($m) ?>
+                                <?php echo tkt_audio($m) ?>
                             </span>
                             <span class="tkt_screening_ages">
-                                <?php echo ages($m) ?>
+                                <?php echo tkt_ages($m) ?>
                             </span>
                         <?php else : ?>
                             <h3 class="tkt_screening_title">
@@ -94,7 +94,7 @@ if (!function_exists('ages')) {
                             </h3>
 
                             <span class="tkt_screening_audio">
-                                <?php echo audio($m) ?>
+                                <?php echo tkt_audio($m) ?>
                             </span>
                         <?php endif; ?>
                     </div>
