@@ -173,7 +173,7 @@ export default class BuyForm extends Component {
             return;
         const userTickets      = this.state.get('tickets', []);
         const tickettype       = this.tickettypes.find(tickettype => tickettype._id === this.activePass);
-        const matchingPricings = tickettype.getMatchingPricings('eshop', userTickets.map(t => t.type._id));
+        const matchingPricings = tickettype?.getMatchingPricings('eshop', userTickets.map(t => t.type._id)) || [];
 
         const $shownPricings = $(`#item-${this.activePass} .radio input`);
         $shownPricings.each((i, p) => {
@@ -182,8 +182,8 @@ export default class BuyForm extends Component {
 
             $container.hide();
 
-            const pricing = tickettype.pricings[$(p).val()];
-            if (pricing.key in matchingPricings)
+            const pricing = tickettype?.pricings[$(p).val()];
+            if (pricing?.key in matchingPricings)
                 $container.show();
         });
     }
