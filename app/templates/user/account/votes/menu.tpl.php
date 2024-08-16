@@ -18,7 +18,7 @@ use Ticketack\WP\Templates\TKTTemplate;
     <a href="?tab=votes">
         <i class="tkt-icon-star tkt-3x"></i>
         <span>
-            <?php echo tkt_t("Mes votes") ?>
+            <?php echo esc_html(tkt_t("Mes votes")) ?>
         </span>
     </a>
 </div>

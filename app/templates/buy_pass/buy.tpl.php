@@ -19,9 +19,9 @@ use Ticketack\WP\Templates\TKTTemplate;
 <div
   class="tkt-wrapper"
   data-component="Pass/BuyForm"
-  data-redirect="<?php echo TKTApp::get_instance()->get_config('cart.cart_redirect', 'none') ?>"
-  data-cart-url="<?php echo tkt_cart_url() ?>"
-  data-checkout-url="<?php echo tkt_checkout_url() ?>">
+  data-redirect="<?php echo esc_attr(TKTApp::get_instance()->get_config('cart.cart_redirect', 'none')) ?>"
+  data-cart-url="<?php echo esc_attr(tkt_cart_url()) ?>"
+  data-checkout-url="<?php echo esc_attr(tkt_checkout_url()) ?>">
   <div class="row">
     <div class="col">
       <?php echo TKTTEmplate::render('buy_pass/pass_list', $data) ?>

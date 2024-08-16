@@ -46,7 +46,7 @@ if (!defined('ABSPATH')) exit;
         const futureBookings = ticket.bookings?.filter(b => !b.screening?.isFinished());
     %>
     <div class="tkt-ticket-view">
-        <p class="alert alert-info small"><span class="glyphicon glyphicon-info-sign"></span><?php echo tkt_t("Nous n'émettons pas de billet individuel pour les réservations, votre ticket actuel vous sert de titre d'entrée aux séances réservées.") ?></span></p>
+        <p class="alert alert-info small"><span class="glyphicon glyphicon-info-sign"></span><?php echo esc_html(tkt_t("Nous n'émettons pas de billet individuel pour les réservations, votre ticket actuel vous sert de titre d'entrée aux séances réservées.")) ?></span></p>
 
         <!-- Title -->
         <div class="mb-3">
@@ -61,21 +61,21 @@ if (!defined('ABSPATH')) exit;
         <!-- Réservations -->
         <section class="tkt-section tkt-light-section">
             <% if (!pastBookings.length && !futureBookings.length) { %>
-                <h3><?php echo tkt_t('Réservations') ?></h3>
+                <h3><?php echo esc_html(tkt_t('Réservations')) ?></h3>
                 <div class="mb-2">
-                    <?php echo tkt_t("Il n'y a actuellement aucune réservation sur ce billet.") ?>
+                    <?php echo esc_html(tkt_t("Il n'y a actuellement aucune réservation sur ce billet.")) ?>
                 </div>
             <% } else { %>
                 <% if (futureBookings) { %>
-                    <h3><?php echo tkt_t('Réservations') ?></h3>
+                    <h3><?php echo esc_html(tkt_t('Réservations')) ?></h3>
                     <table class="table table-striped table-hover no-more-tables">
                         <thead>
                             <tr>
-                                <th><?php echo tkt_t('Date') ?></th>
-                                <th><?php echo tkt_t('Réservation') ?></th>
-                                <th><?php echo tkt_t('Lieu') ?></th>
+                                <th><?php echo esc_html(tkt_t('Date')) ?></th>
+                                <th><?php echo esc_html(tkt_t('Réservation')) ?></th>
+                                <th><?php echo esc_html(tkt_t('Lieu')) ?></th>
                                 <th><i class="tkt-icon-smartphone"></i></th>
-                                <th class="text-right"><?php echo tkt_t('Action') ?></th>
+                                <th class="text-right"><?php echo esc_html(tkt_t('Action')) ?></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -94,7 +94,7 @@ if (!defined('ABSPATH')) exit;
                                     <div class="flex-col items-end">
                                         <% if (b.isCancelable) { %>
                                             <a href="#" class="btn btn-danger btn-bloc cancel-booking-btn" data-booking-id="<%= b._id %>">
-                                                <?php echo tkt_t("Annuler") ?>
+                                                <?php echo esc_html(tkt_t("Annuler")) ?>
                                             </a>
                                         <% } %>
                                         <% if (b.vote || !b.screening.opaque?.disable_votes) { %>
@@ -126,13 +126,13 @@ if (!defined('ABSPATH')) exit;
                 <% } %>
 
                 <% if (pastBookings.length) { %>
-                    <h3><?php echo tkt_t('Réservations passées') ?></h3>
+                    <h3><?php echo esc_html(tkt_t('Réservations passées')) ?></h3>
                     <table class="table table-striped table-hover no-more-tables">
                         <thead>
                             <tr>
-                                <th><?php echo tkt_t('Date') ?></th>
-                                <th><?php echo tkt_t('Réservation') ?></th>
-                                <th><?php echo tkt_t('Lieu') ?></th>
+                                <th><?php echo esc_html(tkt_t('Date')) ?></th>
+                                <th><?php echo esc_html(tkt_t('Réservation')) ?></th>
+                                <th><?php echo esc_html(tkt_t('Lieu')) ?></th>
                                 <th><i class="tkt-icon-smartphone"></i></th>
                                 <th></th>
                             </tr>
@@ -178,14 +178,14 @@ if (!defined('ABSPATH')) exit;
                 <% } %>
             <% } %>
             <a class="btn button w-100" href="<%= program_url %>">
-                <?php echo tkt_t("Réserver des séances") ?>
+                <?php echo esc_html(tkt_t("Réserver des séances")) ?>
             </a>
         </section>
 
         <!-- Owner -->
         <% if (ticket?.hasContactInfo()) { %>
-        <section class="tkt-section tkt-<?php echo $theme ?>-section mt-3">
-            <h3 class="panel-title"><?php echo tkt_t('Titulaire') ?></h3>
+        <section class="tkt-section tkt-<?php echo esc_attr($theme) ?>-section mt-3">
+            <h3 class="panel-title"><?php echo esc_html(tkt_t('Titulaire')) ?></h3>
             <div class="text-center">
                 <% if (ticket.contact?.rfc2397_portrait?.length) { %>
                     <img class="img-responsive img-thumbnail" src="<%= ticket.contact?.rfc2397_portrait %>" />
@@ -229,8 +229,8 @@ if (!defined('ABSPATH')) exit;
 
         <!-- Guests -->
         <% if (ticket?.hasGuestsInfo()) { %>
-        <section class="tkt-section tkt-<?php echo $theme ?>-section mt-3">
-            <h3 class="panel-title"><?php echo tkt_t('Invités') ?></h3>
+        <section class="tkt-section tkt-<?php echo esc_attr($theme) ?>-section mt-3">
+            <h3 class="panel-title"><?php echo esc_html(tkt_t('Invités')) ?></h3>
             <div class="text-center">
                 <% ticket.getGuestsInfo().forEach(guest => { %>
                     <h5>
@@ -263,13 +263,13 @@ if (!defined('ABSPATH')) exit;
             <div class="col">
                 <section class="tkt-section tkt-light-section mt-3">
                     <div class="panel-heading">
-                        <h3 class="panel-title"><?php echo tkt_t('Validité') ?></h3>
+                        <h3 class="panel-title"><?php echo esc_html(tkt_t('Validité')) ?></h3>
                         <div class="panel-body">
                             <div class="well text-center">
                                 <h5>
-                                <?php echo sprintf(tkt_t('Activé le %s'), '<%= ticket.activated_at.format("LL") %>') ?>
+                                <?php echo esc_html(sprintf(tkt_t('Activé le %s'), '<%= ticket.activated_at.format("LL") %>')) ?>
                                 </h5>
-                                <p><?php echo tkt_t('Tarif :') ?> <%= ticket.activated_pricing.name.<?php echo TKT_LANG ?> %>
+                                <p><?php echo esc_html(tkt_t('Tarif :')) ?> <%= ticket.activated_pricing.name.<?php echo esc_html(TKT_LANG) ?> %>
                                     (<%= ticket.getFormattedPriceAndCurrency() %>)
                                 </p>
                             </div>
@@ -280,7 +280,7 @@ if (!defined('ABSPATH')) exit;
                                 </div>
                             <% } else {%>
                                 <div class="text-center alert alert-success">
-                                    <b><?php echo sprintf(tkt_t("Valable jusqu'au %s"), "<%= ticket.getExpirationDate().format('LL') %>") ?></b>
+                                    <b><?php echo esc_html(sprintf(tkt_t("Valable jusqu'au %s"), "<%= ticket.getExpirationDate().format('LL') %>")) ?></b>
                                     <p>
                                         <%= ticket.placesAvailable() %>
                                     </p>
@@ -295,7 +295,7 @@ if (!defined('ABSPATH')) exit;
         <div class="row mt-3">
             <div class="col">
                 <button class="btn button forget-ticket-btn w-100">
-                    <i class="tkt-icon-log-out"></i> <?php echo tkt_t('Oublier ce ticket') ?>
+                    <i class="tkt-icon-log-out"></i> <?php echo esc_html(tkt_t('Oublier ce ticket')) ?>
                 </button>
             </div>
         </div>

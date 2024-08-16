@@ -15,7 +15,7 @@ use Ticketack\WP\Templates\TKTTemplate;
  * }
  */
 ?>
-<div class="tkt-wrapper tkt-cart" data-component="Cart/Cart" data-hide-links="<?php echo $data->hidden_links ?>">
+<div class="tkt-wrapper tkt-cart" data-component="Cart/Cart" data-hide-links="<?php echo esc_attr($data->hidden_links) ?>">
     <div data-component="Media/Loading" data-size-sm data-align-center></div>
 </div>
 

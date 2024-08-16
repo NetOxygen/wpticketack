@@ -41,12 +41,12 @@ function itemClass(step) {
     <div class="<%= itemClass(1) %>" data-target="1">
         <div class="booking-wizard-menu-icon"><i class="tkt-icon-level-down-alt"></i></div>
         <div class="booking-wizard-menu-content">
-            <div class="booking-wizard-menu-title"><?php echo tkt_t('Nombre de descentes') ?></div>
+            <div class="booking-wizard-menu-title"><?php echo esc_html(tkt_t('Nombre de descentes')) ?></div>
             <div class="booking-wizard-menu-infos">
                 <% if(state.nbRuns == 1) { %>
-                <span><?php echo tkt_t('1 descente') ?></span>
+                <span><?php echo esc_html(tkt_t('1 descente')) ?></span>
                 <% } else if(state.nbRuns == 2) { %>
-                <span><?php echo tkt_t('2 descentes') ?></span>
+                <span><?php echo esc_html(tkt_t('2 descentes')) ?></span>
                 <% } %>
             </div>
         </div>
@@ -54,7 +54,7 @@ function itemClass(step) {
     <div class="<%= itemClass(2) %>" data-target="2">
         <div class="booking-wizard-menu-icon"><i class="tkt-icon-calendar"></i></div>
         <div class="booking-wizard-menu-content">
-            <div class="booking-wizard-menu-title"><?php echo tkt_t('Date') ?></div>
+            <div class="booking-wizard-menu-title"><?php echo esc_html(tkt_t('Date')) ?></div>
             <div class="booking-wizard-menu-infos">
                 <% if (state.day) { %>
                 <span>
@@ -67,7 +67,7 @@ function itemClass(step) {
     <div class="<%= itemClass(3) %>" data-target="3">
         <div class="booking-wizard-menu-icon"><i class="tkt-icon-clock"></i></div>
         <div class="booking-wizard-menu-content">
-            <div class="booking-wizard-menu-title"><?php echo tkt_t('Départ') ?></div>
+            <div class="booking-wizard-menu-title"><?php echo esc_html(tkt_t('Départ')) ?></div>
             <div class="booking-wizard-menu-infos">
                 <% if (state.selectedTimes) { %>
                 <span>
@@ -80,7 +80,7 @@ function itemClass(step) {
     <div class="<%= itemClass(4) %>" data-target="4">
         <div class="booking-wizard-menu-icon"><i class="tkt-icon-th-list"></i></div>
         <div class="booking-wizard-menu-content">
-            <div class="booking-wizard-menu-title"><?php echo tkt_t('Choix des MountainCarts') ?></div>
+            <div class="booking-wizard-menu-title"><?php echo esc_html(tkt_t('Choix des MountainCarts')) ?></div>
             <div class="booking-wizard-menu-infos">
                 <% if (state.selectedSizes) { %>
                     <%= Object.keys(state.selectedSizes).map(size => state.selectedSizes[size] + ' x ' + size).join(' - ') %>
@@ -91,7 +91,7 @@ function itemClass(step) {
     <div class="<%= itemClass(5) %>" data-target="5">
         <div class="booking-wizard-menu-icon"><i class="tkt-icon-user"></i></div>
         <div class="booking-wizard-menu-content">
-            <div class="booking-wizard-menu-title"><?php echo tkt_t('Vos informations') ?></div>
+            <div class="booking-wizard-menu-title"><?php echo esc_html(tkt_t('Vos informations')) ?></div>
             <div class="booking-wizard-menu-infos">
             </div>
         </div>
@@ -99,7 +99,7 @@ function itemClass(step) {
     <div class="<%= itemClass(6) %>" data-target="6">
         <div class="booking-wizard-menu-icon"><i class="tkt-icon-list"></i></div>
         <div class="booking-wizard-menu-content">
-            <div class="booking-wizard-menu-title"><?php echo tkt_t('Tarifs') ?></div>
+            <div class="booking-wizard-menu-title"><?php echo esc_html(tkt_t('Tarifs')) ?></div>
             <div class="booking-wizard-menu-infos">
             </div>
         </div>

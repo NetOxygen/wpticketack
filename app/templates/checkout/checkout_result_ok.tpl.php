@@ -13,7 +13,7 @@ use Ticketack\WP\TKTApp;
 ?>
 <div class="tkt-wrapper">
   <div class="tkt-checkout-result checkout-result-ok text-center alert alert-success">
-    <?php echo tkt_t("Nous vous remercions pour votre commande.") ?>
+    <?php echo esc_html(tkt_t("Nous vous remercions pour votre commande.")) ?>
   </div>
 </div>
 

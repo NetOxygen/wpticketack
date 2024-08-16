@@ -27,7 +27,7 @@ use Ticketack\WP\Templates\TKTTemplate;
 
 <div id="tkt-shop" class="tkt-wrapper">
     <?php if (empty($data->articles)) : ?>
-        <h3 class="no-event-title"><?php echo tkt_t('Aucun article dans cette catégorie, revenez nous visiter prochainement.') ?></h3>
+        <h3 class="no-event-title"><?php echo esc_html(tkt_t('Aucun article dans cette catégorie, revenez nous visiter prochainement.')) ?></h3>
     <?php else: ?>
         <?php if (!$data->hide_sorters) : ?>
         <div class="tkt-articles-toolbar">

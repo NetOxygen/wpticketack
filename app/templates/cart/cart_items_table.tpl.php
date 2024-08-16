@@ -19,7 +19,7 @@ use Ticketack\WP\TKTApp;
         <div class="row">
             <div class="col">
                 <h3 class="empty-cart-title">
-                    <?php echo tkt_t('Votre panier est vide') ?>
+                    <?php echo esc_html(tkt_t('Votre panier est vide')) ?>
                 </h3>
             </div>
         </div>

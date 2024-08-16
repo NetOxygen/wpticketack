@@ -33,11 +33,11 @@ const nbArticles = pass.length + tickets.length + articles.length;
 
 <div class="tkt-wrapper">
         <% if (cart.items.length == 0) { %>
-        <section class="tkt-section tkt-<?php echo $theme ?>-section tkt-cart-section">
+        <section class="tkt-section tkt-<?php echo esc_attr($theme) ?>-section tkt-cart-section">
             <div class="row">
                 <div class="col">
                     <h3 class="empty-cart-title">
-                        <?php echo tkt_t('Votre panier est vide') ?>
+                        <?php echo esc_html(tkt_t('Votre panier est vide')) ?>
                     </h3>
                 </div>
             </div>
@@ -45,17 +45,17 @@ const nbArticles = pass.length + tickets.length + articles.length;
         <% } else { %>
         <div class="row">
             <div class="col-12 col-lg-8">
-                <section class="tkt-section tkt-<?php echo $theme ?>-section tkt-cart-section h-100">
+                <section class="tkt-section tkt-<?php echo esc_attr($theme) ?>-section tkt-cart-section h-100">
                     <div class="row">
                         <div class="col">
-                            <h3 class="tkt-section-title mb-3"><?php echo tkt_t("Votre commande") ?></h3>
+                            <h3 class="tkt-section-title mb-3"><?php echo esc_html(tkt_t("Votre commande")) ?></h3>
                             <!-- Table screening -->
                             <% if (tickets.length) { %>
                             <table class="tkt-cart-table">
                                 <thead>
                                     <tr>
-                                        <th scope="col"><?php echo tkt_t('Tickets') ?></th>
-                                        <th scope="col" width="100px"><?php echo tkt_t('Prix') ?></th>
+                                        <th scope="col"><?php echo esc_html(tkt_t('Tickets')) ?></th>
+                                        <th scope="col" width="100px"><?php echo esc_html(tkt_t('Prix')) ?></th>
                                         <th scope="col" width="20px"></th>
                                     </tr>
                                 </thead>
@@ -79,7 +79,7 @@ const nbArticles = pass.length + tickets.length + articles.length;
                             <table class="tkt-cart-table">
                                 <thead>
                                     <tr>
-                                        <th scope="col"><?php echo tkt_t('Articles') ?></th>
+                                        <th scope="col"><?php echo esc_html(tkt_t('Articles')) ?></th>
                                         <th scope="col" width="100px"></th>
                                         <th scope="col" width="20px"></th>
                                     </tr>
@@ -104,7 +104,7 @@ const nbArticles = pass.length + tickets.length + articles.length;
                             <table class="tkt-cart-table">
                                 <thead>
                                     <tr>
-                                        <th scope="col"><?php echo tkt_t('Abonnements') ?></th>
+                                        <th scope="col"><?php echo esc_html(tkt_t('Abonnements')) ?></th>
                                         <th scope="col" width="100px"></th>
                                         <th scope="col" width="20px"></th>
                                     </tr>
@@ -130,22 +130,22 @@ const nbArticles = pass.length + tickets.length + articles.length;
             </div>
 
             <div class="col-12 col-lg-4">
-                <section class="tkt-section tkt-<?php echo $theme ?>-section tkt-cart-section  h-100">
+                <section class="tkt-section tkt-<?php echo esc_attr($theme) ?>-section tkt-cart-section  h-100">
                     <div class="row">
                         <div class="col">
-                            <h3 class="tkt-section-title mb-3"><?php echo tkt_t("Récapitulatif") ?></h3>
+                            <h3 class="tkt-section-title mb-3"><?php echo esc_html(tkt_t("Récapitulatif")) ?></h3>
                             <!-- Table article -->
                             <table class="tkt-cart-table">
                                 <thead>
                                     <tr>
-                                        <th scope="col"><?php echo tkt_t("Commande") ?></th>
+                                        <th scope="col"><?php echo esc_html(tkt_t("Commande")) ?></th>
                                         <th scope="col" width="100px"></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <td class="title-cell">
-                                            <%= nbArticles %> <%= nbArticles === 1 ? "<?php echo tkt_t("produit") ?>" : "<?php echo tkt_t("produits") ?>" %>
+                                            <%= nbArticles %> <%= nbArticles === 1 ? "<?php echo esc_html(tkt_t("produit")) ?>" : "<?php echo esc_html(tkt_t("produits")) ?>" %>
                                         </td>
                                         <td class="price-cell text-right"><%= cart.getOrderTotal() %></td>
                                     </tr>
@@ -156,7 +156,7 @@ const nbArticles = pass.length + tickets.length + articles.length;
                             <table class="tkt-cart-table">
                                 <thead>
                                     <tr>
-                                        <th scope="col"><?php echo tkt_t('Rabais') ?></th>
+                                        <th scope="col"><?php echo esc_html(tkt_t('Rabais')) ?></th>
                                         <th scope="col" width="100px"></th>
                                         <th scope="col" width="20px"></th>
                                     </tr>
@@ -183,7 +183,7 @@ const nbArticles = pass.length + tickets.length + articles.length;
                                 <% if (fees.length) { %>
                                 <thead>
                                     <tr>
-                                        <th scope="col"><?php echo tkt_t('Frais') ?></th>
+                                        <th scope="col"><?php echo esc_html(tkt_t('Frais')) ?></th>
                                         <th scope="col" width="100px"></th>
                                     </tr>
                                 </thead>
@@ -202,7 +202,7 @@ const nbArticles = pass.length + tickets.length + articles.length;
                                     <tr>
                                         <td colspan="2">
                                             <span class="total-title-cell">
-                                                <?php echo tkt_t('Total :') ?>
+                                                <?php echo esc_html(tkt_t('Total :')) ?>
                                             </span>
                                             <span class="total-price-cell">
                                                 <%= cart.getFormattedTotal() %>
@@ -219,16 +219,16 @@ const nbArticles = pass.length + tickets.length + articles.length;
                     <div class="row justify-content-md-end">
                         <div class="col col-12 use-wallet-wrapper">
                             <h4>
-                                <?php echo tkt_t('Vous disposez de') ?>
+                                <?php echo esc_html(tkt_t('Vous disposez de')) ?>
                                 <%= ticket.getFormattedWalletBalance() %>
-                                <?php echo tkt_t('sur votre portefeuille électronique') ?>
+                                <?php echo esc_html(tkt_t('sur votre portefeuille électronique')) ?>
                             </h4>
-                            <span><?php echo tkt_t('Saisissez ci-dessous le montant que vous souhaitez utiliser') ?></span>
+                            <span><?php echo esc_html(tkt_t('Saisissez ci-dessous le montant que vous souhaitez utiliser')) ?></span>
                             <div class="input-group mb-2">
                                 <input type="number" min="0" max="<%= Math.min(ticket.getWalletBalance(), cart.getTotal()) %>" class="wallet-input form-control" placeholder="15.50" value="<%= Math.min(ticket.getWalletBalance(), cart.getTotal()) %>"/>
                                 <div class="input-group-append">
                                     <a href="javascript:;" class="wallet-button button active">
-                                        <?php echo tkt_t('Utiliser mon portefeuille') ?>
+                                        <?php echo esc_html(tkt_t('Utiliser mon portefeuille')) ?>
                                     </a>
                                 </div>
                             </div>
@@ -243,10 +243,10 @@ const nbArticles = pass.length + tickets.length + articles.length;
                         <div class="row justify-content-md-end">
                             <div class="col col-12 use-promo-code-wrapper">
                                 <div class="input-group">
-                                    <input type="text" class="promo-code-input form-control" placeholder="<?php echo tkt_t('Code promo') ?>" />
+                                    <input type="text" class="promo-code-input form-control" placeholder="<?php echo esc_html(tkt_t('Code promo')) ?>" />
                                     <div class="input-group-append">
                                         <a href="javascript:;" class="promo-code-button button active">
-                                            <?php echo tkt_t('Utiliser') ?>
+                                            <?php echo esc_html(tkt_t('Utiliser')) ?>
                                         </a>
                                     </div>
                                 </div>
@@ -261,7 +261,7 @@ const nbArticles = pass.length + tickets.length + articles.length;
                         <% if (!hide_links.includes('finalize')) { %>
                         <div class="col col-12 finish-cart-wrapper">
                             <a href="<%= checkout_url %>" class="button active">
-                                <?php echo tkt_t('Finaliser ma commande') ?>
+                                <?php echo esc_html(tkt_t('Finaliser ma commande')) ?>
                             </a>
                         </div>
                         <% } %>
@@ -271,7 +271,7 @@ const nbArticles = pass.length + tickets.length + articles.length;
                     <div class="row">
                         <div class="col cancel-order-wrapper">
                             <div class="cancel-order" >
-                                <a href="" class="tkt-reset-cart-btn"><?php echo tkt_t('Annuler ma commande') ?></a>
+                                <a href="" class="tkt-reset-cart-btn"><?php echo esc_html(tkt_t('Annuler ma commande')) ?></a>
                             </div>
                         </div>
                     </div>
@@ -281,7 +281,7 @@ const nbArticles = pass.length + tickets.length + articles.length;
                     <div class="row">
                         <div class="col continue-shopping-wrapper">
                             <div class="continue-shopping" >
-                                <a href="<%= program_url %>"><?php echo tkt_t('Continuer mes réservations') ?></a>
+                                <a href="<%= program_url %>"><?php echo esc_html(tkt_t('Continuer mes réservations')) ?></a>
                             </div>
                         </div>
                     </div>

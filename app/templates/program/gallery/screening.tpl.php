@@ -15,7 +15,7 @@ use Ticketack\Core\Models\Event;
  */
 
 $s = $data->screening;
-$m = Event::from_screenings([$s])[0];
+$m = current(array_values(Event::from_screenings([$s])));
 
 $images_width  = TKTApp::get_instance()->get_config('images_dimensions.big_width');
 $images_height = TKTApp::get_instance()->get_config('images_dimensions.big_height');
@@ -25,11 +25,11 @@ $image_url     = tkt_img_proxy_url($m->first_poster()->url, $images_width, $imag
   <div class="row no-gutters">
     <div class="col">
       <div class="poster-wrapper">
-        <a href="<?php echo tkt_event_book_url($m, $s) ?>">
-          <img src="<?php echo $image_url ?>" />
+        <a href="<?php echo esc_attr(tkt_event_book_url($m, $s)) ?>">
+          <img src="<?php echo esc_attr($image_url) ?>" />
           <div class="event-infos">
             <span>
-              <?php echo $m->localized_title_or_original(TKT_LANG) ?>
+              <?php echo esc_html($m->localized_title_or_original(TKT_LANG)) ?>
             </span>
           </div>
         </a>

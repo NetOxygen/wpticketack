@@ -37,7 +37,7 @@ use Ticketack\WP\TKTApp;
     <div class="row">
         <div class="col">
             <span>
-                <?php echo tkt_t('Veuillez choisir la date désirée :') ?>
+                <?php echo esc_html(tkt_t('Veuillez choisir la date désirée :')) ?>
             </span>
             <div class="days-wrapper">
                 <% if (Object.keys(m).length > 6) { %>
@@ -47,7 +47,7 @@ use Ticketack\WP\TKTApp;
                         class="tkt-input form-control data-field"
                         data-component="Form/Calendar"
                         required
-                        data-alt-format="<?php echo tkt_t('l j F') ?>" 
+                        data-alt-format="<?php echo esc_html(tkt_t('l j F')) ?>" 
                         data-enable="<%= dates.join(',') %>"
                         data-inline="true"
                     />
@@ -67,7 +67,7 @@ use Ticketack\WP\TKTApp;
             <br/>
 
             <span>
-                <?php echo tkt_t('Veuillez choisir l\'heure désirée :') ?>
+                <?php echo esc_html(tkt_t('Veuillez choisir l\'heure désirée :')) ?>
             </span>
             <div class="dates-wrapper">
                 <% _.forEach(m, function(screenings, day) { %>
@@ -99,9 +99,9 @@ use Ticketack\WP\TKTApp;
 </div>
 <% } else if (screenings.length == 1) { %>
 <span data-screening_id="<%= screenings[0]._id %>" class="date single-date">
-    <%= screenings[0].start_at.format("dddd D MMMM") %> <?php echo tkt_t('à') ?> <%= screenings[0].start_at.format("LT") + ' - ' + screenings[0].cinema_hall.name %>
+    <%= screenings[0].start_at.format("dddd D MMMM") %> <?php echo esc_html(tkt_t('à')) ?> <%= screenings[0].start_at.format("LT") + ' - ' + screenings[0].cinema_hall.name %>
 
 </span>
 <% } else { %>
-<span><?php echo tkt_t("Il n'y a pas de billetterie disponible pour cet événement.") ?></span>
+<span><?php echo esc_html(tkt_t("Il n'y a pas de billetterie disponible pour cet événement.")) ?></span>
 <% } %>

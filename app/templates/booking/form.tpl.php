@@ -18,9 +18,9 @@ use Ticketack\WP\Templates\TKTTemplate;
 $theme = isset($data->theme) ? $data->theme : 'dark';
 ?>
 <div class="tkt-wrapper">
-    <section class="tkt-section tkt-<?php echo $theme ?>-section book-section">
+    <section class="tkt-section tkt-<?php echo esc_attr($theme) ?>-section book-section">
         <div data-component="Program/BookabilityState">
-            <div data-bookability-ids="<?php echo implode(',', $data->ids) ?>">
+            <div data-bookability-ids="<?php echo esc_attr(implode(',', $data->ids)) ?>">
                 <span class="show-booking-form">
                     <div data-component="Media/Loading" data-size-sm class="show-while-loading"></div>
                     <span class="show-if-not-bookable assertive d-none"></span>
@@ -31,12 +31,12 @@ $theme = isset($data->theme) ? $data->theme : 'dark';
                                 <div
                                     class="booking-form v2"
                                     data-component="Booking/Form"
-                                    data-redirect="<?php echo TKTApp::get_instance()->get_config('cart.cart_redirect', 'none') ?>"
-                                    data-cart-url="<?php echo tkt_cart_url() ?>"
-                                    data-checkout-url="<?php echo tkt_checkout_url() ?>"
-                                    data-show-on-load="<?php echo tkt_get_url_param( 'book', -1 ) == 1 ? 'true' : 'false' ?>"
-                                    data-ids="<?php echo implode(',', $data->ids) ?>"
-                                    data-show="<?php echo implode(',', $data->show) ?>">
+                                    data-redirect="<?php echo esc_attr(TKTApp::get_instance()->get_config('cart.cart_redirect', 'none')) ?>"
+                                    data-cart-url="<?php echo esc_attr(tkt_cart_url()) ?>"
+                                    data-checkout-url="<?php echo esc_attr(tkt_checkout_url()) ?>"
+                                    data-show-on-load="<?php echo esc_attr(tkt_get_url_param( 'book', -1 ) == 1 ? 'true' : 'false') ?>"
+                                    data-ids="<?php echo esc_attr(implode(',', $data->ids)) ?>"
+                                    data-show="<?php echo esc_attr(implode(',', $data->show)) ?>">
                                 </div>
                             </div>
                         </div>

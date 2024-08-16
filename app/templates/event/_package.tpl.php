@@ -56,10 +56,10 @@ $nb_slides = count($trailers) + count($posters);
     <div class="row">
       <div class="col">
         <h1 class="title">
-          <?php echo $title ?>
+          <?php echo esc_html($title) ?>
           <div>
             <small class="single-date">
-              <?php echo tkt_date_and_time_to_min_s($s->start_at()) ?> | <?php echo $s->place()->name() ?>
+              <?php echo esc_html(tkt_date_and_time_to_min_s($s->start_at())) ?> | <?php echo esc_html($s->place()->name()) ?>
             </small>
           </div>
         </h1>
@@ -77,11 +77,11 @@ $nb_slides = count($trailers) + count($posters);
               <li class="glide__slide <?php echo $i == 0 ? 'active' : '' ?>">
                 <div class="tkt-event-carousel-trailer-wrapper d-block w-100">
                   <div
-                    id="tkt-event-carousel-trailer-<?php echo $i ?>"
+                    id="tkt-event-carousel-trailer-<?php echo esc_attr($i) ?>"
                     class="tkt-event-carousel-trailer"
                     data-component="Media/YoutubeVideo"
-                    data-video-id="<?php echo tkt_yt_video_id($t->url) ?>"
-                    data-video-image="<?php echo tkt_img_proxy_url($t->image, $images_width, $images_height) ?>"
+                    data-video-id="<?php echo esc_attr(tkt_yt_video_id($t->url)) ?>"
+                    data-video-image="<?php echo esc_attr(tkt_img_proxy_url($t->image, $images_width, $images_height)) ?>"
                     data-bs4-carousel-id="event-carousel">
                   </div>
                 </div>
@@ -89,7 +89,7 @@ $nb_slides = count($trailers) + count($posters);
               <?php endforeach; ?>
               <?php foreach ($posters as $i => $p) : ?>
               <li class="glide__slide <?php echo count($trailers) == 0 && $i == 0 ? 'active' : '' ?>">
-                <img class="d-block w-100" src="<?php echo tkt_img_proxy_url($p->url, $images_width, $images_height) ?>" alt="<?php echo $title->{TKT_LANG} ?>">
+                <img class="d-block w-100" src="<?php echo esc_attr(tkt_img_proxy_url($p->url, $images_width, $images_height)) ?>" alt="<?php echo esc_attr($title->{TKT_LANG}) ?>">
               </li>
               <?php endforeach; ?>
             </div>
@@ -109,15 +109,17 @@ $nb_slides = count($trailers) + count($posters);
 
       <div class="row">
         <div class="col-md left-col text-left">
-          <h3 class="tkt-section-title"><?php echo tkt_t('Details') ?></h3>
+          <h3 class="tkt-section-title"><?php echo esc_html(tkt_t('Details')) ?></h3>
           <div class="row">
 
             <?php if (!empty($s->sections())) : ?>
             <div class="col">
               <span class="tkt-badge tkt-badge-split">
-                <span class="tkt-badge-part tkt-dark-badge"><?php echo (count($s->sections())>1) ? tkt_t('Sections') : tkt_t('Section') ?></span>
+                <span class="tkt-badge-part tkt-dark-badge">
+                  <?php echo esc_html((count($s->sections())>1) ? tkt_t('Sections') : tkt_t('Section')) ?>
+                </span>
                 <?php foreach ($s->sections() as $section) : ?>
-                    <span class="tkt-badge-part tkt-grey-badge"><?php echo $section->name(TKT_LANG) ?></span>
+                    <span class="tkt-badge-part tkt-grey-badge"><?php echo esc_html($section->name(TKT_LANG)) ?></span>
                 <?php endforeach; ?>
               </span>
             </div>
@@ -130,7 +132,7 @@ $nb_slides = count($trailers) + count($posters);
       <?php if (!empty($description)) : ?>
       <div class="row mt-2">
         <div class="col">
-          <h3 class="tkt-section-title"><?php echo tkt_t('Synopsis') ?></h3>
+          <h3 class="tkt-section-title"><?php echo esc_html(tkt_t('Synopsis')) ?></h3>
           <div class="synopsis">
             <span class="text">
                 <?php echo $description ?>
@@ -143,7 +145,7 @@ $nb_slides = count($trailers) + count($posters);
 
     <?php if (!empty($s->movies())) : ?>
     <section class="tkt-section movies-section">
-      <h3 class="tkt-section-title"><?php echo tkt_t('Films') ?></h3>
+      <h3 class="tkt-section-title"><?php echo esc_html(tkt_t('Films')) ?></h3>
       <div class="movies-wrapper">
         <?php foreach ($s->movies() as $m) : ?>
         <div class="movie-wrapper">
@@ -152,8 +154,8 @@ $nb_slides = count($trailers) + count($posters);
               <div class="row">
                 <?php if (count($m->posters()) > 0) : ?>
                 <div class="col col-sm-12 col-md-6">
-                  <a href="<?php echo tkt_event_details_url($m) ?>">
-                    <div class="movie-poster" style="background-image: url('<?php echo tkt_img_proxy_url(array_shift($m->posters())['url'], $images_width, $images_height) ?>');">
+                  <a href="<?php echo esc_attr(tkt_event_details_url($m)) ?>">
+                    <div class="movie-poster" style="background-image: url('<?php echo esc_attr(tkt_img_proxy_url(array_shift($m->posters())['url'], $images_width, $images_height)) ?>');">
                     </div>
                   </a>
                 </div>
@@ -161,8 +163,8 @@ $nb_slides = count($trailers) + count($posters);
 
                 <div class="col col-sm-12 col-md-6">
                   <div class="movie-title">
-                    <a href="<?php echo tkt_event_details_url($m) ?>">
-                      <?php echo $m->localized_title_or_original(TKT_LANG) ?>
+                    <a href="<?php echo esc_attr(tkt_event_details_url($m)) ?>">
+                      <?php echo esc_html($m->localized_title_or_original(TKT_LANG)) ?>
                     </a>
                   </div>
                   <?php
@@ -210,15 +212,15 @@ $nb_slides = count($trailers) + count($posters);
                     $countries
                   ]));
                   ?>
-                  <div class="movie-infos"><?php echo $infos ?></div>
+                  <div class="movie-infos"><?php echo esc_html($infos) ?></div>
                   <div class="movie-description"><?php echo $m->opaque('description', [])[TKT_LANG] ?></div>
                   <?php if (!empty($m->opaque('people'))) : ?>
                       <div class="row">
                         <div class="col">
                           <dl>
                               <?php foreach ($m->opaque('people') as $p) : ?>
-                              <dt><?php echo ucfirst(strtolower(tkt_t($p['activity']))) ?></dt>
-                              <dd style="margin-bottom: 0!important"><?php echo implode(' ', array_filter([$p['fullname'], $p['firstname'], $p['lastname']])) ?></dd>
+                              <dt><?php echo esc_html(ucfirst(strtolower(tkt_t($p['activity'])))) ?></dt>
+                              <dd style="margin-bottom: 0!important"><?php echo esc_html(implode(' ', array_filter([$p['fullname'], $p['firstname'], $p['lastname']]))) ?></dd>
                               <?php endforeach; ?>
                           </dl>
                         </div>
@@ -238,7 +240,7 @@ $nb_slides = count($trailers) + count($posters);
 
     <section class="tkt-section tkt-dark-section book-section">
       <h3 class="tkt-section-title">
-        <?php echo tkt_t('Achetez vos billets') ?>
+        <?php echo esc_html(tkt_t('Achetez vos billets')) ?>
       </h3>
 
       <?php echo do_shortcode('[tkt_booking_form layout="form" theme="dark" ids="'.$s->_id().'" /]') ?>

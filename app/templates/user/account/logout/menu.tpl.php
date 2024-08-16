@@ -18,7 +18,7 @@ use Ticketack\WP\Templates\TKTTemplate;
     <a href="javascript:;" class="logout-btn">
         <i class="tkt-icon-sign-out tkt-3x"></i>
         <span>
-            <?php echo tkt_t('Me déconnecter') ?>
+            <?php echo esc_html(tkt_t('Me déconnecter')) ?>
         </span>
     </a>
 </div>

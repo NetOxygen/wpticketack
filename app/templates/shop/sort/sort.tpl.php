@@ -43,16 +43,16 @@ $selected = $data->sort;
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon1">
-                        <?php echo tkt_t('Trier par') ?>
+                        <?php echo esc_html(tkt_t('Trier par')) ?>
                             </span>
                         </div>
                         <select class="form-control" name="sort" onchange="this.form.submit()">
                             <?php foreach ($sort_options as $option) : ?>
                             <option
-                                value="<?php echo $option->value ?>"
+                                value="<?php echo esc_attr($option->value) ?>"
                                 <?php echo $selected === $option->value ? 'selected' : '' ?>
                             >
-                                <?php echo tkt_t($option->label) ?>
+                                <?php echo esc_html(tkt_t($option->label)) ?>
                             </option>
                             <?php endforeach; ?>
                         </select>

@@ -240,7 +240,7 @@ class TKTRequest
             // ignore because the codepath after the try block trigger_error anyway
         }
         trigger_error('Call to undefined method ' .
-            get_class($this) . '::' . $name . '()', E_USER_ERROR);
+            esc_html(get_class($this)) . '::' . esc_html($name) . '()', E_USER_ERROR);
     }
 
     /**

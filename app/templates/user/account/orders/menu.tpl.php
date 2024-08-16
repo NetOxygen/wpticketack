@@ -18,7 +18,7 @@ use Ticketack\WP\Templates\TKTTemplate;
     <a href="?tab=orders">
         <i class="tkt-icon-cart-arrow-down tkt-3x"></i>
         <span>
-            <?php echo tkt_t("Mes commandes") ?>
+            <?php echo esc_html(tkt_t("Mes commandes")) ?>
         </span>
     </a>
 </div>

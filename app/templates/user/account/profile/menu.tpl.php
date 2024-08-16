@@ -18,7 +18,7 @@ use Ticketack\WP\Templates\TKTTemplate;
     <a href="?tab=profile">
         <i class="tkt-icon-address-book tkt-3x"></i>
         <span>
-            <?php echo tkt_t("Mes informations") ?>
+            <?php echo esc_html(tkt_t("Mes informations")) ?>
         </span>
     </a>
 </div>

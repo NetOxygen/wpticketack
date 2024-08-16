@@ -21,8 +21,8 @@ if (!defined('ABSPATH')) exit;
                 <%= s.cinema_hall.name %>
                 <% if(s.opaque) { %>
                     <% if (s.opaque.additional_info) { %>
-                        <% if (s.opaque.additional_info.<?php echo TKT_LANG ?> && s.opaque.additional_info.<?php echo TKT_LANG ?> != 'COMPLET') { %>
-                                <%= ' <span>/</span> ' + s.opaque.additional_info.<?php echo TKT_LANG ?> %>
+                        <% if (s.opaque.additional_info.<?php echo esc_html(TKT_LANG) ?> && s.opaque.additional_info.<?php echo esc_html(TKT_LANG) ?> != 'COMPLET') { %>
+                                <%= ' <span>/</span> ' + s.opaque.additional_info.<?php echo esc_html(TKT_LANG) ?> %>
                         <% } %>
                     <% } %>
                 <% } %>

@@ -44,12 +44,12 @@ $currency = TKTApp::get_instance()->get_config('currency', 'CHF');
             </div>
         <% } else if (show_pricings) { %>
             <% if (!availabilities || availabilities.me['right-now']['one-time-pass'] > 0) { %>
-                <h4><?php echo tkt_t("Acheter des places") ?></h3>
+                <h4><?php echo esc_html(tkt_t("Acheter des places")) ?></h3>
                 <div class="pricings-form">
                     <div class="row">
                         <div class="col">
                             <span>
-                                <?php echo tkt_t('Saisissez le nombre de place(s) que vous souhaitez ajouter à votre panier :') ?>
+                                <?php echo esc_html(tkt_t('Saisissez le nombre de place(s) que vous souhaitez ajouter à votre panier :')) ?>
                             </span>
                         </div>
                     </div>
@@ -64,13 +64,13 @@ $currency = TKTApp::get_instance()->get_config('currency', 'CHF');
                                     </span>
                                     x
                                     <span class="pricing-name">
-                                        <%= p.name.<?php echo TKT_LANG ?> %> :
-                                        <% if (p.description.<?php echo TKT_LANG ?>) { %>
-                                            <i class="tkt-icon-info" data-component="Ui/Tippy" data-tippy-content="<%= p.description.<?php echo TKT_LANG ?> %>"></i>
+                                        <%= p.name.<?php echo esc_html(TKT_LANG) ?> %> :
+                                        <% if (p.description.<?php echo esc_html(TKT_LANG) ?>) { %>
+                                            <i class="tkt-icon-info" data-component="Ui/Tippy" data-tippy-content="<%= p.description.<?php echo esc_html(TKT_LANG) ?> %>"></i>
                                         <% } %>
                                     </span>
                                     <span class="pricing-price">
-                                        <%= p.price.<?php echo $currency ?>.toFixed(2) %> <?php echo $currency ?>
+                                        <%= p.price.<?php echo esc_html($currency) ?>.toFixed(2) %> <?php echo esc_html($currency) ?>
                                     </span>
                                 </span>
                                 <span class="tkt-badge-part tkt-dark-badge tkt-plus-btn text-center">+</span>
@@ -83,7 +83,7 @@ $currency = TKTApp::get_instance()->get_config('currency', 'CHF');
                         <div class="col">
                             <div class="error pricings-error d-none"></div>
                             <button class="button add-to-cart-btn active" >
-                                <?php echo tkt_t('Ajouter à mon panier') ?>
+                                <?php echo esc_html(tkt_t('Ajouter à mon panier')) ?>
                             </button>
                         </div>
                     </div>
@@ -91,20 +91,20 @@ $currency = TKTApp::get_instance()->get_config('currency', 'CHF');
             <% } else { %>
                 <h5 class="no-one-time-pass-message">
                     <% if (availabilities && availabilities['me']['from-now']['one-time-pass'] > 0) { %>
-                        <?php echo tkt_t("Il n'est pas encore possible d'acheter des places pour cette séance.") ?>
+                        <?php echo esc_html(tkt_t("Il n'est pas encore possible d'acheter des places pour cette séance.")) ?>
                     <% } else if (availabilities && availabilities['me']['absolute']['one-time-pass'] > 0) { %>
-                        <?php echo tkt_t("Il n'est plus possible d'acheter des places pour cette séance.") ?>
+                        <?php echo esc_html(tkt_t("Il n'est plus possible d'acheter des places pour cette séance.")) ?>
                     <% } else { %>
-                        <?php echo tkt_t("Il n'est pas possible d'acheter des places pour cette séance.") ?>
+                        <?php echo esc_html(tkt_t("Il n'est pas possible d'acheter des places pour cette séance.")) ?>
                     <% } %>
                 </h5>
                 <% if (availabilities && availabilities['on-site']['right-now']['one-time-pass'] > 0) { %>
                     <h5 class="no-one-time-pass-message">
-                        <?php echo tkt_t("Des places sont néanmoins disponibles aux caisses.") ?>
+                        <?php echo esc_html(tkt_t("Des places sont néanmoins disponibles aux caisses.")) ?>
                     </h5>
                 <% } else if (availabilities && availabilities['on-site']['from-now']['one-time-pass'] > 0) { %>
                     <h5 class="no-one-time-pass-message">
-                        <?php echo tkt_t("Des places seront néanmoins disponibles aux caisses.") ?>
+                        <?php echo esc_html(tkt_t("Des places seront néanmoins disponibles aux caisses.")) ?>
                     </h5>
                 <% } %>
             <% } %>
@@ -113,7 +113,7 @@ $currency = TKTApp::get_instance()->get_config('currency', 'CHF');
     <% } %>
 
     <% if (show_ticket_id && screening.opaque && (!('map_only_bookings' in screening.opaque && screening.opaque.map_only_bookings)) && eligible_types.length) { %>
-    <h4><?php echo tkt_t("Réserver des places sur vos billets") ?></h3>
+    <h4><?php echo esc_html(tkt_t("Réserver des places sur vos billets")) ?></h3>
 
     <div class="book-panel">
         <%
@@ -133,7 +133,7 @@ $currency = TKTApp::get_instance()->get_config('currency', 'CHF');
                     <% if (ticket.hasBooked(screening)) { %>
                     <div class="already-booked">
                         <small data-ticket-id="<%= ticket._id %>">
-                            <b><?php echo tkt_t("Réservation pour cette séance avec ce billet :") ?> <%= ticket.getBookingsFor(screening)?.length || 0 %></b>
+                            <b><?php echo esc_html(tkt_t("Réservation pour cette séance avec ce billet :")) ?> <%= ticket.getBookingsFor(screening)?.length || 0 %></b>
                         </small>
                     </div>
                     <% } %>
@@ -143,18 +143,18 @@ $currency = TKTApp::get_instance()->get_config('currency', 'CHF');
                     <% if (ticket.canBook(screening)) { %>
                     <button data-ticket-id="<%= ticket._id %>" class="button book-btn active <%= ticket.canBook(screening) && !ticket.hasBooked(screening) ? '' : 'd-none' %>" >
                         <i class="tkt-icon-plus"></i>
-                        <?php echo tkt_t('Réserver une place sur ce billet') ?>
+                        <?php echo esc_html(tkt_t('Réserver une place sur ce billet')) ?>
                     </button>
                     <button data-ticket-id="<%= ticket._id %>" class="button book-btn-more active <%= ticket.canBook(screening) && ticket.hasBooked(screening) ? '' : 'd-none' %>" >
                         <i class="tkt-icon-plus"></i>
-                        <?php echo tkt_t('Réserver une place de plus sur ce billet') ?>
+                        <?php echo esc_html(tkt_t('Réserver une place de plus sur ce billet')) ?>
                     </button>
                     <% } else { %>
                     <small data-ticket-id="<%= ticket._id %>" class="cannot-book-explanation">
                         <% if (ticket.hasBooked(screening)) { %>
-                            <i><?php echo tkt_t("Vous ne pouvez pas réserver plus de place pour cette séance avec ce billet.") ?></i>
+                            <i><?php echo esc_html(tkt_t("Vous ne pouvez pas réserver plus de place pour cette séance avec ce billet.")) ?></i>
                         <% } else { %>
-                            <i><?php echo tkt_t("Vous ne pouvez pas réserver de place pour cette séance avec ce billet.") ?></i>
+                            <i><?php echo esc_html(tkt_t("Vous ne pouvez pas réserver de place pour cette séance avec ce billet.")) ?></i>
                         <% } %>
                     </small>
                     <% } %>
@@ -163,7 +163,7 @@ $currency = TKTApp::get_instance()->get_config('currency', 'CHF');
             <div class="row">
                 <div class="col text-right">
                     <small class="success book-form-success d-none text-success pl-2">
-                        <?php echo tkt_t('Votre place a bien été réservée.') ?>
+                        <?php echo esc_html(tkt_t('Votre place a bien été réservée.')) ?>
                     </small>
                 </div>
             </div>
@@ -183,9 +183,9 @@ $currency = TKTApp::get_instance()->get_config('currency', 'CHF');
                 <div class="row">
                     <div class="col">
                         <span class="pass-title">
-                            <?php echo tkt_ticketidize(tkt_t("Vous avez un TicketID ?")) ?>
+                            <?php echo esc_html(tkt_ticketidize(tkt_t("Vous avez un TicketID ?"))) ?>
 
-                            <a href="" class="show-connect-panel-form"><?php echo tkt_t('Ajoutez-le') ?></a> <?php echo tkt_t('pour réserver.') ?><br/>
+                            <a href="" class="show-connect-panel-form"><?php echo esc_html(tkt_t('Ajoutez-le')) ?></a> <?php echo esc_html(tkt_t('pour réserver.')) ?><br/>
                     </span>
                     </div>
                 </div>
@@ -202,13 +202,13 @@ $currency = TKTApp::get_instance()->get_config('currency', 'CHF');
                         <div class="col text-center">
                             <div class="error pass-error d-none text-center text-danger"></div>
                             <button class="btn btn-primary button login-btn connect-btn mt-5 mb-3">
-                                <i class="tkt-icon-sign-in-alt"></i> <?php echo tkt_t('Connexion') ?>
+                                <i class="tkt-icon-sign-in-alt"></i> <?php echo esc_html(tkt_t('Connexion')) ?>
                             </button>
                         </div>
                     </div>
                     <hr>
                     <div>
-                        <?php echo tkt_ticketidize(tkt_t("Votre TicketID se trouve sur votre abonnement")) ?>
+                        <?php echo esc_html(tkt_ticketidize(tkt_t("Votre TicketID se trouve sur votre abonnement"))) ?>
                     </div>
                     <br>
                 </div>
@@ -218,14 +218,14 @@ $currency = TKTApp::get_instance()->get_config('currency', 'CHF');
             <div class="row">
                 <div class="col mt-3">
                     <div class="buy-pass-link">
-                        <span><?php echo tkt_t("Acheter un abonnement") ?></span>
+                        <span><?php echo esc_html(tkt_t("Acheter un abonnement")) ?></span>
                         <ul class="eligible-types-list">
                         <% sellable_types.map(function (t) { %>
                         <li class="eligible-type">
                             <span class="type-name">
                                 <i class="tkt-icon-ticket"></i>
-                                <a href="<?php echo tkt_buy_pass_url() ?>?selected=<%= t._id %>" class="type-link">
-                                    <%= t.name.<?php echo TKT_LANG ?> %>
+                                <a href="<?php echo esc_attr(tkt_buy_pass_url()) ?>?selected=<%= t._id %>" class="type-link">
+                                    <%= t.name.<?php echo esc_html(TKT_LANG) ?> %>
                                 </a>
                             </span>
                         </li>

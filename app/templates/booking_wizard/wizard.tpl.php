@@ -17,17 +17,17 @@ use Ticketack\WP\Templates\TKTTemplate;
 $theme = isset($data->theme) ? $data->theme : 'dark';
 ?>
 <div class="tkt-wrapper">
-    <section class="tkt-section tkt-<?php echo $theme ?>-section book-section">
+    <section class="tkt-section tkt-<?php echo esc_attr($theme) ?>-section book-section">
         <div class="row">
             <div class="col">
                 <div
                     class="booking-wizard"
                     data-component="BookingWizard/Wizard"
-                    data-redirect="<?php echo TKTApp::get_instance()->get_config('cart.cart_redirect', 'none') ?>"
-                    data-cart-url="<?php echo tkt_cart_url() ?>"
-                    data-checkout-url="<?php echo tkt_checkout_url() ?>"
-                    data-show-on-load="<?php echo tkt_get_url_param( 'book', -1 ) == 1 ? 'true' : 'false' ?>"
-                    data-ids="<?php echo implode(',', $data->ids) ?>"
+                    data-redirect="<?php echo esc_attr(TKTApp::get_instance()->get_config('cart.cart_redirect', 'none')) ?>"
+                    data-cart-url="<?php echo esc_attr(tkt_cart_url()) ?>"
+                    data-checkout-url="<?php echo esc_attr(tkt_checkout_url()) ?>"
+                    data-show-on-load="<?php echo esc_attr(tkt_get_url_param( 'book', -1 ) == 1 ? 'true' : 'false') ?>"
+                    data-ids="<?php echo esc_attr(implode(',', $data->ids)) ?>"
                 >
                     <div class="booking-wizard-wrapper">
                         <div class="booking-wizard-left-wrapper">

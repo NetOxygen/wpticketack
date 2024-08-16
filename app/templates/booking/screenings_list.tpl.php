@@ -16,14 +16,14 @@ use Ticketack\WP\Templates\TKTTemplate;
 
 ?>
 <div class="tkt-wrapper">
-    <section class="tkt-section tkt-<?php echo $data->theme ?>-section book-section">
+    <section class="tkt-section tkt-<?php echo esc_attr($data->theme) ?>-section book-section">
         <div class="row">
             <div class="col">
                 <div
                     class="booking-form screenings-list"
                     data-component="Booking/ScreeningsList"
                     data-show-on-load="1"
-                    data-ids="<?php echo implode(',', $data->ids) ?>">
+                    data-ids="<?php echo esc_attr(implode(',', $data->ids)) ?>">
                 </div>
             </div>
         </div>

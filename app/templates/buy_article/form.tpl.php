@@ -21,11 +21,11 @@ use Ticketack\WP\Templates\TKTTemplate;
             <div
                 class="buy-article-form"
                 data-component="BuyArticle/Form"
-                data-redirect="<?php echo TKTApp::get_instance()->get_config('cart.cart_redirect', 'none') ?>"
-                data-cart-url="<?php echo tkt_cart_url() ?>"
-                data-checkout-url="<?php echo tkt_checkout_url() ?>"
-                data-article-id="<?php echo $data->article->_id() ?>"
-                data-salepoint-id="<?php echo $data->salepoint_id ?>"
+                data-redirect="<?php echo esc_attr(TKTApp::get_instance()->get_config('cart.cart_redirect', 'none')) ?>"
+                data-cart-url="<?php echo esc_attr(tkt_cart_url()) ?>"
+                data-checkout-url="<?php echo esc_attr(tkt_checkout_url()) ?>"
+                data-article-id="<?php echo esc_attr($data->article->_id()) ?>"
+                data-salepoint-id="<?php echo esc_attr($data->salepoint_id) ?>"
             >
             </div>
         </div>

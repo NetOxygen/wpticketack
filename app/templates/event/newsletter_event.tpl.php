@@ -47,10 +47,10 @@ $poster_url   = $upload_dir['url'].'/'.basename($first_poster->url);
 ?>
 
 <h3>
-  <strong><?php echo strtoupper($date_title) ?></strong><p>&nbsp;</p>
+  <strong><?php echo esc_html(strtoupper($date_title)) ?></strong><p>&nbsp;</p>
 </h3>
 <h2>
-  <?php echo strtoupper($e->opaque()['genre']) ?>
+  <?php echo esc_html(strtoupper($e->opaque()['genre'])) ?>
 </h2>
 <?php if (!empty($e->opaque('free_text_1'))) : ?>
 <div>
@@ -62,11 +62,11 @@ $poster_url   = $upload_dir['url'].'/'.basename($first_poster->url);
 </div>
 <?php if ($e->opaque('type') == 'music_group') : ?>
 <div>
-  <a href="<?php echo tkt_event_book_url($e) ?>" alt="$e->localized_title_or_original('fr')">BILLETS</a>
+<a href="<?php echo esc_attr(tkt_event_book_url($e)) ?>" alt="<?php echo esc_attr($e->localized_title_or_original('fr')) ?>">BILLETS</a>
 </div>
 <?php endif; ?>
 <div>
-  <a href="<?php echo tkt_event_details_url($e) ?>" alt="$e->localized_title_or_original('fr')">PLUS D'INFORMATIONS</a>
+    <a href="<?php echo esc_attr(tkt_event_details_url($e)) ?>" alt="<?php echo esc_attr($e->localized_title_or_original('fr')) ?>">PLUS D'INFORMATIONS</a>
 </div>
 <br/>
 <div>

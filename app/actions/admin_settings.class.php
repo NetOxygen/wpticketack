@@ -402,15 +402,15 @@ class AdminSettingsAction extends TKTAction
      */
     public function pages_sale_section_info()
     {
-        print tkt_t("Sélectionnez les pages qui contiennent votre programme (avec ou sans shortcode d'intégration) et permettent la vente d'abonnements et d'articles de merchandising (le cas échéant).");
+        print esc_html(tkt_t("Sélectionnez les pages qui contiennent votre programme (avec ou sans shortcode d'intégration) et permettent la vente d'abonnements et d'articles de merchandising (le cas échéant)."));
     }
     public function pages_cart_section_info()
     {
-        print tkt_t("Sélectionnez les pages qui contiennent les shortcode d'intégration du processus d'achat.");
+        print esc_html(tkt_t("Sélectionnez les pages qui contiennent les shortcode d'intégration du processus d'achat."));
     }
     public function pages_login_section_info()
     {
-        print tkt_t("Sélectionnez les pages en relation avec les tickets et le compte (le cas échéant) utilisateur.");
+        print esc_html(tkt_t("Sélectionnez les pages en relation avec les tickets et le compte (le cas échéant) utilisateur."));
     }
 
     public function program_callback() { return $this->page_choice('program', 'tkt_pages', 'program'); }
@@ -431,7 +431,7 @@ class AdminSettingsAction extends TKTAction
      */
     public function cart_section_info()
     {
-        print tkt_t("Configurez le comportement du panier");
+        print esc_html(tkt_t("Configurez le comportement du panier"));
     }
     public function cart_redirect_callback() {
         return $this->choice('cart_redirect', 'tkt_cart', [
@@ -446,7 +446,7 @@ class AdminSettingsAction extends TKTAction
      */
     public function registration_section_info()
     {
-        print tkt_t("Configuration de l'enregistrement des utilisateurs");
+        print esc_html(tkt_t("Configuration de l'enregistrement des utilisateurs"));
     }
     public function registration_requested_fields_callback() { return $this->input('requested_fields', 'tkt_registration', 'firstname,lastname,email,address,zip,city,phone,cellphone', 'firstname,lastname,email,address,zip,city,phone,cellphone'); }
     public function registration_required_fields_callback() { return $this->input('required_fields', 'tkt_registration', 'firstname,lastname,email', 'firstname,lastname,email'); }
@@ -458,7 +458,7 @@ class AdminSettingsAction extends TKTAction
      */
     public function api_section_info()
     {
-        print tkt_t("Saisissez les informations d'accès à la billetterie");
+        print esc_html(tkt_t("Saisissez les informations d'accès à la billetterie"));
     }
     public function engine_uri_callback() { return $this->input('engine_uri', 'tkt_api', 'https://xxx-engine.ticketack.com'); }
     public function eshop_uri_callback() { return $this->input('eshop_uri', 'tkt_api', 'https://xxx-eshop.ticketack.com'); }
@@ -497,7 +497,7 @@ class AdminSettingsAction extends TKTAction
      */
     public function images_dimensions_section_info()
     {
-        print tkt_t("Dimensions des grandes et moyennes images (en px).");
+        print esc_html(tkt_t("Dimensions des grandes et moyennes images (en px)."));
     }
     public function big_width_callback() { return $this->input('big_width', 'tkt_images_dimensions', 924); }
     public function big_height_callback() { return $this->input('big_height', 'tkt_images_dimensions', 520); }
@@ -509,7 +509,7 @@ class AdminSettingsAction extends TKTAction
      */
     public function i18n_section_info()
     {
-        print tkt_t("Configuration des langues.");
+        print esc_html(tkt_t("Configuration des langues."));
     }
     public function default_lang_callback() {
         return $this->choice('default_lang', 'tkt_i18n', [
@@ -526,7 +526,7 @@ class AdminSettingsAction extends TKTAction
      */
     public function import_section_info()
     {
-        print tkt_t("Configuration de l'import");
+        print esc_html(tkt_t("Configuration de l'import"));
     }
     public function tags_filter_callback() { return $this->input('tags_filter', 'tkt_import', ''); }
     
@@ -541,12 +541,12 @@ class AdminSettingsAction extends TKTAction
      */
     public function advanced_section_info()
     {
-        print tkt_t("Ne modifiez les valeurs ci-dessous que si vous avez des conflits javascript avec d'autres plugins.");
+        print esc_html(tkt_t("Ne modifiez les valeurs ci-dessous que si vous avez des conflits javascript avec d'autres plugins."));
     }
     public function load_underscore_at_the_end_callback() { return $this->boolean('load_underscore_at_the_end', 'tkt_advanced', '0', /*inversed*/true); }
     public function advanced_css_section_info()
     {
-        print tkt_t("Ne modifiez les valeurs ci-dessous que si vous savez ce que vous faites.");
+        print esc_html(tkt_t("Ne modifiez les valeurs ci-dessous que si vous savez ce que vous faites."));
     }
     public function color_callback($args) {
         return $this->color_input($args['name'], $args['group'], $args['placeholder'], $args['value'], $args);
@@ -572,11 +572,11 @@ class AdminSettingsAction extends TKTAction
         }
         printf(
             '<input data-jscolor="{hash:true}" type="text" id="%s" name="%s[%s]" value="%s" placeholder="%s"/><div>',
-            $name,
-            $group,
-            $name,
-            $value,
-            $placeholder != null ? $placeholder : ''
+            esc_html($name),
+            esc_html($group),
+            esc_html($name),
+            esc_html($value),
+            esc_html($placeholder != null ? $placeholder : '')
         );
     }
 
@@ -594,11 +594,11 @@ class AdminSettingsAction extends TKTAction
         $value = isset($this->options[$name]) ? esc_attr($this->options[$name]) : $default;
         printf(
             '<input type="text" id="%s" name="%s[%s]" value="%s" placeholder="%s"/>',
-            $name,
-            $group,
-            $name,
-            $value,
-            $placeholder != null ? $placeholder : ''
+            esc_html($name),
+            esc_html($group),
+            esc_html($name),
+            esc_html($value),
+            esc_html($placeholder != null ? $placeholder : '')
         );
     }
 
@@ -619,9 +619,9 @@ class AdminSettingsAction extends TKTAction
                     <option value="0" '.($value === 0 ? "selected" : "").'>Non</option>
                     <option value="1" '.($value === 1 ? "selected" : "").'>Oui</option>
                  </select>',
-                $name,
-                $group,
-                $name
+                esc_html($name),
+                esc_html($group),
+                esc_html($name)
             );
         } else {
             printf(
@@ -629,9 +629,9 @@ class AdminSettingsAction extends TKTAction
                     <option value="1" '.($value === 1 ? "selected" : "").'>Oui</option>
                     <option value="0" '.($value === 0 ? "selected" : "").'>Non</option>
                  </select>',
-                $name,
-                $group,
-                $name
+                esc_html($name),
+                esc_html($group),
+                esc_html($name)
             );
         }
     }
@@ -650,10 +650,15 @@ class AdminSettingsAction extends TKTAction
         $value         = isset($this->options[$name]) ?
             esc_attr($this->options[$name]) :
             $default;
-        printf('<select id="%s" name="%s[%s]">', $name, $group, $name);
+        printf(
+            '<select id="%s" name="%s[%s]">',
+            esc_html($name),
+            esc_html($group),
+            esc_html($name)
+        );
         foreach ($choices as $label => $v) {
             echo '
-                <option value="'.$v.'" '.($value === $v ? "selected" : "").' >'.$label.'</option>';
+                <option value="'.esc_attr($v).'" '.esc_attr(($value === $v ? "selected" : "")).' >'.esc_html($label).'</option>';
         }
         echo '</select>';
     }
@@ -672,12 +677,17 @@ class AdminSettingsAction extends TKTAction
         $value         = isset($this->options[$name]) ?
             esc_attr($this->options[$name]) :
             $default;
-        printf('<select id="%s" name="%s[%s]">', $name, $group, $name);
+        printf(
+            '<select id="%s" name="%s[%s]">',
+            esc_html($name),
+            esc_html($group),
+            esc_html($name)
+        );
         echo '<option value="">---</option>';
         if (!empty($pages)) {
             foreach ($pages as $label => $page) {
                 echo '
-                    <option '.($page->status === 'draft' ? 'disabled' : '').' value="'.$page->slug.'" '.($value === $page->slug ? "selected" : "").' >'.$label.'</option>';
+                    <option '.($page->status === 'draft' ? 'disabled' : '').' value="'.esc_attr($page->slug).'" '.($value === $page->slug ? "selected" : "").' >'.esc_html($label).'</option>';
             }
         }
         echo '</select>';
@@ -695,10 +705,10 @@ class AdminSettingsAction extends TKTAction
         $value = isset($this->options[$name]) ? esc_attr($this->options[$name]) : null;
         printf(
             '<textarea rows="4" cols="50" id="%s" name="%s[%s]">%s</textarea>',
-            $name,
-            $group,
-            $name,
-            $value
+            esc_attr($name),
+            esc_attr($group),
+            esc_attr($name),
+            esc_html($value)
         );
     }
 

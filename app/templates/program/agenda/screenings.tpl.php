@@ -47,19 +47,19 @@ if (!$data->expanded) {
 <div id="tkt_program" class="tkt-wrapper tkt-agenda" data-component="Program/Agenda">
     <div class="container">
         <?php if (empty($data->screenings)) : ?>
-            <h3 class="no-screening-title"><?php echo tkt_t("Aucune séance à afficher") ?></h3>
+            <h3 class="no-screening-title"><?php echo esc_html(tkt_t("Aucune séance à afficher")) ?></h3>
         <?php else: ?>
-            <div class="tkt_agenda_days <?= !!$data->expanded ? 'expanded' : '' ?>">
+            <div class="tkt_agenda_days <?php echo !!$data->expanded ? 'expanded' : '' ?>">
                 <?php if (!$data->expanded) : ?>
                     <input
                         type="hidden"
                         class="tkt-input agenda-date-input"
                         data-component="Form/Calendar"
                         data-theme="dark"
-                        data-enable="<?php echo implode(',', $dates) ?>"
-                        data-dots='<?php echo wp_json_encode($dots) ?>'
+                        data-enable="<?php echo esc_attr(implode(',', $dates)) ?>"
+                        data-dots='<?php echo esc_attr(wp_json_encode($dots)) ?>'
                         required
-                        data-alt-format="<?= tkt_t('l j F') ?>"
+                        data-alt-format="<?php echo esc_attr(tkt_t('l j F')) ?>"
                     />
                 <?php endif; ?>
 

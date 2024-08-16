@@ -27,11 +27,11 @@ use Ticketack\WP\Templates\TKTTemplate;
 <div
     class="tkt-wrapper tkt-checkout"
     data-component="Checkout/Checkout"
-    data-redirect="<?php echo tkt_thank_you_url() ?>"
+    data-redirect="<?php echo esc_attr(tkt_thank_you_url()) ?>"
 >
     <div class="tkt-checkout-form">
         <?php echo TKTTEmplate::render('checkout/checkout_form', (object)[
-            'theme'               => $data->theme,
+            'theme'                 => $data->theme,
             'cgv_url'               => $data->cgv_url,
             'privacy_url'           => $data->privacy_policy_url,
             'sanitary_measures_url' => $data->sanitary_measures_url,

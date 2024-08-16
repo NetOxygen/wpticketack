@@ -21,7 +21,7 @@ use Ticketack\WP\Templates\TKTTemplate;
 const ticketsGroups = [
     {
         // passes linked to the connected user account
-        title: "<?php echo tkt_t('Mes abonnements') ?>",
+        title: "<?php echo esc_html(tkt_t('Mes abonnements')) ?>",
         tickets: tickets.filter(ticket => !ticket.isOneTimePass() && ticket.isActivated())
     },
     {
@@ -35,7 +35,7 @@ const ticketsGroups = [
     },
     {
         // future one-time-passes
-        title: "<?php echo tkt_t('Mes tickets pour une séance unique') ?>",
+        title: "<?php echo esc_html(tkt_t('Mes tickets pour une séance unique')) ?>",
         tickets: tickets.filter(ticket => ticket.isOneTimePass() && !ticket.getScreening()?.isFinished() && ticket.isActivated())
     },
     {
@@ -50,7 +50,7 @@ const ticketsGroups = [
         <div class="col-sm-12">
             <% if (!tickets || tickets.length == 0) { %>
             <h3 class="text-info text-center mt-3">
-                <?php echo tkt_t('Vous n\'avez pas encore de billets.') ?>
+                <?php echo esc_html(tkt_t('Vous n\'avez pas encore de billets.')) ?>
             </h3>
             <% } else { %>
             <div id="tickets-accordion">
@@ -95,25 +95,25 @@ const ticketsGroups = [
                                         <% if (ticket.isForgettable) { %>
                                         <button class="btn btn-link btn-sm ticket-forget-link" data-ticket-id="<%= ticket._id %>">
                                             <i class="tkt-icon-trash"></i>
-                                            <?php echo tkt_t('Oublier ce billet') ?>
+                                            <?php echo esc_html(tkt_t('Oublier ce billet')) ?>
                                         </button>
                                         <% } %>
                                         <% if (ticket.isOneTimePass()) { %>
                                         <a class="btn btn-link btn-sm ticket-view-link" href="<%= ticket.getTicketViewUrl() %>">
                                             <i class="tkt-icon-eye"></i>
-                                            <?php echo tkt_t('Voir ce ticket') ?>
+                                            <?php echo esc_html(tkt_t('Voir ce ticket')) ?>
                                         </a>
                                         <% } %>
                                         <% if (!ticket.isOneTimePass()) { %>
                                         <a class="btn btn-link btn-sm ticket-view-link" href="<%= ticket.getTicketViewUrl() %>">
                                             <i class="tkt-icon-eye"></i>
-                                            <?php echo tkt_t('Voir mes réservations') ?>
+                                            <?php echo esc_html(tkt_t('Voir mes réservations')) ?>
                                         </a>
                                         <% } %>
                                         <% if (!ticket.isOneTimePass() || !ticket.getScreening()?.isFinished()) { %>
                                         <a class="btn btn-link btn-sm ticket-download-link" target="_blank" href="<%= ticket.getPdfUrl() %>">
                                             <i class="tkt-icon-download"></i>
-                                            <?php echo tkt_t('Télécharger') ?>
+                                            <?php echo esc_html(tkt_t('Télécharger')) ?>
                                         </a>
                                         <% } %>
                                     </div>
@@ -132,7 +132,7 @@ const ticketsGroups = [
     <div class="row">
         <div class="col-sm-12">
             <h4 class="tickets-group-title mt-4">
-                <b><?php echo tkt_t('Ajouter un billet acheté en billetterie physique') ?></b>
+                <b><?php echo esc_html(tkt_t('Ajouter un billet acheté en billetterie physique')) ?></b>
             </h4>
             <div class="card p-2">
                 <div class="tkt-wrapper" data-component="Ticket/TicketConnect"></div>
@@ -157,7 +157,7 @@ const ticketsGroups = [
         <div class="connect-panel">
             <div class="ticket_connect">
                 <div class="mt-2">
-                    <?php echo tkt_ticketidize(tkt_t("Saisissez votre TicketID")) ?>
+                    <?php echo esc_html(tkt_ticketidize(tkt_t("Saisissez votre TicketID"))) ?>
                 </div>
                 <div class="col">
                     <div class="row input-pass">
@@ -173,13 +173,13 @@ const ticketsGroups = [
                     <div class="col text-center">
                         <div class="error pass-error d-none text-center text-danger"></div>
                         <button class="btn btn-primary button login-btn connect-btn mt-2 mb-3">
-                            <i class="tkt-icon-log-out"></i> <?php echo tkt_t('Valider') ?>
+                            <i class="tkt-icon-log-out"></i> <?php echo esc_html(tkt_t('Valider')) ?>
                         </button>
                     </div>
                 </div>
                 <hr />
                 <div>
-                    <?php echo tkt_ticketidize(tkt_t("Votre TicketID se trouve sur votre abonnement")) ?>
+                    <?php echo esc_html(tkt_ticketidize(tkt_t("Votre TicketID se trouve sur votre abonnement"))) ?>
                 </div>
             </div>
         </div>

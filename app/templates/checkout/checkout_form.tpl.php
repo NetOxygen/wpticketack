@@ -56,33 +56,33 @@ foreach ($payment_method_names as $id => $translations) {
 
 <!-- Message for proxypay configuration error -->
 <?php if (!empty($data->proxypay_config_error)) : ?>
-  <?php echo '<script>console.warn( "' .$data->proxypay_config_error. '" )</script>'; ?>
+  <?php echo '<script>console.warn( "' .esc_html($data->proxypay_config_error). '" )</script>'; ?>
 <?php endif; ?>
 
 <div class="tkt-wrapper">
   <?php if (!$allow_later && !$allow_proxypay) : ?>
   <div class="text-center alert alert-danger payment-method-error-msg">
-    <?php echo tkt_t("Aucun moyen de paiement configué.") ?>
+    <?php echo esc_html(tkt_t("Aucun moyen de paiement configué.")) ?>
   </div>
   <?php else : ?>
 
   <?php echo do_shortcode('[tkt_cart hide_links="finalize,continue" theme="'.$theme.'"][/tkt_cart]') ?>
 
-  <section class="tkt-section tkt-<?php echo $theme ?>-section tkt-checkout-section tkt-checkout-user-data-section"></section>
+  <section class="tkt-section tkt-<?php echo esc_attr($theme) ?>-section tkt-checkout-section tkt-checkout-user-data-section"></section>
 
-  <section class="tkt-section tkt-<?php echo $theme ?>-section tkt-checkout-section tkt-checkout-form-section">
+  <section class="tkt-section tkt-<?php echo esc_html($theme) ?>-section tkt-checkout-section tkt-checkout-form-section">
     <div class="row">
       <div class="col">
         <form class="checkout-form">
           <?php if (!empty($requested_fields) || !empty($required_fields)) : ?>
           <fieldset>
-            <h3 class="tkt-section-title"><?php echo tkt_t("Vos données de facturation") ?></h3>
+            <h3 class="tkt-section-title"><?php echo esc_html(tkt_t("Vos données de facturation")) ?></h3>
             <div class="row">
               <?php if (in_array('company', $requested_fields) || in_array('company', $required_fields)) : ?>
               <div id="field-wrapper-company" class="field-wrapper col-md-12" style="display: block;">
                 <div class="form-group">
-                  <label class="<?php echo tkt_is_required($required_fields, 'company') ?>" for="company"><?php echo tkt_t("Entreprise"); ?></label>
-                  <input name="user[company]" type="text" class="tkt-input form-control data-field" id="company" placeholder="<?php echo tkt_t("Votre entreprise") ?>" <?php echo tkt_is_required($required_fields, 'company') ?> />
+                  <label class="<?php echo esc_attr(tkt_is_required($required_fields, 'company')) ?>" for="company"><?php echo esc_html(tkt_t("Entreprise")); ?></label>
+                  <input name="user[company]" type="text" class="tkt-input form-control data-field" id="company" placeholder="<?php echo esc_html(tkt_t("Votre entreprise")) ?>" <?php echo esc_html(tkt_is_required($required_fields, 'company')) ?> />
                 </div>
               </div>
               <?php endif; ?>
@@ -90,8 +90,8 @@ foreach ($payment_method_names as $id => $translations) {
               <?php if (in_array('firstname', $requested_fields) || in_array('firstname', $required_fields)) : ?>
               <div id="field-wrapper-firstname" class="field-wrapper col-md-6" style="display: block;">
                 <div class="form-group">
-                   <label class="<?php echo tkt_is_required($required_fields, 'firstname') ?>" for="firstname"><?php echo tkt_t("Prénom"); ?></label>
-                   <input name="user[firstname]" type="text" class="tkt-input form-control data-field" id="firstname" placeholder="<?php echo tkt_t("Votre prénom") ?>" <?php echo tkt_is_required($required_fields, 'firstname') ?> />
+                   <label class="<?php echo esc_attr(tkt_is_required($required_fields, 'firstname')) ?>" for="firstname"><?php echo esc_html(tkt_t("Prénom")); ?></label>
+                   <input name="user[firstname]" type="text" class="tkt-input form-control data-field" id="firstname" placeholder="<?php echo esc_html(tkt_t("Votre prénom")) ?>" <?php echo esc_html(tkt_is_required($required_fields, 'firstname')) ?> />
                 </div>
               </div>
               <?php endif; ?>
@@ -99,8 +99,8 @@ foreach ($payment_method_names as $id => $translations) {
               <?php if (in_array('lastname', $requested_fields) || in_array('lastname', $required_fields)) : ?>
               <div id="field-wrapper-lastname" class="field-wrapper col-md-6" style="display: block;">
                 <div class="form-group">
-                  <label class="<?php echo tkt_is_required($required_fields, 'lastname') ?>" for="lastname"><?php echo tkt_t("Nom"); ?></label>
-                  <input name="user[lastname]" type="text" class="tkt-input form-control data-field" id="lastname" placeholder="<?php echo tkt_t("Votre nom") ?>" <?php echo tkt_is_required($required_fields, 'lastname') ?> />
+                  <label class="<?php echo esc_attr(tkt_is_required($required_fields, 'lastname')) ?>" for="lastname"><?php echo esc_html(tkt_t("Nom")); ?></label>
+                  <input name="user[lastname]" type="text" class="tkt-input form-control data-field" id="lastname" placeholder="<?php echo esc_html(tkt_t("Votre nom")) ?>" <?php echo esc_html(tkt_is_required($required_fields, 'lastname')) ?> />
                 </div>
               </div>
               <?php endif; ?>
@@ -108,29 +108,29 @@ foreach ($payment_method_names as $id => $translations) {
               <?php if (in_array('email', $requested_fields) || in_array('email', $required_fields)) : ?>
               <div id="field-wrapper-email" class="field-wrapper col-6" style="display: block;">
                 <div class="form-group">
-                  <label class="<?php echo tkt_is_required($required_fields, 'email') ?>" for="email"><?php echo tkt_t("Adresse e-mail"); ?></label>
-                  <input name="user[email]" type="email" class="tkt-input form-control data-field" id="email" placeholder="<?php echo tkt_t("Votre adresse e-mail") ?>" <?php echo tkt_is_required($required_fields, 'email') ?> />
+                  <label class="<?php echo esc_attr(tkt_is_required($required_fields, 'email')) ?>" for="email"><?php echo esc_html(tkt_t("Adresse e-mail")); ?></label>
+                  <input name="user[email]" type="email" class="tkt-input form-control data-field" id="email" placeholder="<?php echo esc_attr(tkt_t("Votre adresse e-mail")) ?>" <?php echo esc_attr(tkt_is_required($required_fields, 'email')) ?> />
                 </div>
               </div>
               <div id="field-wrapper-email" class="field-wrapper col-6" style="display: block;">
                 <div class="form-group">
-                  <label class="<?php echo tkt_is_required($required_fields, 'email') ?>" for="email"><?php echo tkt_t("Confirmation de votre adresse e-mail"); ?></label>
-                  <input name="user[email2]" type="email" class="tkt-input form-control data-field" id="email2" placeholder="<?php echo tkt_t("Saisissez une seconde fois votre adresse e-mail") ?>" <?php echo tkt_is_required($required_fields, 'email') ?> />
+                  <label class="<?php echo esc_attr(tkt_is_required($required_fields, 'email')) ?>" for="email"><?php echo esc_html(tkt_t("Confirmation de votre adresse e-mail")); ?></label>
+                  <input name="user[email2]" type="email" class="tkt-input form-control data-field" id="email2" placeholder="<?php echo esc_attr(tkt_t("Saisissez une seconde fois votre adresse e-mail")) ?>" <?php echo esc_attr(tkt_is_required($required_fields, 'email')) ?> />
                 </div>
               </div>
               <?php endif; ?>
 
               <?php if (in_array('address', $requested_fields) || in_array('address', $required_fields)) : ?>
               <div id="field-wrapper-address" class="field-wrapper form-group col-12">
-                <label class="<?php echo tkt_is_required($required_fields, 'address') ?>" for="address"><?php echo tkt_t("Adresse"); ?></label>
-                <textarea name="user[address]" class="tkt-input form-control data-field" id="address" placeholder="<?php echo tkt_t("Votre adresse") ?>" <?php echo tkt_is_required($required_fields, 'address') ?>></textarea>
+                <label class="<?php echo esc_attr(tkt_is_required($required_fields, 'address')) ?>" for="address"><?php echo esc_html(tkt_t("Adresse")); ?></label>
+                <textarea name="user[address]" class="tkt-input form-control data-field" id="address" placeholder="<?php echo esc_attr(tkt_t("Votre adresse")) ?>" <?php echo esc_attr(tkt_is_required($required_fields, 'address')) ?>></textarea>
               </div>
               <?php endif; ?>
 
               <?php if (in_array('zip', $requested_fields) || in_array('zip', $required_fields)) : ?> <div id="field-wrapper-zip" class="field-wrapper col-md-6">
                 <div class="form-group">
-                  <label class="<?php echo tkt_is_required($required_fields, 'zip') ?>" for="zip"><?php echo tkt_t("Numéro postal"); ?></label>
-                  <input name="user[zip]" type="text" class="tkt-input form-control data-field" id="zip" placeholder="<?php echo tkt_t("NPA") ?>" <?php echo tkt_is_required($required_fields, 'zip') ?> />
+                  <label class="<?php echo esc_attr(tkt_is_required($required_fields, 'zip')) ?>" for="zip"><?php echo esc_html(tkt_t("Numéro postal")); ?></label>
+                  <input name="user[zip]" type="text" class="tkt-input form-control data-field" id="zip" placeholder="<?php echo esc_attr(tkt_t("NPA")) ?>" <?php echo esc_attr(tkt_is_required($required_fields, 'zip')) ?> />
                 </div>
               </div>
               <?php endif; ?>
@@ -138,19 +138,19 @@ foreach ($payment_method_names as $id => $translations) {
               <?php if (in_array('city', $requested_fields) || in_array('city', $required_fields)) : ?>
               <div id="field-wrapper-city" class="field-wrapper col-md-6">
                 <div class="form-group">
-                  <label class="<?php echo tkt_is_required($required_fields, 'city') ?>" for="city"><?php echo tkt_t("Ville"); ?></label>
-                  <input name="user[city]" type="text" class="tkt-input form-control data-field" id="city" placeholder="<?php echo tkt_t("Ville") ?>" <?php echo tkt_is_required($required_fields, 'city') ?> />
+                  <label class="<?php echo esc_attr(tkt_is_required($required_fields, 'city')) ?>" for="city"><?php echo esc_html(tkt_t("Ville")); ?></label>
+                  <input name="user[city]" type="text" class="tkt-input form-control data-field" id="city" placeholder="<?php echo esc_html(tkt_t("Ville")) ?>" <?php echo esc_attr(tkt_is_required($required_fields, 'city')) ?> />
                 </div>
               </div>
               <?php endif; ?>
 
               <?php if (in_array('country', $requested_fields) || in_array('country', $required_fields)) : ?>
               <div id="field-wrapper-country" class="field-wrapper form-group col-6">
-                <label class="<?php echo tkt_is_required($required_fields, 'country') ?>" for="country"><?php echo tkt_t("Pays"); ?></label>
-                <select name="user[country]" id="country" class="tkt-input form-control data-field" <?php echo tkt_is_required($required_fields, 'country') ?>>
+                <label class="<?php echo esc_attr(tkt_is_required($required_fields, 'country')) ?>" for="country"><?php echo esc_html(tkt_t("Pays")); ?></label>
+                <select name="user[country]" id="country" class="tkt-input form-control data-field" <?php echo esc_attr(tkt_is_required($required_fields, 'country')) ?>>
                   <option value=""></option>
                   <?php foreach (tkt_get_countries() as $country) : ?>
-                  <option value="<?php echo $country[TKT_LANG] ?>"><?php echo $country[TKT_LANG] ?></option>
+                  <option value="<?php echo esc_attr($country[TKT_LANG]) ?>"><?php echo esc_attr($country[TKT_LANG]) ?></option>
                   <?php endforeach; ?>
                 </select>
               </div>
@@ -158,25 +158,25 @@ foreach ($payment_method_names as $id => $translations) {
 
               <?php if (in_array('phone', $requested_fields) || in_array('phone', $required_fields)) : ?>
               <div id="field-wrapper-phone" class="field-wrapper form-group col-6">
-                <label class="<?php echo tkt_is_required($required_fields, 'phone') ?>" for="phone"><?php echo tkt_t("Téléphone"); ?></label>
-                <input name="user[phone]" type="tel" class="tkt-input form-control data-field" id="phone" placeholder="<?php echo tkt_t("Votre numéro de téléphone") ?>" <?php echo tkt_is_required($required_fields, 'phone') ?> />
+                <label class="<?php echo esc_attr(tkt_is_required($required_fields, 'phone')) ?>" for="phone"><?php echo esc_html(tkt_t("Téléphone")); ?></label>
+                <input name="user[phone]" type="tel" class="tkt-input form-control data-field" id="phone" placeholder="<?php echo esc_html(tkt_t("Votre numéro de téléphone")) ?>" <?php echo esc_attr(tkt_is_required($required_fields, 'phone')) ?> />
               </div>
               <?php endif; ?>
 
               <?php if (in_array('cellphone', $requested_fields) || in_array('cellphone', $required_fields)) : ?>
               <div id="field-wrapper-cellphone" class="field-wrapper form-group col-6">
-                <label class="<?php echo tkt_is_required($required_fields, 'cellphone') ?>" for="cellphone"><?php echo tkt_t("Téléphone portable"); ?></label>
-                <input name="user[cellphone]" type="tel" class="tkt-input form-control data-field" id="cellphone" placeholder="<?php echo tkt_t("Votre numéro de téléphone") ?>" <?php echo tkt_is_required($required_fields, 'cellphone') ?> />
+                <label class="<?php echo esc_attr(tkt_is_required($required_fields, 'cellphone')) ?>" for="cellphone"><?php echo esc_html(tkt_t("Téléphone portable")); ?></label>
+                <input name="user[cellphone]" type="tel" class="tkt-input form-control data-field" id="cellphone" placeholder="<?php echo esc_html(tkt_t("Votre numéro de téléphone")) ?>" <?php echo esc_attr(tkt_is_required($required_fields, 'cellphone')) ?> />
               </div>
               <?php endif; ?>
 
               <?php if (in_array('age', $requested_fields) || in_array('age', $required_fields)) : ?>
               <div id="field-wrapper-age" class="field-wrapper form-group col-6">
-                <label class="<?php echo tkt_is_required($required_fields, 'age') ?>" for="age"><?php echo tkt_t("Âge"); ?></label>
-                <select name="user[age]" id="age" class="tkt-input form-control data-field" <?php echo tkt_is_required($required_fields, 'age') ?>>
+                <label class="<?php echo esc_attr(tkt_is_required($required_fields, 'age')) ?>" for="age"><?php echo esc_html(tkt_t("Âge")); ?></label>
+                <select name="user[age]" id="age" class="tkt-input form-control data-field" <?php echo esc_attr(tkt_is_required($required_fields, 'age')) ?>>
                   <option value=""></option>
                   <?php foreach (tkt_get_ages() as $age) : ?>
-                  <option value="<?php echo $age ?>"><?php echo $age ?></option>
+                  <option value="<?php echo esc_attr($age) ?>"><?php echo esc_html($age) ?></option>
                   <?php endforeach; ?>
                 </select>
               </div>
@@ -185,19 +185,19 @@ foreach ($payment_method_names as $id => $translations) {
               <?php if (in_array('birthdate', $requested_fields) || in_array('birthdate', $required_fields)) : ?>
                 <div class="row">
                   <div id="field-wrapper-birthdate" class="col-md-12 field-wrapper form-group">
-                    <label class="required" for="birthdate"><?php echo tkt_t('Date de naissance') ?></label>
-                    <input name="user[birthdate]" type="text" class="tkt-input form-control data-field" id="birthdate" data-component="Form/Calendar" placeholder="<?php echo tkt_t("Date de naissance") ?>" required data-date-format="d.m.Y" />
+                    <label class="required" for="birthdate"><?php echo esc_html(tkt_t('Date de naissance')) ?></label>
+                    <input name="user[birthdate]" type="text" class="tkt-input form-control data-field" id="birthdate" data-component="Form/Calendar" placeholder="<?php echo esc_html(tkt_t("Date de naissance")) ?>" required data-date-format="d.m.Y" />
                   </div>
                 </div>
               <?php endif; ?>
 
               <?php if (in_array('sex', $requested_fields) || in_array('sex', $required_fields)) : ?>
               <div id="field-wrapper-sex" class="field-wrapper form-group col-6">
-                <label class="<?php echo tkt_is_required($required_fields, 'sex') ?>" for="sex"><?php echo tkt_t("Genre"); ?></label>
-                <select name="user[sex]" id="sex" class="tkt-input form-control data-field" <?php echo tkt_is_required($required_fields, 'sex') ?>>
+                <label class="<?php echo esc_attr(tkt_is_required($required_fields, 'sex')) ?>" for="sex"><?php echo esc_html(tkt_t("Genre")); ?></label>
+                <select name="user[sex]" id="sex" class="tkt-input form-control data-field" <?php echo esc_attr(tkt_is_required($required_fields, 'sex')) ?>>
                   <option value=""></option>
                   <?php foreach (tkt_get_sexes() as $value => $label) : ?>
-                  <option value="<?php echo $value ?>"><?php echo $label ?></option>
+                  <option value="<?php echo esc_attr($value) ?>"><?php echo esc_html($label) ?></option>
                   <?php endforeach; ?>
                 </select>
               </div>
@@ -206,8 +206,8 @@ foreach ($payment_method_names as $id => $translations) {
               <?php if (in_array('comment', $requested_fields) || in_array('comment', $required_fields)) : ?>
               <div id="field-wrapper-comment" class="field-wrapper col-md-12" style="display: block;">
                 <div class="form-group">
-                  <label class="<?php echo tkt_is_required($required_fields, 'comment') ?>" for="comment"><?php echo tkt_t("Commentaires"); ?></label>
-                  <textarea name="user[comment]" class="tkt-input form-control data-field" id="comment" <?php echo tkt_is_required($required_fields, 'comment') ?>></textarea>
+                  <label class="<?php echo esc_attr(tkt_is_required($required_fields, 'comment')) ?>" for="comment"><?php echo esc_html(tkt_t("Commentaires")); ?></label>
+                  <textarea name="user[comment]" class="tkt-input form-control data-field" id="comment" <?php echo esc_attr(tkt_is_required($required_fields, 'comment')) ?>></textarea>
                 </div>
               </div>
               <?php endif; ?>
@@ -217,7 +217,7 @@ foreach ($payment_method_names as $id => $translations) {
                   <div class="checkbox">
                     <label>
                       <input name="user[newsletter]" value="checked" type="checkbox" class="data-field">
-                      <?php echo tkt_t("Je désire m'inscrire à la newsletter.") ?>
+                      <?php echo esc_html(tkt_t("Je désire m'inscrire à la newsletter.")) ?>
                     </label>
                   </div>
                 </div>
@@ -237,7 +237,7 @@ foreach ($payment_method_names as $id => $translations) {
               <?php endif; ?>
 
               <div class="col-md-12">
-                  <p id="notice-required" class="small"><?php echo tkt_t('Tous ces champs sont requis') ?></p>
+                  <p id="notice-required" class="small"><?php echo esc_html(tkt_t('Tous ces champs sont requis')) ?></p>
               </div>
 
             </div>
@@ -256,19 +256,19 @@ foreach ($payment_method_names as $id => $translations) {
             <div id="submit-section" class="row">
               <div class="col-md-12 text-right">
                 <?php if ($allow_later) : ?>
-                  <button type="submit" class="submit-button button later" data-payment-method="LATER_PAYMENT" data-redirect="<?php echo $data->redirect ?>">
-                    <span class="glyphicon glyphicon-ok"></span> <?php echo $payment_method_names['LATER_PAYMENT'] ?>
+                  <button type="submit" class="submit-button button later" data-payment-method="LATER_PAYMENT">
+                    <span class="glyphicon glyphicon-ok"></span> <?php echo esc_html($payment_method_names['LATER_PAYMENT']) ?>
                   </button>
                 <?php endif; ?>
 
                 <?php if ($allow_proxypay) : ?>
-                  <button type="submit" class="submit-button button proxypay" data-payment-method="PROXYPAY" data-redirect="<?php echo $data->redirect ?>">
-                    <span class="glyphicon glyphicon-credit-card"></span> <?php echo $payment_method_names['PROXYPAY'] ?>
+                  <button type="submit" class="submit-button button proxypay" data-payment-method="PROXYPAY">
+                    <span class="glyphicon glyphicon-credit-card"></span> <?php echo esc_html($payment_method_names['PROXYPAY']) ?>
                   </button>
 
                   <?php if ($allow_null_payment) : ?>
-                    <button type="submit" class="submit-button button null_payment" data-payment-method="NULL_PAYMENT" data-redirect="<?php echo $data->redirect ?>">
-                      <span class="glyphicon glyphicon-credit-card"></span> <?php echo tkt_t('Valider') ?>
+                    <button type="submit" class="submit-button button null_payment" data-payment-method="NULL_PAYMENT">
+                      <span class="glyphicon glyphicon-credit-card"></span> <?php echo esc_html(tkt_t('Valider')) ?>
                     </button>
                   <?php endif; ?>
                 <?php endif; ?>

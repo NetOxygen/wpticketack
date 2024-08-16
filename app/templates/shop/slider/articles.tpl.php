@@ -18,10 +18,10 @@ use Ticketack\WP\Templates\TKTTemplate;
 $rows = array_chunk($data->articles, ceil(count($data->articles) / 2));
 ?>
 <div id="tkt-wrapper tkt_articles">
-    <div class="category-name"><?php echo the_title() ?></div>
+    <div class="category-name"><?php echo esc_html(the_title()) ?></div>
 
   <?php if (empty($data->articles)) : ?>
-    <h3 class="no-article-title"><?php echo tkt_t('Aucun article dans cette catégorie, revenez nous visiter prochainement.') ?></h3>
+    <h3 class="no-article-title"><?php echo esc_html(tkt_t('Aucun article dans cette catégorie, revenez nous visiter prochainement.')) ?></h3>
   <?php else: ?>
     <?php foreach ($rows as $articles) : ?>
     <div class="articles-carousel">

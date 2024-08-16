@@ -19,7 +19,7 @@ use Ticketack\WP\Templates\TKTTemplate;
     id="tkt-user-account"
     class="tkt-wrapper"
     data-component="User/UserAccount"
-    data-tab="<?php echo $data->active_tab ?>"
+    data-tab="<?php echo esc_attr($data->active_tab) ?>"
 >
     <div id="tkt-user-account-menu">
         <i class="tkt-icon-spinner tkt-2x tkt-spin"></i>
@@ -28,8 +28,8 @@ use Ticketack\WP\Templates\TKTTemplate;
     <div id="tkt-user-account-content"></div>
 
     <div id="tkt-user-account-verify-message" class="text-danger text-center" style="display: none;">
-        <?php echo tkt_t('Votre compte n\'est pas activé.') ?><br/>
-        <b><?php echo tkt_t('Veuillez l\'activer en cliquant sur le lien que vous avez reçu par e-mail.') ?></b><br />
+        <?php echo esc_html(tkt_t('Votre compte n\'est pas activé.')) ?><br/>
+        <b><?php echo esc_html(tkt_t('Veuillez l\'activer en cliquant sur le lien que vous avez reçu par e-mail.')) ?></b><br />
     </div>
 
     <div class="row">

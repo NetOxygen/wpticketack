@@ -32,16 +32,16 @@ const isVisibleOrder = order => {
         <div class="col-sm-12">
             <% if (!orders || orders.length == 0) { %>
             <h3 class="text-info text-center mt-3">
-                <?php echo tkt_t('Vous n\'avez pas encore de commandes.') ?>
+                <?php echo esc_html(tkt_t('Vous n\'avez pas encore de commandes.')) ?>
             </h3>
             <% } else { %>
             <table class="table table-bordered tale-condensed table-striped table-hover">
                 <tr>
-                    <th><?php echo tkt_t('#') ?></th>
-                    <th><?php echo tkt_t('Date') ?></th>
-                    <th><?php echo tkt_t('Prix total') ?></th>
-                    <th><?php echo tkt_t('Paiement') ?></th>
-                    <th><?php echo tkt_t('Statut') ?></th>
+                    <th><?php echo esc_html(tkt_t('#')) ?></th>
+                    <th><?php echo esc_html(tkt_t('Date')) ?></th>
+                    <th><?php echo esc_html(tkt_t('Prix total')) ?></th>
+                    <th><?php echo esc_html(tkt_t('Paiement')) ?></th>
+                    <th><?php echo esc_html(tkt_t('Statut')) ?></th>
                 </tr>
                 <% orders.reverse().filter(isVisibleOrder).map(function (order) { %>
                 <tr>

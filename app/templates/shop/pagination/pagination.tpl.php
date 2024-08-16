@@ -32,13 +32,13 @@ $last_link  = $current_page == $total_page ? 'javascript:;' : '?tkt_page='.$tota
     <div class="btn-group" role="group">
 
             <button type="button" class="button btn btn-sm btn-secondary page-item <?php echo ($current_page == 1) ? "disabled" : "" ?>">
-                <a href="<?php echo $first_link ?>" class="btn btn-sm btn-link">
+                <a href="<?php echo esc_attr($first_link) ?>" class="btn btn-sm btn-link">
                     <<
                 </a>
             </button>
             <button type="button" class="button btn btn-sm btn-secondary page-item <?php echo ($current_page == 1) ? "disabled" : "" ?>">
-                <a href="<?php echo $prev_link ?>" class="btn btn-sm btn-link">
-                    <?php echo tkt_t('Précédente') ?>
+                <a href="<?php echo esc_attr($prev_link) ?>" class="btn btn-sm btn-link">
+                    <?php echo esc_html(tkt_t('Précédente')) ?>
                 </a>
             </button>
 
@@ -49,7 +49,7 @@ $last_link  = $current_page == $total_page ? 'javascript:;' : '?tkt_page='.$tota
             <?php for ($p = 1; $p <= $total_page; $p++) : ?>
                 <?php if ($p > $current_page -3 && $p < $current_page + 3) : ?>
                     <button type="button" class="button btn btn-sm page-item <?php echo ($p == $current_page) ? "btn-primary active" : "btn-secondary" ?>">
-                        <a href="?tkt_page=<?php echo $p ?>" class="btn btn-sm btn-link <?php echo $p == $current_page ? 'active' : '' ?>"><?php echo $p ?></a>
+                        <a href="?tkt_page=<?php echo esc_attr($p) ?>" class="btn btn-sm btn-link <?php echo esc_attr($p == $current_page ? 'active' : '') ?>"><?php echo esc_html($p) ?></a>
                     </button>
                 <?php endif; ?>
             <?php endfor; ?>
@@ -59,12 +59,12 @@ $last_link  = $current_page == $total_page ? 'javascript:;' : '?tkt_page='.$tota
             <?php endif; ?>
 
             <button type="button" class="button btn btn-sm btn-secondary page-item <?php echo ($current_page == $total_page) ? "disabled" : "" ?>">
-                <a href="<?php echo $next_link ?>" class="btn btn-sm btn-link">
-                    <?php echo tkt_t('Suivante') ?>
+                <a href="<?php echo esc_attr($next_link) ?>" class="btn btn-sm btn-link">
+                    <?php echo esc_html(tkt_t('Suivante')) ?>
                 </a>
             </button>
             <button type="button" class="button btn btn-sm btn-secondary page-item <?php echo ($current_page == $total_page) ? "disabled" : "" ?>">
-                <a href="<?php echo $last_link ?>" class="btn btn-sm btn-link">
+                <a href="<?php echo esc_attr($last_link) ?>" class="btn btn-sm btn-link">
                     >>
                 </a>
             </button>

@@ -39,7 +39,7 @@ tickets.concat(other_tickets).map(t => {
         <div class="col-sm-12">
             <% if (!bookings.length) { %>
             <h3 class="text-info text-center mt-3">
-                <?php echo tkt_t('Aucun vote disponible pour le moment.') ?>
+                <?php echo esc_html(tkt_t('Aucun vote disponible pour le moment.')) ?>
             </h3>
             <% } else { %>
             <div id="tickets-accordion">

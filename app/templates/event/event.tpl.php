@@ -63,11 +63,11 @@ $images_height = TKTApp::get_instance()->get_config('images_dimensions.big_heigh
           <div class="carousel-item <?php echo $i == 0 ? 'active' : '' ?>">
             <div class="tkt-event-carousel-trailer-wrapper d-block w-100">
               <div
-              id="tkt-event-carousel-trailer-<?php echo $i ?>"
+              id="tkt-event-carousel-trailer-<?php echo esc_attr($i) ?>"
                 class="tkt-event-carousel-trailer"
                 data-component="Media/YoutubeVideo"
-                data-video-id="<?php echo tkt_yt_video_id($t->url) ?>"
-                data-video-image="<?php echo tkt_img_proxy_url($t->image, $images_width, $images_height) ?>"
+                data-video-id="<?php echo esc_attr(tkt_yt_video_id($t->url)) ?>"
+                data-video-image="<?php echo esc_attr(tkt_img_proxy_url($t->image, $images_width, $images_height)) ?>"
                 data-bs4-carousel-id="event-carousel">
               </div>
             </div>
@@ -75,7 +75,7 @@ $images_height = TKTApp::get_instance()->get_config('images_dimensions.big_heigh
           <?php endforeach; ?>
           <?php foreach ($e->posters() as $i => $p) : ?>
           <div class="carousel-item <?php echo count($e->trailers()) == 0 && $i == 0 ? 'active' : '' ?>">
-            <img style="max-width: 924px" class="d-block w-100" src="<?php echo tkt_img_proxy_url($p->url, $images_width, $images_height) ?>" alt="<?php echo $e->localized_title_or_original('fr') ?>">
+            <img style="max-width: 924px" class="d-block w-100" src="<?php echo esc_attr(tkt_img_proxy_url($p->url, $images_width, $images_height)) ?>" alt="<?php echo esc_attr($e->localized_title_or_original('fr')) ?>">
           </div>
           <?php endforeach; ?>
         </div>
@@ -113,7 +113,7 @@ $images_height = TKTApp::get_instance()->get_config('images_dimensions.big_heigh
       <div class="row">
         <div class="col">
           <span class="genre">
-            <?php echo $e->opaque()['genre'] ?>
+            <?php echo esc_html($e->opaque()['genre']) ?>
           </span>
         </div>
       </div>
@@ -136,14 +136,14 @@ $images_height = TKTApp::get_instance()->get_config('images_dimensions.big_heigh
   </div>
 
   <div class="row" data-component="Program/BookabilityState">
-    <div class="col" data-bookability-ids="<?php echo implode(',', $ids) ?>">
+    <div class="col" data-bookability-ids="<?php echo esc_attr(implode(',', $ids)) ?>">
       <span class="show-booking-form">
         <div data-component="Media/Loading" data-size-sm class="show-while-loading"></div>
         <span class="show-if-bookable show-if-almost-not-bookable d-none">
-          <a href=""><?php echo tkt_t('Billets') ?></a>
+          <a href=""><?php echo esc_html(tkt_t('Billets')) ?></a>
         </span>
-        <span class="show-if-almost-not-bookable assertive d-none"><?php echo tkt_t('Il ne reste que quelques places !') ?></span>
-        <span class="show-if-not-bookable assertive d-none"><?php echo tkt_t('Complet') ?></span>
+        <span class="show-if-almost-not-bookable assertive d-none"><?php echo esc_html(tkt_t('Il ne reste que quelques places !')) ?></span>
+        <span class="show-if-not-bookable assertive d-none"><?php echo esc_html(tkt_t('Complet')) ?></span>
       </span>
     </div>
   </div>
@@ -154,7 +154,7 @@ $images_height = TKTApp::get_instance()->get_config('images_dimensions.big_heigh
     <div class="col">
       <div class="synopsis">
         <span class="title assertive">
-          <?php echo $e->localized_title_or_original('fr') ?>
+          <?php echo esc_html($e->localized_title_or_original('fr')) ?>
         </span>
         <span class="text">
             <?php echo $description ?>
@@ -167,10 +167,10 @@ $images_height = TKTApp::get_instance()->get_config('images_dimensions.big_heigh
     <?php foreach ($people as $activity => $p) : ?>
       <div class="col col-md-6">
         <div class="activity">
-          <span><?php echo $activity ?></span>
+          <span><?php echo esc_html($activity) ?></span>
         </div>
         <div class="people">
-            <?php echo implode(', ', $p) ?>
+            <?php echo esc_html(implode(', ', $p)) ?>
         </div>
       </div>
     <?php endforeach; ?>

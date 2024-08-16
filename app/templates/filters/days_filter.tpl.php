@@ -27,11 +27,11 @@ $query_mask = '?d=%s';
           <ul>
               <?php foreach ($days as $day) : ?>
               <li class="tkt-day-filter <?php echo $active == $day->format('Y-m-d') ? 'active' : '' ?>">
-                  <a href="<?php echo sprintf($query_mask, $day->format('Y-m-d')) ?>">
+                  <a href="<?php echo esc_attr(sprintf($query_mask, $day->format('Y-m-d'))) ?>">
                       <span class="tkt-day-filter-day">
-                          <?php echo strftime('%A', $day->getTimestamp()) ?>
+                          <?php echo esc_attr(strftime('%A', $day->getTimestamp())) ?>
                       </span>
-                      <span class="tkt-day-filter-date"><?php echo $day->format('j') ?></span>
+                      <span class="tkt-day-filter-date"><?php echo esc_html($day->format('j')) ?></span>
                   </a>
               </li>
               <?php endforeach; ?>

@@ -20,11 +20,11 @@ use Ticketack\WP\Templates\TKTTemplate;
 <div id="tkt_program" class="tkt-wrapper" data-component="Program/BookabilityState">
     <div class="container">
         <?php if (empty($data->screenings)) : ?>
-        <h3 class="no-event-title"><?php echo tkt_t('Aucuné séance programmée actuellement, revenez nous visiter prochainement.') ?></h3>
+        <h3 class="no-event-title"><?php echo esc_html(tkt_t('Aucuné séance programmée actuellement, revenez nous visiter prochainement.')) ?></h3>
         <?php else: ?>
 
         <?php foreach ($data->screenings as $screening) : ?>
-        <div class="tkt_program_screening" <?php echo tkt_screening_data_attributes($screening, $data->filter_fields) ?>>
+        <div class="tkt_program_screening" <?php echo esc_attr(tkt_screening_data_attributes($screening, $data->filter_fields)) ?>>
             <?php echo TKTTemplate::render('program/list/screening', (object)[ 'screening' => $screening ]) ?>
         </div>
         <?php endforeach; ?>

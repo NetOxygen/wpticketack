@@ -18,17 +18,17 @@ $currency = TKTApp::get_instance()->get_config('currency', 'CHF');
 <div class="pricings-form">
     <div class="error pricings-error d-none"></div>
     <button class="button book-btn active d-none my-3">
-        <?php echo tkt_t("Réserver une place sur mon abonnement") ?>
+        <?php echo esc_html(tkt_t("Réserver une place sur mon abonnement")) ?>
     </button>
     <table width="100%">
     <% _.mapKeys(screening.pricings, function(p, key) { %>
     <tr class="pricing-row">
         <td>
-            <span class="pricing-name"><%= p.name.<?php echo TKT_LANG ?> %></span>
+            <span class="pricing-name"><%= p.name.<?php echo esc_html(TKT_LANG) ?> %></span>
         </td>
         <td width="60px">
             <span class="pricing-price">
-                <%= p.price.<?php echo $currency ?>.toFixed(0) %> <?php echo $currency ?>
+                <%= p.price.<?php echo esc_html($currency) ?>.toFixed(0) %> <?php echo esc_html($currency) ?>
             </span>
         </td>
         <td width="60px">
@@ -47,11 +47,11 @@ $currency = TKTApp::get_instance()->get_config('currency', 'CHF');
     <% }) %>
     </table>
     <button class="button add-to-cart-btn active my-3" >
-        <?php echo tkt_t('Ajouter au panier') ?>
+        <?php echo esc_html(tkt_t('Ajouter au panier')) ?>
     </button>
 </div>
 <% } else if (screening && screening.opaque.booking_mode === 'free') { %>
 <div class="pricings-form">
-    <?php echo tkt_t("Entrée libre") ?>
+    <?php echo esc_html(tkt_t("Entrée libre")) ?>
 </div>
 <% } %>
