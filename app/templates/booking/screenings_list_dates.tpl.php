@@ -1,4 +1,7 @@
 <?php
+
+if (!defined('ABSPATH')) exit;
+
 /**
  * Booking form: dates selector partial
  * This template will be parsed by underscore.js

@@ -11,6 +11,8 @@
  * License: GPLv3
  */
 
+if (!defined('ABSPATH')) exit;
+
 use Ticketack\WP\TKTApp;
 
 setlocale(LC_TIME, get_locale().'.UTF-8');

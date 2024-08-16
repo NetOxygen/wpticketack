@@ -1,4 +1,7 @@
 <?php
+
+if (!defined('ABSPATH')) exit;
+
 /**
  * Booking form: success message partial
  * This template will be parsed by underscore.js

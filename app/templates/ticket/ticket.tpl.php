@@ -1,4 +1,7 @@
 <?php
+
+if (!defined('ABSPATH')) exit;
+
 /**
  * Ticket view
  * This template will be parsed by underscore.js

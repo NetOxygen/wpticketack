@@ -1,5 +1,7 @@
 <?php
 
+if (!defined('ABSPATH')) exit;
+
 use Ticketack\WP\TKTApp;
 use Ticketack\WP\Helpers\SyncHelper;
 use ScssPhp\ScssPhp\Compiler;
