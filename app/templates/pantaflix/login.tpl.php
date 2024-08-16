@@ -45,7 +45,7 @@ use Ticketack\WP\Templates\TKTTemplate;
                 </div>
                 <hr />
                 <div>
-                    <?php echo esc_html(tkt_ticketidize(tkt_t("Votre TicketID se trouve sur votre abonnement")i)) ?>
+                    <?php echo esc_html(tkt_ticketidize(tkt_t("Votre TicketID se trouve sur votre abonnement"))) ?>
                 </div>
                 <br />
             </div>
