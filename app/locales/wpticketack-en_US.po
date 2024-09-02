@@ -145,10 +145,10 @@ msgid "Votre prénom"
 msgstr "Your firstname"
 
 msgid "Nom"
-msgstr "Lastname"
+msgstr "Last name"
 
 msgid "Votre nom de famille"
-msgstr "Your lastname"
+msgstr "Your last name"
 
 msgid "E-mail"
 msgstr "Email"
@@ -507,7 +507,7 @@ msgid "Mot de passe perdu ? Changez-le !"
 msgstr "Lost password? Change it here!"
 
 msgid "Votre nom"
-msgstr "Your lastname"
+msgstr "Your last name"
 
 msgid "Société"
 msgstr "Company"
