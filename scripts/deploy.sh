@@ -29,8 +29,6 @@ SVNUSER="netoxygen"
 SVNURL="https://plugins.svn.wordpress.org/$PLUGINSLUG"
 SVNPATH=$(mktemp -d /tmp/ticketack.XXXXXX)
 
-default_svnpath="/tmp/$PLUGINSLUG"
-
 echo "Checking version in main plugin file matches version in readme.txt file..."
 echo
 
@@ -97,6 +95,9 @@ echo
 echo "Creating local copy of SVN repo trunk..."
 svn checkout $SVNURL $SVNPATH --depth immediates
 svn update --quiet $SVNPATH/trunk --set-depth infinity
+
+echo "Cleaning local copy"
+rm -rf $SVNPATH/trunk/*
 
 echo "Ignoring GitHub specific files"
 svn propset svn:ignore "README.md
