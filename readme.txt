@@ -64,26 +64,7 @@ code](https://github.com/NetOxygen/wpticketack) and submit a Pull Request.
 
 = 2.79.0 =
 
-* feat: Introduce movie_ids and expanded Program shortcode attributes
-* feat: Introduce calendar in Agenda shortcode
-* feat: Rework agenda expanded mode
-
-* fix: Fix a bug in the pass component
-* fix: Escape everything that can be escaped
-* fix: Add more escape calls
-* fix: Fix escape problem
-* fix: Prevent direct access to PHP files
-* fix: Ensure all functions are prefixed
-* fix: Better escape JSON data
-* fix: Remove HEREDOC usages
-* fix: Add missing source code link in readme
-* fix: Keep composer.json in prod module
-* fix: Fix error in Agenda component
-* fix: Fix static function in sync helper
-
-* doc: Add some infos about third party services
-* deps: Update jscolor lib
-* lint: Remove PHP short tags
+* Consider Wordpress review
 
 = 2.78.4 =
 
