@@ -1,5 +1,7 @@
 <?php
 
+if (!defined('ABSPATH')) exit;
+
 use Ticketack\WP\TKTApp;
 
 /**
@@ -24,12 +26,12 @@ $query_mask = '?d=%s';
       <div class="col">
           <ul>
               <?php foreach ($days as $day) : ?>
-              <li class="tkt-day-filter <?= $active == $day->format('Y-m-d') ? 'active' : '' ?>">
-                  <a href="<?= sprintf($query_mask, $day->format('Y-m-d')) ?>">
+              <li class="tkt-day-filter <?php echo $active == $day->format('Y-m-d') ? 'active' : '' ?>">
+                  <a href="<?php echo esc_attr(sprintf($query_mask, $day->format('Y-m-d'))) ?>">
                       <span class="tkt-day-filter-day">
-                          <?= strftime('%A', $day->getTimestamp()) ?>
+                          <?php echo esc_attr(strftime('%A', $day->getTimestamp())) ?>
                       </span>
-                      <span class="tkt-day-filter-date"><?= $day->format('j') ?></span>
+                      <span class="tkt-day-filter-date"><?php echo esc_html($day->format('j')) ?></span>
                   </a>
               </li>
               <?php endforeach; ?>

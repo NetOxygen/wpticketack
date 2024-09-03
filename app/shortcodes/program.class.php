@@ -65,6 +65,7 @@ class ProgramShortcode extends TKTShortcode
         }
 
         $tags                  = isset($atts['tags']) ? explode(',', $atts['tags']) : null;
+        $movie_ids             = isset($atts['movie_ids']) ? explode(',', $atts['movie_ids']) : null;
         $section_ids           = isset($atts['section_ids']) ? explode(',', $atts['section_ids']) : null;
         $xsection_ids          = isset($atts['xsection_ids']) ? explode(',', $atts['xsection_ids']) : null;
         $screening_section_ids = isset($atts['screening_section_ids']) ? explode(',', $atts['screening_section_ids']) : null;
@@ -79,6 +80,7 @@ class ProgramShortcode extends TKTShortcode
         $places                = isset($atts['places']) ? explode(',', $atts['places']) : [];
         $filter_fields         = isset($atts['filter_fields']) ? explode(',', $atts['filter_fields']) : [];
         $slider_timeout        = isset($atts['timeout']) ? $atts['timeout'] : static::SLIDER_TIMEOUT;
+        $expanded              = isset($atts['expanded']);
 
         try {
             $query = Screening::all()
@@ -138,6 +140,9 @@ class ProgramShortcode extends TKTShortcode
                 'films.opaque.year',
                 'films.opaque.premiere_type',
                 'films.opaque.booking_mode',
+                'films.opaque.l_min_age',
+                'films.opaque.s_min_age',
+                'films.opaque.a_min_age',
                 'opaque'
             ];
 
@@ -174,6 +179,18 @@ class ProgramShortcode extends TKTShortcode
                                 }
                             }
                             return true;
+                        });
+                    }
+
+                    if (!empty($movie_ids)) {
+                        $screenings = array_filter($screenings, function ($s) use ($movie_ids) {
+                            $movies = $s->movies();
+                            foreach ($movies as $m) {
+                                if (in_array($m->_id(), $movie_ids)) {
+                                    return true;
+                                }
+                            }
+                            return false;
                         });
                     }
 
@@ -222,6 +239,7 @@ class ProgramShortcode extends TKTShortcode
                             'image_width_pct'      => $image_width_pct,
                             'image_ratio'          => $image_ratio,
                             'description_max_line' => $description_max_line,
+                            'expanded'             => !!$expanded,
                         ]
                     );
 
@@ -261,7 +279,14 @@ class ProgramShortcode extends TKTShortcode
                             return true;
                         });
                     }
-                    // remove_accents is in wp-includes/formatting.php
+
+                    if (!empty($movie_ids)) {
+                        $events = array_filter($events, function ($e) use ($movie_ids) {
+                            return in_array($e->_id(), $movie_ids);
+                        });
+                    }
+
+                    // remove_accents is in wp-includes/formatting.php
                     if ($order === static::ALPHA_ORDER) {
                         usort($events, function ($a, $b) {
                             return strcmp(
@@ -270,6 +295,7 @@ class ProgramShortcode extends TKTShortcode
                             );
                         });
                     }
+
                     // TODO: We could improve this by filtering the screenings
                     // from the engine
                     if (isset($atts['filter'])) {

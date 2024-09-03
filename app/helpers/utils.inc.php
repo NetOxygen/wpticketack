@@ -1,5 +1,7 @@
 <?php
 
+if (!defined('ABSPATH')) exit;
+
 use Ticketack\WP\TKTApp;
 use Ticketack\WP\Helpers\SyncHelper;
 use ScssPhp\ScssPhp\Compiler;
@@ -825,7 +827,7 @@ function tkt_translated_id_by_id($id, $type, $lang, $default)
 /**
  * Return a list of overridable scss variables.
  */
-function get_overridable_scss_variables()
+function tkt_get_overridable_scss_variables()
 {
     return [
         'text_color' => '#000',
@@ -855,7 +857,7 @@ function get_overridable_scss_variables()
 
 /**
  * Compile scss override file with the variables
- * provided by `get_overridable_scss_variables()`.
+ * provided by `tkt_get_overridable_scss_variables()`.
  */
 function tkt_compile_scss_override()
 {
@@ -863,7 +865,7 @@ function tkt_compile_scss_override()
     $scss->setImportPaths(plugin_dir_path(TKT_APP).'front/build/');
     $scss->setFormatter('ScssPhp\ScssPhp\Formatter\Crunched');
 
-    $variables = get_overridable_scss_variables();
+    $variables = tkt_get_overridable_scss_variables();
     foreach ($variables as $name => $value) {
         $variables[$name] = TKTApp::get_instance()->get_config('advanced.'.$name, $value);
     }

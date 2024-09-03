@@ -31,17 +31,6 @@ class SyncPeopleAction extends TKTAction
         // FIXME we should replace this link by something like "Plan an import" button which
         // will add a flag in wp_options triggered by a cron to launch a new import
         return false;
-        $default_lang = TKTApp::get_instance()->get_config('i18n.default_lang', 'fr');
-        $action_link = admin_url("admin-post.php?action=sync_people&lang=$default_lang");
-        $script       = <<<JS
-<script type="text/javascript">
-  jQuery(document).ready(function ($) {
-    var sync_link = $('<a href="{$action_link}" class="page-title-action">Importer depuis Eventival</a>');
-    $("body.post-type-tkt-person #wpbody-content > .wrap > a.page-title-action").after(sync_link);
-  });
-</script>
-JS;
-        echo $script;
     }
 
     /**

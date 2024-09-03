@@ -146,7 +146,6 @@ cd $SVNPATH/trunk/
 
 # Remove unneeded stuff
 svn delete --force --quiet $SVNPATH/trunk/.arclint
-svn delete --force --quiet $SVNPATH/trunk/composer.json
 svn delete --force --quiet $SVNPATH/trunk/composer.lock
 svn delete --force --quiet $SVNPATH/trunk/README.md
 svn delete --force --quiet $SVNPATH/trunk/scripts

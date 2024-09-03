@@ -42,6 +42,11 @@ export default class Agenda extends Component {
          * All available days
          **/
         this.$days = $('.tkt_agenda_day', this.$container);
+
+        /**
+         * Calendar input
+         **/
+        this.$dateInput = $('input.agenda-date-input[type="hidden"]', this.$container);
     }
 
     attach() {
@@ -68,7 +73,6 @@ export default class Agenda extends Component {
                 $target = $target.closest('.show-booking-modal');
             const screeningId = $target.data('screening-id');
 
-
             Screening.getInfos([screeningId], (err, screenings) => {
                 this.$modal.html(Template.render('tkt-agenda-modal-tpl', {
                     screening: screenings[0],
@@ -81,11 +85,29 @@ export default class Agenda extends Component {
             });
         });
 
+        this.$dateInput.change(e => {
+            const date = e.target.value;
+            this.showDate(date);
+        });
+
         this.render();
     }
 
     render() {
         this.$days.addClass('hidden');
         this.$days.eq(this.current).removeClass('hidden');
+
+        const calendar = this.$dateInput?.get(0)?._flatpickr;
+        if (calendar) {
+            const date = $(this.$days.eq(this.current)).data('date');
+            calendar.setDate(new Date(date));
+        }
+    }
+
+    showDate(date) {
+        this.$days.addClass('hidden');
+        const toShow = $(`.tkt_agenda_day[data-date="${date}"]`, this.$container).get(0);
+        this.current = $(toShow).data('index');
+        $(toShow).removeClass('hidden');
     }
 }

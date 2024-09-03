@@ -1,5 +1,7 @@
 <?php
 
+if (!defined('ABSPATH')) exit;
+
 use Ticketack\WP\TKTApp;
 use Ticketack\WP\Templates\TKTTemplate;
 
@@ -19,7 +21,7 @@ use Ticketack\WP\Templates\TKTTemplate;
         <div class="row">
         <?php foreach ($data->tabs as $tab) : ?>
             <div class="col-6 col-sm-2">
-                <?= TKTTemplate::render('user/account/'.$tab.'/menu', (object)[ 'active' => $data->active_tab === $tab]) ?>
+                <?php echo TKTTemplate::render('user/account/'.$tab.'/menu', (object)[ 'active' => $data->active_tab === $tab]) ?>
             </div>
         <?php endforeach; ?>
         </div>

@@ -76,15 +76,15 @@ class AdminMenuAction extends TKTAction
             <h2 class="nav-tab-wrapper">
                 <?php foreach ($tabs as $key => $label) : ?>
                 <a
-                    href="?page=ticketack-admin&tab=<?= $key ?>"
-                    class="nav-tab <?= $active_tab == $key ? 'nav-tab-active' : '' ?>"
+                    href="?page=ticketack-admin&tab=<?php echo esc_attr($key) ?>"
+                    class="nav-tab <?php echo $active_tab == $key ? 'nav-tab-active' : '' ?>"
                 >
-                    <?= $label ?>
+                    <?php echo esc_html($label) ?>
                 </a>
                 <?php endforeach; ?>
             </h2>
 
-            <?= TKTTemplate::render_admin($active_tab); ?>
+            <?php echo TKTTemplate::render_admin($active_tab); ?>
         </div>
 
         <?php
@@ -98,7 +98,7 @@ class AdminMenuAction extends TKTAction
     public function create_kronos_page()
     {
 ?>
-    <iframe id="kronos_iframe" frameborder="0" width="100%" height="100%" src="https://kronos.ticketack.com?v=<?= TKT_ASSETS_VERSION ?>" style="margin-left: -20px;"></iframe>
+    <iframe id="kronos_iframe" frameborder="0" width="100%" height="100%" src="https://kronos.ticketack.com?v=<?php echo esc_attr(TKT_ASSETS_VERSION) ?>" style="margin-left: -20px;"></iframe>
         <script type="text/javascript">
             function resize() {
                 jQuery("#kronos_iframe").height(jQuery("#wpwrap").height());

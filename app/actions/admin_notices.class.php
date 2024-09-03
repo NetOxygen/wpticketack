@@ -30,9 +30,9 @@ class AdminNoticesAction extends TKTAction
             tkt_flash_notice(
                 sprintf(
                     '%s <a href="%s">%s</a>',
-                    tkt_t('Ticketack n\'est pas configuré.'),
-                    admin_url('options-general.php?page=ticketack-admin'),
-                    tkt_t('Accéder aux réglages')
+                    esc_html(tkt_t('Ticketack n\'est pas configuré.')),
+                    esc_attr(admin_url('options-general.php?page=ticketack-admin')),
+                    esc_html(tkt_t('Accéder aux réglages'))
                 )
             );
         }
@@ -42,9 +42,9 @@ class AdminNoticesAction extends TKTAction
 
         foreach ($notices as $notice) {
             printf('<div class="notice notice-%s %s"><p>%s</p></div>',
-                $notice['type'],
-                $notice['dismissible'],
-                $notice['notice']
+                esc_attr($notice['type']),
+                esc_attr($notice['dismissible']),
+                esc_html($notice['notice'])
             );
         }
 

@@ -1,5 +1,7 @@
 <?php
 
+if (!defined('ABSPATH')) exit;
+
 require_once(TKT_APP.'/app.class.php');
 require_once(TKT_ACTIONS.'/action.class.php');
 require_once(TKT_FILTERS.'/filter.class.php');

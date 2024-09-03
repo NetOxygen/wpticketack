@@ -1,5 +1,7 @@
 <?php
 
+if (!defined('ABSPATH')) exit;
+
 use Ticketack\WP\TKTApp;
 
 /**
@@ -23,8 +25,8 @@ $filters = $data->filters;
                 Tout
             </li>
             <?php foreach ($filters as $type => $label) : ?>
-            <li class="tkt-filter" data-type="<?= $type ?>">
-                <?= $label ?>
+            <li class="tkt-filter" data-type="<?php echo esc_attr($type) ?>">
+                <?php echo esc_html($label) ?>
             </li>
             <?php endforeach; ?>
         </ul>

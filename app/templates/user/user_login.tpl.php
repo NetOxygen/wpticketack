@@ -1,5 +1,7 @@
 <?php
 
+if (!defined('ABSPATH')) exit;
+
 use Ticketack\WP\TKTApp;
 
 /**
@@ -30,11 +32,11 @@ use Ticketack\WP\TKTApp;
                     <span><%= [user.contact.firstname, user.contact.lastname].join(' ') %></span>
                 </div>
                 <a class="btn button"href="<%= userAccountUrl %>">
-                    <?= tkt_t("Mon compte") ?>
+                    <?php echo esc_html(tkt_t("Mon compte")) ?>
                 </a>
                 <button class="btn button logout-btn">
-                    <i class="tkt-icon-sign-out-alt"></i>
-                    <?= tkt_t('Me déconnecter') ?>
+                    <i class="tkt-icon-sign-out"></i>
+                    <?php echo esc_html(tkt_t('Me déconnecter')) ?>
                 </button>
             </div>
         </div>
@@ -42,12 +44,12 @@ use Ticketack\WP\TKTApp;
         <div class="login-panel">
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <label for="username"><?= tkt_t('Identifiant') ?></label>
-                    <input id="username" type="text" class="tkt-input input-invert form-control username-input" placeholder="<?= tkt_t('Identifiant') ?>"/>
+                    <label for="username"><?php echo esc_html(tkt_t('Identifiant')) ?></label>
+                    <input id="username" type="text" class="tkt-input input-invert form-control username-input" placeholder="<?php echo esc_html(tkt_t('Identifiant')) ?>"/>
                 </div>
                 <div class="form-group col-md-6">
-                    <label for="password"><?= tkt_t('Mot de passe') ?></label>
-                    <input id="password" type="password" class="tkt-input input-invert form-control password-input" placeholder="<?= tkt_t('Mot de passe') ?>"/>
+                    <label for="password"><?php echo esc_html(tkt_t('Mot de passe')) ?></label>
+                    <input id="password" type="password" class="tkt-input input-invert form-control password-input" placeholder="<?php echo esc_html(tkt_t('Mot de passe')) ?>"/>
                 </div>
             </div>
 
@@ -56,7 +58,7 @@ use Ticketack\WP\TKTApp;
                     <div class="error user-error d-none text-center text-danger"></div>
                     <button class="btn btn-primary button login-btn">
                         <i class="tkt-icon-sign-in-alt"></i>
-                        <?= tkt_t('Connexion') ?>
+                        <?php echo esc_html(tkt_t('Connexion')) ?>
                     </button>
                 </div>
             </div>
@@ -65,7 +67,7 @@ use Ticketack\WP\TKTApp;
             <div class="row">
                 <div class="col text-center">
                     <a href="<%= registrationUrl %>">
-                        <?= tkt_t('Pas encore de compte ? Créez-en un !') ?>
+                        <?php echo esc_html(tkt_t('Pas encore de compte ? Créez-en un !')) ?>
                     </a>
                 </div>
             </div>
@@ -75,7 +77,7 @@ use Ticketack\WP\TKTApp;
             <div class="row">
                 <div class="col text-center">
                     <a href="<%= lostpasswordUrl %>">
-                        <?= tkt_t('Mot de passe perdu ? Changez-le !') ?>
+                        <?php echo esc_html(tkt_t('Mot de passe perdu ? Changez-le !')) ?>
                     </a>
                 </div>
             </div>

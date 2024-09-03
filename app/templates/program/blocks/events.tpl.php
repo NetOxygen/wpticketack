@@ -1,5 +1,7 @@
 <?php
 
+if (!defined('ABSPATH')) exit;
+
 use Ticketack\WP\Templates\TKTTemplate;
 
 /**
@@ -21,13 +23,13 @@ $nb_per_row = 12 / $data->items_per_row;
 <div id="tkt_program" class="tkt-wrapper tkt-blocks" data-component="Program/BookabilityState">
     <div class="container">
         <?php if (empty($data->events)) : ?>
-        <h3 class="no-event-title"><?= tkt_t('Aucun événement programmé actuellement, revenez nous visiter prochainement.') ?></h3>
+        <h3 class="no-event-title"><?php echo esc_html(tkt_t('Aucun événement programmé actuellement, revenez nous visiter prochainement.')) ?></h3>
         <?php else: ?>
 
         <div class="row no-gutters">
             <?php foreach($data->events as $event) : ?>
-            <div class="tkt_program_event<?= $data->items_per_row > 1 ? ' col-sm-6 p-4' : '' ?> col-12 col-md-<?= intval($nb_per_row) ?>" data-type="<?= $event->opaque('type') ?>" <?= tkt_event_data_attributes($event, $data->filter_fields) ?>>
-                <?= TKTTemplate::render('program/blocks/event',
+            <div class="tkt_program_event<?php echo $data->items_per_row > 1 ? ' col-sm-6 p-4' : '' ?> col-12 col-md-<?php echo intval($nb_per_row) ?>" data-type="<?php echo esc_attr($event->opaque('type')) ?>" <?php echo esc_html(tkt_event_data_attributes($event, $data->filter_fields)) ?>>
+                <?php echo TKTTemplate::render('program/blocks/event',
                     (object) [
                         "event"                => $event,
                         "image_width_pct"      => $data->image_width_pct,

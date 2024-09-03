@@ -1,5 +1,7 @@
 <?php
 
+if (!defined('ABSPATH')) exit;
+
 use Ticketack\WP\Templates\TKTTemplate;
 
 /**
@@ -8,7 +10,7 @@ use Ticketack\WP\Templates\TKTTemplate;
 ?>
 <div class="tkt-wrapper" data-component="Ticket/TicketConnect"></div>
 
-<?= TKTTemplate::render('ticket/ticket', (object)[]) ?>
+<?php echo TKTTemplate::render('ticket/ticket', (object)[]) ?>
 
 <?php
 /**
@@ -27,7 +29,7 @@ use Ticketack\WP\Templates\TKTTemplate;
         <div class="connect-panel">
             <div class="ticket_connect">
                 <div>
-                    <?= tkt_ticketidize(tkt_t("Vous avez un TicketID ?")) ?>
+                    <?php echo esc_html(tkt_ticketidize(tkt_t("Vous avez un TicketID ?"))) ?>
                 </div>
                 <div class="col">
                     <div class="row mt-5 input-pass">
@@ -43,13 +45,13 @@ use Ticketack\WP\Templates\TKTTemplate;
                     <div class="col text-center">
                         <div class="error pass-error d-none text-center text-danger"></div>
                         <button class="btn btn-primary button login-btn connect-btn mt-5 mb-3">
-                            <i class="tkt-icon-log-out"></i> <?= tkt_t('Connexion') ?>
+                            <i class="tkt-icon-log-out"></i> <?php echo esc_html(tkt_t('Connexion')) ?>
                         </button>
                     </div>
                 </div>
                 <hr />
                 <div>
-                    <?= tkt_ticketidize(tkt_t("Votre TicketID se trouve sur votre abonnement")) ?>
+                    <?php echo esc_html(tkt_ticketidize(tkt_t("Votre TicketID se trouve sur votre abonnement"))) ?>
                 </div>
             </div>
         </div>

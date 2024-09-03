@@ -1,5 +1,7 @@
 <?php
 
+if (!defined('ABSPATH')) exit;
+
 use Ticketack\WP\TKTApp;
 
 /**
@@ -20,7 +22,7 @@ use Ticketack\WP\TKTApp;
                 <div class="left">
                     <h3 class="title">
                         <div>
-                            <%= screening.getTitle(<?= json_encode(TKT_LANG) ?>) %>
+                            <%= screening.getTitle(<?php echo wp_json_encode(TKT_LANG) ?>) %>
                         </div>
                         <small class="infos">
                             <%= [screening.start_at.format('LLL'), screening.cinema_hall.name].join(', ') %>

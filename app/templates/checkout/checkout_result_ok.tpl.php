@@ -1,5 +1,7 @@
 <?php
 
+if (!defined('ABSPATH')) exit;
+
 use Ticketack\WP\TKTApp;
 
 /**
@@ -11,7 +13,7 @@ use Ticketack\WP\TKTApp;
 ?>
 <div class="tkt-wrapper">
   <div class="tkt-checkout-result checkout-result-ok text-center alert alert-success">
-    <?= tkt_t("Nous vous remercions pour votre commande.") ?>
+    <?php echo esc_html(tkt_t("Nous vous remercions pour votre commande.")) ?>
   </div>
 </div>
 

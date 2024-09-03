@@ -1,5 +1,7 @@
 <?php
 
+if (!defined('ABSPATH')) exit;
+
 use Ticketack\WP\TKTApp;
 
 /**
@@ -20,10 +22,10 @@ use Ticketack\WP\TKTApp;
 <% if (cart.items.length > 0) { %>
 
 <div class="tkt-wrapper">
-    <section class="tkt-section tkt-<?= $data->theme ?>-section tkt-cart-section">
+    <section class="tkt-section tkt-<?php echo esc_attr($data->theme) ?>-section tkt-cart-section">
         <div class="row mt-3">
             <div class="col">
-                <h5> <?= tkt_t('Résumé du panier') ?></h5>
+                <h5> <?php echo esc_html(tkt_t('Résumé du panier')) ?></h5>
             </div>
         </div>
         <div class="row mt-3">
@@ -31,7 +33,7 @@ use Ticketack\WP\TKTApp;
                 <table class="table table-borderless">
                     <tr>
                         <td align="left">
-                            <?= tkt_t('Panier') ?>: <%= cart.items.length %> <?= tkt_t('produit(s)') ?>
+                            <?php echo esc_html(tkt_t('Panier')) ?>: <%= cart.items.length %> <?php echo esc_html(tkt_t('produit(s)')) ?>
                         </td>
                         <td align="right">
                             <%= cart.getFormattedTotal(/*inversed*/true) %>
@@ -40,7 +42,7 @@ use Ticketack\WP\TKTApp;
                     <% if (fees.length) { %>
                         <tr>
                             <td align="left">
-                                <?= tkt_t('Frais') ?>
+                                <?php echo esc_html(tkt_t('Frais')) ?>
                             </td>
                         </tr>
                         <tr>
@@ -59,7 +61,7 @@ use Ticketack\WP\TKTApp;
                     </tr>
                     <tr>
                         <td align="left">
-                            <?= tkt_t('Total TTC') ?>
+                            <?php echo esc_html(tkt_t('Total TTC')) ?>
                         </td>
                         <td align="right">
                             <%= cart.getFormattedTotal(/*inversed*/true) %>
@@ -71,10 +73,10 @@ use Ticketack\WP\TKTApp;
                                 <div class="row justify-content-md-end mt-5">
                                     <div class="col col-12 use-promo-code-wrapper">
                                         <div class="input-group mb-2">
-                                            <input type="text" class="promo-code-input form-control" placeholder="<?= tkt_t('Code promo') ?>" />
+                                            <input type="text" class="promo-code-input form-control" placeholder="<?php echo esc_html(tkt_t('Code promo')) ?>" />
                                             <div class="input-group-append">
                                                 <a href="javascript:;" class="promo-code-button button active">
-                                                    <?= tkt_t('OK') ?>
+                                                    <?php echo esc_html(tkt_t('OK')) ?>
                                                 </a>
                                             </div>
                                         </div>

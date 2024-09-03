@@ -3075,6 +3075,11 @@ randomfill@^1.0.3:
     randombytes "^2.0.5"
     safe-buffer "^5.1.0"
 
+rater-js@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/rater-js/-/rater-js-1.0.1.tgz#1dd91ee6d19c46969de044e5ac441ab0be332594"
+  integrity sha512-93MxfiXKfX2LvIIcArtSY4M5C/l5Dg9EioNeQVk1cxnxCuU14A5qXOY0O7DuWlkjBJ930pLUNsOJBcIMUv0oAg==
+
 "readable-stream@1 || 2", readable-stream@^2.0.0, readable-stream@^2.0.1, readable-stream@^2.0.2, readable-stream@^2.1.5, readable-stream@^2.2.2, readable-stream@^2.3.3, readable-stream@^2.3.6, readable-stream@~2.3.6:
   version "2.3.7"
   resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-2.3.7.tgz#1eca1cf711aef814c04f62252a36a62f6cb23b57"

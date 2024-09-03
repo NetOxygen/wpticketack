@@ -1,8 +1,8 @@
 === Ticketack ===
 Tags: ticketack
 Requires at least: 5.9
-Tested up to: 6.5.4
-Stable tag: 2.77.1
+Tested up to: 6.5.5
+Stable tag: 2.79.1
 Requires PHP: 8.1
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -13,14 +13,33 @@ Ticketack integration plugin.
 
 Official Ticketack integration plugin.
 
+More infos about [Ticketack](https://ticketack.com).
+
 Main features:
 
 *   Display upcoming movies and screenings
 *   Many display layouts (list, grid, gallery...)
 *   Full add to cart and checkout process
 
+Integrations:
+
+*   Get access to [Kronos](https://kronos.ticketack.com) directly from
+    the admin menu
+*   Synchronize your [Eventival](https://eventival.com) guests.
+*   Embed your [Pantaflix](https://www.pantaflixgroup.com/) VOD players.
+*   All your images are cached and resized using [Weserv](https://wsrv.nl/)
+    service.
+
 Please note that you must have been provided some configuration informations
 from the Ticketack team to be able to use this plugin.
+
+Privacy policies:
+
+*   [Ticketack](https://netoxygen.ch/conditions-generales/protection-des-donnees/)
+*   [Kronos](https://netoxygen.ch/conditions-generales/protection-des-donnees/)
+*   [Eventival](https://www.eventival.com/en/privacy-policy)
+*   [Pantaflix](https://www.pantaflixgroup.com/site/assets/files/2435/180620_datenschutz_hauptversammlung_en.pdf)
+*   [Weserv](https://github.com/weserv/images/blob/5.x/Privacy-Policy.md)
 
 == Installation ==
 
@@ -33,10 +52,42 @@ This section describes how to install the plugin and get it working.
 
 == Screenshots ==
 
+== Development ==
+
+Interested in development? [Browse the
+code](https://github.com/NetOxygen/wpticketack) and submit a Pull Request.
+
 == Changelog ==
 
 = Changelog =
 * [Changelog link](https://yoda.netoxygen.ch/public/projects/401b5210-986f-46b3-99cb-38546b73e16c/changelog)
+
+= 2.79.1 =
+
+* Consider Wordpress review
+
+= 2.78.4 =
+
+* fix: Fix wordpress compliance
+* fix: Fix sync helper compliance with PHP 8
+
+= 2.78.3 =
+
+* fix: Fix votes default value
+
+= 2.78.1 =
+
+* fix: Fix the TicketConnect module
+
+= 2.78.0 =
+
+* feat: Consider votes global settings
+* fix: Force refresh profile when needed
+* modified templates:
+  - app/templates/ticket/ticket.tpl.php
+  - app/templates/user/account/logout/menu.tpl.php
+  - app/templates/user/account/votes/content.tpl.php
+  - app/templates/user/user_login.tpl.php
 
 = 2.77.1 =
 

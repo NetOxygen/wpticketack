@@ -177,11 +177,11 @@ class SyncPeopleHelper
     {
         $photos = static::get_photos($details);
         update_post_meta($post_id, 'internal_id', (string)$details->ids->internal_id);
-        update_post_meta($post_id, 'tags', wp_slash(json_encode(static::get_tags($details))));
+        update_post_meta($post_id, 'tags', wp_slash(wp_json_encode(static::get_tags($details))));
         update_post_meta($post_id, 'country', static::get_country($details));
         update_post_meta($post_id, 'profession', static::get_profession($details));
         update_post_meta($post_id, 'company', static::get_company($details));
-        update_post_meta($post_id, 'photos', $photos ? wp_slash(json_encode($photos)) : null);
+        update_post_meta($post_id, 'photos', $photos ? wp_slash(wp_json_encode($photos)) : null);
     }
 
     // See https://wpml.org/wpml-hook/wpml_set_element_language_details/

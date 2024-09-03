@@ -25,7 +25,11 @@ export default class TicketView extends Component {
 
     attach() {
         super.attach();
-        this.init();
+
+        TKTLib.ready(() => {
+            this.votesConfig = TKTLib.setting('votes');
+            this.init();
+        });
     }
 
     async init(ticketId) {
@@ -74,7 +78,8 @@ export default class TicketView extends Component {
         this.$container.html(Template.render('tkt-ticket-tpl', {
             ticket,
             tickets: tickets?.map(t => new Ticket(t)),
-            program_url : Config.get('program_url') ? Config.get('program_url') : TKTApi.getProgramViewUrl()
+            program_url : Config.get('program_url') ? Config.get('program_url') : TKTApi.getProgramViewUrl(),
+            votesConfig: this.votesConfig
         }));
 
         // bind pass disconnect button

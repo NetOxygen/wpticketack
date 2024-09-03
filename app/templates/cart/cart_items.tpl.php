@@ -1,5 +1,7 @@
 <?php
 
+if (!defined('ABSPATH')) exit;
+
 use Ticketack\WP\TKTApp;
 use Ticketack\WP\Templates\TKTTemplate;
 
@@ -16,5 +18,5 @@ use Ticketack\WP\Templates\TKTTemplate;
 
 <!-- Underscore.js template used by client side -->
 <script type="text/template" id="tkt-cart-items-table-tpl">
-    <?= TKTTEmplate::render('cart/cart_items_table', (object)[]) ?>
+    <?php echo TKTTEmplate::render('cart/cart_items_table', (object)[]) ?>
 </script>

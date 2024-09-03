@@ -1,5 +1,7 @@
 <?php
 
+if (!defined('ABSPATH')) exit;
+
 use Ticketack\WP\TKTApp;
 
 /**
@@ -23,13 +25,13 @@ $image_url     = tkt_img_proxy_url($e->first_poster()->url, $images_width, $imag
 <div class="row h-75">
     <div class="col col-12 h-100" >
         <div class="poster-wrapper h-100 mx-auto text-center">
-            <img class="img-fluid poster h-100" style="max-height: 1336px" src="<?= $image_url ?>" />
+            <img class="img-fluid poster h-100" style="max-height: 1336px" src="<?php echo esc_attr($image_url) ?>" />
         </div>
     </div>
 </div>
 <div class="row h-25">
     <div class="col col-12 text-center h-100 w-100" style="overflow:hidden;-webkit-column-width: 2048px; column-width: 2048px; height: 100%;">
-        <span class="tkt-section-title fs-1"> <?= $e->localized_title_or_original(TKT_LANG) ?> </span>
+        <span class="tkt-section-title fs-1"> <?php echo esc_html($e->localized_title_or_original(TKT_LANG)) ?> </span>
         <?php if (!empty($screenings)) : ?>
         <div class="screenings-wrapper mt-2">
             <?php
@@ -40,7 +42,7 @@ $image_url     = tkt_img_proxy_url($e->first_poster()->url, $images_width, $imag
                     }
             ?>
                     <span>
-                        <?= tkt_date_and_time_to_min_s($s->start_at()) ?>
+                        <?php echo esc_html(tkt_date_and_time_to_min_s($s->start_at())) ?>
                     </span>
                     <span class="screening-btn-tags">
                         <?php if ($s->opaque()['_3d']) : ?>
@@ -48,7 +50,7 @@ $image_url     = tkt_img_proxy_url($e->first_poster()->url, $images_width, $imag
                         <?php endif; ?>
 
                         <?php if (!empty($s->opaque()['version'])) : ?>
-                            <span class="tag version"><?= $s->opaque()['version'] ?></span>
+                            <span class="tag version"><?php echo esc_html($s->opaque()['version']) ?></span>
                         <?php endif; ?>
                     </span>
                     <br />

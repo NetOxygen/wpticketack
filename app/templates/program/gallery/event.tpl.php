@@ -1,5 +1,7 @@
 <?php
 
+if (!defined('ABSPATH')) exit;
+
 use Ticketack\WP\TKTApp;
 
 /**
@@ -27,15 +29,15 @@ $image_url     = tkt_img_proxy_url($e->first_poster()->url, $images_width, $imag
   <div class="row no-gutters h-100">
     <div class="col left-col">
       <div class="poster-wrapper">
-        <img class="img-fluid poster" src="<?= $image_url ?>" />
+        <img class="img-fluid poster" src="<?php echo esc_attr($image_url) ?>" />
       </div>
 
       <div class="infos-wrapper">
         <div class="row">
           <div class="col">
             <span class="title">
-              <a href="<?= tkt_event_details_url($e) ?>">
-                <?= $e->localized_title_or_original('fr') ?>
+              <a href="<?php echo esc_html(tkt_event_details_url($e)) ?>">
+                <?php echo esc_html($e->localized_title_or_original('fr')) ?>
               </a>
             </span>
           </div>
@@ -45,7 +47,7 @@ $image_url     = tkt_img_proxy_url($e->first_poster()->url, $images_width, $imag
         <div class="row">
           <div class="col">
             <span class="genre">
-              <?= $e->opaque()['genre'] ?>
+              <?php echo esc_html($e->opaque()['genre']) ?>
             </span>
           </div>
         </div>
@@ -55,10 +57,10 @@ $image_url     = tkt_img_proxy_url($e->first_poster()->url, $images_width, $imag
         <div class="screenings-wrapper">
             <?php foreach ($screenings as $s) : ?>
             <button class="screening-btn">
-                <a href="<?= tkt_event_book_url($e, $s) ?>">
+                <a href="<?php echo esc_attr(tkt_event_book_url($e, $s)) ?>">
                     <span class="screening-btn-time">
                         <i class="tkt-icon-tag"></i>&nbsp;
-                        <?= tkt_date_and_time_to_time_s($s->start_at()) ?>
+                        <?php echo esc_html(tkt_date_and_time_to_time_s($s->start_at())) ?>
                     </span>
                     <span class="screening-btn-tags">
                         <?php if ($s->opaque()['_3d']) : ?>
@@ -66,7 +68,7 @@ $image_url     = tkt_img_proxy_url($e->first_poster()->url, $images_width, $imag
                         <?php endif; ?>
 
                         <?php if (!empty($s->opaque()['version'])) : ?>
-                        <span class="tag version"><?= $s->opaque()['version'] ?></span>
+                        <span class="tag version"><?php echo esc_html($s->opaque()['version']) ?></span>
                         <?php endif; ?>
                     </span>
                 </a>
@@ -78,9 +80,9 @@ $image_url     = tkt_img_proxy_url($e->first_poster()->url, $images_width, $imag
         <div class="row">
           <div class="col">
             <span class="more-infos">
-              <a href="<?= tkt_event_details_url($e) ?>">
+              <a href="<?php echo esc_attr(tkt_event_details_url($e)) ?>">
                 <small><i class="tkt-icon-chevron-right"></i>&nbsp;</small>
-                <?= tkt_t('Plus d\'informations') ?>
+                <?php echo esc_html(tkt_t('Plus d\'informations')) ?>
               </a>
             </span>
           </div>

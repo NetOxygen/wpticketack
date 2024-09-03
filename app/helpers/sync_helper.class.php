@@ -202,11 +202,11 @@ class SyncHelper
 
     protected static function save_post_metas($event, $post_id, $lang)
     {
-        update_post_meta($post_id, 'screenings', wp_slash(json_encode($event->screenings())));
-        update_post_meta($post_id, 'opaque', wp_slash(json_encode($event->opaque())));
-        update_post_meta($post_id, 'trailers', wp_slash(json_encode($event->trailers())));
-        update_post_meta($post_id, 'posters', wp_slash(json_encode($event->posters())));
-        update_post_meta($post_id, 'title',  wp_slash(json_encode($event->title())));
+        update_post_meta($post_id, 'screenings', wp_slash(wp_json_encode($event->screenings())));
+        update_post_meta($post_id, 'opaque', wp_slash(wp_json_encode($event->opaque())));
+        update_post_meta($post_id, 'trailers', wp_slash(wp_json_encode($event->trailers())));
+        update_post_meta($post_id, 'posters', wp_slash(wp_json_encode($event->posters())));
+        update_post_meta($post_id, 'title',  wp_slash(wp_json_encode($event->title())));
     }
 
     // See https://wpml.org/wpml-hook/wpml_set_element_language_details/
@@ -282,7 +282,7 @@ class SyncHelper
         return $image_id;
     }
 
-    protected function link_attachment_to_post($post_id, $image_id)
+    protected static function link_attachment_to_post($post_id, $image_id)
     {
         // We delete first to ensure only one occurence of same meta
         // This should be replaced by only one call to update_post_meta()

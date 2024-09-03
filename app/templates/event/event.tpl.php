@@ -1,5 +1,7 @@
 <?php
 
+if (!defined('ABSPATH')) exit;
+
 use Ticketack\WP\TKTApp;
 use Ticketack\WP\Templates\TKTTemplate;
 
@@ -58,22 +60,22 @@ $images_height = TKTApp::get_instance()->get_config('images_dimensions.big_heigh
       <div id="event-carousel" data-component="Media/Carousel">
         <div class="carousel-inner">
           <?php foreach ($e->trailers() as $i => $t) : ?>
-          <div class="carousel-item <?= $i == 0 ? 'active' : '' ?>">
+          <div class="carousel-item <?php echo $i == 0 ? 'active' : '' ?>">
             <div class="tkt-event-carousel-trailer-wrapper d-block w-100">
               <div
-              id="tkt-event-carousel-trailer-<?= $i ?>"
+              id="tkt-event-carousel-trailer-<?php echo esc_attr($i) ?>"
                 class="tkt-event-carousel-trailer"
                 data-component="Media/YoutubeVideo"
-                data-video-id="<?= tkt_yt_video_id($t->url) ?>"
-                data-video-image="<?= tkt_img_proxy_url($t->image, $images_width, $images_height) ?>"
+                data-video-id="<?php echo esc_attr(tkt_yt_video_id($t->url)) ?>"
+                data-video-image="<?php echo esc_attr(tkt_img_proxy_url($t->image, $images_width, $images_height)) ?>"
                 data-bs4-carousel-id="event-carousel">
               </div>
             </div>
           </div>
           <?php endforeach; ?>
           <?php foreach ($e->posters() as $i => $p) : ?>
-          <div class="carousel-item <?= count($e->trailers()) == 0 && $i == 0 ? 'active' : '' ?>">
-            <img style="max-width: 924px" class="d-block w-100" src="<?= tkt_img_proxy_url($p->url, $images_width, $images_height) ?>" alt="<?= $e->localized_title_or_original('fr') ?>">
+          <div class="carousel-item <?php echo count($e->trailers()) == 0 && $i == 0 ? 'active' : '' ?>">
+            <img style="max-width: 924px" class="d-block w-100" src="<?php echo esc_attr(tkt_img_proxy_url($p->url, $images_width, $images_height)) ?>" alt="<?php echo esc_attr($e->localized_title_or_original('fr')) ?>">
           </div>
           <?php endforeach; ?>
         </div>
@@ -96,14 +98,14 @@ $images_height = TKTApp::get_instance()->get_config('images_dimensions.big_heigh
 
       <div class="row">
         <div class="col">
-          <span class="screening-date"><?= $date_title ?></span>
+          <span class="screening-date"><?php echo $date_title ?></span>
         </div>
       </div>
 
       <div class="row">
         <div class="col">
           <span class="title active">
-            <?= $e->localized_title_or_original('fr') ?>
+            <?php echo $e->localized_title_or_original('fr') ?>
           </span>
         </div>
       </div>
@@ -111,7 +113,7 @@ $images_height = TKTApp::get_instance()->get_config('images_dimensions.big_heigh
       <div class="row">
         <div class="col">
           <span class="genre">
-            <?= $e->opaque()['genre'] ?>
+            <?php echo esc_html($e->opaque()['genre']) ?>
           </span>
         </div>
       </div>
@@ -119,7 +121,7 @@ $images_height = TKTApp::get_instance()->get_config('images_dimensions.big_heigh
       <div class="row">
         <div class="col">
           <span class="free-text-one">
-            <?= $e->opaque('free_text_1')['fr'] ?>
+            <?php echo $e->opaque('free_text_1')['fr'] ?>
           </span>
         </div>
       </div>
@@ -127,35 +129,35 @@ $images_height = TKTApp::get_instance()->get_config('images_dimensions.big_heigh
 
     <div class="col-sm right-col text-right align-self-start">
       <div class="infos">
-        <?= $e->opaque('free_text_2')['fr'] ?>
+        <?php echo $e->opaque('free_text_2')['fr'] ?>
       </div>
     </div>
 
   </div>
 
   <div class="row" data-component="Program/BookabilityState">
-    <div class="col" data-bookability-ids="<?= implode(',', $ids) ?>">
+    <div class="col" data-bookability-ids="<?php echo esc_attr(implode(',', $ids)) ?>">
       <span class="show-booking-form">
         <div data-component="Media/Loading" data-size-sm class="show-while-loading"></div>
         <span class="show-if-bookable show-if-almost-not-bookable d-none">
-          <a href=""><?= tkt_t('Billets') ?></a>
+          <a href=""><?php echo esc_html(tkt_t('Billets')) ?></a>
         </span>
-        <span class="show-if-almost-not-bookable assertive d-none"><?= tkt_t('Il ne reste que quelques places !') ?></span>
-        <span class="show-if-not-bookable assertive d-none"><?= tkt_t('Complet') ?></span>
+        <span class="show-if-almost-not-bookable assertive d-none"><?php echo esc_html(tkt_t('Il ne reste que quelques places !')) ?></span>
+        <span class="show-if-not-bookable assertive d-none"><?php echo esc_html(tkt_t('Complet')) ?></span>
       </span>
     </div>
   </div>
 
-  <?= do_shortcode('[tkt_booking_form layout="form" theme="dark" ids="'.implode(',', $ids).'" /]') ?>
+  <?php echo do_shortcode('[tkt_booking_form layout="form" theme="dark" ids="'.implode(',', $ids).'" /]') ?>
 
   <div class="row">
     <div class="col">
       <div class="synopsis">
         <span class="title assertive">
-          <?= $e->localized_title_or_original('fr') ?>
+          <?php echo esc_html($e->localized_title_or_original('fr')) ?>
         </span>
         <span class="text">
-            <?= $description ?>
+            <?php echo $description ?>
         </span>
       </div>
     </div>
@@ -165,10 +167,10 @@ $images_height = TKTApp::get_instance()->get_config('images_dimensions.big_heigh
     <?php foreach ($people as $activity => $p) : ?>
       <div class="col col-md-6">
         <div class="activity">
-          <span><?= $activity ?></span>
+          <span><?php echo esc_html($activity) ?></span>
         </div>
         <div class="people">
-            <?= implode(', ', $p) ?>
+            <?php echo esc_html(implode(', ', $p)) ?>
         </div>
       </div>
     <?php endforeach; ?>
