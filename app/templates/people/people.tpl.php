@@ -27,7 +27,7 @@ use Ticketack\WP\Templates\TKTTemplate;
                         <?php $meta = get_post_meta(get_the_ID()); ?>
 
                         <div class="col-md-6 tkt-person" style="display: none;" <?php echo esc_attr(tkt_person_data_attributes(get_post(), $data->filter_fields)) ?>>
-                            <?php echo TKTTemplate::render('people/person', $meta); ?>
+                            <?php TKTTemplate::output('people/person', $meta); ?>
                         </div>
 
                     <?php endwhile; ?>

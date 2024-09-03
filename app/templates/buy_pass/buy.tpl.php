@@ -24,13 +24,13 @@ use Ticketack\WP\Templates\TKTTemplate;
   data-checkout-url="<?php echo esc_attr(tkt_checkout_url()) ?>">
   <div class="row">
     <div class="col">
-      <?php echo TKTTEmplate::render('buy_pass/pass_list', $data) ?>
+      <?php TKTTemplate::output('buy_pass/pass_list', $data) ?>
     </div>
   </div>
 
   <div class="row">
     <div class="col">
-      <?php echo TKTTEmplate::render('buy_pass/form', $data) ?>
+      <?php TKTTemplate::output('buy_pass/form', $data) ?>
     </div>
   </div>
 </div>

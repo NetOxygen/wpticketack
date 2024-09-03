@@ -29,7 +29,7 @@ $nb_per_row = 12 / $item_width;
         <div class="row no-gutters">
             <?php foreach($data->events as $event) : ?>
             <div class="tkt_program_event col-12 col-sm-6 col-md-<?php echo esc_attr($item_width) ?>" data-type="<?php echo esc_attr($event->opaque('type')) ?>" <?php echo esc_html(tkt_event_data_attributes($event, $data->filter_fields)) ?>>
-                <?php echo TKTTemplate::render('program/gallery/event', (object)[ 'event' => $event ]) ?>
+                <?php TKTTemplate::output('program/gallery/event', (object)[ 'event' => $event ]) ?>
             </div>
             <?php endforeach; ?>
         </div>

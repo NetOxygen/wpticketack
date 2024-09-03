@@ -38,7 +38,7 @@ $timeout = $data->slider_timeout;
 
             <?php foreach($data->events as $event) : ?>
             <div class="tkt_slider_event h-100 col-12" data-type="<?php echo esc_attr($event->opaque('type')) ?>" <?php echo esc_html(tkt_event_data_attributes($event, $data->filter_fields)) ?>>
-                <?php echo TKTTemplate::render('program/slider_portrait/event', (object)[ 'event' => $event ]) ?>
+                <?php TKTTemplate::output('program/slider_portrait/event', (object)[ 'event' => $event ]) ?>
             </div>
             <?php endforeach; ?>
 
@@ -64,7 +64,7 @@ function showSlides() {
         slideIndex = 1;
 
     slides[slideIndex-1].style.display = "block";
-    setTimeout(showSlides, <?php echo $timeout; ?>); // Change image every 3 seconds
+    setTimeout(showSlides, <?php echo esc_html($timeout); ?>); // Change image every 3 seconds
 }
 </script>
 

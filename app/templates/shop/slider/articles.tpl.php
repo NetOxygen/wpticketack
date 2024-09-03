@@ -28,7 +28,7 @@ $rows = array_chunk($data->articles, ceil(count($data->articles) / 2));
         <div class="carousel-inner">
             <?php foreach ($articles as $article) : ?>
             <div class="tkt_article carousel-item">
-                <?php echo TKTTemplate::render('article/slider/article', (object)[ 'article' => $article ]) ?>
+                <?php TKTTemplate::output('article/slider/article', (object)[ 'article' => $article ]) ?>
             </div>
             <?php endforeach; ?>
         </div>

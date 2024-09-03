@@ -33,9 +33,9 @@ use Ticketack\WP\Templates\TKTTemplate;
 
     <!-- Underscore.js templates used by client side -->
     <script type="text/template" id="tkt-buy-article-form-pricings-tpl">
-        <?php echo TKTTEmplate::render('buy_article/form_pricings', $data) ?>
+        <?php TKTTemplate::output('buy_article/form_pricings', $data) ?>
     </script>
     <script type="text/template" id="tkt-buy-article-form-success-tpl">
-          <?php echo TKTTEmplate::render('buy_article/form_success', $data) ?>
+          <?php TKTTemplate::output('buy_article/form_success', $data) ?>
     </script>
 </div>

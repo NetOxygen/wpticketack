@@ -40,8 +40,8 @@ if (!empty($selected_s_id)) {
 
 if ($is_film_package) {
     $data->screening = $selected_screening;
-    echo TKTTemplate::render('event/_package', $data);
+    TKTTemplate::output('event/_package', $data);
 } else {
-    echo TKTTemplate::render('event/_single', $data);
+    TKTTemplate::output('event/_single', $data);
 }
 ?>

@@ -25,7 +25,7 @@ use Ticketack\WP\Templates\TKTTemplate;
 
         <?php foreach ($data->events as $event) : ?>
         <div class="tkt_program_event" <?php echo esc_attr(tkt_event_data_attributes($event, $data->filter_fields)) ?>>
-            <?php echo TKTTemplate::render('program/list/event', (object)[ 'event' => $event ]) ?>
+            <?php TKTTemplate::output('program/list/event', (object)[ 'event' => $event ]) ?>
         </div>
         <?php endforeach; ?>
 

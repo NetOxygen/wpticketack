@@ -36,9 +36,9 @@ use Ticketack\WP\Templates\TKTTemplate;
 
     <!-- Underscore.js templates used by client side -->
     <script type="text/template" id="tkt-pantaflix-player-login-tpl">
-        <?php echo TKTTEmplate::render('pantaflix/login', (object)[]) ?>
+        <?php TKTTemplate::output('pantaflix/login', (object)[]) ?>
     </script>
     <script type="text/template" id="tkt-pantaflix-player-iframe-tpl">
-        <?php echo TKTTEmplate::render('pantaflix/iframe', $data) ?>
+        <?php TKTTemplate::output('pantaflix/iframe', $data) ?>
     </script>
 </div>

@@ -31,7 +31,7 @@ $nb_per_row = 12 / $data->items_per_row;
         <div class="row no-gutters <?php echo $data->items_per_row === 1 ? 'p-3' : '' ?> ">
             <?php foreach($data->screenings as $screening) : ?>
             <div class="tkt_program_screening <?php echo esc_attr($data->items_per_row > 1 ? ' col-sm-6 p-4' : '') ?> col-12 col-md-<?php echo intval($nb_per_row) ?>" <?php echo esc_html(tkt_screening_data_attributes($screening, $data->filter_fields)) ?>>
-                <?php echo TKTTemplate::render('program/blocks/screening',
+                <?php TKTTemplate::output('program/blocks/screening',
                     (object)[
                         'screening'            => $screening,
                         "image_width_pct"      => $data->image_width_pct,

@@ -21,7 +21,7 @@ use Ticketack\WP\Templates\TKTTemplate;
         <div class="row">
         <?php foreach ($data->tabs as $tab) : ?>
             <div class="col-6 col-sm-2">
-                <?php echo TKTTemplate::render('user/account/'.$tab.'/menu', (object)[ 'active' => $data->active_tab === $tab]) ?>
+                <?php TKTTemplate::output('user/account/'.$tab.'/menu', (object)[ 'active' => $data->active_tab === $tab]) ?>
             </div>
         <?php endforeach; ?>
         </div>

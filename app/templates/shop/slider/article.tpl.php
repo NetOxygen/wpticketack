@@ -36,6 +36,6 @@ $image_url     = tkt_img_proxy_url($a->first_poster()->url, $images_width, $imag
 
   </div>
 
-    <?php echo TKTTEmplate::render('article/slider/variant_form', (object)[ "article" => $a ]) ?>
+    <?php TKTTemplate::output('article/slider/variant_form', (object)[ "article" => $a ]) ?>
 </div>
 

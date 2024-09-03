@@ -32,7 +32,7 @@ use Ticketack\WP\Templates\TKTTemplate;
         <?php if (!$data->hide_sorters) : ?>
         <div class="tkt-articles-toolbar">
             <div class="tkt-articles-sort-wrapper">
-                <?php echo TKTTEmplate::render('shop/sort/sort', $data) ?>
+                <?php TKTTemplate::output('shop/sort/sort', $data) ?>
             </div>
         </div>
         <?php endif; ?>
@@ -40,14 +40,14 @@ use Ticketack\WP\Templates\TKTTemplate;
             <div class="row mb-4">
             <?php foreach ($chunk as $article) : ?>
                 <div class="col tkt-article">
-                    <?php echo TKTTemplate::render('shop/list/article', (object)[ 'article' => $article, 'add_to_cart_mode' => $data->add_to_cart_mode ]) ?>
+                    <?php TKTTemplate::output('shop/list/article', (object)[ 'article' => $article, 'add_to_cart_mode' => $data->add_to_cart_mode ]) ?>
                 </div>
             <?php endforeach; ?>
             </div>
         <?php endforeach; ?>
         <?php if ($data->pagination->show) : ?>
             <div class="tkt-articles-pagination-wrapper">
-                <?php echo TKTTEmplate::render('shop/pagination/pagination', $data) ?>
+                <?php TKTTemplate::output('shop/pagination/pagination', $data) ?>
             </div>
         <?php endif; ?>
     <?php endif; ?>
@@ -55,8 +55,8 @@ use Ticketack\WP\Templates\TKTTemplate;
 
 <!-- Underscore.js templates used by client side -->
 <script type="text/template" id="tkt-buy-article-form-pricings-tpl">
-    <?php echo TKTTEmplate::render('buy_article/form_pricings', $data) ?>
+    <?php TKTTemplate::output('buy_article/form_pricings', $data) ?>
 </script>
 <script type="text/template" id="tkt-buy-article-form-success-tpl">
-    <?php echo TKTTEmplate::render('buy_article/form_success', $data) ?>
+    <?php TKTTemplate::output('buy_article/form_success', $data) ?>
 </script>

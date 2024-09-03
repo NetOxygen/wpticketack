@@ -32,13 +32,13 @@ use Ticketack\WP\Templates\TKTTemplate;
     <div>
         <!-- Underscore.js templates used by client side -->
         <script type="text/template" id="tkt-booking-screenings-list-dates-tpl">
-            <?php echo TKTTEmplate::render('booking/screenings_list_dates', (object)[]) ?>
+            <?php TKTTemplate::output('booking/screenings_list_dates', (object)[]) ?>
         </script>
         <script type="text/template" id="tkt-booking-screenings-list-pricings-tpl">
-            <?php echo TKTTEmplate::render('booking/screenings_list_pricings', (object)[]) ?>
+            <?php TKTTemplate::output('booking/screenings_list_pricings', (object)[]) ?>
         </script>
         <script type="text/template" id="tkt-booking-screenings-list-success-tpl">
-            <?php echo TKTTEmplate::render('booking/screenings_list_success', (object)[]) ?>
+            <?php TKTTemplate::output('booking/screenings_list_success', (object)[]) ?>
         </script>
     </div>
 </div>

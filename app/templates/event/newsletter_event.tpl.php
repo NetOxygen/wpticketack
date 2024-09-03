@@ -54,11 +54,11 @@ $poster_url   = $upload_dir['url'].'/'.basename($first_poster->url);
 </h2>
 <?php if (!empty($e->opaque('free_text_1'))) : ?>
 <div>
-  <?php echo $e->opaque('free_text_1')['fr'] ?><p>&nbsp;</p>
+  <?php echo wp_kses_post($e->opaque('free_text_1')['fr']) ?><p>&nbsp;</p>
 </div>
 <?php endif; ?>
 <div>
-  <?php echo $description ?><p>&nbsp;</p>
+  <?php echo wp_kses_post($description) ?><p>&nbsp;</p>
 </div>
 <?php if ($e->opaque('type') == 'music_group') : ?>
 <div>
@@ -70,6 +70,6 @@ $poster_url   = $upload_dir['url'].'/'.basename($first_poster->url);
 </div>
 <br/>
 <div>
-  <?php echo $e->opaque('free_text_2')['fr'] ?><p>&nbsp;</p>
+  <?php echo wp_kses_post($e->opaque('free_text_2')['fr']) ?><p>&nbsp;</p>
 </div>
 <!--more-->

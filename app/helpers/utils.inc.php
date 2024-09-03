@@ -502,6 +502,32 @@ if (!function_exists('tkt_html')) {
     }
 }
 
+if (!function_exists('tkt_allowed_tags')) {
+    /**
+     * Return a list of allowed html tags
+     *
+     * @return an array
+     */
+    function tkt_allowed_tags()
+    {
+        global $allowedposttags;
+        $tags = $allowedposttags;
+
+        $tags['form'] = array(
+            'action'         => true,
+            'accept'         => true,
+            'accept-charset' => true,
+            'enctype'        => true,
+            'method'         => true,
+            'name'           => true,
+            'target'         => true,
+        );
+        $tags['script'] = ['type' => true];
+
+        return $tags;
+    }
+}
+
 function tkt_get_ages()
 {
     $array = [tkt_t("Pas de réponse"), "< 5"];

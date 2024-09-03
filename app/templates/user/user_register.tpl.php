@@ -127,7 +127,7 @@ if (!function_exists('tkt_is_required')) {
                 <div class="checkbox">
                   <label class="required">
                     <input name="user[opaque][conditions]" value="checked" type="checkbox" required class="data-field">
-                    <?php echo $terms_link ?>
+                    <?php echo wp_kses_post($terms_link) ?>
                   </label>
                 </div>
               </div>

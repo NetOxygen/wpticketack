@@ -76,7 +76,7 @@ if (!$data->expanded) {
 
                 <?php $index = 0; ?>
                 <?php foreach($days as $date => $screenings) : ?>
-                    <?php echo TKTTemplate::render('program/agenda/day',
+                    <?php TKTTemplate::output('program/agenda/day',
                         (object)[
                             'date'         => new Datetime($date),
                             'screenings'   => $screenings,
@@ -94,14 +94,14 @@ if (!$data->expanded) {
 
 <!-- Underscore.js templates used by client side -->
 <script type="text/template" id="tkt-agenda-modal-tpl">
-    <?php echo TKTTemplate::render('program/agenda/modal', (object)[]) ?>
+    <?php TKTTemplate::output('program/agenda/modal', (object)[]) ?>
 </script>
 <script type="text/template" id="tkt-booking-form-dates-tpl">
-    <?php echo TKTTemplate::render('booking/form_dates', (object)[]) ?>
+    <?php TKTTemplate::output('booking/form_dates', (object)[]) ?>
 </script>
 <script type="text/template" id="tkt-booking-form-pricings-tpl">
-    <?php echo TKTTemplate::render('booking/form_pricings', (object)[]) ?>
+    <?php TKTTemplate::output('booking/form_pricings', (object)[]) ?>
 </script>
 <script type="text/template" id="tkt-booking-form-success-tpl">
-    <?php echo TKTTemplate::render('booking/form_success', (object)[]) ?>
+    <?php TKTTemplate::output('booking/form_success', (object)[]) ?>
 </script>

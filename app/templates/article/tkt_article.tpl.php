@@ -65,7 +65,7 @@ $nb_slides = count($posters);
                   </div>
                 </div>
                 <div class="col-sm-12 col-md-8">
-                    <p class="description"><?php echo $article->description(TKT_LANG) ?></p>
+                    <p class="description"><?php echo wp_kses_post($article->description(TKT_LANG)) ?></p>
                 </div>
             </div>
         </section>
@@ -75,7 +75,7 @@ $nb_slides = count($posters);
                 <?php echo esc_html(tkt_t('Acheter')) ?>
             </h3>
 
-            <?php echo TKTTemplate::render('buy_article/form', (object)[
+            <?php TKTTemplate::output('buy_article/form', (object)[
                 'article'      => $article,
                 'salepoint_id' => $salepoint_id,
                 'theme'        => $data->theme

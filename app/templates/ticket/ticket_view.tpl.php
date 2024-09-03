@@ -19,4 +19,4 @@ use Ticketack\WP\Templates\TKTTemplate;
     data-ticket-id="<?php echo esc_attr($data->ticket_id) ?>"
 ></div>
 
-<?php echo TKTTemplate::render('ticket/ticket', (object)[]) ?>
+<?php TKTTemplate::output('ticket/ticket', (object)[]) ?>

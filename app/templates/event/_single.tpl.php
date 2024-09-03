@@ -162,7 +162,7 @@ foreach ($screenings as $s) {
           <h3 class="tkt-section-title"><?php echo esc_html(tkt_t('Synopsis')) ?></h3>
           <div class="synopsis">
             <span class="text">
-                <?php echo $description ?>
+                <?php echo wp_kses_post($description) ?>
             </span>
           </div>
         </div>
@@ -309,7 +309,7 @@ foreach ($screenings as $s) {
           <div class="row">
             <div class="col">
               <span class="free-text-one">
-                <?php echo $opaque->free_text_1->{TKT_LANG} ?>
+                <?php echo wp_kses_post($opaque->free_text_1->{TKT_LANG}) ?>
               </span>
             </div>
           </div>
@@ -337,7 +337,7 @@ foreach ($screenings as $s) {
           <div class="row">
             <div class="col">
               <div class="free-text-2">
-                <span><?php echo $opaque->free_text_2->{TKT_LANG} ?></span>
+                <span><?php echo wp_kses_post($opaque->free_text_2->{TKT_LANG}) ?></span>
               </div>
             </div>
           </div>

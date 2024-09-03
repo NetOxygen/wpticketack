@@ -51,7 +51,7 @@ $image_url     = tkt_img_proxy_url($e->first_poster()->url, $images_width, $imag
           <div class="row">
             <div class="col">
               <span class="description">
-                  <?php echo $e->localized_description(TKT_LANG) ?>
+                  <?php echo wp_kses_post($e->localized_description(TKT_LANG)) ?>
               </span>
             </div>
           </div>

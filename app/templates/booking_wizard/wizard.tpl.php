@@ -46,12 +46,12 @@ $theme = isset($data->theme) ? $data->theme : 'dark';
 
     <!-- Underscore.js templates used by client side -->
     <script type="text/template" id="tkt-booking-wizard-navigation-tpl">
-        <?php echo TKTTEmplate::render('booking_wizard/wizard_navigation', (object)[]) ?>
+        <?php TKTTemplate::output('booking_wizard/wizard_navigation', (object)[]) ?>
     </script>
     <script type="text/template" id="tkt-booking-wizard-menu-tpl">
-        <?php echo TKTTEmplate::render('booking_wizard/wizard_menu', (object)[]) ?>
+        <?php TKTTemplate::output('booking_wizard/wizard_menu', (object)[]) ?>
     </script>
     <script type="text/template" id="tkt-booking-wizard-content-tpl">
-        <?php echo TKTTEmplate::render('booking_wizard/wizard_content', (object)[]) ?>
+        <?php TKTTemplate::output('booking_wizard/wizard_content', (object)[]) ?>
     </script>
 </div>

@@ -98,14 +98,14 @@ $images_height = TKTApp::get_instance()->get_config('images_dimensions.big_heigh
 
       <div class="row">
         <div class="col">
-          <span class="screening-date"><?php echo $date_title ?></span>
+          <span class="screening-date"><?php echo wp_kses_post($date_title) ?></span>
         </div>
       </div>
 
       <div class="row">
         <div class="col">
           <span class="title active">
-            <?php echo $e->localized_title_or_original('fr') ?>
+            <?php echo wp_kses_post($e->localized_title_or_original('fr')) ?>
           </span>
         </div>
       </div>
@@ -121,7 +121,7 @@ $images_height = TKTApp::get_instance()->get_config('images_dimensions.big_heigh
       <div class="row">
         <div class="col">
           <span class="free-text-one">
-            <?php echo $e->opaque('free_text_1')['fr'] ?>
+            <?php echo wp_kses_post($e->opaque('free_text_1')['fr']) ?>
           </span>
         </div>
       </div>
@@ -129,7 +129,7 @@ $images_height = TKTApp::get_instance()->get_config('images_dimensions.big_heigh
 
     <div class="col-sm right-col text-right align-self-start">
       <div class="infos">
-        <?php echo $e->opaque('free_text_2')['fr'] ?>
+        <?php echo wp_kses_post($e->opaque('free_text_2')['fr']) ?>
       </div>
     </div>
 
@@ -157,7 +157,7 @@ $images_height = TKTApp::get_instance()->get_config('images_dimensions.big_heigh
           <?php echo esc_html($e->localized_title_or_original('fr')) ?>
         </span>
         <span class="text">
-            <?php echo $description ?>
+            <?php echo wp_kses_post($description) ?>
         </span>
       </div>
     </div>

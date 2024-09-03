@@ -29,7 +29,7 @@ $nb_per_row = 12 / $data->items_per_row;
         <div class="row no-gutters">
             <?php foreach($data->events as $event) : ?>
             <div class="tkt_program_event<?php echo $data->items_per_row > 1 ? ' col-sm-6 p-4' : '' ?> col-12 col-md-<?php echo intval($nb_per_row) ?>" data-type="<?php echo esc_attr($event->opaque('type')) ?>" <?php echo esc_html(tkt_event_data_attributes($event, $data->filter_fields)) ?>>
-                <?php echo TKTTemplate::render('program/blocks/event',
+                <?php TKTTemplate::output('program/blocks/event',
                     (object) [
                         "event"                => $event,
                         "image_width_pct"      => $data->image_width_pct,

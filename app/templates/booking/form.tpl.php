@@ -48,12 +48,12 @@ $theme = isset($data->theme) ? $data->theme : 'dark';
 
     <!-- Underscore.js templates used by client side -->
     <script type="text/template" id="tkt-booking-form-dates-tpl">
-        <?php echo TKTTEmplate::render('booking/form_dates', (object)[]) ?>
+        <?php TKTTemplate::output('booking/form_dates', (object)[]) ?>
     </script>
     <script type="text/template" id="tkt-booking-form-pricings-tpl">
-        <?php echo TKTTEmplate::render('booking/form_pricings', (object)[]) ?>
+        <?php TKTTemplate::output('booking/form_pricings', (object)[]) ?>
     </script>
     <script type="text/template" id="tkt-booking-form-success-tpl">
-        <?php echo TKTTEmplate::render('booking/form_success', (object)[]) ?>
+        <?php TKTTemplate::output('booking/form_success', (object)[]) ?>
     </script>
 </div>

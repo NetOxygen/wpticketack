@@ -49,7 +49,7 @@ $image_url     = tkt_img_proxy_url($e->first_poster()->url, $images_width, $imag
                 <div class="col">
                     <p class="description text-justify mt-3"
                         style="-webkit-line-clamp: <?php echo esc_attr($data->description_max_line) ?>;">
-                        <?php echo ($e->localized_description(TKT_LANG)) ?>
+                        <?php echo wp_kses_post($e->localized_description(TKT_LANG)) ?>
                     </p>
                 </div>
             </div>

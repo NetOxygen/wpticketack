@@ -135,7 +135,7 @@ $nb_slides = count($trailers) + count($posters);
           <h3 class="tkt-section-title"><?php echo esc_html(tkt_t('Synopsis')) ?></h3>
           <div class="synopsis">
             <span class="text">
-                <?php echo $description ?>
+                <?php echo wp_kses_post($description) ?>
             </span>
           </div>
         </div>
@@ -213,7 +213,7 @@ $nb_slides = count($trailers) + count($posters);
                   ]));
                   ?>
                   <div class="movie-infos"><?php echo esc_html($infos) ?></div>
-                  <div class="movie-description"><?php echo $m->opaque('description', [])[TKT_LANG] ?></div>
+                  <div class="movie-description"><?php echo wp_kses_post($m->opaque('description', [])[TKT_LANG]) ?></div>
                   <?php if (!empty($m->opaque('people'))) : ?>
                       <div class="row">
                         <div class="col">

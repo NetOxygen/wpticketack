@@ -10,7 +10,7 @@ use Ticketack\WP\Templates\TKTTemplate;
 ?>
 <div class="tkt-wrapper" data-component="Ticket/TicketConnect"></div>
 
-<?php echo TKTTemplate::render('ticket/ticket', (object)[]) ?>
+<?php TKTTemplate::output('ticket/ticket', (object)[]) ?>
 
 <?php
 /**

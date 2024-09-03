@@ -18,5 +18,5 @@ use Ticketack\WP\Templates\TKTTemplate;
 
 <!-- Underscore.js template used by client side -->
 <script type="text/template" id="tkt-cart-items-table-tpl">
-    <?php echo TKTTEmplate::render('cart/cart_items_table', (object)[]) ?>
+    <?php TKTTemplate::output('cart/cart_items_table', (object)[]) ?>
 </script>

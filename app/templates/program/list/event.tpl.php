@@ -50,7 +50,7 @@ $image_url     = tkt_img_proxy_url($e->first_poster()->url, $images_width, $imag
             <div class="row">
                 <div class="col">
                     <p class="description text-justify mt-3">
-                        <?php echo $e->localized_description(TKT_LANG) ?>
+                        <?php echo wp_kses_post($e->localized_description(TKT_LANG)) ?>
                     </p>
                 </div>
             </div>

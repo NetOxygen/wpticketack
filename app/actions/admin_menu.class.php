@@ -84,7 +84,7 @@ class AdminMenuAction extends TKTAction
                 <?php endforeach; ?>
             </h2>
 
-            <?php echo TKTTemplate::render_admin($active_tab); ?>
+            <?php TKTTemplate::output_admin($active_tab); ?>
         </div>
 
         <?php

@@ -25,16 +25,19 @@ class TktContentFilter extends TKTFilter
     {
         $post = get_post();
         // Check if we're inside the main loop in a single post page.
-        if ( is_single() && in_the_loop() && is_main_query() ) {
-            if ( $post->post_type == 'tkt-event' ) {
-                echo trim(preg_replace('#\R+#', '', TKTTemplate::render("event/tkt_event", (object)[
+        if (is_single() && in_the_loop() && is_main_query()) {
+            $content = "";
+            if ($post->post_type == 'tkt-event') {
+                $content = trim(preg_replace('#\R+#', '', TKTTemplate::render("event/tkt_event", (object)[
                     "tkt_event" => get_post()
                 ])));
-            } elseif ( $post->post_type == 'tkt-article' ) {
-                echo trim(preg_replace('#\R+#', '', TKTTemplate::render("article/tkt_article", (object)[
+            } elseif ($post->post_type == 'tkt-article') {
+                $content = trim(preg_replace('#\R+#', '', TKTTemplate::render("article/tkt_article", (object)[
                     "tkt_article" => get_post()
                 ])));
             }
+
+            echo wp_kses($content, tkt_allowed_tags());
         }
 
         return $args;

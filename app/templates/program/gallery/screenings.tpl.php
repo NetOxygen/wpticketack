@@ -29,7 +29,7 @@ $nb_per_row = 12 / $item_width;
         <div class="row no-gutters">
             <?php foreach($data->screenings as $screening) : ?>
             <div class="tkt_program_screening col-12 col-sm-6 col-md-<?php echo esc_attr($item_width) ?>" <?php echo esc_html(tkt_screening_data_attributes($screening, $data->filter_fields)) ?>>
-                <?php echo TKTTemplate::render('program/gallery/screening', (object)[ 'screening' => $screening ]) ?>
+                <?php TKTTemplate::output('program/gallery/screening', (object)[ 'screening' => $screening ]) ?>
             </div>
             <?php endforeach; ?>
         </div>

@@ -230,7 +230,7 @@ foreach ($payment_method_names as $id => $translations) {
                 <div class="checkbox">
                   <label class="required">
                     <input name="user[conditions]" value="checked" type="checkbox" required class="data-field">
-                    <?php echo $terms_link ?>
+                    <?php echo wp_kses_post($terms_link) ?>
                   </label>
                 </div>
               </div>
@@ -286,5 +286,5 @@ foreach ($payment_method_names as $id => $translations) {
 
 <!-- Underscore.js templates used by client side -->
 <script type="text/template" id="tkt-checkout-user-data-tpl">
-    <?php echo TKTTEmplate::render('checkout/checkout_user_data', (object)[]) ?>
+    <?php TKTTemplate::output('checkout/checkout_user_data', (object)[]) ?>
 </script>

@@ -41,7 +41,7 @@ $image_url     = tkt_img_proxy_url($s->first_poster()->url, $images_width, $imag
 
       <div class="row">
         <div class="col">
-          <span class="description"><?php echo $description ?></span>
+          <span class="description"><?php echo wp_kses_post($description) ?></span>
         </div>
       </div>
 

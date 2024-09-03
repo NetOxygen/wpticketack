@@ -78,6 +78,6 @@ $image_url     = tkt_img_proxy_url($m->first_poster()->url, $images_width, $imag
     if ($data->with_link) {
         $value = sprintf('<a href="%s">%s</a>', tkt_event_book_url($m, $s), $value);
     }
-    echo $value;
+    echo wp_kses_post($value);
     ?>
 <?php endif; ?>

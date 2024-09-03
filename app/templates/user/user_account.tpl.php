@@ -44,8 +44,8 @@ use Ticketack\WP\Templates\TKTTemplate;
 
 <!-- Underscore.js templates used by client side -->
 <script type="text/template" id="tkt-user-account-menu-tpl">
-    <?php echo TKTTemplate::render('user/account/menu', (object)[ 'tabs' => $data->tabs, 'active_tab' => $data->active_tab ]) ?>
+    <?php TKTTemplate::output('user/account/menu', (object)[ 'tabs' => $data->tabs, 'active_tab' => $data->active_tab ]) ?>
 </script>
 <script type="text/template" id="tkt-user-account-content-tpl">
-    <?php echo TKTTEmplate::render('user/account/'.$data->active_tab.'/content', (object)[]) ?>
+    <?php TKTTemplate::output('user/account/'.$data->active_tab.'/content', (object)[]) ?>
 </script>
