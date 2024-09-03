@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-23 17:07+0200\n"
+"POT-Creation-Date: 2024-08-28 16:34+0200\n"
 "PO-Revision-Date: 2022-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Belkacem Alidra <belkacem.alidra@netoxygen.ch>\n"
+"Last-Translator: Jonathan Ernst <jonathan.ernst@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -415,6 +415,12 @@ msgstr "Zusammenfassung"
 msgid "Commande"
 msgstr "Bestellung"
 
+msgid "produit"
+msgstr "Produkt"
+
+msgid "produits"
+msgstr "Produkte"
+
 msgid "Rabais"
 msgstr "Rabatt"
 
@@ -422,7 +428,7 @@ msgid "Frais"
 msgstr "Gebühren"
 
 msgid "Total :"
-msgstr "Gesamt:"
+msgstr "Total:"
 
 msgid "Vous disposez de"
 msgstr "Sie haben"
@@ -446,7 +452,7 @@ msgid "Finaliser ma commande"
 msgstr "Bestellung abschließen"
 
 msgid "Annuler ma commande"
-msgstr "Bestellung abschließen"
+msgstr "Bestellung löschen"
 
 msgid "Continuer mes réservations"
 msgstr "Meine Reservationen fortsetzen"
@@ -461,7 +467,7 @@ msgid "produit(s)"
 msgstr "Produkt(e)"
 
 msgid "Total TTC"
-msgstr "Gesamt inkl. MwSt."
+msgstr "Total inkl. MwSt."
 
 msgid "OK"
 msgstr "OK"
@@ -492,6 +498,7 @@ msgstr "Es sind nur noch wenige Plätze verfügbar!"
 msgid "Aujourd'hui"
 msgstr "Heute"
 
+#, php-format
 msgid "%d ans"
 msgstr "%d Jahre"
 
@@ -664,7 +671,7 @@ msgid "Aucun moyen de paiement configué."
 msgstr "Keine Zahlungsmethode konfiguriert."
 
 msgid "Vos données de facturation"
-msgstr "Ihre Rechnungsdaten"
+msgstr "Ihre Rechnungsangaben"
 
 msgid "Entreprise"
 msgstr "Unternehmen"

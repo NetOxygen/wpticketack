@@ -117,7 +117,10 @@ class LocalesHelper
             tkt_t('writer'),
             tkt_t('writers'),
             tkt_t('sound'),
-            tkt_t('production design')
+            tkt_t('production design'),
+            // for some reason those two are not caught by translate.sh (used in app/templates/cart/cart_table.tpl.php)
+            tkt_t("produit"),
+            tkt_t("produits"),
         ];
     }
 }

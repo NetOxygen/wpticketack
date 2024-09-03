@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-23 17:07+0200\n"
+"POT-Creation-Date: 2024-08-28 16:35+0200\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Belkacem Alidra <belkacem.alidra@netoxygen.ch>\n"
+"Last-Translator: Jonathan Ernst <jonathan.ernst@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -405,6 +405,12 @@ msgstr "Summary"
 msgid "Commande"
 msgstr "Order"
 
+msgid "produit"
+msgstr "product"
+
+msgid "produits"
+msgstr "products"
+
 msgid "Rabais"
 msgstr "Rebate"
 
@@ -481,6 +487,7 @@ msgstr "There are only a few places left!"
 msgid "Aujourd'hui"
 msgstr "Today"
 
+#, php-format
 msgid "%d ans"
 msgstr "%d years"
 
