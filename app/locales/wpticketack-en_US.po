@@ -142,7 +142,7 @@ msgid "Titulaire"
 msgstr "Holder"
 
 msgid "Votre prénom"
-msgstr "Your firstname"
+msgstr "Your first name"
 
 msgid "Nom"
 msgstr "Last name"
