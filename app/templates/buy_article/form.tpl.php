@@ -36,6 +36,6 @@ use Ticketack\WP\Templates\TKTTemplate;
         <?php TKTTemplate::output('buy_article/form_pricings', $data) ?>
     </script>
     <script type="text/template" id="tkt-buy-article-form-success-tpl">
-          <?php TKTTemplate::output('buy_article/form_success', $data) ?>
+        <?php TKTTemplate::output('buy_article/form_success', $data) ?>
     </script>
 </div>
