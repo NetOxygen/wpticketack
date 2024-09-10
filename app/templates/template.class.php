@@ -73,7 +73,9 @@ class TKTTemplate
      */
     public static function output($template, $data)
     {
-        echo wp_kses(static::render($template, $data), tkt_allowed_tags());
+        // use the following to be WP compliant
+        // echo wp_kses(static::render($template, $data), tkt_allowed_tags());
+        echo static::render($template, $data);
     }
 
     /**
@@ -86,7 +88,9 @@ class TKTTemplate
      */
     public static function output_admin($template, $data)
     {
-        echo wp_kses(static::render_admin($template, $data), tkt_allowed_tags());
+        // use the following to be WP compliant
+        // echo wp_kses(static::render_admin($template, $data), tkt_allowed_tags());
+        echo static::render_admin($template, $data);
     }
 
     /**
