@@ -145,8 +145,8 @@ foreach ($screenings as $s) {
             </div>
             <?php if ($nb_slides > 1) : ?>
             <div class="glide__arrows" data-glide-el="controls">
-              <button class="glide__arrow glide__arrow--left" data-glide-dir="<"><</button>
-              <button class="glide__arrow glide__arrow--right" data-glide-dir=">">></button>
+              <button class="glide__arrow glide__arrow--left" data-glide-dir="&lt;"><</button>
+              <button class="glide__arrow glide__arrow--right" data-glide-dir="&gt;">></button>
             </div>
             <?php endif; ?>
           </div>

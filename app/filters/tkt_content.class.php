@@ -37,7 +37,19 @@ class TktContentFilter extends TKTFilter
                 ])));
             }
 
-            echo wp_kses($content, tkt_allowed_tags());
+            /**
+             * We can not use wp_kses* here since it doesn't allow js templating.
+             * For example:
+             *
+             * <?php
+             *  $html = '<script type="text/javascript"><%/></script>';
+             *  echo wp_kses($html, ['script' => ['type' => true], '%' => []]);
+             * ?>
+             *
+             * Will give :
+             * <script type="text/javascript"></script>
+             */
+            echo $content;
         }
 
         return $args;

@@ -73,8 +73,18 @@ class TKTTemplate
      */
     public static function output($template, $data)
     {
-        // use the following to be WP compliant
-        // echo wp_kses(static::render($template, $data), tkt_allowed_tags());
+        /**
+         * We can not use wp_kses* here since it doesn't allow js templating.
+         * For example:
+         *
+         * <?php
+         *  $html = '<script type="text/javascript"><%/></script>';
+         *  echo wp_kses($html, ['script' => ['type' => true], '%' => []]);
+         * ?>
+         *
+         * Will give :
+         * <script type="text/javascript"></script>
+         */
         echo static::render($template, $data);
     }
 
@@ -88,8 +98,18 @@ class TKTTemplate
      */
     public static function output_admin($template, $data)
     {
-        // use the following to be WP compliant
-        // echo wp_kses(static::render_admin($template, $data), tkt_allowed_tags());
+        /**
+         * We can not use wp_kses* here since it doesn't allow js templating.
+         * For example:
+         *
+         * <?php
+         *  $html = '<script type="text/javascript"><%/></script>';
+         *  echo wp_kses($html, ['script' => ['type' => true], '%' => []]);
+         * ?>
+         *
+         * Will give :
+         * <script type="text/javascript"></script>
+         */
         echo static::render_admin($template, $data);
     }
 
