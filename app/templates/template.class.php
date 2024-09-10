@@ -74,7 +74,7 @@ class TKTTemplate
     public static function output($template, $data)
     {
         /**
-         * We can not use wp_kses* here since it doesn't allow js templating.
+         * We cannot use wp_kses* here since it doesn't allow js templating.
          * For example:
          *
          * <?php
@@ -82,8 +82,10 @@ class TKTTemplate
          *  echo wp_kses($html, ['script' => ['type' => true], '%' => []]);
          * ?>
          *
-         * Will give :
+         * Will give:
          * <script type="text/javascript"></script>
+         *
+         * See: https://core.trac.wordpress.org/ticket/62025
          */
         echo static::render($template, $data);
     }
@@ -99,7 +101,7 @@ class TKTTemplate
     public static function output_admin($template, $data)
     {
         /**
-         * We can not use wp_kses* here since it doesn't allow js templating.
+         * We cannot use wp_kses* here since it doesn't allow js templating.
          * For example:
          *
          * <?php
@@ -107,8 +109,10 @@ class TKTTemplate
          *  echo wp_kses($html, ['script' => ['type' => true], '%' => []]);
          * ?>
          *
-         * Will give :
+         * Will give:
          * <script type="text/javascript"></script>
+         *
+         * See: https://core.trac.wordpress.org/ticket/62025
          */
         echo static::render_admin($template, $data);
     }

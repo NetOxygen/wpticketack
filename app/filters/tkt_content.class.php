@@ -38,7 +38,7 @@ class TktContentFilter extends TKTFilter
             }
 
             /**
-             * We can not use wp_kses* here since it doesn't allow js templating.
+             * We cannot use wp_kses* here since it doesn't allow js templating.
              * For example:
              *
              * <?php
@@ -46,8 +46,10 @@ class TktContentFilter extends TKTFilter
              *  echo wp_kses($html, ['script' => ['type' => true], '%' => []]);
              * ?>
              *
-             * Will give :
+             * Will give:
              * <script type="text/javascript"></script>
+             *
+             * See https://core.trac.wordpress.org/ticket/62025
              */
             echo $content;
         }
