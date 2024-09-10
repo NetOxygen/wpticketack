@@ -32,6 +32,8 @@ export default class Checkout extends Component {
     }
 
     attach() {
+        super.attach();
+
         this.init();
     }
 

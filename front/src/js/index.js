@@ -70,4 +70,6 @@ globalThis.TKT = {
     state: loader.app_state,
     // postal communication bus
     bus: postal,
+    // components loader
+    loader
 }

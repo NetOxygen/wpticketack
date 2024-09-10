@@ -28,6 +28,8 @@ export default class Cart extends Component {
     }
 
     attach() {
+        super.attach();
+
         this.init();
     }
 
