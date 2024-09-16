@@ -325,8 +325,8 @@ foreach ($screenings as $s) {
           <div class="row">
             <div class="col">
               <span class="tkt-badge tkt-badge-split">
-                <span class="tkt-badge-part tkt-dark-badge"><?php echo esc_html(ucfirst(strtolower(tkt_t($p->activity)))) ?></span>
-                <span class="tkt-badge-part tkt-grey-badge"><?php echo esc_html(implode(' ', array_filter([$p->fullname, $p->firstname, $p->lastname]))) ?></span>
+                <span class="tkt-badge-part tkt-dark-badge"><?php echo !empty($p->activity) ? esc_html(ucfirst(strtolower(tkt_t($p->activity)))) : '' ?></span>
+                <span class="tkt-badge-part tkt-grey-badge"><?php echo esc_html(implode(' ', array_filter([$p->fullname ?? null, $p->firstname ?? null, $p->lastname ?? null]))) ?></span>
               </span>
             </div>
           </div>
