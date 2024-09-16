@@ -29,12 +29,15 @@ class SyncArticlesAction extends TKTAction
     {
         $action_link = admin_url("admin-post.php?action=sync_articles");
 ?>
-        <script type="text/javascript">
-            jQuery(document).ready(function ($) {
-                var sync_link = $('<a href="<?php echo esc_attr($action_link) ?>" class="page-title-action">Importer depuis Ticketack</a>');
-                $("body.post-type-tkt-article #wpbody-content > .wrap > a.page-title-action").after(sync_link);
-            });
-        </script>
+    <script type="text/javascript">
+    jQuery(document).ready(function ($) {
+
+        var pageTitle = $("body.post-type-tkt-article #wpbody-content > .wrap > h1.wp-heading-inline");
+        var sync_link = $('<a href="<?php echo esc_attr($action_link) ?>" class="page-title-action"><?php echo esc_html(tkt_t("Importer depuis Ticketack")) ?></a>');
+
+        pageTitle.after(sync_link);
+    });
+    </script>
 <?php
     }
 
