@@ -2,7 +2,7 @@
 Tags: ticketack
 Requires at least: 5.9
 Tested up to: 6.5.5
-Stable tag: 2.80.0
+Stable tag: 2.80.1
 Requires PHP: 8.1
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -61,6 +61,19 @@ code](https://github.com/NetOxygen/wpticketack) and submit a Pull Request.
 
 = Changelog =
 * [Changelog link](https://yoda.netoxygen.ch/public/projects/401b5210-986f-46b3-99cb-38546b73e16c/changelog)
+
+= 2.80.1 =
+
+* fix: Fix some warnings
+* fix: Fix some escaping errors
+* fix: Better handle booking modes and notes
+* fix: Fix the compatibility with SiteOrigin page builder
+* modified templates:
+  - app/templates/booking/form_pricings.tpl.php
+  - app/templates/pantaflix/login.tpl.php
+  - app/templates/ticket/ticket_connect.tpl.php
+  - app/templates/user/account/tickets/content.tpl.php
+  - app/templates/event/_single.tpl.php
 
 = 2.80.0 =
 
