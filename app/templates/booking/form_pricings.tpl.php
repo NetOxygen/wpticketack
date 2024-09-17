@@ -183,7 +183,7 @@ $currency = TKTApp::get_instance()->get_config('currency', 'CHF');
                 <div class="row">
                     <div class="col">
                         <span class="pass-title">
-                            <?php echo esc_html(tkt_ticketidize(tkt_t("Vous avez un TicketID ?"))) ?>
+                            <?php echo wp_kses_post(tkt_ticketidize(tkt_t("Vous avez un TicketID ?"))) ?>
 
                             <a href="" class="show-connect-panel-form"><?php echo esc_html(tkt_t('Ajoutez-le')) ?></a> <?php echo esc_html(tkt_t('pour réserver.')) ?><br/>
                     </span>
@@ -208,7 +208,7 @@ $currency = TKTApp::get_instance()->get_config('currency', 'CHF');
                     </div>
                     <hr>
                     <div>
-                        <?php echo esc_html(tkt_ticketidize(tkt_t("Votre TicketID se trouve sur votre abonnement"))) ?>
+                        <?php echo wp_kses_post(tkt_ticketidize(tkt_t("Votre TicketID se trouve sur votre abonnement"))) ?>
                     </div>
                     <br>
                 </div>

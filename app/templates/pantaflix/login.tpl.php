@@ -26,7 +26,7 @@ use Ticketack\WP\Templates\TKTTemplate;
             <% } %>
             <div class="ticket_connect">
                 <div>
-                    <?php echo esc_html(tkt_ticketidize(tkt_t("Vous avez un TicketID ?"))) ?>
+                    <?php echo wp_kses_post(tkt_ticketidize(tkt_t("Vous avez un TicketID ?"))) ?>
                 </div>
                 <div class="col">
                     <div class="row mt-5 input-pass">
@@ -45,7 +45,7 @@ use Ticketack\WP\Templates\TKTTemplate;
                 </div>
                 <hr />
                 <div>
-                    <?php echo esc_html(tkt_ticketidize(tkt_t("Votre TicketID se trouve sur votre abonnement"))) ?>
+                    <?php echo wp_kses_post(tkt_ticketidize(tkt_t("Votre TicketID se trouve sur votre abonnement"))) ?>
                 </div>
                 <br />
             </div>

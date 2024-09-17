@@ -26,7 +26,7 @@ const ticketsGroups = [
     },
     {
         // other passes, added with their TicketID
-        title: <?php echo esc_html(wp_json_encode(tkt_ticketidize(tkt_t('Autres abonnements (ajoutés avec leur TicketID)')))) ?>,
+        title: <?php echo wp_kses_post(wp_json_encode(tkt_ticketidize(tkt_t('Autres abonnements (ajoutés avec leur TicketID)')))) ?>,
         tickets: other_tickets.filter(ticket => !ticket.isOneTimePass() && ticket.isActivated()).map(ticket => {
             // those tickets can be forgotten because they were added with their ticketID
             ticket.isForgettable = true;
@@ -157,7 +157,7 @@ const ticketsGroups = [
         <div class="connect-panel">
             <div class="ticket_connect">
                 <div class="mt-2">
-                    <?php echo esc_html(tkt_ticketidize(tkt_t("Saisissez votre TicketID"))) ?>
+                    <?php echo wp_kses_post(tkt_ticketidize(tkt_t("Saisissez votre TicketID"))) ?>
                 </div>
                 <div class="col">
                     <div class="row input-pass">
@@ -179,7 +179,7 @@ const ticketsGroups = [
                 </div>
                 <hr />
                 <div>
-                    <?php echo esc_html(tkt_ticketidize(tkt_t("Votre TicketID se trouve sur votre abonnement"))) ?>
+                    <?php echo wp_kses_post(tkt_ticketidize(tkt_t("Votre TicketID se trouve sur votre abonnement"))) ?>
                 </div>
             </div>
         </div>
