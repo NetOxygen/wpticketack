@@ -1,4 +1,4 @@
-import { Component } from '../Core';
+import { Component, Config } from '../Core';
 import { Api as TKTApi } from '../Ticketack';
 import { Screening } from '../Models';
 import _ from 'lodash';
@@ -78,6 +78,8 @@ export default class BookabilityState extends Component {
                 }
             });
 
+            const lang = Config.get('lang');
+
             _.each(items, (i) => {
                 let booking_mode = null;
                 let booking_note = "";
@@ -89,7 +91,9 @@ export default class BookabilityState extends Component {
                     cannot_book_explanation = map[id].cannot_book_explanation || '';
                     booking_mode  = booking_mode || map[id].booking_mode;
                     if (booking_mode) {
-                        booking_note  = map[id].booking_note || booking_note;
+                        const note   = map[id].booking_note || {};
+                        const expl   = map[id].cannot_book_explanation;
+                        booking_note = note[lang] || expl || booking_note;
                     }
 
                     let seats     = map[id] ? map[id]['seats'] : 0;
@@ -104,7 +108,6 @@ export default class BookabilityState extends Component {
                     return BookabilityState.STATE_BOOKABLE;
                 }));
 
-
                 if (cannot_book_explanation.length)
                     $('.show-if-not-bookable', $(i)).html(cannot_book_explanation);
 
@@ -113,8 +116,7 @@ export default class BookabilityState extends Component {
                         if (booking_mode) {
                             // Replace the bookingform if TKT is not used
                             // and display a message booking_note
-                            const lang = window.tkt_config?.lang || 'fr';
-                            $('.book-section').html('<div class="booking_note">'+ booking_note[lang] +'</div>');
+                            $('.book-section').html('<div class="booking_note">'+ booking_note +'</div>');
                             return $(i).addClass('not-bookable-with-tkt');
                         }
                         return $(i).addClass('not-sold-here');
