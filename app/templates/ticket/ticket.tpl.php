@@ -267,7 +267,7 @@ if (!defined('ABSPATH')) exit;
                         <div class="panel-body">
                             <div class="well text-center">
                                 <h5>
-                                <?php echo esc_html(sprintf(tkt_t('Activé le %s'), '<%= ticket.activated_at.format("LL") %>')) ?>
+                                <?php echo sprintf(tkt_t('Activé le %s'), '<%= ticket.activated_at.format("LL") %>') ?>
                                 </h5>
                                 <p><?php echo esc_html(tkt_t('Tarif :')) ?> <%= ticket.activated_pricing.name.<?php echo esc_html(TKT_LANG) ?> %>
                                     (<%= ticket.getFormattedPriceAndCurrency() %>)
@@ -280,7 +280,7 @@ if (!defined('ABSPATH')) exit;
                                 </div>
                             <% } else {%>
                                 <div class="text-center alert alert-success">
-                                    <b><?php echo esc_html(sprintf(tkt_t("Valable jusqu'au %s"), "<%= ticket.getExpirationDate().format('LL') %>")) ?></b>
+                                    <b><?php echo sprintf(tkt_t("Valable jusqu'au %s"), "<%= ticket.getExpirationDate().format('LL') %>") ?></b>
                                     <p>
                                         <%= ticket.placesAvailable() %>
                                     </p>
