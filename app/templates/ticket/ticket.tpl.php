@@ -159,7 +159,7 @@ if (!defined('ABSPATH')) exit;
                                             data-booking-id="<%= b._id %>"
                                             data-size="24"
                                             data-step="<%= votesConfig?.step %>"
-                                            data-max="<%= votesConfig.max_score %>"
+                                            data-max="<%= votesConfig?.max_score %>"
                                             data-disabled-reason="<%= reason ? errors[reason] : '' %>"
                                         ></div>
                                         <% if (reason) { %>
