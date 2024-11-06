@@ -28,6 +28,8 @@ const errors = {
 };
 const bookings = [];
 tickets.concat(other_tickets).map(t => {
+    if (!votesConfig?.enabled)
+        return;
     t.bookings?.map(b => {
         if (!b.screening?.opaque?.disable_votes && b.isVotable())
             bookings.push(b);

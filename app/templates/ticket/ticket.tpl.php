@@ -97,7 +97,7 @@ if (!defined('ABSPATH')) exit;
                                                 <?php echo esc_html(tkt_t("Annuler")) ?>
                                             </a>
                                         <% } %>
-                                        <% if (b.vote || !b.screening.opaque?.disable_votes) { %>
+                                        <% if (votesConfig?.enabled && (b.vote || !b.screening.opaque?.disable_votes)) { %>
                                             <% const { votable, reason } = b.isVotable(); %>
                                             <div
                                                 data-component="Ui/Rating"
@@ -150,7 +150,7 @@ if (!defined('ABSPATH')) exit;
                                     <% } %>
                                 </td>
                                 <td>
-                                    <% if (b.vote || !b.screening.opaque?.disable_votes) { %>
+                                    <% if (votesConfig?.enabled && (b.vote || !b.screening.opaque?.disable_votes)) { %>
                                         <% const { votable, reason } = b.isVotable(); %>
                                         <div
                                             data-component="Ui/Rating"
