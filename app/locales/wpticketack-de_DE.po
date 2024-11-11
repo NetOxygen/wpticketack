@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-28 16:34+0200\n"
+"POT-Creation-Date: 2024-11-11 17:13+0100\n"
 "PO-Revision-Date: 2022-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Jonathan Ernst <jonathan.ernst@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -233,6 +233,23 @@ msgstr "Dies ist ein Geschenk"
 msgid "Ces champs sont requis"
 msgstr "Diese Felder sind erforderlich"
 
+msgid "Votre nom"
+msgstr "Ihr Nachname"
+
+msgid "Votre e-mail"
+msgstr "Ihre E-Mail"
+
+msgid ""
+"Sans photo, une pièce d'identité sera systématiquement demandée à l'entrée "
+"des salles et aux caisses."
+msgstr "Ohne Foto wird beim Betreten der Räume und an den Kassen systematisch nach einem Ausweis gefragt."
+
+msgid "Stopper la vidéo"
+msgstr "Das Video anhalten"
+
+msgid "Tous ces champs sont requis"
+msgstr "Alle diese Felder sind erforderlich"
+
 msgid "Tarifs :"
 msgstr "Tarif:"
 
@@ -415,12 +432,6 @@ msgstr "Zusammenfassung"
 msgid "Commande"
 msgstr "Bestellung"
 
-msgid "produit"
-msgstr "Produkt"
-
-msgid "produits"
-msgstr "Produkte"
-
 msgid "Rabais"
 msgstr "Rabatt"
 
@@ -524,9 +535,6 @@ msgstr "Haben Sie noch kein Konto? Erstellen Sie eins!"
 msgid "Mot de passe perdu ? Changez-le !"
 msgstr "Passwort vergessen? Ändern Sie es!"
 
-msgid "Votre nom"
-msgstr "Ihr Nachname"
-
 msgid "Société"
 msgstr "Firma"
 
@@ -556,9 +564,6 @@ msgstr "Bestätigung Ihres Passworts"
 
 msgid "Saisissez une deuxième fois votre mot de passe"
 msgstr "Geben Sie Ihr Passwort ein zweites Mal ein"
-
-msgid "Tous ces champs sont requis"
-msgstr "Alle diese Felder sind erforderlich"
 
 msgid "Votre compte a bien été créé"
 msgstr "Ihr Konto wurde erfolgreich erstellt"
@@ -765,6 +770,9 @@ msgstr "Filme"
 
 msgid "Achetez vos billets"
 msgstr "Kaufen Sie Ihre Tickets"
+
+msgid "Genre/Catégorie"
+msgstr "Genre"
 
 msgid "Durée"
 msgstr "Dauer"
@@ -1069,6 +1077,12 @@ msgstr "Ton"
 msgid "production design"
 msgstr "Produktionsdesign"
 
+msgid "produit"
+msgstr "Produkt"
+
+msgid "produits"
+msgstr "Produkte"
+
 msgid "Pas de réponse"
 msgstr "Keine Antwort"
 
@@ -1114,8 +1128,8 @@ msgstr "Alle Ticketack-Veranstaltungen"
 msgid "Rechercher les events Ticketack"
 msgstr "Ticketack-Veranstaltungen suchen"
 
-msgid "Parent:"
-msgstr "Übergeordnet:"
+msgid "Parent :"
+msgstr "Eltern:"
 
 msgid "Aucun event Ticketack trouvé."
 msgstr "Keine Ticketack-Veranstaltung gefunden."
@@ -1179,6 +1193,9 @@ msgstr "Keine Ticketack-Person im Papierkorb gefunden."
 
 msgid "Personnes importées depuis Ticketack"
 msgstr "Personen importiert von Ticketack"
+
+msgid "Importer depuis Ticketack"
+msgstr "Importieren von Ticketack"
 
 msgid "API"
 msgstr "API"

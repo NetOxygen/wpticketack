@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-28 16:35+0200\n"
+"POT-Creation-Date: 2024-11-11 17:15+0100\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Jonathan Ernst <jonathan.ernst@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -229,6 +229,23 @@ msgstr "This is a gift"
 msgid "Ces champs sont requis"
 msgstr "These fields are required"
 
+msgid "Votre nom"
+msgstr "Your last name"
+
+msgid "Votre e-mail"
+msgstr "Your email"
+
+msgid ""
+"Sans photo, une pièce d'identité sera systématiquement demandée à l'entrée "
+"des salles et aux caisses."
+msgstr "Without a photo, proof of identity will be systematically requested at the entrance to the halls and at the cash desks."
+
+msgid "Stopper la vidéo"
+msgstr "Stop video"
+
+msgid "Tous ces champs sont requis"
+msgstr "All these fields are required"
+
 msgid "Tarifs :"
 msgstr "Pricing:"
 
@@ -405,12 +422,6 @@ msgstr "Summary"
 msgid "Commande"
 msgstr "Order"
 
-msgid "produit"
-msgstr "product"
-
-msgid "produits"
-msgstr "products"
-
 msgid "Rabais"
 msgstr "Rebate"
 
@@ -513,9 +524,6 @@ msgstr "No account yet? Create one!"
 msgid "Mot de passe perdu ? Changez-le !"
 msgstr "Lost password? Change it here!"
 
-msgid "Votre nom"
-msgstr "Your last name"
-
 msgid "Société"
 msgstr "Company"
 
@@ -545,9 +553,6 @@ msgstr "Confirm your password"
 
 msgid "Saisissez une deuxième fois votre mot de passe"
 msgstr "Enter your password a second time"
-
-msgid "Tous ces champs sont requis"
-msgstr "All these fields are required"
 
 msgid "Votre compte a bien été créé"
 msgstr "Your account has been created"
@@ -747,7 +752,10 @@ msgid "Films"
 msgstr "Movies"
 
 msgid "Achetez vos billets"
-msgstr "Buy  your tickets"
+msgstr "Buy your tickets"
+
+msgid "Genre/Catégorie"
+msgstr "Genre"
 
 msgid "Durée"
 msgstr "Duration"
@@ -1048,6 +1056,12 @@ msgstr ""
 msgid "production design"
 msgstr ""
 
+msgid "produit"
+msgstr "product"
+
+msgid "produits"
+msgstr "products"
+
 msgid "Pas de réponse"
 msgstr "No answer"
 
@@ -1093,7 +1107,8 @@ msgstr "All Ticketack events"
 msgid "Rechercher les events Ticketack"
 msgstr "Search Ticketack events"
 
-msgid "Parent:"
+#, fuzzy
+msgid "Parent :"
 msgstr "Parent :"
 
 msgid "Aucun event Ticketack trouvé."
@@ -1157,6 +1172,10 @@ msgid "Aucune personne Ticketack trouvée dans la corbeille."
 msgstr "No Ticketack person found in Trash"
 
 msgid "Personnes importées depuis Ticketack"
+msgstr "Events imported from Ticketack"
+
+#, fuzzy
+msgid "Importer depuis Ticketack"
 msgstr "Events imported from Ticketack"
 
 msgid "API"

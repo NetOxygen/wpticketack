@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-28 16:34+0200\n"
+"POT-Creation-Date: 2024-11-11 17:15+0100\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Jonathan Ernst <jonathan.ernst@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -227,6 +227,23 @@ msgstr ""
 msgid "Ces champs sont requis"
 msgstr ""
 
+msgid "Votre nom"
+msgstr ""
+
+msgid "Votre e-mail"
+msgstr ""
+
+msgid ""
+"Sans photo, une pièce d'identité sera systématiquement demandée à l'entrée "
+"des salles et aux caisses."
+msgstr ""
+
+msgid "Stopper la vidéo"
+msgstr ""
+
+msgid "Tous ces champs sont requis"
+msgstr ""
+
 msgid "Tarifs :"
 msgstr ""
 
@@ -397,12 +414,6 @@ msgstr ""
 msgid "Commande"
 msgstr ""
 
-msgid "produit"
-msgstr ""
-
-msgid "produits"
-msgstr ""
-
 msgid "Rabais"
 msgstr ""
 
@@ -505,9 +516,6 @@ msgstr ""
 msgid "Mot de passe perdu ? Changez-le !"
 msgstr ""
 
-msgid "Votre nom"
-msgstr ""
-
 msgid "Société"
 msgstr ""
 
@@ -536,9 +544,6 @@ msgid "Confirmation de votre mot de passe"
 msgstr ""
 
 msgid "Saisissez une deuxième fois votre mot de passe"
-msgstr ""
-
-msgid "Tous ces champs sont requis"
 msgstr ""
 
 msgid "Votre compte a bien été créé"
@@ -734,6 +739,9 @@ msgstr ""
 
 msgid "Achetez vos billets"
 msgstr ""
+
+msgid "Genre/Catégorie"
+msgstr "Genre"
 
 msgid "Durée"
 msgstr ""
@@ -1034,6 +1042,12 @@ msgstr "son"
 msgid "production design"
 msgstr "design de production"
 
+msgid "produit"
+msgstr ""
+
+msgid "produits"
+msgstr ""
+
 msgid "Pas de réponse"
 msgstr ""
 
@@ -1079,7 +1093,7 @@ msgstr ""
 msgid "Rechercher les events Ticketack"
 msgstr ""
 
-msgid "Parent:"
+msgid "Parent :"
 msgstr ""
 
 msgid "Aucun event Ticketack trouvé."
@@ -1143,6 +1157,9 @@ msgid "Aucune personne Ticketack trouvée dans la corbeille."
 msgstr ""
 
 msgid "Personnes importées depuis Ticketack"
+msgstr ""
+
+msgid "Importer depuis Ticketack"
 msgstr ""
 
 msgid "API"

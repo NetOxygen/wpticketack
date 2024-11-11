@@ -179,7 +179,7 @@ foreach ($screenings as $s) {
           <div class="row">
             <div class="col">
               <span class="tkt-badge tkt-badge-split">
-                <span class="tkt-badge-part tkt-dark-badge"><?php echo esc_html(tkt_t('Genre')) ?></span>
+                <span class="tkt-badge-part tkt-dark-badge"><?php echo esc_html(tkt_t('Genre/Catégorie')) /* /!\ do not use Genre here has it has a different meaning (biological vs movie style) in German for example */ ?></span>
                 <span class="tkt-badge-part tkt-grey-badge"><?php echo esc_html(ucfirst($opaque->genre)) ?></span>
               </span>
             </div>
