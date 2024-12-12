@@ -42,7 +42,7 @@ $salepoint_id = TKTApp::get_instance()->get_config('ticketack.salepoint_id');
             </div>
             <div id="item-<?php echo esc_attr($tickettype->_id()); ?>" data-type="<?php echo esc_attr($tickettype->_id()); ?>" class="card-content pass <?php echo esc_attr($tickettype->_id() === $data->selected ? 'open' : '') ?>">
               <div class="card-body tkt-<?php echo esc_attr($data->theme) ?>-section">
-                <p><?php echo wp_kses_post(nl2br(tkt_html($tickettype->description(TKT_LANG)))) ?></p>
+                <p><?php echo wp_kses_post($tickettype->description(TKT_LANG)) ?></p>
                 <input type="hidden" class="required-fields" id="<?php echo esc_attr($tickettype->_id().'-required-fields') ?>" value="<?php echo esc_attr(implode(',', $tickettype->required_fields($salepoint_id))) ?>" />
                 <input type="hidden" class="requested-fields" id="<?php echo esc_attr($tickettype->_id().'-requested-fields') ?>" value="<?php echo esc_attr(implode(',', $tickettype->requested_fields($salepoint_id))) ?>" />
                 <b><?php echo esc_html(tkt_t('Tarifs :')) ?></b>
