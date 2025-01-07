@@ -18,6 +18,7 @@ use Ticketack\WP\Templates\TKTTemplate;
  *   "required_fields"       : ["firstname", "lastname", ... ],
  *   "allow_later"           : bool,
  *   "allow_proxypay"        : bool,
+ *   "allow_proxypay_alt"    : bool,
  *   "allow_null_payment"    : bool,
  *   "proxypay_config_error" : "str"
  * }
@@ -39,6 +40,7 @@ use Ticketack\WP\Templates\TKTTemplate;
             'required_fields'       => $data->required_fields,
             'allow_later'           => $data->allow_later,
             'allow_proxypay'        => $data->allow_proxypay,
+            'allow_proxypay_alt'    => $data->allow_proxypay_alt,
             'allow_null_payment'    => $data->allow_null_payment
         ]) ?>
     </div>
