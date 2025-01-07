@@ -18,6 +18,7 @@ use Ticketack\WP\Templates\TKTTemplate;
  *   "required_fields"       : ["firstname", "lastname", ... ],
  *   "allow_later"           : bool,
  *   "allow_proxypay"        : bool,
+ *   "allow_proxypay_alt"    : bool,
  *   "allow_null_payment"    : bool,
  *   "proxypay_config_error" : "str"
  * }
@@ -30,6 +31,7 @@ $requested_fields        = $data->requested_fields;
 $required_fields         = $data->required_fields;
 $allow_later             = $data->allow_later;
 $allow_proxypay          = $data->allow_proxypay;
+$allow_proxypay_alt      = $data->allow_proxypay_alt;
 $allow_null_payment      = $data->allow_null_payment;
 $newsletter_registration = TKTApp::get_instance()->get_config('eshop.newsletter_registration.modes', []);
 $newsletter_registration = count($newsletter_registration) > 0;
@@ -60,7 +62,7 @@ foreach ($payment_method_names as $id => $translations) {
 <?php endif; ?>
 
 <div class="tkt-wrapper">
-  <?php if (!$allow_later && !$allow_proxypay) : ?>
+  <?php if (!$allow_later && !$allow_proxypay && !$allow_proxypay_alt) : ?>
   <div class="text-center alert alert-danger payment-method-error-msg">
     <?php echo esc_html(tkt_t("Aucun moyen de paiement configué.")) ?>
   </div>
@@ -265,12 +267,18 @@ foreach ($payment_method_names as $id => $translations) {
                   <button type="submit" class="submit-button button proxypay" data-payment-method="PROXYPAY">
                     <span class="glyphicon glyphicon-credit-card"></span> <?php echo esc_html($payment_method_names['PROXYPAY']) ?>
                   </button>
+                <?php endif; ?>
 
-                  <?php if ($allow_null_payment) : ?>
-                    <button type="submit" class="submit-button button null_payment" data-payment-method="NULL_PAYMENT">
-                      <span class="glyphicon glyphicon-credit-card"></span> <?php echo esc_html(tkt_t('Valider')) ?>
-                    </button>
-                  <?php endif; ?>
+                <?php if ($allow_proxypay_alt) : ?>
+                  <button type="submit" class="submit-button button proxypay" data-payment-method="PROXYPAY_ALT">
+                    <span class="glyphicon glyphicon-credit-card"></span> <?php echo esc_html($payment_method_names['PROXYPAY_ALT']) ?>
+                  </button>
+                <?php endif; ?>
+
+                <?php if ($allow_null_payment) : ?>
+                  <button type="submit" class="submit-button button null_payment" data-payment-method="NULL_PAYMENT">
+                    <span class="glyphicon glyphicon-credit-card"></span> <?php echo esc_html(tkt_t('Valider')) ?>
+                  </button>
                 <?php endif; ?>
                 <input type="hidden" id="payment-method-field" name="payment_method" class="data-field" />
                 <br>

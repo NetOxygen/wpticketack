@@ -18,6 +18,7 @@ class CheckoutShortcode extends TKTShortcode
     CONST NULL_PAYMENT  = 'NULL_PAYMENT';
     CONST LATER_PAYMENT = 'LATER_PAYMENT';
     CONST PROXYPAY      = 'PROXYPAY';
+    CONST PROXYPAY_ALT  = 'PROXYPAY_ALT';
 
     /**
      * Get this Shortcode tag
@@ -65,6 +66,14 @@ class CheckoutShortcode extends TKTShortcode
                         }
                         $pay_online[static::PROXYPAY] = $method['enabled'];
                         break;
+                    case static::PROXYPAY_ALT:
+                        if (!$method['enabled'] || empty($method['url']) || empty($method['sha_out']) || empty($method['sha_in']) || empty($method['api_key']) || empty($method['seller'])) {
+                            $pay_online[$method[static::PROXYPAY_ALT]] = false;
+                            $proxypay_config_error = 'Error in Proxypay Alt configuration, please update the online payment method in Kronos';
+                            break;
+                        }
+                        $pay_online[static::PROXYPAY_ALT] = $method['enabled'];
+                        break;
                     default:
                         $pay_online[$method["_id"]] = false;
                         break;
@@ -84,6 +93,7 @@ class CheckoutShortcode extends TKTShortcode
                     'allow_null_payment'    => $pay_online['NULL_PAYMENT'],
                     'allow_later'           => $pay_online['LATER_PAYMENT'],
                     'allow_proxypay'        => $pay_online['PROXYPAY'],
+                    'allow_proxypay_alt'    => $pay_online['PROXYPAY_ALT'],
                     'proxypay_config_error' => $proxypay_config_error
                 ]
             );
