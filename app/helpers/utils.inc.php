@@ -913,6 +913,12 @@ function tkt_flash_notice($notice = '', $type = 'warning', $dismissible = true)
 {
     $notices = get_option('tkt_flash_notices', []);
 
+    foreach ($notices as $existing) {
+        if ($existing['notice'] === $notice && $existing['type'] === $type) {
+            return;
+        }
+    }
+
     array_push($notices, [
         'notice'      => $notice,
         'type'        => $type,
