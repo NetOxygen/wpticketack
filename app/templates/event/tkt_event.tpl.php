@@ -9,6 +9,8 @@ use Ticketack\Core\Models\Screening;
 /**
  * TKTEvent template
  *
+ * @templateVersion 2.82.0
+ *
  * Input:
  * $data: {
  *   "tkt_event": { ... }

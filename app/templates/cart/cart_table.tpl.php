@@ -8,6 +8,8 @@ use Ticketack\WP\TKTApp;
  * Cart table template
  * This template will be parsed by underscore.js
  *
+ * @templateVersion 2.82.0
+ *
  * Input: {
  *   "cart"              : Cart instance,
  *   "ticket"            : Ticket instance, if the user is connected,

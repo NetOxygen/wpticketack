@@ -15,6 +15,8 @@ use Ticketack\WP\TKTApp;
  * User login widget content
  * This template will be parsed by underscore.js
  *
+ * @templateVersion 2.82.0
+ *
  * JS Input: {
  *   "user": User instance, if the user is logged in,
  *   "userAccountUrl": Link to see the user account,

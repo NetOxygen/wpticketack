@@ -8,6 +8,8 @@ use Ticketack\WP\Templates\TKTTemplate;
 /**
  * Cart summary template
  *
+ * @templateVersion 2.82.0
+ *
 * Input: {
  *   "theme"             : 'dark|light',
  *   "enable_promo_code" : bool

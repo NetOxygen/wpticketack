@@ -11,6 +11,8 @@ use Ticketack\WP\Templates\TKTTemplate;
 /**
  * Article template
  *
+ * @templateVersion 2.82.0
+ *
  * Input:
  * $data: {
  *   "theme": 'dark|light',

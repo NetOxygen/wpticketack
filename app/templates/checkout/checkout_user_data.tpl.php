@@ -8,6 +8,8 @@ use Ticketack\WP\TKTApp;
  * Checkout user data form
  * This template will be parsed by underscore.js
  *
+ * @templateVersion 2.82.0
+ *
  * Input: {
  *   "items": Array of CartItem instances,
  *   "requestedFields": Array of requested fields,

@@ -6,6 +6,8 @@ if (!defined('ABSPATH')) exit;
  * Ticket view
  * This template will be parsed by underscore.js
  *
+ * @templateVersion 2.82.0
+ *
  * JS Input: {
  *   "ticket": Ticket instance, if the ticket is connected,
  *   "tickets": Array of tickets instances

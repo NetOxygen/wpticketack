@@ -8,6 +8,8 @@ use Ticketack\WP\Templates\TKTTemplate;
 /**
  * Booking form template
  *
+ * @templateVersion 2.82.0
+ *
  * Input:
  * $data: {
  *   "ids": [ ... ],

@@ -7,6 +7,8 @@ use Ticketack\WP\Templates\TKTTemplate;
 /**
  * Ticket view template
  *
+ * @templateVersion 2.82.0
+ *
  * Input:
  * $data: {
  *   "_id": "12345678-1234-1234-4321-123456789012"

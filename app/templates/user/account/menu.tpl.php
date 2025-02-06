@@ -8,6 +8,8 @@ use Ticketack\WP\Templates\TKTTemplate;
 /**
  * User account menu
  *
+ * @templateVersion 2.82.0
+ *
  * Input:
  * $data: {
  *   "tabs" : [profile|orders|tickets],

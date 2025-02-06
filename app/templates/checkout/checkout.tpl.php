@@ -8,6 +8,8 @@ use Ticketack\WP\Templates\TKTTemplate;
 /**
  * Checkout template
  *
+ * @templateVersion 2.82.0
+ *
  * Input:
  * $data: {
  *   "theme"                 : 'dark|light',

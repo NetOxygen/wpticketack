@@ -8,6 +8,8 @@ use Ticketack\WP\Templates\TKTTemplate;
 /**
  * Pantaflix player template
  *
+ * @templateVersion 2.82.0
+ *
  * Input:
  * $data: {
  *   "provider": string

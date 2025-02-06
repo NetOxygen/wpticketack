@@ -17,6 +17,8 @@ use Ticketack\WP\Templates\TKTTemplate;
  * Ticket connection widget content
  * This template will be parsed by underscore.js
  *
+ * @templateVersion 2.82.0
+ *
  * JS Input: {
  *   "ticket": Ticket instance, if the ticket is connected,
  *   "program_url": String

@@ -2,6 +2,7 @@
 namespace Ticketack\WP\Actions;
 
 use Ticketack\WP\TKTApp;
+use Ticketack\WP\Templates\TKTTemplate;
 
 /**
  * Admin Notices action
@@ -51,6 +52,14 @@ class AdminNoticesAction extends TKTAction
         // Reset our options to prevent notices being displayed forever
         if(!empty($notices)) {
             delete_option('tkt_flash_notices', []);
+        }
+
+        $overrides = TKTTemplate::get_overrides_versions();
+        $outdated  = array_filter($overrides, fn ($v) => $v->current !== $v->override);
+        if (!empty($outdated)) {
+            printf('<div class="notice notice-warning"><p>%s</p></div>',
+                tkt_t('[Ticketack] Vous avez des overrides de templates à mettre à jour')
+            );
         }
     }
 }

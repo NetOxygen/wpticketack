@@ -8,6 +8,8 @@ use Ticketack\WP\Templates\TKTTemplate;
 /**
  * Articles listtemplate
  *
+ * @templateVersion 2.82.0
+ *
  * Input:
  * $data: {
  *   "theme": 'dark|light',

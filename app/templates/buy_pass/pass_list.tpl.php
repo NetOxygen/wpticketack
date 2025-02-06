@@ -7,6 +7,8 @@ use Ticketack\WP\TKTApp;
 /**
  * Buy pass list template
  *
+ * @templateVersion 2.82.0
+ *
  * Input:
  * $data: {
  *   "tickettypes": [ ... ],

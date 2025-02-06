@@ -8,6 +8,8 @@ use Ticketack\Core\Models\Event;
 /**
  * Program screening template
  *
+ * @templateVersion 2.82.0
+ *
  * Input:
  * $data: {
  *   "screening": { ... }

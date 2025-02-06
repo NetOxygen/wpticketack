@@ -7,6 +7,8 @@ use Ticketack\WP\Templates\TKTTemplate;
 /**
  * Screenings and pricings list
  *
+ * @templateVersion 2.82.0
+ *
  * Input:
  * $data: {
  *   "ids": [ ... ],

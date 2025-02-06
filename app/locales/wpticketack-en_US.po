@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-11 17:15+0100\n"
+"POT-Creation-Date: 2025-02-06 18:21+0100\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Jonathan Ernst <jonathan.ernst@netoxygen.ch>\n"
+"Last-Translator: Belkacem Alidra <belkacem.alidra@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -228,23 +228,6 @@ msgstr "This is a gift"
 
 msgid "Ces champs sont requis"
 msgstr "These fields are required"
-
-msgid "Votre nom"
-msgstr "Your last name"
-
-msgid "Votre e-mail"
-msgstr "Your email"
-
-msgid ""
-"Sans photo, une pièce d'identité sera systématiquement demandée à l'entrée "
-"des salles et aux caisses."
-msgstr "Without a photo, proof of identity will be systematically requested at the entrance to the halls and at the cash desks."
-
-msgid "Stopper la vidéo"
-msgstr "Stop video"
-
-msgid "Tous ces champs sont requis"
-msgstr "All these fields are required"
 
 msgid "Tarifs :"
 msgstr "Pricing:"
@@ -524,6 +507,9 @@ msgstr "No account yet? Create one!"
 msgid "Mot de passe perdu ? Changez-le !"
 msgstr "Lost password? Change it here!"
 
+msgid "Votre nom"
+msgstr "Your last name"
+
 msgid "Société"
 msgstr "Company"
 
@@ -553,6 +539,9 @@ msgstr "Confirm your password"
 
 msgid "Saisissez une deuxième fois votre mot de passe"
 msgstr "Enter your password a second time"
+
+msgid "Tous ces champs sont requis"
+msgstr "All these fields are required"
 
 msgid "Votre compte a bien été créé"
 msgstr "Your account has been created"
@@ -1208,6 +1197,9 @@ msgstr "Ticketack is not configured"
 msgid "Accéder aux réglages"
 msgstr "Go to settings"
 
+msgid "[Ticketack] Vous avez des overrides de templates à mettre à jour"
+msgstr "[Ticketack] You have template overrides to update"
+
 msgid "Connexion à votre instance Ticketack"
 msgstr "Connection to your Ticketack instance"
 
@@ -1365,6 +1357,19 @@ msgstr "Change these settings only if you know what you are doing."
 
 msgid "Brouillon"
 msgstr "Draft"
+
+#~ msgid "Votre e-mail"
+#~ msgstr "Your email"
+
+#~ msgid ""
+#~ "Sans photo, une pièce d'identité sera systématiquement demandée à "
+#~ "l'entrée des salles et aux caisses."
+#~ msgstr ""
+#~ "Without a photo, proof of identity will be systematically requested at "
+#~ "the entrance to the halls and at the cash desks."
+
+#~ msgid "Stopper la vidéo"
+#~ msgstr "Stop video"
 
 #~ msgid "Serveur proxy d'images"
 #~ msgstr "Images proxy server"

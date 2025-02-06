@@ -134,4 +134,48 @@ class TKTTemplate
 
         return $content;
     }
+
+    /**
+     * Compare the templates ovverides versions with the module
+     * templates versions
+     *
+     * @return array : An array, indexed by the template relative path and
+     *                 containing an object with two properties:
+     *                 - current: the module template current version
+     *                 - override: the override version.
+     */
+    public static function get_overrides_versions(): array
+    {
+        $result = [];
+
+        $path = TKT_OVERRIDE_DIR.'/ticketack/templates/';
+        if (!file_exists($path)) {
+            return $result;
+        }
+
+        $templates = glob(sprintf('%s{*,*/*,*/*/*,*/*/*/*}.tpl.php', $path), \GLOB_BRACE);
+        if (empty($templates)) {
+            return $result;
+        }
+
+        foreach ($templates as $filepath) {
+            $template        = str_replace($path, '', $filepath);
+            $module_template = sprintf('%s/%s', TKT_TEMPLATES, $template);
+
+            if (file_exists($module_template)) {
+                preg_match('/@templateVersion ([\d\.]+)/', file_get_contents($module_template), $matches);
+                $current_version = count($matches) > 1 ? trim($matches[1]) : 0;
+
+                preg_match('/@templateVersion ([\d\.]+)/', file_get_contents($filepath), $matches);
+                $override_version = count($matches) > 1 ? trim($matches[1]) : 0;
+
+                $result[$template] = (object)[
+                    'current'  => $current_version,
+                    'override' => $override_version
+                ];
+            }
+        }
+
+        return $result;
+    }
 }

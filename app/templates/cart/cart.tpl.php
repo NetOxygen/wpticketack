@@ -8,6 +8,8 @@ use Ticketack\WP\Templates\TKTTemplate;
 /**
  * Cart template
  *
+ * @templateVersion 2.8.0
+ *
  * Input: {
  *   "theme"             : 'dark|light',
  *   "hidden_links"      : 'finalize,cancel,continue',

@@ -7,6 +7,8 @@ use Ticketack\WP\Templates\TKTTemplate;
 /**
  * Program events template
  *
+ * @templateVersion 2.82.0
+ *
  * Input:
  * $data: {
  *   "events": [

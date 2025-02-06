@@ -8,6 +8,8 @@ use Ticketack\WP\TKTApp;
  * Booking form: dates selector partial
  * This template will be parsed by underscore.js
  *
+ * @templateVersion 2.82.0
+ *
  * Input: {
  *   "screenings": Array of Screening instances
  * }

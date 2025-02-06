@@ -7,6 +7,8 @@ use Ticketack\WP\TKTApp;
 /**
  * Article template
  *
+ * @templateVersion 2.82.0
+ *
  * Input:
  * $data: {
  *   "article": { ... }

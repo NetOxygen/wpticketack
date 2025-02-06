@@ -8,6 +8,8 @@ use Ticketack\WP\Templates\TKTTemplate;
 /**
  * User account profile menu entry
  *
+ * @templateVersion 2.82.0
+ *
  * Input:
  * $data: {
  *   "active" => true|false

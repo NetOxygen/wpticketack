@@ -8,6 +8,8 @@ use Ticketack\WP\Templates\TKTTemplate;
 /**
  * Buy article form template
  *
+ * @templateVersion 2.82.0
+ *
  * Input:
  * $data: {
  *   "article": { ... },

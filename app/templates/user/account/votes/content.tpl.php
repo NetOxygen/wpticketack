@@ -9,6 +9,8 @@ use Ticketack\WP\Templates\TKTTemplate;
  * User account votes content
  * This template will be parsed by underscore.js
  *
+ * @templateVersion 2.82.0
+ *
  * Input: {
  *   "user": { ... },
  *   "tickets": [ ... ],

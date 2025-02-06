@@ -8,6 +8,8 @@ use Ticketack\WP\TKTApp;
  * Pantaflix player iframe template
  * This template will be parsed by underscore.js
  *
+ * @templateVersion 2.82.0
+ *
  * Input: {
  *   "provider": string
  *   "ticket": Ticket

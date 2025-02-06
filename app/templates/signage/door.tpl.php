@@ -5,6 +5,8 @@ if (!defined('ABSPATH')) exit;
 /**
  * Program screening template
  *
+ * @templateVersion 2.82.0
+ *
  * Input:
  * $data: {
  *   "screening": { ... }

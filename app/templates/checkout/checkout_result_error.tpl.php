@@ -8,6 +8,8 @@ use Ticketack\WP\TKTApp;
  * Checkout error result template
  * This template will be parsed by underscore.js
  *
+ * @templateVersion 2.82.0
+ *
  * Input: {}
  */
 ?>

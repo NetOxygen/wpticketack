@@ -8,6 +8,8 @@ use Ticketack\Core\Models\Article;
 /**
  * Articles listtemplate
  *
+ * @templateVersion 2.82.0
+ *
  * Input:
  * $data: {
  *   "articles": [ ... ],

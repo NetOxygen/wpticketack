@@ -8,6 +8,8 @@ use Ticketack\WP\TKTApp;
  * Booking wizard: menu template
  * This template will be parsed by underscore.js
  *
+ * @templateVersion 2.82.0
+ *
  * Input: {
  *   "state": {
  *       "step": int,

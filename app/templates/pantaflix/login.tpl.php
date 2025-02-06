@@ -9,6 +9,8 @@ use Ticketack\WP\Templates\TKTTemplate;
  * Pantaflix login template
  * This template will be parsed by underscore.js
  *
+ * @templateVersion 2.82.0
+ *
  * Input: {
  *  invalid_ticket: boolean
  * }

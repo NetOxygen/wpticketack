@@ -8,6 +8,8 @@ use Ticketack\WP\TKTApp;
  * Booking form: success message partial
  * This template will be parsed by underscore.js
  *
+ * @templateVersion 2.82.0
+ *
  * Input: {
  *   "cart_url": String,
  *   "program_url": String

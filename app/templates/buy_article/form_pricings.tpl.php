@@ -8,6 +8,8 @@ use Ticketack\WP\TKTApp;
  * BuyArticle form: pricings partial
  * This template will be parsed by underscore.js
  *
+ * @templateVersion 2.82.0
+ *
  * Input: {
  *   "article": { ... },
  *   "salepoint_id": "12345678-1234-1234-1234-123456789012"
