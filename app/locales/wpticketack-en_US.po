@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-06 18:21+0100\n"
+"POT-Creation-Date: 2025-02-07 14:59+0100\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Belkacem Alidra <belkacem.alidra@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -314,6 +314,18 @@ msgstr ""
 "com/en/knowledge-base/integration-avec-le-module-wordpress/\">at this link</"
 "a> and the changelog <a href=\"https://yoda.netoxygen.ch/public/"
 "projects/401b5210-986f-46b3-99cb-38546b73e16c/changelog\">here</a>"
+
+msgid "[Ticketack] Vous avez des overrides de templates à mettre à jour"
+msgstr "[Ticketack] You have template overrides to update"
+
+msgid "Voir les détails"
+msgstr "View details"
+
+msgid "Cacher les détails"
+msgstr "Hide details"
+
+msgid "Voir les modifications"
+msgstr "View changes"
 
 msgid "Les votes seront possibles dès le début de la séance"
 msgstr "Voting will be possible from the start of the screening"
@@ -1196,9 +1208,6 @@ msgstr "Ticketack is not configured"
 
 msgid "Accéder aux réglages"
 msgstr "Go to settings"
-
-msgid "[Ticketack] Vous avez des overrides de templates à mettre à jour"
-msgstr "[Ticketack] You have template overrides to update"
 
 msgid "Connexion à votre instance Ticketack"
 msgstr "Connection to your Ticketack instance"

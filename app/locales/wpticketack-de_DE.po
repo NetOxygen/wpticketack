@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-06 18:20+0100\n"
+"POT-Creation-Date: 2025-02-07 15:00+0100\n"
 "PO-Revision-Date: 2022-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Belkacem Alidra <belkacem.alidra@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -324,6 +324,18 @@ msgstr ""
 "Adresse</a> und das Änderungsprotokoll  <a target='_blank' href='https://"
 "yoda.netoxygen.ch/public/projects/401b5210-986f-46b3-99cb-38546b73e16c/"
 "changelog'>hier</a>"
+
+msgid "[Ticketack] Vous avez des overrides de templates à mettre à jour"
+msgstr "Sie haben Template-Overrides zu aktualisieren"
+
+msgid "Voir les détails"
+msgstr "Details anzeigen"
+
+msgid "Cacher les détails"
+msgstr "Details ausblenden"
+
+msgid "Voir les modifications"
+msgstr "Änderungen ansehen"
 
 msgid "Les votes seront possibles dès le début de la séance"
 msgstr "Abstimmungen sind von Beginn der Sitzung an möglich."
@@ -1215,9 +1227,6 @@ msgstr "Ticketack ist nicht konfiguriert."
 
 msgid "Accéder aux réglages"
 msgstr "Zu den Einstellungen gehen"
-
-msgid "[Ticketack] Vous avez des overrides de templates à mettre à jour"
-msgstr "Sie haben Template-Overrides zu aktualisieren"
 
 msgid "Connexion à votre instance Ticketack"
 msgstr "Verbindung zu Ihrer Ticketack-Instanz"

@@ -30,6 +30,8 @@ define("TKT_TEMPLATES", TKT_APP.'/templates');
 define("TKT_HELPERS", TKT_APP.'/helpers');
 define("TKT_LIB", TKT_APP.'/ticketack');
 define("TKT_OVERRIDE_DIR", get_stylesheet_directory());
+define("TKT_YODA_URL", 'https://yoda.netoxygen.ch');
+define("TKT_YODA_PROJECT_ID", '401b5210-986f-46b3-99cb-38546b73e16c');
 
 define("TKT_LANG", substr(get_locale(), 0, 2));
 if ( function_exists('icl_object_id') ) {
