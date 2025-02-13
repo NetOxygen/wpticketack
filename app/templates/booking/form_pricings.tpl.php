@@ -93,20 +93,20 @@ $currency = TKTApp::get_instance()->get_config('currency', 'CHF');
             <% } else { %>
                 <h5 class="no-one-time-pass-message">
                     <% if (availabilities && availabilities['me']['from-now']['one-time-pass'] > 0) { %>
-                        <?php echo esc_html(tkt_t("Il n'est pas encore possible d'acheter des places pour cette séance.")) ?>
+                        <?php echo esc_html(BSTranslator::t("Il n'est pas encore possible d'acheter des tickets en ligne pour cet événement.")) ?>
                     <% } else if (availabilities && availabilities['me']['absolute']['one-time-pass'] > 0) { %>
-                        <?php echo esc_html(tkt_t("Il n'est plus possible d'acheter des places pour cette séance.")) ?>
+                        <?php echo esc_html(BSTranslator::t("Il n'est plus possible d'acheter des tickets en ligne pour cet événement.")) ?>
                     <% } else { %>
-                        <?php echo esc_html(tkt_t("Il n'est pas possible d'acheter des places pour cette séance.")) ?>
+                        <?php echo esc_html(BSTranslator::t("Il n'est pas possible d'acheter des tickets en ligne pour cet événement.")) ?>
                     <% } %>
                 </h5>
                 <% if (availabilities && availabilities['on-site']['right-now']['one-time-pass'] > 0) { %>
                     <h5 class="no-one-time-pass-message">
-                        <?php echo esc_html(tkt_t("Des places sont néanmoins disponibles aux caisses.")) ?>
+                        <?php echo esc_html(tkt_t("Des places sont néanmoins disponibles aux points de vente.")) ?>
                     </h5>
                 <% } else if (availabilities && availabilities['on-site']['from-now']['one-time-pass'] > 0) { %>
                     <h5 class="no-one-time-pass-message">
-                        <?php echo esc_html(tkt_t("Des places seront néanmoins disponibles aux caisses.")) ?>
+                        <?php echo esc_html(tkt_t("Des places seront néanmoins disponibles aux points de vente.")) ?>
                     </h5>
                 <% } %>
             <% } %>
@@ -154,9 +154,9 @@ $currency = TKTApp::get_instance()->get_config('currency', 'CHF');
                     <% } else { %>
                     <small data-ticket-id="<%= ticket._id %>" class="cannot-book-explanation">
                         <% if (ticket.hasBooked(screening)) { %>
-                            <i><?php echo esc_html(tkt_t("Vous ne pouvez pas réserver plus de place pour cette séance avec ce billet.")) ?></i>
+                            <i><?php echo esc_html(BSTranslator::t("Vous ne pouvez pas réserver une place de plus pour cet événement sur ce billet.")) ?></i>
                         <% } else { %>
-                            <i><?php echo esc_html(tkt_t("Vous ne pouvez pas réserver de place pour cette séance avec ce billet.")) ?></i>
+                            <i><?php echo esc_html(BSTranslator::t("Votre billet n'est pas valable pour cet événement.")) ?></i>
                         <% } %>
                     </small>
                     <% } %>
