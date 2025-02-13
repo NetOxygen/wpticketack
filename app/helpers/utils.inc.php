@@ -888,18 +888,25 @@ function tkt_get_overridable_scss_variables()
 function tkt_compile_scss_override()
 {
     $scss = new Compiler();
-    $scss->setImportPaths(plugin_dir_path(TKT_APP).'front/build/');
+    $base_path = plugin_dir_path(TKT_APP).'front/build/';
+    $scss->setImportPaths($base_path);
     $scss->setFormatter('ScssPhp\ScssPhp\Formatter\Crunched');
 
     $variables = tkt_get_overridable_scss_variables();
     foreach ($variables as $name => $value) {
         $variables[$name] = TKTApp::get_instance()->get_config('advanced.'.$name, $value);
     }
+
+    $font_path = plugins_url('front/build/fonts', TKT_APP);
+    $font_path = wp_make_link_relative($font_path);
+    $variables['tkt-icon-font-path'] = "'$font_path'";
+    
     $scss->setVariables($variables);
 
     $output_path = TKT_OVERRIDE_DIR.'/tkt_override.css';
     file_put_contents($output_path, $scss->compile('@import "override.scss";'));
 }
+
 
 /**
  * Add a flash notice to {prefix}options table until a full page refresh is done
