@@ -718,18 +718,34 @@ class AdminSettingsAction extends TKTAction
         if (isset($all_pages) && $all_pages != null) {
             return $all_pages;
         }
+        $excluded_types = [''];
+        $post_types     = array_diff(get_post_types(), $excluded_types);
 
-        $pages = get_pages('sort_column=menu_order&post_status=publish,draft');
-        if ($pages != null) {
-            foreach ($pages as $page) {
-                $ancestor_ids = get_ancestors($page->ID, 'page');
+        $all_pages = [];
+        foreach($post_types as $post_type) {
+            $pages = get_pages([
+                'post_type'   => $post_type,
+                'sort_column' => 'menu_order',
+                'post_status' => 'publish,draft',
+            ]);
 
-                $slug = implode('/', array_map(function ($id) {
-                    $tr_ancestor_id = TKT_WPML_INSTALLED ? icl_object_id($id, 'page', FALSE, tkt_default_lang()) : $id;
+            if ($pages) {
+               $all_pages = array_merge($all_pages, $pages);
+            }
+        }
+
+
+        if ($all_pages != null) {
+            foreach ($all_pages as $page) {
+                $post_type    = get_post_type($page->ID);
+                $ancestor_ids = get_ancestors($page->ID, $post_type);
+
+                $slug = implode('/', array_map(function ($id) use ($post_type) {
+                    $tr_ancestor_id = TKT_WPML_INSTALLED ? icl_object_id($id, $post_type, FALSE, tkt_default_lang()) : $id;
                     return get_post($tr_ancestor_id)->post_name;
                 }, $ancestor_ids));
 
-                $slug .= '/'.tkt_translated_slug_by_id($page->ID, 'page', tkt_default_lang(), $page->post_name);
+                $slug .= '/'.tkt_translated_slug_by_id($page->ID, $post_type, tkt_default_lang(), $page->post_name);
                 $label = str_repeat('-', count($ancestor_ids)).$page->post_title;
 
                 if ($page->post_status === 'draft') {

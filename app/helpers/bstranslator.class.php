@@ -1,4 +1,7 @@
 <?php
+
+use Ticketack\WP\TKTApp;
+
 /**
  * Business Specific Translator
  */
@@ -1050,6 +1053,6 @@ class BSTranslator
     }
 
     public static function default() {
-        return AppConfig::get('customer.type', static::EVENT);
+        return TKTApp::get_instance()->get_config('customer.type', static::EVENT);
     }
 }
