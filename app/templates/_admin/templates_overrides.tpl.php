@@ -14,7 +14,7 @@ if (!function_exists('tkt_link')) {
             TKT_YODA_PROJECT_ID,
             $from != '0' ? $from : '2.80.3',
             $to,
-            urlencode($file)
+            base64_encode($file)
         );
     }
 }
