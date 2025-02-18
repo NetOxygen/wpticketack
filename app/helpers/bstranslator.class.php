@@ -444,6 +444,16 @@ class BSTranslator
                         return tkt_t("%s, vos réservations ont bien été modifiées.");
                 }
                 break;
+            case "Vos prochaines réservations":
+                switch ($informal) {
+                    case 'true':
+                    case true:
+                        return tkt_t("Tes prochaines réservations");
+                        break;
+                    default:
+                        return tkt_t("Vos prochaines réservations");
+                }
+                break;
             case "Il n'est plus possible d'acheter des tickets en ligne pour cet événement.":
                 switch ($domain) {
                     case static::CINEMA_FESTIVAL:
@@ -760,7 +770,7 @@ class BSTranslator
                         switch ($informal) {
                             case 'true':
                             case true:
-                                return tkt_t("Ton pass ou ton accrédiation ne permettent la réservation que de certaines séances spécifiques et celle-ci n'en fait pas partie.");
+                                return tkt_t("Ton pass ou ton accréditation ne permettent la réservation que de certaines séances spécifiques et celle-ci n'en fait pas partie.");
                                 break;
                             default:
                                 return tkt_t("Votre pass ou votre accréditation ne permettent la réservation que de certaines séances spécifiques et celle-ci n'en fait pas partie.");
@@ -823,7 +833,7 @@ class BSTranslator
                         switch ($informal) {
                             case 'true':
                             case true:
-                                return tkt_t("Les dates de la séance ne correspondent pas aux dates de validité de votre pass ou de votre accrédiation.");
+                                return tkt_t("Les dates de la séance ne correspondent pas aux dates de validité de votre pass ou de votre accréditation.");
                                 break;
                             default:
                                 return tkt_t("Les dates de la séance ne correspondent pas aux dates de validité de votre pass ou de votre accréditation.");
