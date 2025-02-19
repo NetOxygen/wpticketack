@@ -50,7 +50,7 @@ class HeadScriptsAction extends TKTAction
             }
             // moment locale must be injected globally because it\'s needed
             // before the config initialization
-            window.moment_locale = "'.esc_html(TKT_LANG).'";
+            window.moment_locale = "'.esc_html(get_locale()).'";
             window.moment_timezone = "'.esc_html(get_option('timezone_string')).'";
             window.tkt_config = {
                 "version": "1",
