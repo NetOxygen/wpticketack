@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-07 14:59+0100\n"
+"POT-Creation-Date: 2025-03-04 10:13+0100\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Belkacem Alidra <belkacem.alidra@netoxygen.ch>\n"
+"Last-Translator: Jonathan Ernst <jonathan.ernst@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -227,6 +227,23 @@ msgstr ""
 msgid "Ces champs sont requis"
 msgstr ""
 
+msgid "Votre nom"
+msgstr ""
+
+msgid "Votre e-mail"
+msgstr ""
+
+msgid ""
+"Sans photo, une pièce d'identité sera systématiquement demandée à l'entrée "
+"des salles et aux caisses."
+msgstr ""
+
+msgid "Stopper la vidéo"
+msgstr ""
+
+msgid "Tous ces champs sont requis"
+msgstr ""
+
 msgid "Tarifs :"
 msgstr ""
 
@@ -255,19 +272,10 @@ msgid ""
 "Saisissez le nombre de place(s) que vous souhaitez ajouter à votre panier :"
 msgstr ""
 
-msgid "Il n'est pas encore possible d'acheter des places pour cette séance."
+msgid "Des places sont néanmoins disponibles aux points de vente."
 msgstr ""
 
-msgid "Il n'est plus possible d'acheter des places pour cette séance."
-msgstr ""
-
-msgid "Il n'est pas possible d'acheter des places pour cette séance."
-msgstr ""
-
-msgid "Des places sont néanmoins disponibles aux caisses."
-msgstr ""
-
-msgid "Des places seront néanmoins disponibles aux caisses."
+msgid "Des places seront néanmoins disponibles aux points de vente."
 msgstr ""
 
 msgid "Réserver des places sur vos billets"
@@ -280,13 +288,6 @@ msgid "Réserver une place sur ce billet"
 msgstr ""
 
 msgid "Réserver une place de plus sur ce billet"
-msgstr ""
-
-msgid ""
-"Vous ne pouvez pas réserver plus de place pour cette séance avec ce billet."
-msgstr ""
-
-msgid "Vous ne pouvez pas réserver de place pour cette séance avec ce billet."
 msgstr ""
 
 msgid "Votre place a bien été réservée."
@@ -511,9 +512,6 @@ msgstr ""
 msgid "Mot de passe perdu ? Changez-le !"
 msgstr ""
 
-msgid "Votre nom"
-msgstr ""
-
 msgid "Société"
 msgstr ""
 
@@ -542,9 +540,6 @@ msgid "Confirmation de votre mot de passe"
 msgstr ""
 
 msgid "Saisissez une deuxième fois votre mot de passe"
-msgstr ""
-
-msgid "Tous ces champs sont requis"
 msgstr ""
 
 msgid "Votre compte a bien été créé"
@@ -1059,6 +1054,827 @@ msgid "Masculin"
 msgstr ""
 
 msgid "Autre"
+msgstr ""
+
+msgid "Séances"
+msgstr ""
+
+msgid "Concerts"
+msgstr ""
+
+#, fuzzy
+msgid "Représentations"
+msgstr "Enregistrement"
+
+msgid "Événements"
+msgstr ""
+
+msgid "Prochaines séances"
+msgstr ""
+
+msgid "Prochains concerts"
+msgstr ""
+
+msgid "Prochaines représentations"
+msgstr ""
+
+msgid "Prochains événements"
+msgstr ""
+
+msgid "Réservation pour une séance"
+msgstr ""
+
+msgid "Réservation pour une soirée"
+msgstr ""
+
+msgid "Réservation pour un concert"
+msgstr ""
+
+msgid "Réservation pour une représentation"
+msgstr ""
+
+msgid "Réservation pour un événement"
+msgstr ""
+
+msgid "Ticket pour une séance"
+msgstr ""
+
+msgid "Ticket pour une soirée"
+msgstr ""
+
+msgid "Ticket pour un concert"
+msgstr ""
+
+msgid "Ticket pour une réprésentation"
+msgstr ""
+
+msgid "Ticket pour un événement"
+msgstr ""
+
+msgid "Multi-séances"
+msgstr ""
+
+msgid "Multi-soirées"
+msgstr ""
+
+msgid "Multi-concerts"
+msgstr ""
+
+msgid "Multi-représentations"
+msgstr ""
+
+msgid "Multi-événements"
+msgstr ""
+
+msgid "Remboursement d'un ticket pour la séance"
+msgstr ""
+
+msgid "Remboursement d'un ticket pour la soirée"
+msgstr ""
+
+msgid "Remboursement d'un ticket pour le concert"
+msgstr ""
+
+msgid "Remboursement d'un ticket pour la représentation"
+msgstr ""
+
+msgid "Remboursement d'un ticket pour l'événement"
+msgstr ""
+
+msgid "Vous n'êtes pas autorisé à consulter le journal de la séance."
+msgstr ""
+
+msgid "Vous n'êtes pas autorisé à consulter le journal de la soirée."
+msgstr ""
+
+msgid "Vous n'êtes pas autorisé à consulter le journal du concert."
+msgstr ""
+
+msgid "Vous n'êtes pas autorisé à consulter le journal de la représentation."
+msgstr ""
+
+msgid "Vous n'êtes pas autorisé à consulter le journal de l'événement."
+msgstr ""
+
+msgid "La séance est terminée."
+msgstr ""
+
+msgid "Le concert est terminé."
+msgstr ""
+
+msgid "La représentation est terminée."
+msgstr ""
+
+msgid "L'événement est terminé."
+msgstr ""
+
+msgid "Il n'y a pas de billetterie pour cette séance."
+msgstr ""
+
+msgid "Il n'y a pas de billetterie pour ce concert."
+msgstr ""
+
+msgid "Il n'y a pas de billetterie pour cette représentation."
+msgstr ""
+
+msgid "Il n'y a pas de billetterie pour cet événement."
+msgstr ""
+
+msgid "Il n'y a pas de vente en ligne pour cette séance."
+msgstr ""
+
+msgid "Il n'y a pas de vente en ligne pour ce concert."
+msgstr ""
+
+msgid "Il n'y a pas de vente en ligne pour cette représentation."
+msgstr ""
+
+msgid "Il n'y a pas de vente en ligne pour cet événement."
+msgstr ""
+
+msgid "Cette séance n'est pas disponible avec ton abonnement."
+msgstr ""
+
+msgid "Cette séance n'est pas disponible avec votre abonnement."
+msgstr ""
+
+msgid "Cette soirée n'est pas disponible avec votre abonnement."
+msgstr ""
+
+msgid "Ce concert n'est pas réservable sur ton abonnement."
+msgstr ""
+
+msgid "Ce concert n'est pas réservable sur votre abonnement."
+msgstr ""
+
+msgid "Cette représentation n'est pas disponible avec ton abonnement."
+msgstr ""
+
+msgid "Cette représentation n'est pas disponible avec votre abonnement."
+msgstr ""
+
+msgid "Cet événement n'est pas réservable sur ton abonnement."
+msgstr ""
+
+msgid "Cet événement n'est pas réservable sur votre abonnement."
+msgstr ""
+
+msgid "Cette séance n'est plus disponible avec ton abonnement."
+msgstr ""
+
+msgid "Cette séance n'est plus disponible avec votre abonnement."
+msgstr ""
+
+msgid "Cette soirée n'est plus disponible avec ton abonnement."
+msgstr ""
+
+msgid "Cette soirée n'est plus disponible avec votre abonnement."
+msgstr ""
+
+msgid "Ce concert n'est plus réservable sur ton abonnement."
+msgstr ""
+
+msgid "Ce concert n'est plus réservable sur votre abonnement."
+msgstr ""
+
+msgid "Cette représentation n'est plus disponible avec ton abonnement."
+msgstr ""
+
+msgid "Cette représentation n'est plus disponible avec votre abonnement."
+msgstr ""
+
+msgid "Cet événement n'est plus réservable sur ton abonnement."
+msgstr ""
+
+msgid "Cet événement n'est plus réservable sur votre abonnement."
+msgstr ""
+
+msgid "Cette séance n'est pas encore disponible avec ton abonnement."
+msgstr ""
+
+msgid "Cette séance n'est pas encore disponible avec votre abonnement."
+msgstr ""
+
+msgid "Cette soirée n'est pas encore disponible avec votre abonnement."
+msgstr ""
+
+msgid "Ce concert n'est pas encore réservable sur ton abonnement."
+msgstr ""
+
+msgid "Ce concert n'est pas encore réservable sur votre abonnement."
+msgstr ""
+
+msgid "Cette représentation n'est pas encore disponible avec ton abonnement."
+msgstr ""
+
+msgid "Cette représentation n'est pas encore disponible avec votre abonnement."
+msgstr ""
+
+msgid "Cet événement n'est pas encore réservable sur ton abonnement."
+msgstr ""
+
+msgid "Cet événement n'est pas encore réservable sur votre abonnement."
+msgstr ""
+
+msgid ""
+"L'accès à cette séance est libre et gratuit. Il n'est pas nécessaire "
+"d'obtenir un billet ou de faire une réservation."
+msgstr ""
+
+msgid ""
+"L'accès à ce concert est libre et gratuit. Il n'est pas nécessaire d'obtenir "
+"un billet ou de faire une réservation."
+msgstr ""
+
+msgid ""
+"L'accès à cette représentation est libre et gratuit. Il n'est pas nécessaire "
+"d'obtenir un billet ou de faire une réservation."
+msgstr ""
+
+msgid ""
+"L'accès à cet événement est libre et gratuit. Il n'est pas nécessaire "
+"d'obtenir un billet ou de faire une réservation."
+msgstr ""
+
+#, php-format
+msgid ""
+"Merci pour ta commande, tes billets te parviendront par e-mail dans quelques "
+"minutes. Numéro de votre commande : %d"
+msgstr ""
+
+#, php-format
+msgid ""
+"Merci pour votre commande, vos billets vont vous parvenir par e-mail dans "
+"quelques minutes. Numéro de votre commande : %d"
+msgstr ""
+
+msgid "Merci pour ta commande !"
+msgstr ""
+
+msgid "Merci pour votre commande !"
+msgstr ""
+
+#, php-format
+msgid "Merci pour ta commande n°%d !"
+msgstr ""
+
+#, php-format
+msgid "%s, merci pour ta commande !"
+msgstr ""
+
+#, php-format
+msgid "%s, merci pour votre commande !"
+msgstr ""
+
+msgid ""
+"Merci d'avoir utilisé notre billetterie pour modifier tes réservations !"
+msgstr ""
+
+msgid ""
+"Nous vous remercions d'avoir utilisé notre billetterie pour modifier vos "
+"réservations."
+msgstr ""
+
+#, php-format
+msgid "%s, tes réservations ont bien été modifiées."
+msgstr ""
+
+#, php-format
+msgid "%s, vos réservations ont bien été modifiées."
+msgstr ""
+
+msgid "Tes prochaines réservations"
+msgstr ""
+
+msgid "Vos prochaines réservations"
+msgstr ""
+
+msgid ""
+"Il n'est plus possible d'acheter des tickets en ligne pour cette séance."
+msgstr ""
+
+msgid ""
+"Il n'est plus possible d'acheter des tickets en ligne pour cette soirée."
+msgstr ""
+
+msgid "Il n'est plus possible d'acheter des tickets en ligne pour ce concert."
+msgstr ""
+
+msgid ""
+"Il n'est plus possible d'acheter des tickets en ligne pour cette "
+"représentation."
+msgstr ""
+
+msgid ""
+"Il n'est plus possible d'acheter des tickets en ligne pour cet événement."
+msgstr ""
+
+msgid ""
+"Il n'est pas encore possible d'acheter des tickets en ligne pour cette "
+"séance."
+msgstr ""
+
+msgid ""
+"Il n'est pas encore possible d'acheter des tickets en ligne pour cette "
+"soirée."
+msgstr ""
+
+msgid ""
+"Il n'est pas encore possible d'acheter des tickets en ligne pour ce concert."
+msgstr ""
+
+msgid ""
+"Il n'est pas encore possible d'acheter des tickets en ligne pour cette "
+"représentation."
+msgstr ""
+
+msgid ""
+"Il n'est pas encore possible d'acheter des tickets en ligne pour cet "
+"événement."
+msgstr ""
+
+msgid "Il n'est plus possible de réserver cette séance en ligne."
+msgstr ""
+
+msgid "Il n'est plus possible de réserver cette soirée en ligne."
+msgstr ""
+
+msgid "Il n'est plus possible de réserver ce concert en ligne."
+msgstr ""
+
+msgid "Il n'est plus possible de réserver cette représentation en ligne."
+msgstr ""
+
+msgid "Il n'est plus possible de réserver cet événement en ligne."
+msgstr ""
+
+msgid "Il n'est pas encore possible de réserver cette séance en ligne."
+msgstr ""
+
+msgid "Il n'est pas encore possible de réserver cette soirée en ligne."
+msgstr ""
+
+msgid "Il n'est pas encore possible de réserver ce concert en ligne."
+msgstr ""
+
+msgid "Il n'est pas encore possible de réserver cette représentation en ligne."
+msgstr ""
+
+msgid "Il n'est pas encore possible de réserver cet événement en ligne."
+msgstr ""
+
+msgid ""
+"Tu ne peux pas réserver cette séance, car une autre réservation existe sur "
+"la même période."
+msgstr ""
+
+msgid ""
+"Vous ne pouvez pas réserver cette séance, car une autre réservation existe "
+"sur la même période."
+msgstr ""
+
+msgid ""
+"Tu ne peux pas réserver cette soirée, car une autre réservation existe sur "
+"la même période."
+msgstr ""
+
+msgid ""
+"Vous ne pouvez pas réserver cette soirée, car une autre réservation existe "
+"sur la même période."
+msgstr ""
+
+msgid ""
+"Tu ne peux pas réserver ce concert, car une autre réservation existe sur la "
+"même période."
+msgstr ""
+
+msgid ""
+"Vous ne pouvez pas réserver ce concert, car une autre réservation existe sur "
+"la même période."
+msgstr ""
+
+msgid ""
+"Vous ne pouvez pas réserver cette représentation, car une autre réservation "
+"existe sur la même période."
+msgstr ""
+
+msgid ""
+"Tu ne peux pas réserver cette représentation, car une autre réservation "
+"existe sur la même période."
+msgstr ""
+
+msgid ""
+"Vous ne pouvez pas réserver cet événement, car une autre réservation existe "
+"sur la même période."
+msgstr ""
+
+msgid ""
+"Tu ne peux pas réserver cet événement, car une autre réservation existe sur "
+"la même période."
+msgstr ""
+
+msgid ""
+"Tu ne peux pas réserver cette séance, car sa date est différente d'une autre "
+"de tes réservations."
+msgstr ""
+
+msgid ""
+"Vous ne pouvez pas réserver cette séance, car sa date est différente d'une "
+"autre de vos réservations."
+msgstr ""
+
+msgid ""
+"Tu ne peux pas réserver cette soirée, car sa date est différente d'une autre "
+"de tes réservations."
+msgstr ""
+
+msgid ""
+"Vous ne pouvez pas réserver cette soirée, car sa date est différente d'une "
+"autre de vos réservations."
+msgstr ""
+
+msgid ""
+"Tu ne peux pas réserver ce concert, car sa date est différente d'une autre "
+"de tes réservations."
+msgstr ""
+
+msgid ""
+"Vous ne pouvez pas réserver ce concert, car sa date est différente d'une "
+"autre de vos réservations."
+msgstr ""
+
+msgid ""
+"Tu ne peux pas réserver cette représentation, car sa date est différente "
+"d'une autre de tes réservations."
+msgstr ""
+
+msgid ""
+"Vous ne pouvez pas réserver cette représentations, car sa date est "
+"différente d'une autre de vos réservations."
+msgstr ""
+
+msgid ""
+"Tu ne peux pas réserver cet événement, car sa date est différente d'une "
+"autre de tes réservations."
+msgstr ""
+
+msgid ""
+"Vous ne pouvez pas réserver cet événement, car sa date est différente d'une "
+"autre de vos réservations."
+msgstr ""
+
+msgid ""
+"Tu ne peux pas réserver une place de plus pour cette séance sur ce pass ou "
+"cette accréditation."
+msgstr ""
+
+msgid ""
+"Vous ne pouvez pas réserver une place de plus pour cette séance sur ce pass "
+"ou cette accréditation."
+msgstr ""
+
+msgid ""
+"Tu ne peux pas réserver une place de plus pour cette séance sur cet "
+"abonnement."
+msgstr ""
+
+msgid ""
+"Vous ne pouvez pas réserver une place de plus pour cette séance sur cet "
+"abonnement."
+msgstr ""
+
+msgid ""
+"Tu ne peux pas réserver une place de plus pour cette soirée sur ce pass."
+msgstr ""
+
+msgid ""
+"Vous ne pouvez pas réserver une place de plus pour cette soirée sur ce pass."
+msgstr ""
+
+msgid ""
+"Tu ne peux pas réserver une place de plus pour ce concert sur cet abonnement."
+msgstr ""
+
+msgid ""
+"Vous ne pouvez pas réserver une place de plus pour ce concert sur cet "
+"abonnement."
+msgstr ""
+
+msgid ""
+"Tu ne peux pas réserver une place de plus pour cette représentation sur cet "
+"abonnement."
+msgstr ""
+
+msgid ""
+"Vous ne pouvez pas réserver une place de plus pour cette représentation sur "
+"cet abonnement."
+msgstr ""
+
+msgid ""
+"Tu ne peux pas réserver une place de plus pour cet événement sur ce billet."
+msgstr ""
+
+msgid ""
+"Vous ne pouvez pas réserver une place de plus pour cet événement sur ce "
+"billet."
+msgstr ""
+
+msgid ""
+"Tu as épuisé le nombre maximum de réservations sur ce pass ou cette "
+"accréditation pour la période à laquelle a lieu cette séance."
+msgstr ""
+
+msgid ""
+"Vous avez épuisé le nombre maximum de réservations sur ce pass ou cette "
+"accréditation pour la période à laquelle a lieu cette séance."
+msgstr ""
+
+msgid ""
+"Tu as épuisé le nombre maximum de réservations sur cet abonnement pour la "
+"période à laquelle a lieu cette séance."
+msgstr ""
+
+msgid ""
+"Vous avez épuisé le nombre maximum de réservations sur cet abonnement pour "
+"la période à laquelle a lieu cette séance."
+msgstr ""
+
+msgid ""
+"Tu as épuisé le nombre maximum de réservations sur ce billet pour la période "
+"à laquelle a lieu cet événement."
+msgstr ""
+
+msgid ""
+"Vous avez épuisé le nombre maximum de réservations sur ce billet pour la "
+"période à laquelle a lieu cet événement."
+msgstr ""
+
+msgid ""
+"Ton pass ou ton accréditation ne permettent la réservation que de certaines "
+"séances spécifiques et celle-ci n'en fait pas partie."
+msgstr ""
+
+msgid ""
+"Votre pass ou votre accréditation ne permettent la réservation que de "
+"certaines séances spécifiques et celle-ci n'en fait pas partie."
+msgstr ""
+
+msgid ""
+"Ton abonnement ne permet la réservation que de certaines séances spécifiques "
+"et celle-ci n'en fait pas partie."
+msgstr ""
+
+msgid ""
+"Votre abonnement ne permet la réservation que de certaines séances "
+"spécifiques et celle-ci n'en fait pas partie."
+msgstr ""
+
+msgid ""
+"Ton billet ne permet la réservation que de certaines soirées spécifiques et "
+"celle-ci n'en fait pas partie."
+msgstr ""
+
+msgid ""
+"Votre billet ne permet la réservation que de certaines soirées spécifiques "
+"et celle-ci n'en fait pas partie."
+msgstr ""
+
+msgid ""
+"Ton billet ne permet la réservation que de certains concerts spécifiques et "
+"celui-ci n'en fait pas partie."
+msgstr ""
+
+msgid ""
+"Votre billet ne permet la réservation que de certains concerts spécifiques "
+"et celui-ci n'en fait pas partie."
+msgstr ""
+
+msgid ""
+"Ton billet ne permet la réservation que de certaines représentations "
+"spécifiques et celle-ci n'en fait pas partie."
+msgstr ""
+
+msgid ""
+"Votre billet ne permet la réservation que de certaines représentations "
+"spécifiques et celle-ci n'en fait pas partie."
+msgstr ""
+
+msgid ""
+"Ton billet ne permet la réservation que de certains événements spécifiques "
+"et celui-ci n'en fait pas partie."
+msgstr ""
+
+msgid ""
+"Votre billet ne permet la réservation que de certains événements spécifiques "
+"et celui-ci n'en fait pas partie."
+msgstr ""
+
+msgid ""
+"Les dates de la séance ne correspondent pas aux dates de validité de votre "
+"pass ou de votre accréditation."
+msgstr ""
+
+msgid ""
+"Les dates de la séance ne correspondent pas aux dates de validité de ton "
+"abonnement."
+msgstr ""
+
+msgid ""
+"Les dates de la séance ne correspondent pas aux dates de validité de votre "
+"abonnement."
+msgstr ""
+
+msgid ""
+"Les dates de la soirée ne correspondent pas aux dates de validité de ton "
+"billet."
+msgstr ""
+
+msgid ""
+"Les dates de la soirée ne correspondent pas aux dates de validité de votre "
+"billet."
+msgstr ""
+
+msgid ""
+"Les dates du concert ne correspondent pas aux dates de validité de ton "
+"billet."
+msgstr ""
+
+msgid ""
+"Les dates du concert ne correspondent pas aux dates de validité de votre "
+"billet."
+msgstr ""
+
+msgid ""
+"Les dates de la représentation ne correspondent pas aux dates de validité de "
+"ton billet."
+msgstr ""
+
+msgid ""
+"Les dates de la représentation ne correspondent pas aux dates de validité de "
+"votre billet."
+msgstr ""
+
+msgid ""
+"Les dates de l'événement ne correspondent pas aux dates de validité de ton "
+"billet."
+msgstr ""
+
+msgid ""
+"Les dates de l'événement ne correspondent pas aux dates de validité de votre "
+"billet."
+msgstr ""
+
+msgid ""
+"Ton abonnement ou ton accréditation n'est pas valable pour cette séance."
+msgstr ""
+
+msgid ""
+"Votre abonnement ou votre accréditation n'est pas valable pour cette séance."
+msgstr ""
+
+msgid "Ton abonnement n'est pas valable pour cette séance."
+msgstr ""
+
+msgid "Votre abonnement n'est pas valable pour cette séance."
+msgstr ""
+
+msgid "Ton billet n'est pas valable pour cette soirée."
+msgstr ""
+
+msgid "Votre billet n'est pas valable pour cette soirée."
+msgstr ""
+
+msgid "Ton billet n'est pas valable pour ce concert."
+msgstr ""
+
+msgid "Votre billet n'est pas valable pour ce concert."
+msgstr ""
+
+msgid "Ton billet n'est pas valable pour cette représentation."
+msgstr ""
+
+msgid "Votre billet n'est pas valable pour cette représentation."
+msgstr ""
+
+msgid "Ton billet n'est pas valable pour cet événement."
+msgstr ""
+
+msgid "Votre billet n'est pas valable pour cet événement."
+msgstr ""
+
+msgid ""
+"Échec de la réservation : cette séance est déjà réservée sur cet abonnement "
+"ou cette accréditation."
+msgstr ""
+
+msgid ""
+"Échec de la réservation : cette séance est déjà réservée sur cet abonnement."
+msgstr ""
+
+msgid "Échec de la réservation : cette soirée est déjà réservée sur ce billet."
+msgstr ""
+
+msgid "Échec de la réservation : ce concert est déjà réservé sur ce billet."
+msgstr ""
+
+msgid ""
+"Échec de la réservation : cette représentation est déjà réservée sur cet "
+"abonnement."
+msgstr ""
+
+msgid "Échec de la réservation : cet événement est déjà réservé sur ce billet."
+msgstr ""
+
+msgid ""
+"Échec de la réservation : ce pass ou cette accréditation n'est pas valable "
+"pour cette séance ou le nombre maximal de réservation est atteint. Vérifie "
+"la date et le nombre de réservations déjà effectuées."
+msgstr ""
+
+msgid ""
+"Échec de la réservation : ce pass ou cette accréditation n'est pas valable "
+"pour cette séance ou le nombre maximal de réservation est atteint. Vérifiez "
+"la date et le nombre de réservations déjà effectuées."
+msgstr ""
+
+msgid ""
+"Échec de la réservation : cet abonnement n'est pas valable pour cette séance "
+"ou le nombre maximal de réservation est atteint. Vérifie la date et le "
+"nombre de réservations déjà effectuées."
+msgstr ""
+
+msgid ""
+"Échec de la réservation : cet abonnement n'est pas valable pour cette séance "
+"ou le nombre maximal de réservation est atteint. Vérifiez la date et le "
+"nombre de réservations déjà effectuées."
+msgstr ""
+
+msgid ""
+"Échec de la réservation : cet abonnement n'est pas valable pour cette soirée "
+"ou le nombre maximal de réservation est atteint. Vérifie la date et le "
+"nombre de réservations déjà effectuées."
+msgstr ""
+
+msgid ""
+"Échec de la réservation : cet abonnement n'est pas valable pour cette soirée "
+"ou le nombre maximal de réservation est atteint. Vérifiez la date et le "
+"nombre de réservations déjà effectuées."
+msgstr ""
+
+msgid ""
+"Échec de la réservation : cet abonnement n'est pas valable pour ce concert "
+"ou le nombre maximal de réservation est atteint. Vérifie la date et le "
+"nombre de réservations déjà effectuées."
+msgstr ""
+
+msgid ""
+"Échec de la réservation : cet abonnement n'est pas valable pour ce concert "
+"ou le nombre maximal de réservation est atteint. Vérifiez la date et le "
+"nombre de réservations déjà effectuées."
+msgstr ""
+
+msgid ""
+"Échec de la réservation : cet abonnement n'est pas valable pour cette "
+"représentation ou le nombre maximal de réservation est atteint. Vérifie la "
+"date et le nombre de réservations déjà effectuées."
+msgstr ""
+
+msgid ""
+"Échec de la réservation : cet abonnement n'est pas valable pour cette "
+"représentation ou le nombre maximal de réservation est atteint. Vérifiez la "
+"date et le nombre de réservations déjà effectuées."
+msgstr ""
+
+msgid ""
+"Échec de la réservation : cet abonnement n'est pas valable pour cet "
+"événement ou le nombre maximal de réservation est atteint. Vérifie la date "
+"et le nombre de réservations déjà effectuées."
+msgstr ""
+
+msgid ""
+"Échec de la réservation : cet abonnement n'est pas valable pour cet "
+"événement ou le nombre maximal de réservation est atteint. Vérifiez la date "
+"et le nombre de réservations déjà effectuées."
+msgstr ""
+
+msgid ""
+"Il y a eu un problème lors de la finalisation de ta commande. Merci de bien "
+"vouloir repasser ta commande."
+msgstr ""
+
+msgid ""
+"Il y a eu un problème lors de la finalisation de votre commande. Merci de "
+"bien vouloir repasser votre commande."
+msgstr ""
+
+msgid ""
+"Il y a eu un problème lors de la finalisation de ta commande. Nous sommes "
+"prévenus et un collaborateur va prendre contact avec toi."
+msgstr ""
+
+msgid ""
+"Il y a eu un problème lors de la finalisation de votre commande. Nous sommes "
+"prévenus et un collaborateur va prendre contact avec vous."
 msgstr ""
 
 msgid ""
