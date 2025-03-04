@@ -51,6 +51,14 @@ export default class BuyForm extends Component {
             this.tickettypes = tickettypes.map(tickettype => new Tickettype(tickettype));
 
             this.activePass = this.$pass.eq(0).data('type');
+
+            // open pre-selected pass, if any
+            if ($('.pass.open').length > 0) {
+                const selected = $('.pass.open').eq(0).attr('id');
+                $(`.pass_title[aria-controls="#${selected}"]`).trigger('click');
+                this.activePass = selected.replace('item-', '');
+            }
+
             this.sync_pass_pricings();
             this.sync_pass_form();
         });
@@ -58,9 +66,6 @@ export default class BuyForm extends Component {
         if ($('.choose-pass', this.$container).length > 1) {
             $('.tkt-pass-form-section', this.$container).hide();
         };
-
-        // open pre-selected pass, if any
-        $('.pass.open', this.$container).fadeIn();
 
         postal.subscribe({
             channel: "connection",
