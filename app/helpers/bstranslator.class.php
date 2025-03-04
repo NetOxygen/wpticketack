@@ -276,7 +276,7 @@ class BSTranslator
                         switch ($informal) {
                             case 'true':
                             case true:
-                                return tkt_t("Cette soirée n'est plus disponible avec ton abonnement.");
+                                return tkt_t("Cette soirée n'est plus disponible avec votre abonnement.");
                                 break;
                             default:
                                 return tkt_t("Cette soirée n'est plus disponible avec votre abonnement.");
@@ -444,6 +444,47 @@ class BSTranslator
                         return tkt_t("%s, vos réservations ont bien été modifiées.");
                 }
                 break;
+            case "Vos réservations":
+                switch ($informal) {
+                    case 'true':
+                    case true:
+                        return tkt_t("Tes réservations");
+                        break;
+                    default:
+                        return tkt_t("Vos réservations");
+                }
+                break;
+            case "Ce résumé, qui peut être %stéléchargé ici%s, ne permet pas l'accès aux événements réservés.":
+                switch ($domain) {
+                    case static::CINEMA_FESTIVAL:
+                        return tkt_t("Ce résumé, qui peut être %stéléchargé ici%s, ne permet pas l'accès aux projections et événements réservés.");
+                        break;
+                    case static::CINEMA:
+                        return tkt_t("Ce résumé, qui peut être %stéléchargé ici%s, ne permet pas l'accès aux projections réservées.");
+                        break;
+                    case static::MUSIC_FESTIVAL:
+                        return tkt_t("Ce résumé, qui peut être %stéléchargé ici%s, ne permet pas l'accès aux soirées réservées.");
+                        break;
+                    case static::MUSIC:
+                        return tkt_t("Ce résumé, qui peut être %stéléchargé ici%s, ne permet pas l'accès aux concerts réservés.");
+                        break;
+                    case static::THEATER:
+                        return tkt_t("Ce résumé, qui peut être %stéléchargé ici%s, ne permet pas l'accès aux représentations réservées.");
+                        break;
+                    default:
+                        return tkt_t("Ce résumé, qui peut être %stéléchargé ici%s, ne permet pas l'accès aux événements réservés.");
+                }
+                break;
+            case "L'accès nécessite la présentation du code QR présent sur le billet. En cas de perte, une copie peut être obtenue en suivant %sce lien%s.":
+                switch ($domain) {
+                    case static::CINEMA_FESTIVAL:
+                    case static::MUSIC_FESTIVAL:
+                        return tkt_t("L'accès nécessite la présentation du code QR présent sur l'accréditation ou le pass. En cas de perte, une copie peut être obtenue en suivant %sce lien%s.");
+                        break;
+                    default:
+                        return tkt_t("L'accès nécessite la présentation du code QR présent sur l'abonnement. En cas de perte, une copie peut être obtenue en suivant %sce lien%s.");
+                }
+                break;
             case "Vos prochaines réservations":
                 switch ($informal) {
                     case 'true':
@@ -567,20 +608,20 @@ class BSTranslator
                         switch ($informal) {
                             case 'true':
                             case true:
-                                return tkt_t("Vous ne pouvez pas réserver cette représentation, car une autre réservation existe sur la même période.");
+                                return tkt_t("Tu ne peux pas réserver cette représentation, car une autre réservation existe sur la même période.");
                                 break;
                             default:
-                                return tkt_t("Tu ne peux pas réserver cette représentation, car une autre réservation existe sur la même période.");
+                                return tkt_t("Vous ne pouvez pas réserver cette représentation, car une autre réservation existe sur la même période.");
                         }
                         break;
                     default:
                         switch ($informal) {
                             case 'true':
                             case true:
-                                return tkt_t("Vous ne pouvez pas réserver cet événement, car une autre réservation existe sur la même période.");
+                                return tkt_t("Tu ne peux pas réserver cet événement, car une autre réservation existe sur la même période.");
                                 break;
                             default:
-                                return tkt_t("Tu ne peux pas réserver cet événement, car une autre réservation existe sur la même période.");
+                                return tkt_t("Vous ne pouvez pas réserver cet événement, car une autre réservation existe sur la même période.");
                         }
                 }
                 break;

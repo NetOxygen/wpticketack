@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: eshop 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-04 10:15+0100\n"
+"POT-Creation-Date: 2025-03-04 11:22+0100\n"
 "PO-Revision-Date: 2020-01-16 16:45+0000\n"
 "Last-Translator: Jonathan Ernst <jonathan.ernst@netoxygen.ch>\n"
 "Language-Team: English (United Kingdom) <http://translate.neto2.net/projects/"
@@ -1242,9 +1242,6 @@ msgstr "This screening cannot be booked anymore with your current pass."
 msgid "Cette séance n'est plus disponible avec votre abonnement."
 msgstr "This screening cannot be booked anymore with your current pass."
 
-msgid "Cette soirée n'est plus disponible avec ton abonnement."
-msgstr ""
-
 msgid "Cette soirée n'est plus disponible avec votre abonnement."
 msgstr "This evening cannot be booked anymore with your current pass."
 
@@ -1374,6 +1371,77 @@ msgstr "%s, your reservations were modified."
 msgid "%s, vos réservations ont bien été modifiées."
 msgstr "%s, your reservations were modified."
 
+msgid "Tes réservations"
+msgstr "Your bookings"
+
+msgid "Vos réservations"
+msgstr "Your bookings"
+
+#, php-format
+msgid ""
+"Ce résumé, qui peut être %stéléchargé ici%s, ne permet pas l'accès aux "
+"projections et événements réservés."
+msgstr ""
+"This summary, which can be %sdownloaded here%s, is not a ticket and doesn't "
+"give access to the booked screenings and events."
+
+#, php-format
+msgid ""
+"Ce résumé, qui peut être %stéléchargé ici%s, ne permet pas l'accès aux "
+"projections réservées."
+msgstr ""
+"This summary, which can be %sdownloaded here%s, is not a ticket and doesn't "
+"give access to the booked screenings."
+
+#, php-format
+msgid ""
+"Ce résumé, qui peut être %stéléchargé ici%s, ne permet pas l'accès aux "
+"soirées réservées."
+msgstr ""
+"This summary, which can be %sdownloaded here%s, is not a ticket and doesn't "
+"give access to the booked evenings."
+
+#, php-format
+msgid ""
+"Ce résumé, qui peut être %stéléchargé ici%s, ne permet pas l'accès aux "
+"concerts réservés."
+msgstr ""
+"This summary, which can be %sdownloaded here%s, is not a ticket and doesn't "
+"give access to the booked concerts."
+
+#, php-format
+msgid ""
+"Ce résumé, qui peut être %stéléchargé ici%s, ne permet pas l'accès aux "
+"représentations réservées."
+msgstr ""
+"This summary, which can be %sdownloaded here%s, is not a ticket and doesn't "
+"give access to the booked concerts."
+
+#, php-format
+msgid ""
+"Ce résumé, qui peut être %stéléchargé ici%s, ne permet pas l'accès aux "
+"événements réservés."
+msgstr ""
+"This summary, which can be %sdownloaded here%s, is not a ticket and doesn't "
+"give access to the booked events."
+
+#, php-format
+msgid ""
+"L'accès nécessite la présentation du code QR présent sur l'accréditation ou "
+"le pass. En cas de perte, une copie peut être obtenue en suivant %sce lien%s."
+msgstr ""
+"Access requires presentation of the QR code on the accreditation or pass. "
+"Should you have misplaced your ticket, please click on %sthis link%s to "
+"retrieve a copy."
+
+#, php-format
+msgid ""
+"L'accès nécessite la présentation du code QR présent sur l'abonnement. En "
+"cas de perte, une copie peut être obtenue en suivant %sce lien%s."
+msgstr ""
+"Access requires presentation of the QR code on the pass. Should you have "
+"misplaced your ticket, please click on %sthis link%s to retrieve a copy."
+
 msgid "Tes prochaines réservations"
 msgstr "Upcoming bookings"
 
@@ -1391,11 +1459,10 @@ msgstr "No online sales for this evening anymore."
 msgid "Il n'est plus possible d'acheter des tickets en ligne pour ce concert."
 msgstr "No online sales for this concert anymore."
 
-#, fuzzy
 msgid ""
 "Il n'est plus possible d'acheter des tickets en ligne pour cette "
 "représentation."
-msgstr "No online sales for this screening anymore."
+msgstr "No online sales for this performance anymore."
 
 msgid ""
 "Il n'est plus possible d'acheter des tickets en ligne pour cet événement."
@@ -1415,11 +1482,10 @@ msgid ""
 "Il n'est pas encore possible d'acheter des tickets en ligne pour ce concert."
 msgstr "No online sales for this concert yet."
 
-#, fuzzy
 msgid ""
 "Il n'est pas encore possible d'acheter des tickets en ligne pour cette "
 "représentation."
-msgstr "No online sales for this screening yet."
+msgstr "No online sales for this performance yet."
 
 msgid ""
 "Il n'est pas encore possible d'acheter des tickets en ligne pour cet "
@@ -1466,53 +1532,45 @@ msgid ""
 "sur la même période."
 msgstr "You cannot book this screening because another booking overlaps it."
 
-#, fuzzy
 msgid ""
 "Tu ne peux pas réserver cette soirée, car une autre réservation existe sur "
 "la même période."
-msgstr "You cannot book this screening because another booking overlaps it."
+msgstr "You cannot book this evening because another booking overlaps it."
 
-#, fuzzy
 msgid ""
 "Vous ne pouvez pas réserver cette soirée, car une autre réservation existe "
 "sur la même période."
-msgstr "You cannot book this screening because another booking overlaps it."
+msgstr "You cannot book this evening because another booking overlaps it."
 
-#, fuzzy
 msgid ""
 "Tu ne peux pas réserver ce concert, car une autre réservation existe sur la "
 "même période."
-msgstr "You cannot book this screening because another booking overlaps it."
+msgstr "You cannot book this concert because another booking overlaps it."
 
-#, fuzzy
 msgid ""
 "Vous ne pouvez pas réserver ce concert, car une autre réservation existe sur "
 "la même période."
-msgstr "You cannot book this screening because another booking overlaps it."
+msgstr "You cannot book this concert because another booking overlaps it."
 
-#, fuzzy
-msgid ""
-"Vous ne pouvez pas réserver cette représentation, car une autre réservation "
-"existe sur la même période."
-msgstr "You cannot book this screening because another booking overlaps it."
-
-#, fuzzy
 msgid ""
 "Tu ne peux pas réserver cette représentation, car une autre réservation "
 "existe sur la même période."
-msgstr "You cannot book this screening because another booking overlaps it."
+msgstr "You cannot book this performance because another booking overlaps it."
 
-#, fuzzy
 msgid ""
-"Vous ne pouvez pas réserver cet événement, car une autre réservation existe "
-"sur la même période."
-msgstr "You cannot book this screening because another booking overlaps it."
+"Vous ne pouvez pas réserver cette représentation, car une autre réservation "
+"existe sur la même période."
+msgstr "You cannot book this performance because another booking overlaps it."
 
-#, fuzzy
 msgid ""
 "Tu ne peux pas réserver cet événement, car une autre réservation existe sur "
 "la même période."
-msgstr "You cannot book this screening because another booking overlaps it."
+msgstr "You cannot book this event because another booking overlaps it."
+
+msgid ""
+"Vous ne pouvez pas réserver cet événement, car une autre réservation existe "
+"sur la même période."
+msgstr "You cannot book this event because another booking overlaps it."
 
 msgid ""
 "Tu ne peux pas réserver cette séance, car sa date est différente d'une autre "
@@ -1528,69 +1586,61 @@ msgstr ""
 "You cannot book this screening because its date is different from one of "
 "your other bookings."
 
-#, fuzzy
 msgid ""
 "Tu ne peux pas réserver cette soirée, car sa date est différente d'une autre "
 "de tes réservations."
 msgstr ""
-"You cannot book this screening because its date is different from one of "
-"your other bookings."
+"You cannot book this evening because its date is different from one of your "
+"other bookings."
 
-#, fuzzy
 msgid ""
 "Vous ne pouvez pas réserver cette soirée, car sa date est différente d'une "
 "autre de vos réservations."
 msgstr ""
-"You cannot book this screening because its date is different from one of "
-"your other bookings."
+"You cannot book this evening because its date is different from one of your "
+"other bookings."
 
-#, fuzzy
 msgid ""
 "Tu ne peux pas réserver ce concert, car sa date est différente d'une autre "
 "de tes réservations."
 msgstr ""
-"You cannot book this screening because its date is different from one of "
-"your other bookings."
+"You cannot book this concert because its date is different from one of your "
+"other bookings."
 
-#, fuzzy
 msgid ""
 "Vous ne pouvez pas réserver ce concert, car sa date est différente d'une "
 "autre de vos réservations."
 msgstr ""
-"You cannot book this screening because its date is different from one of "
-"your other bookings."
+"You cannot book this concert because its date is different from one of your "
+"other bookings."
 
-#, fuzzy
 msgid ""
 "Tu ne peux pas réserver cette représentation, car sa date est différente "
 "d'une autre de tes réservations."
 msgstr ""
-"You cannot book this screening because its date is different from one of "
+"You cannot book this performance because its date is different from one of "
 "your other bookings."
 
-#, fuzzy
 msgid ""
 "Vous ne pouvez pas réserver cette représentations, car sa date est "
 "différente d'une autre de vos réservations."
 msgstr ""
-"You cannot book this screening because its date is different from one of "
+"You cannot book this performance because its date is different from one of "
 "your other bookings."
 
-#, fuzzy
 msgid ""
 "Tu ne peux pas réserver cet événement, car sa date est différente d'une "
 "autre de tes réservations."
 msgstr ""
-"You cannot book this screening because its date is different from one of "
-"your other bookings."
+"You cannot book this event because its date is different from one of your "
+"other bookings."
 
-#, fuzzy
 msgid ""
 "Vous ne pouvez pas réserver cet événement, car sa date est différente d'une "
 "autre de vos réservations."
 msgstr ""
-"You cannot book this screening because its date is different from one of "
-"your other bookings."
+"You cannot book this event because its date is different from one of your "
+"other bookings."
 
 msgid ""
 "Tu ne peux pas réserver une place de plus pour cette séance sur ce pass ou "
@@ -1628,34 +1678,29 @@ msgid ""
 "Tu ne peux pas réserver une place de plus pour ce concert sur cet abonnement."
 msgstr "You cannot book one more seat for this concert on this pass."
 
-#, fuzzy
 msgid ""
 "Vous ne pouvez pas réserver une place de plus pour ce concert sur cet "
 "abonnement."
-msgstr "You cannot book one more seat for this screening on this ticket."
+msgstr "You cannot book one more seat for this concert on this pass."
 
-#, fuzzy
 msgid ""
 "Tu ne peux pas réserver une place de plus pour cette représentation sur cet "
 "abonnement."
-msgstr "You cannot book one more seat for this screening on this ticket."
+msgstr "You cannot book one more seat for this performance on this ticket."
 
-#, fuzzy
 msgid ""
 "Vous ne pouvez pas réserver une place de plus pour cette représentation sur "
 "cet abonnement."
-msgstr "You cannot book one more seat for this screening on this ticket."
+msgstr "You cannot book one more seat for this performance on this ticket."
 
-#, fuzzy
 msgid ""
 "Tu ne peux pas réserver une place de plus pour cet événement sur ce billet."
-msgstr "You cannot book one more seat for this screening on this ticket."
+msgstr "You cannot book one more seat for this event on this ticket."
 
-#, fuzzy
 msgid ""
 "Vous ne pouvez pas réserver une place de plus pour cet événement sur ce "
 "billet."
-msgstr "You cannot book one more seat for this screening on this ticket."
+msgstr "You cannot book one more seat for this event on this ticket."
 
 msgid ""
 "Tu as épuisé le nombre maximum de réservations sur ce pass ou cette "
@@ -1699,13 +1744,12 @@ msgstr ""
 "You have used all the available booking slots on this ticket for the time "
 "period of this event."
 
-#, fuzzy
 msgid ""
 "Ton pass ou ton accréditation ne permettent la réservation que de certaines "
 "séances spécifiques et celle-ci n'en fait pas partie."
 msgstr ""
 "Your pass or your accreditation makes it possible to book specific "
-"screenings but this screening is not part of them."
+"screenings but this one is not part of them."
 
 msgid ""
 "Votre pass ou votre accréditation ne permettent la réservation que de "
@@ -1801,53 +1845,45 @@ msgid ""
 "abonnement."
 msgstr "Dates of this screening don't match the validity of your pass."
 
-#, fuzzy
 msgid ""
 "Les dates de la soirée ne correspondent pas aux dates de validité de ton "
 "billet."
-msgstr "Dates of this screening don't match the validity of your ticket."
+msgstr "Dates of this evening don't match the validity of your ticket."
 
-#, fuzzy
 msgid ""
 "Les dates de la soirée ne correspondent pas aux dates de validité de votre "
 "billet."
-msgstr "Dates of this screening don't match the validity of your ticket."
+msgstr "Dates of this evening don't match the validity of your ticket."
 
-#, fuzzy
 msgid ""
 "Les dates du concert ne correspondent pas aux dates de validité de ton "
 "billet."
-msgstr "Dates of this screening don't match the validity of your ticket."
+msgstr "Dates of this concert don't match the validity of your ticket."
 
-#, fuzzy
 msgid ""
 "Les dates du concert ne correspondent pas aux dates de validité de votre "
 "billet."
-msgstr "Dates of this screening don't match the validity of your ticket."
+msgstr "Dates of this concert don't match the validity of your ticket."
 
-#, fuzzy
 msgid ""
 "Les dates de la représentation ne correspondent pas aux dates de validité de "
 "ton billet."
-msgstr "Dates of this screening don't match the validity of your ticket."
+msgstr "Dates of this performance don't match the validity of your ticket."
 
-#, fuzzy
 msgid ""
 "Les dates de la représentation ne correspondent pas aux dates de validité de "
 "votre billet."
-msgstr "Dates of this screening don't match the validity of your ticket."
+msgstr "Dates of this performance don't match the validity of your ticket."
 
-#, fuzzy
 msgid ""
 "Les dates de l'événement ne correspondent pas aux dates de validité de ton "
 "billet."
-msgstr "Dates of this screening don't match the validity of your ticket."
+msgstr "Dates of this event don't match the validity of your ticket."
 
-#, fuzzy
 msgid ""
 "Les dates de l'événement ne correspondent pas aux dates de validité de votre "
 "billet."
-msgstr "Dates of this screening don't match the validity of your ticket."
+msgstr "Dates of this event don't match the validity of your ticket."
 
 msgid ""
 "Ton abonnement ou ton accréditation n'est pas valable pour cette séance."
@@ -1863,37 +1899,29 @@ msgstr "Your pass is not valid for this screening."
 msgid "Votre abonnement n'est pas valable pour cette séance."
 msgstr "Your pass is not valid for this screening."
 
-#, fuzzy
 msgid "Ton billet n'est pas valable pour cette soirée."
-msgstr "Your ticket is not valid for this screening."
+msgstr "Your ticket is not valid for this evening."
 
-#, fuzzy
 msgid "Votre billet n'est pas valable pour cette soirée."
-msgstr "Your ticket is not valid for this screening."
+msgstr "Your ticket is not valid for this evening."
 
-#, fuzzy
 msgid "Ton billet n'est pas valable pour ce concert."
-msgstr "Your ticket is not valid for this screening."
+msgstr "Your ticket is not valid for this concert."
 
-#, fuzzy
 msgid "Votre billet n'est pas valable pour ce concert."
-msgstr "Your ticket is not valid for this screening."
+msgstr "Your ticket is not valid for this concert."
 
-#, fuzzy
 msgid "Ton billet n'est pas valable pour cette représentation."
-msgstr "Your ticket is not valid for this screening."
+msgstr "Your ticket is not valid for this performance."
 
-#, fuzzy
 msgid "Votre billet n'est pas valable pour cette représentation."
-msgstr "Your ticket is not valid for this screening."
+msgstr "Your ticket is not valid for this performance."
 
-#, fuzzy
 msgid "Ton billet n'est pas valable pour cet événement."
-msgstr "Your ticket is not valid for this screening."
+msgstr "Your ticket is not valid for this event."
 
-#, fuzzy
 msgid "Votre billet n'est pas valable pour cet événement."
-msgstr "Your ticket is not valid for this screening."
+msgstr "Your ticket is not valid for this event."
 
 msgid ""
 "Échec de la réservation : cette séance est déjà réservée sur cet abonnement "
@@ -1905,23 +1933,19 @@ msgid ""
 "Échec de la réservation : cette séance est déjà réservée sur cet abonnement."
 msgstr "Error: you have already booked this screening on this pass."
 
-#, fuzzy
 msgid "Échec de la réservation : cette soirée est déjà réservée sur ce billet."
-msgstr "Error: you have already booked this screening."
+msgstr "Error: you have already booked this evening on this ticket."
 
-#, fuzzy
 msgid "Échec de la réservation : ce concert est déjà réservé sur ce billet."
-msgstr "Error: you have already booked this screening."
+msgstr "Error: you have already booked this concert on this ticket."
 
-#, fuzzy
 msgid ""
 "Échec de la réservation : cette représentation est déjà réservée sur cet "
 "abonnement."
-msgstr "Error: you have already booked this screening."
+msgstr "Error: you have already booked this performance on this pass."
 
-#, fuzzy
 msgid "Échec de la réservation : cet événement est déjà réservé sur ce billet."
-msgstr "Error: you have already booked this screening."
+msgstr "Error: you have already booked this event on this ticket."
 
 msgid ""
 "Échec de la réservation : ce pass ou cette accréditation n'est pas valable "
@@ -1959,85 +1983,75 @@ msgstr ""
 "screening. Please double-check the date of the screening and the number of "
 "bookings on your ticket."
 
-#, fuzzy
 msgid ""
 "Échec de la réservation : cet abonnement n'est pas valable pour cette soirée "
 "ou le nombre maximal de réservation est atteint. Vérifie la date et le "
 "nombre de réservations déjà effectuées."
 msgstr ""
 "Booking error: your pass reached its booking limit or is not valid for this "
-"screening. Please double-check the date of the screening and the number of "
-"bookings on your pass."
+"evening. Please double-check the date and the number of bookings on your "
+"pass."
 
-#, fuzzy
 msgid ""
 "Échec de la réservation : cet abonnement n'est pas valable pour cette soirée "
 "ou le nombre maximal de réservation est atteint. Vérifiez la date et le "
 "nombre de réservations déjà effectuées."
 msgstr ""
 "Booking error: your pass reached its booking limit or is not valid for this "
-"screening. Please double-check the date of the screening and the number of "
-"bookings on your pass."
+"evening. Please double-check the date and the number of bookings on your "
+"pass."
 
-#, fuzzy
 msgid ""
 "Échec de la réservation : cet abonnement n'est pas valable pour ce concert "
 "ou le nombre maximal de réservation est atteint. Vérifie la date et le "
 "nombre de réservations déjà effectuées."
 msgstr ""
 "Booking error: your pass reached its booking limit or is not valid for this "
-"screening. Please double-check the date of the screening and the number of "
-"bookings on your pass."
+"concert. Please double-check the date and the number of bookings on your "
+"pass."
 
-#, fuzzy
 msgid ""
 "Échec de la réservation : cet abonnement n'est pas valable pour ce concert "
 "ou le nombre maximal de réservation est atteint. Vérifiez la date et le "
 "nombre de réservations déjà effectuées."
 msgstr ""
 "Booking error: your pass reached its booking limit or is not valid for this "
-"screening. Please double-check the date of the screening and the number of "
-"bookings on your pass."
+"concert. Please double-check the date and the number of bookings on your "
+"pass."
 
-#, fuzzy
 msgid ""
 "Échec de la réservation : cet abonnement n'est pas valable pour cette "
 "représentation ou le nombre maximal de réservation est atteint. Vérifie la "
 "date et le nombre de réservations déjà effectuées."
 msgstr ""
 "Booking error: your pass reached its booking limit or is not valid for this "
-"screening. Please double-check the date of the screening and the number of "
-"bookings on your pass."
+"performance. Please double-check the date and the number of bookings on your "
+"pass."
 
-#, fuzzy
 msgid ""
 "Échec de la réservation : cet abonnement n'est pas valable pour cette "
 "représentation ou le nombre maximal de réservation est atteint. Vérifiez la "
 "date et le nombre de réservations déjà effectuées."
 msgstr ""
 "Booking error: your pass reached its booking limit or is not valid for this "
-"screening. Please double-check the date of the screening and the number of "
-"bookings on your pass."
+"performance. Please double-check the date and the number of bookings on your "
+"pass."
 
-#, fuzzy
 msgid ""
 "Échec de la réservation : cet abonnement n'est pas valable pour cet "
 "événement ou le nombre maximal de réservation est atteint. Vérifie la date "
 "et le nombre de réservations déjà effectuées."
 msgstr ""
 "Booking error: your pass reached its booking limit or is not valid for this "
-"screening. Please double-check the date of the screening and the number of "
-"bookings on your pass."
+"event. Please double-check the date and the number of bookings on your pass."
 
-#, fuzzy
 msgid ""
 "Échec de la réservation : cet abonnement n'est pas valable pour cet "
 "événement ou le nombre maximal de réservation est atteint. Vérifiez la date "
 "et le nombre de réservations déjà effectuées."
 msgstr ""
 "Booking error: your pass reached its booking limit or is not valid for this "
-"screening. Please double-check the date of the screening and the number of "
-"bookings on your pass."
+"event. Please double-check the date and the number of bookings on your pass."
 
 msgid ""
 "Il y a eu un problème lors de la finalisation de ta commande. Merci de bien "
@@ -2098,9 +2112,8 @@ msgstr "All Ticketack events"
 msgid "Rechercher les events Ticketack"
 msgstr "Search Ticketack events"
 
-#, fuzzy
 msgid "Parent :"
-msgstr "Parent :"
+msgstr "Parent:"
 
 msgid "Aucun event Ticketack trouvé."
 msgstr "No Ticketack event found"
@@ -2165,9 +2178,8 @@ msgstr "No Ticketack person found in Trash"
 msgid "Personnes importées depuis Ticketack"
 msgstr "Events imported from Ticketack"
 
-#, fuzzy
 msgid "Importer depuis Ticketack"
-msgstr "Events imported from Ticketack"
+msgstr "Import from Ticketack"
 
 msgid "API"
 msgstr "API"

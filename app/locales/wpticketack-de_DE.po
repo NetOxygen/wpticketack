@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: eshop 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-04 10:14+0100\n"
+"POT-Creation-Date: 2025-03-04 11:20+0100\n"
 "PO-Revision-Date: 2020-01-16 16:46+0000\n"
 "Last-Translator: Jonathan Ernst <jonathan.ernst@netoxygen.ch>\n"
 "Language-Team: German (Swiss High) <http://translate.neto2.net/projects/"
@@ -1260,10 +1260,6 @@ msgstr "Diese Vorstellung ist mit Ihrem Pass nicht mehr verfügbar."
 msgid "Cette séance n'est plus disponible avec votre abonnement."
 msgstr "Diese Vorstellung ist mit Ihrem Pass nicht mehr verfügbar."
 
-#, fuzzy
-msgid "Cette soirée n'est plus disponible avec ton abonnement."
-msgstr "Dieser Abend ist mit Ihrem Pass nicht mehr verfügbar."
-
 msgid "Cette soirée n'est plus disponible avec votre abonnement."
 msgstr "Dieser Abend ist mit Ihrem Pass nicht mehr verfügbar."
 
@@ -1377,15 +1373,15 @@ msgstr "%s, vielen Dank für Ihre Bestellung!"
 msgid ""
 "Merci d'avoir utilisé notre billetterie pour modifier tes réservations !"
 msgstr ""
-"Vielen Dank, dass du unseren Ticketing genutzt haben, um deine Reservationen "
-"zu ändern."
+"Vielen Dank für die Nutzung unseres Ticketings, um deine Reservationen zu "
+"ändern!"
 
 msgid ""
 "Nous vous remercions d'avoir utilisé notre billetterie pour modifier vos "
 "réservations."
 msgstr ""
-"Vielen Dank, dass Sie unseren Ticketing genutzt haben, um Ihre Reservationen "
-"zu ändern."
+"Vielen Dank für die Nutzung unseres Ticketings, um Ihre Reservationen zu "
+"ändern."
 
 #, php-format
 msgid "%s, tes réservations ont bien été modifiées."
@@ -1394,6 +1390,78 @@ msgstr "%s, Deine Reservationen wurden geändert."
 #, php-format
 msgid "%s, vos réservations ont bien été modifiées."
 msgstr "%s, Ihre Reservationen wurden geändert."
+
+msgid "Tes réservations"
+msgstr "Deine Reservationen"
+
+msgid "Vos réservations"
+msgstr "Ihre Reservationen"
+
+#, php-format
+msgid ""
+"Ce résumé, qui peut être %stéléchargé ici%s, ne permet pas l'accès aux "
+"projections et événements réservés."
+msgstr ""
+"Diese Zusammenfassung, die hier %sheruntergeladen werden kann%s, ist kein "
+"Ticket und ermöglicht keinen Eintritt zu den reservierten Vorführungen und "
+"Vorstelungen."
+
+#, php-format
+msgid ""
+"Ce résumé, qui peut être %stéléchargé ici%s, ne permet pas l'accès aux "
+"projections réservées."
+msgstr ""
+"Diese Zusammenfassung, die hier %sheruntergeladen werden kann%s, ist kein "
+"Ticket und ermöglicht keinen Eintritt zu den reservierten Vorstelungen."
+
+#, fuzzy, php-format
+msgid ""
+"Ce résumé, qui peut être %stéléchargé ici%s, ne permet pas l'accès aux "
+"soirées réservées."
+msgstr ""
+"Diese Zusammenfassung, die hier %sheruntergeladen werden kann%s, ist kein "
+"Ticket und ermöglicht keinen Eintritt zu den Vorführungen."
+
+#, fuzzy, php-format
+msgid ""
+"Ce résumé, qui peut être %stéléchargé ici%s, ne permet pas l'accès aux "
+"concerts réservés."
+msgstr ""
+"Diese Zusammenfassung, die hier %sheruntergeladen werden kann%s, ist kein "
+"Ticket und ermöglicht keinen Eintritt zu den Vorführungen."
+
+#, fuzzy, php-format
+msgid ""
+"Ce résumé, qui peut être %stéléchargé ici%s, ne permet pas l'accès aux "
+"représentations réservées."
+msgstr ""
+"Diese Zusammenfassung, die hier %sheruntergeladen werden kann%s, ist kein "
+"Ticket und ermöglicht keinen Eintritt zu den Vorführungen."
+
+#, fuzzy, php-format
+msgid ""
+"Ce résumé, qui peut être %stéléchargé ici%s, ne permet pas l'accès aux "
+"événements réservés."
+msgstr ""
+"Diese Zusammenfassung, die hier %sheruntergeladen werden kann%s, ist kein "
+"Ticket und ermöglicht keinen Eintritt zu den Vorführungen."
+
+#, php-format
+msgid ""
+"L'accès nécessite la présentation du code QR présent sur l'accréditation ou "
+"le pass. En cas de perte, une copie peut être obtenue en suivant %sce lien%s."
+msgstr ""
+"Der Zugang erfordert die Vorlage des QR-Codes auf der Akkreditierung oder "
+"dem Pass. Bei Verlust kann eine Kopie unter %sfolgendem Link angefordert "
+"werden%s."
+
+#, php-format
+msgid ""
+"L'accès nécessite la présentation du code QR présent sur l'abonnement. En "
+"cas de perte, une copie peut être obtenue en suivant %sce lien%s."
+msgstr ""
+"Der Zugang erfordert die Vorlage des QR-Codes auf dem Abonnement. Bei "
+"Verlust kann eine Kopie unter %sfolgendem Link angefordert werden%s."
 
 msgid "Tes prochaines réservations"
 msgstr "Deine nächsten Reservationen"
@@ -1528,7 +1596,7 @@ msgstr ""
 
 #, fuzzy
 msgid ""
-"Vous ne pouvez pas réserver cette représentation, car une autre réservation "
+"Tu ne peux pas réserver cette représentation, car une autre réservation "
 "existe sur la même période."
 msgstr ""
 "Sie können keine Reservation für diese Vorstellung tätigen, da Sie bereits "
@@ -1536,17 +1604,10 @@ msgstr ""
 
 #, fuzzy
 msgid ""
-"Tu ne peux pas réserver cette représentation, car une autre réservation "
+"Vous ne pouvez pas réserver cette représentation, car une autre réservation "
 "existe sur la même période."
 msgstr ""
 "Sie können keine Reservation für diese Vorstellung tätigen, da Sie bereits "
-"eine parallel stattfindende Vorstellung reserviert haben."
-
-msgid ""
-"Vous ne pouvez pas réserver cet événement, car une autre réservation existe "
-"sur la même période."
-msgstr ""
-"Sie können keine Reservation für diese Veranstaltung tätigen, da Sie bereits "
 "eine parallel stattfindende Vorstellung reserviert haben."
 
 msgid ""
@@ -1554,6 +1615,13 @@ msgid ""
 "la même période."
 msgstr ""
 "Du kannst keine Reservation für diese Veranstaltung tätigen, da Sie bereits "
+"eine parallel stattfindende Vorstellung reserviert haben."
+
+msgid ""
+"Vous ne pouvez pas réserver cet événement, car une autre réservation existe "
+"sur la même période."
+msgstr ""
+"Sie können keine Reservation für diese Veranstaltung tätigen, da Sie bereits "
 "eine parallel stattfindende Vorstellung reserviert haben."
 
 msgid ""

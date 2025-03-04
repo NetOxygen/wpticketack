@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-04 10:13+0100\n"
+"POT-Creation-Date: 2025-03-04 11:21+0100\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Jonathan Ernst <jonathan.ernst@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1062,9 +1062,8 @@ msgstr ""
 msgid "Concerts"
 msgstr ""
 
-#, fuzzy
 msgid "Représentations"
-msgstr "Enregistrement"
+msgstr ""
 
 msgid "Événements"
 msgstr ""
@@ -1225,9 +1224,6 @@ msgstr ""
 msgid "Cette séance n'est plus disponible avec votre abonnement."
 msgstr ""
 
-msgid "Cette soirée n'est plus disponible avec ton abonnement."
-msgstr ""
-
 msgid "Cette soirée n'est plus disponible avec votre abonnement."
 msgstr ""
 
@@ -1343,6 +1339,60 @@ msgstr ""
 msgid "%s, vos réservations ont bien été modifiées."
 msgstr ""
 
+msgid "Tes réservations"
+msgstr ""
+
+msgid "Vos réservations"
+msgstr ""
+
+#, php-format
+msgid ""
+"Ce résumé, qui peut être %stéléchargé ici%s, ne permet pas l'accès aux "
+"projections et événements réservés."
+msgstr ""
+
+#, php-format
+msgid ""
+"Ce résumé, qui peut être %stéléchargé ici%s, ne permet pas l'accès aux "
+"projections réservées."
+msgstr ""
+
+#, php-format
+msgid ""
+"Ce résumé, qui peut être %stéléchargé ici%s, ne permet pas l'accès aux "
+"soirées réservées."
+msgstr ""
+
+#, php-format
+msgid ""
+"Ce résumé, qui peut être %stéléchargé ici%s, ne permet pas l'accès aux "
+"concerts réservés."
+msgstr ""
+
+#, php-format
+msgid ""
+"Ce résumé, qui peut être %stéléchargé ici%s, ne permet pas l'accès aux "
+"représentations réservées."
+msgstr ""
+
+#, php-format
+msgid ""
+"Ce résumé, qui peut être %stéléchargé ici%s, ne permet pas l'accès aux "
+"événements réservés."
+msgstr ""
+
+#, php-format
+msgid ""
+"L'accès nécessite la présentation du code QR présent sur l'accréditation ou "
+"le pass. En cas de perte, une copie peut être obtenue en suivant %sce lien%s."
+msgstr ""
+
+#, php-format
+msgid ""
+"L'accès nécessite la présentation du code QR présent sur l'abonnement. En "
+"cas de perte, une copie peut être obtenue en suivant %sce lien%s."
+msgstr ""
+
 msgid "Tes prochaines réservations"
 msgstr ""
 
@@ -1454,23 +1504,23 @@ msgid ""
 msgstr ""
 
 msgid ""
-"Vous ne pouvez pas réserver cette représentation, car une autre réservation "
-"existe sur la même période."
-msgstr ""
-
-msgid ""
 "Tu ne peux pas réserver cette représentation, car une autre réservation "
 "existe sur la même période."
 msgstr ""
 
 msgid ""
-"Vous ne pouvez pas réserver cet événement, car une autre réservation existe "
-"sur la même période."
+"Vous ne pouvez pas réserver cette représentation, car une autre réservation "
+"existe sur la même période."
 msgstr ""
 
 msgid ""
 "Tu ne peux pas réserver cet événement, car une autre réservation existe sur "
 "la même période."
+msgstr ""
+
+msgid ""
+"Vous ne pouvez pas réserver cet événement, car une autre réservation existe "
+"sur la même période."
 msgstr ""
 
 msgid ""
