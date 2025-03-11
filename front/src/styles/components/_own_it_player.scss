@@ -1,9 +1,9 @@
 $buttong_bg: #ec0046;
 
-.tkt-pantaflix-player {
+.tkt-own_it-player {
     display: inline;
 
-    .tkt-pantaflix-button {
+    .tkt-own_it-button {
         text-transform: uppercase;
         border-radius: 30px;
         padding-right: 1rem;
@@ -19,6 +19,7 @@ $buttong_bg: #ec0046;
             width: 2.25rem;
             height: 2.25rem;
             line-height: 2.25rem;
+            padding-left: 0.5rem;
         }
 
         span {
@@ -34,7 +35,7 @@ $buttong_bg: #ec0046;
         }
     }
 
-    .tkt-pantaflix-wrapper {
+    .tkt-own_it-wrapper {
         position: fixed;
         top: 0;
         left: 0;
@@ -48,9 +49,10 @@ $buttong_bg: #ec0046;
         align-items: center;
         background: rgba(0, 0, 0, 0.75);
 
-        .tkt-pantaflix-modal {
+        .tkt-own_it-modal {
             width: 80%;
             max-width: 100%;
+            min-height: 400px;
             max-height: 100%;
             box-shadow: 0 0 7px 1px #000000;
             background: #060606;
@@ -58,17 +60,47 @@ $buttong_bg: #ec0046;
             moz-border-radius: 4px;
             webkit-border-radius: 4px;
             display: flex;
+            flex-direction: column;
             justify-content: center;
-            align-items: center;
 
             >.tkt-wrapper {
                 flex: 1;
             }
 
-            .tkt-ticket-connect {
-                background: #ececec;
+            .tkt-tickets-wrapper {
                 margin: 1rem;
-                padding: 1rem;
+
+                .tkt-ticket-wrapper {
+                    border: 1px solid #F0F0F0;
+                    border-radius: 4px;
+                    margin-bottom: 5px;
+                    background: #FAFAFA;
+                    padding: 5px;
+
+                    button {
+                      > i {
+                        font-size: 1.5rem;
+                        vertical-align: middle;
+                      }
+                    }
+
+                    .ticket-infos {
+                        a {
+                            text-decoration: none;
+                            color: #000000;
+                        }
+                      }
+                }
+            }
+
+            .ticket_connect {
+                .alert-danger {
+                    margin: 0 2rem 2rem;
+                }
+
+                .tkt-ticketid_id {
+                    color: #FFFFFF;
+                }
             }
         }
     }

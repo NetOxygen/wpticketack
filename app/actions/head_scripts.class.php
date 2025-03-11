@@ -42,6 +42,16 @@ class HeadScriptsAction extends TKTAction
         $otp = Tickettype::find(Tickettype::ONE_TIME_PASS_ID);
         $salepoint_id = $app->get_config('ticketack.salepoint_id');
 
+        // Own It integration script
+        $integrations  = $app->get_config('integrations', []);
+        $own_it_script = null;
+        if (isset($integrations['own_it'])) {
+            $integration = (object)$integrations['own_it'];
+            $own_it_script = !!$integration->test ?
+                'https://1o1:KdShYJYK@embed.int.own-it-media.com/own-it-player.embed.umd.js' :
+                'https://embed.own-it-media.com/own-it-player.embed.umd.js';
+        }
+
         echo '
         <script>
             if (typeof jQuery === "function") {
@@ -79,7 +89,10 @@ class HeadScriptsAction extends TKTAction
                 "i18n": '.wp_json_encode(LocalesHelper::dump_js_locales(), JSON_PRETTY_PRINT).'
             };
         </script>
-        <script src="'.esc_attr(tkt_assets_url('build/app.js')).'"></script>
-';
+        <script src="'.esc_attr(tkt_assets_url('build/app.js')).'"></script>';
+
+        if (!is_null($own_it_script)) {
+            echo '<script src="'.$own_it_script.'"></script>';
+        }
     }
 }

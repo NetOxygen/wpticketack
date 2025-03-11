@@ -84,7 +84,7 @@ $app->register_shortcode('Ticketack\WP\Shortcodes\UserAccountShortcode', 'user_a
 $app->register_shortcode('Ticketack\WP\Shortcodes\UserConnectShortcode', 'user_connect.class.php');
 $app->register_shortcode('Ticketack\WP\Shortcodes\BuyPassShortcode', 'buy_pass.class.php');
 $app->register_shortcode('Ticketack\WP\Shortcodes\PeopleShortcode', 'people.class.php');
-$app->register_shortcode('Ticketack\WP\Shortcodes\PantaflixPlayerShortcode', 'pantaflix_player.class.php');
+$app->register_shortcode('Ticketack\WP\Shortcodes\OwnItPlayerShortcode', 'own_it_player.class.php');
 $app->register_shortcode('Ticketack\WP\Shortcodes\TicketViewShortcode', 'ticket_view.class.php');
 $app->register_shortcode('Ticketack\WP\Shortcodes\TicketConnectShortcode', 'ticket_connect.class.php');
 $app->register_shortcode('Ticketack\WP\Shortcodes\VotesShortcode', 'votes.class.php');
