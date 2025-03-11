@@ -48,7 +48,7 @@ class HeadScriptsAction extends TKTAction
         if (isset($integrations['own_it'])) {
             $integration = (object)$integrations['own_it'];
             $own_it_script = !!$integration->test ?
-                'https://1o1:KdShYJYK@embed.int.own-it-media.com/own-it-player.embed.umd.js' :
+                'https://embed.int.own-it-media.com/own-it-player.embed.umd.js' :
                 'https://embed.own-it-media.com/own-it-player.embed.umd.js';
         }
 
