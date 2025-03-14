@@ -2,18 +2,19 @@
 
 if (!defined('ABSPATH')) exit;
 
-use Ticketack\WP\TKTApp;
 use Ticketack\WP\Templates\TKTTemplate;
 
 /**
  * Cart template
  *
- * @templateVersion 2.82.0
+ * @templateVersion 2.86.0
  *
  * Input: {
  *   "theme"             : 'dark|light',
  *   "hidden_links"      : 'finalize,cancel,continue',
  *   "enable_promo_code" : bool
+ *   "hide_items"        : bool
+ *   "hide_summary"      : bool
  * }
  */
 ?>
@@ -23,9 +24,6 @@ use Ticketack\WP\Templates\TKTTemplate;
 
 <!-- Underscore.js template used by client side -->
 <script type="text/template" id="tkt-cart-table-tpl">
-    <?php TKTTemplate::output('cart/cart_table', (object)[
-        'enable_promo_code' => $data->enable_promo_code,
-        'theme'             => $data->theme
-        ])
+    <?php TKTTemplate::output('cart/cart_table', $data)
     ?>
 </script>

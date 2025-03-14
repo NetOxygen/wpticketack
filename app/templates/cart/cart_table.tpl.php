@@ -8,20 +8,28 @@ use Ticketack\WP\TKTApp;
  * Cart table template
  * This template will be parsed by underscore.js
  *
- * @templateVersion 2.82.0
+ * @templateVersion 2.86.0
  *
- * Input: {
- *   "cart"              : Cart instance,
- *   "ticket"            : Ticket instance, if the user is connected,
- *   "program_url"       : String,
- *   "cart_reset_url"    : String,
- *   "checkout_url"      : String,
+ * PHP Input: {
+ *   "theme"             : 'dark|light',
+ *   "hidden_links"      : 'finalize,cancel,continue',
  *   "enable_promo_code" : bool
- *   "hide_links"        : ['finalize', 'cancel', 'continue']
- *   FIXME: wallet missing here?
+ *   "hide_items"        : bool
+ *   "hide_summary"      : bool
  * }
+ *
+ *  Js Input: {
+ *    "cart"              : Cart instance,
+ *    "ticket"            : Ticket instance, if the user is connected,
+ *    "program_url"       : String,
+ *    "cart_reset_url"    : String,
+ *    "checkout_url"      : String,
+ *    "hide_links"        : ['finalize', 'cancel', 'continue']
+ *  }
  */
-$theme = $data->theme;
+$theme        = $data->theme;
+$hide_items   = $data->hide_items;
+$hide_summary = $data->hide_summary;
 ?>
 <%
 const pass     = cart.getPass();
@@ -45,13 +53,14 @@ const nbArticles = pass.length + tickets.length + articles.length;
             </div>
         </section>
         <% } else { %>
-        <div class="row">
-            <div class="col-12 col-lg-8">
-                <section class="tkt-section tkt-<?php echo esc_attr($theme) ?>-section tkt-cart-section h-100">
-                    <div class="row">
-                        <div class="col">
-                            <h3 class="tkt-section-title mb-3"><?php echo esc_html(tkt_t("Votre commande")) ?></h3>
-                            <!-- Table screening -->
+    <div class="row">
+        <?php if (!$hide_items) : ?>
+        <div class="col-12 col-lg-<?= $hide_summary ? '12' : '8'  ?>">
+            <section class="tkt-section tkt-<?php echo esc_attr($theme) ?>-section tkt-cart-section h-100">
+                <div class="row">
+                    <div class="col">
+                        <h3 class="tkt-section-title mb-3"><?php echo esc_html(tkt_t("Votre commande")) ?></h3>
+                        <!-- Table screening -->
                             <% if (tickets.length) { %>
                             <table class="tkt-cart-table">
                                 <thead>
@@ -130,10 +139,12 @@ const nbArticles = pass.length + tickets.length + articles.length;
                     </div>
                 </section>
             </div>
+        <?php endif; ?>
 
-            <div class="col-12 col-lg-4">
-                <section class="tkt-section tkt-<?php echo esc_attr($theme) ?>-section tkt-cart-section  h-100">
-                    <div class="row">
+        <?php if (!$hide_summary) : ?>
+             <div class="col-12 col-lg-<?= $hide_items ? '12' : '4'  ?>">
+                <section class="tkt-section tkt-<?php echo esc_attr($theme) ?>-section tkt-cart-section h-100">
+                <div class="row">
                         <div class="col">
                             <h3 class="tkt-section-title mb-3"><?php echo esc_html(tkt_t("Récapitulatif")) ?></h3>
                             <!-- Table article -->
@@ -290,6 +301,7 @@ const nbArticles = pass.length + tickets.length + articles.length;
                     <% } %>
                 </section>
             </div>
+            <?php endif; ?>
         </div><!-- end row -->
     <% } %>
 </div>
