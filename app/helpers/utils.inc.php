@@ -904,7 +904,7 @@ function tkt_compile_scss_override()
     $font_path = plugins_url('front/build/fonts', TKT_APP);
     $font_path = wp_make_link_relative($font_path);
     $variables['tkt-icon-font-path'] = "'$font_path'";
-    
+
     $scss->setVariables($variables);
 
     $output_path = TKT_OVERRIDE_DIR.'/tkt_override.css';

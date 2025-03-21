@@ -36,8 +36,9 @@ class BuyPassShortcode extends TKTShortcode
      */
     public function run($atts, $content)
     {
-        $selected = isset($atts['selected']) ? $atts['selected'] : (isset($_GET['selected']) ? sanitize_text_field($_GET['selected']) : null);
-        $theme    = isset($atts['theme']) ? $atts['theme'] : 'light';
+        $with_quantity = isset($atts['with_quantity']);
+        $selected      = isset($atts['selected']) ? $atts['selected'] : (isset($_GET['selected']) ? sanitize_text_field($_GET['selected']) : null);
+        $theme         = isset($atts['theme']) ? $atts['theme'] : 'light';
 
         if (!empty($_GET['types'])) {
             $atts['types'] = sanitize_text_field($_GET['types']); // override with URL
@@ -56,8 +57,9 @@ class BuyPassShortcode extends TKTShortcode
             }));
         }
 
+        $template_file = $with_quantity ? 'buy_with_quantity' : 'buy';
         return TKTTemplate::render(
-            'buy_pass/buy',
+            'buy_pass/'.$template_file,
             (object)[
                 'theme'       => $theme,
                 'tickettypes' => $tickettypes,

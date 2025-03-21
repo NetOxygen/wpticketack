@@ -3825,6 +3825,71 @@ article.type-tkt-event {
     height: auto;
     display: block;
 }
+.tkt-wrapper {
+    .buy-pass {
+        .tkt-accordion {
+            .card {
+                .card-title {
+                    .pass_title {
+
+                    }
+                }
+                .card-content {
+                    .card-body {
+
+                        .pricing-row {
+                            margin-top: 0;
+                            margin-bottom: 0.5rem;
+                            padding: 0;
+
+                            &:last-child {
+                                border-bottom: none;
+                            }
+
+                            .tkt-badge-split {
+                                margin: 0;
+
+                                .tkt-badge-part {
+                                    padding: 5px;
+                                    flex: 1;
+                                    line-height: 24px;
+                                    font-size: 14px;
+
+                                    .pricing-qty { font-weight: normal; }
+                                    .pricing-name {}
+                                    .pricing-price {}
+
+                                    &.tkt-badge-center-part {
+                                        border: 1px solid $badge_value_bg_color;
+                                        border-left: none;
+                                        border-right: none;
+                                    }
+
+                                    &.tkt-minus-btn, &.tkt-plus-btn {
+                                        cursor: pointer;
+                                        font-weight: bold;
+                                        padding: 5px;
+                                        font-size: 20px;
+                                        display: flex;
+                                        justify-content: center;
+                                        align-items: center;
+                                        background: $badge_value_bg_color;
+                                        border: 1px solid darken($badge_value_bg_color, 10%);
+
+                                        &.tkt-inactive-badge {
+                                            border-color: lighten($badge_value_bg_color, 15%);
+                                            background: lighten($badge_value_bg_color, 25%);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
 #tkt_program {
     margin: 0 auto;
     ul.tkt-filters {
