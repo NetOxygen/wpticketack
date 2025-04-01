@@ -9,7 +9,7 @@ use Ticketack\WP\Templates\TKTTemplate;
  * OwnIt login template
  * This template will be parsed by underscore.js
  *
- * @templateVersion 2.85.0
+ * @templateVersion 2.88.0
  *
  * Input: {
  *   "tickets": Ticket[]
