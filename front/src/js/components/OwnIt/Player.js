@@ -1,5 +1,6 @@
 import { Component, Template, Config } from '../Core';
 import { Ticket } from '../Models';
+import { TKTLib } from '../Ticketack';
 import postal from 'postal';
 
 /**
@@ -38,7 +39,7 @@ export default class OwnItPlayer extends Component {
         this.init();
     }
 
-    init() {
+    async init() {
         postal.subscribe({
             channel: "connection",
             topic: "update",
@@ -91,14 +92,59 @@ export default class OwnItPlayer extends Component {
             invalid_ticket: lastTicketIsNotEligible
         }));
 
-        $('.watch-btn').click(e => {
-            const code = $(e.target).data('code');
-            this.$modal.html(Template.render('tkt-own_it-player-iframe-tpl', {
-                code,
-                productId: this.productId
-            }));
-        });
+        this.hideErrors();
 
+        $('.watch-btn').click(async e => {
+            this.hideErrors();
+
+            try {
+                const code     = $(e.target).data('code');
+                const ticketId = $(e.target).data('ticket-id');
+                const result   = await TKTLib.TicketService.check(ticketId, this.screeningId);
+
+                /**
+                 * result is an object like {
+                 *   ticket: Ticket,
+                 *   bookings: Booking[],
+                 *   book_on_check_booking: Booking?,
+                 *   screening: {
+                 *     _id: UUID,
+                 *     buckets: Bucket[]
+                 *   }
+                 */
+
+                if (!result?.bookings?.length && !result?.book_on_check_booking) {
+                    // the entry check failed
+                    // let's check if this is because of the ticket or the screening
+                    if (result.screening) {
+                        const available = (result.screening.buckets || []).reduce((acc, b) => acc + b.available, 0);
+                        if (available === 0)
+                            // the screening is no more available
+                            return this.showNoMoreSeatsError();
+                    }
+
+                    // let's check the ticket
+                    if (result.ticket) {
+                        result.ticket = new Ticket(result.ticket);
+                        if (!this.screening)
+                            this.screening = await TKTLib.ScreeningService.get(this.screeningId);
+                        if (this.screening && !result.ticket.canBook(this.screening))
+                            // the ticket can not book this screening
+                            return this.showTicketCanotBookError();
+                    }
+
+                    // fallback message
+                    this.showNoMoreSeatsError();
+                } else {
+                    this.$modal.html(Template.render('tkt-own_it-player-iframe-tpl', {
+                        code,
+                        productId: this.productId
+                    }));
+                }
+            } catch (err) {
+                console.error(err);
+            }
+        });
     }
 
     showModal() {
@@ -125,5 +171,12 @@ export default class OwnItPlayer extends Component {
         setTimeout(() => {
             this.$wrapper.remove();
         }, 300);
+    }
+
+    showNoMoreSeatsError() { $('.no-more-seats', this.$container).fadeIn(); }
+    showTicketCanotBookError() { $('.ticket-can-not-book', this.$container).fadeIn(); }
+    hideErrors() {
+        $('.no-more-seats', this.$container).hide();
+        $('.ticket-can-not-book', this.$container).hide();
     }
 }

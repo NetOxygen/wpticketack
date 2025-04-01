@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-04 11:21+0100\n"
+"POT-Creation-Date: 2025-04-01 14:22+0200\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Jonathan Ernst <jonathan.ernst@netoxygen.ch>\n"
+"Last-Translator: Belkacem Alidra <belkacem.alidra@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -227,24 +227,21 @@ msgstr ""
 msgid "Ces champs sont requis"
 msgstr ""
 
-msgid "Votre nom"
+msgid "Tarifs :"
 msgstr ""
 
-msgid "Votre e-mail"
+msgid "Regarder en utilisant un de vos billets"
+msgstr ""
+
+msgid "Regarder en utilisant ce billet"
 msgstr ""
 
 msgid ""
-"Sans photo, une pièce d'identité sera systématiquement demandée à l'entrée "
-"des salles et aux caisses."
+"Le nombre maximum de visionnements a été atteint. Ce film n'est plus "
+"disponible."
 msgstr ""
 
-msgid "Stopper la vidéo"
-msgstr ""
-
-msgid "Tous ces champs sont requis"
-msgstr ""
-
-msgid "Tarifs :"
+msgid "Ce billet ne vous permet pas de visionner ce contenu."
 msgstr ""
 
 msgid "Veuillez choisir la date désirée :"
@@ -512,6 +509,9 @@ msgstr ""
 msgid "Mot de passe perdu ? Changez-le !"
 msgstr ""
 
+msgid "Votre nom"
+msgstr ""
+
 msgid "Société"
 msgstr ""
 
@@ -540,6 +540,9 @@ msgid "Confirmation de votre mot de passe"
 msgstr ""
 
 msgid "Saisissez une deuxième fois votre mot de passe"
+msgstr ""
+
+msgid "Tous ces champs sont requis"
 msgstr ""
 
 msgid "Votre compte a bien été créé"

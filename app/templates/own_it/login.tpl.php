@@ -32,7 +32,7 @@ use Ticketack\WP\Templates\TKTTemplate;
                     </a>
                 </div>
                 <div class="col text-right watch-btns">
-                    <button data-code="<%= ticket.vdr_auth_serial + '-' + ticket.vdr_auth_key.toUpperCase() %>" class="button watch-btn active" >
+                    <button data-ticket-id="<%= ticket._id %>" data-code="<%= ticket.vdr_auth_serial + '-' + ticket.vdr_auth_key.toUpperCase() %>" class="button watch-btn active" >
                         <i class="tkt-icon-play-circle-o"></i>
                         <?php echo esc_html(tkt_t('Regarder en utilisant ce billet')) ?>
                     </button>
@@ -46,6 +46,12 @@ use Ticketack\WP\Templates\TKTTemplate;
             </div>
         </div>
         <% }) %>
+        <div class="no-more-seats alert alert-danger">
+            <?php echo esc_html(tkt_t("Le nombre maximum de visionnements a été atteint. Ce film n'est plus disponible.")) ?>
+        </div>
+        <div class="ticket-can-not-book alert alert-danger">
+            <?php echo esc_html(tkt_t("Ce billet ne vous permet pas de visionner ce contenu.")) ?>
+        </div>
     <% } %>
 </div>
 
@@ -58,7 +64,7 @@ use Ticketack\WP\Templates\TKTTemplate;
             <div class="ticket_connect">
                 <% if (invalid_ticket) { %>
                     <div class="alert alert-danger">
-                        <?php echo esc_html(tkt_t("Votre accréditation/pass ne vous permet pas de visionner ce contenu.")) ?>
+                        <?php echo esc_html(tkt_t("Ce billet ne vous permet pas de visionner ce contenu.")) ?>
                     </div>
                 <% } %>
                 <div>

@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: eshop 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-04 11:22+0100\n"
+"POT-Creation-Date: 2025-04-01 14:22+0200\n"
 "PO-Revision-Date: 2020-01-16 16:45+0000\n"
-"Last-Translator: Jonathan Ernst <jonathan.ernst@netoxygen.ch>\n"
+"Last-Translator: Belkacem Alidra <belkacem.alidra@netoxygen.ch>\n"
 "Language-Team: English (United Kingdom) <http://translate.neto2.net/projects/"
 "ticketack/eshop/en_GB/>\n"
 "Language: en_GB\n"
@@ -231,27 +231,22 @@ msgstr "This is a gift"
 msgid "Ces champs sont requis"
 msgstr "These fields are required"
 
-msgid "Votre nom"
-msgstr "Your last name"
-
-msgid "Votre e-mail"
-msgstr "Your email"
-
-msgid ""
-"Sans photo, une pièce d'identité sera systématiquement demandée à l'entrée "
-"des salles et aux caisses."
-msgstr ""
-"Without a photo, proof of identity will be systematically requested at the "
-"entrance to the halls and at the cash desks."
-
-msgid "Stopper la vidéo"
-msgstr "Stop the video"
-
-msgid "Tous ces champs sont requis"
-msgstr "All these fields are required"
-
 msgid "Tarifs :"
 msgstr "Pricing:"
+
+msgid "Regarder en utilisant un de vos billets"
+msgstr "Watch using one of your tickets"
+
+msgid "Regarder en utilisant ce billet"
+msgstr "Watch using this ticket"
+
+msgid ""
+"Le nombre maximum de visionnements a été atteint. Ce film n'est plus "
+"disponible."
+msgstr "The maximum number of views has been reached. This film is no longer available."
+
+msgid "Ce billet ne vous permet pas de visionner ce contenu."
+msgstr "This ticket does not allow you to view this content."
 
 msgid "Veuillez choisir la date désirée :"
 msgstr "Please choose a date:"
@@ -524,6 +519,9 @@ msgstr "No account yet? Create one!"
 msgid "Mot de passe perdu ? Changez-le !"
 msgstr "Lost password? Change it here!"
 
+msgid "Votre nom"
+msgstr "Your last name"
+
 msgid "Société"
 msgstr "Company"
 
@@ -553,6 +551,9 @@ msgstr "Password confirmation"
 
 msgid "Saisissez une deuxième fois votre mot de passe"
 msgstr "Enter your password a second time"
+
+msgid "Tous ces champs sont requis"
+msgstr "All these fields are required"
 
 msgid "Votre compte a bien été créé"
 msgstr "Your account has been created"
@@ -2368,3 +2369,16 @@ msgstr "Change these settings only if you know what you are doing."
 
 msgid "Brouillon"
 msgstr "Draft"
+
+#~ msgid "Votre e-mail"
+#~ msgstr "Your email"
+
+#~ msgid ""
+#~ "Sans photo, une pièce d'identité sera systématiquement demandée à "
+#~ "l'entrée des salles et aux caisses."
+#~ msgstr ""
+#~ "Without a photo, proof of identity will be systematically requested at "
+#~ "the entrance to the halls and at the cash desks."
+
+#~ msgid "Stopper la vidéo"
+#~ msgstr "Stop the video"
