@@ -10,9 +10,8 @@
         }
     ],
     "require": {
-        "guzzlehttp/guzzle": "~6.0",
-        "symfony/yaml": "~2.6",
+        "guzzlehttp/guzzle": "~7.0",
         "jakeasmith/http_build_url": "~1.0",
-        "scssphp/scssphp": "1.1.1"
+        "scssphp/scssphp": "~2"
     }
 }

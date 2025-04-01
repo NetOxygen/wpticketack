@@ -5,6 +5,7 @@ if (!defined('ABSPATH')) exit;
 use Ticketack\WP\TKTApp;
 use Ticketack\WP\Helpers\SyncHelper;
 use ScssPhp\ScssPhp\Compiler;
+use ScssPhp\ScssPhp\ValueConverter;
 
 /**
  * Utils functions
@@ -894,21 +895,21 @@ function tkt_compile_scss_override()
     $scss = new Compiler();
     $base_path = plugin_dir_path(TKT_APP).'front/build/';
     $scss->setImportPaths($base_path);
-    $scss->setFormatter('ScssPhp\ScssPhp\Formatter\Crunched');
+    $scss->setOutputStyle(\ScssPhp\ScssPhp\OutputStyle::COMPRESSED);
 
     $variables = tkt_get_overridable_scss_variables();
     foreach ($variables as $name => $value) {
-        $variables[$name] = TKTApp::get_instance()->get_config('advanced.'.$name, $value);
+        $variables[$name] = ValueConverter::parseValue(TKTApp::get_instance()->get_config('advanced.'.$name, $value));
     }
 
     $font_path = plugins_url('front/build/fonts', TKT_APP);
     $font_path = wp_make_link_relative($font_path);
-    $variables['tkt-icon-font-path'] = "'$font_path'";
+    $variables['tkt-icon-font-path'] = ValueConverter::parseValue("'$font_path'");
 
-    $scss->setVariables($variables);
+    $scss->replaceVariables($variables);
 
     $output_path = TKT_OVERRIDE_DIR.'/tkt_override.css';
-    file_put_contents($output_path, $scss->compile('@import "override.scss";'));
+    file_put_contents($output_path, $scss->compileString('@import "override.scss";')->getCss());
 }
 
 
