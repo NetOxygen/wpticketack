@@ -110,6 +110,10 @@ Thumbs.db
 echo "Exporting the HEAD of master from git to the trunk of SVN"
 git checkout-index -a -f --prefix=$SVNPATH/trunk/
 
+echo "Installing PHP dependencies"
+./composer.phar install
+cp -a vendor $SVNPATH/trunk/
+
 # If submodule exist, recursively check out their indexes
 if [ -f ".gitmodules" ]
 	then
