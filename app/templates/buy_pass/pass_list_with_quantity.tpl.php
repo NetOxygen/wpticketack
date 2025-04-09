@@ -7,7 +7,7 @@ use Ticketack\WP\TKTApp;
 /**
  * Buy pass without user informations list template
  *
- * @templateVersion 2.87.0
+ * @templateVersion 2.89.0
  *
  * Input:
  * $data: {
