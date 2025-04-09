@@ -22,7 +22,7 @@ use Ticketack\Core\Base\TKTApiException;
  */
 class OwnItPlayerShortcode extends TKTShortcode
 {
-    const OWN_IT_ID_PREFIX = 'dac_player_id_prod';
+    const OWN_IT_SOURCE = 'dac-player';
 
     /**
      * Get this Shortcode tag
@@ -48,7 +48,6 @@ class OwnItPlayerShortcode extends TKTShortcode
         }
         $integration          = (object)$integrations['own_it'];
         $allowed_ticket_types = implode(',', $integration->codes_creation['tickettypes']);
-        $prefix               = isset($atts['own_it_id_prefix']) ? $atts['own_it_id_prefix'] : static::OWN_IT_ID_PREFIX;
 
         $id = isset($atts['id']) ? $atts['id'] : null;
         if (empty($id)) {
@@ -61,8 +60,8 @@ class OwnItPlayerShortcode extends TKTShortcode
                 return null;
             }
 
-            $refs = array_filter($screening->refs(), function ($ref) use ($prefix) {
-                return strpos($ref['id'], $prefix) === 0;
+            $refs = array_filter($screening->refs(), function ($ref) {
+                return static::OWN_IT_SOURCE === $ref['source'];
             });
             if (count($refs) == 0) {
                 return null;
