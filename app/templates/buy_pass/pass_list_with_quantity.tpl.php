@@ -56,7 +56,7 @@ $salepoint_id = TKTApp::get_instance()->get_config('ticketack.salepoint_id');
                             x
                             <span class="pricing-name">
                               <?php echo esc_html($pricing->name(TKT_LANG)) ?>
-                              <?php if (!empty($pricing->description(TKT_LANG))) :?>
+                              <?php if (!empty(strip_tags($pricing->description(TKT_LANG)))) :?>
                                   <i class="tkt-icon-info" data-component="Ui/Tippy" data-tippy-content="<?php echo esc_html($pricing->description(TKT_LANG)) ?>"></i>
                               <?php endif;?>
                             </span>
