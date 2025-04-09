@@ -2,7 +2,7 @@
 Tags: ticketack
 Requires at least: 5.9
 Tested up to: 6.7.2
-Stable tag: 2.89.0
+Stable tag: 2.89.1
 Requires PHP: 8.1
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -61,6 +61,10 @@ code](https://github.com/NetOxygen/wpticketack) and submit a Pull Request.
 
 = Changelog =
 * [Changelog link](https://yoda.netoxygen.ch/public/projects/401b5210-986f-46b3-99cb-38546b73e16c/changelog)
+
+= 2.89.1 =
+
+* fix: Update some tempalte version
 
 = 2.89.0 =
 
