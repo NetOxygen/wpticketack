@@ -51,7 +51,7 @@ export default class CartItem extends BaseModel {
      * @return {String}
      */
     getFormattedPrice() {
-        return this.getFormatedAmount(this.cleanAmount(this.amount));
+        return this.getFormatedAmount(this.amount);
     };
 
     /**

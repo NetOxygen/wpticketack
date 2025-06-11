@@ -123,7 +123,7 @@ export default class Cart extends BaseModel {
             // loadItemsInfos has not been called
             return this.amount / 100;
 
-        return _.reduce(this.items, (memo, item) => { return memo + parseFloat(this.cleanAmount(item.amount)); }, 0);
+        return _.reduce(this.items, (memo, item) => { return memo + parseFloat(item.amount); }, 0);
     };
 
     /**
@@ -152,7 +152,7 @@ export default class Cart extends BaseModel {
             // loadItemsInfos has not been called
             return 0;
 
-        const amount = _.reduce(items, (memo, item) => { return memo + parseFloat(this.cleanAmount(item.amount)); }, 0);
+        const amount = _.reduce(items, (memo, item) => { return memo + parseFloat(item.amount); }, 0);
         return this.getFormatedAmount(amount);
     };
 
