@@ -9,7 +9,7 @@ use Ticketack\WP\Templates\TKTTemplate;
  * User account pass content
  * This template will be parsed by underscore.js
  *
- * @templateVersion 2.82.0
+ * @templateVersion 2.89.4
  *
  * Input: {
  *   "user": { ... },
@@ -50,7 +50,7 @@ const ticketsGroups = [
 <div id="tkt-account-content-profile" class="tkt-wrapper">
     <div class="row">
         <div class="col-sm-12">
-            <% if (!tickets || tickets.length == 0) { %>
+            <% if (!tickets?.length && !other_tickets?.length) { %>
             <h3 class="text-info text-center mt-3">
                 <?php echo esc_html(tkt_t('Vous n\'avez pas encore de billets.')) ?>
             </h3>
