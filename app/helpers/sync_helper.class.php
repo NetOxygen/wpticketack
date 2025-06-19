@@ -123,7 +123,7 @@ class SyncHelper
         // WP automatically prepends 'http://' to the guid !
         $guid  = 'http://'.$slug;
 
-        $post_content = trim(preg_replace('#\R+#', '', $event->opaque('description')[$lang]));
+        $post_content = trim(preg_replace('#\R+#', '', $event->opaque('description')[$lang] ?? ''));
 
         $post = [
             "post_title"    => $title,
