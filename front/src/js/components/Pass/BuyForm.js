@@ -53,9 +53,9 @@ export default class BuyForm extends Component {
             this.activePass = this.$pass.eq(0).data('type');
 
             // open pre-selected pass, if any
-            if ($('.pass.open').length > 0) {
-                const selected = $('.pass.open').eq(0).attr('id');
-                $(`.pass_title[aria-controls="#${selected}"]`).trigger('click');
+            if ($('.pass.open', this.$container).length > 0) {
+                const selected = $('.pass.open', this.$container).eq(0).attr('id');
+                $(`.pass_title[aria-controls="#${selected}"]`, this.$container).trigger('click');
                 this.activePass = selected.replace('item-', '');
             }
 
@@ -180,7 +180,7 @@ export default class BuyForm extends Component {
         const tickettype       = this.tickettypes.find(tickettype => tickettype._id === this.activePass);
         const matchingPricings = tickettype?.getMatchingPricings('eshop', userTickets.map(t => t.type._id)) || [];
 
-        const $shownPricings = $(`#item-${this.activePass} .radio input`);
+        const $shownPricings = $(`#item-${this.activePass} .radio input`, this.$container);
         $shownPricings.each((i, p) => {
             const $p         = $(p);
             const $container = $p.closest('.radio');
@@ -197,8 +197,8 @@ export default class BuyForm extends Component {
         if (!this.activePass)
             return;
 
-        let required_fields  = $('#' + this.activePass + '-required-fields').val()? $('#' + this.activePass + '-required-fields').val()?.split(',') : [];
-        let requested_fields = $('#' + this.activePass + '-requested-fields').val()? $('#' + this.activePass + '-requested-fields').val()?.split(',') : [];
+        let required_fields  = $('#' + this.activePass + '-required-fields', this.$container).val()? $('#' + this.activePass + '-required-fields', this.$container).val()?.split(',') : [];
+        let requested_fields = $('#' + this.activePass + '-requested-fields', this.$container).val()? $('#' + this.activePass + '-requested-fields', this.$container).val()?.split(',') : [];
         requested_fields     = _.differenceBy(requested_fields, required_fields);
 
         // Hides the title and notice in the form if there are no fields
@@ -239,9 +239,9 @@ export default class BuyForm extends Component {
             }
         });
 
-        if ($('#gift_toggl').length) {
-            $('#gift_toggl').change(function () {
-                var $input = $('#user_gift_message');
+        if ($('#gift_toggl', this.$container).length) {
+            $('#gift_toggl', this.$container).change(function () {
+                var $input = $('#user_gift_message', this.$container);
                 var default_content = $input.data('default');
                 if ($(this).is(':checked')) {
                     $input.attr('required', true).val(default_content).show();
