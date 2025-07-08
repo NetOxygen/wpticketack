@@ -27,6 +27,23 @@ class BSTranslator
         $informal = $app->get_config('customer.informal', false);
 
         switch($string) {
+            case "Événement":
+                switch ($domain) {
+                    case static::CINEMA_FESTIVAL:
+                    case static::CINEMA:
+                        return tkt_t("Séance");
+                        break;
+                    case static::MUSIC_FESTIVAL:
+                    case static::MUSIC:
+                        return tkt_t("Concert");
+                        break;
+                    case static::THEATER:
+                        return tkt_t("Représentation");
+                        break;
+                    default:
+                       return tkt_t("Événement");
+                }
+                break;
             case "Événements":
                 switch ($domain) {
                     case static::CINEMA_FESTIVAL:
