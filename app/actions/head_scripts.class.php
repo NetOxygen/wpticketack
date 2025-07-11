@@ -39,7 +39,7 @@ class HeadScriptsAction extends TKTAction
     public function run()
     {
         $app = TKTApp::get_instance();
-        $otp = Tickettype::find(Tickettype::ONE_TIME_PASS_ID, /* allow_cached_results */ true));
+        $otp = Tickettype::find(Tickettype::ONE_TIME_PASS_ID, /* allow_cached_results */ true);
         $salepoint_id = $app->get_config('ticketack.salepoint_id');
 
         // Own It integration script
