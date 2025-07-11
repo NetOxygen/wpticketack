@@ -64,7 +64,7 @@ class Cashregister extends TKTModel implements \JsonSerializable
 
     public function salepoint()
     {
-        return Salepoint::find($this->salepoint_id, /* allow_cached_results */ true);
+        return Salepoint::find($this->salepoint_id, /* fields */ null,  /* allow_cached_results */ true);
     }
 
     public function operations($request_query = [], $data = [])
