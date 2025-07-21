@@ -46,6 +46,14 @@ class Settings extends TKTModel implements \JsonSerializable
     {
         $settings = static::find('default', /*fields*/null, /*$allow_cached_results*/false);
         $settings = $settings ? $settings->toArray() : [];
+        if (empty($settings)) {
+            /**
+             * We prevent writing an empty config in the
+             * config.inc.php cache file
+             */
+            return false;
+        }
+
         $config   = array_merge_recursive($settings, $app_config);
         // Remove some unneeded settings
         unset($config['mobile']);
