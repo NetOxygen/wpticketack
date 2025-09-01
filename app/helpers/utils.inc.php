@@ -711,7 +711,14 @@ function tkt_screening_data_attributes($screening, $attributes)
 {
     $values = [];
     if (in_array('type', $attributes)) {
-        $values[] = 'data-type="'.$screening->opaque('type').'"';
+        if (!empty($screening->opaque('type'))) {
+            $values[] = 'data-type="'.$screening->opaque('type').'"';
+        } else {
+            $event = current($screening->movies());
+            if ($event) {
+                $values[] = 'data-type="'.$event->opaque('type').'"';
+            }
+        }
     }
 
     if (in_array('date', $attributes)) {
