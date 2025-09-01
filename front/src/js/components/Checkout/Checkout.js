@@ -114,15 +114,38 @@ export default class Checkout extends Component {
     }
 
     fillCheckoutForm() {
-        TKTApi.getProfile(/*forceRefresh*/false, (err, status, rsp) => {
-            if (err || !rsp.user)
-                return;
+        const fields = ['email', 'company', 'title', 'firstname', 'lastname', 'street', 'zip', 'city', 'country', 'language', 'sex', 'age', 'birthdate', 'tab'];
 
-            const user = new User(rsp.user);
-            user.contact = user.contact || {};
-            user.contact.address = user.contact.address || {};
-            ['firstname', 'lastname', 'email', 'zip', 'street', 'city', 'country', 'phone', 'cellphone', 'birthdate', 'sex', 'age'].map(key => {
-                const value = user.contact[key] ?? (user.contact.address[key] ?? null);
+        // initialize data with cart user data
+        let data = this.cart.user_data;
+
+        TKTApi.getProfile(/*forceRefresh*/false, (err, status, rsp) => {
+            if (!err && rsp.user) {
+                // use user profile data if needed
+                const user = new User(rsp.user);
+                user.contact = user.contact || {};
+                user.contact.address = user.contact.address || {};
+                fields.forEach(key => {
+                    const value = user.contact[key] ?? (user.contact.address[key] ?? null);
+                    if (value && !data[key])
+                        data[key] = value;
+                });
+            }
+
+            // let's look into the cart items if we find any user data
+            this.cart.items?.forEach(item => {
+                if (!item.user_data)
+                    return;
+
+                fields.forEach(key => {
+                    const value = item.user_data[key];
+                    if (value && !data[key])
+                        data[key] = value;
+                });
+            });
+
+            fields.forEach(key => {
+                const value = data[key];
                 if (!value)
                     return;
 
