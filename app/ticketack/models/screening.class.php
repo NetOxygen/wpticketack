@@ -63,6 +63,14 @@ class Screening extends TKTModel implements \JsonSerializable
     }
 
     /**
+     * scope filtering screenings on edition.
+     */
+    public static function scope_in_edition($req, $edition)
+    {
+        return $req->query('edition', $edition);
+    }
+
+    /**
      * cosmetic helper for scope_start_at_gt.
      */
     public static function scope_in_the_future($req)

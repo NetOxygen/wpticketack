@@ -315,6 +315,10 @@ function tkt_event_book_url($event, $screening = null)
         $slug = tkt_get_event_slug($event, TKT_LANG);
         $page = get_page_by_path($slug, OBJECT, 'tkt-event');
 
+        if (!$page) {
+            return null;
+        }
+
         return sprintf(
             "%s?book=1%s",
             apply_filters('wpml_permalink', get_permalink($page->ID)),

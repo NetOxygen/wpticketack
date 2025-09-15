@@ -47,6 +47,7 @@ $image_url     = tkt_img_proxy_url($e->first_poster()->url, $images_width, $imag
                     </a>
                 </div>
             </div>
+            <?php if ($data->description_max_line > 0) : ?>
             <div class="row">
                 <div class="col">
                     <p class="description text-justify mt-3"
@@ -55,6 +56,7 @@ $image_url     = tkt_img_proxy_url($e->first_poster()->url, $images_width, $imag
                     </p>
                 </div>
             </div>
+            <?php endif; ?>
             <div class="row">
                 <div class="col">
                     <span class="tickets" data-bookability-ids="<?php echo esc_attr($ids) ?>">

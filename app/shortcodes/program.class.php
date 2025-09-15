@@ -77,6 +77,8 @@ class ProgramShortcode extends TKTShortcode
         $order                 = isset($atts['order']) ? $atts['order'] : ($layout == static::SCREENINGS_LAYOUT ? static::CHRONO_ORDER : static::ALPHA_ORDER);
         $top_filter            = isset($atts['top_filter']) ? $atts['top_filter'] : null;
         $day                   = tkt_get_url_param('d', (isset($atts['day']) ? $atts['day'] : null));
+        $allow_past            = isset($atts['allow_past']) && $atts['allow_past'] === '1';
+        $edition               = isset($atts['edition']) ? $atts['edition'] : null;
         $places                = isset($atts['places']) ? explode(',', $atts['places']) : [];
         $filter_fields         = isset($atts['filter_fields']) ? explode(',', $atts['filter_fields']) : [];
         $slider_timeout        = isset($atts['timeout']) ? $atts['timeout'] : static::SLIDER_TIMEOUT;
@@ -84,10 +86,16 @@ class ProgramShortcode extends TKTShortcode
 
         try {
             $query = Screening::all()
-                // TODO: We should not filter on future screenings only for festivals !!!
-                ->in_the_future()
                 ->filter_pricings_for_sellers(['eshop'])
                 ->order_by_start_at();
+
+            if (!$allow_past) {
+                $query = $query->in_the_future();
+            }
+
+            if (!empty($edition)) {
+                $query = $query->in_edition($edition);
+            }
 
             if (!empty($day)) {
                 if ($day === static::DATE_TODAY) {

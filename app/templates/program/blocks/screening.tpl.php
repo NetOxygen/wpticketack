@@ -40,11 +40,13 @@ $image_url     = tkt_img_proxy_url($s->first_poster()->url, $images_width, $imag
 
     <div class="details right-col text-right align-self-end pl-2" style="width: <?php echo esc_attr($data->image_width_pct != 100 ? (100 - $data->image_width_pct) : 100 )?>%;">
 
+      <?php if ($data->description_max_line > 0) : ?>
       <div class="row">
         <div class="col">
           <span class="description" style="-webkit-line-clamp: <?php echo esc_attr($data->description_max_line) ?>;"><?php echo esc_html(strip_tags($description)) ?></span>
         </div>
       </div>
+      <?php endif; ?>
 
       <div class="row">
         <div class="col">
