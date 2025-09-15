@@ -731,10 +731,8 @@ function tkt_screening_data_attributes($screening, $attributes)
 
     if (in_array('sections', $attributes)) {
         $sections = [];
-        foreach ($event->screenings() as $s) {
-            foreach ($s->sections() as $section) {
-                $sections[] = $section->name[tkt_default_lang()];
-            }
+        foreach ($screening->sections() as $section) {
+            $sections[] = $section->name(tkt_default_lang());
         }
         $values[] = 'data-section="'.implode(',', $sections).'"';
     }

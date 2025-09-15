@@ -61,7 +61,7 @@ class OwnItPlayerShortcode extends TKTShortcode
             }
 
             $refs = array_filter($screening->refs(), function ($ref) {
-                return static::OWN_IT_SOURCE === $ref['source'];
+                return isset( $ref['source']) && static::OWN_IT_SOURCE === $ref['source'];
             });
             if (count($refs) == 0) {
                 return null;
