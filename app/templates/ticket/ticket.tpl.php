@@ -275,18 +275,19 @@ if (!defined('ABSPATH')) exit;
                                     (<%= ticket.getFormattedPriceAndCurrency() %>)
                                 </p>
                             </div>
-
-                            <% if (ticket.hasExpired()) { %>
-                                <div class="text-center alert alert-danger">
-                                    <b>A expiré le <%= ticket.getExpirationDate().format('LL') %> </b>
-                                </div>
-                            <% } else {%>
-                                <div class="text-center alert alert-success">
-                                    <b><?php echo sprintf(tkt_t("Valable jusqu'au %s"), "<%= ticket.getExpirationDate().format('LL') %>") ?></b>
-                                    <p>
-                                        <%= ticket.placesAvailable() %>
-                                    </p>
-                                </div>
+                            <% if (ticket.getExpirationDate()) { %>
+                                <% if (ticket.hasExpired()) { %>
+                                    <div class="text-center alert alert-danger">
+                                        <b>A expiré le <%= ticket.getExpirationDate().format('LL') %> </b>
+                                    </div>
+                                <% } else {%>
+                                    <div class="text-center alert alert-success">
+                                        <b><?php echo sprintf(tkt_t("Valable jusqu'au %s"), "<%= ticket.getExpirationDate().format('LL') %>") ?></b>
+                                        <p>
+                                            <%= ticket.placesAvailable() %>
+                                        </p>
+                                    </div>
+                                <% } %>
                             <% } %>
                         </div>
                     </div>
