@@ -46,9 +46,9 @@ class CheckoutShortcode extends TKTShortcode
             $payment_method        = TKTApp::get_instance()->get_config('payment.methods');
             $pay_online            = [];
             $proxypay_config_error = "";
-            $terms_conditions_url  = $config["url_overrides"]["terms_conditions_url"][TKT_LANG];
-            $privacy_policy_url    = $config["url_overrides"]["privacy_policy_url"][TKT_LANG];
-            $sanitary_measures_url = $config["url_overrides"]["sanitary_measures_url"][TKT_LANG];
+            $terms_conditions_url  = $config["url_overrides"]["terms_conditions_url"][TKT_LANG] ?? null;
+            $privacy_policy_url    = $config["url_overrides"]["privacy_policy_url"][TKT_LANG] ?? null;
+            $sanitary_measures_url = $config["url_overrides"]["sanitary_measures_url"][TKT_LANG] ?? null;
 
             foreach ($payment_method as $method) {
                 switch ($method["_id"]) {
