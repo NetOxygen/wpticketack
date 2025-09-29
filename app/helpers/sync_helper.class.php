@@ -3,6 +3,7 @@
 namespace Ticketack\WP\Helpers;
 
 use Ticketack\WP\TKTApp;
+use Ticketack\WP\Templates\TKTTemplate;
 use Ticketack\Core\Models\Screening;
 use Ticketack\Core\Models\Event;
 
@@ -123,7 +124,10 @@ class SyncHelper
         // WP automatically prepends 'http://' to the guid !
         $guid  = 'http://'.$slug;
 
-        $post_content = trim(preg_replace('#\R+#', '', $event->opaque('description')[$lang] ?? ''));
+        $post_content = trim(preg_replace('#\R+#', '', TKTTemplate::render("event/tkt_post_content", (object)[
+            "tkt_event" => $event,
+            "lang"      => $lang
+        ])));
 
         $post = [
             "post_title"    => $title,
@@ -163,7 +167,7 @@ class SyncHelper
         }
 
         $localized_posters = array_filter($event->posters(), function ($poster) use ($lang) {
-            return $poster->lang === $lang;
+            return isset($poster->lang) && ($poster->lang === $lang);
         });
         $poster     = current(!empty($localized_posters) ? $localized_posters : $event->posters());
         $url        = $poster->url;
