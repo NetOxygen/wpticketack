@@ -71,7 +71,7 @@ class SyncArticlesHelper extends SyncHelper
         return $articles;
     }
 
-    protected static function create_post($article, $lang, $save_attachments)
+    protected static function create_post($article, $lang, $save_attachments = false, $original_post_id = null)
     {
         $title = $article->name($lang);
         $slug  = tkt_get_article_slug($article, $lang);

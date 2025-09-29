@@ -46,7 +46,7 @@ class SyncHelper
                     if ($lang == $default_lang) {
                         continue;
                     }
-                    $tr_post_id = static::create_post($e, $lang, $save_attachments);
+                    $tr_post_id = static::create_post($e, $lang, /*$save_attachments*/true, /*$original_post_id*/$def_post_id);
                     if (!is_null($tr_post_id)) {
                         static::link_translations($def_post_id, $tr_post_id, $lang);
                     }
@@ -114,7 +114,7 @@ class SyncHelper
         return $events;
     }
 
-    protected static function create_post($event, $lang, $save_attachments)
+    protected static function create_post($event, $lang, $save_attachments = false, $original_post_id = null)
     {
         // Let's try to find a title in the current language
         $title = $event->localized_title_or_default_or_original($lang);
@@ -148,7 +148,7 @@ class SyncHelper
         $post_id = wp_insert_post($post);
 
         if ($save_attachments && count($event->posters()) > 0) {
-            static::save_event_image($event, $post_id, $lang);
+            static::save_event_image($event, $post_id, $lang, $original_post_id);
         }
 
         static::save_post_metas($event, $post_id, $lang);
@@ -156,13 +156,16 @@ class SyncHelper
         return $post_id;
     }
 
-    protected static function save_event_image($event, $post_id, $lang = 'fr')
+    protected static function save_event_image($event, $post_id, $lang = 'fr', $original_post_id = null)
     {
         if (count($event->posters()) == 0) {
             return false;
         }
 
-        $poster     = $event->posters()[0];
+        $localized_posters = array_filter($event->posters(), function ($poster) use ($lang) {
+            return $poster->lang === $lang;
+        });
+        $poster     = current(!empty($localized_posters) ? $localized_posters : $event->posters());
         $url        = $poster->url;
         $basename   = basename($url);
         $upload_dir = wp_upload_dir();
@@ -171,13 +174,29 @@ class SyncHelper
         $filetype   = wp_check_filetype($basename, null);
 
         $existing_attachment_id = get_post_meta($post_id, '_thumbnail_id', /*$single*/true);
+        if ($original_post_id) {
+            $existing_attachment_id = get_post_meta($original_post_id, '_thumbnail_id', /*$single*/true);
+            // get attachment translation
+            $attachment_translation_id = apply_filters(
+                'wpml_object_id',
+                $existing_attachment_id,
+                'attachment',
+                /*return_original_if_missing*/FALSE,
+                $lang
+            );
+            if (!empty($attachment_translation_id) && intval($attachment_translation_id) > 0) {
+                static::link_attachment_to_post($post_id, $attachment_translation_id);
+                return false;
+            }
+        }
+
         if (!empty($existing_attachment_id) && intval($existing_attachment_id) > 0) {
             // Post already has an attachment
             $existing_attachment = get_post($existing_attachment_id);
 
             if ($existing_attachment && $existing_attachment->guid == $dest_url) {
                 // The attachment has the same name: not changed ???
-                static::link_attachment_to_post($post_id, $existing_attachment_id->ID);
+                static::link_attachment_to_post($post_id, $existing_attachment_id);
                 return false;
             }
 
