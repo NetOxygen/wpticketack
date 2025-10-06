@@ -304,8 +304,8 @@ export default class BookingForm extends Component {
 
     build_form() {
         this.$container.html("");
-        this.$dates_form    = $('<div class="dates-form"></div>').appendTo(this.$container);
-        this.$tickets_form  = $('<div class="tickets-form"></div>').appendTo(this.$container);
+        this.$dates_form    = $('<div class="dates-form"><div data-component="Media/Loading" data-size-sm></div></div>').appendTo(this.$container);
+        this.$tickets_form  = $('<div class="tickets-form"> <div data-component="Media/Loading" data-size-sm></div>').appendTo(this.$container);
         this.$success_panel = $('<div class="success-panel d-none"></div>').appendTo(this.$container);
 
         this.build_dates_form();
