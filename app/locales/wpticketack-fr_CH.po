@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-08 17:15+0200\n"
+"POT-Creation-Date: 2025-10-09 11:32+0200\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Jonathan Ernst <jonathan.ernst@netoxygen.ch>\n"
+"Last-Translator: Belkacem Alidra <belkacem.alidra@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -225,23 +225,6 @@ msgid "Ceci est un cadeau"
 msgstr ""
 
 msgid "Ces champs sont requis"
-msgstr ""
-
-msgid "Votre nom"
-msgstr ""
-
-msgid "Votre e-mail"
-msgstr ""
-
-msgid ""
-"Sans photo, une pièce d'identité sera systématiquement demandée à l'entrée "
-"des salles et aux caisses."
-msgstr ""
-
-msgid "Stopper la vidéo"
-msgstr ""
-
-msgid "Tous ces champs sont requis"
 msgstr ""
 
 msgid "Tarifs :"
@@ -526,6 +509,9 @@ msgstr ""
 msgid "Mot de passe perdu ? Changez-le !"
 msgstr ""
 
+msgid "Votre nom"
+msgstr ""
+
 msgid "Société"
 msgstr ""
 
@@ -554,6 +540,9 @@ msgid "Confirmation de votre mot de passe"
 msgstr ""
 
 msgid "Saisissez une deuxième fois votre mot de passe"
+msgstr ""
+
+msgid "Tous ces champs sont requis"
 msgstr ""
 
 msgid "Votre compte a bien été créé"

@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: eshop 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-08 17:15+0200\n"
+"POT-Creation-Date: 2025-10-09 11:32+0200\n"
 "PO-Revision-Date: 2020-01-16 16:46+0000\n"
-"Last-Translator: Jonathan Ernst <jonathan.ernst@netoxygen.ch>\n"
+"Last-Translator: Belkacem Alidra <belkacem.alidra@netoxygen.ch>\n"
 "Language-Team: German (Swiss High) <http://translate.neto2.net/projects/"
 "ticketack/eshop/de_CH/>\n"
 "Language: de_CH\n"
@@ -234,25 +234,6 @@ msgstr "Dies ist ein Geschenk"
 
 msgid "Ces champs sont requis"
 msgstr "Diese Felder sind erforderlich"
-
-msgid "Votre nom"
-msgstr "Ihr Nachname"
-
-msgid "Votre e-mail"
-msgstr "Ihre E-Mail"
-
-msgid ""
-"Sans photo, une pièce d'identité sera systématiquement demandée à l'entrée "
-"des salles et aux caisses."
-msgstr ""
-"Ohne Foto wird beim Betreten der Räume und an den Kassen systematisch nach "
-"einem Ausweis gefragt."
-
-msgid "Stopper la vidéo"
-msgstr "Video anhalten"
-
-msgid "Tous ces champs sont requis"
-msgstr "Alle diese Felder sind erforderlich"
 
 msgid "Tarifs :"
 msgstr "Tarif:"
@@ -548,6 +529,9 @@ msgstr "Haben Sie noch kein Konto? Erstellen Sie eins!"
 msgid "Mot de passe perdu ? Changez-le !"
 msgstr "Passwort vergessen? Ändern Sie es!"
 
+msgid "Votre nom"
+msgstr "Ihr Nachname"
+
 msgid "Société"
 msgstr "Unternehmen"
 
@@ -577,6 +561,9 @@ msgstr "Bestätigung Ihres Kennworts"
 
 msgid "Saisissez une deuxième fois votre mot de passe"
 msgstr "Geben Sie Ihr Passwort ein zweites Mal ein"
+
+msgid "Tous ces champs sont requis"
+msgstr "Alle diese Felder sind erforderlich"
 
 msgid "Votre compte a bien été créé"
 msgstr "Ihr Konto wurde erfolgreich erstellt"
@@ -2534,3 +2521,16 @@ msgstr "Ändern Sie die Werte unten nur, wenn Sie wissen, was Sie tun."
 
 msgid "Brouillon"
 msgstr "Draft"
+
+#~ msgid "Votre e-mail"
+#~ msgstr "Ihre E-Mail"
+
+#~ msgid ""
+#~ "Sans photo, une pièce d'identité sera systématiquement demandée à "
+#~ "l'entrée des salles et aux caisses."
+#~ msgstr ""
+#~ "Ohne Foto wird beim Betreten der Räume und an den Kassen systematisch "
+#~ "nach einem Ausweis gefragt."
+
+#~ msgid "Stopper la vidéo"
+#~ msgstr "Video anhalten"

@@ -155,6 +155,8 @@ $currency = TKTApp::get_instance()->get_config('currency', 'CHF');
                     <small data-ticket-id="<%= ticket._id %>" class="cannot-book-explanation">
                         <% if (ticket.hasBooked(screening)) { %>
                             <i><?php echo esc_html(BSTranslator::t("Vous ne pouvez pas réserver une place de plus pour cet événement sur ce billet.")) ?></i>
+                        <% } else if (ticket.canBook(screening, /*ignoreTicketBookings*/true)) { %>
+                            <i><?php echo esc_html(BSTranslator::t("Vous avez épuisé le nombre maximum de réservations sur ce pass ou cette accréditation pour la période à laquelle a lieu cette séance.")) ?></i>
                         <% } else { %>
                             <i><?php echo esc_html(BSTranslator::t("Votre billet n'est pas valable pour cet événement.")) ?></i>
                         <% } %>
