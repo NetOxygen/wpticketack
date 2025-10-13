@@ -143,9 +143,7 @@ export default class BookingForm extends Component {
         postal.publish({
             channel: "connection",
             topic: "update",
-            data: {
-                ticket: ticket
-            }
+            data: { ticket }
         });
     }
 
@@ -153,9 +151,7 @@ export default class BookingForm extends Component {
         postal.publish({
             channel: "ticket",
             topic: "update",
-            data: {
-                ticket: ticket
-            }
+            data: { ticket }
         });
     }
 
@@ -210,7 +206,7 @@ export default class BookingForm extends Component {
         if (!screening_id)
             return new Error("No screening");
 
-        let ticket = this.state.hasInArray('tickets', '_id', ticket_id) ?
+        const ticket = this.state.hasInArray('tickets', '_id', ticket_id) ?
             this.state.getInArray('tickets', '_id', ticket_id) :
             this.state.getInArray('user.tickets', '_id', ticket_id);
 
@@ -232,7 +228,7 @@ export default class BookingForm extends Component {
             $('.book-form-error', $container).addClass('d-none');
             $('.book-form-success', $container).removeClass('d-none');
             success = true;
-            this.emit_ticket_update(this.data.ticket);
+            this.emit_ticket_update(ticket);
         } catch(err) {
             $('.book-form-success', $container).addClass('d-none');
             $('.book-form-error', $container)
@@ -283,14 +279,16 @@ export default class BookingForm extends Component {
         }
     }
 
-    check_bookability(callback) {
-        if (!this.data.screening || !this.data.screening._id)
-            return new Error("No screening");
+    async check_bookability(callback) {
+        try {
+            if (!this.data.screening?._id)
+                throw new Error("No screening");
 
-        TKTApi.checkBookability(this.data.screening._id, (err, status, rsp) => {
-            if (err)
-                return false;
-            this.data.bookability = rsp;
+            const { connected_tickets, account_tickets } = this.getTicketsFromStorage();
+            this.data.bookability = await TKTLib.ScreeningService.getBookability(
+                this.data.screening._id,
+                connected_tickets.concat(account_tickets).map(t => t._id)
+            );
 
             const tickets = this.state.get('tickets', []);
             if (tickets.length > 0) {
@@ -298,8 +296,11 @@ export default class BookingForm extends Component {
             } else {
                 $('.connect-panel', this.$container).removeClass('d-none');
             }
-             callback && callback();
-        });
+
+            callback && callback();
+        } catch (err) {
+            return callback && callback(err);
+        }
     }
 
     build_form() {
@@ -368,20 +369,7 @@ export default class BookingForm extends Component {
         if (!this.data.screening)
             return;
 
-        // render template
-
-        // filter tickets on current edition, if any
-        const edition = Config.get('edition', '');
-        const connected_tickets = this.state
-            .get('tickets', [])
-            .map(ticket => new Ticket(ticket))
-            .filter(t => t.isActivated())
-            .filter(t => !edition?.length || t.edition === edition);
-        const account_tickets = this.state
-            .get('user.tickets', [])
-            .map(ticket => new Ticket(ticket))
-            .filter(t => t.isActivated())
-            .filter(t => !edition?.length || t.edition === edition);
+        const { connected_tickets, account_tickets } = this.getTicketsFromStorage();
 
         let pricings = [];
         if ('getMatchingPricings' in this.data.screening)
@@ -390,6 +378,7 @@ export default class BookingForm extends Component {
             );
         const screening = new TKTLib.Screening({ ...this.data.screening, pricings });
 
+        // render template
         this.$tickets_form.html(Template.render('tkt-booking-form-pricings-tpl', {
             bookability: this.data.bookability || {},
             screening: screening,
@@ -533,5 +522,22 @@ export default class BookingForm extends Component {
         if (!results) return null;
         if (!results[2]) return '';
         return decodeURIComponent(results[2].replace(/\+/g, ' '));
+    }
+
+    getTicketsFromStorage() {
+        // filter tickets on current edition, if any
+        const edition = Config.get('edition', '');
+        const connected_tickets = this.state
+            .get('tickets', [])
+            .map(ticket => new Ticket(ticket))
+            .filter(t => t.isActivated())
+            .filter(t => !edition?.length || t.edition === edition);
+        const account_tickets = this.state
+            .get('user.tickets', [])
+            .map(ticket => new Ticket(ticket))
+            .filter(t => t.isActivated())
+            .filter(t => !edition?.length || t.edition === edition);
+
+        return { connected_tickets, account_tickets };
     }
 }

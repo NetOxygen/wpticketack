@@ -15,12 +15,10 @@ use Ticketack\WP\TKTApp;
  *       - availabilities: object
  *       - cannot_book_explanation: string
  *       - eligible_types: array
- *       - screening_already_booked: boolean
- *       - screening_exists: boolean
- *       - screening_seats: boolean
- *       - ticket_can_book_screening: boolean
- *       - ticket_cannot_book_explanation: string
- *       - ticket_logged_in: boolean
+ *       - tickets: [{
+ *          - can_book: boolean
+ *          - cannot_book_explanation: string
+ *       }]
  *   "screening": Screening instance,
  *   "show_pricings": A boolean indicating if we must show the pricings form
  *   "show_ticket_id": A boolean indicating if we must show the ticket connection form
@@ -35,6 +33,12 @@ $currency = TKTApp::get_instance()->get_config('currency', 'CHF');
 <% const availabilities = bookability?.availabilities; %>
 <% const eligible_types = (bookability?.eligible_types || screening?.eligible_types || []).filter(t => t._id != 'one-time-pass'); %>
 <% const sellable_types = eligible_types.filter(t => !!t.sellable); %>
+<%
+    const ticket_cannot_book_explanation = function (_id) {
+        bookability.tickets = bookability.tickets || {};
+        return bookability.tickets[_id]?.cannot_book_explanation;
+    }
+%>
 
 <div class="tkt-wrapper">
     <% if (_.keys(screening.pricings).length) { %>
@@ -141,25 +145,18 @@ $currency = TKTApp::get_instance()->get_config('currency', 'CHF');
                     <% } %>
                 </div>
                 <div class="col text-right book-btns">
-
                     <% if (ticket.canBook(screening)) { %>
-                    <button data-ticket-id="<%= ticket._id %>" class="button book-btn active <%= ticket.canBook(screening) && !ticket.hasBooked(screening) ? '' : 'd-none' %>" >
-                        <i class="tkt-icon-plus"></i>
-                        <?php echo esc_html(tkt_t('Réserver une place sur ce billet')) ?>
-                    </button>
-                    <button data-ticket-id="<%= ticket._id %>" class="button book-btn-more active <%= ticket.canBook(screening) && ticket.hasBooked(screening) ? '' : 'd-none' %>" >
-                        <i class="tkt-icon-plus"></i>
-                        <?php echo esc_html(tkt_t('Réserver une place de plus sur ce billet')) ?>
-                    </button>
+                        <button data-ticket-id="<%= ticket._id %>" class="button book-btn<%= ticket.hasBooked(screening) ? '-more' : '' %> active" >
+                            <i class="tkt-icon-plus"></i>
+                            <% if (ticket.hasBooked(screening)) { %>
+                                <?php echo esc_html(tkt_t('Réserver une place de plus sur ce billet')) ?>
+                            <% } else { %>
+                                <?php echo esc_html(tkt_t('Réserver une place sur ce billet')) ?>
+                            <% } %>
+                        </button>
                     <% } else { %>
                     <small data-ticket-id="<%= ticket._id %>" class="cannot-book-explanation">
-                        <% if (ticket.hasBooked(screening)) { %>
-                            <i><?php echo esc_html(BSTranslator::t("Vous ne pouvez pas réserver une place de plus pour cet événement sur ce billet.")) ?></i>
-                        <% } else if (ticket.canBook(screening, /*ignoreTicketBookings*/true)) { %>
-                            <i><?php echo esc_html(BSTranslator::t("Vous avez épuisé le nombre maximum de réservations sur ce pass ou cette accréditation pour la période à laquelle a lieu cette séance.")) ?></i>
-                        <% } else { %>
-                            <i><?php echo esc_html(BSTranslator::t("Votre billet n'est pas valable pour cet événement.")) ?></i>
-                        <% } %>
+                        <i><%= ticket_cannot_book_explanation(ticket._id) %></i>
                     </small>
                     <% } %>
                 </div>
