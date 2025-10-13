@@ -114,7 +114,7 @@ export default class Checkout extends Component {
     }
 
     fillCheckoutForm() {
-        const fields = ['email', 'company', 'title', 'firstname', 'lastname', 'street', 'zip', 'city', 'country', 'language', 'sex', 'age', 'birthdate', 'tab'];
+        const fields = ['email', 'company', 'title', 'firstname', 'lastname', 'street', 'zip', 'city', 'country', 'language', 'phone', 'cellphone', 'sex', 'comment', 'age', 'birthdate', 'tab', 'conditions', 'newsletter', 'survey'];
 
         // initialize data with cart user data
         let data = this.cart.user_data;
@@ -155,6 +155,9 @@ export default class Checkout extends Component {
                         defaultDate: value
                     }
                     $('#birthdate.data-field').flatpickr(optional_config);
+                    return;
+                } else if (['conditions', 'newsletter', 'survey'].includes(key) && value === 'checked') {
+                    $(`.data-field[name="user[${key}]"]`)[0].checked = true;
                     return;
                 }
 
