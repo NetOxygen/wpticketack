@@ -8,7 +8,7 @@ use Ticketack\WP\TKTApp;
  * Booking form: pricings partial
  * This template will be parsed by underscore.js
  *
- * @templateVersion 2.94.0
+ * @templateVersion 2.95.0
  *
  * JS Input: {
  *   "bookability": An object with the following keys :
