@@ -9,7 +9,7 @@ use Ticketack\WP\Templates\TKTTemplate;
  * User account profile content
  * This template will be parsed by underscore.js
  *
- * @templateVersion 2.82.0
+ * @templateVersion 2.95.0
  *
  * Input: {
  *   "user": { ... },
@@ -36,6 +36,27 @@ if (!function_exists('tkt_is_required')) {
           <?php if (!empty($requested_fields) || !empty($required_fields)) : ?>
           <fieldset id="registration-fields">
             <div class="row">
+              <?php if (in_array('company', $requested_fields)) : ?>
+              <div id="field-wrapper-company" class="field-wrapper col-md-6" style="display: block;">
+                <div class="form-group">
+                  <label class="<?php echo esc_attr(tkt_is_required($required_fields, 'company')) ?>" for="company"><?php echo esc_html(tkt_t("Société")); ?></label>
+                  <input name="user[contact][company]" type="text" class="tkt-input form-control data-field" id="company" placeholder="<?php echo esc_html(tkt_t("Votre société")) ?>" <?php echo esc_html(tkt_is_required($required_fields, 'company')) ?> value="<%= user.contact.company %>" />
+                </div>
+              </div>
+              <?php endif; ?>
+
+              <?php if (in_array('title', $requested_fields)) : ?>
+              <div id="field-wrapper-title" class="field-wrapper form-group col-6">
+                <label class="<?php echo esc_attr(tkt_is_required($required_fields, 'title') ?>" for="title"><?php echo esc_html(tkt_t("Genre")); ?></label>
+                <select name="user[contact][title]" id="title" class="tkt-input form-control data-field" <?php echo esc_attr(tkt_is_required($required_fields, 'title')) ?>>
+                  <option value=""></option>
+                  <?php foreach (tkt_get_titles() as $value => $label) : ?>
+                  <option value="<?php echo esc_attr($value) ?>" <%= '<?php echo esc_html($value) ?>' == user.contact.title ? 'selected' : ''%>><?php echo esc_html($label) ?></option>
+                  <?php endforeach; ?>
+                </select>
+              </div>
+              <?php endif; ?>
+
               <?php if (in_array('firstname', $requested_fields)) : ?>
               <div id="field-wrapper-firstname" class="field-wrapper col-md-6" style="display: block;">
                 <div class="form-group">
@@ -50,15 +71,6 @@ if (!function_exists('tkt_is_required')) {
                 <div class="form-group">
                   <label class="<?php echo esc_attr(tkt_is_required($required_fields, 'lastname')) ?>" for="lastname"><?php echo esc_html(tkt_t("Nom")); ?></label>
                   <input name="user[contact][lastname]" type="text" class="tkt-input form-control data-field" id="lastname" placeholder="<?php echo esc_html(tkt_t("Votre nom")) ?>" <?php echo esc_html(tkt_is_required($required_fields, 'lastname')) ?> value="<%= user.contact.lastname %>" />
-                </div>
-              </div>
-              <?php endif; ?>
-
-              <?php if (in_array('company', $requested_fields)) : ?>
-              <div id="field-wrapper-company" class="field-wrapper col-md-6" style="display: block;">
-                <div class="form-group">
-                  <label class="<?php echo esc_attr(tkt_is_required($required_fields, 'company')) ?>" for="company"><?php echo esc_html(tkt_t("Société")); ?></label>
-                  <input name="user[contact][company]" type="text" class="tkt-input form-control data-field" id="company" placeholder="<?php echo esc_html(tkt_t("Votre société")) ?>" <?php echo esc_html(tkt_is_required($required_fields, 'company')) ?> value="<%= user.contact.company %>" />
                 </div>
               </div>
               <?php endif; ?>
@@ -144,7 +156,7 @@ if (!function_exists('tkt_is_required')) {
                 <label class="<?php echo esc_attr(tkt_is_required($required_fields, 'sex')) ?>" for="sex"><?php echo esc_html(tkt_t("Genre")); ?></label>
                 <select name="user[contact][sex]" id="sex" class="tkt-input form-control data-field" <?php echo esc_attr(tkt_is_required($required_fields, 'sex')) ?>>
                   <option value=""></option>
-                  <?php foreach (tkt_get_sexes() as $value => $label) : ?>
+                  <?php foreach (tkt_get_genders() as $value => $label) : ?>
                   <option value="<?php echo esc_attr($value) ?>" <%= '<?php echo esc_html($value) ?>' == user.contact.sex ? 'selected' : ''%>><?php echo esc_html($label) ?></option>
                   <?php endforeach; ?>
                 </select>

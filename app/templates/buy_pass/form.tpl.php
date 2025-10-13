@@ -7,7 +7,7 @@ use Ticketack\WP\TKTApp;
 /**
  * Buy pass form template
  *
- * @templateVersion 2.82.0
+ * @templateVersion 2.95.0
  *
  * Input:
  * $data: {
@@ -29,9 +29,31 @@ $width = 300;
         <form>
           <fieldset>
             <div class="row">
+              <div id="field-wrapper-company" class="field-wrapper col-md-4" style="display: block;">
+                <div class="form-group">
+                   <label class="required" for="company"><?php echo esc_html(tkt_t("Entreprise")); ?></label>
+                   <input name="company" type="text" class="tkt-input form-control field" id="company" placeholder="<?php echo esc_html(tkt_t("Votre entreprise")) ?>" required />
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div id="field-wrapper-title" class="col-md-12 field-wrapper form-group" style="display: none;">
+                <label class="required" for="title"><?php echo esc_html(tkt_t('Civilité')) ?></label>
+                <select name="title" id="title" class="tkt-input form-control field" required>
+                  <option value=""></option>
+                    <?php
+                      $titles = tkt_get_titles();
+                      foreach ($titles as $title_key => $title_value) {
+                          echo '<option value="'.esc_attr($title_key).'">'.esc_html($title_value).'</option>';
+                      }
+                    ?>
+                </select>
+              </div>
+            </div>
+            <div class="row">
               <div id="field-wrapper-firstname" class="field-wrapper col-md-4" style="display: block;">
                 <div class="form-group">
-                   <label class="required" for="firstname"><?php echo esc_html(tkt_t("Prénom")); ?></label>
+                   <label class="required" for="firstname"><?php echo esc_html(tkt_t("Civilité")); ?></label>
                    <input name="firstname" type="text" class="tkt-input form-control field" id="firstname" placeholder="<?php echo esc_html(tkt_t("Votre prénom")) ?>" required />
                 </div>
               </div>
@@ -129,7 +151,7 @@ $width = 300;
                 <select name="sex" id="sex" class="tkt-input form-control field" required>
                   <option value=""></option>
                     <?php
-                      $sexes = tkt_get_sexes();
+                      $sexes = tkt_get_genders();
                       foreach ($sexes as $sex_key => $sex_value) {
                           echo '<option value="'.esc_attr($sex_key).'">'.esc_html($sex_value).'</option>';
                       }
@@ -137,7 +159,6 @@ $width = 300;
                 </select>
               </div>
             </div>
-
 
             <div class="row">
               <div id="field-wrapper-photo" class="field-wrapper col-md-12" style="display: none;"> 

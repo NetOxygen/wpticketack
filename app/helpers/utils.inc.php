@@ -547,10 +547,16 @@ function tkt_get_ages()
     return $array;
 }
 
-function tkt_get_sexes()
+function tkt_get_genders()
 {
     return ['n/c' => tkt_t("Pas de réponse"), 'f' => tkt_t("Féminin"), 'm' => tkt_t("Masculin"), 'o' => tkt_t("Autre")];
 }
+
+function tkt_get_titles()
+{
+    return ['n/c' => tkt_t("Pas de réponse"), 'mrs' => tkt_t("Madame"), 'miss' => tkt_t("Mademoiselle"), 'mr' => tkt_t("Monsieur"), 'dr' => ("Docteur")];
+}
+
 
 function tkt_get_countries()
 {

@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-09 11:32+0200\n"
+"POT-Creation-Date: 2025-10-10 13:46+0200\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Belkacem Alidra <belkacem.alidra@netoxygen.ch>\n"
+"Last-Translator: Jonathan Ernst <jonathan.ernst@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -139,6 +139,15 @@ msgid "Ajouter à mon panier"
 msgstr ""
 
 msgid "Titulaire"
+msgstr ""
+
+msgid "Entreprise"
+msgstr ""
+
+msgid "Votre entreprise"
+msgstr ""
+
+msgid "Civilité"
 msgstr ""
 
 msgid "Votre prénom"
@@ -651,12 +660,6 @@ msgstr ""
 msgid "Vos données de facturation"
 msgstr ""
 
-msgid "Entreprise"
-msgstr ""
-
-msgid "Votre entreprise"
-msgstr ""
-
 msgid "Saisissez une seconde fois votre adresse e-mail"
 msgstr ""
 
@@ -1057,6 +1060,15 @@ msgid "Masculin"
 msgstr ""
 
 msgid "Autre"
+msgstr ""
+
+msgid "Madame"
+msgstr ""
+
+msgid "Mademoiselle"
+msgstr ""
+
+msgid "Monsieur"
 msgstr ""
 
 msgid "Séance"

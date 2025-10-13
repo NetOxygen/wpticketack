@@ -8,7 +8,7 @@ use Ticketack\WP\Templates\TKTTemplate;
 /**
  * Checkout form template
  *
- * @templateVersion 2.82.0
+ * @templateVersion 2.95.0
  *
  * Input:
  * $data: {
@@ -88,6 +88,18 @@ foreach ($payment_method_names as $id => $translations) {
                   <label class="<?php echo esc_attr(tkt_is_required($required_fields, 'company')) ?>" for="company"><?php echo esc_html(tkt_t("Entreprise")); ?></label>
                   <input name="user[company]" type="text" class="tkt-input form-control data-field" id="company" placeholder="<?php echo esc_html(tkt_t("Votre entreprise")) ?>" <?php echo esc_html(tkt_is_required($required_fields, 'company')) ?> />
                 </div>
+              </div>
+              <?php endif; ?>
+
+              <?php if (in_array('title', $requested_fields) || in_array('title', $required_fields)) : ?>
+              <div id="field-wrapper-title" class="field-wrapper form-group col-6">
+                <label class="<?php echo esc_attr(tkt_is_required($required_fields, 'title')) ?>" for="title"><?php echo esc_html(tkt_t("Civilité")); ?></label>
+                <select name="user[title]" id="title" class="tkt-input form-control data-field" <?php echo esc_attr(tkt_is_required($required_fields, 'title')) ?>>
+                  <option value=""></option>
+                  <?php foreach (tkt_get_titles() as $value => $label) : ?>
+                  <option value="<?php echo esc_attr($value) ?>"><?php echo esc_html($label) ?></option>
+                  <?php endforeach; ?>
+                </select>
               </div>
               <?php endif; ?>
 
@@ -200,7 +212,7 @@ foreach ($payment_method_names as $id => $translations) {
                 <label class="<?php echo esc_attr(tkt_is_required($required_fields, 'sex')) ?>" for="sex"><?php echo esc_html(tkt_t("Genre")); ?></label>
                 <select name="user[sex]" id="sex" class="tkt-input form-control data-field" <?php echo esc_attr(tkt_is_required($required_fields, 'sex')) ?>>
                   <option value=""></option>
-                  <?php foreach (tkt_get_sexes() as $value => $label) : ?>
+                  <?php foreach (tkt_get_genders() as $value => $label) : ?>
                   <option value="<?php echo esc_attr($value) ?>"><?php echo esc_html($label) ?></option>
                   <?php endforeach; ?>
                 </select>

@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: eshop 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-09 11:32+0200\n"
+"POT-Creation-Date: 2025-10-10 13:46+0200\n"
 "PO-Revision-Date: 2020-01-16 16:46+0000\n"
-"Last-Translator: Belkacem Alidra <belkacem.alidra@netoxygen.ch>\n"
+"Last-Translator: Jonathan Ernst <jonathan.ernst@netoxygen.ch>\n"
 "Language-Team: German (Swiss High) <http://translate.neto2.net/projects/"
 "ticketack/eshop/de_CH/>\n"
 "Language: de_CH\n"
@@ -146,6 +146,15 @@ msgstr "Zu meinem Warenkorb hinzufügen"
 
 msgid "Titulaire"
 msgstr "Inhaber"
+
+msgid "Entreprise"
+msgstr "Unternehmen"
+
+msgid "Votre entreprise"
+msgstr "Ihr Unternehmen"
+
+msgid "Civilité"
+msgstr "Anrede"
 
 msgid "Votre prénom"
 msgstr "Ihr Vorname"
@@ -678,12 +687,6 @@ msgstr "Keine Zahlungsmethode konfiguriert."
 msgid "Vos données de facturation"
 msgstr "Zahlungsinformationen"
 
-msgid "Entreprise"
-msgstr "Unternehmen"
-
-msgid "Votre entreprise"
-msgstr "Ihr Unternehmen"
-
 msgid "Saisissez une seconde fois votre adresse e-mail"
 msgstr "Geben Sie Ihre Adresse ein zweites Mal ein"
 
@@ -1094,6 +1097,15 @@ msgstr "Männlich"
 
 msgid "Autre"
 msgstr "Anderes"
+
+msgid "Madame"
+msgstr ""
+
+msgid "Mademoiselle"
+msgstr ""
+
+msgid "Monsieur"
+msgstr ""
 
 msgid "Séance"
 msgstr "Vorstellung"
