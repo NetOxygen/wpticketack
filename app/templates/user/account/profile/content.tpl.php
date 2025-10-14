@@ -47,7 +47,7 @@ if (!function_exists('tkt_is_required')) {
 
               <?php if (in_array('title', $requested_fields)) : ?>
               <div id="field-wrapper-title" class="field-wrapper form-group col-6">
-                <label class="<?php echo esc_attr(tkt_is_required($required_fields, 'title') ?>" for="title"><?php echo esc_html(tkt_t("Genre")); ?></label>
+                <label class="<?php echo esc_attr(tkt_is_required($required_fields, 'title')) ?>" for="title"><?php echo esc_html(tkt_t("Genre")); ?></label>
                 <select name="user[contact][title]" id="title" class="tkt-input form-control data-field" <?php echo esc_attr(tkt_is_required($required_fields, 'title')) ?>>
                   <option value=""></option>
                   <?php foreach (tkt_get_titles() as $value => $label) : ?>
