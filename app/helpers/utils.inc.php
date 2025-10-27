@@ -143,6 +143,7 @@ function tkt_assets_url($path)
     return plugin_dir_url( TKT_APP ) . 'front/' . $path . '?v=' . TKT_ASSETS_VERSION;
 
 }
+
 /**
  * Get a link to a page by its slug, in the current language
  *
@@ -427,6 +428,59 @@ function tkt_user_account_url($query = "")
 {
     $slug = TKTApp::get_instance()->get_config('pages.account');
     return $slug ? tkt_page_url($slug, $query) : null;
+}
+
+/**
+ * Get the Terms conditions page url
+ *
+ * @return string
+ */
+function tkt_terms_conditions_url()
+{
+    $eshop_config = TKTApp::get_instance()->get_config('eshop');
+    $url          = $eshop_config["url_overrides"]["terms_conditions_url"][TKT_LANG] ?? null;
+
+    if (empty($url)) {
+        $url = sprintf(
+            "%s/legal/terms?lang=%s",
+            TKTApp::get_instance()->get_config('ticketack.eshop_uri'),
+            TKT_LANG
+        );
+    }
+
+    return $url;
+}
+
+/**
+ * Get the Privacy policy page url
+ *
+ * @return string
+ */
+function tkt_privacy_policy_url()
+{
+    $eshop_config = TKTApp::get_instance()->get_config('eshop');
+    $url          = $eshop_config["url_overrides"]["privacy_policy_url"][TKT_LANG] ?? null;
+
+    if (empty($url)) {
+        $url = sprintf(
+            "%s/legal/privacy?lang=%s",
+            TKTApp::get_instance()->get_config('ticketack.eshop_uri'),
+            TKT_LANG
+        );
+    }
+
+    return $url;
+}
+
+/**
+ * Get the Sanitary measures page url
+ *
+ * @return string if set, null otherwise
+ */
+function tkt_sanitary_measures_url()
+{
+    $eshop_config = TKTApp::get_instance()->get_config('eshop');
+    return $eshop_config["url_overrides"]["sanitary_measures_url"][TKT_LANG] ?? null;
 }
 
 /**
