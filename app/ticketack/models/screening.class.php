@@ -71,6 +71,14 @@ class Screening extends TKTModel implements \JsonSerializable
     }
 
     /**
+     * scope filtering screenings on places.
+     */
+    public static function scope_in_places($req, array $places_ids)
+    {
+        return $req->query('places_ids', implode(',', $places_ids));
+    }
+
+    /**
      * cosmetic helper for scope_start_at_gt.
      */
     public static function scope_in_the_future($req)

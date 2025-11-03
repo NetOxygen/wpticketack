@@ -77,17 +77,21 @@ class SyncHelper
 
     protected static function load_next_events($tags = [], $places = [])
     {
-        $screenings = Screening::all()
-            ->in_the_future()
-            ->order_by_start_at()
-            ->get('_id,title,start_at,stop_at,description,cinema_hall,films,sections,opaque,refs');
+        $query   = Screening::all()->order_by_start_at();
+        $edition = TKTApp::get_instance()->get_config('edition');
+        if (is_null($edition)) {
+            $query = $query->in_the_future();
+        } else {
+            $query = $query->in_edition($edition);
+        }
 
         if (!empty($places)) {
-            $screenings = array_values(array_filter($screenings, function ($screening) use ($places) {
-                if (in_array($screening->place()->_id(), $places)) {
-                    return true;
-                }
-            }));
+            $query = $query->in_places($places);
+        }
+
+        $screenings = $query->get('_id,title,start_at,stop_at,description,cinema_hall,films,sections,opaque,refs');
+        if (empty($screenings)) {
+            return [];
         }
 
         $events = Event::from_screenings($screenings);
