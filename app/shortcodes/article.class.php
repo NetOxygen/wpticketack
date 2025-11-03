@@ -35,14 +35,18 @@ class ArticleShortcode extends TKTShortcode
      */
     public function run($atts, $content)
     {
-        $id       = isset($atts['id']) ? $atts['id'] : null;
+        $id = isset($atts['id']) ? $atts['id'] : null;
 
         if (is_null($id)) {
             return null;
         }
 
         try {
-            $article      = Article::find($id);
+            $article = Article::find($id);
+            if (!$article) {
+                return null;
+            }
+
             $salepoint_id = TKTApp::get_instance()
                 ->get_config('ticketack.salepoint_id');
 
