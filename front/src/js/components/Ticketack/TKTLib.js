@@ -8,7 +8,8 @@ Ticketack
         'engineUri': Config.get('engine_uri'),
         'eshop': {
             'uri': Config.get('eshop_uri')
-        }
+        },
+        'lang': Config.get('lang'),
     });
 
 export default Ticketack;
