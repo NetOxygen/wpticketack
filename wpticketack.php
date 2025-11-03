@@ -19,6 +19,7 @@ setlocale(LC_TIME, get_locale().'.UTF-8');
 
 define('TKT_ASSETS_VERSION', '2.96.0.2025102701');
 
+define("TKT_PLUGIN_FILE", (__FILE__));
 define("TKT_BASE", (dirname(__FILE__)));
 define("TKT_CONFIG", (TKT_BASE.'/config'));
 define("TKT_APP", (TKT_BASE.'/app'));

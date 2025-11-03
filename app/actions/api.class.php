@@ -2,6 +2,7 @@
 namespace Ticketack\WP\Actions;
 
 use Ticketack\WP\TKTApp;
+use Ticketack\WP\helpers\HealthHelper;
 use Ticketack\WP\helpers\SyncHelper;
 
 /**
@@ -25,6 +26,30 @@ class ApiAction extends TKTAction
      */
     public function run()
     {
+        register_rest_route('ticketack/v1', '/version', [
+            'methods' => 'GET',
+            'callback' => function () {
+                $checks = HealthHelper::check();
+
+                return [
+                    'status'  => 'success',
+                    'version' => get_plugin_data(TKT_PLUGIN_FILE)['Version']
+                ];
+            }
+        ]);
+
+        register_rest_route('ticketack/v1', '/health/check', [
+            'methods' => 'POST',
+            'callback' => function ($request) {
+                $checks = HealthHelper::check();
+
+                return [
+                    'status' => 'success',
+                    'checks' => $checks
+                ];
+            }
+        ]);
+
         register_rest_route('ticketack/v1', '/settings/refresh', [
             'methods' => 'POST',
             'callback' => function () {

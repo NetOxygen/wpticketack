@@ -13,6 +13,7 @@ require_once(TKT_HELPERS.'/sync_people_helper.class.php');
 require_once(TKT_HELPERS.'/locales_helper.class.php');
 require_once(TKT_HELPERS.'/bstranslator.class.php');
 require_once(TKT_HELPERS.'/utils.inc.php');
+require_once(TKT_HELPERS.'/health_helper.class.php');
 require_once(TKT_LIB.'/base/api.class.php');
 require_once(TKT_LIB.'/base/currency/money.class.php');
 require_once(TKT_LIB.'/base/currency/chf.class.php');
