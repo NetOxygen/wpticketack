@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-10 13:46+0200\n"
+"POT-Creation-Date: 2025-11-03 14:48+0100\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Jonathan Ernst <jonathan.ernst@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -290,10 +290,10 @@ msgstr ""
 msgid "Réservation pour cette séance avec ce billet :"
 msgstr ""
 
-msgid "Réserver une place sur ce billet"
+msgid "Réserver une place de plus sur ce billet"
 msgstr ""
 
-msgid "Réserver une place de plus sur ce billet"
+msgid "Réserver une place sur ce billet"
 msgstr ""
 
 msgid "Votre place a bien été réservée."
@@ -664,13 +664,6 @@ msgid "Saisissez une seconde fois votre adresse e-mail"
 msgstr ""
 
 msgid "Je désire m'inscrire à la newsletter."
-msgstr ""
-
-msgid ""
-"Dans le cadre des conditions sanitaires actuelles, nous sommes tenus de "
-"demander à chaque détenteur de ticket les informations nécessaires pour le "
-"contacter si besoin.<br/>Nous vous remercions donc de bien vouloir remplir "
-"les informations ci-dessous."
 msgstr ""
 
 msgid "Ticket"
@@ -1071,6 +1064,9 @@ msgstr ""
 msgid "Monsieur"
 msgstr ""
 
+msgid "Entrées"
+msgstr ""
+
 msgid "Séance"
 msgstr ""
 
@@ -1093,6 +1089,18 @@ msgid "Représentations"
 msgstr ""
 
 msgid "Événements"
+msgstr ""
+
+msgid "À la fin de la séance"
+msgstr ""
+
+msgid "À la fin du concert"
+msgstr ""
+
+msgid "À la fin de la représentation"
+msgstr ""
+
+msgid "À la fin de l'événement"
 msgstr ""
 
 msgid "Prochaines séances"
@@ -1218,6 +1226,9 @@ msgstr ""
 msgid "Il n'y a pas de vente en ligne pour cet événement."
 msgstr ""
 
+msgid "Cette séance n'est pas disponible avec ton pass ou ton accréditation."
+msgstr ""
+
 msgid "Cette séance n'est pas disponible avec ton abonnement."
 msgstr ""
 
@@ -1243,6 +1254,13 @@ msgid "Cet événement n'est pas réservable sur ton abonnement."
 msgstr ""
 
 msgid "Cet événement n'est pas réservable sur votre abonnement."
+msgstr ""
+
+msgid "Cette séance n'est plus disponible avec ton pass ou ton accréditation."
+msgstr ""
+
+msgid ""
+"Cette séance n'est plus disponible avec votre pass ou votre accréditation."
 msgstr ""
 
 msgid "Cette séance n'est plus disponible avec ton abonnement."
@@ -1272,31 +1290,23 @@ msgstr ""
 msgid "Cet événement n'est plus réservable sur votre abonnement."
 msgstr ""
 
-msgid "Cette séance n'est pas encore disponible avec ton abonnement."
+msgid ""
+"Des places réservables avec ton pass ou ton accréditation seront disponibles "
+"ultérieurement."
 msgstr ""
 
-msgid "Cette séance n'est pas encore disponible avec votre abonnement."
+msgid ""
+"Des places réservables avec votre pass ou votre accréditation seront "
+"disponibles ultérieurement."
 msgstr ""
 
-msgid "Cette soirée n'est pas encore disponible avec votre abonnement."
+msgid ""
+"Des places réservables avec ton abonnement seront disponibles ultérieurement."
 msgstr ""
 
-msgid "Ce concert n'est pas encore réservable sur ton abonnement."
-msgstr ""
-
-msgid "Ce concert n'est pas encore réservable sur votre abonnement."
-msgstr ""
-
-msgid "Cette représentation n'est pas encore disponible avec ton abonnement."
-msgstr ""
-
-msgid "Cette représentation n'est pas encore disponible avec votre abonnement."
-msgstr ""
-
-msgid "Cet événement n'est pas encore réservable sur ton abonnement."
-msgstr ""
-
-msgid "Cet événement n'est pas encore réservable sur votre abonnement."
+msgid ""
+"Des places réservables avec votre abonnement seront disponibles "
+"ultérieurement."
 msgstr ""
 
 msgid ""
@@ -1952,6 +1962,18 @@ msgstr ""
 msgid ""
 "Il y a eu un problème lors de la finalisation de votre commande. Nous sommes "
 "prévenus et un collaborateur va prendre contact avec vous."
+msgstr ""
+
+msgid "Parcs"
+msgstr ""
+
+msgid "Salles"
+msgstr ""
+
+msgid "Personnes actuellement dans le parc"
+msgstr ""
+
+msgid "Personnes actuellement en salle"
 msgstr ""
 
 msgid ""

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: eshop 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-10 13:46+0200\n"
+"POT-Creation-Date: 2025-11-03 14:49+0100\n"
 "PO-Revision-Date: 2020-01-16 16:45+0000\n"
 "Last-Translator: Jonathan Ernst <jonathan.ernst@netoxygen.ch>\n"
 "Language-Team: English (United Kingdom) <http://translate.neto2.net/projects/"
@@ -296,11 +296,11 @@ msgstr "Reserve seats on your tickets"
 msgid "Réservation pour cette séance avec ce billet :"
 msgstr "Reservation for this screening with this ticket:"
 
-msgid "Réserver une place sur ce billet"
-msgstr "Reserve a seat on this ticket"
-
 msgid "Réserver une place de plus sur ce billet"
 msgstr "Reserve an additional seat on this ticket"
+
+msgid "Réserver une place sur ce billet"
+msgstr "Reserve a seat on this ticket"
 
 msgid "Votre place a bien été réservée."
 msgstr "Your seat has been successfully reserved."
@@ -680,16 +680,6 @@ msgstr "Enter your email address a second time"
 
 msgid "Je désire m'inscrire à la newsletter."
 msgstr "I wish to subscribe to the newsletter."
-
-msgid ""
-"Dans le cadre des conditions sanitaires actuelles, nous sommes tenus de "
-"demander à chaque détenteur de ticket les informations nécessaires pour le "
-"contacter si besoin.<br/>Nous vous remercions donc de bien vouloir remplir "
-"les informations ci-dessous."
-msgstr ""
-"In view of the current sanitary conditions, we are obliged to ask each "
-"ticket holder for the information necessary to contact them if necessary.<br/"
-">Therefore, we would be grateful if you could fill in the information below."
 
 msgid "Ticket"
 msgstr "Ticket"
@@ -1089,6 +1079,10 @@ msgstr ""
 msgid "Monsieur"
 msgstr ""
 
+#, fuzzy
+msgid "Entrées"
+msgstr "Free entry"
+
 msgid "Séance"
 msgstr "Screening"
 
@@ -1112,6 +1106,20 @@ msgstr "Performances"
 
 msgid "Événements"
 msgstr "Events"
+
+msgid "À la fin de la séance"
+msgstr ""
+
+msgid "À la fin du concert"
+msgstr ""
+
+#, fuzzy
+msgid "À la fin de la représentation"
+msgstr "Upcoming shows"
+
+#, fuzzy
+msgid "À la fin de l'événement"
+msgstr "Upcoming events"
 
 msgid "Prochaines séances"
 msgstr "Upcoming screenings"
@@ -1236,6 +1244,10 @@ msgstr "No online sales for this show."
 msgid "Il n'y a pas de vente en ligne pour cet événement."
 msgstr "No online sales for this event."
 
+#, fuzzy
+msgid "Cette séance n'est pas disponible avec ton pass ou ton accréditation."
+msgstr "This screening cannot be booked with your pass."
+
 msgid "Cette séance n'est pas disponible avec ton abonnement."
 msgstr "This screening cannot be booked with your pass."
 
@@ -1262,6 +1274,15 @@ msgstr "This event cannot be booked with your current pass."
 
 msgid "Cet événement n'est pas réservable sur votre abonnement."
 msgstr "This event cannot be booked with your current pass."
+
+#, fuzzy
+msgid "Cette séance n'est plus disponible avec ton pass ou ton accréditation."
+msgstr "This screening cannot be booked anymore with your current pass."
+
+#, fuzzy
+msgid ""
+"Cette séance n'est plus disponible avec votre pass ou votre accréditation."
+msgstr "This screening cannot be booked anymore with your current pass."
 
 msgid "Cette séance n'est plus disponible avec ton abonnement."
 msgstr "This screening cannot be booked anymore with your current pass."
@@ -1290,32 +1311,25 @@ msgstr "This event cannot be booked anymore with your current pass."
 msgid "Cet événement n'est plus réservable sur votre abonnement."
 msgstr "This event cannot be booked anymore with your current pass."
 
-msgid "Cette séance n'est pas encore disponible avec ton abonnement."
-msgstr "This screening cannot yet be booked with your pass."
+msgid ""
+"Des places réservables avec ton pass ou ton accréditation seront disponibles "
+"ultérieurement."
+msgstr ""
 
-msgid "Cette séance n'est pas encore disponible avec votre abonnement."
-msgstr "This screening cannot yet be booked with your pass."
+msgid ""
+"Des places réservables avec votre pass ou votre accréditation seront "
+"disponibles ultérieurement."
+msgstr ""
 
-msgid "Cette soirée n'est pas encore disponible avec votre abonnement."
-msgstr "This evening cannot yet be booked with your current pass."
+#, fuzzy
+msgid ""
+"Des places réservables avec ton abonnement seront disponibles ultérieurement."
+msgstr "There will however be tickets available at points of sale."
 
-msgid "Ce concert n'est pas encore réservable sur ton abonnement."
-msgstr "This concert cannot yet be booked with your current pass."
-
-msgid "Ce concert n'est pas encore réservable sur votre abonnement."
-msgstr "This concert cannot yet be booked with your current pass."
-
-msgid "Cette représentation n'est pas encore disponible avec ton abonnement."
-msgstr "This performance cannot yet be booked with your current pass."
-
-msgid "Cette représentation n'est pas encore disponible avec votre abonnement."
-msgstr "This performance cannot yet be booked with your current pass."
-
-msgid "Cet événement n'est pas encore réservable sur ton abonnement."
-msgstr "This event cannot yet be booked with your current pass."
-
-msgid "Cet événement n'est pas encore réservable sur votre abonnement."
-msgstr "This event cannot yet be booked with your current pass."
+msgid ""
+"Des places réservables avec votre abonnement seront disponibles "
+"ultérieurement."
+msgstr ""
 
 msgid ""
 "L'accès à cette séance est libre et gratuit. Il n'est pas nécessaire "
@@ -2106,6 +2120,18 @@ msgstr ""
 "There was a problem while finalizing your order. We were informed about this "
 "problem and someone of our team will contact you shortly."
 
+msgid "Parcs"
+msgstr ""
+
+msgid "Salles"
+msgstr ""
+
+msgid "Personnes actuellement dans le parc"
+msgstr ""
+
+msgid "Personnes actuellement en salle"
+msgstr ""
+
 msgid ""
 "Veuillez choisir un point de vente dans les réglages du module Ticketack"
 msgstr "Please choose a salepoint in the Ticketack plugin settings"
@@ -2395,16 +2421,3 @@ msgstr "Change these settings only if you know what you are doing."
 
 msgid "Brouillon"
 msgstr "Draft"
-
-#~ msgid "Votre e-mail"
-#~ msgstr "Your email"
-
-#~ msgid ""
-#~ "Sans photo, une pièce d'identité sera systématiquement demandée à "
-#~ "l'entrée des salles et aux caisses."
-#~ msgstr ""
-#~ "Without a photo, proof of identity will be systematically requested at "
-#~ "the entrance to the halls and at the cash desks."
-
-#~ msgid "Stopper la vidéo"
-#~ msgstr "Stop the video"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: eshop 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-10 13:46+0200\n"
+"POT-Creation-Date: 2025-11-03 14:48+0100\n"
 "PO-Revision-Date: 2020-01-16 16:46+0000\n"
 "Last-Translator: Jonathan Ernst <jonathan.ernst@netoxygen.ch>\n"
 "Language-Team: German (Swiss High) <http://translate.neto2.net/projects/"
@@ -302,11 +302,11 @@ msgstr "Plätze auf Ihren Tickets reservieren"
 msgid "Réservation pour cette séance avec ce billet :"
 msgstr "Reservation für diese Sitzung mit diesem Ticket:"
 
-msgid "Réserver une place sur ce billet"
-msgstr "Einen Platz auf diesem Ticket reservieren"
-
 msgid "Réserver une place de plus sur ce billet"
 msgstr "Einen weiteren Platz auf diesem Ticket reservieren"
+
+msgid "Réserver une place sur ce billet"
+msgstr "Einen Platz auf diesem Ticket reservieren"
 
 msgid "Votre place a bien été réservée."
 msgstr "Ihr Platz wurde erfolgreich reserviert."
@@ -692,17 +692,6 @@ msgstr "Geben Sie Ihre Adresse ein zweites Mal ein"
 
 msgid "Je désire m'inscrire à la newsletter."
 msgstr "Ich möchte den Newsletter erhalten."
-
-msgid ""
-"Dans le cadre des conditions sanitaires actuelles, nous sommes tenus de "
-"demander à chaque détenteur de ticket les informations nécessaires pour le "
-"contacter si besoin.<br/>Nous vous remercions donc de bien vouloir remplir "
-"les informations ci-dessous."
-msgstr ""
-"Im Rahmen der aktuellen Gesundheitsbedingungen sind wir verpflichtet, jeden "
-"Ticketinhaber um die notwendigen Informationen zu bitten, um ihn "
-"gegebenenfalls kontaktieren zu können.<br/> Wir danken Ihnen daher, dass Sie "
-"die unten stehenden Informationen ausfüllen."
 
 msgid "Ticket"
 msgstr "Ticket"
@@ -1107,6 +1096,10 @@ msgstr ""
 msgid "Monsieur"
 msgstr ""
 
+#, fuzzy
+msgid "Entrées"
+msgstr "Freier Eintritt"
+
 msgid "Séance"
 msgstr "Vorstellung"
 
@@ -1130,6 +1123,20 @@ msgstr "Aufführungen"
 
 msgid "Événements"
 msgstr "Veranstaltungen"
+
+msgid "À la fin de la séance"
+msgstr ""
+
+msgid "À la fin du concert"
+msgstr ""
+
+#, fuzzy
+msgid "À la fin de la représentation"
+msgstr "Nächste Aufführungen"
+
+#, fuzzy
+msgid "À la fin de l'événement"
+msgstr "Nächste Veranstaltungen"
 
 msgid "Prochaines séances"
 msgstr "Nächste Vorstellungen"
@@ -1254,6 +1261,10 @@ msgstr "Diese Aufführung wird nicht online verkauft."
 msgid "Il n'y a pas de vente en ligne pour cet événement."
 msgstr "Für diese Veranstaltung gibt es keinen Online-Verkauf."
 
+#, fuzzy
+msgid "Cette séance n'est pas disponible avec ton pass ou ton accréditation."
+msgstr "Diese Vorstellung ist mit deinem Pass nicht verfügbar."
+
 msgid "Cette séance n'est pas disponible avec ton abonnement."
 msgstr "Diese Vorstellung ist mit deinem Pass nicht verfügbar."
 
@@ -1280,6 +1291,15 @@ msgstr "Diese Veranstaltung ist mit deinem Pass nicht verfügbar."
 
 msgid "Cet événement n'est pas réservable sur votre abonnement."
 msgstr "Diese Veranstaltung ist mit Ihrem Pass nicht verfügbar."
+
+#, fuzzy
+msgid "Cette séance n'est plus disponible avec ton pass ou ton accréditation."
+msgstr "Diese Vorstellung ist mit Ihrem Pass nicht mehr verfügbar."
+
+#, fuzzy
+msgid ""
+"Cette séance n'est plus disponible avec votre pass ou votre accréditation."
+msgstr "Diese Vorstellung ist mit Ihrem Pass nicht mehr verfügbar."
 
 msgid "Cette séance n'est plus disponible avec ton abonnement."
 msgstr "Diese Vorstellung ist mit Ihrem Pass nicht mehr verfügbar."
@@ -1308,32 +1328,25 @@ msgstr "Diese Veranstaltung ist mit deinem Pass nicht mehr verfügbar."
 msgid "Cet événement n'est plus réservable sur votre abonnement."
 msgstr "Diese Veranstaltung ist mit Ihrem Pass nicht mehr verfügbar."
 
-msgid "Cette séance n'est pas encore disponible avec ton abonnement."
-msgstr "Diese Vorstellung ist mit deinem Pass noch nicht verfügbar."
+msgid ""
+"Des places réservables avec ton pass ou ton accréditation seront disponibles "
+"ultérieurement."
+msgstr ""
 
-msgid "Cette séance n'est pas encore disponible avec votre abonnement."
-msgstr "Diese Vorstellung ist mit Ihrem Pass noch nicht verfügbar."
+msgid ""
+"Des places réservables avec votre pass ou votre accréditation seront "
+"disponibles ultérieurement."
+msgstr ""
 
-msgid "Cette soirée n'est pas encore disponible avec votre abonnement."
-msgstr "Dieser Abend ist mit Ihrem Pass noch nicht verfügbar."
+#, fuzzy
+msgid ""
+"Des places réservables avec ton abonnement seront disponibles ultérieurement."
+msgstr "An der Kinokasse werden weitere Plätze verfügbar."
 
-msgid "Ce concert n'est pas encore réservable sur ton abonnement."
-msgstr "Dieses Konzert ist mit deinem Pass noch nicht verfügbar."
-
-msgid "Ce concert n'est pas encore réservable sur votre abonnement."
-msgstr "Dieses Konzert ist mit Ihrem Pass noch nicht verfügbar."
-
-msgid "Cette représentation n'est pas encore disponible avec ton abonnement."
-msgstr "Diese Aufführung ist mit deinem Pass noch nicht verfügbar."
-
-msgid "Cette représentation n'est pas encore disponible avec votre abonnement."
-msgstr "Diese Aufführung ist mit Ihrem Pass noch nicht verfügbar."
-
-msgid "Cet événement n'est pas encore réservable sur ton abonnement."
-msgstr "Diese Veranstaltung ist mit deinem Pass noch nicht verfügbar."
-
-msgid "Cet événement n'est pas encore réservable sur votre abonnement."
-msgstr "Diese Veranstaltung ist mit Ihrem Pass noch nicht verfügbar."
+msgid ""
+"Des places réservables avec votre abonnement seront disponibles "
+"ultérieurement."
+msgstr ""
 
 msgid ""
 "L'accès à cette séance est libre et gratuit. Il n'est pas nécessaire "
@@ -2243,6 +2256,18 @@ msgid ""
 "prévenus et un collaborateur va prendre contact avec vous."
 msgstr "Es gab ein Problem mit Ihrer Bestellung. Bitte kontaktieren Sie uns."
 
+msgid "Parcs"
+msgstr ""
+
+msgid "Salles"
+msgstr ""
+
+msgid "Personnes actuellement dans le parc"
+msgstr ""
+
+msgid "Personnes actuellement en salle"
+msgstr ""
+
 msgid ""
 "Veuillez choisir un point de vente dans les réglages du module Ticketack"
 msgstr "Bitte wählen Sie einen Verkaufsort in den Ticketack-Einstellungen"
@@ -2534,15 +2559,3 @@ msgstr "Ändern Sie die Werte unten nur, wenn Sie wissen, was Sie tun."
 msgid "Brouillon"
 msgstr "Draft"
 
-#~ msgid "Votre e-mail"
-#~ msgstr "Ihre E-Mail"
-
-#~ msgid ""
-#~ "Sans photo, une pièce d'identité sera systématiquement demandée à "
-#~ "l'entrée des salles et aux caisses."
-#~ msgstr ""
-#~ "Ohne Foto wird beim Betreten der Räume und an den Kassen systematisch "
-#~ "nach einem Ausweis gefragt."
-
-#~ msgid "Stopper la vidéo"
-#~ msgstr "Video anhalten"

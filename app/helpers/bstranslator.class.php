@@ -27,6 +27,16 @@ class BSTranslator
         $informal = $app->get_config('customer.informal', false);
 
         switch($string) {
+            case "Abonnements":
+                switch ($domain) {
+                    case static::RECREATION_PARC:
+                    case static::RECREATION_CENTER:
+                        return tkt_t("Entrées");
+                        break;
+                    default:
+                       return tkt_t("Abonnements");
+                }
+                break;
             case "Événement":
                 switch ($domain) {
                     case static::CINEMA_FESTIVAL:
@@ -59,6 +69,23 @@ class BSTranslator
                         break;
                     default:
                        return tkt_t("Événements");
+                }
+                break;
+            case "À la fin de l'événement":
+                switch ($domain) {
+                    case static::CINEMA_FESTIVAL:
+                    case static::CINEMA:
+                        return tkt_t("À la fin de la séance");
+                        break;
+                    case static::MUSIC_FESTIVAL:
+                    case static::MUSIC:
+                        return tkt_t("À la fin du concert");
+                        break;
+                    case static::THEATER:
+                        return tkt_t("À la fin de la représentation");
+                        break;
+                    default:
+                       return tkt_t("À la fin de l'événement");
                 }
                 break;
             case "Prochains événements":
@@ -225,6 +252,15 @@ class BSTranslator
             case "Cet événement n'est pas réservable sur votre abonnement.":
                 switch ($domain) {
                     case static::CINEMA_FESTIVAL:
+                        switch ($informal) {
+                            case 'true':
+                            case true:
+                                return tkt_t("Cette séance n'est pas disponible avec ton pass ou ton accréditation.");
+                                break;
+                            default:
+                                return tkt_t("Cette séance n'est pas disponible avec ton pass ou ton accréditation.");
+                        }
+                        break;
                     case static::CINEMA:
                         switch ($informal) {
                             case 'true':
@@ -279,6 +315,15 @@ class BSTranslator
             case "Cet événement n'est plus réservable sur votre abonnement.":
                 switch ($domain) {
                     case static::CINEMA_FESTIVAL:
+                        switch ($informal) {
+                            case 'true':
+                            case true:
+                                return tkt_t("Cette séance n'est plus disponible avec ton pass ou ton accréditation.");
+                                break;
+                            default:
+                                return tkt_t("Cette séance n'est plus disponible avec votre pass ou votre accréditation.");
+                        }
+                        break;
                     case static::CINEMA:
                         switch ($informal) {
                             case 'true':
@@ -330,57 +375,26 @@ class BSTranslator
                         }
                 }
                 break;
-            case "Cet événement n'est pas encore réservable sur votre abonnement.":
+            case "Des places réservables avec votre abonnement seront disponibles ultérieurement.":
                 switch ($domain) {
                     case static::CINEMA_FESTIVAL:
-                    case static::CINEMA:
                         switch ($informal) {
                             case 'true':
                             case true:
-                                return tkt_t("Cette séance n'est pas encore disponible avec ton abonnement.");
+                                return tkt_t("Des places réservables avec ton pass ou ton accréditation seront disponibles ultérieurement.");
                                 break;
                             default:
-                                return tkt_t("Cette séance n'est pas encore disponible avec votre abonnement.");
-                        }
-                        break;
-                    case static::MUSIC_FESTIVAL:
-                        switch ($informal) {
-                            case 'true':
-                            case true:
-                                return tkt_t("Cette soirée n'est pas encore disponible avec votre abonnement.");
-                                break;
-                            default:
-                                return tkt_t("Cette soirée n'est pas encore disponible avec votre abonnement.");
-                        }
-                        break;
-                    case static::MUSIC:
-                        switch ($informal) {
-                            case 'true':
-                            case true:
-                                return tkt_t("Ce concert n'est pas encore réservable sur ton abonnement.");
-                                break;
-                            default:
-                                return tkt_t("Ce concert n'est pas encore réservable sur votre abonnement.");
-                        }
-                        break;
-                    case static::THEATER:
-                        switch ($informal) {
-                            case 'true':
-                            case true:
-                                return tkt_t("Cette représentation n'est pas encore disponible avec ton abonnement.");
-                                break;
-                            default:
-                                return tkt_t("Cette représentation n'est pas encore disponible avec votre abonnement.");
+                                return tkt_t("Des places réservables avec votre pass ou votre accréditation seront disponibles ultérieurement.");
                         }
                         break;
                     default:
                         switch ($informal) {
                             case 'true':
                             case true:
-                                return tkt_t("Cet événement n'est pas encore réservable sur ton abonnement.");
+                                return tkt_t("Des places réservables avec ton abonnement seront disponibles ultérieurement.");
                                 break;
                             default:
-                                return tkt_t("Cet événement n'est pas encore réservable sur votre abonnement.");
+                                return tkt_t("Des places réservables avec votre abonnement seront disponibles ultérieurement.");
                         }
                 }
                 break;
@@ -1113,6 +1127,24 @@ class BSTranslator
                         break;
                     default:
                         return tkt_t("Il y a eu un problème lors de la finalisation de votre commande. Nous sommes prévenus et un collaborateur va prendre contact avec vous.");
+                }
+                break;
+            case "Salles":
+                switch ($domain) {
+                    case static::RECREATION_PARC:
+                        return tkt_t("Parcs");
+                        break;
+                    default:
+                        return tkt_t("Salles");
+                }
+                break;
+            case "Personnes actuellement en salle":
+                switch ($domain) {
+                    case static::RECREATION_PARC:
+                        return tkt_t("Personnes actuellement dans le parc");
+                        break;
+                    default:
+                        return tkt_t("Personnes actuellement en salle");
                 }
                 break;
             default:
