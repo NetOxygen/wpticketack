@@ -53,7 +53,7 @@ $width = 300;
             <div class="row">
               <div id="field-wrapper-firstname" class="field-wrapper col-md-4" style="display: block;">
                 <div class="form-group">
-                   <label class="required" for="firstname"><?php echo esc_html(tkt_t("Civilité")); ?></label>
+                   <label class="required" for="firstname"><?php echo esc_html(tkt_t("Prénom")); ?></label>
                    <input name="firstname" type="text" class="tkt-input form-control field" id="firstname" placeholder="<?php echo esc_html(tkt_t("Votre prénom")) ?>" required />
                 </div>
               </div>
