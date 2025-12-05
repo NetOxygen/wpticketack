@@ -7,7 +7,7 @@ use Ticketack\WP\TKTApp;
 /**
  * Buy pass form template
  *
- * @templateVersion 2.95.0
+ * @templateVersion 2.97.1
  *
  * Input:
  * $data: {
