@@ -34,6 +34,9 @@ export default class Ticket extends TKTLib.Ticket {
 
             return w;
         });
+
+        if (this.wallet)
+            this.wallet = new TKTLib.Wallet(this.wallet);
     }
 
     /**
@@ -97,6 +100,14 @@ export default class Ticket extends TKTLib.Ticket {
      */
     getFormattedStatus() {
         return i18n.t(this.status.toUpperCase());
+    };
+
+    /**
+     * Get this ticket formatted wallet balance
+     * @return {String}
+     */
+    getFormattedWalletBalance() {
+        return this.wallet?.getFormattedBalance() || '';
     };
 
     /**
