@@ -47,7 +47,7 @@ class SyncHelper
                     if ($lang == $default_lang) {
                         continue;
                     }
-                    $tr_post_id = static::create_post($e, $lang, /*$save_attachments*/true, /*$original_post_id*/$def_post_id);
+                    $tr_post_id = static::create_post($e, $lang, $save_attachments, /*$original_post_id*/$def_post_id);
                     if (!is_null($tr_post_id)) {
                         static::link_translations($def_post_id, $tr_post_id, $lang);
                     }

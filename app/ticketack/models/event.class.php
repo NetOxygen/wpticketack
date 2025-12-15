@@ -85,11 +85,11 @@ class Event extends TKTModel implements \JsonSerializable
 
     public function __construct(array &$properties = [])
     {
-        if (array_key_exists('created_at', $properties)) {
+        if (array_key_exists('created_at', $properties) && !empty($properties['created_at'])) {
             $this->created_at = tkt_iso8601_to_datetime($properties['created_at']);
             unset($properties['created_at']);
         }
-        if (array_key_exists('updated_at', $properties)) {
+        if (array_key_exists('updated_at', $properties) && !empty($properties['updated_at'])) {
             $this->updated_at = tkt_iso8601_to_datetime($properties['updated_at']);
             unset($properties['updated_at']);
         }
