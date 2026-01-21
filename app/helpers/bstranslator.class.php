@@ -1046,66 +1046,66 @@ class BSTranslator
                         return tkt_t("Échec de la réservation : cet événement est déjà réservé sur ce billet.");
                 }
                 break;
-            case "Échec de la réservation : ce billet n'est pas valable pour cet événement ou le nombre maximal de réservation est atteint. Vérifiez la date et le nombre de réservations déjà effectuées.":
+            case "Échec de la réservation : ce billet n'est pas valable pour cet événement ou le nombre maximum de réservations est atteint. Vérifiez la date et le nombre de réservations déjà effectuées.":
                 switch ($domain) {
                     case static::CINEMA_FESTIVAL:
                         switch ($informal) {
                             case 'true':
                             case true:
-                                return tkt_t("Échec de la réservation : ce pass ou cette accréditation n'est pas valable pour cette séance ou le nombre maximal de réservation est atteint. Vérifie la date et le nombre de réservations déjà effectuées.");
+                                return tkt_t("Échec de la réservation : ce pass ou cette accréditation n'est pas valable pour cette séance ou le nombre maximum de réservations est atteint. Vérifie la date et le nombre de réservations déjà effectuées.");
                                 break;
                             default:
-                                return tkt_t("Échec de la réservation : ce pass ou cette accréditation n'est pas valable pour cette séance ou le nombre maximal de réservation est atteint. Vérifiez la date et le nombre de réservations déjà effectuées.");
+                                return tkt_t("Échec de la réservation : ce pass ou cette accréditation n'est pas valable pour cette séance ou le nombre maximum de réservations est atteint. Vérifiez la date et le nombre de réservations déjà effectuées.");
                         }
                         break;
                     case static::CINEMA:
                         switch ($informal) {
                             case 'true':
                             case true:
-                                return tkt_t("Échec de la réservation : cet abonnement n'est pas valable pour cette séance ou le nombre maximal de réservation est atteint. Vérifie la date et le nombre de réservations déjà effectuées.");
+                                return tkt_t("Échec de la réservation : cet abonnement n'est pas valable pour cette séance ou le nombre maximum de réservations est atteint. Vérifie la date et le nombre de réservations déjà effectuées.");
                                 break;
                             default:
-                                return tkt_t("Échec de la réservation : cet abonnement n'est pas valable pour cette séance ou le nombre maximal de réservation est atteint. Vérifiez la date et le nombre de réservations déjà effectuées.");
+                                return tkt_t("Échec de la réservation : cet abonnement n'est pas valable pour cette séance ou le nombre maximum de réservations est atteint. Vérifiez la date et le nombre de réservations déjà effectuées.");
                         }
                         break;
                     case static::MUSIC_FESTIVAL:
                         switch ($informal) {
                             case 'true':
                             case true:
-                                return tkt_t("Échec de la réservation : cet abonnement n'est pas valable pour cette soirée ou le nombre maximal de réservation est atteint. Vérifie la date et le nombre de réservations déjà effectuées.");
+                                return tkt_t("Échec de la réservation : cet abonnement n'est pas valable pour cette soirée ou le nombre maximum de réservations est atteint. Vérifie la date et le nombre de réservations déjà effectuées.");
                                 break;
                             default:
-                                return tkt_t("Échec de la réservation : cet abonnement n'est pas valable pour cette soirée ou le nombre maximal de réservation est atteint. Vérifiez la date et le nombre de réservations déjà effectuées.");
+                                return tkt_t("Échec de la réservation : cet abonnement n'est pas valable pour cette soirée ou le nombre maximum de réservations est atteint. Vérifiez la date et le nombre de réservations déjà effectuées.");
                         }
                         break;
                     case static::MUSIC:
                         switch ($informal) {
                             case 'true':
                             case true:
-                                return tkt_t("Échec de la réservation : cet abonnement n'est pas valable pour ce concert ou le nombre maximal de réservation est atteint. Vérifie la date et le nombre de réservations déjà effectuées.");
+                                return tkt_t("Échec de la réservation : cet abonnement n'est pas valable pour ce concert ou le nombre maximum de réservations est atteint. Vérifie la date et le nombre de réservations déjà effectuées.");
                                 break;
                             default:
-                                return tkt_t("Échec de la réservation : cet abonnement n'est pas valable pour ce concert ou le nombre maximal de réservation est atteint. Vérifiez la date et le nombre de réservations déjà effectuées.");
+                                return tkt_t("Échec de la réservation : cet abonnement n'est pas valable pour ce concert ou le nombre maximum de réservations est atteint. Vérifiez la date et le nombre de réservations déjà effectuées.");
                         }
                         break;
                     case static::THEATER:
                         switch ($informal) {
                             case 'true':
                             case true:
-                                return tkt_t("Échec de la réservation : cet abonnement n'est pas valable pour cette représentation ou le nombre maximal de réservation est atteint. Vérifie la date et le nombre de réservations déjà effectuées.");
+                                return tkt_t("Échec de la réservation : cet abonnement n'est pas valable pour cette représentation ou le nombre maximum de réservations est atteint. Vérifie la date et le nombre de réservations déjà effectuées.");
                                 break;
                             default:
-                                return tkt_t("Échec de la réservation : cet abonnement n'est pas valable pour cette représentation ou le nombre maximal de réservation est atteint. Vérifiez la date et le nombre de réservations déjà effectuées.");
+                                return tkt_t("Échec de la réservation : cet abonnement n'est pas valable pour cette représentation ou le nombre maximum de réservations est atteint. Vérifiez la date et le nombre de réservations déjà effectuées.");
                         }
                         break;
                     default:
                         switch ($informal) {
                             case 'true':
                             case true:
-                                return tkt_t("Échec de la réservation : cet abonnement n'est pas valable pour cet événement ou le nombre maximal de réservation est atteint. Vérifie la date et le nombre de réservations déjà effectuées.");
+                                return tkt_t("Échec de la réservation : cet abonnement n'est pas valable pour cet événement ou le nombre maximum de réservations est atteint. Vérifie la date et le nombre de réservations déjà effectuées.");
                                 break;
                             default:
-                                return tkt_t("Échec de la réservation : cet abonnement n'est pas valable pour cet événement ou le nombre maximal de réservation est atteint. Vérifiez la date et le nombre de réservations déjà effectuées.");
+                                return tkt_t("Échec de la réservation : cet abonnement n'est pas valable pour cet événement ou le nombre maximum de réservations est atteint. Vérifiez la date et le nombre de réservations déjà effectuées.");
                         }
                 }
                 break;

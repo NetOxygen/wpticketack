@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: eshop 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-03 14:48+0100\n"
+"POT-Creation-Date: 2026-01-21 18:04+0100\n"
 "PO-Revision-Date: 2020-01-16 16:46+0000\n"
 "Last-Translator: Jonathan Ernst <jonathan.ernst@netoxygen.ch>\n"
 "Language-Team: German (Swiss High) <http://translate.neto2.net/projects/"
@@ -238,8 +238,8 @@ msgstr "Kommentar"
 msgid "Votre commentaire"
 msgstr "Ihr Kommentar"
 
-msgid "Ceci est un cadeau"
-msgstr "Dies ist ein Geschenk"
+msgid "Envoyer ce billet en cadeau par e-mail au titulaire"
+msgstr "Dieses Ticket als Geschenk per E-Mail an den Inhaber senden"
 
 msgid "Ces champs sont requis"
 msgstr "Diese Felder sind erforderlich"
@@ -1088,17 +1088,16 @@ msgid "Autre"
 msgstr "Anderes"
 
 msgid "Madame"
-msgstr ""
+msgstr "Frau"
 
 msgid "Mademoiselle"
-msgstr ""
+msgstr "Fräulein"
 
 msgid "Monsieur"
-msgstr ""
+msgstr "Herr"
 
-#, fuzzy
 msgid "Entrées"
-msgstr "Freier Eintritt"
+msgstr "Entritte"
 
 msgid "Séance"
 msgstr "Vorstellung"
@@ -1125,18 +1124,16 @@ msgid "Événements"
 msgstr "Veranstaltungen"
 
 msgid "À la fin de la séance"
-msgstr ""
+msgstr "Am Ende der Sitzung"
 
 msgid "À la fin du concert"
-msgstr ""
+msgstr "Am Ende des Konzerts"
 
-#, fuzzy
 msgid "À la fin de la représentation"
-msgstr "Nächste Aufführungen"
+msgstr "Am Ende der Aufführung"
 
-#, fuzzy
 msgid "À la fin de l'événement"
-msgstr "Nächste Veranstaltungen"
+msgstr "Am Ende der Veranstaltung"
 
 msgid "Prochaines séances"
 msgstr "Nächste Vorstellungen"
@@ -1261,9 +1258,10 @@ msgstr "Diese Aufführung wird nicht online verkauft."
 msgid "Il n'y a pas de vente en ligne pour cet événement."
 msgstr "Für diese Veranstaltung gibt es keinen Online-Verkauf."
 
-#, fuzzy
 msgid "Cette séance n'est pas disponible avec ton pass ou ton accréditation."
-msgstr "Diese Vorstellung ist mit deinem Pass nicht verfügbar."
+msgstr ""
+"Diese Vorstellung ist nicht mit deinem Pass oder deiner Akkreditierung "
+"verfügbar."
 
 msgid "Cette séance n'est pas disponible avec ton abonnement."
 msgstr "Diese Vorstellung ist mit deinem Pass nicht verfügbar."
@@ -1292,14 +1290,16 @@ msgstr "Diese Veranstaltung ist mit deinem Pass nicht verfügbar."
 msgid "Cet événement n'est pas réservable sur votre abonnement."
 msgstr "Diese Veranstaltung ist mit Ihrem Pass nicht verfügbar."
 
-#, fuzzy
 msgid "Cette séance n'est plus disponible avec ton pass ou ton accréditation."
-msgstr "Diese Vorstellung ist mit Ihrem Pass nicht mehr verfügbar."
+msgstr ""
+"Diese Vorstellung ist nicht mehr mit deinem Pass oder deiner Akkreditierung "
+"verfügbar."
 
-#, fuzzy
 msgid ""
 "Cette séance n'est plus disponible avec votre pass ou votre accréditation."
-msgstr "Diese Vorstellung ist mit Ihrem Pass nicht mehr verfügbar."
+msgstr ""
+"Diese Vorstellung ist nicht mehr mit Ihrem Pass oder Ihrer Akkreditierung "
+"verfügbar."
 
 msgid "Cette séance n'est plus disponible avec ton abonnement."
 msgstr "Diese Vorstellung ist mit Ihrem Pass nicht mehr verfügbar."
@@ -1332,21 +1332,28 @@ msgid ""
 "Des places réservables avec ton pass ou ton accréditation seront disponibles "
 "ultérieurement."
 msgstr ""
+"Plätze, die mit deinem Pass oder deiner Akkreditierung reserviert werden "
+"können, sind später verfügbar."
 
 msgid ""
 "Des places réservables avec votre pass ou votre accréditation seront "
 "disponibles ultérieurement."
 msgstr ""
+"Plätze, die mit Ihrem Pass oder Ihrer Akkreditierung reserviert werden "
+"können, sind später verfügbar."
 
-#, fuzzy
 msgid ""
 "Des places réservables avec ton abonnement seront disponibles ultérieurement."
-msgstr "An der Kinokasse werden weitere Plätze verfügbar."
+msgstr ""
+"Plätze, die mit deinem Abonnement reserviert werden können, sind später "
+"verfügbar."
 
 msgid ""
 "Des places réservables avec votre abonnement seront disponibles "
 "ultérieurement."
 msgstr ""
+"Plätze, die mit Ihrem Abonnement reserviert werden können, sind später "
+"verfügbar."
 
 msgid ""
 "L'accès à cette séance est libre et gratuit. Il n'est pas nécessaire "
@@ -1454,37 +1461,38 @@ msgstr ""
 "Diese Zusammenfassung, die hier %sheruntergeladen werden kann%s, ist kein "
 "Ticket und ermöglicht keinen Eintritt zu den reservierten Vorstelungen."
 
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "Ce résumé, qui peut être %stéléchargé ici%s, ne permet pas l'accès aux "
 "soirées réservées."
 msgstr ""
 "Diese Zusammenfassung, die hier %sheruntergeladen werden kann%s, ist kein "
-"Ticket und ermöglicht keinen Eintritt zu den Vorführungen."
+"Ticket und ermöglicht keinen Eintritt zu den reservierten "
+"Abendveranstaltungen."
 
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "Ce résumé, qui peut être %stéléchargé ici%s, ne permet pas l'accès aux "
 "concerts réservés."
 msgstr ""
 "Diese Zusammenfassung, die hier %sheruntergeladen werden kann%s, ist kein "
-"Ticket und ermöglicht keinen Eintritt zu den Vorführungen."
+"Ticket und ermöglicht keinen Eintritt zu reservierten Konzerten."
 
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "Ce résumé, qui peut être %stéléchargé ici%s, ne permet pas l'accès aux "
 "représentations réservées."
 msgstr ""
 "Diese Zusammenfassung, die hier %sheruntergeladen werden kann%s, ist kein "
-"Ticket und ermöglicht keinen Eintritt zu den Vorführungen."
+"Ticket und ermöglicht keinen Eintritt zu den Aufführungen."
 
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "Ce résumé, qui peut être %stéléchargé ici%s, ne permet pas l'accès aux "
 "événements réservés."
 msgstr ""
 "Diese Zusammenfassung, die hier %sheruntergeladen werden kann%s, ist kein "
-"Ticket und ermöglicht keinen Eintritt zu den Vorführungen."
+"Ticket und ermöglicht keinen Eintritt zu den Veranstaltungen."
 
 #, php-format
 msgid ""
@@ -1618,37 +1626,33 @@ msgstr ""
 "Sie können keine Reservation für diesen Abend tätigen, da Sie bereits eine "
 "parallel stattfindende Vorstellung reserviert haben."
 
-#, fuzzy
 msgid ""
 "Tu ne peux pas réserver ce concert, car une autre réservation existe sur la "
 "même période."
 msgstr ""
-"Sie können keine Reservation für diese Vorstellung tätigen, da Sie bereits "
-"eine parallel stattfindende Vorstellung reserviert haben."
+"Du kannst dieses Konzert nicht reservieren, da im gleichen Zeitraum bereits "
+"eine andere Reservation besteht."
 
-#, fuzzy
 msgid ""
 "Vous ne pouvez pas réserver ce concert, car une autre réservation existe sur "
 "la même période."
 msgstr ""
-"Sie können keine Reservation für diese Vorstellung tätigen, da Sie bereits "
-"eine parallel stattfindende Vorstellung reserviert haben."
+"Sie können dieses Konzert nicht reservieren, da im gleichen Zeitraum bereits "
+"eine andere Reservation besteht."
 
-#, fuzzy
 msgid ""
 "Tu ne peux pas réserver cette représentation, car une autre réservation "
 "existe sur la même période."
 msgstr ""
-"Sie können keine Reservation für diese Vorstellung tätigen, da Sie bereits "
-"eine parallel stattfindende Vorstellung reserviert haben."
+"Du kannst diese Aufführung nicht reservieren, da im gleichen Zeitraum "
+"bereits eine andere Reservation besteht."
 
-#, fuzzy
 msgid ""
 "Vous ne pouvez pas réserver cette représentation, car une autre réservation "
 "existe sur la même période."
 msgstr ""
-"Sie können keine Reservation für diese Vorstellung tätigen, da Sie bereits "
-"eine parallel stattfindende Vorstellung reserviert haben."
+"Sie können diese Aufführung nicht reservieren, da im gleichen Zeitraum "
+"bereits eine andere Reservation besteht."
 
 msgid ""
 "Tu ne peux pas réserver cet événement, car une autre réservation existe sur "
@@ -1678,53 +1682,47 @@ msgstr ""
 "Die Reservation kann nicht vorgenommen werden, da Sie mit Ihrem Tagespass "
 "bereits an einem anderen Tag eine Vorstellung reserviert haben."
 
-#, fuzzy
 msgid ""
 "Tu ne peux pas réserver cette soirée, car sa date est différente d'une autre "
 "de tes réservations."
 msgstr ""
-"Die Reservation kann nicht vorgenommen werden, da Sie mit Ihrem Tagespass "
-"bereits an einem anderen Tag eine Vorstellung reserviert haben."
+"Du kannst diesen Abend nicht reservieren, da sein Datum von einer anderen "
+"deiner Reservationen abweicht."
 
-#, fuzzy
 msgid ""
 "Vous ne pouvez pas réserver cette soirée, car sa date est différente d'une "
 "autre de vos réservations."
 msgstr ""
-"Die Reservation kann nicht vorgenommen werden, da Sie mit Ihrem Tagespass "
-"bereits an einem anderen Tag eine Vorstellung reserviert haben."
+"Sie können diesen Abend nicht reservieren, da sein Datum von einer anderen "
+"Ihrer Reservationen abweicht."
 
-#, fuzzy
 msgid ""
 "Tu ne peux pas réserver ce concert, car sa date est différente d'une autre "
 "de tes réservations."
 msgstr ""
-"Die Reservation kann nicht vorgenommen werden, da Sie mit Ihrem Tagespass "
-"bereits an einem anderen Tag eine Vorstellung reserviert haben."
+"Du kannst dieses Konzert nicht reservieren, da sein Datum von einer anderen "
+"deiner Reservationen abweicht."
 
-#, fuzzy
 msgid ""
 "Vous ne pouvez pas réserver ce concert, car sa date est différente d'une "
 "autre de vos réservations."
 msgstr ""
-"Die Reservation kann nicht vorgenommen werden, da Sie mit Ihrem Tagespass "
-"bereits an einem anderen Tag eine Vorstellung reserviert haben."
+"Sie können dieses Konzert nicht reservieren, da sein Datum von einer anderen "
+"Ihrer Reservationen abweicht."
 
-#, fuzzy
 msgid ""
 "Tu ne peux pas réserver cette représentation, car sa date est différente "
 "d'une autre de tes réservations."
 msgstr ""
-"Die Reservation kann nicht vorgenommen werden, da Sie mit Ihrem Tagespass "
-"bereits an einem anderen Tag eine Vorstellung reserviert haben."
+"Sie können dieses Konzert nicht reservieren, da sein Datum von einer anderen "
+"Ihrer Reservationen abweicht."
 
-#, fuzzy
 msgid ""
 "Vous ne pouvez pas réserver cette représentations, car sa date est "
 "différente d'une autre de vos réservations."
 msgstr ""
-"Die Reservation kann nicht vorgenommen werden, da Sie mit Ihrem Tagespass "
-"bereits an einem anderen Tag eine Vorstellung reserviert haben."
+"Sie können diese Aufführung nicht reservieren, da ihr Datum von einer "
+"anderen Ihrer Reservationen abweicht."
 
 msgid ""
 "Tu ne peux pas réserver cet événement, car sa date est différente d'une "
@@ -1884,69 +1882,61 @@ msgstr ""
 "Ihr Pass ist nur für bestimmte Vorstellungen gültig. Die aufgerufene "
 "Vorstellung gehört leider nicht dazu."
 
-#, fuzzy
 msgid ""
 "Ton billet ne permet la réservation que de certaines soirées spécifiques et "
 "celle-ci n'en fait pas partie."
 msgstr ""
-"Ihr Ticket ist nur für bestimmte Vorstellungen gültig. Die aufgerufene "
-"Vorstellung gehört leider nicht dazu."
+"Dein Ticket ist nur für bestimmte Abende gültig, dieser gehört leider nicht "
+"dazu."
 
-#, fuzzy
 msgid ""
 "Votre billet ne permet la réservation que de certaines soirées spécifiques "
 "et celle-ci n'en fait pas partie."
 msgstr ""
-"Ihr Ticket ist nur für bestimmte Vorstellungen gültig. Die aufgerufene "
-"Vorstellung gehört leider nicht dazu."
+"Ihr Ticket ist nur für bestimmte Abende gültig, dieser gehört leider nicht "
+"dazu."
 
-#, fuzzy
 msgid ""
 "Ton billet ne permet la réservation que de certains concerts spécifiques et "
 "celui-ci n'en fait pas partie."
 msgstr ""
-"Ihr Ticket ist nur für bestimmte Vorstellungen gültig. Die aufgerufene "
-"Vorstellung gehört leider nicht dazu."
+"Dein Ticket ist nur für bestimmte Konzerte gültig, dieses gehört leider "
+"nicht dazu."
 
-#, fuzzy
 msgid ""
 "Votre billet ne permet la réservation que de certains concerts spécifiques "
 "et celui-ci n'en fait pas partie."
 msgstr ""
-"Ihr Ticket ist nur für bestimmte Vorstellungen gültig. Die aufgerufene "
-"Vorstellung gehört leider nicht dazu."
+"Ihr Ticket ist nur für bestimmte Konzerte gültig, dieses gehört leider nicht "
+"dazu."
 
-#, fuzzy
 msgid ""
 "Ton billet ne permet la réservation que de certaines représentations "
 "spécifiques et celle-ci n'en fait pas partie."
 msgstr ""
-"Ihr Ticket ist nur für bestimmte Vorstellungen gültig. Die aufgerufene "
-"Vorstellung gehört leider nicht dazu."
+"Dein Ticket ist nur für bestimmte Aufführungen gültig, diese gehört leider "
+"nicht dazu."
 
-#, fuzzy
 msgid ""
 "Votre billet ne permet la réservation que de certaines représentations "
 "spécifiques et celle-ci n'en fait pas partie."
 msgstr ""
-"Ihr Ticket ist nur für bestimmte Vorstellungen gültig. Die aufgerufene "
-"Vorstellung gehört leider nicht dazu."
+"Ihr Ticket ist nur für bestimmte Aufführungen gültig, diese gehört leider "
+"nicht dazu."
 
-#, fuzzy
 msgid ""
 "Ton billet ne permet la réservation que de certains événements spécifiques "
 "et celui-ci n'en fait pas partie."
 msgstr ""
-"Ihr Ticket ist nur für bestimmte Vorstellungen gültig. Die aufgerufene "
-"Vorstellung gehört leider nicht dazu."
+"Dein Ticket ist nur für bestimmte Veranstaltungen gültig, diese gehört "
+"leider nicht dazu."
 
-#, fuzzy
 msgid ""
 "Votre billet ne permet la réservation que de certains événements spécifiques "
 "et celui-ci n'en fait pas partie."
 msgstr ""
-"Ihr Ticket ist nur für bestimmte Vorstellungen gültig. Die aufgerufene "
-"Vorstellung gehört leider nicht dazu."
+"Ihr Ticket ist nur für bestimmte Veranstaltungen gültig, diese gehört leider "
+"nicht dazu."
 
 msgid ""
 "Les dates de la séance ne correspondent pas aux dates de validité de votre "
@@ -1969,69 +1959,61 @@ msgstr ""
 "Diese Vorstellung findet ausserhalb des Gültigkeitszeitraumes Ihres Passes "
 "statt."
 
-#, fuzzy
 msgid ""
 "Les dates de la soirée ne correspondent pas aux dates de validité de ton "
 "billet."
 msgstr ""
-"Diese Vorstellung findet ausserhalb des Gültigkeitszeitraumes Ihres Tickets "
-"statt."
+"Die Daten dieses Abends liegen ausserhalb des Gültigkeitszeitraums deines "
+"Tickets."
 
-#, fuzzy
 msgid ""
 "Les dates de la soirée ne correspondent pas aux dates de validité de votre "
 "billet."
 msgstr ""
-"Diese Vorstellung findet ausserhalb des Gültigkeitszeitraumes Ihres Tickets "
-"statt."
+"Die Daten dieses Abends liegen ausserhalb des Gültigkeitszeitraums Ihres "
+"Tickets."
 
-#, fuzzy
 msgid ""
 "Les dates du concert ne correspondent pas aux dates de validité de ton "
 "billet."
 msgstr ""
-"Diese Vorstellung findet ausserhalb des Gültigkeitszeitraumes Ihres Tickets "
-"statt."
+"Die Daten dieses Abends liegen ausserhalb des Gültigkeitszeitraums Ihres "
+"Tickets."
 
-#, fuzzy
 msgid ""
 "Les dates du concert ne correspondent pas aux dates de validité de votre "
 "billet."
 msgstr ""
-"Diese Vorstellung findet ausserhalb des Gültigkeitszeitraumes Ihres Tickets "
-"statt."
+"Die Daten dieses Abends liegen ausserhalb des Gültigkeitszeitraums Ihres "
+"Tickets."
 
-#, fuzzy
 msgid ""
 "Les dates de la représentation ne correspondent pas aux dates de validité de "
 "ton billet."
 msgstr ""
-"Diese Vorstellung findet ausserhalb des Gültigkeitszeitraumes Ihres Tickets "
-"statt."
+"Die Daten dieses Abends liegen ausserhalb des Gültigkeitszeitraums Ihres "
+"Tickets."
 
-#, fuzzy
 msgid ""
 "Les dates de la représentation ne correspondent pas aux dates de validité de "
 "votre billet."
 msgstr ""
-"Diese Vorstellung findet ausserhalb des Gültigkeitszeitraumes Ihres Tickets "
-"statt."
+"Die Daten dieses Abends liegen ausserhalb des Gültigkeitszeitraums Ihres "
+"Tickets."
 
-#, fuzzy
 msgid ""
 "Les dates de l'événement ne correspondent pas aux dates de validité de ton "
 "billet."
 msgstr ""
-"Diese Vorstellung findet ausserhalb des Gültigkeitszeitraumes Ihres Tickets "
-"statt."
+"Die Daten dieser Veranstaltung liegen ausserhalb des Gültigkeitszeitraums "
+"deines Tickets."
 
-#, fuzzy
 msgid ""
 "Les dates de l'événement ne correspondent pas aux dates de validité de votre "
 "billet."
 msgstr ""
-"Diese Vorstellung findet ausserhalb des Gültigkeitszeitraumes Ihres Tickets "
-"statt."
+"Die Daten dieser Veranstaltung liegen ausserhalb des Gültigkeitszeitraums "
+"Ihres Tickets."
 
 msgid ""
 "Ton abonnement ou ton accréditation n'est pas valable pour cette séance."
@@ -2051,37 +2033,29 @@ msgstr "Diese Vorstellung kann mit deinem Ticket nicht reserviert werden."
 msgid "Votre abonnement n'est pas valable pour cette séance."
 msgstr "Diese Vorstellung kann mit Ihrem Ticket nicht reserviert werden."
 
-#, fuzzy
 msgid "Ton billet n'est pas valable pour cette soirée."
-msgstr "Diese Vorstellung kann mit Ihrem Ticket nicht reserviert werden."
+msgstr "Dein Ticket ist für diesen Abend nicht gültig."
 
-#, fuzzy
 msgid "Votre billet n'est pas valable pour cette soirée."
-msgstr "Diese Vorstellung kann mit Ihrem Ticket nicht reserviert werden."
+msgstr "Ihr Ticket ist für diesen Abend nicht gültig."
 
-#, fuzzy
 msgid "Ton billet n'est pas valable pour ce concert."
-msgstr "Diese Vorstellung kann mit Ihrem Ticket nicht reserviert werden."
+msgstr "Dein Ticket ist für dieses Konzert nicht gültig."
 
-#, fuzzy
 msgid "Votre billet n'est pas valable pour ce concert."
-msgstr "Diese Vorstellung kann mit Ihrem Ticket nicht reserviert werden."
+msgstr "Ihr Ticket ist für dieses Konzert nicht gültig."
 
-#, fuzzy
 msgid "Ton billet n'est pas valable pour cette représentation."
-msgstr "Diese Vorstellung kann mit Ihrem Ticket nicht reserviert werden."
+msgstr "Dein Ticket ist für diese Aufführung nicht gültig."
 
-#, fuzzy
 msgid "Votre billet n'est pas valable pour cette représentation."
-msgstr "Diese Vorstellung kann mit Ihrem Ticket nicht reserviert werden."
+msgstr "Dein Ticket ist für diese Aufführung nicht gültig."
 
-#, fuzzy
 msgid "Ton billet n'est pas valable pour cet événement."
-msgstr "Diese Vorstellung kann mit Ihrem Ticket nicht reserviert werden."
+msgstr "Dein Ticket ist für diese Veranstaltung nicht gültig."
 
-#, fuzzy
 msgid "Votre billet n'est pas valable pour cet événement."
-msgstr "Diese Vorstellung kann mit Ihrem Ticket nicht reserviert werden."
+msgstr "Ihr Ticket ist für diese Veranstaltung nicht gültig."
 
 msgid ""
 "Échec de la réservation : cette séance est déjà réservée sur cet abonnement "
@@ -2096,55 +2070,51 @@ msgstr ""
 "Fehler bei der Reservation: diese Vorstellung ist auf diesem Pass bereits "
 "reserviert."
 
-#, fuzzy
 msgid "Échec de la réservation : cette soirée est déjà réservée sur ce billet."
 msgstr ""
-"Fehler bei der Reservation: diese Vorstellung ist auf diesem Pass bereits "
+"Fehler bei der Reservation: dieser Abend ist auf diesem Ticket bereits "
 "reserviert."
 
-#, fuzzy
 msgid "Échec de la réservation : ce concert est déjà réservé sur ce billet."
 msgstr ""
-"Fehler bei der Reservation: diese Vorstellung ist auf diesem Pass bereits "
+"Fehler bei der Reservation: dieses Konzert ist auf diesem Ticket bereits "
 "reserviert."
 
-#, fuzzy
 msgid ""
 "Échec de la réservation : cette représentation est déjà réservée sur cet "
 "abonnement."
 msgstr ""
-"Fehler bei der Reservation: diese Vorstellung ist auf diesem Pass bereits "
+"Fehler bei der Reservation: dieses Konzert ist auf diesem Ticket bereits "
 "reserviert."
 
-#, fuzzy
 msgid "Échec de la réservation : cet événement est déjà réservé sur ce billet."
 msgstr ""
-"Fehler bei der Reservation: diese Vorstellung ist auf diesem Pass bereits "
-"reserviert."
+"Fehler bei der Reservation: diese Veranstaltung ist auf diesem Ticket "
+"bereits reserviert."
 
 msgid ""
 "Échec de la réservation : ce pass ou cette accréditation n'est pas valable "
-"pour cette séance ou le nombre maximal de réservation est atteint. Vérifie "
+"pour cette séance ou le nombre maximum de réservations est atteint. Vérifie "
 "la date et le nombre de réservations déjà effectuées."
 msgstr ""
-"Fehler bei der Reservation: dieser Pass oder diese Akkreditierung ist "
-"entweder für diese Vorstellung nicht gültig oder hat die maximale Anzahl von "
-"Reservationen schon erreicht. Überprüft das Datum und die Anzahl der bereits "
-"getätigten Reservationen."
+"Fehler bei der Reservation: dieses Pass order Akkreditierung ist für diese "
+"Vorstellung nicht gültig oder die maximale Anzahl an Reservationen ist "
+"erreicht. Überprüfe das Datum und die Anzahl der bereits getätigten "
+"Reservationen."
 
 msgid ""
 "Échec de la réservation : ce pass ou cette accréditation n'est pas valable "
-"pour cette séance ou le nombre maximal de réservation est atteint. Vérifiez "
+"pour cette séance ou le nombre maximum de réservations est atteint. Vérifiez "
 "la date et le nombre de réservations déjà effectuées."
 msgstr ""
-"Fehler bei der Reservation: dieser Pass oder diese Akkreditierung ist "
-"entweder für diese Vorstellung nicht gültig oder hat die maximale Anzahl von "
-"Reservationen schon erreicht. Überprüfen Sie das Datum und die Anzahl der "
-"bereits getätigten Reservationen."
+"Reservierung fehlgeschlagen: dieses Pass order Akkreditierung  ist für diese "
+"Vorstellung nicht gültig oder die maximale Anzahl an Reservationen ist "
+"erreicht. Überprüfen Sie das Datum und die Anzahl der bereits getätigten "
+"Reservationen."
 
 msgid ""
 "Échec de la réservation : cet abonnement n'est pas valable pour cette séance "
-"ou le nombre maximal de réservation est atteint. Vérifie la date et le "
+"ou le nombre maximum de réservations est atteint. Vérifie la date et le "
 "nombre de réservations déjà effectuées."
 msgstr ""
 "Fehler bei der Reservation: dieser Pass ist entweder für diese Vorstellung "
@@ -2153,84 +2123,84 @@ msgstr ""
 
 msgid ""
 "Échec de la réservation : cet abonnement n'est pas valable pour cette séance "
-"ou le nombre maximal de réservation est atteint. Vérifiez la date et le "
+"ou le nombre maximum de réservations est atteint. Vérifiez la date et le "
 "nombre de réservations déjà effectuées."
 msgstr ""
 "Fehler bei der Reservation: dieser Pass ist entweder für diese Vorstellung "
 "nicht gültig oder hat die maximale Anzahl von Reservationen schon erreicht. "
 "Überprüfen Sie das Datum und die Anzahl der bereits getätigten Reservationen."
 
-#, fuzzy
 msgid ""
 "Échec de la réservation : cet abonnement n'est pas valable pour cette soirée "
-"ou le nombre maximal de réservation est atteint. Vérifie la date et le "
+"ou le nombre maximum de réservations est atteint. Vérifie la date et le "
 "nombre de réservations déjà effectuées."
 msgstr ""
-"Fehler bei der Reservation: dieser Pass ist entweder für diese Vorstellung "
-"nicht gültig oder hat die maximale Anzahl von Reservationen schon erreicht."
+"Fehler bei der Reservation: dieses Abonnement ist für diesen Abend nicht "
+"gültig oder die maximale Anzahl an Reservationen ist erreicht. Überprüfe das "
+"Datum und die Anzahl der bereits getätigten Reservationen."
 
-#, fuzzy
 msgid ""
 "Échec de la réservation : cet abonnement n'est pas valable pour cette soirée "
-"ou le nombre maximal de réservation est atteint. Vérifiez la date et le "
+"ou le nombre maximum de réservations est atteint. Vérifiez la date et le "
 "nombre de réservations déjà effectuées."
 msgstr ""
-"Fehler bei der Reservation: dieser Pass ist entweder für diese Vorstellung "
-"nicht gültig oder hat die maximale Anzahl von Reservationen schon erreicht."
+"Fehler bei der Reservation: dieses Abonnement ist für diesen Abend nicht "
+"gültig oder die maximale Anzahl an Reservationen ist erreicht. Überprüfen "
+"Sie das Datum und die Anzahl der bereits getätigten Reservationen."
 
-#, fuzzy
 msgid ""
 "Échec de la réservation : cet abonnement n'est pas valable pour ce concert "
-"ou le nombre maximal de réservation est atteint. Vérifie la date et le "
+"ou le nombre maximum de réservations est atteint. Vérifie la date et le "
 "nombre de réservations déjà effectuées."
 msgstr ""
-"Fehler bei der Reservation: dieser Pass ist entweder für diese Vorstellung "
-"nicht gültig oder hat die maximale Anzahl von Reservationen schon erreicht."
+"Fehler bei der Reservation: dieses Abonnement ist für dieses Konzert nicht "
+"gültig oder die maximale Anzahl an Reservationen ist erreicht. Überprüfe das "
+"Datum und die Anzahl der bereits getätigten Reservationen."
 
-#, fuzzy
 msgid ""
 "Échec de la réservation : cet abonnement n'est pas valable pour ce concert "
-"ou le nombre maximal de réservation est atteint. Vérifiez la date et le "
+"ou le nombre maximum de réservations est atteint. Vérifiez la date et le "
 "nombre de réservations déjà effectuées."
 msgstr ""
-"Fehler bei der Reservation: dieser Pass ist entweder für diese Vorstellung "
-"nicht gültig oder hat die maximale Anzahl von Reservationen schon erreicht."
+"Fehler bei der Reservation: dieses Abonnement ist für dieses Konzert nicht "
+"gültig oder die maximale Anzahl an Reservationen ist erreicht. Überprüfen "
+"Sie das Datum und die Anzahl der bereits getätigten Reservationen."
 
-#, fuzzy
 msgid ""
 "Échec de la réservation : cet abonnement n'est pas valable pour cette "
-"représentation ou le nombre maximal de réservation est atteint. Vérifie la "
+"représentation ou le nombre maximum de réservations est atteint. Vérifie la "
 "date et le nombre de réservations déjà effectuées."
 msgstr ""
-"Fehler bei der Reservation: dieser Pass ist entweder für diese Vorstellung "
-"nicht gültig oder hat die maximale Anzahl von Reservationen schon erreicht."
+"Fehler bei der Reservation: dieses Abonnement ist für dieses Konzert nicht "
+"gültig oder die maximale Anzahl an Reservationen ist erreicht. Überprüfen "
+"Sie das Datum und die Anzahl der bereits getätigten Reservationen."
 
-#, fuzzy
 msgid ""
 "Échec de la réservation : cet abonnement n'est pas valable pour cette "
-"représentation ou le nombre maximal de réservation est atteint. Vérifiez la "
+"représentation ou le nombre maximum de réservations est atteint. Vérifiez la "
 "date et le nombre de réservations déjà effectuées."
 msgstr ""
-"Fehler bei der Reservation: dieser Pass ist entweder für diese Vorstellung "
-"nicht gültig oder hat die maximale Anzahl von Reservationen schon erreicht."
+"Fehler bei der Reservation: dieses Abonnement ist für diese Aufführung nicht "
+"gültig oder die maximale Anzahl an Reservationen ist erreicht. Überprüfen "
+"Sie das Datum und die Anzahl der bereits getätigten Reservationen."
 
-#, fuzzy
 msgid ""
 "Échec de la réservation : cet abonnement n'est pas valable pour cet "
-"événement ou le nombre maximal de réservation est atteint. Vérifie la date "
+"événement ou le nombre maximum de réservations est atteint. Vérifie la date "
 "et le nombre de réservations déjà effectuées."
 msgstr ""
-"Fehler bei der Reservation: dieser Pass ist entweder für diese Vorstellung "
-"nicht gültig oder hat die maximale Anzahl von Reservationen schon erreicht."
+"Fehler bei der Reservation: dieses Abonnement ist für diese Veranstaltung "
+"nicht gültig oder die maximale Anzahl an Reservationen ist erreicht. "
+"Überprüfe das Datum und die Anzahl der bereits getätigten Reservationen."
 
-#, fuzzy
 msgid ""
 "Échec de la réservation : cet abonnement n'est pas valable pour cet "
-"événement ou le nombre maximal de réservation est atteint. Vérifiez la date "
+"événement ou le nombre maximum de réservations est atteint. Vérifiez la date "
 "et le nombre de réservations déjà effectuées."
 msgstr ""
-"Fehler bei der Reservation: dieser Pass ist entweder für diese Vorstellung "
-"nicht gültig oder hat die maximale Anzahl von Reservationen schon erreicht."
+"Fehler bei der Reservation: dieses Abonnement ist für diese Veranstaltung "
+"nicht gültig oder die maximale Anzahl an Reservationen ist erreicht. "
+"Überprüfen Sie das Datum und die Anzahl der bereits getätigten Reservationen."
 
 msgid ""
 "Il y a eu un problème lors de la finalisation de ta commande. Merci de bien "
@@ -2257,16 +2227,16 @@ msgid ""
 msgstr "Es gab ein Problem mit Ihrer Bestellung. Bitte kontaktieren Sie uns."
 
 msgid "Parcs"
-msgstr ""
+msgstr "Parks"
 
 msgid "Salles"
-msgstr ""
+msgstr "Säle"
 
 msgid "Personnes actuellement dans le parc"
-msgstr ""
+msgstr "Derzeit im Park anwesende Personen"
 
 msgid "Personnes actuellement en salle"
-msgstr ""
+msgstr "Personen, die sich derzeit im Saal befinden"
 
 msgid ""
 "Veuillez choisir un point de vente dans les réglages du module Ticketack"
