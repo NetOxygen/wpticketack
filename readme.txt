@@ -2,7 +2,7 @@
 Tags: ticketack
 Requires at least: 5.9
 Tested up to: 6.9.0
-Stable tag: 2.97.2
+Stable tag: 2.98.0
 Requires PHP: 8.1
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -61,6 +61,15 @@ code](https://github.com/NetOxygen/wpticketack) and submit a Pull Request.
 
 = Changelog =
 * [Changelog link](https://yoda.netoxygen.ch/public/projects/401b5210-986f-46b3-99cb-38546b73e16c/changelog)
+
+= 2.98.0 =
+
+* feat: Introduce tkt_workflow shortcode (beta)
+* i18n: Translations improvement
+* feat: Improve send a gift form
+* modified templates:
+  - app/templates/cart/cart.tpl.php
+  - app/templates/buy_pass/form.tpl.php
 
 = 2.97.2 =
 
