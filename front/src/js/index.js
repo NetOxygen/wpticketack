@@ -19,6 +19,7 @@ import { Calendar, ImageDataUrl } from './components/Form';
 import { Shop } from './components/Shop';
 import { TicketConnect, TicketView } from './components/Ticket';
 import { OwnItPlayer } from './components/OwnIt';
+import { WorkflowRunner } from './components/Workflow';
 import postal from 'postal';
 
 import '../styles/main.scss';
@@ -59,6 +60,7 @@ loader.registerComponent('Shop/Shop', Shop);
 loader.registerComponent('Ticket/TicketConnect', TicketConnect);
 loader.registerComponent('Ticket/TicketView', TicketView);
 loader.registerComponent('OwnIt/Player', OwnItPlayer);
+loader.registerComponent('Workflow/Runner', WorkflowRunner);
 
 loader.attach();
 

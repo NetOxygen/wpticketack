@@ -16,7 +16,7 @@ use Ticketack\Core\Base\TKTApiException;
  *      id="screening_id"
  *      pantaflix_id_prefix="pantaflix_id_int|pantaflix_id_dev|pantaflix_id_prod"
  *      allowed_ticket_types="comma separated list of allowed ticket types" (optional)
- * ]]
+ * ]
  *
  */
 class PantaflixPlayerShortcode extends TKTShortcode

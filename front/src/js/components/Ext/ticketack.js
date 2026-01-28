@@ -94,6 +94,16 @@ Ticketack.prototype.set_session_id = function(session_id) {
 
 /**
  *
+ * Get the current session ID
+ *
+ * @return {String} session_id
+ */
+Ticketack.prototype.get_session_id = function() {
+    return localStorage.getItem('tkt_session_id');
+}
+
+/**
+ *
  * Set the current user API key
  *
  * @param {String} apikey

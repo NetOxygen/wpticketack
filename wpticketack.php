@@ -90,6 +90,7 @@ $app->register_shortcode('Ticketack\WP\Shortcodes\TicketViewShortcode', 'ticket_
 $app->register_shortcode('Ticketack\WP\Shortcodes\TicketConnectShortcode', 'ticket_connect.class.php');
 $app->register_shortcode('Ticketack\WP\Shortcodes\VotesShortcode', 'votes.class.php');
 $app->register_shortcode('Ticketack\WP\Shortcodes\SignageShortcode', 'signage.class.php');
+$app->register_shortcode('Ticketack\WP\Shortcodes\WorkflowShortcode', 'workflow.class.php');
 
 // Register shortcodes defined in THEME_ROOT/ticketack/shortcodes
 $app->register_theme_shortcodes();

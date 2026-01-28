@@ -1,5 +1,5 @@
 import { Component, Config, i18n, Template } from '../Core';
-import { Api as TKTApi } from '../Ticketack';
+import { TKTLib, Api as TKTApi } from '../Ticketack';
 import { Ticket, Cart as CartModel } from '../Models';
 import async from 'async';
 import postal from 'postal';
@@ -12,6 +12,7 @@ import postal from 'postal';
  * <div
  *    <!-- Required -->
  *    data-component="Cart/Cart"
+ *    data-cart-id="UUID"
  * >
  */
 export default class Cart extends Component {
@@ -23,6 +24,7 @@ export default class Cart extends Component {
 
         this.cart       = {};
         this.hide_links = (this.$container.data('hide-links') || '').split(',');
+        this.cart_id    = this.$container.data('cart-id');
         this.$promoCodeInput  = $('.promo-code-input', this.$container);
         this.$promoCodeButton = $('.promo-code-button', this.$container);
     }
@@ -34,10 +36,6 @@ export default class Cart extends Component {
     }
 
     init() {
-        this.loadTicket(() => {
-            this.loadCart();
-        });
-
         postal.subscribe({
             channel: "cart",
             topic: "reload",
@@ -55,6 +53,23 @@ export default class Cart extends Component {
                     this.loadItemsInfos();
                 }
             }
+        });
+
+        if (!this.cart_id) {
+            return this.loadTicket(() => {
+                this.loadCart();
+            });
+        }
+
+        TKTLib.CartService.getById(this.cart_id).then(cart => {
+            // inject the PHP session id into the "old" lib
+            TKTApi.set_session_id(cart.php_session_id);
+        }).catch(err => {
+            console.error(err);
+        }).finally(() => {
+            this.loadTicket(() => {
+                this.loadCart();
+            });
         });
     }
 
