@@ -168,16 +168,16 @@ export default class BookingForm extends Component {
         }
 
         // Add to cart
-        TKTApi.addToCart(
-            this.data.screening._id,
-            this.data.pricings,
-            (err, status, rsp) => {
-                if (err) {
-                    return $('.pricings-error', this.$container)
-                        .html((rsp || {}).errorMsg)
-                        .removeClass('d-none');
+        const payload = {
+            screening_id: this.data.screening._id,
+            bookings: Object.keys(this.data.pricings).reduce((acc, pricing) => {
+                for (let i = 0; i < this.data.pricings[pricing]; i++) {
+                    acc.push({ pricing });
                 }
-
+                return acc;
+            }, [])
+        };
+        TKTLib.CartService.addScreeningToCart(/*params*/{}, payload).then(res => {
             switch (this.redirect) {
                 case 'cart':
                     window.location.href = this.cart_url;
@@ -198,6 +198,10 @@ export default class BookingForm extends Component {
                         this.emit_cart_update(new Cart(rsp));
                     });
             }
+        }).catch(err => {
+            return $('.pricings-error', this.$container)
+                .html((rsp || {}).errorMsg)
+                .removeClass('d-none');
         });
     }
 

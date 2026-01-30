@@ -1,6 +1,6 @@
 import { Component, Template, Config } from '../Core';
 import { Ticket } from '../Models';
-import { Api as TKTApi } from '../Ticketack';
+import { TKTLib } from '../Ticketack';
 import postal from 'postal';
 
 /**
@@ -39,10 +39,10 @@ export default class WorkflowRunner extends Component {
         const url = new URL(this.url);
         // first load the current cart, if any, to inject
         // the cart_id into the workflow
-        TKTApi.loadCart((err, status, cart) => {
+        TKTLib.CartService.get().then(cart => {
             if (cart?.uuid)
                 url.searchParams.set('cart_id', cart.uuid);
-
+        }).finally(() => {
             this.$container.html(Template.render('tkt-workflow-runner-iframe-tpl', {
                 url: url.toString()
             }));

@@ -225,12 +225,16 @@ Ticketack.prototype.getScreeningMapUrl = function(screening_id) {
 /**
  * Fetch cart data from Eshop
  *
+ * @deprecated
+ *
  * @param {Function} callback: The callback function
  */
 Ticketack.prototype.loadCart = function(callback) {
+
     var that = this;
     var url = this.parametrize_url(this.cartJsonUrl, {}, true);
 
+    console.warn('Ticketack.loadCart() is deprecated. Please use TKTLib.CartService.get().');
     return this.get(url, {}, (err, status, rsp) => {
         if (err)
             return callback && callback(err, status, rsp);

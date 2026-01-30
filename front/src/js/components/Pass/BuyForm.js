@@ -1,6 +1,6 @@
 import { Component, i18n } from '../Core';
 import { Tickettype, Cart } from '../Models';
-import { Api as TKTApi } from '../Ticketack';
+import { TKTLib, Api as TKTApi } from '../Ticketack';
 import _ from 'lodash';
 import postal from 'postal';
 import serialize from 'form-serialize';
@@ -110,31 +110,25 @@ export default class BuyForm extends Component {
     }
 
     add_to_cart() {
-        let userdata = serialize(this.$form[0], { hash: true });
+        const user          = serialize(this.$form[0], { hash: true });
 
         this.$selected_pass = $('.choose-pass:checked', this.$container).parents('.pass');
-        let type            = this.$selected_pass.data('type');
-        let pricing         = $('.choose-pass:checked', this.$container).val();
+        let pass_id         = this.$selected_pass.data('type');
+        let pricing_id      = $('.choose-pass:checked', this.$container).val();
 
-        if (!pricing) {
+        if (!pricing_id) {
             if ($('.choose-pass', this.$container).val().indexOf(':') === -1)
                 return this.show_error(i18n.t('Veuillez choisir un tarif'));
 
             const pass = $('.choose-pass', this.$container).val().split(':');
-            type    = pass[0];
-            pricing = pass[1];
+            pass_id    = pass[0];
+            pricing_id = pass[1];
         }
 
-        TKTApi.addPassToCart(type, pricing, userdata, (err, status, rsp) => {
-            /* TODO: Handle no_photo field */
-            if (err) {
-                let err_msg = i18n.t('Une erreur est survenue. Veuillez ré-essayer ultérieurement.');
-                if (rsp?.flash?.error?.length && rsp.flash.error[0].length)
-                    err_msg = rsp.flash.error[0];
-
-                return this.show_error(err_msg);
-            }
-
+        TKTLib.CartService.addPassToCart(
+            /*params*/{},
+            { pass_id, pricing_id, user }
+        ).then(() => {
             switch (this.redirect) {
                 case 'cart':
                     window.location.href = this.cartUrl;
@@ -144,14 +138,19 @@ export default class BuyForm extends Component {
                     break;
                 default:
                     this.show_success(i18n.t('Votre panier a été mis à jour'));
-                    TKTApi.loadCart((err, status, rsp) => {
-                        if (err)
-                            return;
-
-                        this.emit_cart_update(new Cart(rsp));
+                    TKTLib.CartService.get().then(cart => {
+                        this.emit_cart_update(new Cart(cart));
+                    }).catch(err => {
+                        return;
                     });
             }
+        }).catch(err => {
+            /* TODO: Handle no_photo field */
+            let err_msg = i18n.t('Une erreur est survenue. Veuillez ré-essayer ultérieurement.');
+            if (rsp?.flash?.error?.length && rsp.flash.error[0].length)
+                err_msg = rsp.flash.error[0];
 
+            return this.show_error(err_msg);
         });
     }
 

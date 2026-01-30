@@ -2,10 +2,9 @@ import BaseModel from './Base';
 import CartItem from './CartItem';
 import Article from './Article';
 import Screening from './Screening';
-import { Api as TKTApi } from '../Ticketack';
+import { TKTLib } from '../Ticketack';
 import { i18n } from '../Core';
 
-import { Api } from '../Ticketack';
 import _ from 'lodash';
 import moment from 'moment';
 
@@ -213,11 +212,10 @@ export default class Cart extends BaseModel {
      * @param {Function} callback  -Callback function
      */
     static load(callback) {
-        TKTApi.loadCart((err, status, rsp) => {
-            if (err)
-                return callback(err);
-
-            return callback(/*err*/null, new Cart(rsp));
+        TKTLib.CartService.get().then(cart => {
+            return callback(/*err*/null, new Cart(cart));
+        }).catch(err => {
+            return callback(err);
         });
     };
 

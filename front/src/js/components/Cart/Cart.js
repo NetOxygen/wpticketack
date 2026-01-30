@@ -61,10 +61,7 @@ export default class Cart extends Component {
             });
         }
 
-        TKTLib.CartService.getById(this.cart_id).then(cart => {
-            // inject the PHP session id into the "old" lib
-            TKTApi.set_session_id(cart.php_session_id);
-        }).catch(err => {
+        TKTLib.CartService.getById(this.cart_id).catch(err => {
             console.error(err);
         }).finally(() => {
             this.loadTicket(() => {
@@ -83,20 +80,26 @@ export default class Cart extends Component {
     loadCart(callback) {
         callback = callback || ((err, cart) => {});
 
-        CartModel.load((err, cart) => {
-            if (err)
-                return callback(err);
-
-            this.cart = cart;
+        TKTLib.CartService.get().then(cart => {
+            if (cart.isCompleted()) {
+                // let's remove the cart id from the TKTLib
+                TKTLib.CartService.resetCartId();
+                // and reset the cart
+                this.cart = new CartModel({});
+            } else {
+                this.cart = new CartModel(cart);
+            }
 
             return this.loadItemsInfos(callback);
+        }).catch(err => {
+            return callback(err);
         });
     }
 
     loadItemsInfos(callback) {
         callback = callback || ((err, cart) => {});
 
-        this.cart.loadItemsInfos((err) => {
+        this.cart.loadItemsInfos(err => {
             if (err)
                 return callback(err);
 
@@ -104,8 +107,8 @@ export default class Cart extends Component {
             this.emit_update();
 
             this.bind_remove_item_icons((err, cart) => {
-             if (err)
-                console.error(err);
+                if (err)
+                    console.error(err);
             });
 
             return callback(/*err*/null, this.cart);
@@ -139,22 +142,14 @@ export default class Cart extends Component {
         $('.promo-code-error').html("").addClass('d-none');
         $('.promo-code-success').html("").addClass('d-none');
 
-        TKTApi.usePromoCode(code, (err, status, rsp) => {
-            if (err) {
-                const msg = status === 404 ?
-                    'Code promo invalide' :
-                    'Impossible d\'utiliser ce code promo';
-
-                return $('.promo-code-error')
-                    .html(i18n.t(msg))
-                    .removeClass('d-none');
-            }
-
+        TKTLib.CartService.usePromoCode(code).then(cart => {
             this.loadCart();
+        }).catch(err => {
+            const msg = 'Impossible d\'utiliser ce code promo';
 
-            /*return $('.promo-code-success')
-                .html(i18n.t('Le code promo a bien été pris en compte'))
-                .removeClass('d-none');*/
+            return $('.promo-code-error')
+                .html(i18n.t(msg))
+                .removeClass('d-none');
         });
     }
 
@@ -171,26 +166,27 @@ export default class Cart extends Component {
                 .html(i18n.t('Montant trop élevé'))
                 .removeClass('d-none');
 
-        TKTApi.useWallet(this.ticket.id, amount, /*vat*/0, (err, status, rsp) => {
-            if (err) {
-                let msg = 'Impossible d\'utiliser votre porte-monnaie';
-                switch (status) {
-                    case 404:
-                        msg ='Ticket invalide';
-                        break
-                    case 410:
-                        msg ='Montant trop élevé';
-                        break;
-                }
-
-                return $('.wallet-error')
-                    .html(i18n.t(msg))
-                    .removeClass('d-none');
-            }
-
+        TKTLib.CartService.useWallet(this.ticket._id, amount, /*vat*/0).then(cart => {
             this.loadTicket(() => {
                 this.loadCart();
             });
+        }).catch(err => {
+            let msg = 'Impossible d\'utiliser votre porte-monnaie';
+            /**
+             * FIXME : how to get the status here ???
+             */
+            switch (err.status) {
+                case 404:
+                    msg ='Ticket invalide';
+                    break
+                case 410:
+                    msg ='Montant trop élevé';
+                    break;
+            }
+
+            return $('.wallet-error')
+                .html(i18n.t(msg))
+                .removeClass('d-none');
         });
     }
 
@@ -222,7 +218,9 @@ export default class Cart extends Component {
     }
 
     remove_item(item_id, callback) {
-        TKTApi.removeFromCart(item_id, (err, status, rsp) => {
+        TKTLib.CartService.removeItemFromCart(item_id).then(cart => {
+            callback && callback(/*err*/null, cart);
+        }).catch(err => {
             return callback(err);
         });
     }
@@ -230,45 +228,9 @@ export default class Cart extends Component {
     reset_cart(callback) {
         callback  = callback || ((err) => {});
 
-        TKTApi.resetCart((err, status, rsp) => {
-            return callback(err);
-        });
-    }
-
-    set_pending(callback) {
-        callback  = callback || ((err) => {});
-
-        TKTApi.setPending(this.cart.id, (err, status, rsp) => {
-            if (err)
-                return callback(err);
-
-            return callback(/*err*/null, rsp);
-        });
-    }
-
-    set_open(callback) {
-        callback  = callback || ((err) => {});
-
-        TKTApi.setOpen(this.cart.id, (err, status, rsp) => {
-            return callback(err);
-        });
-    }
-
-    get_new(callback) {
-        callback  = callback || ((err) => {});
-
-        TKTApi.getNew((err, status, rsp) => {
-            if (err)
-                return callback(err);
-
-            return this.loadCart(callback);
-        });
-    }
-
-    set_user_data(data, callback) {
-        callback  = callback || ((err) => {});
-
-        TKTApi.setUserData(this.cart.id, data, (err, status, rsp) => {
+        TKTLib.CartService.emptyCart().then(() => {
+            return calllback && callback(/*err*/null);
+        }).catch(err => {
             return callback(err);
         });
     }
