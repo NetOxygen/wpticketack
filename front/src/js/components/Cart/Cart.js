@@ -81,7 +81,7 @@ export default class Cart extends Component {
         callback = callback || ((err, cart) => {});
 
         TKTLib.CartService.get().then(cart => {
-            if (cart.isCompleted()) {
+            if (cart.isFinished()) {
                 // let's remove the cart id from the TKTLib
                 TKTLib.CartService.resetCartId();
                 // and reset the cart
