@@ -775,7 +775,7 @@
 
 "@ticketack/lib@ssh://git@gitlab.netoxygen.ch:2222/ticketack/js-lib.git":
   version "0.15.1"
-  resolved "ssh://git@gitlab.netoxygen.ch:2222/ticketack/js-lib.git#40d60a55fafc6a4b41ba59f7798bc9cb9790669f"
+  resolved "ssh://git@gitlab.netoxygen.ch:2222/ticketack/js-lib.git#c26c5fd056f542425ec7176c557145c64ce1797a"
   dependencies:
     "@babel/polyfill" "^7.12.1"
     buffer "^6.0.3"
