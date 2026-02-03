@@ -62,7 +62,7 @@ code](https://github.com/NetOxygen/wpticketack) and submit a Pull Request.
 = Changelog =
 * [Changelog link](https://yoda.netoxygen.ch/public/projects/401b5210-986f-46b3-99cb-38546b73e16c/changelog)
 
-= 2.99.1 =
+= 2.99.2 =
 
 * deps: Upgrade the ticketack lib
 
