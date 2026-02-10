@@ -5,7 +5,7 @@
  * Description: Ticketack integration
  * Text Domain: wpticketack
  * Domain Path: /app/locales
- * Version: 2.99.4
+ * Version: 2.99.5
  * Author: Net Oxygen Sàrl
  * Author URI: https://netoxygen.ch
  * License: GPLv3
@@ -17,7 +17,7 @@ use Ticketack\WP\TKTApp;
 
 setlocale(LC_TIME, get_locale().'.UTF-8');
 
-define('TKT_ASSETS_VERSION', '2.99.4.2026021001');
+define('TKT_ASSETS_VERSION', '2.99.5.2026021002');
 
 define("TKT_PLUGIN_FILE", (__FILE__));
 define("TKT_BASE", (dirname(__FILE__)));
