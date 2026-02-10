@@ -1,5 +1,5 @@
 import { Component, Config, i18n, Template } from '../Core';
-import { TKTLib, Api as TKTApi } from '../Ticketack';
+import { TKTLib } from '../Ticketack';
 import { Article, Cart } from '../Models';
 import _ from 'lodash';
 import postal from 'postal';
@@ -80,7 +80,7 @@ export default class AddArticleToCartButton extends Component {
                     _id: article._id,
                     variants: payload
                 }]
-            }).then(res => {
+            }).then(rsp => {
                 const flash  = rsp.articles[0].variants[0].flash;
                 const status = rsp.articles[0].variants[0].status;
 
@@ -99,15 +99,15 @@ export default class AddArticleToCartButton extends Component {
                         break;
                     default:
                         // Reload and emit cart update
-                        TKTApi.loadCart((err, status, rsp) => {
+                        TKTLib.CartService.get().then(cart => {
+                            this.emit_cart_update(new Cart(cart));
+                        }).catch(err => {
                             if (err)
                                 return;
-
-                            this.emit_cart_update(new Cart(rsp));
                         });
                 }
             }).catch(err => {
-                return this.set_indicator_mode('error', flash.error);
+                return this.set_indicator_mode('error', i18n.t('Une erreur est survenue'));
             });
         });
 
