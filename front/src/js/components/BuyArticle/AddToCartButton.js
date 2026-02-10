@@ -77,7 +77,7 @@ export default class AddArticleToCartButton extends Component {
             // Add to cart
             TKTLib.CartService.addArticleToCart(/*params*/{}, {
                 'articles': [{
-                    _id: article_id,
+                    _id: article._id,
                     variants: payload
                 }]
             }).then(res => {
