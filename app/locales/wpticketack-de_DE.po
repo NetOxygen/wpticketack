@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: eshop 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-21 18:04+0100\n"
+"POT-Creation-Date: 2026-02-10 10:34+0100\n"
 "PO-Revision-Date: 2020-01-16 16:46+0000\n"
 "Last-Translator: Jonathan Ernst <jonathan.ernst@netoxygen.ch>\n"
 "Language-Team: German (Swiss High) <http://translate.neto2.net/projects/"
@@ -745,7 +745,7 @@ msgstr "Nächste"
 msgid "Tout"
 msgstr "Alles"
 
-msgid "Details"
+msgid "Détails"
 msgstr "Details"
 
 msgid "Sections"
@@ -2528,4 +2528,3 @@ msgstr "Ändern Sie die Werte unten nur, wenn Sie wissen, was Sie tun."
 
 msgid "Brouillon"
 msgstr "Draft"
-

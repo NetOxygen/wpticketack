@@ -9,7 +9,7 @@ use Ticketack\Core\Models\Screening;
 /**
  * TKTEvent template
  *
- * @templateVersion 2.82.0
+ * @templateVersion 2.97.3
  *
  * Input:
  * $data: {
@@ -175,7 +175,7 @@ foreach ($screenings as $s) {
 
         <?php if (!empty($opaque->genre) || !empty($opaque->duration)) : ?>
         <div class="col-md left-col text-left">
-          <h3 class="tkt-section-title"><?php echo esc_html(tkt_t('Details')) ?></h3>
+          <h3 class="tkt-section-title"><?php echo esc_html(tkt_t('Détails')) ?></h3>
 
           <?php if (!empty($opaque->genre)) : ?>
           <div class="row">
