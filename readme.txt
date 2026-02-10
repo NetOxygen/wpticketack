@@ -2,7 +2,7 @@
 Tags: ticketack
 Requires at least: 5.9
 Tested up to: 6.9.0
-Stable tag: 2.99.5
+Stable tag: 2.99.6
 Requires PHP: 8.1
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -62,7 +62,7 @@ code](https://github.com/NetOxygen/wpticketack) and submit a Pull Request.
 = Changelog =
 * [Changelog link](https://yoda.netoxygen.ch/public/projects/401b5210-986f-46b3-99cb-38546b73e16c/changelog)
 
-= 2.99.5 =
+= 2.99.6 =
 
 * fix: Fix a bug in the articles add to cart button
 
