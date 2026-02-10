@@ -75,10 +75,12 @@ export default class AddArticleToCartButton extends Component {
             }];
 
             // Add to cart
-            TKTLib.CartService.addArticleToCart(/*params*/{}, [{
-                _id: article._id,
-                variants: payload
-            }]).then(res => {
+            TKTLib.CartService.addArticleToCart(/*params*/{}, {
+                'articles': [{
+                    _id: article_id,
+                    variants: payload
+                }]
+            }).then(res => {
                 const flash  = rsp.articles[0].variants[0].flash;
                 const status = rsp.articles[0].variants[0].status;
 
