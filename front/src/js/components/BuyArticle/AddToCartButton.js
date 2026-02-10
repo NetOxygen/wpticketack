@@ -1,5 +1,5 @@
 import { Component, Config, i18n, Template } from '../Core';
-import { Api as TKTApi } from '../Ticketack';
+import { TKTLib, Api as TKTApi } from '../Ticketack';
 import { Article, Cart } from '../Models';
 import _ from 'lodash';
 import postal from 'postal';
@@ -75,39 +75,37 @@ export default class AddArticleToCartButton extends Component {
             }];
 
             // Add to cart
-            TKTApi.addArticlesToCart(
-                [{
-                    _id: article._id,
-                    variants: payload
-                }],
-                (err, status, rsp) => {
-                    const flash = rsp.articles[0].variants[0].flash;
-                    if (err && status != 409) {
-                        return this.set_indicator_mode('error', flash.error);
-                    }
+            TKTLib.CartService.addArticleToCart(/*params*/{}, [{
+                _id: article._id,
+                variants: payload
+            }]).then(res => {
+                const flash  = rsp.articles[0].variants[0].flash;
+                const status = rsp.articles[0].variants[0].status;
 
-                    const hasAvailabilityError = (status === 409);
-                    if (this.redirect == 'none' && hasAvailabilityError)
-                        return this.set_indicator_mode('error', flash.error);
+                const hasAvailabilityError = (status === 409);
+                if (this.redirect == 'none' && hasAvailabilityError)
+                    return this.set_indicator_mode('error', flash.error);
 
-                    this.set_indicator_mode('ok', flash.success);
+                this.set_indicator_mode('ok', flash.success);
 
-                    switch (this.redirect) {
-                        case 'cart':
-                            window.location.href = this.cart_url;
-                            break;
-                        case 'checkout':
-                            window.location.href = this.checkout_url;
-                            break;
-                        default:
-                            // Reload and emit cart update
-                            TKTApi.loadCart((err, status, rsp) => {
-                                if (err)
-                                    return;
+                switch (this.redirect) {
+                    case 'cart':
+                        window.location.href = this.cart_url;
+                        break;
+                    case 'checkout':
+                        window.location.href = this.checkout_url;
+                        break;
+                    default:
+                        // Reload and emit cart update
+                        TKTApi.loadCart((err, status, rsp) => {
+                            if (err)
+                                return;
 
-                                this.emit_cart_update(new Cart(rsp));
-                            });
-                    }
+                            this.emit_cart_update(new Cart(rsp));
+                        });
+                }
+            }).catch(err => {
+                return this.set_indicator_mode('error', flash.error);
             });
         });
 

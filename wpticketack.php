@@ -5,7 +5,7 @@
  * Description: Ticketack integration
  * Text Domain: wpticketack
  * Domain Path: /app/locales
- * Version: 2.97.2
+ * Version: 2.99.3
  * Author: Net Oxygen Sàrl
  * Author URI: https://netoxygen.ch
  * License: GPLv3
@@ -17,7 +17,7 @@ use Ticketack\WP\TKTApp;
 
 setlocale(LC_TIME, get_locale().'.UTF-8');
 
-define('TKT_ASSETS_VERSION', '2.97.2.2025121501');
+define('TKT_ASSETS_VERSION', '2.99.3.2026030201');
 
 define("TKT_PLUGIN_FILE", (__FILE__));
 define("TKT_BASE", (dirname(__FILE__)));
@@ -90,6 +90,7 @@ $app->register_shortcode('Ticketack\WP\Shortcodes\TicketViewShortcode', 'ticket_
 $app->register_shortcode('Ticketack\WP\Shortcodes\TicketConnectShortcode', 'ticket_connect.class.php');
 $app->register_shortcode('Ticketack\WP\Shortcodes\VotesShortcode', 'votes.class.php');
 $app->register_shortcode('Ticketack\WP\Shortcodes\SignageShortcode', 'signage.class.php');
+$app->register_shortcode('Ticketack\WP\Shortcodes\WorkflowShortcode', 'workflow.class.php');
 
 // Register shortcodes defined in THEME_ROOT/ticketack/shortcodes
 $app->register_theme_shortcodes();

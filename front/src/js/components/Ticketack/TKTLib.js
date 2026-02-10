@@ -10,6 +10,7 @@ Ticketack
             'uri': Config.get('eshop_uri')
         },
         'lang': Config.get('lang'),
+        'storageType': 'localStorage'
     });
 
 export default Ticketack;

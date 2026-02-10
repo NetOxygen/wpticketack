@@ -15,10 +15,11 @@ use Ticketack\WP\Templates\TKTTemplate;
  *   "enable_promo_code" : bool
  *   "hide_items"        : bool
  *   "hide_summary"      : bool
+ *   "cart_id"           : string (UUID)
  * }
  */
 ?>
-<div class="tkt-wrapper tkt-cart" data-component="Cart/Cart" data-hide-links="<?php echo esc_attr($data->hidden_links) ?>">
+    <div class="tkt-wrapper tkt-cart" data-component="Cart/Cart" data-hide-links="<?php echo esc_attr($data->hidden_links) ?>" data-cart-id="<?php echo esc_attr($data->cart_id) ?>">
     <div data-component="Media/Loading" data-size-sm data-align-center></div>
 </div>
 

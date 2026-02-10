@@ -1,5 +1,5 @@
 import { Component, Config, i18n, Template } from '../Core';
-import { Api as TKTApi } from '../Ticketack';
+import { Api as TKTApi, TKTLib } from '../Ticketack';
 import { Cart, User } from '../Models';
 import _ from 'lodash';
 import async from 'async';
@@ -182,10 +182,7 @@ export default class Checkout extends Component {
             userData[key.replace('index-', '')] = data.user_data[key];
         });
 
-        TKTApi.setCartItemsUserData(this.cart.id, userData, (err, status, rsp) => {
-            if (err)
-                return this.show_error(err, rsp);
-
+        TKTLib.CartService.setCartItemsUserData(this.cart.id, userData).then(rsp => {
             Cart.load((err, cart) => {
                 if (err)
                     return callback(err);
@@ -193,6 +190,8 @@ export default class Checkout extends Component {
                 this.cart = cart;
                 this.render();
             });
+        }).catch(err => {
+            return this.show_error(err, rsp);
         });
 
         return false;
@@ -207,35 +206,33 @@ export default class Checkout extends Component {
             data.user.redirect_after_payment = this.redirect_url;
 
         // Put the cart in paying status
-        TKTApi.pay(this.cart.id, data.payment_method, data.user, (err, status, rsp) => {
-            if (err)
-                return this.show_error(err, rsp);
-
+        TKTLib.CartService.pay(this.cart.uuid, data.payment_method, data.user).then(rsp => {
             if (!('next_step' in rsp)) {
-                console.err('No next step in server response');
+                console.error('No next step in server response');
                 return this.show_error(i18n.t('Une erreur est survenue'));
             }
 
             switch (rsp.next_step) {
                 case Cart.CHECKOUT_STEP_CONFIRM:
-                    TKTApi.confirm(this.cart.id, (err, status, rsp) => {
-                        if (err)
-                            return this.show_error(err, rsp);
-
+                    TKTLib.CartService.confirm(this.cart.id).then(rsp => {
                         this.go_to_thank_you_page();
+                    }).catch(err => {
+                        return this.show_error(err, rsp);
                     });
                     break;
                 case Cart.CHECKOUT_STEP_GO_TO_PAYMENT:
                     if (!('next_step_url' in rsp)) {
-                        console.err('No next step url in server response');
+                        console.error('No next step url in server response');
                         return this.show_error(i18n.t('Une erreur est survenue'));
                     }
                     window.location.href = rsp.next_step_url;
                     break;
                 default:
-                    console.err('Unknown next step ' + rsp.netx_step);
+                    console.error('Unknown next step ' + rsp.netx_step);
                     return this.show_error(i18n.t('Une erreur est survenue'));
             }
+        }).catch(err => {
+            return this.show_error(err.message);
         });
 
         return false;
@@ -276,7 +273,7 @@ export default class Checkout extends Component {
     }
 
     show_error(msg, rsp) {
-        if ('flash' in rsp && 'error' in rsp.flash)
+        if (rsp && ('flash' in rsp) && ('error' in rsp.flash))
             msg = rsp.flash.error;
 
         this.$errorMsg.html(msg);

@@ -1,5 +1,5 @@
 import { Component, Config, i18n, Template } from '../Core';
-import { Api as TKTApi } from '../Ticketack';
+import { TKTLib } from '../Ticketack';
 import { Article, Cart } from '../Models';
 import _ from 'lodash';
 import postal from 'postal';
@@ -181,77 +181,79 @@ export default class ArticleForm extends Component {
         })
 
         // Add to cart
-        TKTApi.addArticlesToCart(
-            [{
+        TKTLib.CartService.addArticleToCart(/*params*/{}, {
+            'articles': [{
                 _id: this.article_id,
                 variants: this.chosen_variants
-            }],
-            (err, status, rsp) => {
-                this.chosen_variants = {};
-                this.article.variants.map((variant, variant_index) => {
-                    this.chosen_variants[variant_index] = {
-                        _id: variant._id,
-                        price: variant.getFormattedPrice(),
-                        stock: variant.handlesStock() ? variant.getStockForSalepoint(this.salepoint_id) : Infinity,
-                        quantity: this.article.variants.length === 1 ? 1 : 0
-                    };
-                });
-                if (err && status != 409) {
-                    return $('.error-panel', this.$container)
-                        .html(i18n.t('Une erreur est survenue'))
-                        .removeClass('d-none');
-                }
+            }]
+        }).then(rsp => {
+            const status = rsp?.articles?.length ? rsp.articles[0].status : null;
+            this.chosen_variants = {};
+            this.article.variants.map((variant, variant_index) => {
+                this.chosen_variants[variant_index] = {
+                    _id: variant._id,
+                    price: variant.getFormattedPrice(),
+                    stock: variant.handlesStock() ? variant.getStockForSalepoint(this.salepoint_id) : Infinity,
+                    quantity: this.article.variants.length === 1 ? 1 : 0
+                };
+            });
 
-                const hasAvailabilityError = (status === 409);
-                if (this.redirect === 'none' && hasAvailabilityError) {
-                    Article.getInfos([this.article_id], /*forceReload*/true, (err, articles) => {
-                        if (err)
-                            console.error(err);
-                        else {
-                            this.article  = articles[0];
-                            this.build_variants_form();
+            const hasAvailabilityError = (status === 409);
+            console.log({ hasAvailabilityError });
+            if (this.redirect === 'none' && hasAvailabilityError) {
+                Article.getInfos([this.article_id], /*forceReload*/true, (err, articles) => {
+                    if (err)
+                        console.error(err);
+                    else {
+                        this.article = articles[0];
+                        this.build_variants_form();
 
-                            if ('articles' in rsp) {
-                                rsp.articles.map(article => {
-                                    article.variants.map(variant => {
-                                        if (!variant.flash || !variant.flash.error)
-                                            return;
+                        if ('articles' in rsp) {
+                            rsp.articles.map(article => {
+                                article.variants.map(variant => {
+                                    if (!variant.flash || !variant.flash.error)
+                                        return;
 
-                                        const $variant_error_panel = $('.tkt-variant-error-msg[data-variant-id="' + variant._id + '"]', this.$container);
-                                        if (!$variant_error_panel)
-                                            return;
+                                    const $variant_error_panel = $('.tkt-variant-error-msg[data-variant-id="' + variant._id + '"]', this.$container);
+                                    if (!$variant_error_panel)
+                                        return;
 
-                                        $variant_error_panel
-                                            .html(variant.flash.error)
-                                            .removeClass('d-none');
-                                    });
+                                    $variant_error_panel
+                                        .html(variant.flash.error)
+                                        .removeClass('d-none');
                                 });
-                            }
+                            });
                         }
-                    });
-                }
+                    }
+                });
+            }
 
-                switch (this.redirect) {
-                    case 'cart':
-                        window.location.href = this.cart_url;
-                        break;
-                    case 'checkout':
-                        window.location.href = this.checkout_url;
-                        break;
-                    default:
-                        // Hide forms and show success message
-                        if (!hasAvailabilityError)
-                            $('.variants-form', this.$container).addClass('d-none');
+            switch (this.redirect) {
+                case 'cart':
+                    window.location.href = this.cart_url;
+                    break;
+                case 'checkout':
+                    window.location.href = this.checkout_url;
+                    break;
+                default:
+                    // Hide forms and show success message
+                    if (!hasAvailabilityError) {
+                        $('.variants-form', this.$container).addClass('d-none');
                         $('.success-panel', this.$container).removeClass('d-none');
+                    }
 
-                        // Reload and emit cart update
-                        TKTApi.loadCart((err, status, rsp) => {
-                            if (err)
-                                return;
-
-                            this.emit_cart_update(new Cart(rsp));
-                        });
-                }
+                    // Reload and emit cart update
+                    TKTLib.CartService.get().then(cart => {
+                        this.emit_cart_update(new Cart(cart));
+                    }).catch(err => {
+                        if (err)
+                            return;
+                    });
+            }
+        }).catch(err => {
+            return $('.error-panel', this.$container)
+                .html(i18n.t('Une erreur est survenue'))
+                .removeClass('d-none');
         });
     }
 }

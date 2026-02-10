@@ -38,6 +38,7 @@ class CartShortcode extends TKTShortcode
         $theme             = array_key_exists('theme', (array)$atts) ? $atts['theme'] : 'light';
         $hide_items        = array_key_exists('hide_items', (array)$atts);
         $hide_summary      = array_key_exists('hide_summary', (array)$atts);
+        $cart_id           = tkt_get_url_param('cart_id');
 
         return TKTTemplate::render(
             'cart/cart',
@@ -46,7 +47,8 @@ class CartShortcode extends TKTShortcode
                 'enable_promo_code' => $enable_promo_code,
                 'theme'             => $theme,
                 'hide_items'        => $hide_items,
-                'hide_summary'      => $hide_summary
+                'hide_summary'      => $hide_summary,
+                'cart_id'           => $cart_id
             ]
         );
     }

@@ -1,5 +1,5 @@
 import { Component } from '../Core';
-import { Api as TKTApi } from '../Ticketack';
+import { TKTLib } from '../Ticketack';
 import { Screeningg } from '../Models';
 import _ from 'lodash';
 import moment from 'moment';
@@ -34,9 +34,9 @@ export default class CartIcon extends Component {
         this.$nb = $('<div class="cart-icon-nb assertive empty"></div>');
         this.$container.append(this.$nb);
 
-        TKTApi.loadCart((err, status, rsp) => {
-            this.update_nb(rsp?.items);
-        });
+        TKTLib.CartService.get(cart => {
+            this.update_nb(cart?.items);
+        }).catch(err => {});
 
         postal.subscribe({
             channel: "cart",
