@@ -10,6 +10,7 @@ Ticketack
             'uri': Config.get('eshop_uri')
         },
         'lang': Config.get('lang'),
+        'salepointId': Config.get('salepoint_id'),
         'storageType': 'localStorage'
     });
 

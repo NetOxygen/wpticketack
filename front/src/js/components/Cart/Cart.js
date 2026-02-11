@@ -115,13 +115,13 @@ export default class Cart extends Component {
         });
     }
 
-    build_table() {
+    async build_table() {
         this.$container.html(Template.render('tkt-cart-table-tpl', {
             cart: this.cart,
             ticket: this.ticket,
-            program_url: Config.get('program_url') ? Config.get('program_url') : TKTApi.getProgramViewUrl(),
+            program_url: Config.get('program_url') ?? (await TKTLib.CartService.getProgramUrl()),
             cart_reset_url: Config.get('cart_reset_url'),
-            checkout_url: Config.get('checkout_url') ? Config.get('checkout_url') : TKTApi.getCheckoutUrl(),
+            checkout_url: Config.get('checkout_url') ?? (await TKTLib.CartService.getCheckoutUrl()),
             hide_links: this.hide_links
         }));
         $('.promo-code-button', this.$container).on('click', () => {

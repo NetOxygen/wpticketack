@@ -200,7 +200,7 @@ export default class BookingForm extends Component {
             }
         }).catch(err => {
             return $('.pricings-error', this.$container)
-                .html((rsp || {}).errorMsg)
+                .html(err.message)
                 .removeClass('d-none');
         });
     }
