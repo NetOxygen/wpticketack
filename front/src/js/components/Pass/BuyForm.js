@@ -128,7 +128,7 @@ export default class BuyForm extends Component {
         TKTLib.CartService.addPassToCart(
             /*params*/{},
             { pass_id, pricing_id, user }
-        ).then(() => {
+        ).then(res => {
             switch (this.redirect) {
                 case 'cart':
                     window.location.href = this.cartUrl;
@@ -147,8 +147,8 @@ export default class BuyForm extends Component {
         }).catch(err => {
             /* TODO: Handle no_photo field */
             let err_msg = i18n.t('Une erreur est survenue. Veuillez ré-essayer ultérieurement.');
-            if (rsp?.flash?.error?.length && rsp.flash.error[0].length)
-                err_msg = rsp.flash.error[0];
+            //if (rsp?.flash?.error?.length && rsp.flash.error[0].length)
+            //err_msg = rsp.flash.error[0];
 
             return this.show_error(err_msg);
         });

@@ -199,7 +199,6 @@ export default class ArticleForm extends Component {
             });
 
             const hasAvailabilityError = (status === 409);
-            console.log({ hasAvailabilityError });
             if (this.redirect === 'none' && hasAvailabilityError) {
                 Article.getInfos([this.article_id], /*forceReload*/true, (err, articles) => {
                     if (err)

@@ -34,7 +34,7 @@ export default class CartIcon extends Component {
         this.$nb = $('<div class="cart-icon-nb assertive empty"></div>');
         this.$container.append(this.$nb);
 
-        TKTLib.CartService.get(cart => {
+        TKTLib.CartService.get().then(cart => {
             this.update_nb(cart?.items);
         }).catch(err => {});
 
