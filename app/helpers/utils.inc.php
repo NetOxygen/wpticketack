@@ -162,14 +162,16 @@ function tkt_page_url($slug, $query = "")
         $post_types     = array_diff(get_post_types(), $excluded_types);
         $page           = get_page_by_path($slug, OBJECT, $post_types);
 
-        $pageId = $page->ID;
-        if (tkt_current_lang() != tkt_default_lang()) {
-            // get the slug in current language
-            $post_type = get_post_type($page->ID);
-            $pageId = tkt_translated_id_by_id($page->ID, $post_type, tkt_current_lang(), $slug);
-        }
+        if ($page) {
+            $pageId = $page->ID;
+            if (tkt_current_lang() != tkt_default_lang()) {
+                // get the slug in current language
+                $post_type = get_post_type($page->ID);
+                $pageId = tkt_translated_id_by_id($page->ID, $post_type, tkt_current_lang(), $slug);
+            }
 
-        $url = apply_filters('wpml_permalink', get_permalink($pageId));
+            $url = apply_filters('wpml_permalink', get_permalink($pageId));
+        }
     }
 
     return sprintf('%s%s', $url, (!empty($query) ? '?'.$query : ''));

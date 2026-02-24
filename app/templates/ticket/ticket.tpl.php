@@ -13,8 +13,10 @@ if (!defined('ABSPATH')) exit;
  *   "tickets": Array of tickets instances
  *   "program_url": String,
  *   "votesConfig": { ... },
+ *   "theme": 'dark|light',
  * }
  */
+$theme = isset($data->theme) ? $data->theme : 'dark';
 ?>
 <script type="text/template" id="tkt-ticket-tpl">
     <%
