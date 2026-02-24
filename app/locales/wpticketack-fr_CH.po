@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-21 18:05+0100\n"
+"POT-Creation-Date: 2026-02-24 12:30+0100\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Jonathan Ernst <jonathan.ernst@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -717,7 +717,7 @@ msgstr ""
 msgid "Tout"
 msgstr ""
 
-msgid "Details"
+msgid "Détails"
 msgstr ""
 
 msgid "Sections"
@@ -1344,6 +1344,9 @@ msgstr ""
 msgid "Merci pour ta commande !"
 msgstr ""
 
+msgid "Nous vous remercions pour votre commande !"
+msgstr ""
+
 msgid "Merci pour votre commande !"
 msgstr ""
 
@@ -1356,7 +1359,7 @@ msgid "%s, merci pour ta commande !"
 msgstr ""
 
 #, php-format
-msgid "%s, merci pour votre commande !"
+msgid "%s, nous vous remercions pour votre commande !"
 msgstr ""
 
 msgid ""

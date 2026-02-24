@@ -8,13 +8,16 @@ use Ticketack\WP\TKTApp;
 class BSTranslator
 {
     // Keep in sync with Kronos
-    public const CINEMA                            = 'cinema';
-    public const CINEMA_FESTIVAL                   = 'cinemafestival';
-    public const MUSIC                             = 'music';
-    public const MUSIC_FESTIVAL                    = 'musicfestival';
-    public const THEATER                           = 'theater';
-    public const ENTERTAINEMENT                    = 'entertainement';
-    public const EVENT                             = 'event';
+    public const CINEMA            = 'cinema';
+    public const CINEMA_FESTIVAL   = 'cinemafestival';
+    public const MUSIC             = 'music';
+    public const MUSIC_FESTIVAL    = 'musicfestival';
+    public const THEATER           = 'theater';
+    public const ENTERTAINEMENT    = 'entertainement';
+    public const RECREATION_CENTER = 'recreationcenter';
+    public const RECREATION_PARC   = 'recreationparc';
+    public const SPORT             = 'sport';
+    public const EVENT             = 'event';
 
     // Business Specific Translations
     public static function t($string, $domain = null)
@@ -425,6 +428,16 @@ class BSTranslator
                         return tkt_t("Merci pour votre commande, vos billets vont vous parvenir par e-mail dans quelques minutes. Numéro de votre commande : %d");
                 }
                 break;
+            case "Nous vous remercions pour votre commande !":
+                switch ($informal) {
+                    case 'true':
+                    case true:
+                        return tkt_t("Merci pour ta commande !");
+                        break;
+                    default:
+                        return tkt_t("Nous vous remercions pour votre commande !");
+                }
+                break;
             case "Merci pour votre commande !":
                 switch ($informal) {
                     case 'true':
@@ -445,14 +458,14 @@ class BSTranslator
                         return tkt_t("Merci pour votre commande !");
                 }
                 break;
-            case "%s, merci pour votre commande !":
+            case "%s, nous vous remercions pour votre commande !":
                 switch ($informal) {
                     case 'true':
                     case true:
                         return tkt_t("%s, merci pour ta commande !");
                         break;
                     default:
-                        return tkt_t("%s, merci pour votre commande !");
+                        return tkt_t("%s, nous vous remercions pour votre commande !");
                 }
                 break;
             case "Nous vous remercions d'avoir utilisé notre billetterie pour modifier vos réservations.":

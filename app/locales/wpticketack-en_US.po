@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: eshop 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-10 10:35+0100\n"
+"POT-Creation-Date: 2026-02-24 12:29+0100\n"
 "PO-Revision-Date: 2020-01-16 16:45+0000\n"
 "Last-Translator: Jonathan Ernst <jonathan.ernst@netoxygen.ch>\n"
 "Language-Team: English (United Kingdom) <http://translate.neto2.net/projects/"
@@ -1373,6 +1373,9 @@ msgstr ""
 msgid "Merci pour ta commande !"
 msgstr "Thank you for your order!"
 
+msgid "Nous vous remercions pour votre commande !"
+msgstr "Thank you for your order!"
+
 msgid "Merci pour votre commande !"
 msgstr "Thank you for your order!"
 
@@ -1385,7 +1388,7 @@ msgid "%s, merci pour ta commande !"
 msgstr "%s, thank you for your order!"
 
 #, php-format
-msgid "%s, merci pour votre commande !"
+msgid "%s, nous vous remercions pour votre commande !"
 msgstr "%s, thank you for your order!"
 
 msgid ""
