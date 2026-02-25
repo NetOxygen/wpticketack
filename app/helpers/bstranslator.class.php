@@ -18,9 +18,10 @@ class BSTranslator
     public const RECREATION_PARC   = 'recreationparc';
     public const SPORT             = 'sport';
     public const EVENT             = 'event';
+    public const MUSEUM            = 'museum';
 
     // Business Specific Translations
-    public static function t($string, $domain = null)
+    public static function t($string, $domain = null, $screening_type = null, $ticket_type = null)
     {
         $app = TKTApp::get_instance();
         if (!isset($domain)) {
@@ -53,6 +54,9 @@ class BSTranslator
                     case static::THEATER:
                         return tkt_t("Représentation");
                         break;
+                    case static::MUSEUM:
+                        return tkt_t("Visite");
+                        break;
                     default:
                        return tkt_t("Événement");
                 }
@@ -69,6 +73,9 @@ class BSTranslator
                         break;
                     case static::THEATER:
                         return tkt_t("Représentations");
+                        break;
+                    case static::MUSEUM:
+                        return tkt_t("Visites");
                         break;
                     default:
                        return tkt_t("Événements");
@@ -87,6 +94,9 @@ class BSTranslator
                     case static::THEATER:
                         return tkt_t("À la fin de la représentation");
                         break;
+                    case static::MUSEUM:
+                        return tkt_t("À la fin de la visite");
+                        break;
                     default:
                        return tkt_t("À la fin de l'événement");
                 }
@@ -103,6 +113,9 @@ class BSTranslator
                         break;
                     case static::THEATER:
                         return tkt_t("Prochaines représentations");
+                        break;
+                    case static::MUSEUM:
+                        return tkt_t("Prochains crénaux de visite");
                         break;
                     default:
                        return tkt_t("Prochains événements");
@@ -123,6 +136,9 @@ class BSTranslator
                     case static::THEATER:
                         return tkt_t("Réservation pour une représentation");
                         break;
+                    case static::MUSEUM:
+                        return tkt_t("Réservation pour une visite");
+                        break;
                     default:
                        return tkt_t("Réservation pour un événement");
                 }
@@ -141,6 +157,9 @@ class BSTranslator
                         break;
                     case static::THEATER:
                         return tkt_t("Ticket pour une réprésentation");
+                        break;
+                    case static::MUSEUM:
+                        return tkt_t("Ticket pour une visite");
                         break;
                     default:
                        return tkt_t("Ticket pour un événement");
@@ -161,6 +180,9 @@ class BSTranslator
                     case static::THEATER:
                         return tkt_t("Multi-représentations");
                         break;
+                    case static::MUSEUM:
+                        return tkt_t("Multi-visites");
+                        break;
                     default:
                        return tkt_t("Multi-événements");
                 }
@@ -180,6 +202,9 @@ class BSTranslator
                     case static::THEATER:
                         return tkt_t("Remboursement d'un ticket pour la représentation");
                         break;
+                    case static::MUSEUM:
+                        return tkt_t("Remboursement d'un ticket pour une visite");
+                        break;
                     default:
                        return tkt_t("Remboursement d'un ticket pour l'événement");
                 }
@@ -198,6 +223,9 @@ class BSTranslator
                     case static::THEATER:
                         return tkt_t("Vous n'êtes pas autorisé à consulter le journal de la représentation.");
                         break;
+                    case static::MUSEUM:
+                        return tkt_t("Vous n'êtes pas autorisé à consulter le journal du créneau de visite.");
+                        break;
                     default:
                        return tkt_t("Vous n'êtes pas autorisé à consulter le journal de l'événement.");
                 }
@@ -213,6 +241,9 @@ class BSTranslator
                         break;
                     case static::THEATER:
                         return tkt_t("La représentation est terminée.");
+                        break;
+                    case static::MUSEUM:
+                        return tkt_t("Le créneau de visite est terminé.");
                         break;
                     default:
                        return tkt_t("L'événement est terminé.");
@@ -231,6 +262,9 @@ class BSTranslator
                     case static::THEATER:
                         return tkt_t("Il n'y a pas de billetterie pour cette représentation.");
                         break;
+                    case static::MUSEUM:
+                        return tkt_t("Il n'y a pas de billetterie pour ce créneau de visite.");
+                        break;
                     default:
                        return tkt_t("Il n'y a pas de billetterie pour cet événement.");
                 }
@@ -247,6 +281,9 @@ class BSTranslator
                         break;
                     case static::THEATER:
                         return tkt_t("Il n'y a pas de vente en ligne pour cette représentation.");
+                        break;
+                    case static::MUSEUM:
+                        return tkt_t("Il n'y a pas de vente en ligne pour ce créneau de visite.");
                         break;
                     default:
                        return tkt_t("Il n'y a pas de vente en ligne pour cet événement.");
@@ -302,6 +339,16 @@ class BSTranslator
                                 break;
                             default:
                                 return tkt_t("Cette représentation n'est pas disponible avec votre abonnement.");
+                        }
+                        break;
+                    case static::MUSEUM:
+                        switch ($informal) {
+                            case 'true':
+                            case true:
+                                return tkt_t("Ce créneau de visite n'est pas disponible avec ton abonnement.");
+                                break;
+                            default:
+                                return tkt_t("Ce créneau de visite n'est pas disponible avec votre abonnement.");
                         }
                         break;
                     default:
@@ -367,6 +414,16 @@ class BSTranslator
                                 return tkt_t("Cette représentation n'est plus disponible avec votre abonnement.");
                         }
                         break;
+                    case static::MUSEUM:
+                        switch ($informal) {
+                            case 'true':
+                            case true:
+                                return tkt_t("Ce créneau de visite n'est plus réservable avec ton abonnement.");
+                                break;
+                            default:
+                                return tkt_t("Ce créneau de visite n'est plus réservable avec votre abonnement.");
+                        }
+                        break;
                     default:
                         switch ($informal) {
                             case 'true':
@@ -413,6 +470,9 @@ class BSTranslator
                         break;
                     case static::THEATER:
                         return tkt_t("L'accès à cette représentation est libre et gratuit. Il n'est pas nécessaire d'obtenir un billet ou de faire une réservation.");
+                        break;
+                    case static::MUSEUM:
+                        return tkt_t("L'accès à cette exposition est libre et gratuit. Il n'est pas nécessaire d'obtenir un billet ou de faire une réservation.");
                         break;
                     default:
                        return tkt_t("L'accès à cet événement est libre et gratuit. Il n'est pas nécessaire d'obtenir un billet ou de faire une réservation.");
@@ -514,6 +574,9 @@ class BSTranslator
                         break;
                     case static::THEATER:
                         return tkt_t("Ce résumé, qui peut être %stéléchargé ici%s, ne permet pas l'accès aux représentations réservées.");
+                        break;
+                    case static::MUSEUM:
+                        return tkt_t("Ce résumé, qui peut être %stéléchargé ici%s, ne permet pas l'accès aux créneaux de visite réservés.");
                         break;
                     default:
                         return tkt_t("Ce résumé, qui peut être %stéléchargé ici%s, ne permet pas l'accès aux événements réservés.");
@@ -658,6 +721,16 @@ class BSTranslator
                                 return tkt_t("Vous ne pouvez pas réserver cette représentation, car une autre réservation existe sur la même période.");
                         }
                         break;
+                    case static::MUSEUM:
+                        switch ($informal) {
+                            case 'true':
+                            case true:
+                                return tkt_t("Tu ne peux pas réserver ce créneau de visite, car une autre réservation existe sur la même période.");
+                                break;
+                            default:
+                                return tkt_t("Vous ne pouvez pas réserver ce créneau de visite, car une autre réservation existe sur la même période.");
+                        }
+                        break;
                     default:
                         switch ($informal) {
                             case 'true':
@@ -710,6 +783,16 @@ class BSTranslator
                                 break;
                             default:
                                 return tkt_t("Vous ne pouvez pas réserver cette représentations, car sa date est différente d'une autre de vos réservations.");
+                        }
+                        break;
+                    case static::MUSEUM:
+                        switch ($informal) {
+                            case 'true':
+                            case true:
+                                return tkt_t("Tu ne peux pas réserver ce créneau de réservation, car sa date est différente d'une autre de tes réservations.");
+                                break;
+                            default:
+                                return tkt_t("Vous ne pouvez pas réserver ce créneau de réservation, car sa date est différente d'une autre de vos réservations.");
                         }
                         break;
                     default:
@@ -775,6 +858,16 @@ class BSTranslator
                                 return tkt_t("Vous ne pouvez pas réserver une place de plus pour cette représentation sur cet abonnement.");
                         }
                         break;
+                    case static::MUSEUM:
+                        switch ($informal) {
+                            case 'true':
+                            case true:
+                                return tkt_t("Tu ne peux pas réserver une place de plus pour ce créneau de visite sur cet abonnement.");
+                                break;
+                            default:
+                                return tkt_t("Vous ne pouvez pas réserver une place de plus pour ce créneau de visite sur cet abonnement.");
+                        }
+                        break;
                     default:
                         switch ($informal) {
                             case 'true':
@@ -836,6 +929,16 @@ class BSTranslator
                                 break;
                             default:
                                 return tkt_t("Vous avez épuisé le nombre maximum de réservations sur ce billet pour la période à laquelle a lieu cet événement.");
+                        }
+                        break;
+                    case static::MUSEUM:
+                        switch ($informal) {
+                            case 'true':
+                            case true:
+                                return tkt_t("Tu as épuisé le nombre maximum de réservations sur ce billet pour la période à laquelle a lieu cette exposition.");
+                                break;
+                            default:
+                                return tkt_t("Vous avez épuisé le nombre maximum de réservations sur ce billet pour la période à laquelle a lieu cette exposition.");
                         }
                         break;
                     default:
@@ -901,6 +1004,16 @@ class BSTranslator
                                 return tkt_t("Votre billet ne permet la réservation que de certaines représentations spécifiques et celle-ci n'en fait pas partie.");
                         }
                         break;
+                    case static::MUSEUM:
+                        switch ($informal) {
+                            case 'true':
+                            case true:
+                                return tkt_t("Ton billet ne permet la réservation que de certains créneaux de visite spécifiques et celle-ci n'en fait pas partie.");
+                                break;
+                            default:
+                                return tkt_t("Votre billet ne permet la réservation que de certains créneaux de visite spécifiques et celle-ci n'en fait pas partie.");
+                        }
+                        break;
                     default:
                         switch ($informal) {
                             case 'true':
@@ -962,6 +1075,16 @@ class BSTranslator
                                 break;
                             default:
                                 return tkt_t("Les dates de la représentation ne correspondent pas aux dates de validité de votre billet.");
+                        }
+                        break;
+                    case static::MUSEUM:
+                        switch ($informal) {
+                            case 'true':
+                            case true:
+                                return tkt_t("Les dates de visite ne correspondent pas aux dates de validité de ton billet.");
+                                break;
+                            default:
+                                return tkt_t("Les dates de visite ne correspondent pas aux dates de validité de votre billet.");
                         }
                         break;
                     default:
@@ -1027,6 +1150,16 @@ class BSTranslator
                                 return tkt_t("Votre billet n'est pas valable pour cette représentation.");
                         }
                         break;
+                    case static::MUSEUM:
+                        switch ($informal) {
+                            case 'true':
+                            case true:
+                                return tkt_t("Ton billet n'est pas valable pour ce créneau de visite.");
+                                break;
+                            default:
+                                return tkt_t("Votre billet n'est pas valable pour ce créneau de visite.");
+                        }
+                        break;
                     default:
                         switch ($informal) {
                             case 'true':
@@ -1054,6 +1187,9 @@ class BSTranslator
                         break;
                     case static::THEATER:
                         return tkt_t("Échec de la réservation : cette représentation est déjà réservée sur cet abonnement.");
+                        break;
+                    case static::MUSEUM:
+                        return tkt_t("Échec de la réservation : cette visite est déjà réservée sur cet abonnement.");
                         break;
                     default:
                         return tkt_t("Échec de la réservation : cet événement est déjà réservé sur ce billet.");
@@ -1111,6 +1247,16 @@ class BSTranslator
                                 return tkt_t("Échec de la réservation : cet abonnement n'est pas valable pour cette représentation ou le nombre maximum de réservations est atteint. Vérifiez la date et le nombre de réservations déjà effectuées.");
                         }
                         break;
+                    case static::MUSEUM:
+                        switch ($informal) {
+                            case 'true':
+                            case true:
+                                return tkt_t("Échec de la réservation : cet abonnement n'est pas valable pour ce créneau de visite ou le nombre maximum de réservations est atteint. Vérifie la date et le nombre de réservations déjà effectuées.");
+                                break;
+                            default:
+                                return tkt_t("Échec de la réservation : cet abonnement n'est pas valable pour ce créneau de visite ou le nombre maximum de réservations est atteint. Vérifiez la date et le nombre de réservations déjà effectuées.");
+                        }
+                        break;
                     default:
                         switch ($informal) {
                             case 'true':
@@ -1162,6 +1308,46 @@ class BSTranslator
                 break;
             default:
                 return tkt_t($string);
+            case "Événement prévu":
+                switch ($domain) {
+                    case static::CINEMA_FESTIVAL:
+                    case static::CINEMA:
+                        return tkt_t("Film projeté");
+                        break;
+                    case static::MUSIC_FESTIVAL:
+                    case static::MUSIC:
+                        return tkt_t("Groupe");
+                        break;
+                    case static::THEATER:
+                        return tkt_t("Spectacle");
+                        break;
+                    case static::MUSEUM:
+                        return tkt_t("Exposition");
+                        break;
+                    default:
+                       return tkt_t("Événement prévu");
+                }
+                break;
+            case "Événements prévus":
+                switch ($domain) {
+                    case static::CINEMA_FESTIVAL:
+                    case static::CINEMA:
+                        return tkt_t("Films projetés");
+                        break;
+                    case static::MUSIC_FESTIVAL:
+                    case static::MUSIC:
+                        return tkt_t("Groupes");
+                        break;
+                    case static::THEATER:
+                        return tkt_t("Spectacles");
+                        break;
+                    case static::MUSEUM:
+                        return tkt_t("Expositions");
+                        break;
+                    default:
+                       return tkt_t("Événements prévus");
+                }
+                break;
         }
     }
 

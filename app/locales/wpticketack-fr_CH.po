@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-24 12:30+0100\n"
+"POT-Creation-Date: 2026-02-25 11:07+0100\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Jonathan Ernst <jonathan.ernst@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1076,6 +1076,9 @@ msgstr ""
 msgid "Représentation"
 msgstr ""
 
+msgid "Visite"
+msgstr ""
+
 msgid "Événement"
 msgstr ""
 
@@ -1086,6 +1089,9 @@ msgid "Concerts"
 msgstr ""
 
 msgid "Représentations"
+msgstr ""
+
+msgid "Visites"
 msgstr ""
 
 msgid "Événements"
@@ -1100,6 +1106,9 @@ msgstr ""
 msgid "À la fin de la représentation"
 msgstr ""
 
+msgid "À la fin de la visite"
+msgstr ""
+
 msgid "À la fin de l'événement"
 msgstr ""
 
@@ -1110,6 +1119,9 @@ msgid "Prochains concerts"
 msgstr ""
 
 msgid "Prochaines représentations"
+msgstr ""
+
+msgid "Prochains crénaux de visite"
 msgstr ""
 
 msgid "Prochains événements"
@@ -1127,6 +1139,9 @@ msgstr ""
 msgid "Réservation pour une représentation"
 msgstr ""
 
+msgid "Réservation pour une visite"
+msgstr ""
+
 msgid "Réservation pour un événement"
 msgstr ""
 
@@ -1140,6 +1155,9 @@ msgid "Ticket pour un concert"
 msgstr ""
 
 msgid "Ticket pour une réprésentation"
+msgstr ""
+
+msgid "Ticket pour une visite"
 msgstr ""
 
 msgid "Ticket pour un événement"
@@ -1157,6 +1175,9 @@ msgstr ""
 msgid "Multi-représentations"
 msgstr ""
 
+msgid "Multi-visites"
+msgstr ""
+
 msgid "Multi-événements"
 msgstr ""
 
@@ -1170,6 +1191,9 @@ msgid "Remboursement d'un ticket pour le concert"
 msgstr ""
 
 msgid "Remboursement d'un ticket pour la représentation"
+msgstr ""
+
+msgid "Remboursement d'un ticket pour une visite"
 msgstr ""
 
 msgid "Remboursement d'un ticket pour l'événement"
@@ -1187,6 +1211,9 @@ msgstr ""
 msgid "Vous n'êtes pas autorisé à consulter le journal de la représentation."
 msgstr ""
 
+msgid "Vous n'êtes pas autorisé à consulter le journal du créneau de visite."
+msgstr ""
+
 msgid "Vous n'êtes pas autorisé à consulter le journal de l'événement."
 msgstr ""
 
@@ -1197,6 +1224,9 @@ msgid "Le concert est terminé."
 msgstr ""
 
 msgid "La représentation est terminée."
+msgstr ""
+
+msgid "Le créneau de visite est terminé."
 msgstr ""
 
 msgid "L'événement est terminé."
@@ -1211,6 +1241,9 @@ msgstr ""
 msgid "Il n'y a pas de billetterie pour cette représentation."
 msgstr ""
 
+msgid "Il n'y a pas de billetterie pour ce créneau de visite."
+msgstr ""
+
 msgid "Il n'y a pas de billetterie pour cet événement."
 msgstr ""
 
@@ -1221,6 +1254,9 @@ msgid "Il n'y a pas de vente en ligne pour ce concert."
 msgstr ""
 
 msgid "Il n'y a pas de vente en ligne pour cette représentation."
+msgstr ""
+
+msgid "Il n'y a pas de vente en ligne pour ce créneau de visite."
 msgstr ""
 
 msgid "Il n'y a pas de vente en ligne pour cet événement."
@@ -1248,6 +1284,12 @@ msgid "Cette représentation n'est pas disponible avec ton abonnement."
 msgstr ""
 
 msgid "Cette représentation n'est pas disponible avec votre abonnement."
+msgstr ""
+
+msgid "Ce créneau de visite n'est pas disponible avec ton abonnement."
+msgstr ""
+
+msgid "Ce créneau de visite n'est pas disponible avec votre abonnement."
 msgstr ""
 
 msgid "Cet événement n'est pas réservable sur ton abonnement."
@@ -1282,6 +1324,12 @@ msgid "Cette représentation n'est plus disponible avec ton abonnement."
 msgstr ""
 
 msgid "Cette représentation n'est plus disponible avec votre abonnement."
+msgstr ""
+
+msgid "Ce créneau de visite n'est plus réservable avec ton abonnement."
+msgstr ""
+
+msgid "Ce créneau de visite n'est plus réservable avec votre abonnement."
 msgstr ""
 
 msgid "Cet événement n'est plus réservable sur ton abonnement."
@@ -1321,6 +1369,11 @@ msgstr ""
 
 msgid ""
 "L'accès à cette représentation est libre et gratuit. Il n'est pas nécessaire "
+"d'obtenir un billet ou de faire une réservation."
+msgstr ""
+
+msgid ""
+"L'accès à cette exposition est libre et gratuit. Il n'est pas nécessaire "
 "d'obtenir un billet ou de faire une réservation."
 msgstr ""
 
@@ -1413,6 +1466,12 @@ msgstr ""
 msgid ""
 "Ce résumé, qui peut être %stéléchargé ici%s, ne permet pas l'accès aux "
 "représentations réservées."
+msgstr ""
+
+#, php-format
+msgid ""
+"Ce résumé, qui peut être %stéléchargé ici%s, ne permet pas l'accès aux "
+"créneaux de visite réservés."
 msgstr ""
 
 #, php-format
@@ -1554,6 +1613,16 @@ msgid ""
 msgstr ""
 
 msgid ""
+"Tu ne peux pas réserver ce créneau de visite, car une autre réservation "
+"existe sur la même période."
+msgstr ""
+
+msgid ""
+"Vous ne pouvez pas réserver ce créneau de visite, car une autre réservation "
+"existe sur la même période."
+msgstr ""
+
+msgid ""
 "Tu ne peux pas réserver cet événement, car une autre réservation existe sur "
 "la même période."
 msgstr ""
@@ -1600,6 +1669,16 @@ msgstr ""
 
 msgid ""
 "Vous ne pouvez pas réserver cette représentations, car sa date est "
+"différente d'une autre de vos réservations."
+msgstr ""
+
+msgid ""
+"Tu ne peux pas réserver ce créneau de réservation, car sa date est "
+"différente d'une autre de tes réservations."
+msgstr ""
+
+msgid ""
+"Vous ne pouvez pas réserver ce créneau de réservation, car sa date est "
 "différente d'une autre de vos réservations."
 msgstr ""
 
@@ -1661,6 +1740,16 @@ msgid ""
 msgstr ""
 
 msgid ""
+"Tu ne peux pas réserver une place de plus pour ce créneau de visite sur cet "
+"abonnement."
+msgstr ""
+
+msgid ""
+"Vous ne pouvez pas réserver une place de plus pour ce créneau de visite sur "
+"cet abonnement."
+msgstr ""
+
+msgid ""
 "Tu ne peux pas réserver une place de plus pour cet événement sur ce billet."
 msgstr ""
 
@@ -1697,6 +1786,16 @@ msgstr ""
 msgid ""
 "Vous avez épuisé le nombre maximum de réservations sur ce billet pour la "
 "période à laquelle a lieu cet événement."
+msgstr ""
+
+msgid ""
+"Tu as épuisé le nombre maximum de réservations sur ce billet pour la période "
+"à laquelle a lieu cette exposition."
+msgstr ""
+
+msgid ""
+"Vous avez épuisé le nombre maximum de réservations sur ce billet pour la "
+"période à laquelle a lieu cette exposition."
 msgstr ""
 
 msgid ""
@@ -1746,6 +1845,16 @@ msgstr ""
 
 msgid ""
 "Votre billet ne permet la réservation que de certaines représentations "
+"spécifiques et celle-ci n'en fait pas partie."
+msgstr ""
+
+msgid ""
+"Ton billet ne permet la réservation que de certains créneaux de visite "
+"spécifiques et celle-ci n'en fait pas partie."
+msgstr ""
+
+msgid ""
+"Votre billet ne permet la réservation que de certains créneaux de visite "
 "spécifiques et celle-ci n'en fait pas partie."
 msgstr ""
 
@@ -1805,6 +1914,15 @@ msgid ""
 msgstr ""
 
 msgid ""
+"Les dates de visite ne correspondent pas aux dates de validité de ton billet."
+msgstr ""
+
+msgid ""
+"Les dates de visite ne correspondent pas aux dates de validité de votre "
+"billet."
+msgstr ""
+
+msgid ""
 "Les dates de l'événement ne correspondent pas aux dates de validité de ton "
 "billet."
 msgstr ""
@@ -1846,6 +1964,12 @@ msgstr ""
 msgid "Votre billet n'est pas valable pour cette représentation."
 msgstr ""
 
+msgid "Ton billet n'est pas valable pour ce créneau de visite."
+msgstr ""
+
+msgid "Votre billet n'est pas valable pour ce créneau de visite."
+msgstr ""
+
 msgid "Ton billet n'est pas valable pour cet événement."
 msgstr ""
 
@@ -1870,6 +1994,10 @@ msgstr ""
 msgid ""
 "Échec de la réservation : cette représentation est déjà réservée sur cet "
 "abonnement."
+msgstr ""
+
+msgid ""
+"Échec de la réservation : cette visite est déjà réservée sur cet abonnement."
 msgstr ""
 
 msgid "Échec de la réservation : cet événement est déjà réservé sur ce billet."
@@ -1936,6 +2064,18 @@ msgid ""
 msgstr ""
 
 msgid ""
+"Échec de la réservation : cet abonnement n'est pas valable pour ce créneau "
+"de visite ou le nombre maximum de réservations est atteint. Vérifie la date "
+"et le nombre de réservations déjà effectuées."
+msgstr ""
+
+msgid ""
+"Échec de la réservation : cet abonnement n'est pas valable pour ce créneau "
+"de visite ou le nombre maximum de réservations est atteint. Vérifiez la date "
+"et le nombre de réservations déjà effectuées."
+msgstr ""
+
+msgid ""
 "Échec de la réservation : cet abonnement n'est pas valable pour cet "
 "événement ou le nombre maximum de réservations est atteint. Vérifie la date "
 "et le nombre de réservations déjà effectuées."
@@ -1977,6 +2117,36 @@ msgid "Personnes actuellement dans le parc"
 msgstr ""
 
 msgid "Personnes actuellement en salle"
+msgstr ""
+
+msgid "Film projeté"
+msgstr ""
+
+msgid "Groupe"
+msgstr ""
+
+msgid "Spectacle"
+msgstr ""
+
+msgid "Exposition"
+msgstr ""
+
+msgid "Événement prévu"
+msgstr ""
+
+msgid "Films projetés"
+msgstr ""
+
+msgid "Groupes"
+msgstr ""
+
+msgid "Spectacles"
+msgstr ""
+
+msgid "Expositions"
+msgstr ""
+
+msgid "Événements prévus"
 msgstr ""
 
 msgid ""

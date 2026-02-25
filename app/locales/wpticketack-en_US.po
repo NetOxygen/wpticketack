@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: eshop 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-24 12:29+0100\n"
+"POT-Creation-Date: 2026-02-25 11:07+0100\n"
 "PO-Revision-Date: 2020-01-16 16:45+0000\n"
 "Last-Translator: Jonathan Ernst <jonathan.ernst@netoxygen.ch>\n"
 "Language-Team: English (United Kingdom) <http://translate.neto2.net/projects/"
@@ -1091,6 +1091,9 @@ msgstr "Concert"
 msgid "Représentation"
 msgstr "Performance"
 
+msgid "Visite"
+msgstr "Visit"
+
 msgid "Événement"
 msgstr "Event"
 
@@ -1102,6 +1105,9 @@ msgstr "Concerts"
 
 msgid "Représentations"
 msgstr "Performances"
+
+msgid "Visites"
+msgstr "Visits"
 
 msgid "Événements"
 msgstr "Events"
@@ -1115,6 +1121,9 @@ msgstr "At the end of the concert"
 msgid "À la fin de la représentation"
 msgstr "At the end of the show"
 
+msgid "À la fin de la visite"
+msgstr "At the end of the visit"
+
 msgid "À la fin de l'événement"
 msgstr "At the end of the event"
 
@@ -1126,6 +1135,9 @@ msgstr "Upcoming concerts"
 
 msgid "Prochaines représentations"
 msgstr "Upcoming shows"
+
+msgid "Prochains crénaux de visite"
+msgstr "Upcoming time slots"
 
 msgid "Prochains événements"
 msgstr "Upcoming events"
@@ -1142,6 +1154,9 @@ msgstr "Concert booking"
 msgid "Réservation pour une représentation"
 msgstr "Performance booking"
 
+msgid "Réservation pour une visite"
+msgstr "Visit booking"
+
 msgid "Réservation pour un événement"
 msgstr "Event booking"
 
@@ -1155,6 +1170,9 @@ msgid "Ticket pour un concert"
 msgstr "One-time ticket"
 
 msgid "Ticket pour une réprésentation"
+msgstr "One-time ticket"
+
+msgid "Ticket pour une visite"
 msgstr "One-time ticket"
 
 msgid "Ticket pour un événement"
@@ -1172,6 +1190,9 @@ msgstr "Multi-concerts"
 msgid "Multi-représentations"
 msgstr "Multi-shows"
 
+msgid "Multi-visites"
+msgstr "Multi-visits"
+
 msgid "Multi-événements"
 msgstr "Multi-events"
 
@@ -1186,6 +1207,9 @@ msgstr "Reimbursment of a one-time ticket for the concert"
 
 msgid "Remboursement d'un ticket pour la représentation"
 msgstr "Reimbursment of a one-time ticket for the show"
+
+msgid "Remboursement d'un ticket pour une visite"
+msgstr "Reimbursment of a one-time ticket for a visit"
 
 msgid "Remboursement d'un ticket pour l'événement"
 msgstr "Reimbursment of a one-time ticket for the event"
@@ -1202,6 +1226,9 @@ msgstr "You are not authorized to view the concert log."
 msgid "Vous n'êtes pas autorisé à consulter le journal de la représentation."
 msgstr "You are not authorized to view the show log."
 
+msgid "Vous n'êtes pas autorisé à consulter le journal du créneau de visite."
+msgstr "You are not authorized to view the time slot log."
+
 msgid "Vous n'êtes pas autorisé à consulter le journal de l'événement."
 msgstr "You are not authorized to view the event log."
 
@@ -1213,6 +1240,9 @@ msgstr "The concert is over."
 
 msgid "La représentation est terminée."
 msgstr "The representation is over."
+
+msgid "Le créneau de visite est terminé."
+msgstr "The time slot is over."
 
 msgid "L'événement est terminé."
 msgstr "The event is over."
@@ -1226,6 +1256,9 @@ msgstr "There is no ticketing for this concert."
 msgid "Il n'y a pas de billetterie pour cette représentation."
 msgstr "There is no ticketing for this show."
 
+msgid "Il n'y a pas de billetterie pour ce créneau de visite."
+msgstr "There is no ticketing for this time slot."
+
 msgid "Il n'y a pas de billetterie pour cet événement."
 msgstr "There is no ticketing for this event."
 
@@ -1237,6 +1270,9 @@ msgstr "No online sales for this concert."
 
 msgid "Il n'y a pas de vente en ligne pour cette représentation."
 msgstr "No online sales for this show."
+
+msgid "Il n'y a pas de vente en ligne pour ce créneau de visite."
+msgstr "No online sales for this time slot."
 
 msgid "Il n'y a pas de vente en ligne pour cet événement."
 msgstr "No online sales for this event."
@@ -1264,6 +1300,12 @@ msgstr "This perfomance cannot be booked with your current pass."
 
 msgid "Cette représentation n'est pas disponible avec votre abonnement."
 msgstr "This performance cannot be booked with your current pass."
+
+msgid "Ce créneau de visite n'est pas disponible avec ton abonnement."
+msgstr "This time slot cannot be booked with your pass."
+
+msgid "Ce créneau de visite n'est pas disponible avec votre abonnement."
+msgstr "This time slot cannot be booked with your pass."
 
 msgid "Cet événement n'est pas réservable sur ton abonnement."
 msgstr "This event cannot be booked with your current pass."
@@ -1300,6 +1342,12 @@ msgstr "This performance cannot be booked anymore with your current pass."
 
 msgid "Cette représentation n'est plus disponible avec votre abonnement."
 msgstr "This performance cannot be booked anymore with your current pass."
+
+msgid "Ce créneau de visite n'est plus réservable avec ton abonnement."
+msgstr "This time slot cannot be booked anymore with your current pass."
+
+msgid "Ce créneau de visite n'est plus réservable avec votre abonnement."
+msgstr "This time slot cannot be booked anymore with your current pass."
 
 msgid "Cet événement n'est plus réservable sur ton abonnement."
 msgstr "This event cannot be booked anymore with your current pass."
@@ -1346,6 +1394,13 @@ msgid ""
 msgstr ""
 "Access to this show is free. It is not necessary to obtain a ticket or make "
 "a reservation."
+
+msgid ""
+"L'accès à cette exposition est libre et gratuit. Il n'est pas nécessaire "
+"d'obtenir un billet ou de faire une réservation."
+msgstr ""
+"Access to this exhibition is free. It is not necessary to obtain a ticket or "
+"make a reservation."
 
 msgid ""
 "L'accès à cet événement est libre et gratuit. Il n'est pas nécessaire "
@@ -1455,6 +1510,14 @@ msgid ""
 msgstr ""
 "This summary, which can be %sdownloaded here%s, is not a ticket and doesn't "
 "give access to the booked concerts."
+
+#, php-format
+msgid ""
+"Ce résumé, qui peut être %stéléchargé ici%s, ne permet pas l'accès aux "
+"créneaux de visite réservés."
+msgstr ""
+"This summary, which can be %sdownloaded here%s, is not a ticket and doesn't "
+"give access to the booked time slots."
 
 #, php-format
 msgid ""
@@ -1602,6 +1665,16 @@ msgid ""
 msgstr "You cannot book this performance because another booking overlaps it."
 
 msgid ""
+"Tu ne peux pas réserver ce créneau de visite, car une autre réservation "
+"existe sur la même période."
+msgstr "You cannot book this time slot because another booking overlaps it."
+
+msgid ""
+"Vous ne pouvez pas réserver ce créneau de visite, car une autre réservation "
+"existe sur la même période."
+msgstr "You cannot book this time slot because another booking overlaps it."
+
+msgid ""
 "Tu ne peux pas réserver cet événement, car une autre réservation existe sur "
 "la même période."
 msgstr "You cannot book this event because another booking overlaps it."
@@ -1665,6 +1738,20 @@ msgid ""
 "différente d'une autre de vos réservations."
 msgstr ""
 "You cannot book this performance because its date is different from one of "
+"your other bookings."
+
+msgid ""
+"Tu ne peux pas réserver ce créneau de réservation, car sa date est "
+"différente d'une autre de tes réservations."
+msgstr ""
+"You cannot book this time slot because its date is different from one of "
+"your other bookings."
+
+msgid ""
+"Vous ne pouvez pas réserver ce créneau de réservation, car sa date est "
+"différente d'une autre de vos réservations."
+msgstr ""
+"You cannot book this time slot because its date is different from one of "
 "your other bookings."
 
 msgid ""
@@ -1733,6 +1820,16 @@ msgid ""
 msgstr "You cannot book one more seat for this performance on this ticket."
 
 msgid ""
+"Tu ne peux pas réserver une place de plus pour ce créneau de visite sur cet "
+"abonnement."
+msgstr "You cannot book one more seat for this time slot on this pass."
+
+msgid ""
+"Vous ne pouvez pas réserver une place de plus pour ce créneau de visite sur "
+"cet abonnement."
+msgstr "You cannot book one more seat for this time slot on this pass."
+
+msgid ""
 "Tu ne peux pas réserver une place de plus pour cet événement sur ce billet."
 msgstr "You cannot book one more seat for this event on this ticket."
 
@@ -1782,6 +1879,20 @@ msgid ""
 msgstr ""
 "You have used all the available booking slots on this ticket for the time "
 "period of this event."
+
+msgid ""
+"Tu as épuisé le nombre maximum de réservations sur ce billet pour la période "
+"à laquelle a lieu cette exposition."
+msgstr ""
+"You have used all the available booking slots on this ticket for the time "
+"period of this exhibition."
+
+msgid ""
+"Vous avez épuisé le nombre maximum de réservations sur ce billet pour la "
+"période à laquelle a lieu cette exposition."
+msgstr ""
+"You have used all the available booking slots on this ticket for the time "
+"period of this exhibition."
 
 msgid ""
 "Ton pass ou ton accréditation ne permettent la réservation que de certaines "
@@ -1854,6 +1965,20 @@ msgstr ""
 "is not part of them."
 
 msgid ""
+"Ton billet ne permet la réservation que de certains créneaux de visite "
+"spécifiques et celle-ci n'en fait pas partie."
+msgstr ""
+"Your ticket makes it possible to book specific screenings but this time slot "
+"is not part of them."
+
+msgid ""
+"Votre billet ne permet la réservation que de certains créneaux de visite "
+"spécifiques et celle-ci n'en fait pas partie."
+msgstr ""
+"Your ticket makes it possible to book specific screenings but this time slot "
+"is not part of them."
+
+msgid ""
 "Ton billet ne permet la réservation que de certains événements spécifiques "
 "et celui-ci n'en fait pas partie."
 msgstr ""
@@ -1915,6 +2040,15 @@ msgid ""
 msgstr "Dates of this performance don't match the validity of your ticket."
 
 msgid ""
+"Les dates de visite ne correspondent pas aux dates de validité de ton billet."
+msgstr "The Date of this visit doesn't match the validity of your ticket."
+
+msgid ""
+"Les dates de visite ne correspondent pas aux dates de validité de votre "
+"billet."
+msgstr "The Date of this visit doesn't match the validity of your ticket."
+
+msgid ""
 "Les dates de l'événement ne correspondent pas aux dates de validité de ton "
 "billet."
 msgstr "Dates of this event don't match the validity of your ticket."
@@ -1956,6 +2090,12 @@ msgstr "Your ticket is not valid for this performance."
 msgid "Votre billet n'est pas valable pour cette représentation."
 msgstr "Your ticket is not valid for this performance."
 
+msgid "Ton billet n'est pas valable pour ce créneau de visite."
+msgstr "Your ticket is not valid for this time slot."
+
+msgid "Votre billet n'est pas valable pour ce créneau de visite."
+msgstr "Your ticket is not valid for this time slot."
+
 msgid "Ton billet n'est pas valable pour cet événement."
 msgstr "Your ticket is not valid for this event."
 
@@ -1983,8 +2123,12 @@ msgid ""
 "abonnement."
 msgstr "Error: you have already booked this performance on this pass."
 
+msgid ""
+"Échec de la réservation : cette visite est déjà réservée sur cet abonnement."
+msgstr "Error: you have already booked this time slot on this pass."
+
 msgid "Échec de la réservation : cet événement est déjà réservé sur ce billet."
-msgstr "Error: you have already booked this event on this ticket."
+msgstr "Error: you have already booked this time slot on this ticket."
 
 msgid ""
 "Échec de la réservation : ce pass ou cette accréditation n'est pas valable "
@@ -2077,6 +2221,24 @@ msgstr ""
 "pass."
 
 msgid ""
+"Échec de la réservation : cet abonnement n'est pas valable pour ce créneau "
+"de visite ou le nombre maximum de réservations est atteint. Vérifie la date "
+"et le nombre de réservations déjà effectuées."
+msgstr ""
+"Booking error: your pass reached its booking limit or is not valid for this "
+"time slot. Please double-check the date and the number of bookings on your "
+"pass."
+
+msgid ""
+"Échec de la réservation : cet abonnement n'est pas valable pour ce créneau "
+"de visite ou le nombre maximum de réservations est atteint. Vérifiez la date "
+"et le nombre de réservations déjà effectuées."
+msgstr ""
+"Booking error: your pass reached its booking limit or is not valid for this "
+"time slot. Please double-check the date and the number of bookings on your "
+"pass."
+
+msgid ""
 "Échec de la réservation : cet abonnement n'est pas valable pour cet "
 "événement ou le nombre maximum de réservations est atteint. Vérifie la date "
 "et le nombre de réservations déjà effectuées."
@@ -2129,6 +2291,36 @@ msgstr "People currently inside the parc"
 
 msgid "Personnes actuellement en salle"
 msgstr "People currently inside the venue"
+
+msgid "Film projeté"
+msgstr "Film"
+
+msgid "Groupe"
+msgstr "Group"
+
+msgid "Spectacle"
+msgstr "Show"
+
+msgid "Exposition"
+msgstr "Exhibition"
+
+msgid "Événement prévu"
+msgstr "Scheduled Event"
+
+msgid "Films projetés"
+msgstr "Scheduled Events"
+
+msgid "Groupes"
+msgstr "Groups"
+
+msgid "Spectacles"
+msgstr "Shows"
+
+msgid "Expositions"
+msgstr "Exhibitions"
+
+msgid "Événements prévus"
+msgstr "Scheduled events"
 
 msgid ""
 "Veuillez choisir un point de vente dans les réglages du module Ticketack"

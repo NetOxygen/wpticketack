@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: eshop 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-24 12:27+0100\n"
+"POT-Creation-Date: 2026-02-25 11:07+0100\n"
 "PO-Revision-Date: 2020-01-16 16:46+0000\n"
 "Last-Translator: Jonathan Ernst <jonathan.ernst@netoxygen.ch>\n"
 "Language-Team: German (Swiss High) <http://translate.neto2.net/projects/"
@@ -1108,6 +1108,9 @@ msgstr "Konzert"
 msgid "Représentation"
 msgstr "Aufführung"
 
+msgid "Visite"
+msgstr "Besuch"
+
 msgid "Événement"
 msgstr "Veranstaltung"
 
@@ -1119,6 +1122,9 @@ msgstr "Konzerte"
 
 msgid "Représentations"
 msgstr "Aufführungen"
+
+msgid "Visites"
+msgstr "Besuche"
 
 msgid "Événements"
 msgstr "Veranstaltungen"
@@ -1132,6 +1138,9 @@ msgstr "Am Ende des Konzerts"
 msgid "À la fin de la représentation"
 msgstr "Am Ende der Aufführung"
 
+msgid "À la fin de la visite"
+msgstr "Am Ende des Besuchs"
+
 msgid "À la fin de l'événement"
 msgstr "Am Ende der Veranstaltung"
 
@@ -1143,6 +1152,9 @@ msgstr "Nächste Konzerte"
 
 msgid "Prochaines représentations"
 msgstr "Nächste Aufführungen"
+
+msgid "Prochains crénaux de visite"
+msgstr "Nächste Besuchszeiten"
 
 msgid "Prochains événements"
 msgstr "Nächste Veranstaltungen"
@@ -1159,6 +1171,9 @@ msgstr "Reservation für ein Konzert"
 msgid "Réservation pour une représentation"
 msgstr "Reservation für eine Aufführung"
 
+msgid "Réservation pour une visite"
+msgstr "Reservation für einen Besuch"
+
 msgid "Réservation pour un événement"
 msgstr "Reservation für eine Veranstaltung"
 
@@ -1172,6 +1187,9 @@ msgid "Ticket pour un concert"
 msgstr "Einzelticket"
 
 msgid "Ticket pour une réprésentation"
+msgstr "Einzelticket"
+
+msgid "Ticket pour une visite"
 msgstr "Einzelticket"
 
 msgid "Ticket pour un événement"
@@ -1189,6 +1207,9 @@ msgstr "Multi-Konzerte"
 msgid "Multi-représentations"
 msgstr "Multi-Aufführungen"
 
+msgid "Multi-visites"
+msgstr "Multi-Besuche"
+
 msgid "Multi-événements"
 msgstr "Multi-Veranstaltungen"
 
@@ -1203,6 +1224,9 @@ msgstr "Rückerstattung eines Tickets für das Konzert"
 
 msgid "Remboursement d'un ticket pour la représentation"
 msgstr "Rückerstattung eines Tickets für die Aufführung"
+
+msgid "Remboursement d'un ticket pour une visite"
+msgstr "Rückerstattung eines Tickets für den Besuch"
 
 msgid "Remboursement d'un ticket pour l'événement"
 msgstr "Rückerstattung eines Tickets für die Veranstaltung"
@@ -1219,6 +1243,9 @@ msgstr "Es ist Ihnen nicht erlaubt, das Konzerttagebuch anzusehen."
 msgid "Vous n'êtes pas autorisé à consulter le journal de la représentation."
 msgstr "Es ist Ihnen nicht erlaubt, das Aufführungstagebuch anzusehen."
 
+msgid "Vous n'êtes pas autorisé à consulter le journal du créneau de visite."
+msgstr "Es ist Ihnen nicht erlaubt, das Besuchsprotokoll anzusehen."
+
 msgid "Vous n'êtes pas autorisé à consulter le journal de l'événement."
 msgstr "Es ist Ihnen nicht erlaubt, das Veranstaltungstagebuch anzusehen."
 
@@ -1230,6 +1257,9 @@ msgstr "Das Konzert ist vorbei."
 
 msgid "La représentation est terminée."
 msgstr "Die Aufführung ist vorbei."
+
+msgid "Le créneau de visite est terminé."
+msgstr "Die Besuchszeit ist vorbei."
 
 msgid "L'événement est terminé."
 msgstr "Die Veranstaltung ist vorbei."
@@ -1243,6 +1273,9 @@ msgstr "Es gibt keine Tickets für dieses Konzert."
 msgid "Il n'y a pas de billetterie pour cette représentation."
 msgstr "Es gibt keine Tickets für diese Aufführung."
 
+msgid "Il n'y a pas de billetterie pour ce créneau de visite."
+msgstr "Es gibt keine Tickets für diese Besuchszeit."
+
 msgid "Il n'y a pas de billetterie pour cet événement."
 msgstr "Es gibt keine Tickets für diese Veranstaltung."
 
@@ -1254,6 +1287,9 @@ msgstr "Für dieses Konzert gibt es keinen Online-Verkauf."
 
 msgid "Il n'y a pas de vente en ligne pour cette représentation."
 msgstr "Diese Aufführung wird nicht online verkauft."
+
+msgid "Il n'y a pas de vente en ligne pour ce créneau de visite."
+msgstr "Für diese Besuchszeit gibt es keinen Online-Verkauf."
 
 msgid "Il n'y a pas de vente en ligne pour cet événement."
 msgstr "Für diese Veranstaltung gibt es keinen Online-Verkauf."
@@ -1283,6 +1319,12 @@ msgstr "Diese Aufführung ist mit deinem Pass nicht verfügbar."
 
 msgid "Cette représentation n'est pas disponible avec votre abonnement."
 msgstr "Diese Aufführung ist mit Ihrem Pass nicht verfügbar."
+
+msgid "Ce créneau de visite n'est pas disponible avec ton abonnement."
+msgstr "Diese Besuchszeit ist mit deinem Pass nicht verfügbar."
+
+msgid "Ce créneau de visite n'est pas disponible avec votre abonnement."
+msgstr "Diese Besuchszeit ist mit Ihrem Pass nicht verfügbar."
 
 msgid "Cet événement n'est pas réservable sur ton abonnement."
 msgstr "Diese Veranstaltung ist mit deinem Pass nicht verfügbar."
@@ -1321,6 +1363,12 @@ msgstr "Diese Aufführung ist mit deinem Pass nicht mehr verfügbar."
 
 msgid "Cette représentation n'est plus disponible avec votre abonnement."
 msgstr "Diese Aufführung ist mit Ihrem Pass nicht mehr verfügbar."
+
+msgid "Ce créneau de visite n'est plus réservable avec ton abonnement."
+msgstr "Diese Besuchszeit ist mit deinem Pass nicht mehr reservierbar."
+
+msgid "Ce créneau de visite n'est plus réservable avec votre abonnement."
+msgstr "Diese Besuchszeit ist mit Ihrem Pass nicht mehr reservierbar."
 
 msgid "Cet événement n'est plus réservable sur ton abonnement."
 msgstr "Diese Veranstaltung ist mit deinem Pass nicht mehr verfügbar."
@@ -1374,6 +1422,13 @@ msgid ""
 "d'obtenir un billet ou de faire une réservation."
 msgstr ""
 "Der Eintritt zu dieser Aufführung ist frei. Es sind weder Tickets noch "
+"Reservationen erforderlich."
+
+msgid ""
+"L'accès à cette exposition est libre et gratuit. Il n'est pas nécessaire "
+"d'obtenir un billet ou de faire une réservation."
+msgstr ""
+"Der Eintritt zu dieser Ausstellung ist frei. Es sind weder Tickets noch "
 "Reservationen erforderlich."
 
 msgid ""
@@ -1488,6 +1543,14 @@ msgid ""
 msgstr ""
 "Diese Zusammenfassung, die hier %sheruntergeladen werden kann%s, ist kein "
 "Ticket und ermöglicht keinen Eintritt zu den Aufführungen."
+
+#, php-format
+msgid ""
+"Ce résumé, qui peut être %stéléchargé ici%s, ne permet pas l'accès aux "
+"créneaux de visite réservés."
+msgstr ""
+"Diese Zusammenfassung, die hier %sheruntergeladen werden kann%s, ist kein "
+"Ticket und ermöglicht keinen Eintritt zu den reservierten Besuchszeiten."
 
 #, php-format
 msgid ""
@@ -1658,6 +1721,20 @@ msgstr ""
 "bereits eine andere Reservation besteht."
 
 msgid ""
+"Tu ne peux pas réserver ce créneau de visite, car une autre réservation "
+"existe sur la même période."
+msgstr ""
+"Du kannst diese Besuchszeit nicht reservieren, da im gleichen Zeitraum "
+"bereits eine andere Reservation besteht."
+
+msgid ""
+"Vous ne pouvez pas réserver ce créneau de visite, car une autre réservation "
+"existe sur la même période."
+msgstr ""
+"Sie können diese Besuchszeit nicht reservieren, da im gleichen Zeitraum "
+"bereits eine andere Reservation besteht."
+
+msgid ""
 "Tu ne peux pas réserver cet événement, car une autre réservation existe sur "
 "la même période."
 msgstr ""
@@ -1725,6 +1802,20 @@ msgid ""
 "différente d'une autre de vos réservations."
 msgstr ""
 "Sie können diese Aufführung nicht reservieren, da ihr Datum von einer "
+"anderen Ihrer Reservationen abweicht."
+
+msgid ""
+"Tu ne peux pas réserver ce créneau de réservation, car sa date est "
+"différente d'une autre de tes réservations."
+msgstr ""
+"Du kannst diese Besuchszeit nicht reservieren, da ihr Datum von einer "
+"anderen deiner Reservationen abweicht."
+
+msgid ""
+"Vous ne pouvez pas réserver ce créneau de réservation, car sa date est "
+"différente d'une autre de vos réservations."
+msgstr ""
+"Sie können diese Besuchszeit nicht reservieren, da ihr Datum von einer "
 "anderen Ihrer Reservationen abweicht."
 
 msgid ""
@@ -1809,6 +1900,20 @@ msgstr ""
 "reservieren."
 
 msgid ""
+"Tu ne peux pas réserver une place de plus pour ce créneau de visite sur cet "
+"abonnement."
+msgstr ""
+"Du kannst keinen zusätzlichen Platz für diese Besuchszeit auf diesem Pass "
+"reservieren."
+
+msgid ""
+"Vous ne pouvez pas réserver une place de plus pour ce créneau de visite sur "
+"cet abonnement."
+msgstr ""
+"Sie können keinen zusätzlichen Platz für diese Besuchszeit auf diesem Pass "
+"reservieren."
+
+msgid ""
 "Tu ne peux pas réserver une place de plus pour cet événement sur ce billet."
 msgstr ""
 "Du kannst keinen zusätzlichen Platz für diese Veranstaltung auf diesem "
@@ -1855,6 +1960,16 @@ msgstr "Du hast dein Reservationskontingent auf diesem Ticket ausgeschöpft."
 msgid ""
 "Vous avez épuisé le nombre maximum de réservations sur ce billet pour la "
 "période à laquelle a lieu cet événement."
+msgstr "Sie haben Ihr Reservationskontingent auf diesem Ticket ausgeschöpft."
+
+msgid ""
+"Tu as épuisé le nombre maximum de réservations sur ce billet pour la période "
+"à laquelle a lieu cette exposition."
+msgstr "Du hast dein Reservationskontingent auf diesem Ticket ausgeschöpft."
+
+msgid ""
+"Vous avez épuisé le nombre maximum de réservations sur ce billet pour la "
+"période à laquelle a lieu cette exposition."
 msgstr "Sie haben Ihr Reservationskontingent auf diesem Ticket ausgeschöpft."
 
 msgid ""
@@ -1925,6 +2040,20 @@ msgid ""
 "spécifiques et celle-ci n'en fait pas partie."
 msgstr ""
 "Ihr Ticket ist nur für bestimmte Aufführungen gültig, diese gehört leider "
+"nicht dazu."
+
+msgid ""
+"Ton billet ne permet la réservation que de certains créneaux de visite "
+"spécifiques et celle-ci n'en fait pas partie."
+msgstr ""
+"Dein Ticket ist nur für bestimmte Besuchszeiten gültig, diese gehört leider "
+"nicht dazu."
+
+msgid ""
+"Votre billet ne permet la réservation que de certains créneaux de visite "
+"spécifiques et celle-ci n'en fait pas partie."
+msgstr ""
+"Ihr Ticket ist nur für bestimmte Besuchszeiten gültig, diese gehört leider "
 "nicht dazu."
 
 msgid ""
@@ -2005,6 +2134,17 @@ msgstr ""
 "Tickets."
 
 msgid ""
+"Les dates de visite ne correspondent pas aux dates de validité de ton billet."
+msgstr ""
+"Die Besuchsdaten liegen ausserhalb des Gültigkeitszeitraums deines Tickets."
+
+msgid ""
+"Les dates de visite ne correspondent pas aux dates de validité de votre "
+"billet."
+msgstr ""
+"Die Besuchsdaten liegen ausserhalb des Gültigkeitszeitraums Ihres Tickets."
+
+msgid ""
 "Les dates de l'événement ne correspondent pas aux dates de validité de ton "
 "billet."
 msgstr ""
@@ -2054,6 +2194,12 @@ msgstr "Dein Ticket ist für diese Aufführung nicht gültig."
 msgid "Votre billet n'est pas valable pour cette représentation."
 msgstr "Dein Ticket ist für diese Aufführung nicht gültig."
 
+msgid "Ton billet n'est pas valable pour ce créneau de visite."
+msgstr "Dein Ticket ist für diese Besuchszeit nicht gültig."
+
+msgid "Votre billet n'est pas valable pour ce créneau de visite."
+msgstr "Ihr Ticket ist für diese Besuchszeit nicht gültig."
+
 msgid "Ton billet n'est pas valable pour cet événement."
 msgstr "Dein Ticket ist für diese Veranstaltung nicht gültig."
 
@@ -2089,6 +2235,12 @@ msgid ""
 msgstr ""
 "Fehler bei der Reservation: dieses Konzert ist auf diesem Ticket bereits "
 "reserviert."
+
+msgid ""
+"Échec de la réservation : cette visite est déjà réservée sur cet abonnement."
+msgstr ""
+"Fehler bei der Reservation: dieser Besuch ist auf diesem Pass bereits "
+"reserviert.reserviert."
 
 msgid "Échec de la réservation : cet événement est déjà réservé sur ce billet."
 msgstr ""
@@ -2188,6 +2340,24 @@ msgstr ""
 "Sie das Datum und die Anzahl der bereits getätigten Reservationen."
 
 msgid ""
+"Échec de la réservation : cet abonnement n'est pas valable pour ce créneau "
+"de visite ou le nombre maximum de réservations est atteint. Vérifie la date "
+"et le nombre de réservations déjà effectuées."
+msgstr ""
+"Fehler bei der Reservation: dieses Abonnement ist für diese Besuchszeit "
+"nicht gültig oder die maximale Anzahl an Reservationen ist erreicht. "
+"Überprüfe das Datum und die Anzahl der bereits getätigten Reservationen."
+
+msgid ""
+"Échec de la réservation : cet abonnement n'est pas valable pour ce créneau "
+"de visite ou le nombre maximum de réservations est atteint. Vérifiez la date "
+"et le nombre de réservations déjà effectuées."
+msgstr ""
+"Fehler bei der Reservation: dieses Abonnement ist für diese Besuchszeit "
+"nicht gültig oder die maximale Anzahl an Reservationen ist erreicht. "
+"Überprüfen Sie das Datum und die Anzahl der bereits getätigten Reservationen."
+
+msgid ""
 "Échec de la réservation : cet abonnement n'est pas valable pour cet "
 "événement ou le nombre maximum de réservations est atteint. Vérifie la date "
 "et le nombre de réservations déjà effectuées."
@@ -2240,6 +2410,36 @@ msgstr "Derzeit im Park anwesende Personen"
 
 msgid "Personnes actuellement en salle"
 msgstr "Personen, die sich derzeit im Saal befinden"
+
+msgid "Film projeté"
+msgstr "Film"
+
+msgid "Groupe"
+msgstr ""
+
+msgid "Spectacle"
+msgstr ""
+
+msgid "Exposition"
+msgstr "Ausstellung"
+
+msgid "Événement prévu"
+msgstr "Geplante Veranstaltung"
+
+msgid "Films projetés"
+msgstr "Filme"
+
+msgid "Groupes"
+msgstr ""
+
+msgid "Spectacles"
+msgstr ""
+
+msgid "Expositions"
+msgstr "Ausstellungen"
+
+msgid "Événements prévus"
+msgstr "Geplante Veranstaltungen"
 
 msgid ""
 "Veuillez choisir un point de vente dans les réglages du module Ticketack"
