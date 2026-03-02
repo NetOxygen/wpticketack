@@ -31,9 +31,7 @@ class Tickettype extends TKTModel implements \JsonSerializable
     public function __construct(array &$properties = [])
     {
         if (array_key_exists('windows', $properties)) {
-            $this->windows = array_map(function ($obj) {
-                return new Window($obj);
-            }, $properties['windows']);
+            $this->windows = array_map(fn($obj) => new Window($obj), $properties['windows']);
             unset($properties['windows']);
         }
         if (array_key_exists('pricings', $properties)) {
@@ -78,9 +76,7 @@ class Tickettype extends TKTModel implements \JsonSerializable
     {
         return $req->add_post_process(function ($status, $tickettypes) use ($roles) {
             if (No2_HTTP::is_success($status)) {
-                $tickettypes = array_values(array_filter($tickettypes, function ($tickettype) use ($roles) {
-                    return (count($tickettype->pricings_for_sellers($roles)) > 0);
-                }));
+                $tickettypes = array_filter($tickettypes, fn($tickettype) => count($tickettype->pricings_for_sellers($roles)) > 0);
             }
             return $tickettypes;
         });
@@ -113,6 +109,34 @@ class Tickettype extends TKTModel implements \JsonSerializable
     }
 
     /**
+     * Scope filtering out pricings that are not yet or no longer available,
+     * based on their rules.not_before and rules.not_after.
+     * Also filters out tickettypes that have no available pricings left.
+     *
+     * @param DateTime|null $at  Reference datetime. Defaults to now.
+     */
+    public static function scope_available_at($req, ?DateTime $at = null)
+    {
+        $at ??= new DateTime();
+        return $req->add_post_process(function ($status, $tickettypes) use ($at) {
+            if (No2_HTTP::is_success($status)) {
+                $tickettypes = array_map(function ($tickettype) use ($at) {
+                    $tickettype->pricings = array_filter(
+                        $tickettype->pricings,
+                        fn($pricing) => $pricing->is_available_at($at)
+                    );
+                    return $tickettype;
+                }, $tickettypes);
+                $tickettypes = array_values(array_filter(
+                    $tickettypes,
+                    fn($tickettype) => count($tickettype->pricings) > 0
+                ));
+            }
+            return $tickettypes;
+        });
+    }
+
+    /**
      * scope sorting tickettypes depending on the earliest window's start_at
      * (or window matching screening start_at)
      */
@@ -120,9 +144,7 @@ class Tickettype extends TKTModel implements \JsonSerializable
     {
         return $req->add_post_process(function ($status, $tickettypes) {
             if (No2_HTTP::is_success($status)) {
-                usort($tickettypes, function ($a, $b) {
-                    return Window::timestamp_cmp($a->earliest_window(), $b->earliest_window());
-                });
+                usort($tickettypes, fn($a, $b) => Window::timestamp_cmp($a->earliest_window(), $b->earliest_window()));
             }
             return $tickettypes;
         });
@@ -145,11 +167,24 @@ class Tickettype extends TKTModel implements \JsonSerializable
         });
     }
 
+    /**
+     * scope sorting tickettypes pricings depending on opaque.eshop_sort_weight and
+     */
+    public static function scope_order_pricings_by_opaque_eshop_sort_weight($req)
+    {
+        return $req->add_post_process(function ($status, $tickettypes) {
+            if (No2_HTTP::is_success($status)) {
+                foreach ($tickettypes as $tickettype) {
+                    usort($tickettype->pricings, fn($a, $b) => static::opaque_eshop_sort_weight_cmp($a, $b));
+                }
+            }
+            return $tickettypes;
+        });
+    }
+
     public function pricings_for_sellers($roles)
     {
-        return array_filter($this->pricings, function ($pricing) use ($roles) {
-            return $pricing->can_be_sold_by($roles);
-        });
+        return array_filter($this->pricings, fn($pricing) => $pricing->can_be_sold_by($roles));
     }
 
     public function earliest_window()
@@ -159,9 +194,7 @@ class Tickettype extends TKTModel implements \JsonSerializable
             return null;
         }
 
-        usort($windows, function ($a, $b) {
-            return Window::timestamp_cmp($a, $b);
-        });
+        usort($windows, fn($a, $b) => Window::timestamp_cmp($a, $b));
 
         return $windows[0];
     }
@@ -171,14 +204,22 @@ class Tickettype extends TKTModel implements \JsonSerializable
         return $this->_id;
     }
 
-    public function name($lang)
+    public function name($lang = null)
     {
-        return isset($this->name[$lang]) ? $this->name[$lang] : null;
+        if (is_null($lang)) {
+            return $this->name;
+        }
+
+        return $this->name[$lang] ?? null;
     }
 
-    public function description($lang)
+    public function description($lang = null)
     {
-        return isset($this->description[$lang]) ? $this->description[$lang] : null;
+        if (is_null($lang)) {
+            return $this->description;
+        }
+
+        return $this->description[$lang] ?? null;
     }
 
     public function windows()

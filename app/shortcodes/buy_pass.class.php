@@ -49,6 +49,7 @@ class BuyPassShortcode extends TKTShortcode
             ->order_by_opaque_eshop_sort_weight()
             ->for_sellers(['eshop'])
             ->filter_pricings_for_sellers(['eshop'])
+            ->available_at()
             ->get();
 
         if (!empty($types)) {

@@ -11,17 +11,20 @@ use Ticketack\Core\Base\Currency\CHF;
  *  Instances are *immutable*.
  */
 
-class Pricing implements \JsonSerializable
+class Pricing implements JsonSerializable
 {
-    protected $key = null;
-    protected $name = null;
+    protected $key         = null;
+    protected $name        = null;
     protected $description = null;
-    protected $price = [];
-    protected $value = [];
-    protected $VAT = 0;
-    protected $sellers = [];
-    protected $category = null;
-    protected $opaque = null;
+    protected $price       = [];
+    protected $value       = [];
+    protected $VAT         = 0;
+    protected $sellers     = [];
+    protected $category    = null;
+    protected $opaque      = null;
+    protected $rules       = [];
+    protected $refs        = [];
+    protected $tags        = [];
 
     /**
      * @throw Exception
@@ -54,6 +57,24 @@ class Pricing implements \JsonSerializable
 
         if (array_key_exists('opaque', $properties)) {
             $this->opaque = $properties['opaque'];
+        }
+
+        if (array_key_exists('rules', $properties)) {
+            $this->rules = $properties['rules'];
+        }
+
+        if (array_key_exists('refs', $properties)) {
+            $this->refs = array_map(function ($obj) {
+                return new Ref($obj);
+            }, $properties['refs']);
+        }
+
+        if (array_key_exists('tags', $properties)) {
+            $this->tags = [];
+            foreach ($properties['tags'] as $obj) {
+                array_push($this->tags, new Tag($obj));
+            }
+            unset($properties['tags']);
         }
     }
 
@@ -122,9 +143,29 @@ class Pricing implements \JsonSerializable
         return $this->opaque;
     }
 
+    public function rules()
+    {
+        return $this->rules;
+    }
+
+    public function tags()
+    {
+        return $this->tags;
+    }
+
+    public function refs()
+    {
+        return (array)$this->refs;
+    }
+
+    public function has_key()
+    {
+        return !empty($this->key);
+    }
+
     public function has_description()
     {
-        return is_array($this->description);
+        return is_array($this->description) && !empty($this->description);
     }
 
     public function has_category()
@@ -137,12 +178,57 @@ class Pricing implements \JsonSerializable
         return is_array($this->opaque);
     }
 
+    public function has_rules()
+    {
+        return is_array($this->rules);
+    }
+
+    public function has_tags()
+    {
+        return is_array($this->tags) && !empty($this->tags);
+    }
+
+    /**
+     * Check whether this pricing is available at a given point in time,
+     * based on rules.not_before and rules.not_after.
+     *
+     * A pricing with no rules, or with no temporal rules, is always available.
+     *
+     * @param DateTime $at  The reference datetime.
+     * @return bool
+     */
+    public function is_available_at(?DateTime $at = null): bool
+    {
+        $at ??= new DateTime();
+
+        if (!$this->has_rules()) {
+            return true;
+        }
+
+        if (isset($this->rules['not_before'])) {
+            $not_before = tkt_iso8601_to_datetime($this->rules['not_before']);
+            if ($not_before !== false && $at < $not_before) {
+                return false;
+            }
+        }
+
+        if (isset($this->rules['not_after'])) {
+            $not_after = tkt_iso8601_to_datetime($this->rules['not_after']);
+            if ($not_after !== false && $at > $not_after) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
     public function can_be_sold_by($roles)
     {
         return (count(array_intersect($this->sellers, $roles)) > 0);
     }
 
-    public function jsonSerialize() : mixed
+    #[\Override]
+    public function jsonSerialize(): mixed
     {
         $ret = [
             'name'    => $this->name,
@@ -160,6 +246,21 @@ class Pricing implements \JsonSerializable
         }
         if ($this->has_opaque()) {
             $ret['opaque'] = $this->opaque();
+        }
+        if ($this->has_rules()) {
+            $ret['rules'] = $this->rules();
+        }
+        // FIXME: engine model has no key, remove once the module properly sorts pricings client side
+        if ($this->has_key()) {
+            $ret['key'] = $this->key();
+        }
+
+        if (isset($this->refs)) {
+            $ret['refs'] = $this->refs();
+        }
+
+        if ($this->has_tags()) {
+            $ret['tags'] = $this->tags();
         }
 
         return $ret;

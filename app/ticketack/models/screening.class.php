@@ -157,9 +157,7 @@ class Screening extends TKTModel implements \JsonSerializable
     {
         return $req->add_post_process(function ($status, $screenings) {
             if (No2_HTTP::is_success($status)) {
-                usort($screenings, function ($a, $b) {
-                    return ($a->start_at->getTimestamp() - $b->start_at->getTimestamp());
-                });
+                usort($screenings, fn($a, $b) => $a->start_at->getTimestamp() - $b->start_at->getTimestamp());
             }
             return $screenings;
         });
@@ -173,9 +171,7 @@ class Screening extends TKTModel implements \JsonSerializable
     {
         return $req->add_post_process(function ($status, $screenings) use ($roles) {
             if (No2_HTTP::is_success($status)) {
-                $screenings = array_filter($screenings, function ($screening) use ($roles) {
-                    return (count($screening->pricings_for_sellers($roles)) > 0);
-                });
+                $screenings = array_filter($screenings, fn($screening) => count($screening->pricings_for_sellers($roles)) > 0);
             }
             return $screenings;
         });
@@ -200,6 +196,34 @@ class Screening extends TKTModel implements \JsonSerializable
     }
 
     /**
+     * Scope filtering out pricings that are not yet or no longer available,
+     * based on their rules.not_before and rules.not_after.
+     * Also filters out screenings that have no available pricings left.
+     *
+     * @param DateTime|null $at  Reference datetime. Defaults to now.
+     */
+    public static function scope_available_at($req, ?DateTime $at = null)
+    {
+        $at ??= new DateTime();
+        return $req->add_post_process(function ($status, $screenings) use ($at) {
+            if (No2_HTTP::is_success($status)) {
+                $screenings = array_map(function ($screening) use ($at) {
+                    $screening->pricings = array_filter(
+                        $screening->pricings,
+                        fn($pricing) => $pricing->is_available_at($at)
+                    );
+                    return $screening;
+                }, $screenings);
+                $screenings = array_values(array_filter(
+                    $screenings,
+                    fn($screening) => count($screening->pricings) > 0
+                ));
+            }
+            return $screenings;
+        });
+    }
+
+    /**
      * Scope filtering pricings that can be sold given an array of user roles.
      */
     public static function scope_sellable_by($req, $roles)
@@ -210,13 +234,9 @@ class Screening extends TKTModel implements \JsonSerializable
 
     public function pricings_for_sellers($roles)
     {
-        $filtered =  array_filter($this->pricings, function ($pricing) use ($roles) {
-            return $pricing->can_be_sold_by($roles);
-        });
+        $filtered =  array_filter($this->pricings, fn($pricing) => $pricing->can_be_sold_by($roles));
 
-        usort($filtered, function ($a, $b) {
-            return Tickettype::opaque_eshop_sort_weight_cmp($a, $b);
-        });
+        usort($filtered, fn($a, $b) => Tickettype::opaque_eshop_sort_weight_cmp($a, $b));
 
         return array_values($filtered);
     }
@@ -470,7 +490,9 @@ class Screening extends TKTModel implements \JsonSerializable
         foreach ($this->matching_buckets($now, $tickettype, $user, $ignore) as $bucket) {
             $bookable[$bucket->_id()] = $bucket;
             foreach ($bucket->may_steal_from() as $victim) {
-                $bookable[$victim->_id()] = $victim;
+                if (!is_null($victim)) {
+                    $bookable[$victim->_id()] = $victim;
+                }
             }
         }
 
@@ -480,6 +502,37 @@ class Screening extends TKTModel implements \JsonSerializable
     public function pricings()
     {
         return $this->pricings;
+    }
+
+    public function pricing($pricing_key)
+    {
+        return array_key_exists($pricing_key, $this->pricings) ?
+            $this->pricings[$pricing_key] :
+            null;
+    }
+
+    /**
+     * Get the first pricing with the provided name
+     *
+     * @param string $lang
+     * @return Pricing if found, null otherwise
+     */
+    public function pricing_by_name(string $name, $lang = null)
+    {
+        if (is_null($lang)) {
+            $lang = current_lang();
+        }
+
+        $matching_pricings = array_filter(
+            $this->pricings,
+            fn($pricing) => $pricing->name($lang) === $name
+        );
+
+        if (empty($matching_pricings)) {
+            return null;
+        }
+
+        return current($matching_pricings);
     }
 
     public function place()
@@ -578,29 +631,264 @@ class Screening extends TKTModel implements \JsonSerializable
     /*
      * TODO: this method is left for retro-compatibility: bookings statistic
      * are aggregated from all the buckets. Callers of this method should
-     * either displayor use every bucket individually or filter the relevant
+     * either display or use every bucket individually or filter the relevant
      * one(s), but using all of them (like this method does) is probably the
      * wrong way most of the time.
      */
     public static function __seats_retro_compat($screening_obj)
     {
         return (object)[
-            'total' => array_reduce($screening_obj->buckets, function ($memo, $bucket) {
-                return $memo + $bucket->total_capacity;
-            }, 0),
-            'available' => array_reduce($screening_obj->buckets, function ($memo, $bucket) {
-                return $memo + $bucket->available;
-            }, 0),
-            'unconfirmed' => array_reduce($screening_obj->buckets, function ($memo, $bucket) {
-                return $memo + $bucket->unconfirmed;
-            }, 0),
-            'confirmed' => array_reduce($screening_obj->buckets, function ($memo, $bucket) {
-                return $memo + $bucket->confirmed;
-            }, 0),
-            'used' => array_reduce($screening_obj->buckets, function ($memo, $bucket) {
-                return $memo + $bucket->scanned;
-            }, 0),
+            'total' => array_reduce($screening_obj->buckets, fn($memo, $bucket) => $memo + $bucket->total_capacity, 0),
+            'available' => array_reduce($screening_obj->buckets, fn($memo, $bucket) => $memo + $bucket->available, 0),
+            'unconfirmed' => array_reduce($screening_obj->buckets, fn($memo, $bucket) => $memo + $bucket->unconfirmed, 0),
+            'confirmed' => array_reduce($screening_obj->buckets, fn($memo, $bucket) => $memo + $bucket->confirmed, 0),
+            'used' => array_reduce($screening_obj->buckets, fn($memo, $bucket) => $memo + $bucket->scanned, 0),
         ];
     }
-}
 
+    /**
+     * Check if this screening is bookable on map
+     *
+     * @return boolean
+     */
+    public function is_bookable_on_map()
+    {
+        return $this->has_opaque_key('map_only_bookings') && $this->opaque['map_only_bookings'];
+    }
+
+    /**
+     * Find free seats on map, starting from the back
+     *
+     * @param integer $nb: Number of seats to find. Default -1 means to return all
+     * @param string $category: Filter seats on this category
+     *
+     * @return null if this screening is not bookable on map, array otherwise.
+     */
+    public function find_free_seats($nb = -1, $category = null)
+    {
+        if (!$this->is_bookable_on_map()) {
+            return null;
+        }
+
+        $place      = clone($this->place());
+        $seats      = $place->map()['seats'];
+        $free_seats = [];
+        foreach ($place->map()['seats'] as $seat) {
+            if (count($seats) == $nb) {
+                break;
+            }
+            if ($seat['status'] == 'free' && (is_null($category) || $category == $seat['category'])) {
+                array_push($free_seats, $seat);
+            }
+        }
+
+        usort($free_seats, function ($a, $b) {
+            if ($a['position']['y'] != $b['position']['y'])
+                return $a['position']['y'] < $b['position']['y'] ? 1 : -1;
+            if ($a['position']['x'] != $b['position']['x'])
+                return $a['position']['x'] > $b['position']['x'] ? 1 : -1;
+
+            return 0;
+        });
+
+        return $free_seats;
+    }
+
+    public function refund_tickets($nb_to_refund, $pricing_to_refund)
+    {
+        $res = (object)[
+            'err'      => null,
+            'msg'      => null,
+            'refunded' => (object)[]
+        ];
+        $res->refunded->{$pricing_to_refund} = 0;
+
+        if ($nb_to_refund > 0) {
+            $refundable_tickets = array_values(array_filter($this->tickets(), fn($ticket) => $ticket->is_refundable() &&
+            $ticket->get_activated_pricing_name() === $pricing_to_refund));
+            if (count($refundable_tickets) < $nb_to_refund) {
+                $res->err = tkt_t('Impossible de rembourser autant de tickets');
+                return $res;
+            }
+
+            for ($i = 0; $i < $nb_to_refund; $i++) {
+                $ticket_to_refund = $refundable_tickets[$i];
+                if (!$ticket_to_refund->delete() || !Accounting::refund_ticket($ticket_to_refund->ticket_data->_id)) {
+                    $res->err = tkt_t('Impossible de rembourser un ticket');
+                    return $res;
+                }
+
+                $res->refunded->{$pricing_to_refund} += 1;
+            }
+
+            if ($res->refunded->{$pricing_to_refund} == $nb_to_refund) {
+                $res->msg = sprintf(
+                    ($nb_to_refund > 1 ?
+                        tkt_t('%d tickets au tarif "%s" ont été remboursés') :
+                        tkt_t('%d ticket au tarif "%s" a été remboursé')
+                    ),
+                    $nb_to_refund,
+                    $pricing_to_refund
+                );
+            }
+        }
+
+        return $res;
+    }
+
+    /**
+     * Get this screening tickets
+     *
+     * @param string $lang
+     *
+     * @return stdClass
+     */
+    public function tickets()
+    {
+        $api = current_user()->get_api_path();
+        $uri = sprintf(
+            '/%s/tickets?having_booked_screening_id=%s&nocache=true',
+            $api,
+            $this->_id
+        );
+
+        $http_status;
+        $res = Ticketack_API::http_get($uri, $http_status);
+
+        if ($http_status != No2_HTTP::OK) {
+            return null;
+        }
+
+        $tickets_data = json_decode((string) $res);
+
+        if (count($tickets_data) > 0) {
+            return array_map(fn($data) => new Ticket($data), $tickets_data);
+        }
+
+        return null;
+    }
+
+    /**
+     * Get this screenings stat
+     *
+     * @param string $lang
+     * @param array $tickettypes to filter on
+     *
+     * @return stdClass
+     */
+    public function stats($lang = null, $tickettypes = [])
+    {
+        if (is_null($lang)) {
+            $lang = current_lang();
+        }
+
+        $api = current_user()->get_api_path();
+        $uri = sprintf(
+            '/%s/third/screenings/stats?_id=%s&lang=%s&types=%s',
+            $api,
+            $this->_id(),
+            $lang,
+            implode(',', $tickettypes)
+        );
+
+        $http_status;
+        $res = Ticketack_API::http_get($uri, $http_status);
+
+        if ($http_status != No2_HTTP::OK) {
+            return null;
+        }
+
+        $screenings = json_decode((string) $res);
+
+        if (count($screenings) == 1) {
+            return current($screenings)->stats;
+        }
+
+        return null;
+    }
+
+    /**
+     * Create bookings for this screening
+     *
+     * @param boolean $overbooking
+     * @return array
+     */
+    public function book(array $bookings_params, $overbooking = false)
+    {
+        $request = new BookingRequest($this);
+
+        if ($this->is_bookable_on_map()) {
+            $asked_seats = array_map(fn($params) => array_key_exists('seat', $params) ? $params['seat'] : null, $bookings_params);
+            $free_seats = array_filter($this->find_free_seats(), fn($seat) => !in_array($seat['label'], $asked_seats));
+        }
+
+        foreach ($bookings_params as $params) {
+            $booking = new Booking();
+
+            if (!array_key_exists('type', $params)) {
+                $params['type'] = Tickettype::ONE_TIME_PASS_ID;
+            }
+            $booking->pledge_tickettype($params['type']);
+
+            if (array_key_exists('seat', $params)) {
+                $booking->seat_is($params['seat']);
+            } elseif ($this->is_bookable_on_map() && !empty($free_seats)) {
+                $booking->seat_is(array_shift($free_seats)['label']);
+            }
+
+            $request[] = $booking;
+        }
+
+        try {
+            $bookings = ($overbooking ? $request->overbook() : $request->book());
+        } catch (Exception $e) {
+            No2_Logger::warn('Booking request: '.json_encode($request));
+            No2_Logger::warn(strval($e));
+            $bookings = null;
+        }
+
+        return $bookings;
+    }
+
+    /**
+     * Get screenings stats
+     *
+     * @param string $lang
+     *
+     * @return array
+     */
+    public static function screenings_stats(Datetime $start_date, Datetime $end_date, $lang = null)
+    {
+        if (is_null($lang)) {
+            $lang = current_lang();
+        }
+
+        $api = current_user()->get_api_path();
+        $uri = sprintf(
+            '/%s/third/screenings/stats?start_at=%s&stop_at=%s&lang=%s',
+            $api,
+            $start_date->format('Y-m-d'),
+            $end_date->format('Y-m-d'),
+            $lang
+        );
+
+        $http_status;
+        $res = Ticketack_API::http_get($uri, $http_status);
+
+        if ($http_status != No2_HTTP::OK) {
+            return null;
+        }
+
+        return json_decode((string) $res);
+    }
+
+    public function cart_item_name()
+    {
+        return sprintf(
+            '%s / %s - %s',
+            $this->start_at()->format(tkt_t('d.m.Y H:i')),
+            $this->place()->name(),
+            $this->localized_title_or_original(current_lang())
+        );
+    }
+}

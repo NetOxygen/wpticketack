@@ -87,6 +87,7 @@ class ProgramShortcode extends TKTShortcode
         try {
             $query = Screening::all()
                 ->filter_pricings_for_sellers(['eshop'])
+                ->available_at()
                 ->order_by_start_at();
 
             if (!$allow_past) {

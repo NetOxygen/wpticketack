@@ -52,6 +52,7 @@ class NextScreeningShortcode extends TKTShortcode
             $screenings = Screening::all()
                 ->in_the_future()
                 ->filter_pricings_for_sellers(['eshop'])
+                ->available_at()
                 ->order_by_start_at()
                 ->get('_id,title,start_at,stop_at,cinema_hall.name,cinema_hall._id,films,opaque');
             if (!empty($places)) {
