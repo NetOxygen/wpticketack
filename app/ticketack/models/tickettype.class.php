@@ -115,9 +115,9 @@ class Tickettype extends TKTModel implements \JsonSerializable
      *
      * @param DateTime|null $at  Reference datetime. Defaults to now.
      */
-    public static function scope_available_at($req, ?DateTime $at = null)
+    public static function scope_available_at($req, ?\DateTime $at = null)
     {
-        $at ??= new DateTime();
+        $at ??= new \DateTime();
         return $req->add_post_process(function ($status, $tickettypes) use ($at) {
             if (No2_HTTP::is_success($status)) {
                 $tickettypes = array_map(function ($tickettype) use ($at) {

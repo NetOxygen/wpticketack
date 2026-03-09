@@ -11,7 +11,7 @@ use Ticketack\Core\Base\Currency\CHF;
  *  Instances are *immutable*.
  */
 
-class Pricing implements JsonSerializable
+class Pricing implements \JsonSerializable
 {
     protected $key         = null;
     protected $name        = null;
@@ -197,9 +197,9 @@ class Pricing implements JsonSerializable
      * @param DateTime $at  The reference datetime.
      * @return bool
      */
-    public function is_available_at(?DateTime $at = null): bool
+    public function is_available_at(?\DateTime $at = null): bool
     {
-        $at ??= new DateTime();
+        $at ??= new \DateTime();
 
         if (!$this->has_rules()) {
             return true;

@@ -204,7 +204,7 @@ class Screening extends TKTModel implements \JsonSerializable
      */
     public static function scope_available_at($req, ?DateTime $at = null)
     {
-        $at ??= new DateTime();
+        $at ??= new \DateTime();
         return $req->add_post_process(function ($status, $screenings) use ($at) {
             if (No2_HTTP::is_success($status)) {
                 $screenings = array_map(function ($screening) use ($at) {
