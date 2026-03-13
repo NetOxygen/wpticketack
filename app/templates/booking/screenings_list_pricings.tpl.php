@@ -17,13 +17,28 @@ use Ticketack\WP\TKTApp;
 $currency = TKTApp::get_instance()->get_config('currency', 'CHF');
 ?>
 <% if (screening && _.keys(screening.pricings).length) { %>
+<%
+    const sorted_pricings = _.chain(screening.pricings || {})
+        .map(function (pricing, key) {
+            const opaque = pricing && pricing.opaque ? pricing.opaque : {};
+            const weight = parseFloat(opaque.eshop_sort_weight);
+            return {
+                key,
+                pricing,
+                weight: isFinite(weight) ? weight : Number.POSITIVE_INFINITY
+            };
+        })
+        .sortBy(function (item) { return item.key; })
+        .sortBy(function (item) { return item.weight; })
+        .value();
+%>
 <div class="pricings-form">
     <div class="error pricings-error d-none"></div>
     <button class="button book-btn active d-none my-3">
         <?php echo esc_html(tkt_t("Réserver une place sur mon abonnement")) ?>
     </button>
     <table width="100%">
-    <% _.mapKeys(screening.pricings, function(p, key) { %>
+    <% _.each(sorted_pricings, function(item) { const p = item.pricing; const key = item.key; %>
     <tr class="pricing-row">
         <td>
             <span class="pricing-name"><%= p.name.<?php echo esc_html(TKT_LANG) ?> %></span>

@@ -34,6 +34,21 @@ $currency = TKTApp::get_instance()->get_config('currency', 'CHF');
 <% const eligible_types = (bookability?.eligible_types || screening?.eligible_types || []).filter(t => t._id != 'one-time-pass'); %>
 <% const sellable_types = eligible_types.filter(t => !!t.sellable); %>
 <%
+    const sorted_pricings = _.chain((screening && screening.pricings) ? screening.pricings : {})
+        .map(function (pricing, key) {
+            const opaque = pricing && pricing.opaque ? pricing.opaque : {};
+            const weight = parseFloat(opaque.eshop_sort_weight);
+            return {
+                key,
+                pricing,
+                weight: isFinite(weight) ? weight : Number.POSITIVE_INFINITY
+            };
+        })
+        .sortBy(function (item) { return item.key; })
+        .sortBy(function (item) { return item.weight; })
+        .value();
+%>
+<%
     const ticket_cannot_book_explanation = function (_id) {
         bookability.tickets = bookability.tickets || {};
         return bookability.tickets[_id]?.cannot_book_explanation;
@@ -59,7 +74,7 @@ $currency = TKTApp::get_instance()->get_config('currency', 'CHF');
                             </span>
                         </div>
                     </div>
-                    <% _.mapKeys(screening.pricings, function(p, key) { %>
+                    <% _.each(sorted_pricings, function(item) { const p = item.pricing; const key = item.key; %>
                     <div class="row pricing-row" data-pricing-wrapper="<%= key %>">
                         <div class="col">
                             <span class="tkt-badge tkt-badge-split flex-rev-on-mobile tkt-badge-plus-minus">
