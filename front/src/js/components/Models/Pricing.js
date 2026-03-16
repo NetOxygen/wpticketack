@@ -25,24 +25,37 @@ export default class Pricing extends BaseModel {
     }
 
     rulesMatch(roles, tickettypes) {
+        const now = moment();
+        const currentRoles = Array.isArray(roles) ? roles : (roles ? [roles] : []);
+        const currentTickettypes = Array.isArray(tickettypes) ? tickettypes : (tickettypes ? [tickettypes] : []);
+
         if (('only_for_roles' in this.rules) && this.rules.only_for_roles.length > 0) {
-            if (!roles.filter(r => this.only_for_roles.includes(r)).length === 0)
+            const allowedForRole = currentRoles.some((r) => this.rules.only_for_roles.includes(r));
+            if (!allowedForRole)
                 return false;
         }
 
         if (('only_for_tickettypes' in this.rules) && this.rules.only_for_tickettypes.length > 0) {
-            if (!tickettypes)
-                return false;
-            if (!this.rules.only_for_tickettypes.filter(t => tickettypes.includes(t)))
+            const allowedForTickettype = currentTickettypes.some((t) => this.rules.only_for_tickettypes.includes(t));
+            if (!allowedForTickettype)
                 return false;
         }
 
         if (('exclude_tickettypes' in this.rules) && this.rules.exclude_tickettypes.length > 0) {
-            if (this.rules.exclude_tickettypes.filter(t => tickettypes.includes(t)))
+            const hasExcludedTickettype = currentTickettypes.some((t) => this.rules.exclude_tickettypes.includes(t));
+            if (hasExcludedTickettype)
                 return false;
         }
 
-        // TODO: implement not_before and not_after rules
+        if ('not_before' in this.rules && moment.isMoment(this.rules.not_before) && this.rules.not_before.isValid()) {
+            if (now.isBefore(this.rules.not_before))
+                return false;
+        }
+
+        if ('not_after' in this.rules && moment.isMoment(this.rules.not_after) && this.rules.not_after.isValid()) {
+            if (now.isAfter(this.rules.not_after))
+                return false;
+        }
 
         return true;
     }
