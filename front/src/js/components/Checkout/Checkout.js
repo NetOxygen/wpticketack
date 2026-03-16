@@ -57,11 +57,10 @@ export default class Checkout extends Component {
     }
 
     render() {
+        const showResultError = this.result === 'error';
+
         if (this.result === 'ok')
             return this.$container.html(Template.render('tkt-checkout-result-ok-tpl', {}));
-
-        if (this.result === 'error')
-            return this.$container.html(Template.render('tkt-checkout-result-error-tpl', {}));
 
         if (!this.cart)
             return setTimeout(() => { this.render() }, 1000);
@@ -107,6 +106,14 @@ export default class Checkout extends Component {
         this.$infoMsg       = $('.info-msg', this.$container);
         this.$successMsg    = $('.success-msg', this.$container);
         this.$errorMsg      = $('.error-msg', this.$container);
+
+        if (showResultError) {
+            // Reuse server-rendered translated content from the legacy error template.
+            const tplHtml = Template.render('tkt-checkout-result-error-tpl', {});
+            const $tpl = $(tplHtml);
+            const msg = $tpl.find('.checkout-result-error').html() || tplHtml;
+            this.show_error(msg);
+        }
 
         this.fillCheckoutForm();
 
