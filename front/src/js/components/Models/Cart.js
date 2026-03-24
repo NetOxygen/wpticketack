@@ -141,9 +141,10 @@ export default class Cart extends BaseModel {
      */
     getOrderTotal() {
         const items = _.map(_.filter(this.items, (i) =>
-            i.article?.type === CartItem.PRODUCT_TYPE 
-            || i.type === CartItem.SCREENING_TYPE 
-            || i.type === CartItem.PASS_TYPE),
+            i.type === CartItem.SCREENING_TYPE
+            || i.type === CartItem.PASS_TYPE
+            || (i.type === CartItem.ARTICLE_TYPE
+                && (!i.article || i.article.type === CartItem.PRODUCT_TYPE))),
             (i) => i
         );
 
@@ -240,7 +241,10 @@ export default class Cart extends BaseModel {
      * @return {Array}
      */
     getArticles() {
-        return _.map(_.filter(this.items, (i) => i.article?.type === CartItem.PRODUCT_TYPE),(i) => i);
+        return _.map(_.filter(this.items, (i) =>
+            i.type === CartItem.ARTICLE_TYPE
+            && (!i.article || i.article.type === CartItem.PRODUCT_TYPE)
+        ), (i) => i);
     }
 
     /**
