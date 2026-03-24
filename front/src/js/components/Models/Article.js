@@ -105,8 +105,9 @@ export default class Article extends BaseModel {
             if (err)
                 return callback(err);
 
-            _.flatten(results).map(result => {
-                result.articles.map(a => {
+            _.flatten(results).forEach(result => {
+                const rows = (result && result.articles) || [];
+                rows.forEach(a => {
                     const article = new Article(a);
 
                     // put in cache

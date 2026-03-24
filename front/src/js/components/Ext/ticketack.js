@@ -805,15 +805,19 @@ Ticketack.prototype.parametrize_url = function(url, params, json = false) {
  * Make an HTTP request
  *
  * @param {Function} callback
+ * @param {Boolean} [_authRetry] internal: set after one 401/403 recovery attempt
  */
-Ticketack.prototype.request = function(method, url, data, headers, callback) {
+Ticketack.prototype.request = function(method, url, originalData, headers, callback, _authRetry) {
     headers = headers || {};
     headers['X-API-Key'] = this.apiKey;
     if (this.userApiKey != null)
         headers['X-API-Key'] = this.userApiKey;
 
+    const had_user_api_key = !_authRetry && this.userApiKey != null && this.userApiKey.length > 0;
+
+    var data = originalData;
     if (headers['Content-type'] && headers['Content-type'] == 'application/json')
-        data = JSON.stringify(data);
+        data = JSON.stringify(originalData);
 
     return $.ajax(url, {
         type: method,
@@ -835,12 +839,29 @@ Ticketack.prototype.request = function(method, url, data, headers, callback) {
 
         return callback(null, jqXHR.status, jqXHR.responseJSON);
     }).fail((jqXHR) => {
-        var rsp = jqXHR.responseText.length ? JSON.parse(jqXHR.responseText) : null;
+        var rsp = null;
+        if (jqXHR.responseText && jqXHR.responseText.length) {
+            try {
+                rsp = JSON.parse(jqXHR.responseText);
+            } catch (e) {
+                rsp = null;
+            }
+        }
         // when making calls using an api key which has been removed from the engine
         // after a logout, the eshop returns a 303: let's unset the user api key
         // in this case.
         if (jqXHR.status === 303 && this.userApiKey?.length > 0)
             this.unset_user_api_key();
+
+        // Expired or revoked user API key: eshop returns 401/403. Unset and retry once
+        // with the integration key. Skip ticket/view_json: 401 means "no pass session",
+        // not invalid user key (see eshop POST_view_json).
+        var status = jqXHR.status;
+        var is_ticket_view_json = url.indexOf('ticket/view_json') !== -1;
+        if ((status === 401 || status === 403) && had_user_api_key && !is_ticket_view_json) {
+            this.unset_user_api_key();
+            return this.request(method, url, originalData, headers, callback, true);
+        }
 
         return callback(new Error(), jqXHR.status, rsp);
     });
