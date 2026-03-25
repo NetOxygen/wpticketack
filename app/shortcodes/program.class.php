@@ -133,7 +133,8 @@ class ProgramShortcode extends TKTShortcode
                 'films.title',
                 'films.sections',
                 'films.opaque',
-                'opaque'
+                'opaque',
+                'pricings'
             ];
 
             $screenings = $query->get(implode(',', $fields));
