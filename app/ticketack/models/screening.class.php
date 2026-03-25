@@ -214,10 +214,6 @@ class Screening extends TKTModel implements \JsonSerializable
                     );
                     return $screening;
                 }, $screenings);
-                $screenings = array_values(array_filter(
-                    $screenings,
-                    fn($screening) => count($screening->pricings) > 0
-                ));
             }
             return $screenings;
         });
