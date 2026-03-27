@@ -30,6 +30,10 @@ try {
     );
 }
 
+if (!$article) {
+    return "Impossible de charger l'article.";
+}
+
 
 $salepoint_id  = TKTApp::get_instance()->get_config('ticketack.salepoint_id');
 $images_width  = TKTApp::get_instance()->get_config('images_dimensions.medium_width');
