@@ -222,6 +222,20 @@ class Pricing implements \JsonSerializable
         return true;
     }
 
+    public function can_be_sold_at($salepoint_id = null)
+    {
+        if (!$this->has_rules() || !array_key_exists('only_for_salepoints', $this->rules)) {
+            return true;
+        }
+
+        $allowed_salepoints = (array)$this->rules['only_for_salepoints'];
+        if (empty($allowed_salepoints) || is_null($salepoint_id)) {
+            return true;
+        }
+
+        return in_array($salepoint_id, $allowed_salepoints);
+    }
+
     public function can_be_sold_by($roles)
     {
         return (count(array_intersect($this->sellers, $roles)) > 0);

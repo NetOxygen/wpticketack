@@ -72,11 +72,11 @@ class Tickettype extends TKTModel implements \JsonSerializable
      * scope filtering tickettypes that cannot be sold by a user having given
      * $roles.
      */
-    public static function scope_for_sellers($req, $roles)
+    public static function scope_for_sellers($req, $roles, $salepoint_id = null)
     {
-        return $req->add_post_process(function ($status, $tickettypes) use ($roles) {
+        return $req->add_post_process(function ($status, $tickettypes) use ($roles, $salepoint_id) {
             if (No2_HTTP::is_success($status)) {
-                $tickettypes = array_filter($tickettypes, fn($tickettype) => count($tickettype->pricings_for_sellers($roles)) > 0);
+                $tickettypes = array_filter($tickettypes, fn($tickettype) => count($tickettype->pricings_for_sellers($roles, $salepoint_id)) > 0);
             }
             return $tickettypes;
         });
@@ -86,12 +86,12 @@ class Tickettype extends TKTModel implements \JsonSerializable
      * scope filtering pricings that cannot be sold by a user having given
      * $roles.
      */
-    public static function scope_filter_pricings_for_sellers($req, $roles)
+    public static function scope_filter_pricings_for_sellers($req, $roles, $salepoint_id = null)
     {
-        return $req->add_post_process(function ($status, $tickettypes) use ($roles) {
+        return $req->add_post_process(function ($status, $tickettypes) use ($roles, $salepoint_id) {
             if (No2_HTTP::is_success($status)) {
-                $tickettypes = array_map(function ($tickettype) use ($roles) {
-                    $tickettype->pricings = $tickettype->pricings_for_sellers($roles);
+                $tickettypes = array_map(function ($tickettype) use ($roles, $salepoint_id) {
+                    $tickettype->pricings = $tickettype->pricings_for_sellers($roles, $salepoint_id);
                     return $tickettype;
                 }, $tickettypes);
             }
@@ -102,10 +102,10 @@ class Tickettype extends TKTModel implements \JsonSerializable
     /**
      * Scope filtering pricings that can be sold given an array of user roles.
      */
-    public static function scope_sellable_by($req, $roles)
+    public static function scope_sellable_by($req, $roles, $salepoint_id = null)
     {
-        return $req->filter_pricings_for_sellers($roles)
-                   ->for_sellers($roles);
+        return $req->filter_pricings_for_sellers($roles, $salepoint_id)
+                   ->for_sellers($roles, $salepoint_id);
     }
 
     /**
@@ -182,9 +182,12 @@ class Tickettype extends TKTModel implements \JsonSerializable
         });
     }
 
-    public function pricings_for_sellers($roles)
+    public function pricings_for_sellers($roles, $salepoint_id = null)
     {
-        return array_filter($this->pricings, fn($pricing) => $pricing->can_be_sold_by($roles));
+        return array_filter(
+            $this->pricings,
+            fn($pricing) => $pricing->can_be_sold_by($roles) && $pricing->can_be_sold_at($salepoint_id)
+        );
     }
 
     public function earliest_window()

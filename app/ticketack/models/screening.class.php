@@ -167,11 +167,11 @@ class Screening extends TKTModel implements \JsonSerializable
      * scope filtering screenings that cannot be sold by a user having given
      * $roles.
      */
-    public static function scope_for_sellers($req, $roles)
+    public static function scope_for_sellers($req, $roles, $salepoint_id = null)
     {
-        return $req->add_post_process(function ($status, $screenings) use ($roles) {
+        return $req->add_post_process(function ($status, $screenings) use ($roles, $salepoint_id) {
             if (No2_HTTP::is_success($status)) {
-                $screenings = array_filter($screenings, fn($screening) => count($screening->pricings_for_sellers($roles)) > 0);
+                $screenings = array_filter($screenings, fn($screening) => count($screening->pricings_for_sellers($roles, $salepoint_id)) > 0);
             }
             return $screenings;
         });
@@ -182,12 +182,12 @@ class Screening extends TKTModel implements \JsonSerializable
      * scope filtering pricings that cannot be sold by a user having given
      * $roles.
      */
-    public static function scope_filter_pricings_for_sellers($req, $roles)
+    public static function scope_filter_pricings_for_sellers($req, $roles, $salepoint_id = null)
     {
-        return $req->add_post_process(function ($status, $screenings) use ($roles) {
+        return $req->add_post_process(function ($status, $screenings) use ($roles, $salepoint_id) {
             if (No2_HTTP::is_success($status)) {
-                $screenings = array_map(function ($screening) use ($roles) {
-                    $screening->pricings = $screening->pricings_for_sellers($roles);
+                $screenings = array_map(function ($screening) use ($roles, $salepoint_id) {
+                    $screening->pricings = $screening->pricings_for_sellers($roles, $salepoint_id);
                     return $screening;
                 }, $screenings);
             }
@@ -222,15 +222,18 @@ class Screening extends TKTModel implements \JsonSerializable
     /**
      * Scope filtering pricings that can be sold given an array of user roles.
      */
-    public static function scope_sellable_by($req, $roles)
+    public static function scope_sellable_by($req, $roles, $salepoint_id = null)
     {
-        return $req->filter_pricings_for_sellers($roles)
-                   ->for_sellers($roles);
+        return $req->filter_pricings_for_sellers($roles, $salepoint_id)
+                   ->for_sellers($roles, $salepoint_id);
     }
 
-    public function pricings_for_sellers($roles)
+    public function pricings_for_sellers($roles, $salepoint_id = null)
     {
-        $filtered =  array_filter($this->pricings, fn($pricing) => $pricing->can_be_sold_by($roles));
+        $filtered = array_filter(
+            $this->pricings,
+            fn($pricing) => $pricing->can_be_sold_by($roles) && $pricing->can_be_sold_at($salepoint_id)
+        );
 
         usort($filtered, fn($a, $b) => Tickettype::opaque_eshop_sort_weight_cmp($a, $b));
 
