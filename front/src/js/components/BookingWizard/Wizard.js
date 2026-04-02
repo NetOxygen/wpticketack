@@ -1,6 +1,6 @@
 import { Component, i18n, Template } from '../Core';
-import { Api as TKTApi } from '../Ticketack';
-import { Screening } from '../Models';
+import { TKTLib, Api as TKTApi } from '../Ticketack';
+import { Cart, Screening } from '../Models';
 import _ from 'lodash';
 import postal from 'postal';
 import moment from 'moment';
@@ -273,11 +273,10 @@ export default class BookingWizard extends Component {
                         break;
                     default:
                         // Reload and emit cart update
-                        TKTApi.loadCart((err, status, rsp) => {
-                            if (err)
-                                return;
-
-                            this.emit_cart_update(new Cart(rsp));
+                        TKTLib.CartService.get().then(cart => {
+                            this.emit_cart_update(new Cart(cart));
+                        }).catch(() => {
+                            return;
                         });
                 }
             });

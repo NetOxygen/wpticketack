@@ -191,11 +191,10 @@ export default class BookingForm extends Component {
                     $('.success-panel', this.$container).removeClass('d-none');
 
                     // Reload and emit cart update
-                    TKTApi.loadCart((err, status, rsp) => {
-                        if (err)
-                            return;
-
-                        this.emit_cart_update(new Cart(rsp));
+                    TKTLib.CartService.get().then(cart => {
+                        this.emit_cart_update(new Cart(cart));
+                    }).catch(() => {
+                        return;
                     });
             }
         }).catch(err => {

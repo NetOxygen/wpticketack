@@ -1,9 +1,8 @@
 import { Component, i18n } from '../Core';
 import { Tickettype, Cart } from '../Models';
-import { Api as TKTApi } from '../Ticketack';
+import { TKTLib, Api as TKTApi } from '../Ticketack';
 import _ from 'lodash';
 import postal from 'postal';
-import async from 'async';
 
 /**
  * Show a pass buy form without any informations fields
@@ -163,16 +162,12 @@ export default class BuyWithQuantity extends Component {
     }
 
     async add_to_cart() {
-        this.data.added_to_cart  = 0;
-        this.data.to_add_to_cart = 0;
-
         this.hide_success();
         this.hide_error();
 
         const { tickettype, pricings } = this.data || {};
         if (!(tickettype && Object.keys(pricings || {})?.length > 0))
             return this.show_error(i18n.t('Veuillez choisir un tarif'));
-
 
         const flattenPricings = [];
         Object.keys(this.data?.pricings).forEach(pricing_key => {
@@ -181,28 +176,21 @@ export default class BuyWithQuantity extends Component {
             }
         });
 
-        const tasks = flattenPricings.map(pricing_key => done => {
-            TKTApi.addPassToCart(tickettype._id, pricing_key, /*userdata*/{}, (err, status, rsp) => {
-                this.data.added_to_cart += err ? 0 : 1;
-                return done(err, rsp);
-            });
-        });
-        this.data.to_add_to_cart = tasks.length;
+        // FIXME: CartService.addPassToCart has no quantity parameter; we call it once per unit.
+        // Consider extending @ticketack/lib (or the eshop API) to support batch pass adds so we do not need N round-trips.
+        try {
+            for (const pricing_id of flattenPricings) {
+                await TKTLib.CartService.addPassToCart(
+                    /*params*/{},
+                    { pass_id: tickettype._id, pricing_id, user: {} }
+                );
+            }
 
-        async.series(tasks, (err, results) => {
             $('.tkt-minus-btn', this.$container).removeClass('tkt-inactive-badge').addClass('tkt-dark-badge');
             $('.pricing-qty', this.$container).text(0);
             $('.input.pricing-input', this.$container).val(0);
             this.sync_submit_buttons();
-
             this.data.pricings = {};
-            if (err || (this.data.added_to_cart < this.data.to_add_to_cart)) {
-                let err_msg = i18n.t('Une erreur est survenue. Veuillez ré-essayer ultérieurement.');
-                if (rsp?.flash?.error?.length && rsp.flash.error[0].length)
-                    err_msg = rsp.flash.error[0];
-
-                return this.show_error(err_msg);
-            }
 
             switch (this.redirect) {
                 case 'cart':
@@ -213,14 +201,16 @@ export default class BuyWithQuantity extends Component {
                     break;
                 default:
                     this.show_success(i18n.t('Votre panier a été mis à jour'));
-                    TKTApi.loadCart((err, status, rsp) => {
-                        if (err)
-                            return;
-
-                        this.emit_cart_update(new Cart(rsp));
+                    TKTLib.CartService.get().then(cart => {
+                        this.emit_cart_update(new Cart(cart));
+                    }).catch(() => {
+                        return;
                     });
             }
-        });
+        } catch (err) {
+            let err_msg = i18n.t('Une erreur est survenue. Veuillez ré-essayer ultérieurement.');
+            return this.show_error(err_msg);
+        }
     }
 
     emit_cart_update(cart) {

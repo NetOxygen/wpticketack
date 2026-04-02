@@ -1,5 +1,5 @@
 import { Component, Config, i18n, Template } from '../Core';
-import { Api as TKTApi } from '../Ticketack';
+import { TKTLib, Api as TKTApi } from '../Ticketack';
 import { Cart, Screening, Ticket } from '../Models';
 import _ from 'lodash';
 import postal from 'postal';
@@ -122,11 +122,10 @@ export default class ScreeningsList extends Component {
             $('.success-panel').removeClass('d-none');
 
             // Reload and emit cart update
-            TKTApi.loadCart((err, status, rsp) => {
-                if (err)
-                    return;
-
-                this.emit_cart_update(new Cart(rsp));
+            TKTLib.CartService.get().then(cart => {
+                this.emit_cart_update(new Cart(cart));
+            }).catch(() => {
+                return;
             });
         });
     }
