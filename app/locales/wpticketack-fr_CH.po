@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpticketack 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-25 11:07+0100\n"
+"POT-Creation-Date: 2026-04-09 16:22+0200\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Jonathan Ernst <jonathan.ernst@netoxygen.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -259,7 +259,8 @@ msgstr ""
 msgid "Veuillez choisir l'heure désirée :"
 msgstr ""
 
-msgid "à"
+#, php-format
+msgid "%s à %s"
 msgstr ""
 
 msgid "Il n'y a pas de billetterie disponible pour cet événement."
@@ -781,6 +782,23 @@ msgid "Aucune séance à venir."
 msgstr ""
 
 msgid "Impossible de communiquer avec la billetterie…"
+msgstr ""
+
+msgid "Impossible de rembourser autant de tickets"
+msgstr ""
+
+msgid "Impossible de rembourser un ticket"
+msgstr ""
+
+#, php-format
+msgid "%d tickets au tarif \"%s\" ont été remboursés"
+msgstr ""
+
+#, php-format
+msgid "%d ticket au tarif \"%s\" a été remboursé"
+msgstr ""
+
+msgid "d.m.Y H:i"
 msgstr ""
 
 msgid "non défini"

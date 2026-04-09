@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: eshop 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-25 11:07+0100\n"
+"POT-Creation-Date: 2026-04-09 16:22+0200\n"
 "PO-Revision-Date: 2020-01-16 16:46+0000\n"
 "Last-Translator: Jonathan Ernst <jonathan.ernst@netoxygen.ch>\n"
 "Language-Team: German (Swiss High) <http://translate.neto2.net/projects/"
@@ -269,8 +269,9 @@ msgstr "Bitte wählen Sie das gewünschte Datum:"
 msgid "Veuillez choisir l'heure désirée :"
 msgstr "Bitte wählen Sie die gewünschte Uhrzeit:"
 
-msgid "à"
-msgstr "bis"
+#, php-format
+msgid "%s à %s"
+msgstr "%s um %s"
 
 msgid "Il n'y a pas de billetterie disponible pour cet événement."
 msgstr "Für diese Veranstaltung sind keine Eintrittskarten erhältlich."
@@ -810,6 +811,23 @@ msgstr "Keine bevorstehenden Vorstellungen."
 
 msgid "Impossible de communiquer avec la billetterie…"
 msgstr "Kommunikation mit Ticketack nicht möglich…"
+
+msgid "Impossible de rembourser autant de tickets"
+msgstr ""
+
+msgid "Impossible de rembourser un ticket"
+msgstr ""
+
+#, fuzzy, php-format
+msgid "%d tickets au tarif \"%s\" ont été remboursés"
+msgstr "%d Artikel wurden importiert"
+
+#, fuzzy, php-format
+msgid "%d ticket au tarif \"%s\" a été remboursé"
+msgstr "%d Artikel wurde importiert"
+
+msgid "d.m.Y H:i"
+msgstr ""
 
 msgid "non défini"
 msgstr "undefiniert"
@@ -2731,3 +2749,6 @@ msgstr "Ändern Sie die Werte unten nur, wenn Sie wissen, was Sie tun."
 
 msgid "Brouillon"
 msgstr "Draft"
+
+#~ msgid "à"
+#~ msgstr "bis"

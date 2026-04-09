@@ -101,8 +101,7 @@ use Ticketack\WP\TKTApp;
 </div>
 <% } else if (screenings.length == 1) { %>
 <span data-screening_id="<%= screenings[0]._id %>" class="date single-date">
-    <%= screenings[0].start_at.format("dddd D MMMM") %> <?php echo esc_html(tkt_t('à')) ?> <%= screenings[0].start_at.format("LT") + ' - ' + screenings[0].cinema_hall.name %>
-
+    <?php echo sprintf(tkt_t('%s à %s'), '<%= screenings[0].start_at.format("dddd D MMMM") %>', '<%= screenings[0].start_at.format("LT") + ' - ' + screenings[0].cinema_hall.name %>') ?>
 </span>
 <% } else { %>
 <span><?php echo esc_html(tkt_t("Il n'y a pas de billetterie disponible pour cet événement.")) ?></span>
