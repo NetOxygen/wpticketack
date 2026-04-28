@@ -32,9 +32,15 @@ if (!function_exists('tkt_audio')) {
         }
 
         $audio = $movie->opaque('languages')['audio'];
+        if (is_array($audio) && !empty($audio) && is_array(current($audio))) {
+            $audio = array_map(function ($s) { return strlen($s['iso2']) > 2 ? $s[TKT_LANG] : $s['iso2']; }, $audio);
+        }
         $audio = is_array($audio) ? strtoupper(implode(',', $audio)) : null;
 
         $subtitles = $movie->opaque('languages')['subtitles'];
+        if (is_array($subtitles) && !empty($subtitles) && is_array(current($subtitles))) {
+            $subtitles = array_map(function ($s) { return $s['iso2']; }, $subtitles);
+        }
         $subtitles = is_array($subtitles) ? implode(',', $subtitles) : null;
 
         return implode('/', array_filter([$audio, $subtitles]));
