@@ -81,8 +81,18 @@ export default class YoutubeVideo extends Component {
                 channel: "carousel-" + this.carousel_id,
                 topic: "slide",
                 callback: (data, envelope) => {
-                    if (data.e.movement !== 0)
-                        this.player && this.player.stopVideo();
+                    // Only stop if this video's slide is no longer active.
+                    // This prevents killing playback on unrelated carousel events.
+                    const $slide = this.$container.closest('.glide__slide');
+                    // Use Glide runtime class only. Some templates keep a static
+                    // "active" class on first slide, which is not reliable.
+                    const is_active = $slide.hasClass('glide__slide--active');
+
+                    if (!is_active) {
+                        if (this.player && typeof this.player.stopVideo === 'function') {
+                            this.player.stopVideo();
+                        }
+                    }
                 }
             });
         }
@@ -156,7 +166,21 @@ export default class YoutubeVideo extends Component {
                 .appendTo(this.$container);
 
             this.$play_btn.click((e) => {
-                this.player.playVideo();
+                // Ensure carousel autoplay is paused immediately when clicking play.
+                if (this.carousel_id) {
+                    postal.publish({
+                        channel: "carousel-" + this.carousel_id,
+                        topic: "action",
+                        data: { action: 'pause' }
+                    });
+                }
+                if (this.player && typeof this.player.playVideo === 'function') {
+                    this.player.playVideo();
+                } else {
+                    // Player API is not ready yet: ignore this click.
+                    // User can click again once the iframe API is initialized.
+                    return;
+                }
                 this.$video_image.addClass('hidden');
                 this.$play_btn.addClass('hidden');
                 $frame.show();

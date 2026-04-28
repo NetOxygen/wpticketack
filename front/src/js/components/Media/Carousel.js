@@ -57,10 +57,16 @@ export default class Carousel extends Component {
             callback: (data, envelope) => {
                 switch (data.action) {
                     case 'pause':
+                        // Stop current autoplay cycle immediately to avoid
+                        // one last pending slide transition while a video starts.
+                        this.glide.pause();
                         this.glide.update({autoplay: false});
                         break;
                     case 'cycle':
                         this.glide.update({autoplay: this.interval > 0 ? this.interval : false});
+                        if (this.interval > 0) {
+                            this.glide.play();
+                        }
                         break;
                 }
             }
