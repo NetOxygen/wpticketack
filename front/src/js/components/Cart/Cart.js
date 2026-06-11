@@ -99,11 +99,11 @@ export default class Cart extends Component {
     loadItemsInfos(callback) {
         callback = callback || ((err, cart) => {});
 
-        this.cart.loadItemsInfos(err => {
+        this.cart.loadItemsInfos(async (err) => {
             if (err)
                 return callback(err);
 
-            this.build_table();
+            await this.build_table();
             this.emit_update();
 
             this.bind_remove_item_icons((err, cart) => {
@@ -191,7 +191,10 @@ export default class Cart extends Component {
     }
 
     bind_remove_item_icons(callback) {
-        $('.tkt-remove-cart-item').on('click', (e) => {
+        callback = callback || (() => {});
+
+        this.$container.off('click.tktCart', '.tkt-remove-cart-item');
+        this.$container.on('click.tktCart', '.tkt-remove-cart-item', (e) => {
             let $x = $(e.target);
 
             if (!$x.hasClass('tkt-remove-cart-item'))
@@ -206,7 +209,8 @@ export default class Cart extends Component {
             });
         });
 
-        $('.tkt-reset-cart-btn').on('click', (e) => {
+        this.$container.off('click.tktCart', '.tkt-reset-cart-btn');
+        this.$container.on('click.tktCart', '.tkt-reset-cart-btn', (e) => {
             e.preventDefault();
             this.reset_cart((err) => {
                 if (err)
