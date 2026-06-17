@@ -8,7 +8,7 @@ use Ticketack\WP\TKTApp;
  * Cart table template
  * This template will be parsed by underscore.js
  *
- * @templateVersion 2.86.0
+ * @templateVersion 2.102.0
  *
  * PHP Input: {
  *   "theme"             : 'dark|light',

@@ -8,7 +8,7 @@ use Ticketack\WP\Templates\TKTTemplate;
 /**
  * Program screening template
  *
- * @templateVersion 2.82.0
+ * @templateVersion 2.102.0
  *
  * Input:
  * $data: {

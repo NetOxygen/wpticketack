@@ -8,7 +8,7 @@ use Ticketack\WP\Templates\TKTTemplate;
 /**
  * Checkout form template
  *
- * @templateVersion 2.95.0
+ * @templateVersion 2.102.0
  *
  * Input:
  * $data: {
