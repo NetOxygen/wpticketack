@@ -67,6 +67,22 @@
     text-align: left;
   }
 
+  .use-wallet-connect-wrapper {
+    text-align: left;
+
+    .input-pass {
+      margin-top: 1rem;
+    }
+
+    .minus {
+      font-size: 1.2rem;
+    }
+  }
+
+  .wallet-ticket-select {
+    margin-bottom: 1rem;
+  }
+
   .finish-cart-wrapper {
     text-align: right;
     margin-top: 1.5rem;

@@ -457,6 +457,24 @@ msgstr "Geben Sie den Betrag ein, den Sie verwenden möchten"
 msgid "Utiliser mon portefeuille"
 msgstr "Meinen elektronischen Geldbeutel verwenden"
 
+msgid "Choisir un billet"
+msgstr "Ein Ticket wählen"
+
+msgid "Vous disposez d'un portefeuille ?"
+msgstr "Haben Sie ein Portefeuille?"
+
+msgid "Vous disposez d'un portefeuille électronique ?"
+msgstr "Haben Sie ein elektronisches Portefeuille?"
+
+msgid "Connectez-vous avec votre TicketID"
+msgstr "Melden Sie sich mit Ihrer TicketID an"
+
+msgid "Portefeuille appliqué avec succès"
+msgstr "Portefeuille erfolgreich angewendet"
+
+msgid "Impossible d'utiliser votre portefeuille"
+msgstr "Ihr Portefeuille kann nicht verwendet werden"
+
 msgid "Code promo"
 msgstr "Gutscheincode"
 
@@ -886,9 +904,6 @@ msgstr "Dieser Pormo-Code kann nicht verwendet werden."
 msgid "Le code promo a bien été pris en compte"
 msgstr "Der Gutscheincode wurde erfolgreich angewendet"
 
-msgid "sur votre porte monnaie électronique"
-msgstr "auf Ihrem elektronischen Geldbeutel"
-
 msgid "Montant trop élevé"
 msgstr "Zu hoher Betrag"
 
@@ -979,8 +994,8 @@ msgstr "Münzautomat"
 msgid "Carte bancaire"
 msgstr "Kreditkarte"
 
-msgid "Porte-monnaie"
-msgstr "Geldbeutel"
+msgid "Portefeuille"
+msgstr "Portefeuille"
 
 msgid "Activé"
 msgstr "Aktiviert"

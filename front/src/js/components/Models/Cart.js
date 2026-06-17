@@ -252,7 +252,11 @@ export default class Cart extends BaseModel {
      * @return {Array}
      */
     getDiscounts() {
-        return _.map(_.filter(this.items, (i) => i.article?.type === CartItem.MANUEL_DISCOUNT_TYPE || i.article?.type === CartItem.CODE_DISCOUNT_TYPE),(i) => i);
+        return _.map(_.filter(this.items, (i) =>
+            i.type === CartItem.WALLET_TYPE
+            || i.article?.type === CartItem.MANUEL_DISCOUNT_TYPE
+            || i.article?.type === CartItem.CODE_DISCOUNT_TYPE
+        ), (i) => i);
     }
 
     /**

@@ -43,7 +43,8 @@ use Ticketack\WP\Templates\TKTTemplate;
             'allow_later'           => $data->allow_later,
             'allow_proxypay'        => $data->allow_proxypay,
             'allow_proxypay_alt'    => $data->allow_proxypay_alt,
-            'allow_null_payment'    => $data->allow_null_payment
+            'allow_null_payment'    => $data->allow_null_payment,
+            'cart_hidden_links'     => $data->cart_hidden_links ?? 'finalize,continue'
         ]) ?>
     </div>
 </div>

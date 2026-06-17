@@ -23,6 +23,7 @@ use Ticketack\WP\Templates\TKTTemplate;
  *   "allow_proxypay_alt"    : bool,
  *   "allow_null_payment"    : bool,
  *   "proxypay_config_error" : "str"
+ *   "cart_hidden_links"     : "finalize,continue"
  * }
  */
 $theme                   = $data->theme;
@@ -70,7 +71,7 @@ foreach ($payment_method_names as $id => $translations) {
   </div>
   <?php else : ?>
 
-  <?php echo do_shortcode('[tkt_cart hide_links="finalize,continue" theme="'.$theme.'"][/tkt_cart]') ?>
+  <?php echo do_shortcode('[tkt_cart hide_links="'.esc_attr($data->cart_hidden_links ?? 'finalize,continue').'" theme="'.$theme.'"][/tkt_cart]') ?>
 
   <section class="tkt-section tkt-<?php echo esc_attr($theme) ?>-section tkt-checkout-section tkt-checkout-user-data-section"></section>
 

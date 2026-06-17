@@ -11,7 +11,7 @@ use Ticketack\WP\TKTApp;
  *
  * Usage:
  *
- * [tkt_checkout fields="firstname,lastname,email,address,zip,city,phone,cellphone"]
+ * [tkt_checkout fields="firstname,lastname,email,address,zip,city,phone,cellphone" hide_wallet="true"]
  */
 class CheckoutShortcode extends TKTShortcode
 {
@@ -39,6 +39,7 @@ class CheckoutShortcode extends TKTShortcode
     public function run($atts, $content)
     {
         $theme    = isset($atts['theme']) ? $atts['theme'] : 'light';
+        $cart_hidden_links = $this->build_cart_hidden_links($atts);
 
         try {
             $config                = TKTApp::get_instance()->get_config('eshop');
@@ -94,7 +95,8 @@ class CheckoutShortcode extends TKTShortcode
                     'allow_later'           => $pay_online['LATER_PAYMENT'],
                     'allow_proxypay'        => $pay_online['PROXYPAY'],
                     'allow_proxypay_alt'    => $pay_online['PROXYPAY_ALT'],
-                    'proxypay_config_error' => $proxypay_config_error
+                    'proxypay_config_error' => $proxypay_config_error,
+                    'cart_hidden_links'     => $cart_hidden_links
                 ]
             );
         } catch (TKTApiException $e) {
@@ -103,5 +105,21 @@ class CheckoutShortcode extends TKTShortcode
                 $e->getMessage()
             );
         }
+    }
+
+    /**
+     * Build hide_links for the embedded cart shortcode
+     *
+     * @param array $atts
+     * @return string
+     */
+    protected function build_cart_hidden_links($atts)
+    {
+        $hidden_links = 'finalize,continue';
+        if (filter_var($atts['hide_wallet'] ?? false, FILTER_VALIDATE_BOOLEAN)) {
+            $hidden_links .= ',wallet';
+        }
+
+        return $hidden_links;
     }
 }

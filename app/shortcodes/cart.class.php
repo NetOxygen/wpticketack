@@ -9,7 +9,7 @@ use Ticketack\WP\TKTApp;
  *
  * Usage:
  *
- * [tkt_cart hidden_links="finalize,cancel,continue"]
+ * [tkt_cart hidden_links="finalize,cancel,continue" hide_wallet="true"]
  *
  * Default layout is "screenings"
  */
@@ -34,7 +34,7 @@ class CartShortcode extends TKTShortcode
     public function run($atts, $content)
     {
         $enable_promo_code = TKTApp::get_instance()->get_config('eshop.enable_promo_code');
-        $hidden_links      = array_key_exists('hide_links', (array)$atts) ? $atts['hide_links'] : '';
+        $hidden_links      = $this->build_hidden_links($atts);
         $theme             = array_key_exists('theme', (array)$atts) ? $atts['theme'] : 'light';
         $hide_items        = array_key_exists('hide_items', (array)$atts);
         $hide_summary      = array_key_exists('hide_summary', (array)$atts);
@@ -51,5 +51,25 @@ class CartShortcode extends TKTShortcode
                 'cart_id'           => $cart_id
             ]
         );
+    }
+
+    /**
+     * Build hide_links list from shortcode attributes
+     *
+     * @param array $atts
+     * @return string
+     */
+    protected function build_hidden_links($atts)
+    {
+        $hidden_links = array_key_exists('hide_links', (array)$atts) ? $atts['hide_links'] : '';
+        if (filter_var($atts['hide_wallet'] ?? false, FILTER_VALIDATE_BOOLEAN)) {
+            $parts = array_filter(array_map('trim', explode(',', $hidden_links)));
+            if (!in_array('wallet', $parts, true)) {
+                $parts[] = 'wallet';
+            }
+            $hidden_links = implode(',', $parts);
+        }
+
+        return $hidden_links;
     }
 }

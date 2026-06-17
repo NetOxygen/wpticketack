@@ -438,6 +438,24 @@ msgstr ""
 msgid "Utiliser mon portefeuille"
 msgstr ""
 
+msgid "Choisir un billet"
+msgstr ""
+
+msgid "Vous disposez d'un portefeuille ?"
+msgstr ""
+
+msgid "Vous disposez d'un portefeuille électronique ?"
+msgstr ""
+
+msgid "Connectez-vous avec votre TicketID"
+msgstr ""
+
+msgid "Portefeuille appliqué avec succès"
+msgstr ""
+
+msgid "Impossible d'utiliser votre portefeuille"
+msgstr ""
+
 msgid "Code promo"
 msgstr ""
 
@@ -854,9 +872,6 @@ msgstr ""
 msgid "Le code promo a bien été pris en compte"
 msgstr ""
 
-msgid "sur votre porte monnaie électronique"
-msgstr ""
-
 msgid "Montant trop élevé"
 msgstr ""
 
@@ -947,7 +962,7 @@ msgstr ""
 msgid "Carte bancaire"
 msgstr ""
 
-msgid "Porte-monnaie"
+msgid "Portefeuille"
 msgstr ""
 
 msgid "Activé"

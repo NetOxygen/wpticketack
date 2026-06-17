@@ -450,6 +450,24 @@ msgstr "Enter below the amount you wish to use"
 msgid "Utiliser mon portefeuille"
 msgstr "Use my e-wallet"
 
+msgid "Choisir un billet"
+msgstr "Choose a ticket"
+
+msgid "Vous disposez d'un portefeuille ?"
+msgstr "Do you have a wallet?"
+
+msgid "Vous disposez d'un portefeuille électronique ?"
+msgstr "Do you have an e-wallet?"
+
+msgid "Connectez-vous avec votre TicketID"
+msgstr "Log in with your TicketID"
+
+msgid "Portefeuille appliqué avec succès"
+msgstr "E-wallet applied successfully"
+
+msgid "Impossible d'utiliser votre portefeuille"
+msgstr "Unable to use your e-wallet"
+
 msgid "Code promo"
 msgstr "Coupon"
 
@@ -869,9 +887,6 @@ msgstr "Use a coupon"
 msgid "Le code promo a bien été pris en compte"
 msgstr "The coupon code has been taken into account"
 
-msgid "sur votre porte monnaie électronique"
-msgstr "on your wallet"
-
 msgid "Montant trop élevé"
 msgstr "Amount too high"
 
@@ -962,8 +977,8 @@ msgstr "Cash collector"
 msgid "Carte bancaire"
 msgstr "Credit card"
 
-msgid "Porte-monnaie"
-msgstr "Wallet"
+msgid "Portefeuille"
+msgstr "E-wallet"
 
 msgid "Activé"
 msgstr "Activated"
