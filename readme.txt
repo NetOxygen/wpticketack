@@ -2,7 +2,7 @@
 Tags: ticketack
 Requires at least: 5.9
 Tested up to: 6.9.0
-Stable tag: 2.101.1
+Stable tag: 2.102.0
 Requires PHP: 8.1
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -61,6 +61,20 @@ code](https://github.com/NetOxygen/wpticketack) and submit a Pull Request.
 
 = Changelog =
 * [Changelog link](https://yoda.netoxygen.ch/public/projects/401b5210-986f-46b3-99cb-38546b73e16c/changelog)
+
+= 2.102.0 =
+
+* feat(checkout): Add e-wallet at checkout
+* fix: Await cart render before remove handlers
+* fix(agenda): Enhance audio and subtitles handling in day template
+* fix(carousel): Improve video playback control during carousel interactions
+* i18n: fix German translation
+* modified templates:
+  - app/templates/booking/form_dates.tpl.php
+  - app/templates/cart/cart_table.tpl.php
+  - app/templates/checkout/checkout.tpl.php
+  - app/templates/checkout/checkout_form.tpl.php
+  - app/templates/program/agenda/day.tpl.php
 
 = 2.101.1 =
 
