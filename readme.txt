@@ -2,7 +2,7 @@
 Tags: ticketack
 Requires at least: 5.9
 Tested up to: 6.9.0
-Stable tag: 2.102.1
+Stable tag: 2.102.2
 Requires PHP: 8.1
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -61,6 +61,23 @@ code](https://github.com/NetOxygen/wpticketack) and submit a Pull Request.
 
 = Changelog =
 * [Changelog link](https://yoda.netoxygen.ch/public/projects/401b5210-986f-46b3-99cb-38546b73e16c/changelog)
+
+= 2.102.2 =
+
+* fix(wp): Harden program list templates
+* fix: Use effective cart reservation duratio
+* fix: Uniformize continue links and i18n strings
+* fix: Harden cart and ticket template rendering
+* modified templates:
+  - app/templates/program/agenda/day.tpl.php
+  - app/templates/booking/form_success.tpl.php
+  - app/templates/booking/screenings_list_success.tpl.php
+  - app/templates/buy_article/form_success.tpl.php
+  - app/templates/cart/cart.tpl.php
+  - app/templates/cart/cart_table.tpl.php
+  - app/templates/program/list/event.tpl.php
+  - app/templates/program/list/screening.tpl.php
+  - app/templates/ticket/ticket.tpl.php
 
 = 2.102.1 =
 
