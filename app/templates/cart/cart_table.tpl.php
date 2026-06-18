@@ -20,6 +20,7 @@ use Ticketack\WP\TKTApp;
  *
  *  Js Input: {
  *    "cart"              : Cart instance,
+ *    "ticket"            : Ticket (deprecated alias of selected_wallet_ticket),
  *    "wallet_tickets"    : [Ticket],
  *    "selected_wallet_ticket": Ticket,
  *    "max_wallet_amount" : Number,

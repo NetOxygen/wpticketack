@@ -6,7 +6,7 @@ if (!defined('ABSPATH')) exit;
  * Ticket view
  * This template will be parsed by underscore.js
  *
- * @templateVersion 2.82.0
+ * @templateVersion 2.102.2
  *
  * JS Input: {
  *   "ticket": Ticket instance, if the ticket is connected,
@@ -46,8 +46,9 @@ $theme = isset($data->theme) ? $data->theme : 'dark';
     <% if (ticket) { %>
 
     <%
-        const pastBookings = ticket.bookings?.filter(b => b.screening?.isFinished());
-        const futureBookings = ticket.bookings?.filter(b => !b.screening?.isFinished());
+        const bookings = ticket.bookings || [];
+        const pastBookings = bookings.filter(b => b.screening?.isFinished());
+        const futureBookings = bookings.filter(b => !b.screening?.isFinished());
     %>
     <div class="tkt-ticket-view">
         <p class="alert alert-info small"><span class="glyphicon glyphicon-info-sign"></span><?php echo esc_html(tkt_t("Nous n'émettons pas de billet individuel pour les réservations, votre ticket actuel vous sert de titre d'entrée aux séances réservées.")) ?></span></p>
@@ -70,7 +71,7 @@ $theme = isset($data->theme) ? $data->theme : 'dark';
                     <?php echo esc_html(tkt_t("Il n'y a actuellement aucune réservation sur ce billet.")) ?>
                 </div>
             <% } else { %>
-                <% if (futureBookings) { %>
+                <% if (futureBookings.length) { %>
                     <h3><?php echo esc_html(tkt_t('Réservations')) ?></h3>
                     <table class="table table-striped table-hover no-more-tables">
                         <thead>
@@ -270,12 +271,16 @@ $theme = isset($data->theme) ? $data->theme : 'dark';
                         <h3 class="panel-title"><?php echo esc_html(tkt_t('Validité')) ?></h3>
                         <div class="panel-body">
                             <div class="well text-center">
+                                <% if (ticket.activated_at) { %>
                                 <h5>
                                 <?php echo sprintf(tkt_t('Activé le %s'), '<%= ticket.activated_at.format("LL") %>') ?>
                                 </h5>
-                                <p><?php echo esc_html(tkt_t('Tarif :')) ?> <%= ticket.activated_pricing.name.<?php echo esc_html(TKT_LANG) ?> %>
+                                <% if (ticket.getActivatedPricingName()) { %>
+                                <p><?php echo esc_html(tkt_t('Tarif :')) ?> <%= ticket.getActivatedPricingName() %>
                                     (<%= ticket.getFormattedPriceAndCurrency() %>)
                                 </p>
+                                <% } %>
+                                <% } %>
                             </div>
                             <% if (ticket.getExpirationDate()) { %>
                                 <% if (ticket.hasExpired()) { %>

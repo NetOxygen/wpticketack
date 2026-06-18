@@ -254,6 +254,7 @@ export default class Cart extends Component {
 
         this.$container.html(Template.render('tkt-cart-table-tpl', {
             cart: this.cart,
+            ticket: selected,
             wallet_tickets: this.wallet_tickets,
             selected_wallet_ticket: selected,
             max_wallet_amount,

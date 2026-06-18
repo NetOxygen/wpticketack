@@ -7,7 +7,7 @@ use Ticketack\WP\Templates\TKTTemplate;
 /**
  * Cart template
  *
- * @templateVersion 2.86.0
+ * @templateVersion 2.102.0
  *
  * Input: {
  *   "theme"             : 'dark|light',

@@ -130,13 +130,14 @@ export default class Ticket extends TKTLib.Ticket {
     };
 
     placesAvailable() {
+        const bookings = this.bookings || [];
         var sumNbookings = _.reduce(this.windows, function(sum, w) {
             return sum + w.nbookings;
           }, 0);
 
-        if (sumNbookings - this.bookings.length <= 1)
+        if (sumNbookings - bookings.length <= 1)
             return [
-                sumNbookings - this.bookings.length,
+                sumNbookings - bookings.length,
                 i18n.t('réservation'),
                 i18n.t('sur'),
                 sumNbookings,
@@ -146,7 +147,7 @@ export default class Ticket extends TKTLib.Ticket {
         // Does not display number of reservations if greater than 100
         return sumNbookings < 100 ?
             [
-                sumNbookings - this.bookings.length,
+                sumNbookings - bookings.length,
                 i18n.t('réservations'),
                 i18n.t('sur'),
                 sumNbookings,
