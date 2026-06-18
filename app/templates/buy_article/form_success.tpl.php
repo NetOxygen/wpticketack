@@ -8,7 +8,7 @@ use Ticketack\WP\TKTApp;
  * Buy Article form: success message partial
  * This template will be parsed by underscore.js
  *
- * @templateVersion 2.82.0
+ * @templateVersion 2.102.2
  *
  * Input: {
  *   "cart_url": String,
@@ -27,7 +27,7 @@ use Ticketack\WP\TKTApp;
                     <?php echo esc_html(tkt_t('Accéder au panier')) ?>
                 </a>
                 <div class="continue-shopping" >
-                    <a href="<%= shop_url %>"><?php echo esc_html(tkt_t('Continuer')) ?></a> <?php echo esc_html(tkt_t('ma visite')) ?>
+                    <a href="<%= shop_url %>"><?php echo esc_html(tkt_t('Continuer ma visite')) ?></a>
                 </div>
             </div>
         </div>

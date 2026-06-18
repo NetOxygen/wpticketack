@@ -305,7 +305,7 @@ $theme = isset($data->theme) ? $data->theme : 'dark';
         <div class="row mt-3">
             <div class="col">
                 <button class="btn button forget-ticket-btn w-100">
-                    <i class="tkt-icon-log-out"></i> <?php echo esc_html(tkt_t('Oublier ce ticket')) ?>
+                    <i class="tkt-icon-log-out"></i> <?php echo esc_html(tkt_t('Retirer ce billet de mon navigateur')) ?>
                 </button>
             </div>
         </div>

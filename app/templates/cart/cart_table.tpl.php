@@ -8,7 +8,7 @@ use Ticketack\WP\TKTApp;
  * Cart table template
  * This template will be parsed by underscore.js
  *
- * @templateVersion 2.102.0
+ * @templateVersion 2.102.2
  *
  * PHP Input: {
  *   "theme"             : 'dark|light',
@@ -352,7 +352,7 @@ const nbArticles = pass.length + tickets.length + articles.length;
                     <div class="row">
                         <div class="col continue-shopping-wrapper">
                             <div class="continue-shopping" >
-                                <a href="<%= program_url %>"><?php echo esc_html(tkt_t('Continuer mes réservations')) ?></a>
+                                <a href="<%= program_url %>"><?php echo esc_html(tkt_t('Continuer ma visite')) ?></a>
                             </div>
                         </div>
                     </div>

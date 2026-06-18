@@ -122,10 +122,7 @@ msgstr ""
 msgid "Merci, votre commande est réservée dans votre panier pour 30 minutes."
 msgstr ""
 
-msgid "Continuer"
-msgstr ""
-
-msgid "ma visite"
+msgid "Continuer ma visite"
 msgstr ""
 
 msgid ""
@@ -390,7 +387,7 @@ msgstr ""
 msgid "Valable jusqu'au %s"
 msgstr ""
 
-msgid "Oublier ce ticket"
+msgid "Retirer ce billet de mon navigateur"
 msgstr ""
 
 msgid "Votre panier est vide"
@@ -466,9 +463,6 @@ msgid "Finaliser ma commande"
 msgstr ""
 
 msgid "Annuler ma commande"
-msgstr ""
-
-msgid "Continuer mes réservations"
 msgstr ""
 
 msgid "Résumé du panier"

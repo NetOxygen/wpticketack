@@ -126,11 +126,8 @@ msgstr ""
 "Vielen Dank, Ihre Bestellung ist für 30 Minuten in Ihrem Warenkorb "
 "reserviert."
 
-msgid "Continuer"
-msgstr "Weiter"
-
-msgid "ma visite"
-msgstr "mein Besuch"
+msgid "Continuer ma visite"
+msgstr "Meinen Besuch fortsetzen"
 
 msgid ""
 "Saisissez le nombre d'éléments que vous souhaitez ajouter à votre panier :"
@@ -409,8 +406,8 @@ msgstr "Tarif:"
 msgid "Valable jusqu'au %s"
 msgstr "Gültig bis %s"
 
-msgid "Oublier ce ticket"
-msgstr "Dieses Ticket vergessen"
+msgid "Retirer ce billet de mon navigateur"
+msgstr "Dieses Ticket aus meinem Browser entfernen"
 
 msgid "Votre panier est vide"
 msgstr "Ihr Warenkorb ist leer"
@@ -486,9 +483,6 @@ msgstr "Bestellung abschließen"
 
 msgid "Annuler ma commande"
 msgstr "Bestellung löschen"
-
-msgid "Continuer mes réservations"
-msgstr "Meine Reservationen fortsetzen"
 
 msgid "Résumé du panier"
 msgstr "Zusammenfassung des Warenkorbs"

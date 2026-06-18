@@ -124,11 +124,8 @@ msgstr "Watch"
 msgid "Merci, votre commande est réservée dans votre panier pour 30 minutes."
 msgstr "Thank you, your order is reserved in your cart for 30 minutes."
 
-msgid "Continuer"
-msgstr "Continue"
-
-msgid "ma visite"
-msgstr "my visit"
+msgid "Continuer ma visite"
+msgstr "Continue my visit"
 
 msgid ""
 "Saisissez le nombre d'éléments que vous souhaitez ajouter à votre panier :"
@@ -402,8 +399,8 @@ msgstr "Pricing:"
 msgid "Valable jusqu'au %s"
 msgstr "Valid until %s"
 
-msgid "Oublier ce ticket"
-msgstr "Forget this ticket"
+msgid "Retirer ce billet de mon navigateur"
+msgstr "Remove this ticket from my browser"
 
 msgid "Votre panier est vide"
 msgstr "Your cart is empty"
@@ -479,9 +476,6 @@ msgstr "Finish my order"
 
 msgid "Annuler ma commande"
 msgstr "Cancel my order"
-
-msgid "Continuer mes réservations"
-msgstr "Continue my bookings"
 
 msgid "Résumé du panier"
 msgstr "Cart summary"
