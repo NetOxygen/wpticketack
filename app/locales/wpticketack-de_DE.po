@@ -121,9 +121,10 @@ msgstr "Ihre TicketID befindet sich auf Ihrem Abonnement"
 msgid "Regarder"
 msgstr "Siehe"
 
-msgid "Merci, votre commande est réservée dans votre panier pour 30 minutes."
+#, php-format
+msgid "Merci, votre commande est réservée dans votre panier pour %d minutes."
 msgstr ""
-"Vielen Dank, Ihre Bestellung ist für 30 Minuten in Ihrem Warenkorb "
+"Vielen Dank, Ihre Bestellung ist für %d Minuten in Ihrem Warenkorb "
 "reserviert."
 
 msgid "Continuer ma visite"

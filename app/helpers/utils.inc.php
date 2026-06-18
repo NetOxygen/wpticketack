@@ -864,6 +864,38 @@ function tkt_default_lang()
 }
 
 /**
+ * Get the configured cart/booking reservation duration, in minutes.
+ *
+ * The engine exposes this as an ISO 8601 duration string (e.g. "PT30M")
+ * through the "eshop.booking_expiration_duration" setting.
+ *
+ * @param int $default: Fallback value in minutes if the setting is missing or invalid
+ *
+ * @return int
+ */
+function tkt_booking_expiration_minutes($default = 30)
+{
+    $duration = TKTApp::get_instance()->get_config('eshop.booking_expiration_duration');
+    if (empty($duration) || !is_string($duration)) {
+        return $default;
+    }
+
+    try {
+        $interval = new \DateInterval($duration);
+    } catch (\Exception $e) {
+        return $default;
+    }
+
+    $minutes = ($interval->y * 525600)
+        + ($interval->m * 43200)
+        + ($interval->d * 1440)
+        + ($interval->h * 60)
+        + $interval->i;
+
+    return $minutes > 0 ? $minutes : $default;
+}
+
+/**
  * Get the configured default lang
  *
  * @return string

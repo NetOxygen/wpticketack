@@ -121,8 +121,9 @@ msgstr "Your TicketID is on your pass"
 msgid "Regarder"
 msgstr "Watch"
 
-msgid "Merci, votre commande est réservée dans votre panier pour 30 minutes."
-msgstr "Thank you, your order is reserved in your cart for 30 minutes."
+#, php-format
+msgid "Merci, votre commande est réservée dans votre panier pour %d minutes."
+msgstr "Thank you, your order is reserved in your cart for %d minutes."
 
 msgid "Continuer ma visite"
 msgstr "Continue my visit"

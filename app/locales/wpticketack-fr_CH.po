@@ -119,7 +119,8 @@ msgstr ""
 msgid "Regarder"
 msgstr ""
 
-msgid "Merci, votre commande est réservée dans votre panier pour 30 minutes."
+#, php-format
+msgid "Merci, votre commande est réservée dans votre panier pour %d minutes."
 msgstr ""
 
 msgid "Continuer ma visite"
