@@ -7,7 +7,10 @@ use Ticketack\WP\TKTApp;
 /**
  * Program event template
  *
- * @templateVersion 2.82.0
+ * @templateVersion 2.102.2
+ *
+ * Theme overrides may use `tkt_opaque_*` helpers from `app/helpers/utils.inc.php`
+ * for dual support of legacy ISO strings vs expanded `{ iso2, fr/en/de… }` objects.
  *
  * Input:
  * $data: {

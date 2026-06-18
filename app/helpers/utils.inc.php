@@ -622,6 +622,189 @@ function tkt_get_countries()
 }
 
 /**
+ * Pick a localized string from an opaque payload (array or object keyed by locale, e.g. description).
+ *
+ * @param mixed  $payload
+ * @param string $preferred_lang E.g. TKT_LANG
+ * @return string
+ */
+function tkt_opaque_pick_localized_string($payload, $preferred_lang = null)
+{
+    if ($payload === null) {
+        return '';
+    }
+    $payload = is_array($payload) ? $payload : (array) $payload;
+    $preferred_lang = $preferred_lang ?: (defined('TKT_LANG') ? TKT_LANG : 'fr');
+    if (isset($payload[$preferred_lang]) && $payload[$preferred_lang] !== '' && $payload[$preferred_lang] !== null) {
+        return (string) $payload[$preferred_lang];
+    }
+    foreach ($payload as $v) {
+        if ($v !== null && $v !== '') {
+            return (string) $v;
+        }
+    }
+    return '';
+}
+
+/**
+ * Normalize a language entry (legacy ISO string or expanded object with iso2 + labels) to uppercase ISO639-1 code.
+ *
+ * @param mixed $entry
+ * @return string Uppercased code or empty string
+ */
+function tkt_opaque_language_iso2_upper($entry)
+{
+    if ($entry === null || $entry === '') {
+        return '';
+    }
+    if (is_string($entry)) {
+        return strtoupper($entry);
+    }
+    if (is_array($entry) && isset($entry['iso2'])) {
+        return strtoupper((string) $entry['iso2']);
+    }
+    if (is_object($entry) && isset($entry->iso2)) {
+        return strtoupper((string) $entry->iso2);
+    }
+    return '';
+}
+
+/**
+ * Whether the normalized language code is a pseudo-code (NO_LANG, …) rather than ISO639-1 (2 letters).
+ * Used when deciding « VO » vs showing the localized label (e.g. « Pas de dialogue »).
+ *
+ * @param string $iso2_upper Output of {@see tkt_opaque_language_iso2_upper()} for one entry.
+ */
+function tkt_opaque_language_iso_is_extended($iso2_upper)
+{
+    return $iso2_upper !== '' && strlen($iso2_upper) > 2;
+}
+
+/**
+ * Compact label for agenda-style audio/ST lines: ISO639-1 codes stay uppercase;
+ * longer pseudo-codes (e.g. no_lang / NO_LANG) use the localized label when present.
+ *
+ * Mirrors logic introduced in program/agenda/day.tpl.php (Fix B7555).
+ *
+ * @param mixed $entry Legacy ISO string or expanded `{ iso2, fr, en, … }`.
+ * @param string|null $preferred_lang Defaults to TKT_LANG.
+ * @return string Token without forcing uppercase on localized phrases (caller may uppercase whole CSV).
+ */
+function tkt_opaque_language_compact_token($entry, $preferred_lang = null)
+{
+    if ($entry === null || $entry === '') {
+        return '';
+    }
+    $preferred_lang = $preferred_lang ?: (defined('TKT_LANG') ? TKT_LANG : 'fr');
+    if (is_string($entry)) {
+        return strtoupper($entry);
+    }
+    $iso2 = '';
+    $localized = '';
+    if (is_array($entry)) {
+        $iso2 = isset($entry['iso2']) ? (string) $entry['iso2'] : '';
+        $localized = isset($entry[$preferred_lang]) ? (string) $entry[$preferred_lang] : '';
+    } elseif (is_object($entry)) {
+        $iso2 = isset($entry->iso2) ? (string) $entry->iso2 : '';
+        $localized = isset($entry->$preferred_lang) ? (string) $entry->$preferred_lang : '';
+    }
+    if ($iso2 !== '' && strlen($iso2) > 2) {
+        return ($localized !== '') ? $localized : strtoupper($iso2);
+    }
+    return strtoupper($iso2);
+}
+
+/**
+ * Return first language entry: supports legacy string, array of entries, or single object.
+ *
+ * @param mixed $mixed
+ * @return mixed|null
+ */
+function tkt_opaque_language_first($mixed)
+{
+    if ($mixed === null || $mixed === '') {
+        return null;
+    }
+    if (is_string($mixed)) {
+        return $mixed;
+    }
+    if (is_array($mixed)) {
+        if (array_key_exists('iso2', $mixed)) {
+            return $mixed;
+        }
+        return isset($mixed[0]) ? $mixed[0] : null;
+    }
+    if (is_object($mixed)) {
+        return $mixed;
+    }
+    return null;
+}
+
+/**
+ * Normalize subtitles payload to a flat list (legacy string -> single-item list).
+ *
+ * @param mixed $subs
+ * @return array
+ */
+function tkt_opaque_normalize_subtitles_list($subs)
+{
+    if ($subs === null || $subs === '') {
+        return [];
+    }
+    if (!is_array($subs)) {
+        return [$subs];
+    }
+    return $subs;
+}
+
+/**
+ * Display label for a country entry (legacy ISO string or expanded object with iso2 + localized labels).
+ *
+ * @param mixed  $country
+ * @param string|null $preferred_lang
+ * @return string
+ */
+function tkt_opaque_country_display($country, $preferred_lang = null)
+{
+    if ($country === null || $country === '') {
+        return '';
+    }
+    if (is_string($country)) {
+        return $country;
+    }
+    $preferred_lang = $preferred_lang ?: (defined('TKT_LANG') ? TKT_LANG : 'fr');
+    if (is_array($country)) {
+        if (isset($country[$preferred_lang]) && $country[$preferred_lang] !== '') {
+            return (string) $country[$preferred_lang];
+        }
+        if (isset($country['iso2'])) {
+            return (string) $country['iso2'];
+        }
+        foreach ($country as $v) {
+            if ($v !== null && $v !== '') {
+                return (string) $v;
+            }
+        }
+        return '';
+    }
+    if (is_object($country)) {
+        if (isset($country->$preferred_lang) && $country->$preferred_lang !== '') {
+            return (string) $country->$preferred_lang;
+        }
+        if (isset($country->iso2)) {
+            return (string) $country->iso2;
+        }
+        foreach (get_object_vars($country) as $v) {
+            if ($v !== null && $v !== '') {
+                return (string) $v;
+            }
+        }
+        return '';
+    }
+    return '';
+}
+
+/**
  * @param $str
  *   the string to match.
  *

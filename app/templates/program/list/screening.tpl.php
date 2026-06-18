@@ -7,7 +7,7 @@ use Ticketack\WP\TKTApp;
 /**
  * Program screening template
  *
- * @templateVersion 2.82.0
+ * @templateVersion 2.102.2
  *
  * Input:
  * $data: {
@@ -17,7 +17,9 @@ use Ticketack\WP\TKTApp;
 
 $s = $data->screening;
 $m = $s->movies()[0];
-$description = $m->opaque("description")[TKT_LANG];
+$__desc = $m->opaque("description");
+$__desc = is_array($__desc) ? $__desc : (array) $__desc;
+$description = tkt_opaque_pick_localized_string($__desc, TKT_LANG);
 
 $images_width  = TKTApp::get_instance()->get_config('images_dimensions.big_width');
 $images_height = TKTApp::get_instance()->get_config('images_dimensions.big_height');
